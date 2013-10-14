@@ -7,8 +7,8 @@
         <field id="tpd5" name="Ende" width="21" order="2"/>
     </view>
     <view id="resource-table">
-        <field id="0" name="Ressource" width="57" order="0"/>
-        <field id="1" name="Rolle" width="42" order="1"/>
+        <field id="0" name="Ressource" width="50" order="0"/>
+        <field id="1" name="Rolle" width="50" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -36,8 +36,9 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
+        <task id="15" name="Projektbeginn" color="#8cb6ce" meeting="true" start="2013-10-14" duration="0" complete="0" expand="true"/>
         <task id="0" name="Initialer Projektplan" color="#8cb6ce" meeting="false" start="2013-10-14" duration="7" complete="0" expand="true"/>
-        <task id="15" name="Vorgang_15" color="#8cb6ce" meeting="false" start="2013-10-14" duration="1" complete="0" expand="true"/>
+        <task id="18" name="Abgabe initialer Projektplan" color="#8cb6ce" meeting="true" start="2013-10-20" duration="0" complete="0" expand="true"/>
         <task id="2" name="Anforderungsspezifikation" color="#8cb6ce" meeting="false" start="2013-10-19" duration="20" complete="0" expand="true"/>
         <task id="4" name="GUI-Prototyp" color="#8cb6ce" meeting="false" start="2013-11-04" duration="10" complete="0" expand="true"/>
         <task id="5" name="Angebot" color="#8cb6ce" meeting="false" start="2013-10-24" duration="25" complete="0" expand="true"/>
