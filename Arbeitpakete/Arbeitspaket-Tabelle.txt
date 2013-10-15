@@ -1,0 +1,406 @@
+﻿\documentclass[fontsize=12pt,paper=a4,twoside]{scrartcl}
+
+\newcommand{\grad}{\ensuremath{^{\circ}} }
+\renewcommand{\strut}{\vrule width 0pt height5mm depth2mm}
+
+\usepackage[utf8]{inputenc}
+\usepackage{longtable}
+\usepackage[final]{pdfpages}
+\usepackage{multicol}
+% obere Seitenränder gestalten können
+\usepackage{fancyhdr}
+\usepackage{moreverb}
+% Graphiken als jpg, png etc. einbinden können
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+% Floats Objekte mit [H] festsetzen
+\usepackage{float}
+% setzt URL's schön mit \url{http://bla.laber.com/~mypage}
+\usepackage{url}
+% Externe PDF's einbinden können
+\usepackage{pdflscape}
+% Verweise innerhalb des Dokuments schick mit " ... auf Seite ... "
+% automatisch versehen. Dazu \vref{labelname} benutzen
+%\usepackage[ngerman]{varioref}
+%\usepackage[ngerman]{babel}
+%\usepackage{ngerman}
+% Bibliographie
+%\usepackage{bibgerm}
+% Tabellen
+\usepackage{tabularx}
+%\usepackage{supertabular}
+%\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue,
+%            citecolor=blue, urlcolor=blue, hyperfigures=true,
+%            pdftex=true]{hyperref}
+%\usepackage{bookmark}
+
+% Damit Latex nicht zu lange Zeilen produziert:
+\sloppy
+%Uneinheitlicher unterer Seitenrand:
+%\raggedbottom
+
+% Kein Erstzeileneinzug beim Absatzanfang
+% Sieht aber nur gut aus, wenn man zwischen Absätzen viel Platz einbaut
+\setlength{\parindent}{0ex}
+
+% Abstand zwischen zwei Absätzen
+\setlength{\parskip}{1ex}
+
+% Seitenränder für Korrekturen verändern
+\addtolength{\evensidemargin}{-1cm}
+\addtolength{\oddsidemargin}{1cm}
+
+\bibliographystyle{gerapali}
+
+% Lustige Header auf den Seiten
+  \pagestyle{fancy}
+  \setlength{\headheight}{70.55003pt}
+  \fancyhead{}
+  \fancyhead[LO,RE]{Software--Projekt 2\\ WiSe 2013/2014
+  \\Projektplan}
+  \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\\slshape \rightmark}
+
+%
+% Und jetzt geht das Dokument los....
+%
+
+\begin{document}
+
+% Lustige Header nur auf dieser Seite
+  \thispagestyle{fancy}
+  \fancyhead[LO,RE]{ }
+  \fancyhead[LE,RO]{Universität Bremen\\FB 3 -- Informatik\\
+  Prof. Dr. Rainer Koschke \\TutorIn: Euer/Eure TutorIn}
+  \fancyfoot[C]{}
+
+% Start Titelseite
+  \vspace{3cm}
+
+  \begin{minipage}[H]{\textwidth}
+  \begin{center}
+  \bf
+  \Large
+  Software--Projekt 2 2013/2014\\
+  \smallskip
+  \small
+  VAK 03-BA-901.02\\
+  \vspace{3cm}
+  \end{center}
+  \end{minipage}
+  \begin{minipage}[H]{\textwidth}
+  \begin{center}
+  \vspace{1cm}
+  \bf
+  \Large Projektplan\\
+  \vfill
+  \end{center}
+  \end{minipage}
+  \vfill
+  \begin{minipage}[H]{\textwidth}
+  \begin{center}
+  \sf
+  \begin{tabular}{lrr}
+  Sebastian Bredehöft & sbrede@tzi.de & 2751589\\
+  Patrick Damrow & damsen@tzi.de & 2056170\\
+  Tobias Dellert & to\_de@uni-bremen.de & 2936941\\
+  Tim Ellhoff & tellhoff@tzi.de & 2520913\\
+  Daniel Pupat & dpupat@tzi.de & 2703053\\
+  Mohamadreza (Amir) Khostevan & amirkh@tzi.de & 1234567\\
+  \end{tabular}
+  \\ ~
+  \vspace{2cm}
+  \\
+  \it Abgabe: 20. Oktober. 2013 --- Version 1.0\\ ~
+  \end{center}
+  \end{minipage}
+
+% Ende Titelseite
+
+% Start Leerseite
+
+\newpage
+
+  \thispagestyle{fancy}
+  \fancyhead{}
+  \fancyhead[LO,RE]{Software--Projekt \\  2013/2014
+  \\Projektplan}
+  \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\~}
+  \fancyfoot{}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \tableofcontents
+
+\newpage
+
+  \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\\slshape \rightmark}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Version und Änderungsgeschichte}
+
+{\em Die aktuelle Versionsnummer des Dokumentes sollte eindeutig und gut zu
+identifizieren sein, hier und optimalerweise auf dem Titelblatt.}
+
+\begin{tabular}{ccl}
+Version & Datum & Änderungen \\
+\hline
+1.0 & 20.10.2013 & Erste veröffentlichte Version. \\
+\end{tabular}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Einleitung}
+
+\subsection{Projektübersicht}
+
+
+\subsubsection{Ziele}
+Das Ziel unserer Gruppe IT\_R3V0LUT10N ist es, das Softwareprojekt 2 der Universität Bremen zu bestehen. Dies setzt die Einhaltung der Fristen und Termine, eine aureichende Fertigstellung des Projekts und die Abgabe aller in SWP2 geforderten Dokumente wie Projektplan, Anforderungsspezifikation und Angebot, Architekturbeschreibung, Schnittstellenbeschreibung, Testplan inklusive Blackbox-Tests und ein elektronisch geführtes Berichtsheft voraus. Darüber hinaus wollen wir einen GUI-Prototypen erstellen und den Akzeptanztest bestehen. Ein Bibliothekssystem zu erstellen steht aber im Vordergrund.
+
+Das Bibliothekssystem beinhaltet sowohl eine Website, als auch einen Zugang für mobile Geräte mit kleinem Display. Ziel ist es, die Mindestanforderungen\footnote{\url{http://www.informatik.uni-bremen.de/st/Lehre/swpII_1314/mindestanforderungen.html}} und eventuell weitergehende Funktionen zu implementieren.
+
+Zu den Mindestanforderungen gehören die Erstellung und Abgabe einer Bibliothekssoftware, eines Serverprogramms mit Datenbankanbindung,einen Administrationszugang und einen Zugang für mobile Geräte mit kleinem Display. Wir haben uns entschieden den Zugang in für die mobilen Geräte in Form einer Android-App zu realisieren. Die zu erstellende Bibliothekssoftware dient in erster Linie zur Verwaltung des Medienbestandes der Oberschule Rockwinkel. Der Administrationszugang wird benötigt um Backup
+
+
+\subsubsection{Hauptarbeitsaktivitäten und --produkte}
+
+\subsubsection{Haupt--Meilensteine und grober Zeitplan}
+
+{\em Meilensteine, jeweils mit konkretem Datum,
+ Kriterien für die Erfüllung der Meilensteine.}
+
+
+\subsubsection{Benötigte Ressourcen}
+ENTFÄLLT
+\begin{itemize}
+\item \textbf{Menschliche Ressourcen}
+
+\item \textbf{Hardware}
+
+\item \textbf{Räume}
+
+\dots
+
+\end{itemize}
+
+\subsubsection{Budget}
+ENTFÄLLT
+{\em Beinhaltet auch konkrete Angaben zu Entwicklerstunden und Kosten in Euro.}
+
+
+\subsubsection{Kontaktdaten des Kunden}
+ENTFÄLLT
+\subsubsection{Mitarbeiter}
+{\em Hier finden sich alle Mitarbeitenden der Gruppe mit Kontaktdaten und Foto.}
+
+\subsection{Auszuliefernde Produkte}
+
+
+\subsection{Evolution des Plans}
+ENTFÄLLT
+{\em Wird der Plan verändert? Wann? Wie oft? Von wem? Wenn bereits Aktualisierungen vorgesehen sind, welche sind das? Möglicherweise betrifft das die Zeitplanung, die Risikobewertung, oder andere Teile des Plans. Gibt es möglicherweise auch unvorhergesehene Aktualisierungen?}
+
+\subsection{Referenzen}
+% mit \nocite kann man Literatur auflisten, die im Text nicht explizit
+% erwähnt ist. \nocite{*} zitiert dann das ganze .bib-File
+%
+% Die Bibliographie erzeugt man indem man erst
+%
+% pdflatex bericht.tex
+% bibtex bericht
+% pdflatex bericht.tex
+% pdflatex bericht.tex
+%
+% benutzt
+%\nocite{Knudsen1}
+%\nocite{*}
+%\bibliography{literatur}
+
+% Das renewcommand verhindert dass für die Literatur eine section* angelegt wird.
+% auftaucht
+{\renewcommand\section[2]{}
+\bibliography{referenzen}
+}
+
+\subsection{Definitionen und Akronyme}
+ENTFÄLLT
+{\em Hier sollen Begriffe definiert werden, die nötig sind, um den
+  Projektplan zu verstehen. Diese kommen insbesondere aus der Welt des
+  Kunden (Projektdomäne) und der Welt des Softwareproduzenten.}
+
+\section{Projektorganisation}
+ENTFÄLLT
+\subsection{Prozessmodell}
+ENTFÄLLT
+\subsection{Organisationsstruktur}
+ENTFÄLLT
+{\em Genaue Beschreibung der Rollen, Rechte und Pflichten!}
+
+{\em z.B. auch regelmäßiges Treffen im Chat, Einrichtung einer
+  Groupware oder eines Forums, o.ä. \dots}
+
+\subsection{Organisationsgrenzen und --schnittstellen}
+ENTFÄLLT
+{\em Hierher gehören auch evtl. Kontaktpersonen für Fremdbibliotheken u.ä.}
+
+\subsection{Verantwortlichkeiten}
+ENTFÄLLT
+\section{Managementprozess}
+
+\subsection{Managementprozess und --prioritäten}
+
+\subsection{Annahmen, Abhängigkeiten und Einschränkungen}
+
+\subsection{Risikomanagement}\label{riskmanagement}
+
+{\em Wenn Ihr Euch entschieden habt, bestimmte vorbeugende Maßnahmen 
+     durchzuführen, solltet Ihr dies deutlich kennzeichnen. Hoffentlich
+     haben diese Maßnahmen dann einen Einfluss auf Eintrittswahrscheinlichkeit oder Schadenshöhe (zum Beispiel
+     ist die Eintrittswahrscheinlichkeit von komplettem Datenverlust durch regelmäßige Backups deutlich 
+     geringer). Daher solltet Ihr für diese Fälle dann die verringerten Werte für Eintrittswahrscheinlichkeit, 
+     Schadenshöhe und Risikopotential zusätzlich angeben. }
+
+{\em Wie werden neue Risiken erkannt/erfasst? Wer ist für was
+  zuständig? Wie ist der Informationsfluss? \ldots 
+
+Dieser Teil ist ein
+  wichtiger Schwerpunkt des Projektplans und sollte daher ausführlich
+  behandelt werden.}
+
+\subsection{Projektüberwachung}\label{3.4-controlling}
+{\em Wie wird der Projektstatus verfolgt? Wie stellt Ihr sicher, dass
+  der Phasenleiter jederzeit über den Stand der Entwicklung informiert
+  ist? Wie werden Probleme bzw. Verzögerungen frühzeitig erkannt und
+  angegangen?}
+
+\subsection{Mitarbeiter}
+{\em Kompetenzen der und Anforderungen an die Mitarbeiter.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Technische Prozesse}
+ENTFÄLLT
+\subsection{Methoden, Werkzeuge und Techniken}
+ENTFÄLLT
+\subsubsection{Entwicklungsplattform}
+ENTFÄLLT
+\subsubsection{Entwicklungsmethode}
+ENTFÄLLT
+{\em Ist der Einsatz spezieller Methoden vorgesehen?}
+
+\subsubsection{Programmiersprache und Bibliotheken}
+ENTFÄLLT
+\subsection{Dokumentationsplan}
+ENTFÄLLT
+\subsubsection{Codingstyle}
+ENTFÄLLT
+\subsubsection{Kommentarsprache}
+ENTFÄLLT
+\subsubsection{JavaDoc}
+ENTFÄLLT
+\subsubsection{Begleitende Dokumentation}
+ENTFÄLLT
+\subsection{Unterstützende Projektfunktionen}
+ENTFÄLLT
+{\em Wie wird Euer Konfigurationsmanagement funktionieren? Wer ist verantwortlich? Benötigt Ihr dazu Ressourcen oder Zeit? Hier könnte z.B.\ der Pfad zum Repository angegeben werden. Plant Ihr Datensicherung?}
+
+{\em Gibt es Maßnahmen zur Qualitätssicherung? Wer ist zuständig?
+  Wieviel Zeit ist dafür vorgesehen?}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Arbeitspakete, Zeitplan und Budget}
+
+
+\subsection*{5.0.1 Anmerkungen und Annahmen}\label{aps}
+
+Wir haben bisher nur die Phasen Projektplan und Anforderungsspezifikation vollständig in den Arbeitspaketen und Zuteilungen behandelt. Die übrigen Phasen des Projekts - Architekturbeschreibung, Implementierung und Test - können zu diesem Zeitpunkt noch nicht detailliert beschrieben werden, sondern erfolgen stattdessen in grobem Format. \\
+
+Arbeitspunkte zusammen
+
+
+
+
+\subsection{Arbeitspakete}\label{aps}
+
+Im Folgenden sind die einzelnen Arbeitspakete des Abschnitts Projektplan aufgeführt.
+
+\textbf{1.Arbeitspakete für Projektplan} \\
+\textit{\textbf{Arbeitspaket 1.1}} \\
+\begin{tabular}{|p{7.5cm}|p{7.5cm}|}
+\hline
+\textbf{Bezeichnung} & Vorbereitung für Projektplanerstellung\\\hline
+\multicolumn{2}{|p{15cm}|}{\textbf{Beschreibung: }}  \\\hline
+\textbf{Hauptverantwortlicher} & Prüfsumme\\\hline
+\textbf{Abhängigkeit} & ....\\\hline
+\textbf{Ressourcen} & ....\\\hline
+\textbf{Aufwand und Gesamtdauer} & 10h, 120h\\\hline
+\textbf{Beginn} &.... \\\hline
+\textbf{Ende} & ....\\\hline
+\multicolumn{2}{|p{15cm}|}{\textbf{Mindestanforderungen: }}  \\\hline
+\end{tabular} \\\\
+
+\textit{\textbf{Arbeitspaket 1.2}} \\
+\begin{tabular}{|p{7.5cm}|p{7.5cm}|}
+\hline
+\textbf{Bezeichnung} & Vorbereitung für Projektplanerstellung\\\hline
+\multicolumn{2}{|p{15cm}|}{\textbf{Beschreibung: }}  \\\hline
+\textbf{Hauptverantwortlicher} & Prüfsumme\\\hline
+\textbf{Abhängigkeit} & ...\\\hline
+\textbf{Ressourcen} & GitHub,...\\\hline
+\textbf{Aufwand und Gesamtdauer} & 10h, 120h\\\hline
+\textbf{Beginn} & 13.10.2013\\\hline
+\textbf{Ende} & 20.10.2013\\\hline
+\multicolumn{2}{|p{15cm}|}{\textbf{Mindestanforderungen: }}  \\\hline
+\end{tabular} \\\\
+
+
+
+
+
+
+
+
+\subsection{Zeitplan und Abhängigkeiten}
+
+{\em Die Abhängigkeiten zwischen Arbeitspaketen oder Meilensteinen müssen genannt werden, sowie im
+  Gantt-Diagramm eingezeichnet werden. Der kritische Pfad soll
+  angegeben und/oder eingezeichnet werden!}
+
+\subsection{Ressourcenanforderung}
+
+{\em Jedem Arbeitspaket muss mind.\ ein Bearbeiter zugeordnet
+  werden. Die Zuordnung der ganzen Gruppe sollte nur in Ausnahmefällen
+  erfolgen -- und dann vermutlich begründet werden!}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sonstige Elemente}
+ENTFÄLLT
+\subsection{Pläne für die Konvertierung von Daten}
+ENTFÄLLT
+
+\subsection{Managementpläne für Unterauftragsnehmer}
+ENTFÄLLT
+{\em Wenn Fremdbibliotheken benutzt werden\dots}
+
+\subsection{Ausbildungspläne}
+ENTFÄLLT
+{\em Hierunter fallen z.B. auch interne Schulungen, die Ihr
+  durchführen wollt.}
+
+\subsection{Raumpläne}
+ENTFÄLLT
+\dots
+
+\subsection{Installationspläne}
+ENTFÄLLT
+\dots
+
+\subsection{Pläne für die Übergabe des Systems}
+ENTFÄLLT
+\dots
+
+
+
+\end{document}
