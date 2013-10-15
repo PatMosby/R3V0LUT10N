@@ -1,4 +1,4 @@
-﻿\documentclass[fontsize=12pt,paper=a4,twoside]{scrartcl}
+\documentclass[fontsize=12pt,paper=a4,twoside]{scrartcl}
 
 \newcommand{\grad}{\ensuremath{^{\circ}} }
 \renewcommand{\strut}{\vrule width 0pt height5mm depth2mm}
