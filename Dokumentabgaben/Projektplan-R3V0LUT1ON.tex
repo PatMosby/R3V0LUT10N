@@ -1,5 +1,10 @@
 \documentclass[fontsize=12pt,paper=a4,twoside]{scrartcl}
 
+%Befehl um ToDo-Vermerke zu erstellen
+%Autor: Stefan Macke
+%Quelle: http://blog.stefan-macke.com/2007/04/23/todo-befehl-in-latex/
+\newcommand{\todo}[1]{\textbf{\textsc{\textcolor{red}{(TODO: #1)}}}}
+
 \newcommand{\grad}{\ensuremath{^{\circ}} }
 \renewcommand{\strut}{\vrule width 0pt height5mm depth2mm}
 
@@ -68,7 +73,7 @@
   \thispagestyle{fancy}
   \fancyhead[LO,RE]{ }
   \fancyhead[LE,RO]{Universität Bremen\\FB 3 -- Informatik\\
-  Prof. Dr. Rainer Koschke \\TutorIn: Euer/Eure TutorIn}
+  Prof. Dr. Rainer Koschke \\TutorIn: Sabrina Wilske}
   \fancyfoot[C]{}
 
 % Start Titelseite
@@ -152,11 +157,11 @@ Version & Datum & Änderungen \\
 
 
 \subsubsection{Ziele}
-Das Ziel unserer Gruppe IT\_R3V0LUT10N ist es, das Softwareprojekt 2 der Universität Bremen zu bestehen. Dies setzt die Einhaltung der Fristen und Termine, eine aureichende Fertigstellung des Projekts und die Abgabe aller in SWP2 geforderten Dokumente wie Projektplan, Anforderungsspezifikation und Angebot, Architekturbeschreibung, Schnittstellenbeschreibung, Testplan inklusive Blackbox-Tests und ein elektronisch geführtes Berichtsheft voraus. Darüber hinaus wollen wir einen GUI-Prototypen erstellen und den Akzeptanztest bestehen. Ein Bibliothekssystem zu erstellen steht aber im Vordergrund.
+Das Ziel unserer Gruppe IT\_R3V0LUT10N ist es, das Softwareprojekt 2 der Universität Bremen zu bestehen. Dies setzt die Einhaltung der Fristen und Termine, eine ausreichende Fertigstellung des Projekts und die Abgabe aller in SWP2 geforderten Dokumente wie Projektplan, Anforderungsspezifikation und Angebot, Architekturbeschreibung, Schnittstellenbeschreibung, Testplan inklusive Blackbox-Tests und ein elektronisch geführtes Berichtsheft voraus. Darüber hinaus wollen wir einen GUI-Prototypen erstellen und den Akzeptanztest bestehen. Ein Bibliothekssystem zu erstellen steht aber im Vordergrund.
 
 Das Bibliothekssystem beinhaltet sowohl eine Website, als auch einen Zugang für mobile Geräte mit kleinem Display. Ziel ist es, die Mindestanforderungen\footnote{\url{http://www.informatik.uni-bremen.de/st/Lehre/swpII_1314/mindestanforderungen.html}} und eventuell weitergehende Funktionen zu implementieren.
 
-Zu den Mindestanforderungen gehören die Erstellung und Abgabe einer Bibliothekssoftware, eines Serverprogramms mit Datenbankanbindung,einen Administrationszugang und einen Zugang für mobile Geräte mit kleinem Display. Wir haben uns entschieden den Zugang in für die mobilen Geräte in Form einer Android-App zu realisieren. Die zu erstellende Bibliothekssoftware dient in erster Linie zur Verwaltung des Medienbestandes der Oberschule Rockwinkel. Der Administrationszugang wird benötigt um Backup
+Zu den Mindestanforderungen gehören die Erstellung und Abgabe einer Bibliothekssoftware, eines Serverprogramms mit Datenbankanbindung,einen Administrationszugang und einen Zugang für mobile Geräte mit kleinem Display. Wir haben uns entschieden den Zugang für die mobilen Geräte in Form einer Android-App zu realisieren. Die zu erstellende Bibliothekssoftware dient in erster Linie zur Verwaltung des Medienbestandes der Oberschule Rockwinkel. Der Administrationszugang wird benötigt um Backup
 
 
 \subsubsection{Hauptarbeitsaktivitäten und --produkte}
@@ -276,34 +281,46 @@ Dieser Teil ist ein
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Technische Prozesse}
-ENTFÄLLT
 \subsection{Methoden, Werkzeuge und Techniken}
-ENTFÄLLT
 \subsubsection{Entwicklungsplattform}
-ENTFÄLLT
+Folgende Werkzeuge werden im Entwicklungsprozess von uns benutzt:
+\begin{itemize}
+
+\item{Eclipse\footnote{\url{http://www.eclipse.org/}} ist unsere Entwicklungsumgebung}
+\item{GitHub\footnote{\url{http://github.com/}} zur Versionsverwaltung}
+\item{AndroidSDK\footnote{\url{https://developer.android.com/sdk/index.html}} für die Androidentwicklung}
+\item{GanttProject\footnote{\url{http://www.ganttproject.biz/}}} für Gantt-Diagramme
+\item{\LaTeX{}\footnote{\url{http://www.latex-project.org/}}} zur Dokumentenerstellung
+
+\end{itemize}
+\todo{Sind das alle?}
 \subsubsection{Entwicklungsmethode}
-ENTFÄLLT
-{\em Ist der Einsatz spezieller Methoden vorgesehen?}
+
+\todo{Abhängigkeit von Prozessmodell}
+
+%Wir planen uns an keine spezielle Entwicklungsmethode zu halten. Allerdings wird uns das Wasserfallmodell\footnote{\url{http://de.wikipedia.org/wiki/Wasserfallmodell}} als Leitmodell dienen.
 
 \subsubsection{Programmiersprache und Bibliotheken}
-ENTFÄLLT
+Die Programmiersprache wird Java sein. Ob und welche Bibliotheken genutzt werden, kann zu diesem Zeitpunkt(\emph{20.10.2013}) nicht gesagt werden.
 \subsection{Dokumentationsplan}
-ENTFÄLLT
+\todo{kurzer "Einleitungstext"}
 \subsubsection{Codingstyle}
-ENTFÄLLT
+\todo{Welche Konventionen halten wir ein?}
 \subsubsection{Kommentarsprache}
-ENTFÄLLT
+Die Sprache in der unsere Kommentare verfasst sind, wird Deutsch sein.\\
+\todo{Exaktere und erläuternde Beschreibung}
 \subsubsection{JavaDoc}
-ENTFÄLLT
+\todo{Wie dokumentieren wir was wo?}
 \subsubsection{Begleitende Dokumentation}
-ENTFÄLLT
+\todo{Weitere Erläuterung zur Doku}
 \subsection{Unterstützende Projektfunktionen}
-ENTFÄLLT
-{\em Wie wird Euer Konfigurationsmanagement funktionieren? Wer ist verantwortlich? Benötigt Ihr dazu Ressourcen oder Zeit? Hier könnte z.B.\ der Pfad zum Repository angegeben werden. Plant Ihr Datensicherung?}
 
-{\em Gibt es Maßnahmen zur Qualitätssicherung? Wer ist zuständig?
-  Wieviel Zeit ist dafür vorgesehen?}
+%{\em Wie wird Euer Konfigurationsmanagement funktionieren? Wer ist verantwortlich? Benötigt Ihr dazu Ressourcen oder Zeit? Hier könnte z.B.\ der Pfad zum Repository angegeben werden. Plant Ihr Datensicherung?}
 
+%{\em Gibt es Maßnahmen zur Qualitätssicherung? Wer ist zuständig?
+%  Wieviel Zeit ist dafür vorgesehen?}
+
+\todo{Konfigurationsmanagement, Qualitätssicherung, Datensicherung}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
