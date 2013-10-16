@@ -105,7 +105,7 @@
   \begin{tabular}{lrr}
   Sebastian Bredehöft & sbrede@tzi.de & 2751589\\
   Patrick Damrow & damsen@tzi.de & 2056170\\
-  Tobias Dellert & to\_de@uni-bremen.de & 2936941\\
+  Tobias Dellert & tode@tzi.de & 2936941\\
   Tim Ellhoff & tellhoff@tzi.de & 2520913\\
   Daniel Pupat & dpupat@tzi.de & 2703053\\
   Mohamadreza (Amir) Khostevan & amirkh@tzi.de & 1234567\\
@@ -146,7 +146,15 @@ identifizieren sein, hier und optimalerweise auf dem Titelblatt.}
 \begin{tabular}{ccl}
 Version & Datum & Änderungen \\
 \hline
+0.1 & 14.10.2013 & Ziele hinzugefügt.\\
+0.1.1 & 14.10.2013 & Ziele vervollständigt\\
+0.2 & 15.10.2013 & Hauptarbeitsaktivitäten und -produkte hinzugefügt.\\
+0.3 & 15.10.2013 & Meilensteine eingefügt.\\
+0.4 & 15.10.2013 & Benötigte Ressourcen -Menschen hinzugefügt.\\
+0.5 & 16.10.2013 & Ressourcen ergänzt -Hardware und -Räume.\\
 1.0 & 20.10.2013 & Erste veröffentlichte Version. \\
+%1.1 & TT.MM.JJJJ & Zeitplanung für die Anforderungsspezifikation hinzugefügt. \\
+%1.2 & TT.MM.JJJJ & .... 
 \end{tabular}
 
 
@@ -157,43 +165,97 @@ Version & Datum & Änderungen \\
 
 
 \subsubsection{Ziele}
-Das Ziel unserer Gruppe IT\_R3V0LUT10N ist es, das Softwareprojekt 2 der Universität Bremen zu bestehen. Dies setzt die Einhaltung der Fristen und Termine, eine ausreichende Fertigstellung des Projekts und die Abgabe aller in SWP2 geforderten Dokumente wie Projektplan, Anforderungsspezifikation und Angebot, Architekturbeschreibung, Schnittstellenbeschreibung, Testplan inklusive Blackbox-Tests und ein elektronisch geführtes Berichtsheft voraus. Darüber hinaus wollen wir einen GUI-Prototypen erstellen und den Akzeptanztest bestehen. Ein Bibliothekssystem zu erstellen steht aber im Vordergrund.
+Das Ziel unserer Gruppe IT\_R3V0LUT10N ist es, das Softwareprojekt 2 der Universität Bremen zu bestehen. Dies setzt die Einhaltung der Fristen und Termine, eine aus-reichende Fertigstellung des Projekts und die Abgabe aller in SWP2 geforderten Dokumente wie Projektplan, Anforderungsspezifikation und Angebot, Architekturbeschreibung, Schnittstellenbeschreibung, Testplan inklusive Blackbox-Tests und ein elektronisch geführtes Berichtsheft voraus. Darüber hinaus wollen wir einen GUI-Prototypen erstellen und den Akzeptanztest bestehen. Ein Bibliothekssystem zu erstellen steht aber im Vordergrund.
 
-Das Bibliothekssystem beinhaltet sowohl eine Website, als auch einen Zugang für mobile Geräte mit kleinem Display. Ziel ist es, die Mindestanforderungen\footnote{\url{http://www.informatik.uni-bremen.de/st/Lehre/swpII_1314/mindestanforderungen.html}} und eventuell weitergehende Funktionen zu implementieren.
+Das Bibliothekssystem beinhaltet sowohl eine Website, als auch einen Zugang für mobile Geräte mit kleinem Display. Ziel ist es, die \label{sec:minreq}Mindestanforderungen\footnote{\url{http://www.informatik.uni-bremen.de/st/Lehre/swpII_1314/mindestanforderungen.html}} und eventuell weitergehende Funktionen zu implementieren.
 
-Zu den Mindestanforderungen gehören die Erstellung und Abgabe einer Bibliothekssoftware, eines Serverprogramms mit Datenbankanbindung, einen Administrationszugang und einen Zugang für mobile Geräte mit kleinem Display. Wir haben uns entschieden den Zugang für die mobilen Geräte in Form einer Android-App zu realisieren, weil wir dies für Zeitgemäß und einfacher für den Leser, an den diese Form des Zugangs gerichtet ist, halten. Die zu erstellende Bibliothekssoftware dient in erster Linie zur Verwaltung des Medienbestandes der Bibliothek und dem Verleihen dieser Medien an der Oberschule Rockwinkel. Der Administrationszugang wird benötigt um Bibliothekare anzulegen, zu löschen, deren Stammdaten zu ändern, oder deren Rechte innerhalb der Software zu verändern. \todo{Weitere Features sind den oben genannten Mindestanforderungen zu entnehmen, oder werden im weiteren Verlauf des Projektplans erläutert.}
+Zu den Mindestanforderungen gehören die Erstellung und Abgabe einer Bibliothekssoftware, eines Serverprogramms mit Datenbankanbindung, einen Administrationszugang und einen Zugang für mobile Geräte mit kleinem Display. Wir haben uns entschieden den Zugang für die mobilen Geräte in Form einer Android-App zu realisieren, weil wir dies für Zeitgemäß und einfacher für den Leser, an den diese Form des Zugangs gerichtet ist, halten. Die zu erstellende Bibliothekssoftware dient in erster Linie zur Verwaltung des Medienbestandes der Bibliothek und dem Verleihen dieser Medien an der Oberschule Rockwinkel. Der Administrationszugang wird benötigt um Bibliothekare anzulegen, zu löschen, deren Stammdaten zu ändern, oder deren Rechte innerhalb der Software zu verändern.\\ \todo{Weitere Features sind den oben genannten Mindestanforderungen zu entnehmen, oder werden im weiteren Verlauf des Projektplans erläutert.}
+\newpage
 
-
-\subsubsection{Hauptarbeitsaktivitäten und --produkte}
+\subsubsection{Hauptarbeitsaktivitäten und -produkte\\}
+\todo{Beschreibung}
+\begin{table}[htbp]
+\caption{Hauptaktivitäten und -produkte}
+\centering
+\begin{tabular}{p{7cm}|p{7cm}}
+\hline Aktivität & Arbeitsprodukt \\ 
+\hline Projektplanung & Projektplan\\
+\hline Anforderungsanalyse, erstellen des Angebots & Anforderungsspezifikation, Angebot\\
+\hline Globale Analyse, Konzeptionelles Modell, Modulblickwinkel, Ausführungsblickwinkel, Codeblickwinkel & Architekturbeschreibung\\
+\hline erstellen des Testplans & Testplan, Schnittstellentests\\
+\hline Implementierung & lauffähiges Programm\\
+\hline 
+\end{tabular}
+\end{table}
 
 \subsubsection{Haupt--Meilensteine und grober Zeitplan}
 
-{\em Meilensteine, jeweils mit konkretem Datum,
- Kriterien für die Erfüllung der Meilensteine.}
-
+\begin{description}
+\item[M1 - 20.10.2013] Abgabe initialer Projektplan\\
+Jedes Mitglied muss seinen Teil fertig gestellt haben. Anschließend werden alle Einzelteile zusammengeführt und von allen auf Korrektheit geprüft.
+\item[M2 - 13.11.2013] Anforderungsspezifikation (Intern) \\
+Jedes Mitglied hat seinen Teil der Anforderungsspezifikation fertiggestellt. Anschließend werden die Teile zusammengeführt und von allen auf Korrektheit geprüft.
+\item[M3 - 17.11.2013] Abgabe der Anforderungsspezifikation \\
+Meilenstein 2 muss bereits fertig sein. Abgabe der Anforderungsspezifikation via MEMS.
+\item[M4 - 18.12.2013] Architektur- und Schnittstellenbeschreibung, Testplan, Tests (Intern)\\
+Jedes Mitglied muss seine Aufgaben erfüllt haben. Teile werden zusammengeführt und kontrolliert. Tests müssen implementiert sein.
+\item[M5 - 22.12.2013] Architekturbeschreibung, Testplan und Schnittstellentests fertig\\
+Meilenstein 4 muss bereits erreicht worden sein. Tests wurden lauffähig implementiert. Abgabe via MEMS.
+\item[M6 - 26.01.2014] Erste lauffähige Basisversion\\
+Jedes Mitglied muss seine Arbeitspakete fertig gestellt haben. Das Team muss die oben genannten Mindestanforderungen\todo{referenz auf fußnote}, die mit einem * markiert sind, implementiert haben
+\item[M7 - 23.02.2014] Vollständige Abgabe der Dokumente und der Software \\
+Die Software muss lauffähig und vollständig implementiert sein, \\
+Abgabe des Build-/Installationsskriptes
+\end{description}
 
 \subsubsection{Benötigte Ressourcen}
-ENTFÄLLT
+
 \begin{itemize}
 \item \textbf{Menschliche Ressourcen}
 
+An Menschlichen Ressourcen stehen sechs Informatik Studenten der Universität Bremen zur Verfügung. Wir haben als durchschnittliche Arbeitszeit pro Woche und Person einen Aufwand von ca. 14,5 Stunden für das Projekt errechnet. Dieser Wert ergibt sich folgendermaßen:\\
+Für das Modul Software Projekt 2 gibt es 9CP. 1CP enstpricht 30 Semesterstunden. 9 x 30 = 270 Stunden. Da wir 19 Wochen lang an dem Projekt arbeiten werden, ergibt sich ein aufgerundeten Wert von 14,5 Stunden pro Woche (270 / 19 = 14,21). Unsere Kontaktdaten sind dem Punkt Mitarbeiter zu entnehmen.\todo{Referenz}
+
 \item \textbf{Hardware}
+
+Jedes unserer Mitglieder ist im Besitz, oder hat Zugriff, auf Computer, die folgenden Anforderungen und Verfügbarkeiten gerecht werden:
+
+\begin{itemize}
+\item zum Anfertigen der Dokumente wird ein Textsatzprogramm benötigt (\LaTeX wird bevorzugt).
+\item für die Entwicklung der Software müssen Java-Runtime, ein Texteditor und eine Entwicklungsumgebung mit Android-SDK installiert sein.
+\item Git wird zum gleichzeitigen Bearbeiten der Dokumente und zum Datenaustausch der Entwickler benötigt.
+\end{itemize}
 
 \item \textbf{Räume}
 
-\dots
+Das Team wird sich während der gesamten Projektlaufzeit Montags, soweit verfügbar, in einer der Lerninseln im GW2 A2370 oder A3440 der Universität Bremen von 10 Uhr bis 14 Uhr treffen. Weitere spezielle Räumlichkeiten werden nicht benötigt, da wir den Kontakt regelmäßig via Skype oder Email gewährleisten.
 
 \end{itemize}
 
 \subsubsection{Budget}
-ENTFÄLLT
-{\em Beinhaltet auch konkrete Angaben zu Entwicklerstunden und Kosten in Euro.}
 
+Ein Budget für dieses Projekt in Form von Geld entfällt, da die Software im Rahmen des Moduls Software Projekt 2 entwickelt wird. Wenn wir über 19 Wochen (vom 14.10.2013 bis zum 23.02.2014) an dem Projekt mit 6 Studenten 14,5 Stunden pro Woche arbeiten, ergibt sich eine Gesamtsumme von 1653 Entwicklerstunden (19 x 6 x 14,5 = 1653).
+
+Wir entnehmen einer Studie von Gulp \footnote{\url{http://www.gulp.de/presse/pressemitteilungen/marktstudie-freiberufliche-software-entwickler-sind-gefragt.html}} das zwei Drittel der Software-Entwickler zwischen 60 und 80 Euro fordern. Da wir alle Studenten sind und somit noch in der Ausbildung sind, setzen wir den Studenlohn für jeden Entwickler bei 40 Euro an. Somit würden sich für den Arbeitsaufwand der Entwicklerstunden Kosten von insgesamt 66.120 Euro ergeben.
 
 \subsubsection{Kontaktdaten des Kunden}
-ENTFÄLLT
+
+\todo{Daten bei Rainer, Dierk, oder Karsten erfragen!}
+
 \subsubsection{Mitarbeiter}
-{\em Hier finden sich alle Mitarbeitenden der Gruppe mit Kontaktdaten und Foto.}
+
+\begin{table}[htbp]
+\begin{tabular}{|c|c|c|}
+\hline 
+Name & Email & Foto\\ \hline
+Bredehöft, Sebastian & sbrede@tzi.de & bild einfügen \\ \hline
+Damrow, Patrick & damsen@tzi.de & bild einfügen\\ \hline
+Dellert, Tobias & tode@tzi.de & bild einfügen\\\hline
+Pupat, Daniel & dpupat@informatik.uni-bremen.de & bild einfügen \\ \hline
+Ellhoff, Tim & tellhoff@tzi.de & bild einfügen\\ \hline
+Khostevan, Mohamadreza (Amir) & amirkh@tzi.de & bild einfügen \\ \hline
+\end{tabular}
+\end{table}
 
 \subsection{Auszuliefernde Produkte}
 
