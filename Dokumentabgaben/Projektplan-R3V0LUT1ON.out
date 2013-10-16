@@ -2,7 +2,7 @@
 \BOOKMARK [2][-]{subsection.1.1}{Projekt\374bersicht}{section.1}% 2
 \BOOKMARK [3][-]{subsubsection.1.1.1}{Ziele}{subsection.1.1}% 3
 \BOOKMARK [3][-]{subsubsection.1.1.2}{Hauptarbeitsaktivit\344ten und -produkte}{subsection.1.1}% 4
-\BOOKMARK [3][-]{subsubsection.1.1.3}{Haupt-Meilensteine und grober Zeitplan}{subsection.1.1}% 5
+\BOOKMARK [3][-]{subsubsection.1.1.3}{Haupt\205Meilensteine und grober Zeitplan}{subsection.1.1}% 5
 \BOOKMARK [3][-]{subsubsection.1.1.4}{Ben\366tigte Ressourcen}{subsection.1.1}% 6
 \BOOKMARK [3][-]{subsubsection.1.1.5}{Budget}{subsection.1.1}% 7
 \BOOKMARK [3][-]{subsubsection.1.1.6}{Kontaktdaten des Kunden}{subsection.1.1}% 8
@@ -36,14 +36,23 @@
 \BOOKMARK [3][-]{subsubsection.4.2.3}{JavaDoc}{subsection.4.2}% 36
 \BOOKMARK [3][-]{subsubsection.4.2.4}{Begleitende Dokumentation}{subsection.4.2}% 37
 \BOOKMARK [2][-]{subsection.4.3}{Unterst\374tzende Projektfunktionen}{section.4}% 38
-\BOOKMARK [1][-]{section.5}{Arbeitspakete, Zeitplan und Budget}{}% 39
-\BOOKMARK [2][-]{subsection.5.1}{Arbeitspakete}{section.5}% 40
-\BOOKMARK [2][-]{subsection.5.2}{Zeitplan und Abh\344ngigkeiten}{section.5}% 41
-\BOOKMARK [2][-]{subsection.5.3}{Ressourcenanforderung}{section.5}% 42
-\BOOKMARK [1][-]{section.6}{Sonstige Elemente}{}% 43
-\BOOKMARK [2][-]{subsection.6.1}{Pl\344ne f\374r die Konvertierung von Daten}{section.6}% 44
-\BOOKMARK [2][-]{subsection.6.2}{Managementpl\344ne f\374r Unterauftragsnehmer}{section.6}% 45
-\BOOKMARK [2][-]{subsection.6.3}{Ausbildungspl\344ne}{section.6}% 46
-\BOOKMARK [2][-]{subsection.6.4}{Raumpl\344ne}{section.6}% 47
-\BOOKMARK [2][-]{subsection.6.5}{Installationspl\344ne}{section.6}% 48
-\BOOKMARK [2][-]{subsection.6.6}{Pl\344ne f\374r die \334bergabe des Systems}{section.6}% 49
+\BOOKMARK [1][-]{section.5}{Arbeitspakete, Zeitplan und Budget \(Tobias u. Tim\)}{}% 39
+\BOOKMARK [2][-]{subsubsection.5.0.1}{Annahmen}{section.5}% 40
+\BOOKMARK [3][-]{subsubsection.5.0.2}{Anmerkungen}{subsubsection.5.0.1}% 41
+\BOOKMARK [2][-]{subsection.5.1}{Arbeitspakete, Zeitplan, Abh\344ngigkeiten und Ressourcenanforderungen}{section.5}% 42
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Projektplan}{subsection.5.1}% 43
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Anforderungsspezifikation}{subsection.5.1}% 44
+\BOOKMARK [3][-]{subsubsection.5.1.3}{Architekturbeschreibung}{subsection.5.1}% 45
+\BOOKMARK [3][-]{subsubsection.5.1.4}{Implementierung}{subsection.5.1}% 46
+\BOOKMARK [3][-]{subsubsection.5.1.5}{Test}{subsection.5.1}% 47
+\BOOKMARK [3][-]{subsubsection.5.1.6}{Dokumentabgaben}{subsection.5.1}% 48
+\BOOKMARK [3][-]{subsubsection.5.1.7}{Sonstiges}{subsection.5.1}% 49
+\BOOKMARK [3][-]{subsubsection.5.1.8}{Meetings}{subsection.5.1}% 50
+\BOOKMARK [3][-]{subsubsection.5.1.9}{Kritischer Pfad}{subsection.5.1}% 51
+\BOOKMARK [1][-]{section.6}{Sonstige Elemente}{}% 52
+\BOOKMARK [2][-]{subsection.6.1}{Pl\344ne f\374r die Konvertierung von Daten}{section.6}% 53
+\BOOKMARK [2][-]{subsection.6.2}{Managementpl\344ne f\374r Unterauftragsnehmer}{section.6}% 54
+\BOOKMARK [2][-]{subsection.6.3}{Ausbildungspl\344ne}{section.6}% 55
+\BOOKMARK [2][-]{subsection.6.4}{Raumpl\344ne}{section.6}% 56
+\BOOKMARK [2][-]{subsection.6.5}{Installationspl\344ne}{section.6}% 57
+\BOOKMARK [2][-]{subsection.6.6}{Pl\344ne f\374r die \334bergabe des Systems}{section.6}% 58

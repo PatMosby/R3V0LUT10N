@@ -7,7 +7,7 @@
 
 \newcommand{\grad}{\ensuremath{^{\circ}} }
 \renewcommand{\strut}{\vrule width 0pt height5mm depth2mm}
-
+\usepackage{booktabs}
 \usepackage[utf8]{inputenc}
 \usepackage[final]{pdfpages}
 % obere Seitenränder gestalten können
@@ -161,16 +161,17 @@ Version & Datum & Änderungen \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Einleitung}
 
-Dieses Dokument ist der Projektplan der Gruppe IT\_R3V0LUT10N im des Softwareprojekts im Wintersemester 2013/2014 an der Universität Bremen. Der Projektplan entspricht der Struktur des Standards ANSI/IEEE Std. 1058.1-1987\footnote{\url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=25325&userType=inst}}.
+Dieses Dokument ist der Projektplan der Gruppe IT\_R3V0LUT10N im des Softwareprojekts im Wintersemester 2013/2014 an der Universität Bremen. Der Projektplan entspricht der Struktur ANSI/IEEE Std. 1058.1-1987\footnote{\url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=25325&userType=inst}}.
 
 \subsection{Projektübersicht}
+
 
 \subsubsection{Ziele}
 Das Ziel unserer Gruppe IT\_R3V0LUT10N ist es, das Softwareprojekt 2 der Universität Bremen zu bestehen. Dies setzt die Einhaltung der Fristen und Termine, eine aus-reichende Fertigstellung des Projekts und die Abgabe aller in SWP2 geforderten Dokumente wie Projektplan, Anforderungsspezifikation und Angebot, Architekturbeschreibung, Schnittstellenbeschreibung, Testplan inklusive Blackbox-Tests und ein elektronisch geführtes Berichtsheft voraus. Darüber hinaus wollen wir einen GUI-Prototypen erstellen und den Akzeptanztest bestehen. Ein Bibliothekssystem zu erstellen steht aber im Vordergrund.
 
 Das Bibliothekssystem beinhaltet sowohl eine Website, als auch einen Zugang für mobile Geräte mit kleinem Display. Ziel ist es, die \label{sec:minreq}Mindestanforderungen\footnote{\url{http://www.informatik.uni-bremen.de/st/Lehre/swpII_1314/mindestanforderungen.html}} und eventuell weitergehende Funktionen zu implementieren.
 
-Zu den Mindestanforderungen gehören die Erstellung und Abgabe einer Bibliothekssoftware, eines Serverprogramms mit Datenbankanbindung, eines Administrationszugangs und eines Zugangs für mobile Geräte mit kleinem Display. Wir haben uns entschieden den Zugang für die mobilen Geräte in Form einer Android-App zu realisieren, weil wir dies für Zeitgemäß und einfacher für den Leser, an den diese Form des Zugangs gerichtet ist, halten. Die zu erstellende Bibliothekssoftware dient in erster Linie zur Verwaltung des Medienbestandes der Bibliothek und dem Verleihen dieser Medien durch Bibliothekare an der Oberschule Rockwinkel. Funktionen der Software für Bibliothekare beinhalten Inventarisierung, Ausleihe, Verlängerung, Rückgabe, Erinnerung, Mahnung, Statistiken und die Verwaltung von Lesern. Der Administrationszugang wird benötigt um Bibliothekare anzulegen, zu löschen, deren Stammdaten zu ändern, oder deren Rechte innerhalb der Software zu verändern. Für die Leser werden folgende Funktionen im Web-Browser sowie der Android-App implementiert: Ausleihen von Medien, Suche von und Information über Medien, Vormerkung von Medien, Verlängerung der Ausleihe, Ausleihhistorie, Bewertung und Rezension der Medien.\\ \todo{Weitere Features sind den oben genannten Mindestanforderungen zu entnehmen, oder werden im weiteren Verlauf des Projektplans erläutert.}
+Zu den Mindestanforderungen gehören die Erstellung und Abgabe einer Bibliothekssoftware, eines Serverprogramms mit Datenbankanbindung, einen Administrationszugang und einen Zugang für mobile Geräte mit kleinem Display. Wir haben uns entschieden den Zugang für die mobilen Geräte in Form einer Android-App zu realisieren, weil wir dies für Zeitgemäß und einfacher für den Leser, an den diese Form des Zugangs gerichtet ist, halten. Die zu erstellende Bibliothekssoftware dient in erster Linie zur Verwaltung des Medienbestandes der Bibliothek und dem Verleihen dieser Medien an der Oberschule Rockwinkel. Der Administrationszugang wird benötigt um Bibliothekare anzulegen, zu löschen, deren Stammdaten zu ändern, oder deren Rechte innerhalb der Software zu verändern.\\ \todo{Weitere Features sind den oben genannten Mindestanforderungen zu entnehmen, oder werden im weiteren Verlauf des Projektplans erläutert.}
 
 \subsubsection{Hauptarbeitsaktivitäten und -produkte}
 \todo{Beschreibung}
@@ -178,7 +179,7 @@ Zu den Mindestanforderungen gehören die Erstellung und Abgabe einer Bibliotheks
 \caption{Hauptaktivitäten und -produkte}
 \centering
 \begin{tabular}{p{7cm}|p{7cm}}
-\hline Aktivität & Arbeitsprodukt \\ 
+\hline \textbf{Aktivität} & \textbf{Arbeitsprodukt} \\ \hline
 \hline Projektplanung & Projektplan\\
 \hline Anforderungsanalyse, Angebotserstellung & Anforderungsspezifikation, Angebot\\
 \hline Entwurf (Globale Analyse, Konzeptionelles Modell, Modulblickwinkel, Ausführungsblickwinkel, Codeblickwinkel) & Architekturbeschreibung\\
@@ -190,27 +191,23 @@ Zu den Mindestanforderungen gehören die Erstellung und Abgabe einer Bibliotheks
 \end{tabular}
 \end{table}
 
-\subsubsection{Haupt-Meilensteine und grober Zeitplan}
+\subsubsection{Haupt--Meilensteine und grober Zeitplan}
 
 \begin{description}
-\item[M0 - 11.10.2013] Kick-Off Veranstaltung\\
-\item[M1 - 14.10.2013] Beginn des Projektes\\
-\item[M2 - 20.10.2013] Abgabe initialer Projektplan\\
-Jedes Mitglied muss seinen Teil fertig gestellt haben. Anschließend werden alle Einzelteile zusammengeführt und von allen auf Korrektheit geprüft.\\
-\item[M3 - 23.10.2013] Kundengespräch in der Oberschule Rockwinkel\\
-\item[M4 - 6-7.11.2013] Vorstellen des Prototypen in der Oberschule Rockwinkel\\
-\item[M5 - 13.11.2013] Anforderungsspezifikation (Intern) \\
+\item[M0 - 14.10.2013] Beginn des Projektes
+\item[M1 - 20.10.2013] Abgabe initialer Projektplan\\
+Jedes Mitglied muss seinen Teil fertig gestellt haben. Anschließend werden alle Einzelteile zusammengeführt und von allen auf Korrektheit geprüft.
+\item[M2 - 13.11.2013] Anforderungsspezifikation (Intern) \\
 Jedes Mitglied hat seinen Teil der Anforderungsspezifikation fertiggestellt. Anschließend werden die Teile zusammengeführt und von allen auf Korrektheit geprüft.
-\item[M6 - 17.11.2013] Abgabe der Anforderungsspezifikation \\
+\item[M3 - 17.11.2013] Abgabe der Anforderungsspezifikation \\
 Meilenstein 2 muss bereits fertig sein. Abgabe der Anforderungsspezifikation via MEMS.
-\item[M7 - 18.12.2013] Architektur- und Schnittstellenbeschreibung, Testplan, Tests (Intern)\\
-Jedes Mitglied muss seine Aufgaben erfüllt haben. Teile werden zusammengeführt und kontrolliert. Tests müssen implementiert sein.\\
-\item[M8 - 22.12.2013] Architekturbeschreibung, Testplan und Schnittstellentests fertig\\
-Meilenstein 7 muss bereits erreicht worden sein. Tests wurden lauffähig implementiert. Abgabe via MEMS.\\
-\item[M9 - 26.01.2014] Erste lauffähige Basisversion\\
-Jedes Mitglied muss seine Arbeitspakete fertig gestellt haben. Das Team muss die oben genannten Mindestanforderungen\todo{referenz auf fußnote}, die mit einem * markiert sind, implementiert haben\\
-\item[M10 - 10.-15.02.2014] Akzeotanztest\\
-\item[M11 - 23.02.2014] Vollständige Abgabe der Dokumente und der Software \\
+\item[M4 - 18.12.2013] Architektur- und Schnittstellenbeschreibung, Testplan, Tests (Intern)\\
+Jedes Mitglied muss seine Aufgaben erfüllt haben. Teile werden zusammengeführt und kontrolliert. Tests müssen implementiert sein.
+\item[M5 - 22.12.2013] Architekturbeschreibung, Testplan und Schnittstellentests fertig\\
+Meilenstein 4 muss bereits erreicht worden sein. Tests wurden lauffähig implementiert. Abgabe via MEMS.
+\item[M6 - 26.01.2014] Erste lauffähige Basisversion\\
+Jedes Mitglied muss seine Arbeitspakete fertig gestellt haben. Das Team muss die oben genannten Mindestanforderungen\todo{referenz auf fußnote}, die mit einem * markiert sind, implementiert haben
+\item[M7 - 23.02.2014] Vollständige Abgabe der Dokumente und der Software \\
 Die Software muss lauffähig und vollständig implementiert sein, \\
 Abgabe des Build-/Installationsskriptes
 \end{description}
@@ -220,7 +217,7 @@ Abgabe des Build-/Installationsskriptes
 \begin{itemize}
 \item \textbf{Menschliche Ressourcen}
 
-An Menschlichen Ressourcen stehen sechs Informatik Studenten der Universität Bremen zur Verfügung. Wir haben als durchschnittliche Arbeitszeit pro Woche und Person einen Aufwand von ca. 14,5 Stunden für das Projekt errechnet. Dieser Wert ergibt sich folgendermaßen:\\
+An menschlichen Ressourcen stehen sechs Informatikstudenten der Universität Bremen zur Verfügung. Wir haben als durchschnittliche Arbeitszeit pro Woche und Person einen Aufwand von ca. 14,5 Stunden für das Projekt errechnet. Dieser Wert ergibt sich folgendermaßen:\\
 Für das Modul Software Projekt 2 gibt es 9CP. 1CP enstpricht 30 Semesterstunden. 9 x 30 = 270 Stunden. Da wir 19 Wochen lang an dem Projekt arbeiten werden, ergibt sich ein aufgerundeter Wert von 14,5 Stunden pro Woche (270 / 19 = 14,21). Unsere Kontaktdaten sind dem Punkt Mitarbeiter zu entnehmen.\todo{Referenz}
 
 \item \textbf{Hard-/ und Software}
@@ -235,7 +232,7 @@ Jedes unserer Mitglieder ist im Besitz, oder hat Zugriff, auf Computer, die folg
 
 \item \textbf{Räume}
 
-Das Team wird sich während der gesamten Projektlaufzeit Montags, soweit verfügbar, in einer der Lerninseln im GW2 A2370 oder A3440 der Universität Bremen von 10 Uhr bis 14 Uhr treffen. Weitere spezielle Räumlichkeiten werden nicht benötigt, da wir den Kontakt regelmäßig via Skype oder Email gewährleisten.
+Das Team wird sich während der gesamten Projektlaufzeit montags, soweit verfügbar, in einer der Lerninseln im GW2 A2370 oder A3440 der Universität Bremen von 10 Uhr bis 14 Uhr treffen. Weitere spezielle Räumlichkeiten werden nicht benötigt, da wir den Kontakt regelmäßig via Skype oder E-Mail gewährleisten.
 
 \end{itemize}
 
@@ -259,7 +256,7 @@ Wir entnehmen einer Studie von Gulp \footnote{\url{http://www.gulp.de/presse/pre
 \begin{table}[htbp]
 \begin{tabular}{|c|c|c|}
 \hline 
-Name & Email & Foto\\ \hline
+\textbf{Name} & \textbf{Email} & \textbf{Foto}\\ \hline \hline
 Bredehöft, Sebastian & sbrede@tzi.de & bild einfügen \\ \hline
 Damrow, Patrick & damsen@tzi.de & bild einfügen\\ \hline
 Dellert, Tobias & tode@tzi.de & bild einfügen\\\hline
@@ -329,72 +326,72 @@ ENTFÄLLT
 \subsection{Managementprozess und --prioritäten}
 Folgende Managementprozesse haben bei uns die höchsten Prioritäten:
 \bigskip \\
-Fertigstellung des Produktes: \\
-Ein Ziel von uns ist die Fertigstellung des Produktes, welches vom Kunden gefordert ist. Dabei ist wichtig alle Mindestanforderungen, die der Kunde gefordert hat, erfolgreich umgesetzt wurden.\\
-Dieses Ziel hat die höchste Priorität, da dies notwendig ist, um die Veranstaltung SWP 2 zu bestehen und eine Vorraussetzung aller anderen aufgeführten Ziele ist.\\
+\underline{Fertigstellung des Produktes:} \\
+Ein Ziel von uns ist die Fertigstellung des Produktes, welches vom Kunden gefordert ist. Dabei ist wichtig, dass alle Mindestanforderungen, die der Kunde gefordert hat, erfolgreich umgesetzt wurden.\\
+Dieses Ziel hat die höchste Priorität, da dies notwendig ist, um die Veranstaltung SWP2 zu bestehen und eine Voraussetzung aller anderen aufgeführten Ziele ist.\\
 \bigskip \\
-Qualität des Produktes: \\
-Ein weiteres Ziel ist es, dem Produkt eine hohe Qualität zu geben. Dies ist notwendig, damit der Kunde zufrieden ist und das Produkt später evtl. verwendet wird. Dabei ist wichtig, das neben den Mindestanforderungen, weitere Funktionen vorhanden sind und die Benutzung einfach und benutzerfreundlich ist.\\
-Dieses Ziel hat eine hohe Priorität, da dies notwendig ist um den Kunden zufrieden zu stellen und eine gute Note zu erreichen.\\
+\underline{Qualität des Produktes:} \\
+Ein weiteres Ziel ist es, dem Produkt eine hohe Qualität zu geben. Dies ist notwendig, damit der Kunde zufrieden ist und das Produkt später evtl. verwendet wird. Dabei ist wichtig, dass neben den Mindestanforderungen weitere Funktionen vorhanden sind und die Benutzung einfach und benutzerfreundlich ist.\\
+Dieses Ziel hat eine hohe Priorität, da dies notwendig ist um den Kunden zufriedenzustellen und eine gute Note zu erreichen.\\
 \bigskip \\
-Weiterentwicklung des Produktes: \\
-Es ist auch wichtig das Produkt so zu entwickeln, damit dieses später bei Bedarf von anderen weiterentwickelt werden kann. Dies erfordert eine Strukturierte Implementierung.\\
+\underline{Weiterentwicklung des Produktes:} \\
+Es ist auch wichtig, das Produkt so zu entwickeln, damit dieses später bei Bedarf von anderen weiterentwickelt werden kann. Dies erfordert eine strukturierte Implementierung.\\
 Dieses Ziel hat niedrige Priorität, da wir in erster Linie das Modul bestehen wollen
 \bigskip \\
-Kundenzufriedenheit:\\
-Es ist sehr wichtig das der Kunde später zufrieden ist, was bedeutet, dass man die Mindestanforderungen erfüllt und darüber hinaus noch weitere Features einbindet, da nur so der Kunde wirklich zufrieden ist. \\
-Dieses Ziel hat für uns mittlere Priorität, da wir in erster Linie die Mindestanforderungen schaffen wollen und nur wenn noch Zeit ist weitere Features einbinden. Dieses könnte aber noch notwendig sein um eine gute Note zu erreichen.\\
+\underline{Kundenzufriedenheit:}\\
+Es ist sehr wichtig, dass der Kunde später zufrieden ist, was bedeutet, dass man die Mindestanforderungen erfüllt und darüber hinaus noch weitere Features einbindet, da nur so der Kunde wirklich zufrieden ist. \\
+Dieses Ziel hat für uns mittlere Priorität, da wir in erster Linie die Mindestanforderungen schaffen wollen und nur wenn noch Zeit ist, weitere Features einbinden. Dies könnte aber noch notwendig sein, um eine gute Note zu erreichen.\\
 \bigskip \\
-Kommunikation innerhalb der Gruppe: \\
-Ein wichtiger Faktor ist noch die Kommunikation innerhalb der Gruppe. Wenn man sich nicht abspricht, kann es zu Schwierigkeiten kommen, wenn z.B. ein Gruppenmitglied seinen Teil nicht rechtzeitig schafft und die anderen aber davon ausgehen.\\
+\underline{Kommunikation innerhalb der Gruppe:} \\
+Ein wichtiger Faktor ist die Kommunikation innerhalb der Gruppe. Wenn man sich nicht abspricht, kann es zu Schwierigkeiten kommen, wenn z.B. ein Gruppenmitglied seinen Teil nicht rechtzeitig schafft und die anderen aber davon ausgehen.\\
 Dieses Ziel hat bei uns eine hohe Priorität, da ohne Kommunikation das Projekt mit hoher Wahrscheinlichkeit scheitert.\\
 \bigskip \\
-Klima innerhalb der Gruppe: \\
-Ein gutes Gruppenklima heißt, dass innerhalb der Gruppe alle gut miteinander aus kommen und es keinen Streit gibt. Außerdem muss man den anderen Vertrauen können, dass sie immer rechtzeitig fertig werden und bei Problemen Bescheid geben.\\
+\underline{Klima innerhalb der Gruppe:} \\
+Ein gutes Gruppenklima heißt, dass innerhalb der Gruppe alle gut miteinander auskommen und es keinen Streit gibt. Außerdem muss man den anderen vertrauen können, dass sie immer rechtzeitig fertig werden und bei Problemen Bescheid geben.\\
 Dies hat ebenfalls eine hohe Priorität, da gerade das Vertrauen und die Zuverlässigkeit sehr wichtig sind, damit alles rechtzeitig fertig wird.
 \bigskip \\
-Gute Note:\\
-Ziel dieser Veranstaltung ist für uns das Projekt so gut wie möglich zu bestehen. Dabei sollte jeder sein bestes geben, damit am Ende das Maximum an Punkten für die Gruppe erreicht wird.\\
+\underline{Gute Note:}\\
+Ziel dieser Veranstaltung ist für uns das Projekt so gut wie möglich zu bestehen. Dabei sollte jeder sein Bestes geben, damit am Ende das Maximum an Punkten für die Gruppe erreicht wird.\\
 Dies hat bei uns eine hohe Priorität, da wir später einen möglichst guten Abschluss haben wollen.
 \bigskip \\
-Kunde entscheidet sich für unser Produkt:\\
-Da der Kunde am Ende der Veranstaltung ein Produkt aussuchen wir, welches dann in der Bibliothek verwendet wird, wäre es möglich das er unser Produkt wählt.\\
+\underline{Kunde entscheidet sich für unser Produkt:}\\
+Da der Kunde am Ende der Veranstaltung ein Produkt aussuchen wird, welches dann in der Bibliothek verwendet wird, wäre es möglich, dass er unser Produkt wählt.\\
 Dieses Ziel hat bei uns eine niedrige Priorität, da wir in erster Linie gut abschneiden wollen, aber nicht darauf hinarbeiten, unbedingt das beste Produkt der Veranstaltung zu entwickeln, da dies zu zeitaufwendig wäre.
 
 
 \subsection{Annahmen, Abhängigkeiten und Einschränkungen}
 \subsubsection{Annahmen}
-Mindestanforderungen werden nicht verändert: \\
-Die erste Annahme ist, das der Kunde die Mindestanforderungen nicht verändert. Dies bedeutet, dass es keine Möglichkeit gibt andere Mindestanforderungen auszuhandeln und der Kunde auch keine neuen stellt.\\
+\underline{Mindestanforderungen werden nicht verändert:} \\
+Die erste Annahme ist, dass der Kunde die Mindestanforderungen nicht verändert. Dies bedeutet, dass es keine Möglichkeit gibt, andere Mindestanforderungen auszuhandeln und der Kunde auch keine neuen stellt.\\
 \bigskip \\
-Deadline wird nicht verschoben: \\
-Noch eine Annahme ist, dass sich die Deadlines der verschiedenen Abgaben sich unter normalen Umständen nicht verändern. Dies bedeutet, das der Kunde diese nicht vorverlegt und wir diese nicht nach hinten verlegen können. \\
+\underline{Deadline wird nicht verschoben:} \\
+Noch eine Annahme ist, dass sich die Deadlines der verschiedenen Abgaben unter normalen Umständen nicht verändern. Dies bedeutet, dass der Kunde diese nicht vorverlegt und wir diese nicht nach hinten verlegen können. \\
 \bigskip \\
-Erfolgreiche Teilnahme: \\
-Eine weitere Annahme ist, dass alle Gruppenmitglieder die Veranstaltung erfolgreich bestehen wollen. Da sich alle für dieses Modul eingetragen haben, kann man davon ausgehen, dass alle ihr bestes geben um diese Veranstaltung zu bestehen.\\
+\underline{Erfolgreiche Teilnahme:} \\
+Eine weitere Annahme ist, dass alle Gruppenmitglieder die Veranstaltung erfolgreich bestehen wollen. Da sich alle für dieses Modul eingetragen haben, kann man davon ausgehen, dass alle ihr Bestes geben, um diese Veranstaltung zu bestehen.\\
 \bigskip \\
-Grundkenntnisse in Java: \\
-Man kann auch annehmen, dass alle Mitglieder Grundkenntnisse in Java haben, da alle Gruppenmitglieder bereits Praktische Informatik 1 und 2 besucht haben.\\
+\underline{Grundkenntnisse in Java:} \\
+Man kann auch annehmen, dass alle Mitglieder Grundkenntnisse in Java haben, da alle Gruppenmitglieder bereits die Veranstaltungen Praktische Informatik 1 und 2 besucht haben.\\
 
 \subsubsection{Abhängigkeiten}
 
-Laptop: \\
+\underline{Laptop:} \\
 Da jeder von uns ein Laptop besitzt, werden wir diesen hauptsächlich verwenden, da so jeder mobil ist und überall weiterarbeiten kann.\\
 \bigskip \\
-GitHub: \\
+\underline{GitHub:} \\
 Zum Teilen der Dokumente verwenden wir GitHub. So kann jede Person einen Teil bearbeiten und die Dokumente können dann zusammengeführt werden. \\
 \bigskip \\
-Glassfish: \\
+\underline{Glassfish:} \\
 Als Server verwenden wir den Glassfish Server, auf dem unser Programm später arbeitet. \\
 \bigskip \\
-Mitglieder: \\
-Da dies eine Gruppenarbeit ist, muss jedes Gruppenmitglied ihren Teil leisten, da die Arbeit auf 6 Leute ausgelegt ist. \\
+\underline{Mitglieder:} \\
+Da dies eine Gruppenarbeit ist, muss jedes Gruppenmitglied seinen Teil leisten, da die Arbeit auf sechs Leute ausgelegt ist. \\
 \bigskip \\
 Von den eben genannten Punkten ist das Projekt abhängig, da bei einem Ausfall der Punkte Schwierigkeiten auftreten können.
 
 \subsubsection{Einschränkungen}
-Weitere belegte Module: \\
-Jeder von uns belegt noch weitere Module und hat deswegen nur eine gewisse Zeit für SWP 2. Hinzu kommt noch, dass wir Mitglieder haben, die in unterschiedlichen Semestern sind, wodurch es schwierig ist einen gemeinsamen Termin zu finden. \\
+\underline{Weitere belegte Module:} \\
+Jeder von uns belegt noch weitere Module und hat deswegen nur eine gewisse Zeit für SWP2. Hinzu kommt noch, dass wir Mitglieder haben, die in unterschiedlichen Semestern sind, wodurch es schwierig ist, einen gemeinsamen Termin zu finden. \\
 
 \subsection{Risikomanagement}\label{riskmanagement}
 
@@ -413,8 +410,8 @@ Dieser Teil ist ein
   behandelt werden.}
 
 \begin{center}
-\begin{tabular}{|c|c|c|c|} \hline
-Risiko & EW (1-10) & SH (1-10) & RH\\ \hline
+\begin{tabular}{|c|c|c|c|} \hline 
+\textbf{Risiko} & \textbf{EW (1-10)} & \textbf{SH (1-10)} & \textbf{RH}\\ \hline \hline
 Krankheitsbedingter Ausfall eines Gruppenmitglieds & 5  & 4 & 20\\ \hline
 Krankheitsbedingter Ausfall mehrerer Gruppenmitglieder & 2  & 7 & 14\\ \hline
 Austritt eines Gruppenmitglieds & 4 & 5 & 20\\ \hline
@@ -434,28 +431,28 @@ EW = Eintrittswahrscheinlichkeit(Skala 1:gering - 10:hoch)\\
 SH = Schadenshöhe (Skala 1:gering - 10:hoch)\\
 RH = Risikohöhe (EW * SH)\\
 \bigskip \\
-\textbf{Krankheitsbedingter Ausfall eines/mehrerer Gruppenmitglieds/er:}\\
+\textbf{\underline{Krankheitsbedingter Ausfall eines/mehrerer Gruppenmitglieds/er:}}\\
 Aufgrund von Krankheiten fallen eine oder mehrere Personen aus und können nicht mehr richtig oder für eine gewisse Zeit überhaupt nicht mehr mitarbeiten. Dadurch kommt auf die restliche Gruppe mehr Arbeit zu.\\
 \textbf{Maßnahmen:}\\
 1. Gruppenmitglied benachrichtigt die anderen Mitglieder so früh wie möglich, damit diese sich darauf einstellen können.\\
-2. Die Gruppe sucht Gespräch mit dem Tutor wenn mehrere Personen ausfallen.\\
+2. Die Gruppe sucht Gespräch mit dem Tutor, wenn mehrere Personen ausfallen.\\
 \bigskip \\
-\textbf{Austritt eines/mehrerer Gruppenmitglieds/er:}\\
+\textbf{\underline{Austritt eines/mehrerer Gruppenmitglieds/er:}}\\
 Aufgrund von Zeitmangel, Studienabbruch und anderen Gründen kann es jederzeit passieren, dass Gruppenmitglieder aus der Gruppe austreten. Dadurch müssen die anderen Personen dann entsprechend mehr arbeiten, was zu Problemen führen kann.\\
 \textbf{Maßnahmen:}\\
 1. Bei einem Austritt aus der Gruppe gibt das Mitglied den anderen sofort Bescheid, damit diese sich rechtzeitig auf die Mehrarbeit einstellen können.\\
-2. Sollten mehrere Mitglieder austreten, Gespräch mit dem Tutor suchen um gegebenfalls die Anforderungen zu senken.\\
+2. Sollten mehrere Mitglieder austreten, Gespräch mit dem Tutor suchen um gegebenenfalls die Anforderungen zu senken.\\
 3. Im Zeitplan vor den Deadlines immer ein wenig Zeit überlassen, um durch einen plötzlichen Austritt die Abgabe noch rechtzeitig zu schaffen.\\
 \bigskip \\
-\textbf{Inkompetenz eines Gruppenmitglieds:}\\
-Es kann passieren das ein Gruppenmitglied Inkompetent ist und somit nicht in der Lage die ihm zugeteilten Aufgaben zu lösen. Dabei kann es passieren, dass 
+\textbf{\underline{Inkompetenz eines Gruppenmitglieds:}}\\
+Es kann passieren, dass ein Gruppenmitglied inkompetent ist und somit nicht in der Lage ist, die ihm zugeteilten Aufgaben zu lösen. Dabei kann es passieren, dass \todo{...}
 
 \subsection{Projektüberwachung}\label{3.4-controlling}
 
-Um das Projekt zu überwachen wird mindestens einmal die Woche ein Treffen stattfinden, wo überprüft wird, wer wie weit ist. Außerdem wird es einen permanenten Austausch über Skype geben, wo nachgefragt wird, ob es noch Probleme gibt. \\
+Um das Projekt zu überwachen, wird mindestens einmal die Woche ein Treffen stattfinden, wo überprüft wird, wie weit jeder ist. Außerdem wird es einen permanenten Austausch über Skype geben, wo nachgefragt wird, ob es noch Probleme gibt. \\
 Es wird auch für jede Phase einen Phasenleiter geben, der dafür zuständig ist, den Zeitplan im Auge zu behalten. Diesem Phasenleiter muss dann jedes Gruppenmitglied regelmäßig Bescheid geben, wie weit die Teilaufgabe bereits bearbeitet ist.\\
-Sollte es Probleme bzw. Verzögerungen geben, werden diese im wöchentlichen treffen angesprochen und gemeinsam gelöst, indem z.B die in Verzögerung geratene Aufgabe unter den Mitgliedern aufgeteilt wird.\\
-Bei größeren Probleme kann ein Treffen spontan einberufen werden oder es wird direkt bei Skype angesprochen und da versucht zu lösen. Dabei ist wichtig, dass die Probleme bzw. Verzögerungen immer von der Gruppe erledigt werden, damit es nicht zur Verärgerung kommt, wenn der Phasenleiter dies alleine entscheidet.
+Sollte es Probleme bzw. Verzögerungen geben, werden diese im wöchentlichen Treffen angesprochen und gemeinsam gelöst, indem z.B. die in Verzögerung geratene Aufgabe unter den Mitgliedern aufgeteilt wird.\\
+Bei größeren Problemen kann ein Treffen spontan einberufen werden oder es wird direkt bei Skype angesprochen und da versucht, dies zu lösen. Dabei ist wichtig, dass die Probleme bzw. Verzögerungen immer von der Gruppe erledigt werden, damit es nicht zur Verärgerung kommt, wenn der Phasenleiter dies alleine entscheidet.
 
 \subsection{Mitarbeiter}
 {\em Kompetenzen der und Anforderungen an die Mitarbeiter.}
@@ -471,7 +468,7 @@ Folgende Werkzeuge werden im Entwicklungsprozess von uns benutzt:
 \item{Eclipse\footnote{\url{http://www.eclipse.org/}} ist unsere Entwicklungsumgebung (beinhaltet AndroidSDK\footnote{\url{https://developer.android.com/sdk/index.html}} für die Androidentwicklung}
 \item{Maven\footnote{\url{http://maven.apache.org/}} ist unser Build-Management Tool}
 \item{GlassFish 3.1\footnote{\url{http://glassfish.java.net/}} ist unser Application-Server}
-\item{jUnit\footnote{\url{http://junit.org/}} ist unser Framework zum testen}
+\item{jUnit\footnote{\url{http://junit.org/}} ist unser Framework zum Testen}
 \item{GitHub\footnote{\url{http://github.com/}} zur Versionsverwaltung}
 \item{GanttProject\footnote{\url{http://www.ganttproject.biz/}}} für Gantt-Diagramme
 \item{\LaTeX{}\footnote{\url{http://www.latex-project.org/}}} zur Dokumentenerstellung
@@ -507,7 +504,7 @@ Die Sprache in der unsere Kommentare verfasst sind, wird Deutsch sein. Dies verh
 
 \subsubsection{JavaDoc}
 Wir benutzen JavaDoc zur Dokumentation unseres Quellcodes. Dieses lässt eine einfache Erstellung von HTML-Dokumentationsdateien zu.
-Zur zukünftigen Wartung wird bis auf triviale Codezeilen, der komplette Code in JavaDoc dokumentiert.
+Zur zukünftigen Wartung wird bis auf triviale Codezeilen der komplette Code in JavaDoc dokumentiert.
 \subsubsection{Begleitende Dokumentation}
 \todo{Weitere Erläuterung zur Doku?}
 \subsection{Unterstützende Projektfunktionen}
@@ -521,7 +518,7 @@ Unsere Projektdateien stehen jederzeit auf \emph{GitHub}\footnote{\url{asd}} zur
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Arbeitspakete, Zeitplan und Budget}
+\section{Arbeitspakete, Zeitplan und Budget (Tobias u. Tim)}
 
 {\em Dieser Teil ist ein zweiter Schwerpunkt des Projektplans. Hier sollt Ihr die nächste Phase detailliert planen (siehe Arbeitspakete). Die weiteren Phasen sollen ebenfalls wenigstens grob geplant werden. Ein Gantt-Diagramm ist zwingend! 
 
@@ -529,64 +526,2690 @@ Ihr sollt den Plan in der kommenden Phase auch tatsächlich benutzen -- und so
   Erfahrungen sammeln, was evtl. bei der Planung unberücksichtigt
   blieb. Bei der nächsten Zeitplanung (für die nächste Phase) bekommt
   Ihr dann evtl.\ eine noch bessere Planung hin.}
+  
+  
+\subsubsection{Annahmen}\label{aps}
 
-\subsection*{5.0.1 Anmerkungen und Annahmen}\label{aps}
+Wir gehen von folgenden Annahmen aus: \\
+\begin{itemize}
+\item jedes Mitglied der Gruppe hat rund 14,5 Stunden Zeit in der Woche für das Projekt, davon ausgehend, dass die Veranstaltung SWP2 9CP bringt, was 270 Stunden an Zeit entspricht (1CP = 30 Stunden). Diesen Wert aufgesplittet in 19 Wochen ergibt rechnerisch 14,21 Stunden, also aufgerundet 14,5 Stunden pro Mitglied.
 
-Wir haben bisher nur die Phasen Projektplan und Anforderungsspezifikation vollständig in den Arbeitspaketen und Zuteilungen behandelt. Die übrigen Phasen des Projekts - Architekturbeschreibung, Implementierung und Test - können zu diesem Zeitpunkt noch nicht detailliert beschrieben werden, sondern erfolgen stattdessen in grobem Format. \\
+\item eine Arbeitswoche hat 5 Tage, wobei jeder Arbeitstag 8 Arbeitsstunden hat.
 
-Arbeitspunkte zusammen
+\item des Weiteren ist von folgenden Feiertagen und Urlaubszeiten auszugehen:
+\begin{itemize}
+\item Weihnachten: 25. und 26. Dezember 2013
+\item Neujahr: 01. Januar 2014
+\item Ferien/Urlaub: 24. Dezember bis 31. Dezember 2013
+\end{itemize}
+\end{itemize}
+\subsubsection{Anmerkungen}\label{aps}
+\paragraph{Hinweis:} \textit{Wir haben die Punkte 'Arbeitspakete', 'Zeitplan und Abhängigkeiten' sowie 'Ressourcenanforderung' zu einem Unterpunkt zusammengefasst.}\\
 
-\subsection{Arbeitspakete}\label{aps}
+Wir haben bisher nur die Phasen 'Projektplan' und 'Anforderungsspezifikation' vollständig in den Arbeitspaketen und Zuteilungen behandelt. Die übrigen Phasen des Projekts - Entwurf, Implementierung und Test - können zu diesem Zeitpunkt noch nicht detailliert beschrieben werden, sondern erfolgen stattdessen in grobem Format. \\
 
-Im Folgenden sind die einzelnen Arbeitspakete des Abschnitts Projektplan aufgeführt.
+\subsection{Arbeitspakete, Zeitplan, Abhängigkeiten und Ressourcenanforderungen}\label{aps}
 
-\textbf{1.Arbeitspakete für Projektplan} \\
-\textit{\textbf{Arbeitspaket 1.1}} \\
-\begin{tabular}{|p{7.5cm}|p{7.5cm}|}
-\hline
-\textbf{Bezeichnung} & Vorbereitung für Projektplanerstellung\\\hline
-\multicolumn{2}{|p{15cm}|}{\textbf{Beschreibung: }}  \\\hline
-\textbf{Hauptverantwortlicher} & Prüfsumme\\\hline
-\textbf{Abhängigkeit} & ....\\\hline
-\textbf{Ressourcen} & ....\\\hline
-\textbf{Aufwand und Gesamtdauer} & 10h, 120h\\\hline
-\textbf{Beginn} &.... \\\hline
-\textbf{Ende} & ....\\\hline
-\multicolumn{2}{|p{15cm}|}{\textbf{Mindestanforderungen: }}  \\\hline
-\end{tabular} \\\\
+Im Folgenden liefert eine grafische Übersicht in Form eines Gantt-Diagramms die grundlegenden Arbeitspakete.\todo{Einfügen des Diagramms u. Referenz darauf}\\
 
-\textit{\textbf{Arbeitspaket 1.2}} \\
-\begin{tabular}{|p{7.5cm}|p{7.5cm}|}
-\hline
-\textbf{Bezeichnung} & Vorbereitung für Projektplanerstellung\\\hline
-\multicolumn{2}{|p{15cm}|}{\textbf{Beschreibung: }}  \\\hline
-\textbf{Hauptverantwortlicher} & Prüfsumme\\\hline
-\textbf{Abhängigkeit} & ...\\\hline
-\textbf{Ressourcen} & GitHub,...\\\hline
-\textbf{Aufwand und Gesamtdauer} & 10h, 120h\\\hline
-\textbf{Beginn} & 13.10.2013\\\hline
+\paragraph{Hinweise zu den Begriffen in den Tabellen:} \textit{Der Punkt 'Gesamtdauer' der jeweiligen Arbeitspakete ist der Zeitbereich zwischen dem Beginn und dem Ende einer bestimmten Aktivität. Der 'Aufwand' ist die tatsächlich aufgewendete Zeit, in der auch gearbeitet wurde. Somit kann die 'Gesamtdauer' häufig höher ausfallen, wenn sich bestimmte Aktivitäten z.B. über Feiertage hinziehen. Mit der 'Abhängigkeit' ist gemeint, ob das Arbeitspaket von anderen abhängig ist, also im Prinzip einen Vorgänger hat. Mit den 'Ressourcen' sind stets Akteure unserer Gruppe gemeint. Der Punkt 'Mindestanforderungen' beschreibt gewissermaßen das Minimalziel des Arbeitspakets (Minimalbedingung), die mindestens erfüllt werden muss, damit es fertig ist.}\\
+
+\subsubsection{Projektplan}\label{aps}
+
+In den folgenden Tabellen sind die Arbeitspakete des Abschnitts 'Projektplan' dargestellt. Grafisch sind diese in einem weiteren Gantt-Diagramm realisiert\todo{Gantt-Diagramm+ Referenz}. \\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Gesamter Projektplan\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Anfertigung und Komplettierung des initalen Projektplans. Details erfolgen in den jeweiligen Unterpunkten.}  \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert und Tim Ellhoff\\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & -\\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 14.10.2013 \\\hline
 \textbf{Ende} & 20.10.2013\\\hline
-\multicolumn{2}{|p{15cm}|}{\textbf{Mindestanforderungen: }}  \\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Die Fertigstellung des initialen Projektplans ist erfolgt und wird durch das interne Gruppen-Review von allen Gruppenmitgliedern überprüft und abgesegnet (Qualitätssicherung).}  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Projektplanerstellung\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+siehe Unterpunkte}  \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert und Tim Ellhoff\\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & -\\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 17.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Die Unterpunkte des Projektplans wurden abgearbeitet und der Projektplan kann im Gruppenreview überprüft werden.}  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.1}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Einleitung\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Patrick Damrow\\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize}
+\itemsep0pt
+\item Patrick Damrow
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 17.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.2}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Projektorganisation\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Patrick Damrow\\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize}
+\itemsep0pt
+\item Patrick Damrow
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.3}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Managementprozess\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Daniel Pupat\\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize}
+\itemsep0pt
+\item Daniel Pupat
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.4}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Technische Prozesse\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Sebastian Bredehöft \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize}
+\itemsep0pt
+\item Sebastian Bredehöft
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.5}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Arbeitspakete, Zeitplan u. Budget\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert, Tim Ellhoff \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize}
+\itemsep0pt
+\item Tobias Dellert
+\item Tim Ellhoff
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 17.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.2}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Gruppenreview des Projektplans\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Im internen Gruppenreview wird der fertige Projektplan diskutiert, ggf. verbessert bzw. noch geändert.}  \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert, Tim Ellhoff \\\hline
+\textbf{Abhängigkeit} & 1 Projektplan, 1.1 Projektplanerstellung\\\hline
+\textbf{Ressourcen} & \begin{itemize}
+\itemsep0pt
+\item Tobias Dellert
+\item Tim Ellhoff
+\item Patrick Damrow
+\item Sebastian Bredehöft
+\item Daniel Pupat
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 19.10.2013 \\\hline
+\textbf{Ende} & 19.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Der Projektplan ist nun von allen Gruppenmitgliedern in einem Review noch einmal auf den Prüfstand gestellt worden und ist nun fertig. }  \\ \toprule
+\end{tabular} \\\\
+
+\subsubsection{Anforderungsspezifikation}\label{aps}
+
+In den folgenden Tabellen sind die Arbeitspakete des Abschnitts 'Anforderungsspezifikation' dargestellt. Grafisch sind diese in einem weiteren Gantt-Diagramm realisiert\todo{Gantt-Diagramm+ Referenz}.
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
 \end{tabular} \\\\
 
 
-{\em Besonderen Wert legen wir auf die Granularität der APs. Diese
-  sollten von 1-2 Personen in max. einer Woche Zeitdauer (kalendarisch, nicht
-  Aufwand) bearbeitbar sein. Die Beschreibungen sollten so genau sein,
-  dass der Bearbeiter damit genau weiß, was zu tun ist.}
+\subsubsection{Architekturbeschreibung}\label{aps}
 
-\subsection{Zeitplan und Abhängigkeiten}
+In den folgenden Tabellen sind die Arbeitspakete des Abschnitts 'Architekturbeschreibung' dargestellt. Grafisch sind diese in einem weiteren Gantt-Diagramm realisiert\todo{Gantt-Diagramm+ Referenz}.
 
-{\em Die Abhängigkeiten zwischen Arbeitspaketen oder Meilensteinen müssen genannt werden, sowie im
-  Gantt-Diagramm eingezeichnet werden. Der kritische Pfad soll
-  angegeben und/oder eingezeichnet werden!}
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
 
-\subsection{Ressourcenanforderung}
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
 
-{\em Jedem Arbeitspaket muss mind.\ ein Bearbeiter zugeordnet
-  werden. Die Zuordnung der ganzen Gruppe sollte nur in Ausnahmefällen
-  erfolgen -- und dann vermutlich begründet werden!}
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
 
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\subsubsection{Implementierung}\label{aps}
+
+In den folgenden Tabellen sind die Arbeitspakete des Abschnitts 'Implementierung' dargestellt. Grafisch sind diese in einem weiteren Gantt-Diagramm realisiert\todo{Gantt-Diagramm+ Referenz}.
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\subsubsection{Test}\label{aps}
+
+In den folgenden Tabellen sind die Arbeitspakete des Abschnitts 'Test' dargestellt. Grafisch sind diese in einem weiteren Gantt-Diagramm realisiert\todo{Gantt-Diagramm+ Referenz}.
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Sonstige Elemente\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Erledigung des Projektplanteils}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\subsubsection{Dokumentabgaben}\label{aps}
+
+\subsubsection{Sonstiges}\label{aps}
+
+\subsubsection{Meetings}\label{aps}
+
+\subsubsection{Kritischer Pfad}\label{aps}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sonstige Elemente}
