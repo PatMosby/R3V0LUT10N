@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<scenario xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2" id="mNvgARY8n7-">
+  <prototype-task>
+    <task id="t4294967294">
+      <title>Task 1</title>
+      <effort>28800</effort>
+    </task>
+  </prototype-task>
+  <prototype-task>
+    <task id="t4294967293">
+      <title>Milestone 1</title>
+      <type>milestone</type>
+    </task>
+  </prototype-task>
+  <prototype-task>
+    <task id="t4294967292">
+      <title>Group 1</title>
+      <type>group</type>
+    </task>
+  </prototype-task>
+  <prototype-resource>
+    <resource id="r4294967294">
+      <name>Resource 1</name>
+      <type>Staff</type>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r4294967293">
+      <name>Equipment 1</name>
+      <type>Equipment</type>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r4294967292">
+      <name>Material 1</name>
+      <type>Material</type>
+      <units-available>0</units-available>
+      <efficiency>0</efficiency>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r4294967291">
+      <name>Group 1</name>
+      <type>Group</type>
+    </resource>
+  </prototype-resource>
+  <top-resource idref="r-1"/>
+  <resource id="r-1">
+    <type>Group</type>
+    <schedule>
+      <schedule-day day-of-week="sunday"/>
+      <schedule-day day-of-week="monday">
+        <time-span start-time="28800" end-time="34200"/>
+      </schedule-day>
+      <schedule-day day-of-week="tuesday"/>
+      <schedule-day day-of-week="wednesday"/>
+      <schedule-day day-of-week="thursday"/>
+      <schedule-day day-of-week="friday"/>
+      <schedule-day day-of-week="saturday"/>
+      <calendar name="Time Off" editable="yes" overtime="no"/>
+      <calendar name="Overtime" editable="yes" overtime="yes"/>
+    </schedule>
+    <child-resource idref="r1"/>
+    <child-resource idref="r2"/>
+    <child-resource idref="r3"/>
+    <child-resource idref="r4"/>
+    <child-resource idref="r5"/>
+    <child-resource idref="r6"/>
+  </resource>
+  <resource id="r1">
+    <name>Patrick Damrow</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r2">
+    <name>Daniel Pupat</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r3">
+    <name>Tim Ellhoff</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r4">
+    <name>Tobias Dellert</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r5">
+    <name>Sebastian Bredehöft</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r6">
+    <name>Mohamadreza (Amir) Khostevan</name>
+    <type>Staff</type>
+  </resource>
+  <top-task idref="t-1"/>
+  <task id="t-1">
+    <type>group</type>
+    <child-task idref="t88"/>
+    <child-task idref="t19"/>
+  </task>
+  <task id="t16">
+    <title>Anforderungsspezifikation Dokument</title>
+    <type>group</type>
+    <child-task idref="t37"/>
+    <child-task idref="t44"/>
+    <child-task idref="t74"/>
+  </task>
+  <task id="t19">
+    <title>Abgabe Anforderungsspezifikation</title>
+    <type>milestone</type>
+  </task>
+  <task id="t37">
+    <title>Einleitung</title>
+    <type>group</type>
+    <child-task idref="t39"/>
+    <child-task idref="t40"/>
+    <child-task idref="t41"/>
+    <child-task idref="t42"/>
+    <child-task idref="t43"/>
+  </task>
+  <task id="t39">
+    <title>Zweck</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t40">
+    <title>Rahmen</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t41">
+    <title>Definitionen und Akronyme</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t42">
+    <title>Referenzen</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t43">
+    <title>Übersicht über das Dokument</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t44">
+    <title>Allgemeine Beschreibung</title>
+    <type>group</type>
+    <child-task idref="t45"/>
+    <child-task idref="t48"/>
+    <child-task idref="t57"/>
+    <child-task idref="t64"/>
+    <child-task idref="t65"/>
+    <child-task idref="t72"/>
+    <child-task idref="t73"/>
+  </task>
+  <task id="t45">
+    <title>Ergebnisse der Ist-Analyse</title>
+    <type>group</type>
+    <child-task idref="t46"/>
+    <child-task idref="t99"/>
+    <child-task idref="t47"/>
+    <child-task idref="t97"/>
+  </task>
+  <task id="t46">
+    <title>Analyse ähnlicher Systeme</title>
+    <effort>14400</effort>
+  </task>
+  <task id="t47">
+    <title>Kundengespräch</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t48">
+    <title>Produktperspektive</title>
+    <type>group</type>
+    <child-task idref="t49"/>
+    <child-task idref="t50"/>
+    <child-task idref="t51"/>
+    <child-task idref="t52"/>
+    <child-task idref="t53"/>
+    <child-task idref="t54"/>
+    <child-task idref="t55"/>
+    <child-task idref="t56"/>
+  </task>
+  <task id="t49">
+    <title>Systemschnittstellen</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t50">
+    <title>Benutzerschnittstelle </title>
+    <effort>28800</effort>
+  </task>
+  <task id="t51">
+    <title>Hardwareschnittstellen</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t52">
+    <title>Softwareschnittstellen</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t53">
+    <title>Kommunikationsschnittstellen</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t54">
+    <title>Speicherbeschränkung</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t55">
+    <title>Operationen (Betriebsmodi)</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t56">
+    <title>Möglichkeiten der lokalen Anpassung</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t57">
+    <title>Anwendungsfälle</title>
+    <type>group</type>
+    <child-task idref="t60"/>
+    <child-task idref="t61"/>
+  </task>
+  <task id="t60">
+    <title>Anwendungsfalldiagramm</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t61">
+    <title>Überblick der Anwendungsfälle</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t64">
+    <title>Charakteristika der Benutzer</title>
+    <type>group</type>
+    <child-task idref="t66"/>
+    <child-task idref="t67"/>
+  </task>
+  <task id="t65">
+    <title>Einschränkungen</title>
+    <type>group</type>
+    <child-task idref="t68"/>
+    <child-task idref="t69"/>
+    <child-task idref="t70"/>
+    <child-task idref="t71"/>
+  </task>
+  <task id="t66">
+    <title>Personas</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t67">
+    <title>Beschreibung der Personas</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t68">
+    <title>Rahmenbedingungen</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t69">
+    <title>Gesetzliche Rahmenbedingungen</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t70">
+    <title>Sicherheitskritische Aspekte</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t71">
+    <title>Mindestanforderungen in SWP2</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t72">
+    <title>Annahmen und Abhängigkeiten</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t73">
+    <title>Ausblick</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t74">
+    <title>Detaillierte Beschreibung</title>
+    <type>group</type>
+    <child-task idref="t76"/>
+    <child-task idref="t77"/>
+    <child-task idref="t78"/>
+    <child-task idref="t79"/>
+    <child-task idref="t80"/>
+    <child-task idref="t81"/>
+  </task>
+  <task id="t76">
+    <title>Datenmodell</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t77">
+    <title>Anwendungsfälle</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t78">
+    <title>Aktionen</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t79">
+    <title>Entwurfseinschränkungen</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t80">
+    <title>Softwaresystemattribute</title>
+    <type>group</type>
+    <child-task idref="t82"/>
+    <child-task idref="t83"/>
+    <child-task idref="t84"/>
+    <child-task idref="t85"/>
+    <child-task idref="t86"/>
+    <child-task idref="t87"/>
+  </task>
+  <task id="t81">
+    <title>Weitere Anforderungen</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t82">
+    <title>Performanz</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t83">
+    <title>Zuverlässigkeit</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t84">
+    <title>Vefügbarkeit</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t85">
+    <title>Sicherheit</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t86">
+    <title>Wartbarkeit</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t87">
+    <title>Portabilität</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t88">
+    <title>Anforderungsspezifikation</title>
+    <type>group</type>
+    <child-task idref="t90"/>
+    <child-task idref="t16"/>
+    <child-task idref="t91"/>
+  </task>
+  <task id="t90">
+    <title>GUI-Prototyp</title>
+    <type>group</type>
+    <child-task idref="t92"/>
+    <child-task idref="t93"/>
+  </task>
+  <task id="t91">
+    <title>Angebot</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t92">
+    <title>Storyboard</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t93">
+    <title>Design</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t97">
+    <title>Interview mit einem Mitarbeiter</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t99">
+    <title>Kundengespräch</title>
+    <type>milestone</type>
+    <completion-percentage>1</completion-percentage>
+  </task>
+  <critical-path root="-1" enabled="false" resources="false">
+    <color r="1" g="0.5" b="0.5"/>
+  </critical-path>
+</scenario>

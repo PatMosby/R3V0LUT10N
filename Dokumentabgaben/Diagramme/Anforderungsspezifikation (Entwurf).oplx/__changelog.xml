@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<changelog xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
+  <version>2.1</version>
+  <task-change-set user="Patrick Damrow" date="2013-10-18T02:22:58.753Z" timestamp="2013-10-18T02:22:58.753Z">
+    <change idref="t1" from="t-1" from-position="0" resolved="yes">
+      <change idref="t1" attribute="title" type="string" to="Task 1"/>
+    </change>
+    <change idref="t88" to="t-1" to-position="0" resolved="yes">
+      <change idref="t88" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t88" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t88" attribute="title" type="string" to="Anforderungsspezifikation"/>
+    </change>
+    <change idref="t19" to="t-1" to-position="1" resolved="yes">
+      <change idref="t19" attribute="effort" type="real" from="28800" to="0"/>
+      <change idref="t19" attribute="isSplittableTask" type="real" from="1" to="0"/>
+      <change idref="t19" attribute="percentCompleteForMilestone" type="real" to="0"/>
+      <change idref="t19" attribute="taskType" type="real" from="0" to="1"/>
+      <change idref="t19" attribute="title" type="string" to="Abgabe Anforderungsspezifikation"/>
+    </change>
+    <change idref="t39" to="t37" to-position="0" resolved="yes">
+      <change idref="t39" attribute="title" type="string" to="Zweck"/>
+    </change>
+    <change idref="t40" to="t37" to-position="1" resolved="yes">
+      <change idref="t40" attribute="title" type="string" to="Rahmen"/>
+    </change>
+    <change idref="t41" to="t37" to-position="2" resolved="yes">
+      <change idref="t41" attribute="title" type="string" to="Definitionen und Akronyme"/>
+    </change>
+    <change idref="t42" to="t37" to-position="3" resolved="yes">
+      <change idref="t42" attribute="title" type="string" to="Referenzen"/>
+    </change>
+    <change idref="t43" to="t37" to-position="4" resolved="yes">
+      <change idref="t43" attribute="title" type="string" to="Übersicht über das Dokument"/>
+    </change>
+    <change idref="t45" to="t44" to-position="0" resolved="yes">
+      <change idref="t45" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t45" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t45" attribute="title" type="string" to="Ergebnisse der Ist-Analyse"/>
+    </change>
+    <change idref="t48" to="t44" to-position="1" resolved="yes">
+      <change idref="t48" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t48" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t48" attribute="title" type="string" to="Produktperspektive"/>
+    </change>
+    <change idref="t57" to="t44" to-position="2" resolved="yes">
+      <change idref="t57" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t57" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t57" attribute="title" type="string" to="Anwendungsfälle"/>
+    </change>
+    <change idref="t64" to="t44" to-position="3" resolved="yes">
+      <change idref="t64" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t64" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t64" attribute="title" type="string" to="Charakteristika der Benutzer"/>
+    </change>
+    <change idref="t65" to="t44" to-position="4" resolved="yes">
+      <change idref="t65" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t65" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t65" attribute="title" type="string" to="Einschränkungen"/>
+    </change>
+    <change idref="t72" to="t44" to-position="5" resolved="yes">
+      <change idref="t72" attribute="title" type="string" to="Annahmen und Abhängigkeiten"/>
+    </change>
+    <change idref="t73" to="t44" to-position="6" resolved="yes">
+      <change idref="t73" attribute="title" type="string" to="Ausblick"/>
+    </change>
+    <change idref="t46" to="t45" to-position="0" resolved="yes">
+      <change idref="t46" attribute="effort" type="real" from="28800" to="14400"/>
+      <change idref="t46" attribute="title" type="string" to="Analyse ähnlicher Systeme"/>
+    </change>
+    <change idref="t99" to="t45" to-position="1" resolved="yes">
+      <change idref="t99" attribute="effort" type="real" from="28800" to="0"/>
+      <change idref="t99" attribute="isSplittableTask" type="real" from="1" to="0"/>
+      <change idref="t99" attribute="noLaterThanConstrainedTaskEnd" type="real" from="1" to="0"/>
+      <change idref="t99" attribute="percentCompleteForMilestone" type="real" to="1"/>
+      <change idref="t99" attribute="taskType" type="real" from="0" to="1"/>
+      <change idref="t99" attribute="title" type="string" to="Kundengespräch"/>
+    </change>
+    <change idref="t47" to="t45" to-position="2" resolved="yes">
+      <change idref="t47" attribute="title" type="string" to="Kundengespräch"/>
+    </change>
+    <change idref="t97" to="t45" to-position="3" resolved="yes">
+      <change idref="t97" attribute="title" type="string" to="Interview mit einem Mitarbeiter"/>
+    </change>
+    <change idref="t49" to="t48" to-position="0" resolved="yes">
+      <change idref="t49" attribute="title" type="string" to="Systemschnittstellen"/>
+    </change>
+    <change idref="t50" to="t48" to-position="1" resolved="yes">
+      <change idref="t50" attribute="title" type="string" to="Benutzerschnittstelle "/>
+    </change>
+    <change idref="t51" to="t48" to-position="2" resolved="yes">
+      <change idref="t51" attribute="title" type="string" to="Hardwareschnittstellen"/>
+    </change>
+    <change idref="t52" to="t48" to-position="3" resolved="yes">
+      <change idref="t52" attribute="title" type="string" to="Softwareschnittstellen"/>
+    </change>
+    <change idref="t53" to="t48" to-position="4" resolved="yes">
+      <change idref="t53" attribute="title" type="string" to="Kommunikationsschnittstellen"/>
+    </change>
+    <change idref="t54" to="t48" to-position="5" resolved="yes">
+      <change idref="t54" attribute="title" type="string" to="Speicherbeschränkung"/>
+    </change>
+    <change idref="t55" to="t48" to-position="6" resolved="yes">
+      <change idref="t55" attribute="title" type="string" to="Operationen (Betriebsmodi)"/>
+    </change>
+    <change idref="t56" to="t48" to-position="7" resolved="yes">
+      <change idref="t56" attribute="title" type="string" to="Möglichkeiten der lokalen Anpassung"/>
+    </change>
+    <change idref="t60" to="t57" to-position="0" resolved="yes">
+      <change idref="t60" attribute="title" type="string" to="Anwendungsfalldiagramm"/>
+    </change>
+    <change idref="t61" to="t57" to-position="1" resolved="yes">
+      <change idref="t61" attribute="title" type="string" to="Überblick der Anwendungsfälle"/>
+    </change>
+    <change idref="t66" to="t64" to-position="0" resolved="yes">
+      <change idref="t66" attribute="title" type="string" to="Personas"/>
+    </change>
+    <change idref="t67" to="t64" to-position="1" resolved="yes">
+      <change idref="t67" attribute="title" type="string" to="Beschreibung der Personas"/>
+    </change>
+    <change idref="t68" to="t65" to-position="0" resolved="yes">
+      <change idref="t68" attribute="title" type="string" to="Rahmenbedingungen"/>
+    </change>
+    <change idref="t69" to="t65" to-position="1" resolved="yes">
+      <change idref="t69" attribute="title" type="string" to="Gesetzliche Rahmenbedingungen"/>
+    </change>
+    <change idref="t70" to="t65" to-position="2" resolved="yes">
+      <change idref="t70" attribute="title" type="string" to="Sicherheitskritische Aspekte"/>
+    </change>
+    <change idref="t71" to="t65" to-position="3" resolved="yes">
+      <change idref="t71" attribute="title" type="string" to="Mindestanforderungen in SWP2"/>
+    </change>
+    <change idref="t76" to="t74" to-position="0" resolved="yes">
+      <change idref="t76" attribute="title" type="string" to="Datenmodell"/>
+    </change>
+    <change idref="t77" to="t74" to-position="1" resolved="yes">
+      <change idref="t77" attribute="title" type="string" to="Anwendungsfälle"/>
+    </change>
+    <change idref="t78" to="t74" to-position="2" resolved="yes">
+      <change idref="t78" attribute="title" type="string" to="Aktionen"/>
+    </change>
+    <change idref="t79" to="t74" to-position="3" resolved="yes">
+      <change idref="t79" attribute="title" type="string" to="Entwurfseinschränkungen"/>
+    </change>
+    <change idref="t80" to="t74" to-position="4" resolved="yes">
+      <change idref="t80" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t80" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t80" attribute="title" type="string" to="Softwaresystemattribute"/>
+    </change>
+    <change idref="t81" to="t74" to-position="5" resolved="yes">
+      <change idref="t81" attribute="title" type="string" to="Weitere Anforderungen"/>
+    </change>
+    <change idref="t82" to="t80" to-position="0" resolved="yes">
+      <change idref="t82" attribute="title" type="string" to="Performanz"/>
+    </change>
+    <change idref="t83" to="t80" to-position="1" resolved="yes">
+      <change idref="t83" attribute="title" type="string" to="Zuverlässigkeit"/>
+    </change>
+    <change idref="t84" to="t80" to-position="2" resolved="yes">
+      <change idref="t84" attribute="title" type="string" to="Vefügbarkeit"/>
+    </change>
+    <change idref="t85" to="t80" to-position="3" resolved="yes">
+      <change idref="t85" attribute="title" type="string" to="Sicherheit"/>
+    </change>
+    <change idref="t86" to="t80" to-position="4" resolved="yes">
+      <change idref="t86" attribute="title" type="string" to="Wartbarkeit"/>
+    </change>
+    <change idref="t87" to="t80" to-position="5" resolved="yes">
+      <change idref="t87" attribute="title" type="string" to="Portabilität"/>
+    </change>
+    <change idref="t90" to="t88" to-position="0" resolved="yes">
+      <change idref="t90" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t90" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t90" attribute="title" type="string" to="GUI-Prototyp"/>
+    </change>
+    <change idref="t16" to="t88" to-position="1" resolved="yes">
+      <change idref="t16" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t16" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t16" attribute="title" type="string" to="Anforderungsspezifikation Dokument"/>
+    </change>
+    <change idref="t91" to="t88" to-position="2" resolved="yes">
+      <change idref="t91" attribute="title" type="string" to="Angebot"/>
+    </change>
+    <change idref="t92" to="t90" to-position="0" resolved="yes">
+      <change idref="t92" attribute="title" type="string" to="Storyboard"/>
+    </change>
+    <change idref="t93" to="t90" to-position="1" resolved="yes">
+      <change idref="t93" attribute="title" type="string" to="Design"/>
+    </change>
+    <change idref="t37" to="t16" to-position="0" resolved="yes">
+      <change idref="t37" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t37" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t37" attribute="title" type="string" to="Einleitung"/>
+    </change>
+    <change idref="t44" to="t16" to-position="1" resolved="yes">
+      <change idref="t44" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t44" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t44" attribute="title" type="string" to="Allgemeine Beschreibung"/>
+    </change>
+    <change idref="t74" to="t16" to-position="2" resolved="yes">
+      <change idref="t74" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t74" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t74" attribute="title" type="string" to="Detaillierte Beschreibung"/>
+    </change>
+  </task-change-set>
+  <resource-change-set user="Patrick Damrow" date="2013-10-18T02:22:58.751Z" timestamp="2013-10-18T02:22:58.751Z">
+    <change idref="r-1" attribute="standardHoursString" type="string" from="-;-;-;-;-;-;-" to=";28800,34200;;;;;" resolved="yes"/>
+    <change idref="r2" to="r-1" to-position="1" resolved="yes">
+      <change idref="r2" attribute="name" type="string" to="Daniel Pupat"/>
+    </change>
+    <change idref="r3" to="r-1" to-position="2" resolved="yes">
+      <change idref="r3" attribute="name" type="string" to="Tim Ellhoff"/>
+    </change>
+    <change idref="r4" to="r-1" to-position="3" resolved="yes">
+      <change idref="r4" attribute="name" type="string" to="Tobias Dellert"/>
+    </change>
+    <change idref="r5" to="r-1" to-position="4" resolved="yes">
+      <change idref="r5" attribute="name" type="string" to="Sebastian Bredehöft"/>
+    </change>
+    <change idref="r6" to="r-1" to-position="5" resolved="yes">
+      <change idref="r6" attribute="name" type="string" to="Mohamadreza (Amir) Khostevan"/>
+    </change>
+    <change idref="r1" attribute="name" type="string" from="Resource 1" to="Patrick Damrow" resolved="yes"/>
+  </resource-change-set>
+  <metadata-change-set user="Patrick Damrow" date="2013-10-18T02:22:58.751Z" timestamp="2013-10-18T02:22:58.751Z">
+    <change idref="m1" attribute="fixedDate" type="date" from="2007-01-01T20:00:00.000Z" resolved="yes"/>
+    <change idref="m1" attribute="projectTitle" type="string" to="Anforderungsspezifikation" resolved="yes"/>
+  </metadata-change-set>
+</changelog>
