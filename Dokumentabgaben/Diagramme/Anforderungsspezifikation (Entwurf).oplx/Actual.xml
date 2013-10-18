@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <scenario xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2" id="mNvgARY8n7-">
+  <start-date>2013-10-19T22:00:00.000Z</start-date>
   <prototype-task>
     <task id="t4294967294">
       <title>Task 1</title>
