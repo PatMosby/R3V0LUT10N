@@ -63,6 +63,19 @@
   \\Projektplan}
   \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\\slshape \rightmark}
 
+% neuer Befehl: \includegraphicstotab[..]{..}
+% Verwendung analog wie \includegraphics
+\newlength{\myx} % Variable zum Speichern der Bildbreite
+\newlength{\myy} % Variable zum Speichern der Bildhöhe
+\newcommand\includegraphicstotab[2][\relax]{%
+% Abspeichern der Bildabmessungen
+\settowidth{\myx}{\includegraphics[{#1}]{#2}}%
+\settoheight{\myy}{\includegraphics[{#1}]{#2}}%
+% das eigentliche Einfügen
+\parbox[c][1.1\myy][c]{\myx}{%
+\includegraphics[{#1}]{#2}}%
+}% Ende neuer Befehl
+
 %
 % Und jetzt geht das Dokument los....
 %
@@ -156,6 +169,7 @@ Version & Datum & Änderungen \\
 0.2.1 & 17.10.2013 & Prozessmodell und Organisationsstruktur eingefügt.\\
 0.2.2 & 17.10.2013 & Org.grenzen und -schnitst., Verantwortlichkeiten eingefügt.\\
 0.2.3 & 17.10.2013 & Tabellen in 1 und 2 eingefügt.\\
+0.3 & 19.10.2013 & Managementprozesse hinzugefügt.\\
 1.0 & 20.10.2013 & Erste veröffentlichte Version. \\
 %1.1 & TT.MM.JJJJ & Zeitplanung für die Anforderungsspezifikation hinzugefügt. \\
 %1.2 & TT.MM.JJJJ & .... 
@@ -299,11 +313,11 @@ In der Folgenden Tabelle \ref{tableMitarbeiter} stehen die Kontaktdaten aller am
 \begin{tabular}{|c|c|c|}
 \hline 
 \textbf{Name} & \textbf{Email} & \textbf{Foto}\\ \hline \hline
-Bredehöft, Sebastian & sbrede@tzi.de & bild einfügen \\ \hline
+Bredehöft, Sebastian & sbrede@tzi.de & \includegraphicstotab[scale=0.09]{sebastian.jpg} \\ \hline
 Damrow, Patrick & damsen@tzi.de & bild einfügen\\ \hline
 Dellert, Tobias & tode@tzi.de & bild einfügen\\\hline
-Pupat, Daniel & dpupat@informatik.uni-bremen.de & bild einfügen \\ \hline
-Ellhoff, Tim & tellhoff@tzi.de & bild einfügen\\ \hline
+Pupat, Daniel & dpupat@informatik.uni-bremen.de & \includegraphicstotab[scale=0.45]{daniel.jpg} \\ \hline
+Ellhoff, Tim & tellhoff@tzi.de & \includegraphicstotab[scale=0.1]{tim.jpg}\\ \hline
 Khostevan, Mohamadreza (Amir) & amirkh@tzi.de & bild einfügen \\ \hline
 \end{tabular}
 \end{table}
@@ -489,8 +503,8 @@ Ein weiteres Ziel ist es, dem Produkt eine hohe Qualität zu geben. Dies ist not
 Dieses Ziel hat eine hohe Priorität, da dies notwendig ist um den Kunden zufriedenzustellen und eine gute Note zu erreichen.\\
 \bigskip \\
 \underline{Weiterentwicklung des Produktes:} \\
-Es ist auch wichtig, das Produkt so zu entwickeln, damit dieses später bei Bedarf von anderen weiterentwickelt werden kann. Dies erfordert eine strukturierte Implementierung.\\
-Dieses Ziel hat niedrige Priorität, da wir in erster Linie das Modul bestehen wollen
+Es ist auch wichtig, das Produkt so zu entwickeln, damit dieses später bei Bedarf von Anderen weiterentwickelt werden kann. Dies erfordert eine strukturierte Implementierung.\\
+Dieses Ziel hat niedrige Priorität, da wir in erster Linie das Modul bestehen wollen.
 \bigskip \\
 \underline{Kundenzufriedenheit:}\\
 Es ist sehr wichtig, dass der Kunde später zufrieden ist, was bedeutet, dass man die Mindestanforderungen erfüllt und darüber hinaus noch weitere Features einbindet, da nur so der Kunde wirklich zufrieden ist. \\
@@ -501,7 +515,7 @@ Ein wichtiger Faktor ist die Kommunikation innerhalb der Gruppe. Wenn man sich n
 Dieses Ziel hat bei uns eine hohe Priorität, da ohne Kommunikation das Projekt mit hoher Wahrscheinlichkeit scheitert.\\
 \bigskip \\
 \underline{Klima innerhalb der Gruppe:} \\
-Ein gutes Gruppenklima heißt, dass innerhalb der Gruppe alle gut miteinander auskommen und es keinen Streit gibt. Außerdem muss man den anderen vertrauen können, dass sie immer rechtzeitig fertig werden und bei Problemen Bescheid geben.\\
+Ein gutes Gruppenklima heißt, dass innerhalb der Gruppe alle gut miteinander auskommen und es keinen Streit gibt. Außerdem muss man den Anderen vertrauen können, dass sie immer rechtzeitig fertig werden und bei Problemen Bescheid geben.\\
 Dies hat ebenfalls eine hohe Priorität, da gerade das Vertrauen und die Zuverlässigkeit sehr wichtig sind, damit alles rechtzeitig fertig wird.
 \bigskip \\
 \underline{Gute Note:}\\
@@ -549,20 +563,6 @@ Jeder von uns belegt noch weitere Module und hat deswegen nur eine gewisse Zeit 
 
 \subsection{Risikomanagement}\label{riskmanagement}
 
-{\em Wenn Ihr Euch entschieden habt, bestimmte vorbeugende Maßnahmen 
-     durchzuführen, solltet Ihr dies deutlich kennzeichnen. Hoffentlich
-     haben diese Maßnahmen dann einen Einfluss auf Eintrittswahrscheinlichkeit oder Schadenshöhe (zum Beispiel
-     ist die Eintrittswahrscheinlichkeit von komplettem Datenverlust durch regelmäßige Backups deutlich 
-     geringer). Daher solltet Ihr für diese Fälle dann die verringerten Werte für Eintrittswahrscheinlichkeit, 
-     Schadenshöhe und Risikopotential zusätzlich angeben. }
-
-{\em Wie werden neue Risiken erkannt/erfasst? Wer ist für was
-  zuständig? Wie ist der Informationsfluss? \ldots 
-
-Dieser Teil ist ein
-  wichtiger Schwerpunkt des Projektplans und sollte daher ausführlich
-  behandelt werden.}
-
 \begin{center}
 \begin{tabular}{|c|c|c|c|} \hline 
 \textbf{Risiko} & \textbf{EW (1-10)} & \textbf{SH (1-10)} & \textbf{RH}\\ \hline \hline
@@ -579,28 +579,37 @@ Zeitmangel & 6 & 6 & 36\\ \hline
 Probleme mit neuen Technologien & 5 & 3 & 15\\ \hline
 Ausfall von GitHub & 1 & 8 & 8\\ \hline
 Ausfall des Glassfish-servers & 1 & 8 & 8\\ \hline
+Mindestanforderung des Kunden falsch interpretiert & 3 & 9 & 27\\ \hline
+Fehler in Architekturbeschreibung & 3 & 7 & 21\\ \hline
 \end{tabular}
 \end{center}
 EW = Eintrittswahrscheinlichkeit(Skala 1:gering - 10:hoch)\\
 SH = Schadenshöhe (Skala 1:gering - 10:hoch)\\
 RH = Risikohöhe (EW * SH)\\
-\bigskip \\
+
+\bigskip 
+
 \textbf{\underline{Krankheitsbedingter Ausfall eines/mehrerer Gruppenmitglieds/er:}}\\
 Aufgrund von Krankheiten fallen eine oder mehrere Personen aus und können nicht mehr richtig oder für eine gewisse Zeit überhaupt nicht mehr mitarbeiten. Dadurch kommt auf die restliche Gruppe mehr Arbeit zu.\\
-\textbf{Maßnahmen:}\\
+\textbf{Maßnahmen zur Schadensbegrenzung:}\\
 1. Gruppenmitglied benachrichtigt die anderen Mitglieder so früh wie möglich, damit diese sich darauf einstellen können.\\
 2. Die Gruppe sucht Gespräch mit dem Tutor, wenn mehrere Personen ausfallen.\\
-\bigskip \\
+
+\bigskip 
+
 \textbf{\underline{Austritt eines/mehrerer Gruppenmitglieds/er:}}\\
 Aufgrund von Zeitmangel, Studienabbruch und anderen Gründen kann es jederzeit passieren, dass Gruppenmitglieder aus der Gruppe austreten. Dadurch müssen die anderen Personen dann entsprechend mehr arbeiten, was zu Problemen führen kann.\\
-\textbf{Maßnahmen:}\\
-1. Bei einem Austritt aus der Gruppe gibt das Mitglied den anderen sofort Bescheid, damit diese sich rechtzeitig auf die Mehrarbeit einstellen können.\\
-2. Sollten mehrere Mitglieder austreten, Gespräch mit dem Tutor suchen um gegebenenfalls die Anforderungen zu senken.\\
-3. Im Zeitplan vor den Deadlines immer ein wenig Zeit überlassen, um durch einen plötzlichen Austritt die Abgabe noch rechtzeitig zu schaffen.\\
-\bigskip \\
+\textbf{Maßnahmen zur Vorbeugung:}\\
+1. Im Zeitplan vor den Deadlines immer ein wenig Zeit überlassen, um durch einen plötzlichen Austritt die Abgabe noch rechtzeitig zu schaffen.\\
+\textbf{Maßnahmen zur Schadensbegrenzung:}\\
+2. Bei einem Austritt aus der Gruppe gibt das Mitglied den anderen sofort Bescheid, damit diese sich rechtzeitig auf die Mehrarbeit einstellen können.\\
+3. Sollten mehrere Mitglieder austreten, Gespräch mit dem Tutor suchen um gegebenenfalls die Anforderungen zu senken.\\
+
+\bigskip 
+
 \textbf{\underline{Inkompetenz eines Gruppenmitglieds:}}\\
 Es kann passieren das ein Gruppenmitglied Inkompetent ist und somit nicht in der Lage die ihm zugeteilten Aufgaben zu lösen. Das kann daran liegen, dass dieses Mitglied im bisherigen Studienverlauf immer durch andere Gruppenmitglieder die Module bestanden hat. Dabei kann es passieren, dass dieses Unentdeckt bleibt und so erst spät festgestellt wird das ein Teil nicht funktioniert.\\
-\textbf{Maßnahmen:}\\
+\textbf{Maßnahmen zur Schadensbegrenzung:}\\
 1. Durch wöchentliche Treffen wird der Fortschritt besprochen und wenn jemand dieses nicht hinbekommt, wird dieses frühzeitig erkannt und der Teil kann unter den anderen Mitgliedern aufgeteilt werden.\\
 2. Jedes Gruppenmitglied sollte sich bei Problemen frühzeitig an die Gruppe wenden, damit die anderen diesen helfen können. \\
 3. Wenn dieses Gruppenmitglied zu einer Belastung für die Gruppe wird, kann durch eine Gruppenentscheidung dieses Mitglied aus der Gruppe ausgeschlossen werden. \\
@@ -608,68 +617,108 @@ Es kann passieren das ein Gruppenmitglied Inkompetent ist und somit nicht in der
 \bigskip
 
 \textbf{\underline{Mangelhafte Kommunikation innerhalb der Gruppe:}}\\
-Da wir in einer relativ großen Gruppe arbeiten, wird die Arbeit aufgeteilt. Dabei sind viele Teilaufgaben abhängig von anderen, was dazu führen kann, dass ohne Kommunikation die Teilaufgaben oder Implementierungen nicht zusammenpassen. Dadurch kann es im späteren Verlauf zu großen Problemen kann, da so die Software evtl. nicht läuft.\\
-\textbf{Maßnahmen:}
-1. Jeder sollte sich die Aufgaben der anderen Mitglieder immer durchlesen und gerade bei abhängigen Aufgabenteilen genau drauf achten, dass diese zusammenpassen.\\
-2. Die Mitglieder, die stark voneinander abhängige Aufgaben haben, sollte sich vorher genau absprechen und auch die ganze Zeit in Kontakt bleiben, um Missverständnisse zu vermeiden.\\
-3. In den wöchentlichen Treffen jede Aufgabe ansprechen, damit jeder weiß, was ungefähr die anderen Mitglieder wie machen.\\
+Da wir in einer relativ großen Gruppe arbeiten, wird die Arbeit aufgeteilt. Dabei sind viele Teilaufgaben abhängig von anderen, was dazu führen kann, dass ohne Kommunikation die Teilaufgaben oder Implementierungen nicht zusammenpassen. Dadurch kann es im späteren Verlauf zu großen Problemen kommen, da so die Software evtl. nicht läuft.\\
+\textbf{Maßnahmen zur Vorbeugung:}\\
+1. Die Mitglieder, die stark voneinander abhängige Aufgaben haben, sollte sich vorher genau absprechen und auch die ganze Zeit in Kontakt bleiben, um Missverständnisse zu vermeiden.\\
+2. In den wöchentlichen Treffen jede Aufgabe ansprechen, damit jeder weiß, was ungefähr die anderen Mitglieder wie machen.\\
+\textbf{Maßnahmen zur Schadensbegrenzung:}\\
+3. Jeder sollte sich die Aufgaben der anderen Mitglieder immer durchlesen und gerade bei abhängigen Aufgabenteilen genau drauf achten, dass diese zusammenpassen.\\
 
 \bigskip
 
 \textbf{\underline{Teilung der Gruppe:}}\\
-Wenn es Probleme oder Unstimmigkeiten innerhalb der Gruppe gibt und sich zwei Lager bilden, kann es dazu führen, dass sich die Gruppe trennen muss. Dies kann auch passieren, wenn sich herausstellen sollte, dass die Mitglieder starke Unterschiedliche Fähigkeiten besitzen und so die besseren die Hauptarbeit verrichten müssen und diese damit nicht einverstanden sind.\\
-\textbf{Maßnahmen:}
-1. Bei Problemen und Unstimmigkeiten das Gespräch suchen und diese Ansprechen und gegebenfalls auch den Tutor hinzuziehen, um die Probleme zu lösen.\\
-2. Bei unterschiedlichen Fähigkeiten früh festlegen, dass diese später bessere Noten bekommen, damit diese auch zufrieden sind.\\
+Wenn es Probleme oder Unstimmigkeiten innerhalb der Gruppe gibt und sich zwei Lager bilden, kann es dazu führen, dass sich die Gruppe trennen muss. Dies kann auch passieren, wenn sich herausstellen sollte, dass die Mitglieder starke unterschiedliche Fähigkeiten besitzen und so die besseren Personen die Hauptarbeit verrichten müssen und diese damit nicht einverstanden sind.\\
+\textbf{Maßnahmen zur Vorbeugung:}\\
+1. Bei unterschiedlichen Fähigkeiten früh festlegen, dass diese später bessere Noten bekommen, damit diese auch zufrieden sind.\\
+\textbf{Maßnahmen zur Schadensbegrenzung:}\\
+2. Bei Problemen und Unstimmigkeiten das Gespräch suchen und diese Ansprechen und gegebenfalls auch den Tutor hinzuziehen, um die Probleme zu lösen.\\
 
 \bigskip
 
 \textbf{\underline{Auflösung der Gruppe:}}\\
-Es kann durch schlechte Abgaben, Zeitmangel, Unstimmigkeiten und Gruppenaustritten die Gruppe auflösen, was zu einem nicht bestehen des Moduls führen würde, da man alleine dieses wahrscheinlich nicht hinbekommen würde. \\
-\textbf{Maßnahmen:}
+Es kann durch schlechte Abgaben, Zeitmangel, Unstimmigkeiten und Gruppenaustritten eine Gruppenauflösung geben, was zu einem nicht bestehen des Moduls führen würde, da man alleine dieses wahrscheinlich nicht hinbekommen würde. \\
+\textbf{Maßnahmen zur Vorbeugung:}
 1. Bei Problemen frühzeitig das Gespräch suchen, um zu verhindern, dass sich die Gruppe auflöst.\\
 
 \bigskip
 
 \textbf{\underline{Unzuverlässigkeit eines Gruppenmitglieds:}}\\
 Wenn ein Gruppenmitglied seine Aufgaben nicht zu dem geplanten Zeitpunkt fertig bekommt, da er keine Zeit hatte oder andere Prioritäten gesetzt hat, kann es dazu führen, dass die Abgabe nicht vollständig ist und es eine 5.0 für die Abgabe gibt.\\
-\textbf{Maßnahmen:}
-1. Im wöchentlichen Treffen den Fortschritt jedes Mitglieds begutachten und evtl. darauf reagieren, sollte ein Mitglied nicht im Zeitplan sein.\\
-2. Mitglied, wenn es die Aufgaben nicht macht beim ersten mal ermahnen und bei wiederholten male aus der Gruppe  ausschließen.\\
-3. Bei der Planung der Zeit immer ein wenig Luft lassen, damit man noch reagieren kann, falls ein Mitglied seine Aufgaben nicht gemacht hat.\\
+\textbf{Maßnahmen zur Vorbeugung:}\\
+1. Bei der Planung der Zeit immer ein wenig Luft lassen, damit man noch reagieren kann, falls ein Mitglied seine Aufgaben nicht gemacht hat.\\
+\textbf{Maßnahmen zur Schadensbegrenzung:}\\
+2. Im wöchentlichen Treffen den Fortschritt jedes Mitglieds begutachten und evtl. darauf reagieren, sollte ein Mitglied nicht im Zeitplan sein.\\
+3. Mitglied, wenn es die Aufgaben nicht macht beim ersten Mal ermahnen und bei wiederholten Male aus der Gruppe  ausschließen.\\
 
 \bigskip
 
 \textbf{\underline{Unstimmigkeiten in der Gruppe:}}\\
 Da sich in der Gruppe Leute befinden, die sich vorher nicht kannten, kann es passieren, dass sich Mitglieder mit anderen Mitgliedern nicht verstehen und so das Gruppenklima stören.\\
-\textbf{Maßnahmen:}
+\textbf{Maßnahmen zur Schadensbegrenzung:}\\
 1. Bei einem Problem, müssen die anderen Gruppenmitglieder schlichten und z.B die Probleme in einem Gruppentreffen ansprechen und lösen.\\
 
 \bigskip 
 
 \textbf{\underline{Mangelnde Motivation in der Gruppe:}}\\
-Beschreibung folgt...\\
+Da SWP 2 sehr zeitaufwendig ist und sich Abgaben über mehrere Wochen erstrecken, kann es gerade am Anfang einer neuen Abgabe zu Mangelnder Motivation kommen, da man denkt, dass man noch genug Zeit hat.\\
+\textbf{Maßnahmen zur Vorbeugung:}\\
+1. Treffen mit der Gruppe planen, ohne am Projekt zu arbeiten, um die Moral der Gruppe zu stärken und sich gegenseitig zu motivieren.\\
 
 \bigskip
 
 \textbf{\underline{Zeitmangel:}}\\
-Beschreibung folgt...\\
+Da es feste Deadlines für die einzelnen Abgaben gibt, kann es zu Zeitproblemen kommen. Auch durch Ausfälle von Mitgliedern oder schlechte Zeiteinplanung kann es zu zeitlichen Mangel kommen.\\
+\textbf{Maßnahmen zur Vorbeugung:}\\
+1. Bei der Planung immer einen Zeitpuffer lassen, damit man noch vor den Abgaben Luft hat falls es irgendwelche Probleme während der Bearbeitungsphase gibt.\\
+2. Bei den wöchentlichen Treffen immer überprüfen, ob jeder im Zeitplan ist, um notfalls noch früh genug auf Zeitprobleme zu reagieren.\\
+\textbf{Maßnahmen zur Schadensbegrenzung:}\\
+3. Wenn ein Aufgabenteil in Zeitverzug kommt, diesen auf mehreren Mitgliedern aufteilen, damit dieser noch rechtzeitig fertig wird.\\
 
 \bigskip
 
 \textbf{\underline{Probleme mit neuen Technologien:}}\\
-Beschreibung folgt...\\
+Da wir mit Technologien arbeiten müssen, mit denen wir noch keine oder nur wenig Erfahrung haben wie z.B. Android, kann dies zu unerwarteten Problemen führen. Dadurch kann sich der zeitliche Aufwand stark erhöhen.\\
+\textbf{Maßnahmen zur Vorbeugung:}\\
+1. Im Zeitplan bereits Zeit zur Einarbeitung neuer Programme einplanen, damit es noch genug Zeit zur Bearbeitung gibt.\\
+2. Vorher die Mitglieder so aufteilen, dass die Personen die bereits Erfahrung mit den jeweiligen Technologien haben, diese Aufgabenteile übernehmen.\\
+\textbf{Maßnahmen zur Schadensbegrenzung:}\\
+3. Falls ein Gruppenmitglied mit einer Technologie überhaupt nicht zurecht kommt, können die Aufgaben mit einem anderen Mitglied getauscht werden.\\
 
 \bigskip
 
 \textbf{\underline{Ausfall von GitHub}}\\
-Beschreibung folgt...\\
+Wir benutzen GitHub als Repository. Es kann passieren, dass es Probleme mit dem Server gibt, was bei uns zu organisatorischen Problemen führen kann.
+\textbf{Maßnahmen zur Vorbeugung:}\\
+1. Jeder sollte regelmäßig Back-ups durchführen, damit man sichergehen kann, dass keine Daten bei einem Serverabsturz verloren gehen.\\
+\textbf{Maßnahmen zur Schadensbegrenzung:}\\
+2. Bei einem Server Ausfall werden dem Phasenleiter alle Dokumente per E-Mail geschickt, damit dieser diese zusammenfügen und abschicken kann.\\
 
 \bigskip
 
 \textbf{\underline{Ausfall des Glassfish-servers}}\\
-Beschreibung folgt...\\
+Da wir mit Glassfish arbeiten, kann es passieren, dass dieser kurzzeitig ausfällt. Das würde dazu führen, dass man das Programm nicht ausführen und somit nicht vernünftig testen kann.\\
+\textbf{Maßnahmen:}\\
+Da es keine Ausweichmöglichkeit gibt, können hier keine Maßnahmen getroffen werden.\\
 
+\bigskip 
+
+\textbf{\underline{Mindestanforderung des Kunden falsch interpretiert:}}\\
+Da es viele Forderungen des Kunden gibt, kann es sein, dass eine falsch verstanden oder vergessen wird und das zu einem nicht bestehen führen würde.\\
+\textbf{Maßnahmen zur Vorbeugung:}\\
+1. Jedes Mitglied sollte vor der Abgabe für sich alleine noch einmal alle Anforderungen überprüfen und bei zweifeln die Gruppe informieren.\\
+2. Bei unklaren Forderungen im Kundengespräch bereits konkrete Fragen dazu stellen.\\
+
+\bigskip
+
+\textbf{\underline{Fehler in Architekturbeschreibung:}}\\
+Es kann passieren, dass man in der Architekturbeschreibung bereits Fehler eingebaut hat, die dann später bei der Implementierung entdeckt werden. Dadurch können große Probleme auftreten, gerade wenn man versucht 2 Code Stücke zusammenzufügen.\\
+\textbf{Maßnahmen zur Vorbeugung:}\\
+1. Bei der Architekturbeschreibung konzentriert arbeiten und sich Zeit lassen für Klassendiagramme etc., damit dort möglichst keine Fehler auftreten.\\
+\textbf{Maßnahmen zur Schadensbegrenzung:}\\
+2. Sollte jemanden ein Fehler auffallen, der mehrere Komponenten betrifft, sollte dieser möglichst schnell mit der ganzen Gruppe gelöst werden.\\ 
+
+\bigskip 
+\textbf{Die Maßnahmen zur Vorbeugung werden über die gesamte Zeit des Projektes angewendet, bei den Maßnahmen zur Schadensbegrenzung nach Eintritt entscheidet der Phasenleiter, welche Maßnahmen getroffen werden.}\\
 \bigskip 
 
 Aufgrund der getroffenen Maßnahmen verändern sich die Werte wie folgt:\\
@@ -686,29 +735,32 @@ Teilung der Gruppe & 1 & 8 & 8\\ \hline
 Auflösung der Gruppe & 1 & 10 & 10\\ \hline
 Unzuverlässigkeit eines Gruppenmitglieds & 2 & 7 & 14\\ \hline
 Unstimmigkeiten in der Gruppe & 1 & 5 & 5\\ \hline
-Mangelnde Motivation in der Gruppe & 6 & 5 & 30\\ \hline
-Zeitmangel & 6 & 6 & 36\\ \hline
-Probleme mit neuen Technologien & 5 & 3 & 15\\ \hline
-Ausfall von GitHub & 1 & 8 & 8\\ \hline
+Mangelnde Motivation in der Gruppe & 5 & 5 & 25\\ \hline
+Zeitmangel & 4 & 5 & 20\\ \hline
+Probleme mit neuen Technologien & 4 & 2 & 8\\ \hline
+Ausfall von GitHub & 1 & 6 & 6\\ \hline
 Ausfall des Glassfish-servers & 1 & 8 & 8\\ \hline
+Mindestanforderung des Kunden falsch interpretiert & 2 & 9 & 18\\ \hline
+Fehler in Architekturbeschreibung & 3 & 5 & 15\\ \hline
 \end{tabular}
 \end{center}
 
 NEW = Neue Eintrittswahrscheinlichkeit(Skala 1:gering - 10:hoch)\\
 NSH = Neue Schadenshöhe (Skala 1:gering - 10:hoch)\\
-NRH = Neue Risikohöhe (NEW * NSH)\\\textbf{Inkompetenz eines Gruppenmitglieds:}\\
+NRH = Neue Risikohöhe (NEW * NSH)\\
 
 
 
 \subsection{Projektüberwachung}\label{3.4-controlling}
 
-Um das Projekt zu überwachen, wird mindestens einmal die Woche ein Treffen stattfinden, wo überprüft wird, wie weit jeder ist. Außerdem wird es einen permanenten Austausch über Skype geben, wo nachgefragt wird, ob es noch Probleme gibt. \\
-Es wird auch für jede Phase einen Phasenleiter geben, der dafür zuständig ist, den Zeitplan im Auge zu behalten. Diesem Phasenleiter muss dann jedes Gruppenmitglied regelmäßig Bescheid geben, wie weit die Teilaufgabe bereits bearbeitet ist.\\
-Sollte es Probleme bzw. Verzögerungen geben, werden diese im wöchentlichen Treffen angesprochen und gemeinsam gelöst, indem z.B. die in Verzögerung geratene Aufgabe unter den Mitgliedern aufgeteilt wird.\\
-Bei größeren Problemen kann ein Treffen spontan einberufen werden oder es wird direkt bei Skype angesprochen und da versucht, dies zu lösen. Dabei ist wichtig, dass die Probleme bzw. Verzögerungen immer von der Gruppe erledigt werden, damit es nicht zur Verärgerung kommt, wenn der Phasenleiter dies alleine entscheidet.
+Um das Projekt zu überwachen, wird jeden Montag ein Treffen stattfinden, wo überprüft wird, wie weit jeder ist. Später wenn die Aufgaben stark voneinander Abhängig sind, wird es noch ein Treffen am Freitag geben, um sich untereinander besser abzusprechen. Dies wird gerade ab der Architektur wichtig. Außerdem wird es einen permanenten Austausch über Skype geben, indem über Probleme und Anliegen diskutiert wird. Dieser läuft in erster Linie über einen Gruppenchat ab, sollte es aber einmal etwas konkreter werden, wird untereinander telefoniert. \\
+Es wird auch für jede Phase einen Phasenleiter geben, der dafür zuständig ist, den Zeitplan im Auge zu behalten. Diesem Phasenleiter muss dann jedes Gruppenmitglied regelmäßig Bescheid geben, wie weit die Teilaufgabe bereits bearbeitet ist. Sollte es Probleme geben, ist die Aufgabe des Phasenleiters das Risiko einzuschätzen und Maßnahmen zu treffen, welche im Punkt Risikomanagement erläutert sind.\\
+Bei größeren Problemen kann ein Treffen spontan einberufen werden oder es wird direkt bei Skype angesprochen und da versucht, dies zu lösen.
 
 \subsection{Mitarbeiter}
-{\em Kompetenzen der und Anforderungen an die Mitarbeiter.}
+
+Die Mitarbeiter sollten ausreichend Programmierkenntnisse in Java haben, damit diese später auch in der Lage sind die Bibliothek zu entwerfen. Auch sollten diese zumindest an SWP 1 teilgenommen haben, um zumindest die Grundkenntnisse zu haben, um die Aufgaben zu bearbeiten. \\
+Die Mitarbeiter sollten auch in der Lage zu sein im Team zu arbeiten und sich eigenständig in Themengebiete einzuarbeiten. Bei Problemen sollten die Mitarbeiter sich direkt an die Gruppe wenden, damit diese frühzeitig gelöst werden. Außerdem sollten sie genügend Kenntnisse in Deutsch und Englisch haben, um sich in den Sprachen vernünftig auszudrücken. Die Mitarbeiter sollten zudem noch genügend Kenntnisse in Latex haben, sowie SQL Statements erstellen können. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -816,8 +868,8 @@ In den folgenden Tabellen sind die Arbeitspakete des Abschnitts 'Projektplan' da
 \multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1}}} \\ \toprule \hline
 \textbf{Bezeichnung} & Gesamter Projektplan\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-Anfertigung und Komplettierung des initialen Projektplans. Details erfolgen in den jeweiligen Unterpunkten.}  \\\hline
-\textbf{Hauptverantwortlicher} & Tobias Dellert\\\hline
+Anfertigung und Komplettierung des initalen Projektplans. Details erfolgen in den jeweiligen Unterpunkten.}  \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert und Tim Ellhoff\\\hline
 \textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & -\\\hline
 \textbf{Aufwand, Gesamtdauer} & \\\hline
@@ -832,7 +884,7 @@ Die Fertigstellung des initialen Projektplans ist erfolgt und wird durch das int
 \textbf{Bezeichnung} & Projektplanerstellung\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
 siehe Unterpunkte}  \\\hline
-\textbf{Hauptverantwortlicher} & Tobias Dellert\\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert und Tim Ellhoff\\\hline
 \textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & -\\\hline
 \textbf{Aufwand, Gesamtdauer} & \\\hline
@@ -846,7 +898,7 @@ Die Unterpunkte des Projektplans wurden abgearbeitet und der Projektplan kann im
 \multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.1}}} \\ \toprule \hline
 \textbf{Bezeichnung} & Einleitung\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-Erledigung des Projektplanteils}  \\\hline
+\textit{Erledigung des Projektplanteils:} Die Projektübersicht liefert die Ziele, Hauptarbeitsaktivitäten und -produkte, die Hauptmeilensteine und einen groben Zeitplan, die Erfassung der Ressourcen, die zur Verfügung stehenden Budgets sowie die Kontaktdaten des Kunden und Informationen über die Mitarbeiter am Projekt. Des Weiteren beinhaltet die Einleitung eine Übersicht der auszuliefernden  Produkte mit Terminangaben , sowie Informationen über die Evolution des Plans und die Festlegung von Definitionen bzw. Akronymen.}  \\\hline
 \textbf{Hauptverantwortlicher} & Patrick Damrow\\\hline
 \textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & \begin{itemize}
@@ -864,7 +916,7 @@ Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben w
 \multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.2}}} \\ \toprule \hline
 \textbf{Bezeichnung} & Projektorganisation\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-Erledigung des Projektplanteils}  \\\hline
+\textit{Erledigung des Projektplanteils:} In diesem Abschnitt wird das verwendete Prozessmodell beschrieben, die Organisationsstruktur festgelegt (insbes. Pflichten der Gruppenmitglieder, Kommunikationswege, wöchentliche Treffen usw.), Informationen zu den Organisationsschnittstellen wie Auftraggeber und Arbeitgeber gegeben und letztlich die Verantwortlichkeiten im Projekt festgelegt und unter den einzelnen Gruppenmitgliedern aufgeteilt.    }  \\\hline
 \textbf{Hauptverantwortlicher} & Patrick Damrow\\\hline
 \textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & \begin{itemize}
@@ -882,7 +934,7 @@ Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben w
 \multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.3}}} \\ \toprule \hline
 \textbf{Bezeichnung} & Managementprozess\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-Erledigung des Projektplanteils}  \\\hline
+\textit{Erledigung des Projektplanteils:} Im Managementprozess erfolgt die Festlegung der Managementprozesse (insbes. Ziele des Projekts), sowie die Einhaltung von gewissen Regeln im Punkt 'Annahmen', die eine Vereinbarung der Abhängigkeiten, an denen das Projekt unmittelbar geknüpft ist und die Erfassung von Einschränkungen, die berücksichtigt werden müssen, mit einschließt. Es folgen Angaben zum Risikomanagement (insbes. Ausfall bzw. Austritt von Gruppenmitgliedern, allgemeine Probleme etc.) , Maßnahmen zur Projektüberwachung sowie die Fixierung der Kompetenzen der Mitarbeiter im Projekt.  }  \\\hline
 \textbf{Hauptverantwortlicher} & Daniel Pupat\\\hline
 \textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & \begin{itemize}
@@ -900,7 +952,7 @@ Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben w
 \multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.4}}} \\ \toprule \hline
 \textbf{Bezeichnung} & Technische Prozesse\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-Erledigung des Projektplanteils}  \\\hline
+\textit{Erledigung des Projektplanteils:} In diesem Abschnitt erfolgt die Festlegung der Entwicklungsplattformen, -methoden und der verwendeten Programmiersprache, sowie eine Vereinbarung über die Eckpfeiler der im Laufe es Projekts abzugebenden Dokumentationen. Unterstützende Projektfunktionen wie die Ernennung von Phasenleitern und die Verwendung eines Versionskontrollsystems nebst Datensicherungen wird schließlich vereinbart. }  \\\hline
 \textbf{Hauptverantwortlicher} & Sebastian Bredehöft \\\hline
 \textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & \begin{itemize}
@@ -918,7 +970,7 @@ Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben w
 \multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.5}}} \\ \toprule \hline
 \textbf{Bezeichnung} & Arbeitspakete, Zeitplan u. Budget\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-Erledigung des Projektplanteils}  \\\hline
+\textit{Erledigung des Projektplanteils:} In diesem Punkt werden die Arbeitspakete aller Projektphasen erarbeitet. Zunächst folgen gewisse Annahmen und Anmerkungen sowie Begrifferklärungen für die Arbeitspakete, bevor dann kleinschrittig die Arbeitspakete in tabellarischer und grafischer Form erfasst werden. Es folgen weitere Arbeitspakete für die Dokumentabgaben, Informationen und Vereinbarungen über Meetings innerhalb der Gruppe und der Festlegung des kritischen Pfads für das Projekt.}  \\\hline
 \textbf{Hauptverantwortlicher} & Tobias Dellert, Tim Ellhoff \\\hline
 \textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & \begin{itemize}
@@ -937,7 +989,7 @@ Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben w
 \multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 1.1.6}}} \\ \toprule \hline
 \textbf{Bezeichnung} & Sonstige Elemente\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-Erledigung des Projektplanteils}  \\\hline
+\textit{Erledigung des Projektplanteils:} Der Abschnitt 'Sonstiges' liefert Informationen über die Pläne für die Konvertierung von Daten, Management-, Ausbildungs- und Raum- und Installationspläne sowie den Plan über die letztendliche Abgabe bzw. Übergabe des Systems. }  \\\hline
 \textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
 \textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & \begin{itemize} 
@@ -980,126 +1032,450 @@ In den folgenden Tabellen sind die Arbeitspakete des Abschnitts 'Anforderungsspe
 
 \begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
 \multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2}}} \\ \toprule \hline
-\textbf{Bezeichnung} & Anforderungsspezifikation\\\hline
+\textbf{Bezeichnung} & Gesamte Anforderungsspezifikation\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-siehe Unterpunkte}  \\\hline
-\textbf{Hauptverantwortlicher} & Patrick Damrow \\\hline
+Anfertigung und Komplettierung der Anforderungsspezifikation. Details erfolgen in den jeweiligen Unterpunkten.}  \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert und Tim Ellhoff\\\hline
 \textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & -\\\hline
 \textbf{Aufwand, Gesamtdauer} & \\\hline
 \textbf{Beginn} & 21.10.2013 \\\hline
 \textbf{Ende} & 17.11.2013\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
-Die Anforderungsspezifikation wird nach dem Abgleich mit dem Kunden komplett fertiggestellt.}  \\ \toprule
+Die Fertigstellung der Anforderungsspezifikation ist erfolgt.}  \\ \toprule
 \end{tabular} \\\\
 
 \begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
 \multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.1}}} \\ \toprule \hline
-\textbf{Bezeichnung} & Ist-Analyse u. Kundeninterview\\\hline
+\textbf{Bezeichnung} & Kundeninterview\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
 siehe Unterpunkte}  \\\hline
-\textbf{Hauptverantwortlicher} & Patrick Domrow \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert und Tim Ellhoff\\\hline
 \textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & -\\\hline
 \textbf{Aufwand, Gesamtdauer} & \\\hline
-\textbf{Beginn} & 16.10.2013 \\\hline
-\textbf{Ende} & 31.10.2013\\\hline
+\textbf{Beginn} & 21.10.2013 \\\hline
+\textbf{Ende} & 30.10.2013\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
-Analyse und Verschriftlichung des Ist-Zustands anhand eines Kundeninterviews.}  \\ \toprule
+Die Unterpunkte des Kundeninterviews wurden abgearbeitet. Der Ist-Zustand ist somit analysiert und dokumentiert.}  \\ \toprule
 \end{tabular} \\\\
 
 \begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
 \multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.1.1}}} \\ \toprule \hline
-\textbf{Bezeichnung} & Kundeninterview\\\hline
-\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-Kundentermin in der Oberschule Rockwinkel mit zwei Mitgliedern aus der Gruppe. Einer führt das Interview, der andere protokolliert. Probleme oder Unstimmigkeiten früh ansprechen und Lösungen finden.}  \\\hline
-\textbf{Hauptverantwortlicher} & Tim Ellhoff \\\hline
+\textbf{Bezeichnung} & Vorbereitung auf Kundeninterview\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} 
+\newline 
+Um ein effektives, aufschlussreiches Interview zu gewährleisten, ist eine konkrete Vorstellung der zu stellenden Fragen von Nöten. Ziel ist es, nach Möglichkeit alle Anforderungen und Wünsche des Kunden, sowohl die bewussten, als auch die unbewussten, herauszustellen. Dafür wird hier ein Fragenkatalog erstellt, der auf Kunden mit beliebigem Wissensstand über technische Details anwendbar ist.}  \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert \\\hline
 \textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & \begin{itemize} 
 \itemsep0pt
-\item Tim Ellhoff
 \item Tobias Dellert
-\item Vertreter der Oberschule Rockwinkel (Kunde)
 \end{itemize} \\\hline
 \textbf{Aufwand, Gesamtdauer} & \\\hline
-\textbf{Beginn} & 31.10.2013 \\\hline
-\textbf{Ende} & 31.10.2013\\\hline
+\textbf{Beginn} & 21.10.2013 \\\hline
+\textbf{Ende} & 21.10.2013\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
-Erkenntnis darüber, was sich der Kunde genau wünscht und Festhaltung in schriftlicher Form. }  \\ \toprule
+Der entstehende Fragenkatalog muss weitestgehend alle Fragen enthalten, die für ein genaues Verständnis der Wünsche und Anforderungen des Kunden nötig sind. }  \\ \toprule
 \end{tabular} \\\\
 
 \begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
 \multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.1.2}}} \\ \toprule \hline
-\textbf{Bezeichnung} & Auswertung des Interviews\\\hline
+\textbf{Bezeichnung} Kundeninterview\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-Auswertung des Interviews anhand des Protokolls bzw. der Aussagen des Kunden.}  \\\hline
-\textbf{Hauptverantwortlicher} & Tim Ellhoff \\\hline
-\textbf{Abhängigkeit} & 2.1.1 Kundeninterview\\\hline
+Ein Gespräch mit dem oder den Kunden über bestehende Vorstellungen und Anforderungen, bezüglich der gewünschten Software. Ziel ist es, mithilfe des 
+entworfenen Fragenkatalogs, sowohl bewusste Vorstellungen und Wünsche, wie auch die unbewussten 
+herauszustellen, um den Kunden nach dem Kano-Modell zu begeistern. Die erworbenen Eindrücke und Vermutungen über die unbewussten Wünsche des oder der Kunden werden als Zusatz vorgeschlagen, um später unbezahlten Einsatz nach Einsetzen dieser Sonderfunktionen zu vermeiden. Kleinere Extras jedoch können vorerst im Hintergrund gehalten werden, um den Kunden bei der Präsentation des Endprodukts tatsächlich zu begeistern.  }  \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert \\\hline
+\textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & \begin{itemize} 
 \itemsep0pt
-\item Tim Ellhoff
 \item Tobias Dellert
 \end{itemize} \\\hline
 \textbf{Aufwand, Gesamtdauer} & \\\hline
-\textbf{Beginn} & 02.11.2013 \\\hline
-\textbf{Ende} & 02.11.2013\\\hline
+\textbf{Beginn} & 23.10.2013 \\\hline
+\textbf{Ende} & 23.10.2013\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
-Ziel ist eine präzise Auswertung aller Fakten und Erkenntnisse des Kundeninterviews in schriftlicher Form. }  \\ \toprule
+Die erforderten Grundfunktionen wurden eindeutig 
+herausgestellt und von Seiten des oder der Kunden bestätigt.  }  \\ \toprule
 \end{tabular} \\\\
 
 \begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
 \multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.1.3}}} \\ \toprule \hline
-\textbf{Bezeichnung} & Analyse ähnlicher Systeme\\\hline
+\textbf{Bezeichnung} & Auswertung des  Kundeninterviews\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-Analyse bereits bestehender Bibliotheks-Softwaresysteme. Augenmerk auf etablierte Standards, oder Spezifika}  \\\hline
+Die erhaltenen Auskünfte werde zusammengebracht und zu einem großem Bild aus Anforderungen zusammengefügt}  \\\hline
+\textbf{Hauptverantwortlicher} & Daniel Pupat \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item  Daniel Pupat
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 23.10.2013 \\\hline
+\textbf{Ende} & 24.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Das erhaltene Gesamtbild enthält alle gegebenen
+Anforderungen, die nach dem Kundeninterview vom Kunden als Leistungsfaktoren angesehen werden.
+ }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.1.4}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Vergleich mit ähnlichen Softwaresystemen und Besuch in der SuUB Bremen\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Das entstandene Gesamtbild wird mit ähnlichen, bewährten Softwaresystemen verglichen. Deren Eigenheiten und daraus resultierende Vor- und Nachteile werden erschlossen und die Systeme als Ganzes bewertet. Zudem wird ein Besuch in der SuUB Bremen einen präzisierenden Einblick in die reale Verwaltungsarbeit der Mitarbeiter dieser SuUB ermöglichen, der mit dem Eindruck der Kundenbibliothek und dessen Möglichkeiten verglichen wird. Dies ist ein sehr sinnvoller Schritt, um ein erweitertes Weltbild der Verwaltungs- und Archivierungsarbeit zu erlangen und es auf unser Projekt anzuwenden.   }  \\\hline
+\textbf{Hauptverantwortlicher} & Sebastian Bredehöft\\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Sebastian Bredehöft
+\item Tobias Dellert
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 31.10.2013 \\\hline
+\textbf{Ende} & 01.11.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Die Grundfunktion mindestens eines fremden, aber ähnlichen Softwaresystems wurden erfasst und mit unserem Gesamtbild von Anforderungen verglichen. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.2}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Kundenwünsche (Soll-Analyse)\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+siehe Unterpunkte }  \\\hline
+\textbf{Hauptverantwortlicher} & Sebastian Bredehöft\\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Sebastian Bredehöft
+\item Tobias Dellert
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 21.10.2013 \\\hline
+\textbf{Ende} & 09.11.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Die Kundenwünsche an das Produkt sind erfasst und hinreichend dokumentiert. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.2.1}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Herausstellen der Produktperspektiven\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Hier werden die gegebenen Rahmenbedingungen und Möglichkeiten analysiert, um die realistische Durchführung und dessen Aufwand zu erfassen. Beachtet und analysiert werden folgende Bereiche:\newline 
+
+-Systemschnittstellen    \newline       
+-Benutzerschnittstellen  \newline  
+-Hardwareschnittstellen \newline        
+-Softwareschnittstellen  \newline 
+-Kommunikationsschnittstellen  \newline 
+-Speicherbeschränkungen    \newline      
+-Betriebsmodi     \newline              
+-lokale Anpassungsfähigkeit
+
+}  \\\hline
+\textbf{Hauptverantwortlicher} & Tim Ellhoff \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Tim Ellhoff
+\item Sebastian Bredehöft
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 01.11.2013 \\\hline
+\textbf{Ende} & 02.11.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Die in der Beschreibung aufgezählten Punkte können in der Anforderungsspezifikation eindeutig und exakt beschrieben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.2.2}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Verschriftlichung der Rahmenbedingungen\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Es werden sowohl technische, als auch gesetzliche Rahmenbedingungen festgelegt. Zusätzlich sollen 
+sicherheitskritische Aspekte durch genauere Spezifikationen der einzelnen Schnittstellen im vorigen Arbeitspaket 2.2.1
+begutachtet werden. }  \\\hline
+\textbf{Hauptverantwortlicher} & Patrick Damrow \\\hline
+\textbf{Abhängigkeit} & 2.2.1 Herausstellen der Produktperspektiven \\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Patrick Damrow
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 25.10.2013 \\\hline
+\textbf{Ende} & 25.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Die technischen und gesetzlichen Rahmenbedingungen sind eindeutig spezifiziert. Alle sicherheitskritischen Aspekte
+wurden erfasst. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.2.3}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Auflistung von Anwendungsfällen\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Die einzelnen Anwendungsfälle werden hier aufgelistet und kurz beschrieben. Zum Beispiel: Einloggen, Nutzer oder Bibliothekar in das System einloggen.}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 25.10.2013 \\\hline
+\textbf{Ende} & 25.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Die Anwendungsfälle aller Grundfunktionen sind erfasst und kurz beschrieben. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.2.4}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Erstellung der Persona\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Sinn dieses Arbeitspakets ist es, einen vollständigen Einblick des für uns relevanten Ausschnitts der Realität zu erhalten, um damit in sich geschlossene Strukturen von den einzelnen Akteuren untereinander zu schaffen und damit einen verbesserten Überblick der möglichen Anwendungsfälle zu bekommen. Hierzu werden Benutzerklassen erstellt, die so gut wie möglich die unterschiedlichsten Charaktere, Umstände und Motive im Rahmen des Bibliotheksverwaltungsbereichs abdecken. }  \\\hline
+\textbf{Hauptverantwortlicher} & Daniel Pupat \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Daniel Pupat
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 25.10.2013 \\\hline
+\textbf{Ende} & 25.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+ Die entstandenen Persona sind umfassend und untereinander verschieden genug, um alle möglichen Anwendungsfälle in Bezug auf die erforderten Grundfunktionen der Software zu erhalten. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.2.5}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Überblick, sowie Ausblick in die Zukunft  \\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Überblick der Abhängigkeiten von projekteigenen Faktoren untereinander, sowie ein Blick in die nahe Zukunft, was  Veränderungen und Erweiterungen sowohl im technischen und rechtlichen Bereich, sowie im Anwendungsumfeld der zu entwickelnden Software angeht. Die Anforderungen sollen entsprechend veränder- und anpassbar sein.}  \\\hline
+\textbf{Hauptverantwortlicher} & Tim Ellhoff \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Tim Ellhoff
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 28.10.2013 \\\hline
+\textbf{Ende} & 28.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Die Abhängigkeit des Entwicklungs- und Erweiterungsprozess
+von einzelnen pojekteigenen Faktoren wurden umfassend herausgestellt. Zu erwartende Veränderungen in der nahen Zukunft( sofern vorhanden ) wurden dokumentiert. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.3.1}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Datenmodell\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Das zu entwickelnde Datenmodell soll eine konzeptionelle Darstellung von dem Weltausschnitt in der Bibliothek, als UML-Diagramm, werden.}  \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Tobias Dellert
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 28.10.2013 \\\hline
+\textbf{Ende} & 28.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Die Informationen und deren Beziehungen sind dem Weltausschnitt entsprechend in das Datenmodell gesetzt und es lässt sich somit als Konzept für spätere Spezifizierungen benutzen. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.3.2.1}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Die genaueren Anwendungsfälle \\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Die bereits aufgelisteten Anwendungsfälle werden mit den Personas und genaueren Beschreibungen ergänzt. Das Hineinversetzen in die unterschiedlichen Personas hilft die bisherige Funktionalität aus der Sicht der Mitarbeiter und späteren Kunden zu sehen. }  \\\hline
 \textbf{Hauptverantwortlicher} & Sebastian Bredehöft \\\hline
 \textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & \begin{itemize} 
 \itemsep0pt
 \item Sebastian Bredehöft
-\item Mohamadreza (Amir) Khostevan
-\item Daniel Pupat
 \end{itemize} \\\hline
 \textbf{Aufwand, Gesamtdauer} & \\\hline
-\textbf{Beginn} & 05.12.2013 \\\hline
-\textbf{Ende} & 06.11.2013\\\hline
+\textbf{Beginn} & 29.10.2013 \\\hline
+\textbf{Ende} & 29.10.2013\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
-Ziel ist es, ein oder mehrere bereits bestehende Systeme zu analysieren und die Erkenntnisse darüber zu verschriftlichen.}  \\ \toprule
+Die Anwendungsfälle müssen insgesamt die ganze gewünschte Funktionalität der Software wiedergeben.  }  \\ \toprule
 \end{tabular} \\\\
 
 \begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
-\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.1.4}}} \\ \toprule \hline
-\textbf{Bezeichnung} & Auswertung und Erfassung des Ist-Zustands\\\hline
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.3.2.2}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Screenshots der Benutzeroberfläche\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-Sämtliche Erkenntnisse aus den Analysen des Interviews sowie aus den Analysen ähnlicher Systeme werden schriftlich ausgewertet und festgehalten.}  \\\hline
-\textbf{Hauptverantwortlicher} & Sebastian Bredehöft \\\hline
-\textbf{Abhängigkeit} & 2.1.2 Auswertung des Interviews u. \\ 
-& 2.1.3 Analyse ähnlicher Systeme\\\hline
+Die Screenshots der Benutzeroberflächen werden benutzt, um die spezifischen Anwendungsfälle zu illustrieren. Dazu werden die Screenshots an de passenden Stellen beschriftet.}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
 \textbf{Ressourcen} & \begin{itemize} 
 \itemsep0pt
-\item Sebastian Bredehöft
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 30.10.2013 \\\hline
+\textbf{Ende} & 30.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Alle Anwendungsfälle habe die ihnen zugehörigen Screenshots samt Beschriftung zugeteilt bekommen.}  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.2.3.3}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Anwendungs- und Sequenzdiagramme\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Die Anwendungsfälle werden passenderweise in Anwendungsdiagramme übertragen, wobei bei komplexeren Fällen 
+zum Wohle der Übersicht auch Sequenzdiagramme hinzugezogen werden können. }  \\\hline
+\textbf{Hauptverantwortlicher} & Patrick Damrow \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Patrick Damrow
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 01.11.2013 \\\hline
+\textbf{Ende} & 01.11.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Die Anwendungsfälle der Grundfunktionen sind in einem Anwendungsfalldiagramm dargestellt. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.3.3}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Aktionen\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Die bisher beschriebenen Anwendungsfälle werden noch genauer ausgeführt, sodass jede aufgelistete Aktion eine einzelne Nutzung einer beliebigen Funktion( Knopfdruck, Klick ins Textfeld ) der Software beschreibt.}  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 16.10.2013 \\\hline
+\textbf{Ende} & 16.10.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Alle Anwendungsfälle sind in die kleinstmöglichen Aktionen aufgeteilt und geordnet. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.4}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Erstellung des GUI-Prototyps\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Hier wird erstmals eine Benutzeroberfläche auf Basis des Kundeninterviews und der einfachen Auflistung aller Anwendungsfälle geschaffen und dem Kunden vorgestellt.}  \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Tobias Dellert
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 06.11.2013 \\\hline
+\textbf{Ende} & 06.11.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Die Grundfunktionen müssen anhand des Prototyps  präsentierbar sein. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.4.1}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Prototyp-Vorstellung\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Dem Kundengespräch folgend, wird dem Kunden nun eine 
+Benutzeroberfläche vorgestellt, welche abgesehen von den Leistungsfunktionen nach Möglichkeit bereits kleine Extras beinhalten soll, um den Kunden zu gewinnen. }  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
 \item Mohamadreza (Amir) Khostevan
 \end{itemize} \\\hline
 \textbf{Aufwand, Gesamtdauer} & \\\hline
 \textbf{Beginn} & 06.11.2013 \\\hline
 \textbf{Ende} & 06.11.2013\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
-Ziel ist, dass der Ist-Zustand anhand der Analysen genau, detailliert und präzise beschrieben ist.}  \\ \toprule
+Mit dem Prototyp lassen sich die Leistungsfaktoren präsentieren }  \\ \toprule
 \end{tabular} \\\\
 
 \begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
-\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.2}}} \\ \toprule \hline
-\textbf{Bezeichnung} & Soll-Zustand\\\hline
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.5}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Anforderungsspezifikation komplettieren\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
-siehe Unterpunkte}  \\\hline
+Maßnahme, um Ergebnisse zusammenzufassen und zu korrigieren. Zusätzlich wird noch besonders Wert auf langfristige Schwachstellen des momentanen Ist-Zustand gelegt.    }  \\\hline
 \textbf{Hauptverantwortlicher} & Daniel Pupat \\\hline
-\textbf{Abhängigkeit} & 2.1.2 Auswertung des Interviews\\\hline
-\textbf{Ressourcen} & -\\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Daniel Pupat
+\item Tim Ellhoff
+\item Tobias Dellert
+\end{itemize} \\\hline
 \textbf{Aufwand, Gesamtdauer} & \\\hline
-\textbf{Beginn} & 20.10.2013 \\\hline
-\textbf{Ende} & 07.11.2013\\\hline
+\textbf{Beginn} & 06.11.2013 \\\hline
+\textbf{Ende} & 06.11.2013\\\hline
 \multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
-Aus vielen Analysen und Erkenntnissen ist die Grundlage für die Anforderungsspezifikation gereift, die erstellt wird. }  \\ \toprule
+Sobald der Projektplanteil fertig ist, kann er zum Gruppenreview weitergegeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.6}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Angebot für den Kunden\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Angebot für den Kunden inkl. Kostenaufwand wird erstellt. }  \\\hline
+\textbf{Hauptverantwortlicher} & Mohamadreza (Amir) Khostevan \\\hline
+\textbf{Abhängigkeit} & -\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Mohamadreza (Amir) Khostevan
+\item Patrick Damrow
+\item Sebastian Bredehöft
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 14.11.2013 \\\hline
+\textbf{Ende} & 15.11.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Das Angebot für den Kunden ist hinreichend erstellt und kann nun dem Gruppenreview übergeben werden. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.7}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Gruppeninternes Review u. Finalisierung Anforderungsspezifikation\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Das Dokument wird in der Gruppe auf den Prüfstand gestellt und ggf. noch verändert bzw. verbessert.}  \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert \\\hline
+\textbf{Abhängigkeit} & 2.5 Anforderungsspezifikation komplettieren\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Tobias Dellert
+\item Sebastian Bredehöft
+\item Daniel Pupat
+\item Patrick Damrow
+\item Tim Ellhoff
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 15.11.2013 \\\hline
+\textbf{Ende} & 15.11.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Nach der Diskussion in der Gruppe wurde das Dokument optimiert und fertiggestellt. }  \\ \toprule
+\end{tabular} \\\\
+
+\begin{tabular}{p{7.5cm}|p{7.5cm}}\toprule
+\multicolumn{2}{c}{\textbf{\textit{A R B E I T S P A K E T \quad 2.8}}} \\ \toprule \hline
+\textbf{Bezeichnung} & Gruppeninternes Review u. Finalisierung Angebot\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Beschreibung:} \newline 
+Das Angebot für den Kunden wird in der Gruppe auf den Prüfstand gestellt und ggf. noch verändert bzw. verbessert.}  \\\hline
+\textbf{Hauptverantwortlicher} & Tobias Dellert \\\hline
+\textbf{Abhängigkeit} & 2.6 Angebot für den Kunden\\\hline
+\textbf{Ressourcen} & \begin{itemize} 
+\itemsep0pt
+\item Tobias Dellert
+\item Sebastian Bredehöft
+\item Daniel Pupat
+\item Patrick Damrow
+\item Tim Ellhoff
+\item Mohamadreza (Amir) Khostevan
+\end{itemize} \\\hline
+\textbf{Aufwand, Gesamtdauer} & \\\hline
+\textbf{Beginn} & 15.11.2013 \\\hline
+\textbf{Ende} & 15.11.2013\\\hline
+\multicolumn{2}{p{15cm}}{\textbf{Mindestanforderungen: } \newline
+Nach der Diskussion in der Gruppe wurde das Angebot optimiert und fertiggestellt. }  \\ \toprule
 \end{tabular} \\\\
 
 \subsubsection{Architekturbeschreibung}\label{aps}
