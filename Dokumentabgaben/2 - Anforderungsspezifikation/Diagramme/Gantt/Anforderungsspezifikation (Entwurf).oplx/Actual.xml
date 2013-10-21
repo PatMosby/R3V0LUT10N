@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<scenario xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2" id="mNvgARY8n7-">
+  <start-date>2013-10-21T06:00:00.000Z</start-date>
+  <prototype-task>
+    <task id="t4294967294">
+      <title>Task 1</title>
+      <effort>28800</effort>
+    </task>
+  </prototype-task>
+  <prototype-task>
+    <task id="t4294967293">
+      <title>Milestone 1</title>
+      <type>milestone</type>
+    </task>
+  </prototype-task>
+  <prototype-task>
+    <task id="t4294967292">
+      <title>Group 1</title>
+      <type>group</type>
+    </task>
+  </prototype-task>
+  <prototype-resource>
+    <resource id="r4294967294">
+      <name>Resource 1</name>
+      <type>Staff</type>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r4294967293">
+      <name>Equipment 1</name>
+      <type>Equipment</type>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r4294967292">
+      <name>Material 1</name>
+      <type>Material</type>
+      <units-available>0</units-available>
+      <efficiency>0</efficiency>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r4294967291">
+      <name>Group 1</name>
+      <type>Group</type>
+    </resource>
+  </prototype-resource>
+  <top-resource idref="r-1"/>
+  <resource id="r-1">
+    <type>Group</type>
+    <schedule>
+      <schedule-day day-of-week="sunday">
+        <time-span start-time="39600" end-time="61200"/>
+      </schedule-day>
+      <schedule-day day-of-week="monday">
+        <time-span start-time="28800" end-time="64800"/>
+      </schedule-day>
+      <schedule-day day-of-week="tuesday">
+        <time-span start-time="61200" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="wednesday">
+        <time-span start-time="61200" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="thursday">
+        <time-span start-time="61200" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="friday">
+        <time-span start-time="54000" end-time="72000"/>
+      </schedule-day>
+      <schedule-day day-of-week="saturday">
+        <time-span start-time="39600" end-time="61200"/>
+      </schedule-day>
+      <calendar name="Time Off" editable="yes" overtime="no">
+        <event start="2013-10-22T08:00:00.000Z" end="2013-10-24T14:00:00.000Z" sd="4677" st="36000" ed="4679" et="57600"/>
+        <event start="2013-10-25T08:00:00.000Z" end="2013-10-25T12:00:00.000Z" sd="4680" st="36000" ed="4680" et="50400"/>
+      </calendar>
+      <calendar name="Overtime" editable="yes" overtime="yes">
+        <event start="2013-10-21T05:00:00.000Z" end="2013-10-21T06:00:00.000Z" sd="4676" st="25200" ed="4676" et="28800"/>
+        <event start="2013-10-21T17:00:00.000Z" end="2013-10-21T20:00:00.000Z" sd="4676" st="68400" ed="4676" et="79200"/>
+        <event start="2013-10-22T05:00:00.000Z" end="2013-10-25T07:00:00.000Z" sd="4677" st="25200" ed="4680" et="32400"/>
+        <event start="2013-10-26T05:00:00.000Z" end="2013-10-27T10:00:00.000Z" sd="4681" st="25200" ed="4682" et="39600"/>
+        <event start="2013-10-26T15:00:00.000Z" end="2013-10-27T22:00:00.000Z" sd="4681" st="61200" ed="4682" et="82800"/>
+      </calendar>
+    </schedule>
+    <child-resource idref="r1"/>
+    <child-resource idref="r2"/>
+    <child-resource idref="r3"/>
+    <child-resource idref="r4"/>
+    <child-resource idref="r5"/>
+  </resource>
+  <resource id="r1">
+    <name>Patrick Damrow</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r2">
+    <name>Daniel Pupat</name>
+    <type>Staff</type>
+    <schedule>
+      <schedule-day day-of-week="sunday">
+        <time-span start-time="28800" end-time="64800"/>
+      </schedule-day>
+      <schedule-day day-of-week="tuesday">
+        <time-span start-time="28800" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="wednesday">
+        <time-span start-time="28800" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="thursday">
+        <time-span start-time="28800" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="friday">
+        <time-span start-time="28800" end-time="72000"/>
+      </schedule-day>
+      <schedule-day day-of-week="saturday">
+        <time-span start-time="28800" end-time="64800"/>
+      </schedule-day>
+      <calendar name="Time Off" editable="yes" overtime="no"/>
+      <calendar name="Overtime" editable="yes" overtime="yes"/>
+    </schedule>
+  </resource>
+  <resource id="r3">
+    <name>Tim Ellhoff</name>
+    <type>Staff</type>
+    <schedule>
+      <schedule-day day-of-week="sunday">
+        <time-span start-time="28800" end-time="64800"/>
+      </schedule-day>
+      <schedule-day day-of-week="tuesday">
+        <time-span start-time="28800" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="wednesday">
+        <time-span start-time="28800" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="thursday">
+        <time-span start-time="28800" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="friday">
+        <time-span start-time="28800" end-time="72000"/>
+      </schedule-day>
+      <schedule-day day-of-week="saturday">
+        <time-span start-time="28800" end-time="64800"/>
+      </schedule-day>
+      <calendar name="Time Off" editable="yes" overtime="no"/>
+      <calendar name="Overtime" editable="yes" overtime="yes"/>
+    </schedule>
+  </resource>
+  <resource id="r4">
+    <name>Tobias Dellert</name>
+    <type>Staff</type>
+    <schedule>
+      <schedule-day day-of-week="sunday">
+        <time-span start-time="28800" end-time="64800"/>
+      </schedule-day>
+      <schedule-day day-of-week="tuesday">
+        <time-span start-time="28800" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="wednesday">
+        <time-span start-time="28800" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="thursday">
+        <time-span start-time="28800" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="friday">
+        <time-span start-time="28800" end-time="72000"/>
+      </schedule-day>
+      <schedule-day day-of-week="saturday">
+        <time-span start-time="28800" end-time="64800"/>
+      </schedule-day>
+      <calendar name="Time Off" editable="yes" overtime="no"/>
+      <calendar name="Overtime" editable="yes" overtime="yes"/>
+    </schedule>
+  </resource>
+  <resource id="r5">
+    <name>Sebastian Bredehöft</name>
+    <type>Staff</type>
+    <schedule>
+      <schedule-day day-of-week="sunday">
+        <time-span start-time="28800" end-time="64800"/>
+      </schedule-day>
+      <schedule-day day-of-week="tuesday">
+        <time-span start-time="28800" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="wednesday">
+        <time-span start-time="28800" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="thursday">
+        <time-span start-time="28800" end-time="79200"/>
+      </schedule-day>
+      <schedule-day day-of-week="friday">
+        <time-span start-time="28800" end-time="72000"/>
+      </schedule-day>
+      <schedule-day day-of-week="saturday">
+        <time-span start-time="28800" end-time="64800"/>
+      </schedule-day>
+      <calendar name="Time Off" editable="yes" overtime="no"/>
+      <calendar name="Overtime" editable="yes" overtime="yes"/>
+    </schedule>
+  </resource>
+  <top-task idref="t-1"/>
+  <task id="t-1">
+    <type>group</type>
+    <end-constraint-date>2013-11-17T22:59:00.000Z</end-constraint-date>
+    <child-task idref="t88"/>
+    <child-task idref="t111"/>
+    <child-task idref="t19"/>
+    <end-no-later-than>2013-11-17T22:59:00.000Z</end-no-later-than>
+  </task>
+  <task id="t16">
+    <title>Anforderungsspezifikation Dokument</title>
+    <type>group</type>
+    <child-task idref="t37"/>
+    <child-task idref="t44"/>
+    <child-task idref="t74"/>
+    <style>
+      <value key="underline-style">single</value>
+    </style>
+  </task>
+  <task id="t19">
+    <title>Abgabe Anforderungsspezifikation</title>
+    <type>milestone</type>
+    <start-constraint-date>2013-11-17T19:00:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t88"/>
+    <start-no-earlier-than>2013-11-17T19:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t37">
+    <title>Einleitung</title>
+    <type>group</type>
+    <start-constraint-date>2013-10-25T13:30:00.000Z</start-constraint-date>
+    <child-task idref="t39"/>
+    <child-task idref="t40"/>
+    <child-task idref="t41"/>
+    <child-task idref="t42"/>
+    <child-task idref="t43"/>
+    <start-no-earlier-than>2013-10-25T13:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t39">
+    <title>Zweck</title>
+    <leveled-start>2013-10-25T13:30:00.000Z</leveled-start>
+    <effort>7200</effort>
+    <start-constraint-date>2013-10-21T08:00:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2013-10-21T08:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t40">
+    <title>Rahmen</title>
+    <leveled-start>2013-10-25T15:30:00.000Z</leveled-start>
+    <effort>3600</effort>
+    <start-constraint-date>2013-10-21T10:00:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2013-10-21T10:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t41">
+    <title>Definitionen und Akronyme</title>
+    <leveled-start>2013-10-25T16:30:00.000Z</leveled-start>
+    <effort>3600</effort>
+    <start-constraint-date>2013-10-21T11:00:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2013-10-21T11:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t42">
+    <title>Referenzen</title>
+    <leveled-start>2013-10-25T17:30:00.000Z</leveled-start>
+    <effort>3600</effort>
+    <start-constraint-date>2013-10-21T12:00:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2013-10-21T12:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t43">
+    <title>Übersicht über das Dokument</title>
+    <leveled-start>2013-10-26T05:30:00.000Z</leveled-start>
+    <effort>3600</effort>
+    <start-constraint-date>2013-10-21T13:00:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2013-10-21T13:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t44">
+    <title>Allgemeine Beschreibung</title>
+    <type>group</type>
+    <child-task idref="t45"/>
+    <child-task idref="t48"/>
+    <child-task idref="t57"/>
+    <child-task idref="t64"/>
+    <child-task idref="t65"/>
+    <child-task idref="t72"/>
+    <child-task idref="t73"/>
+  </task>
+  <task id="t45">
+    <title>Ergebnisse der Ist-Analyse</title>
+    <type>group</type>
+    <child-task idref="t46"/>
+    <child-task idref="t47"/>
+    <child-task idref="t99"/>
+    <child-task idref="t105"/>
+    <child-task idref="t97"/>
+    <child-task idref="t106"/>
+  </task>
+  <task id="t46">
+    <title>Analyse ähnlicher Systeme</title>
+    <effort>25200</effort>
+    <start-constraint-date>2013-10-31T07:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2013-10-31T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t47">
+    <title>Vorbereitung auf Kundengespräch und Durchführung</title>
+    <leveled-start>2013-10-21T14:02:26.417Z</leveled-start>
+    <effort>14400</effort>
+    <start-constraint-date>2013-10-21T05:51:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <assignment idref="r4"/>
+    <start-no-earlier-than>2013-10-21T05:51:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t48">
+    <title>Produktperspektive</title>
+    <type>group</type>
+    <start-constraint-date>2013-10-28T09:00:00.000Z</start-constraint-date>
+    <child-task idref="t49"/>
+    <child-task idref="t50"/>
+    <child-task idref="t51"/>
+    <child-task idref="t52"/>
+    <child-task idref="t53"/>
+    <child-task idref="t54"/>
+    <child-task idref="t55"/>
+    <child-task idref="t56"/>
+    <start-no-earlier-than>2013-10-28T09:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t49">
+    <title>Systemschnittstellen</title>
+    <leveled-start>2013-10-28T09:00:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r3"/>
+    <assignment idref="r5"/>
+    <assignment idref="r2"/>
+  </task>
+  <task id="t50">
+    <title>Benutzerschnittstelle </title>
+    <leveled-start>2013-10-28T13:00:00.000Z</leveled-start>
+    <effort>100800</effort>
+    <start-constraint-date>2013-10-28T13:00:00.000Z</start-constraint-date>
+    <assignment idref="r3"/>
+    <assignment idref="r5"/>
+    <assignment idref="r2"/>
+    <start-no-earlier-than>2013-10-28T13:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t51">
+    <title>Hardwareschnittstellen</title>
+    <leveled-start>2013-10-29T12:20:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <start-constraint-date>2013-10-29T09:00:00.000Z</start-constraint-date>
+    <assignment idref="r3"/>
+    <assignment idref="r5"/>
+    <assignment idref="r2"/>
+    <start-no-earlier-than>2013-10-29T09:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t52">
+    <title>Softwareschnittstellen</title>
+    <leveled-start>2013-10-31T08:20:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <start-constraint-date>2013-10-29T13:00:00.000Z</start-constraint-date>
+    <assignment idref="r3"/>
+    <assignment idref="r5"/>
+    <assignment idref="r2"/>
+    <start-no-earlier-than>2013-10-29T13:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t53">
+    <title>Kommunikationsschnittstellen</title>
+    <leveled-start>2013-10-29T15:00:00.000Z</leveled-start>
+    <effort>57600</effort>
+    <start-constraint-date>2013-10-29T09:00:00.000Z</start-constraint-date>
+    <assignment idref="r3"/>
+    <assignment idref="r5"/>
+    <assignment idref="r2"/>
+    <start-no-earlier-than>2013-10-29T09:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t54">
+    <title>Speicherbeschränkung</title>
+    <leveled-start>2013-10-29T20:20:00.000Z</leveled-start>
+    <effort>57600</effort>
+    <start-constraint-date>2013-10-29T09:00:00.000Z</start-constraint-date>
+    <assignment idref="r3"/>
+    <assignment idref="r5"/>
+    <assignment idref="r2"/>
+    <start-no-earlier-than>2013-10-29T09:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t55">
+    <title>Operationen (Betriebsmodi)</title>
+    <leveled-start>2013-10-30T11:40:00.000Z</leveled-start>
+    <effort>57600</effort>
+    <start-constraint-date>2013-10-29T09:00:00.000Z</start-constraint-date>
+    <assignment idref="r3"/>
+    <assignment idref="r5"/>
+    <assignment idref="r2"/>
+    <start-no-earlier-than>2013-10-29T09:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t56">
+    <title>Möglichkeiten der lokalen Anpassung</title>
+    <leveled-start>2013-10-30T17:00:00.000Z</leveled-start>
+    <effort>57600</effort>
+    <start-constraint-date>2013-10-29T09:00:00.000Z</start-constraint-date>
+    <assignment idref="r3"/>
+    <assignment idref="r5"/>
+    <assignment idref="r2"/>
+    <start-no-earlier-than>2013-10-29T09:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t57">
+    <title>Anwendungsfälle</title>
+    <type>group</type>
+    <child-task idref="t60"/>
+    <child-task idref="t61"/>
+  </task>
+  <task id="t60">
+    <title>Anwendungsfalldiagramm</title>
+    <leveled-start>2013-10-24T19:00:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <prerequisite-task idref="t77"/>
+    <assignment idref="r4"/>
+  </task>
+  <task id="t61">
+    <title>Überblick der Anwendungsfälle</title>
+    <leveled-start>2013-10-21T14:02:26.417Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r2"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t64">
+    <title>Charakteristika der Benutzer</title>
+    <type>group</type>
+    <child-task idref="t66"/>
+    <child-task idref="t67"/>
+  </task>
+  <task id="t65">
+    <title>Einschränkungen</title>
+    <type>group</type>
+    <child-task idref="t68"/>
+    <child-task idref="t69"/>
+    <child-task idref="t70"/>
+    <child-task idref="t71"/>
+  </task>
+  <task id="t66">
+    <title>Personas</title>
+    <leveled-start>2013-10-21T19:02:26.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r2"/>
+  </task>
+  <task id="t67">
+    <title>Beschreibung der Personas</title>
+    <leveled-start>2013-10-23T05:02:26.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r2"/>
+  </task>
+  <task id="t68">
+    <title>Rahmenbedingungen</title>
+    <leveled-start>2013-10-25T06:00:00.000Z</leveled-start>
+    <effort>3600</effort>
+    <start-constraint-date>2013-10-25T06:00:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2013-10-25T06:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t69">
+    <title>Gesetzliche Rahmenbedingungen</title>
+    <leveled-start>2013-10-26T06:30:00.000Z</leveled-start>
+    <effort>14400</effort>
+    <start-constraint-date>2013-10-25T06:00:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2013-10-25T06:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t70">
+    <title>Sicherheitskritische Aspekte</title>
+    <leveled-start>2013-10-21T17:02:26.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t71">
+    <title>Mindestanforderungen in SWP2</title>
+    <leveled-start>2013-10-22T18:02:26.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t72">
+    <title>Annahmen und Abhängigkeiten</title>
+    <leveled-start>2013-10-21T14:02:26.418Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t73">
+    <title>Ausblick</title>
+    <leveled-start>2013-10-22T16:02:26.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t74">
+    <title>Detaillierte Beschreibung</title>
+    <type>group</type>
+    <child-task idref="t76"/>
+    <child-task idref="t77"/>
+    <child-task idref="t78"/>
+    <child-task idref="t79"/>
+    <child-task idref="t80"/>
+    <child-task idref="t81"/>
+  </task>
+  <task id="t76">
+    <title>Datenmodell</title>
+    <leveled-start>2013-10-21T17:02:26.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r4"/>
+  </task>
+  <task id="t77">
+    <title>Anwendungsfälle</title>
+    <leveled-start>2013-10-24T06:02:26.000Z</leveled-start>
+    <effort>28800</effort>
+    <prerequisite-task idref="t61"/>
+    <prerequisite-task idref="t64"/>
+    <assignment idref="r2"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t78">
+    <title>Aktionen</title>
+    <leveled-start>2013-10-24T18:02:26.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r2"/>
+  </task>
+  <task id="t79">
+    <title>Entwurfseinschränkungen</title>
+    <leveled-start>2013-10-22T18:02:26.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r4"/>
+  </task>
+  <task id="t80">
+    <title>Softwaresystemattribute</title>
+    <type>group</type>
+    <child-task idref="t82"/>
+    <child-task idref="t83"/>
+    <child-task idref="t84"/>
+    <child-task idref="t85"/>
+    <child-task idref="t86"/>
+    <child-task idref="t87"/>
+  </task>
+  <task id="t81">
+    <title>Weitere Anforderungen</title>
+    <leveled-start>2013-10-29T13:00:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r4"/>
+  </task>
+  <task id="t82">
+    <title>Performanz</title>
+    <leveled-start>2013-10-26T05:00:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r4"/>
+  </task>
+  <task id="t83">
+    <title>Zuverlässigkeit</title>
+    <leveled-start>2013-10-26T13:00:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r4"/>
+  </task>
+  <task id="t84">
+    <title>Vefügbarkeit</title>
+    <leveled-start>2013-10-27T06:00:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r4"/>
+  </task>
+  <task id="t85">
+    <title>Sicherheit</title>
+    <leveled-start>2013-10-27T14:00:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r4"/>
+  </task>
+  <task id="t86">
+    <title>Wartbarkeit</title>
+    <leveled-start>2013-10-28T07:00:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r4"/>
+  </task>
+  <task id="t87">
+    <title>Portabilität</title>
+    <leveled-start>2013-10-28T15:00:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <assignment idref="r4"/>
+  </task>
+  <task id="t88">
+    <title>Anforderungsspezifikation</title>
+    <type>group</type>
+    <end-constraint-date>2013-12-02T07:45:00.000Z</end-constraint-date>
+    <child-task idref="t90"/>
+    <child-task idref="t16"/>
+    <child-task idref="t91"/>
+    <end-no-later-than>2013-12-02T07:45:00.000Z</end-no-later-than>
+  </task>
+  <task id="t90">
+    <title>GUI-Prototyp</title>
+    <type>group</type>
+    <child-task idref="t92"/>
+    <child-task idref="t93"/>
+    <child-task idref="t104"/>
+    <child-task idref="t108"/>
+    <child-task idref="t107"/>
+  </task>
+  <task id="t91">
+    <title>Angebot</title>
+    <leveled-start>2013-11-08T07:00:00.000Z</leveled-start>
+    <effort>36000</effort>
+    <start-constraint-date>2013-11-08T07:00:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <assignment idref="r4"/>
+    <assignment idref="r3"/>
+    <start-no-earlier-than>2013-11-08T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t92">
+    <title>Storyboard</title>
+    <leveled-start>2013-10-31T11:00:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <start-constraint-date>2013-10-28T09:00:00.000Z</start-constraint-date>
+    <assignment idref="r4"/>
+    <assignment idref="r5"/>
+    <start-no-earlier-than>2013-10-28T09:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t93">
+    <title>Design</title>
+    <leveled-start>2013-10-31T15:00:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <prerequisite-task idref="t92"/>
+    <assignment idref="r4"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t97">
+    <title>Interview mit einem Mitarbeiter</title>
+    <type>milestone</type>
+    <start-constraint-date>2013-10-31T08:30:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <assignment idref="r4"/>
+    <start-no-earlier-than>2013-10-31T08:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t99">
+    <title>Kundengespräch</title>
+    <type>milestone</type>
+    <completion-percentage>1</completion-percentage>
+    <start-constraint-date>2013-10-23T06:00:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t47"/>
+    <start-no-earlier-than>2013-10-23T06:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t104">
+    <title>Entwicklung Phase I</title>
+    <effort>1108800</effort>
+    <start-constraint-date>2013-10-29T17:00:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t93"/>
+    <assignment idref="r1"/>
+    <assignment idref="r2"/>
+    <assignment idref="r3"/>
+    <assignment idref="r4"/>
+    <start-no-earlier-than>2013-10-29T17:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t105">
+    <title>Auswertung des Kundengesprächs / Soll-Analyse</title>
+    <leveled-start>2013-10-24T15:00:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <start-constraint-date>2013-10-24T07:30:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t99"/>
+    <assignment idref="r1"/>
+    <assignment idref="r4"/>
+    <start-no-earlier-than>2013-10-24T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t106">
+    <title>Auswertung des Interviews</title>
+    <leveled-start>2013-11-01T07:00:00.000Z</leveled-start>
+    <effort>1800</effort>
+    <start-constraint-date>2013-11-01T07:00:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t97"/>
+    <assignment idref="r1"/>
+    <assignment idref="r4"/>
+    <start-no-earlier-than>2013-11-01T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t107">
+    <title>Entwicklung Phase II</title>
+    <leveled-start>2013-11-09T14:45:00.000Z</leveled-start>
+    <effort>1202400</effort>
+    <start-constraint-date>2013-11-09T14:45:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t108"/>
+    <assignment idref="r1"/>
+    <assignment idref="r2"/>
+    <assignment idref="r3"/>
+    <assignment idref="r4"/>
+    <start-no-earlier-than>2013-11-09T14:45:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t108">
+    <title>Prototyp Vorstellung</title>
+    <type>milestone</type>
+    <start-constraint-date>2013-11-06T08:00:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t104"/>
+    <assignment idref="r1"/>
+    <assignment idref="r5"/>
+    <start-no-earlier-than>2013-11-06T08:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t111">
+    <title>Abgabe Angebot</title>
+    <type>milestone</type>
+    <start-constraint-date>2013-11-17T22:59:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t91"/>
+    <start-no-earlier-than>2013-11-17T22:59:00.000Z</start-no-earlier-than>
+  </task>
+  <critical-path root="-1" enabled="false" resources="false">
+    <color r="1" g="0.5" b="0.5"/>
+  </critical-path>
+</scenario>
