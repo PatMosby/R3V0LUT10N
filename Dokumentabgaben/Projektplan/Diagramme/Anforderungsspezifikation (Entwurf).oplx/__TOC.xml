@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <omniplan xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
-  <window x="0" y="4" w="1280" h="774">
+  <window x="1281" y="-227" w="1920" h="1080">
     <editing-scenario>mNvgARY8n7-</editing-scenario>
     <view>task</view>
     <change-tracking/>
     <draw-folded/>
     <status-display>basic</status-display>
     <task-view>
-      <split-view-divider-position>300</split-view-divider-position>
-      <outline x="0" y="0" w="300" h="670">
+      <split-view-divider-position>821</split-view-divider-position>
+      <outline x="0" y="17" w="821" h="976">
         <column name="Violations" width="20"/>
         <column name="Notes" width="20"/>
-        <column name="Title" width="185"/>
-        <column name="Effort" width="70"/>
-        <expanded-items idrefs="t88 t65 t16 t45 t48 t64 t90 t57 t44 t37 t74"/>
-        <selected-items-at-filter-time idrefs="t73 t66 t102 t80 t74 t67 t81 t82 t103 t19 t40 t68 t76 t83 t69 t90 t41 t91 t77 t84 t42 t78 t43 t92 t50 t85 t93 t51 t44 t37 t79 t86 t87 t45 t52 t88 t60 t39 t46 t53 t54 t61 t47 t97 t55 t48 t49 t70 t56 t99 t64 t57 t71 t101 t65 t72 t16"/>
+        <column name="Title" width="398"/>
+        <column name="Effort" width="101"/>
+        <column name="Start" width="116"/>
+        <column name="End" width="116"/>
+        <expanded-items idrefs="t44 t16 t64 t90 t45 t65 t48 t37 t80 t57 t74 t88"/>
+        <selected-items-at-filter-time idrefs="t73 t80 t66 t81 t74 t67 t68 t82 t19 t40 t110 t800 t83 t69 t90 t41 t76 t104 t84 t42 t111 t77 t91 t92 t78 t85 t50 t43 t105 t79 t37 t93 t51 t44 t86 t87 t45 t52 t106 t88 t53 t60 t39 t46 t54 t61 t47 t107 t97 t55 t48 t56 t49 t70 t108 t99 t64 t57 t71 t72 t16 t65 t109"/>
       </outline>
-      <gantt-view x="-61" y="0" w="979" h="670">
+      <gantt-view x="-33" y="17" w="1098" h="976">
         <view-mode>actual</view-mode>
         <dependency-lines/>
         <constraints/>
@@ -48,11 +50,11 @@
         <task-bar-label task-type="task" position="right">
           <key>Assigned</key>
         </task-bar-label>
-        <scale scale-name="Automatic" full-day-width="1195.5">
+        <scale scale-name="Automatic" full-day-width="88.0918"/>
+        <scale scale-name="Day" full-day-width="289.199">
           <selected/>
         </scale>
-        <scale scale-name="Day" full-day-width="1215"/>
-        <scale scale-name="Hour" full-day-width="65880"/>
+        <scale scale-name="Hour" full-day-width="7616.14"/>
         <scale scale-name="Minute" full-day-width="64800"/>
         <scale scale-name="Month" full-day-width="34.5"/>
         <scale scale-name="Quarter" full-day-width="9.6"/>
@@ -62,7 +64,7 @@
     </task-view>
     <resource-view>
       <split-view-divider-position>306</split-view-divider-position>
-      <outline x="0" y="0" w="306" h="976">
+      <outline x="0" y="0" w="0" h="0">
         <column name="IM" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Type" width="49"/>
@@ -113,7 +115,7 @@
     </resource-view>
     <calendar>
       <split-view-divider-position>290</split-view-divider-position>
-      <outline x="0" y="0" w="290" h="635">
+      <outline x="0" y="0" w="0" h="0">
         <column name="IM" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Type" width="49"/>
@@ -125,11 +127,12 @@
   </window>
   <project>
     <title>Anforderungsspezifikation</title>
-    <next-task-id>104</next-task-id>
+    <next-task-id>801</next-task-id>
     <next-resource-id>8</next-resource-id>
     <scenario id="mNvgARY8n7-" name="Actual" filename="Actual.xml"/>
     <date-display dates="true" times="true" seconds="false"/>
     <numbering-style>wbs</numbering-style>
+    <auto-level/>
     <critical-path-slack>0</critical-path-slack>
     <currency-format>1.234,56 €</currency-format>
     <duration-format hours-per-day="8" hours-per-week="40" hours-per-month="160" hours-per-year="1920" hours="true" days="true" weeks="true"/>
