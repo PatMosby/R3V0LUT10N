@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <omniplan xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
-  <window x="1280" y="-100" w="1600" h="900">
+  <window x="1575" y="-194" w="1622" h="1045">
     <editing-scenario>mNvgARY8n7-</editing-scenario>
-    <view>task</view>
+    <view>resource</view>
     <change-tracking/>
     <draw-folded/>
     <status-display>basic</status-display>
     <task-view>
-      <split-view-divider-position>443</split-view-divider-position>
-      <outline x="0" y="585" w="443" h="796">
+      <split-view-divider-position>802</split-view-divider-position>
+      <outline x="0" y="0" w="61" h="440">
         <column name="Violations" width="20"/>
         <column name="Notes" width="20"/>
-        <column name="Title" width="615"/>
+        <column name="Title" width="483"/>
         <column name="Effort" width="101"/>
         <column name="Start" width="116"/>
         <column name="End" width="116"/>
-        <expanded-items idrefs="t44 t16 t64 t90 t45 t65 t48 t37 t80 t57 t74 t88"/>
-        <selected-items-at-filter-time idrefs="t66 t73 t80 t81 t74 t67 t68 t19 t40 t82 t90 t41 t69 t83 t76 t91 t77 t111 t42 t104 t84 t78 t85 t43 t50 t92 t105 t93 t51 t44 t86 t79 t37 t87 t45 t52 t106 t88 t53 t60 t46 t39 t47 t61 t54 t107 t97 t48 t55 t70 t49 t56 t108 t99 t64 t57 t71 t65 t16 t72"/>
+        <expanded-items idrefs="t44 t16 t64 t90 t45 t65 t48 t37 t74 t57 t80 t88"/>
+        <selected-items-at-filter-time idrefs="t73 t66 t80 t81 t67 t74 t68 t82 t19 t40 t76 t41 t90 t83 t69 t77 t111 t84 t91 t42 t104 t78 t43 t50 t85 t92 t105 t86 t37 t79 t93 t44 t51 t87 t45 t52 t106 t88 t53 t60 t39 t46 t54 t61 t47 t107 t97 t48 t55 t49 t70 t56 t108 t99 t71 t64 t57 t72 t16 t65"/>
       </outline>
-      <gantt-view x="0" y="585" w="1156" h="796">
+      <gantt-view x="97" y="0" w="819" h="440">
         <view-mode>actual</view-mode>
         <dependency-lines/>
         <constraints/>
@@ -64,7 +64,7 @@
     </task-view>
     <resource-view>
       <split-view-divider-position>306</split-view-divider-position>
-      <outline x="0" y="0" w="0" h="0">
+      <outline x="0" y="0" w="306" h="941">
         <column name="IM" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Type" width="49"/>
@@ -72,7 +72,7 @@
         <column name="#" width="75"/>
         <selected-items-at-filter-time idrefs="r4 r3 r2 r5"/>
       </outline>
-      <timeline x="20" y="164" w="1265" h="796">
+      <timeline x="-168" y="0" w="1287" h="941">
         <show-project-end/>
         <task-bar-label task-type="group" position="left">
           <key>Title</key>
@@ -115,7 +115,7 @@
     </resource-view>
     <calendar>
       <split-view-divider-position>290</split-view-divider-position>
-      <outline x="0" y="0" w="0" h="0">
+      <outline x="0" y="0" w="290" h="910">
         <column name="IM" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Type" width="49"/>

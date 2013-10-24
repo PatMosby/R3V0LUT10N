@@ -225,17 +225,17 @@
   <task id="t37">
     <title>Einleitung</title>
     <type>group</type>
-    <start-constraint-date>2013-10-25T13:30:00.000Z</start-constraint-date>
+    <start-constraint-date>2013-10-25T05:00:00.000Z</start-constraint-date>
     <child-task idref="t39"/>
     <child-task idref="t40"/>
     <child-task idref="t41"/>
     <child-task idref="t42"/>
     <child-task idref="t43"/>
-    <start-no-earlier-than>2013-10-25T13:30:00.000Z</start-no-earlier-than>
+    <start-no-earlier-than>2013-10-25T05:00:00.000Z</start-no-earlier-than>
   </task>
   <task id="t39">
     <title>Zweck</title>
-    <leveled-start>2013-10-25T13:30:00.000Z</leveled-start>
+    <leveled-start>2013-10-25T05:00:00.000Z</leveled-start>
     <effort>7200</effort>
     <start-constraint-date>2013-10-21T08:00:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -243,7 +243,7 @@
   </task>
   <task id="t40">
     <title>Rahmen</title>
-    <leveled-start>2013-10-25T15:30:00.000Z</leveled-start>
+    <leveled-start>2013-10-25T13:00:00.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2013-10-21T10:00:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -251,7 +251,7 @@
   </task>
   <task id="t41">
     <title>Definitionen und Akronyme</title>
-    <leveled-start>2013-10-25T16:30:00.000Z</leveled-start>
+    <leveled-start>2013-10-25T14:00:00.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2013-10-21T11:00:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -259,7 +259,7 @@
   </task>
   <task id="t42">
     <title>Referenzen</title>
-    <leveled-start>2013-10-25T17:30:00.000Z</leveled-start>
+    <leveled-start>2013-10-25T15:00:00.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2013-10-21T12:00:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -267,7 +267,7 @@
   </task>
   <task id="t43">
     <title>Übersicht über das Dokument</title>
-    <leveled-start>2013-10-26T05:30:00.000Z</leveled-start>
+    <leveled-start>2013-10-25T16:00:00.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2013-10-21T13:00:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -296,13 +296,15 @@
   </task>
   <task id="t46">
     <title>Analyse ähnlicher Systeme</title>
+    <leveled-start>2013-10-22T15:00:00.000Z</leveled-start>
     <effort>25200</effort>
-    <start-constraint-date>2013-10-31T07:00:00.000Z</start-constraint-date>
-    <start-no-earlier-than>2013-10-31T07:00:00.000Z</start-no-earlier-than>
+    <start-constraint-date>2013-10-22T15:00:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2013-10-22T15:00:00.000Z</start-no-earlier-than>
   </task>
   <task id="t47">
     <title>Vorbereitung auf Kundengespräch und Durchführung</title>
-    <leveled-start>2013-10-21T14:02:26.417Z</leveled-start>
+    <leveled-start>2013-10-22T05:00:00.000Z</leveled-start>
     <effort>14400</effort>
     <start-constraint-date>2013-10-21T05:51:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -409,14 +411,14 @@
   </task>
   <task id="t60">
     <title>Anwendungsfalldiagramm</title>
-    <leveled-start>2013-10-24T19:00:00.000Z</leveled-start>
+    <leveled-start>2013-10-25T14:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <prerequisite-task idref="t77"/>
     <assignment idref="r4"/>
   </task>
   <task id="t61">
     <title>Überblick der Anwendungsfälle</title>
-    <leveled-start>2013-10-21T14:02:26.417Z</leveled-start>
+    <leveled-start>2013-10-22T05:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r2"/>
     <assignment idref="r5"/>
@@ -437,19 +439,19 @@
   </task>
   <task id="t66">
     <title>Personas</title>
-    <leveled-start>2013-10-21T19:02:26.000Z</leveled-start>
+    <leveled-start>2013-10-22T17:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r2"/>
   </task>
   <task id="t67">
     <title>Beschreibung der Personas</title>
-    <leveled-start>2013-10-23T05:02:26.000Z</leveled-start>
+    <leveled-start>2013-10-23T18:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r2"/>
   </task>
   <task id="t68">
     <title>Rahmenbedingungen</title>
-    <leveled-start>2013-10-25T06:00:00.000Z</leveled-start>
+    <leveled-start>2013-10-25T17:00:00.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2013-10-25T06:00:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -457,7 +459,7 @@
   </task>
   <task id="t69">
     <title>Gesetzliche Rahmenbedingungen</title>
-    <leveled-start>2013-10-26T06:30:00.000Z</leveled-start>
+    <leveled-start>2013-10-26T05:00:00.000Z</leveled-start>
     <effort>14400</effort>
     <start-constraint-date>2013-10-25T06:00:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -465,25 +467,29 @@
   </task>
   <task id="t70">
     <title>Sicherheitskritische Aspekte</title>
-    <leveled-start>2013-10-21T17:02:26.000Z</leveled-start>
-    <effort>28800</effort>
+    <leveled-start>2013-10-26T09:00:00.000Z</leveled-start>
+    <effort>7200</effort>
+    <start-constraint-date>2013-10-26T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
+    <start-no-earlier-than>2013-10-26T07:30:00.000Z</start-no-earlier-than>
   </task>
   <task id="t71">
     <title>Mindestanforderungen in SWP2</title>
-    <leveled-start>2013-10-22T18:02:26.000Z</leveled-start>
-    <effort>28800</effort>
+    <leveled-start>2013-10-26T11:00:00.000Z</leveled-start>
+    <effort>7200</effort>
+    <start-constraint-date>2013-10-26T09:45:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
+    <start-no-earlier-than>2013-10-26T09:45:00.000Z</start-no-earlier-than>
   </task>
   <task id="t72">
     <title>Annahmen und Abhängigkeiten</title>
-    <leveled-start>2013-10-21T14:02:26.418Z</leveled-start>
+    <leveled-start>2013-10-22T05:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r3"/>
   </task>
   <task id="t73">
     <title>Ausblick</title>
-    <leveled-start>2013-10-22T16:02:26.000Z</leveled-start>
+    <leveled-start>2013-10-23T06:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r3"/>
   </task>
@@ -499,13 +505,13 @@
   </task>
   <task id="t76">
     <title>Datenmodell</title>
-    <leveled-start>2013-10-21T17:02:26.000Z</leveled-start>
+    <leveled-start>2013-10-22T15:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r4"/>
   </task>
   <task id="t77">
     <title>Anwendungsfälle</title>
-    <leveled-start>2013-10-24T06:02:26.000Z</leveled-start>
+    <leveled-start>2013-10-24T19:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <prerequisite-task idref="t61"/>
     <prerequisite-task idref="t64"/>
@@ -514,13 +520,13 @@
   </task>
   <task id="t78">
     <title>Aktionen</title>
-    <leveled-start>2013-10-24T18:02:26.000Z</leveled-start>
+    <leveled-start>2013-10-25T14:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r2"/>
   </task>
   <task id="t79">
     <title>Entwurfseinschränkungen</title>
-    <leveled-start>2013-10-22T18:02:26.000Z</leveled-start>
+    <leveled-start>2013-10-26T09:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r4"/>
   </task>
@@ -536,43 +542,43 @@
   </task>
   <task id="t81">
     <title>Weitere Anforderungen</title>
-    <leveled-start>2013-10-29T13:00:00.000Z</leveled-start>
+    <leveled-start>2013-10-30T11:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r4"/>
   </task>
   <task id="t82">
     <title>Performanz</title>
-    <leveled-start>2013-10-26T05:00:00.000Z</leveled-start>
+    <leveled-start>2013-10-26T17:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r4"/>
   </task>
   <task id="t83">
     <title>Zuverlässigkeit</title>
-    <leveled-start>2013-10-26T13:00:00.000Z</leveled-start>
+    <leveled-start>2013-10-27T10:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r4"/>
   </task>
   <task id="t84">
     <title>Vefügbarkeit</title>
-    <leveled-start>2013-10-27T06:00:00.000Z</leveled-start>
+    <leveled-start>2013-10-27T18:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r4"/>
   </task>
   <task id="t85">
     <title>Sicherheit</title>
-    <leveled-start>2013-10-27T14:00:00.000Z</leveled-start>
+    <leveled-start>2013-10-28T11:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r4"/>
   </task>
   <task id="t86">
     <title>Wartbarkeit</title>
-    <leveled-start>2013-10-28T07:00:00.000Z</leveled-start>
+    <leveled-start>2013-10-29T09:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r4"/>
   </task>
   <task id="t87">
     <title>Portabilität</title>
-    <leveled-start>2013-10-28T15:00:00.000Z</leveled-start>
+    <leveled-start>2013-10-29T17:00:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r4"/>
   </task>
@@ -635,6 +641,8 @@
     <completion-percentage>1</completion-percentage>
     <start-constraint-date>2013-10-23T06:00:00.000Z</start-constraint-date>
     <prerequisite-task idref="t47"/>
+    <assignment idref="r1"/>
+    <assignment idref="r4"/>
     <start-no-earlier-than>2013-10-23T06:00:00.000Z</start-no-earlier-than>
   </task>
   <task id="t104">
