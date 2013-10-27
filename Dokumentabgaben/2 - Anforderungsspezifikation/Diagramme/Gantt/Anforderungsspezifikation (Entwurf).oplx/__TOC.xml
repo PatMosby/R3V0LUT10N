@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <omniplan xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
-  <window x="1575" y="-194" w="1622" h="1045">
+  <window x="0" y="58" w="1280" h="720">
     <editing-scenario>mNvgARY8n7-</editing-scenario>
-    <view>resource</view>
+    <view>task</view>
     <change-tracking/>
     <draw-folded/>
     <status-display>basic</status-display>
     <task-view>
-      <split-view-divider-position>802</split-view-divider-position>
-      <outline x="0" y="0" w="61" h="440">
+      <split-view-divider-position>392</split-view-divider-position>
+      <outline x="0" y="0" w="392" h="616">
         <column name="Violations" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Title" width="483"/>
         <column name="Effort" width="101"/>
         <column name="Start" width="116"/>
         <column name="End" width="116"/>
-        <expanded-items idrefs="t44 t16 t64 t90 t45 t65 t48 t37 t74 t57 t80 t88"/>
-        <selected-items-at-filter-time idrefs="t73 t66 t80 t81 t67 t74 t68 t82 t19 t40 t76 t41 t90 t83 t69 t77 t111 t84 t91 t42 t104 t78 t43 t50 t85 t92 t105 t86 t37 t79 t93 t44 t51 t87 t45 t52 t106 t88 t53 t60 t39 t46 t54 t61 t47 t107 t97 t48 t55 t49 t70 t56 t108 t99 t71 t64 t57 t72 t16 t65"/>
+        <expanded-items idrefs="t44 t16 t64 t90 t45 t65 t48 t37 t80 t57 t74 t88"/>
+        <selected-items-at-filter-time idrefs="t80 t66 t73 t81 t67 t74 t68 t40 t82 t19 t83 t41 t90 t76 t69 t104 t42 t111 t91 t84 t77 t78 t85 t92 t50 t43 t105 t79 t44 t51 t86 t37 t93 t87 t45 t52 t106 t88 t60 t46 t53 t39 t54 t61 t47 t107 t97 t48 t55 t49 t56 t70 t108 t99 t57 t64 t71 t72 t65 t16"/>
       </outline>
-      <gantt-view x="97" y="0" w="819" h="440">
+      <gantt-view x="443" y="0" w="887" h="616">
         <view-mode>actual</view-mode>
         <dependency-lines/>
         <constraints/>
@@ -64,7 +64,7 @@
     </task-view>
     <resource-view>
       <split-view-divider-position>306</split-view-divider-position>
-      <outline x="0" y="0" w="306" h="941">
+      <outline x="0" y="0" w="306" h="616">
         <column name="IM" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Type" width="49"/>
@@ -72,7 +72,7 @@
         <column name="#" width="75"/>
         <selected-items-at-filter-time idrefs="r4 r3 r2 r5"/>
       </outline>
-      <timeline x="-168" y="0" w="1287" h="941">
+      <timeline x="595" y="0" w="945" h="616">
         <show-project-end/>
         <task-bar-label task-type="group" position="left">
           <key>Title</key>
