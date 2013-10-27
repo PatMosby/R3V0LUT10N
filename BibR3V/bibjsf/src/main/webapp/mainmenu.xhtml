@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+<body>
+<ui:composition>
+		<p:menubar id="mainmenubar">
+			<p:menuitem value="#{messages.home}" icon="ui-icon-home"
+				url="/index.xhtml" />
+
+			<p:submenu label="#{messages.books}" icon="ui-icon-document">
+				<p:menuitem value="#{messages.search}" url="/book/list.xhtml" />
+				<p:menuitem value="#{messages.add}" url="/book/add.xhtml" />
+				<p:menuitem value="#{messages.list}" url="/book/list.xhtml" />
+			</p:submenu>
+
+			<p:submenu label="#{messages.readers}" icon="ui-icon-person">
+				<p:menuitem value="#{messages.search}" url="/reader/list.xhtml" />
+				<p:menuitem value="#{messages.add}" url="/reader/add.xhtml" />
+				<p:menuitem value="#{messages.list}" url="/reader/list.xhtml" />
+			</p:submenu>
+
+			<p:submenu label="#{messages.help}" icon="ui-icon-help">
+				<p:menuitem value="#{messages.contents}" url="#" />
+				<p:menuitem value="#{messages.search}" icon="ui-icon-search" />
+			</p:submenu>
+
+			<p:menuitem value="#{messages.administration}" icon="ui-icon-gear"
+				url="/admin/admin.xhtml" />
+
+			<p:menuitem value="#{messages.login}" icon="ui-icon-extlink"
+				url="/faces/login.xhtml" />
+		</p:menubar>
+	</ui:composition>
+</body>
+</html>            
