@@ -17,9 +17,7 @@
 
 package swp.bibjsf.presentation;
 
-import java.io.IOException;
 import java.math.BigDecimal;
-import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,12 +46,9 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 		super();
 		 try {
 			searcher = new ISBNGoogleSearch();
-		} catch (GeneralSecurityException e) {
+		} catch (Exception e) {
 			searcher = null;
-			logger.error("cannot connect to Google service " + e.getMessage());
-		} catch (IOException e) {
-			searcher = null;
-			logger.error("cannot connect to Google service " + e.getMessage());
+			googleNotAvailable(e);
 		}
 	}
 
@@ -459,21 +454,8 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         		// we did not get a connection initially; let's try once more now
         		try {
         			searcher = new ISBNGoogleSearch();
-        		} catch (GeneralSecurityException e) {
-        			logger.error("cannot connect to Google service " + e.getMessage()
-        					+ " (" + e.getClass().getCanonicalName() + ")");
-        			FacesContext.getCurrentInstance().addMessage(null,
-                            new FacesMessage(FacesMessage.SEVERITY_WARN,
-                                             Messages.get("googleNotAvailable"),
-                                             e.getLocalizedMessage()));
-        			return new ArrayList<Book>();
-        		} catch (IOException e) {
-        			logger.error("cannot connect to Google service " + e.getMessage()
-        					 + " (" + e.getClass().getCanonicalName() + ")");
-        			FacesContext.getCurrentInstance().addMessage(null,
-                            new FacesMessage(FacesMessage.SEVERITY_WARN,
-                                             Messages.get("googleNotAvailable"),
-                                             e.getLocalizedMessage()));
+        		} catch (Exception e) {
+        			googleNotAvailable(e);
         			return new ArrayList<Book>();
         		}
         	}
@@ -496,6 +478,21 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         		return result;
         	}
         }
+    }
+
+    /**
+     * Report problem with Google service.
+     *
+     * @param e the exception that was thrown and should be reported
+     *
+     */
+    private void googleNotAvailable(Exception e) {
+        logger.error("cannot connect to Google service " + e.getMessage()
+        		+ " (" + e.getClass().getCanonicalName() + ")");
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_WARN,
+                                 Messages.get("googleNotAvailable"),
+                                 e.getLocalizedMessage()));
     }
 
     /**

@@ -297,7 +297,7 @@ public interface Persistence {
 	 * @param elements
 	 *            readers to be deleted
 	 */
-	public void deleteAll(BusinessObject[] elements) throws DataSourceException;
+	public void deleteAll(List<? extends BusinessObject> elements) throws DataSourceException;
 
 	/**
 	 * Deletes <code>reader</code> from database.

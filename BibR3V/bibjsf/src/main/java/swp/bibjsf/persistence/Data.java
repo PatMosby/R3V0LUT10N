@@ -751,7 +751,7 @@ public class Data implements Persistence {
 	 * @see swp.bibjsf.persistence.Persistence#deleteAll(swp.bibcommon.Reader[])
 	 */
 	@Override
-	public void deleteAll(BusinessObject[] elements) throws DataSourceException {
+	public void deleteAll(List<? extends BusinessObject> elements) throws DataSourceException {
 		logger.debug("delete all given elements");
 
 		Connection con;

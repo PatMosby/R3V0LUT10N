@@ -21,6 +21,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -132,18 +133,18 @@ public abstract class TableForm<Element extends BusinessObject> implements Seria
     /**
      * All rows currently selected.
      */
-    protected Element[] selectedElements;
+    protected List<Element> selectedElements;
 
     /**
      * Returns all rows currently selected.
      *
      * @return all rows currently selected or null if none are selected
      */
-    public Element[] getSelectedElements() {
+    public List<Element> getSelectedElements() {
     	if (selectedElements == null) {
     		return null;
     	} else {
-    		return selectedElements.clone();
+    	    return new ArrayList<Element>(selectedElements);
     	}
     }
 
@@ -152,15 +153,15 @@ public abstract class TableForm<Element extends BusinessObject> implements Seria
      *
      * @param selectedElements new selected Elements
      */
-    public void setSelectedElements(Element[] selectedElements) {
-        this.selectedElements = selectedElements.clone();
+    public void setSelectedElements(List<Element> selectedElements) {
+        this.selectedElements = new ArrayList<Element>(selectedElements);
     }
 
     /**
      * Deletes all selected elements from the data model.
      */
     public void deleteSelected() {
-        if (selectedElements.length == 0) {
+        if (selectedElements.size() == 0) {
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_WARN, Messages.get("noEntriesSelected"), Messages.get("nothingToDo")));
         } else {
@@ -169,7 +170,7 @@ public abstract class TableForm<Element extends BusinessObject> implements Seria
                 //populateModel();
                 FacesContext.getCurrentInstance().addMessage(null,
                         new FacesMessage(FacesMessage.SEVERITY_INFO, Messages.get("success"),
-                                selectedElements.length + " " + Messages.get("elementsDeleted")));
+                                selectedElements.size() + " " + Messages.get("elementsDeleted")));
                 selectedElements = null;
             } catch (DataSourceException e) {
                 FacesContext.getCurrentInstance().addMessage(null,
@@ -297,7 +298,7 @@ public abstract class TableForm<Element extends BusinessObject> implements Seria
      */
     public StreamedContent getpDF() {
 
-        if (selectedElements.length == 0) {
+        if (selectedElements.size() == 0) {
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_WARN, Messages.get("noEntriesSelected"), Messages.get("nothingToDo")));
             return null;

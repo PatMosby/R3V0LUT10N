@@ -34,7 +34,7 @@ import org.apache.log4j.Logger;
  */
 public class Messages {
 
-	private static final String bundleName = "swp.bibjsf.properties.messages";
+    private static final String bundleName = "messages"; // "swp.bibjsf.properties.messages";
 
 	/**
      * Logger of this class

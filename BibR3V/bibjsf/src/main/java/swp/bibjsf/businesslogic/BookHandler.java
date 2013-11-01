@@ -237,7 +237,7 @@ public class BookHandler extends BusinessObjectHandler<Book> {
 	}
 
     @Override
-    public synchronized void delete(Book[] elements) throws DataSourceException {
+    public void delete(List<Book> elements) throws DataSourceException {
         persistence.deleteAll(elements);
     }
 

@@ -112,7 +112,7 @@ public abstract class BusinessObjectHandler<BusinessObject> extends BusinessHand
      * @param elements the elements to be deleted
      * @throws DataSourceException thrown if there is any problem with the data source
      */
-    public abstract void delete(BusinessObject[] elements) throws DataSourceException;
+    public abstract void delete(List<BusinessObject> elements) throws DataSourceException;
 
     /**
      * Exports all elements in the data source to outStream.

@@ -132,10 +132,25 @@
       </plugin>
     </plugins>   
     <resources>
+      <!-- copy logging configuration ressource -->
       <resource>
 	<directory>config</directory>
 	<includes>
 	  <include>log4j.properties</include>
+	</includes>
+      </resource>
+      <!-- copy localization ressources -->
+      <resource> 
+	<directory>src/main/java/swp/bibjsf/properties</directory>
+	<includes>
+	  <include>messages.properties</include>
+	</includes>
+      </resource>
+      <!-- copy configuration ressource -->
+      <resource> 
+	<directory>src/main/java</directory>
+	<includes>
+	  <include>bibi_config.properties</include>
 	</includes>
       </resource>
     </resources>

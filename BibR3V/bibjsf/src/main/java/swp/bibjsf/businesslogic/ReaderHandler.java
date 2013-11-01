@@ -189,7 +189,7 @@ public class ReaderHandler extends BusinessObjectHandler<Reader> {
      * @throws DataSourceException
      */
     @Override
-    public synchronized void delete(Reader[] elements) throws DataSourceException {
+    public synchronized void delete(List<Reader> elements) throws DataSourceException {
         persistence.deleteAll(elements);
     }
 

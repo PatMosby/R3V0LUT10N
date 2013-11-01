@@ -1,0 +1,118 @@
+
+Noten fuer die Gruppe IT_R3V0LUT1ON
+===================================
+
+Mitglieder
+----------
+
+  Daniel Pupat                 dpupat@tzi.de            
+  Mohamadreza Khostevan        amirkh@tzi.de            
+  Patrick Damrow               s_ngmrpo@uni-bremen.de   
+  Sebastian Bredehoeft         sbrede@tzi.de            
+  Tim Ellhoff                  tellhoff@tzi.de          
+  Tobias Dellert               tode@tzi.de              
+
+Gesamtnote
+----------
+
+1 Projektplan: 2.2
+
+Kommentare
+----------
+
+
+1 Projektplan
+=============
+
+
+Gesamteindruck
+    okay
+
+0 äußere Form:
+
+0a Versionierung:
+    alles okay
+
+0b Rechtschreibung:
+    einige Fehler
+
+0c Übersichtlichkeit/Form:
+    Gantt-Graphiken sind nicht lesbar und nicht gut angeordnet, 
+    es gibt ab und zu etwas komische Umbrüche, z.B. 5.1.2, das hätte auf eine neue Seite gekonnt,
+    die Arbeitspakete sind nicht besonders übersichtlich dargestellt, es hätte eine Kurz-Übersicht dazu geben können,
+    ansonsten ist die Form aber okay, und die Risiken sind ziemlich übersichtlich dargestellt
+    Abbildungen zum Teil nicht referenziert
+
+1 Vollständigkeit:
+
+1.1 Vollständigkeit:
+    unter 3.1 "Kommunikation innerhalb der Gruppe" wird nicht klar, wie genau ihr dafür sorgen wollt, dass die Kommunikation ausreichend ist
+
+2 Konsistenz:
+
+2.1 Konsistenz:
+    - unter 3.1 Managementprozess: die Ausführungen zu "Qualität des Produkts" und "Kundenzufriedenheit" sind so ähnlich, dass nicht klar wird, warum es zwei Punkte sind und was sie unterscheidet
+    - Gantt-Diagramme stimmen oft nicht so richtig mit Beschreibung überein
+    - es wird nicht klar, wie der Zusammenhang zwischen einem Arbeitstag von 8 Stunden und der wöchentlichen Arbeitszeit von 14,5 Stunden pro Woche pro Mitglied zu versehen ist.
+
+3.3 Risikomanagement:
+
+3.3a Risikoidentifikation:
+    es werden die meisten wesentlichen Risiken genannt, 
+    es hätten noch genannt werden können:
+    - Mitarbeiter erledigen ihre APs nicht, arbeiten nicht mit
+    - Kunde wünscht Änderungen
+    
+    es hätten außerdem noch genannt werden können:
+    - Fehleinschätzung des Aufwands (besonders externe Libs)
+    - Überschätzung der eigenen Fähigkeiten (versprechen   wesentlich mehr als Mindestanf.)
+    - Fehleinschätzung der Fähigkeiten der Mitarbeiter
+    - APs werden von den Mitarbeitern falsch verstanden
+
+3.3b Risikobewertung:
+    Risikobewertung erscheint sinnvoll und es wird unterschieden zwischen Eintrittswahrscheinlichkeit und Schadenshöhe, es werden auch die neuberechneten Risikengrößen dargestellt
+
+3.3c Gegenmaßnahmen:
+    Es werden zu den meisten Risiken vorbeugende und schadensbegrenzende Risiken genannt,
+    es wird aber nicht explizit gemacht, welche man einsetzen wird
+
+3.3d Risikoverfolgung:
+    es wird die Absicht genannt, die Risiken zu verfolgen und es werden Verantwortliche genannt, allerdings gibt es keinen konkreten Zeitplan dafür (z.B. Intervalle) und es werden auch nicht explizit Indikatoren genannt
+    Dass Risiken hinzukommen oder wegfallen können wird nicht gesagt
+
+5 Zeitplanung:
+
+5.1a Beschreibung der Arbeitspakete:
+    - Aufwände werden nicht geschätzt, sonst aber recht genau beschrieben
+
+5.1b Aufteilung/Granularität:
+    APs sind soweit in Ordnung, Granularität ist auch angemessen
+    allerdings sind die Zeitschätzung zum Teil etwas unrealistisch und ungenau, z.B. Erstellung des Prototypen
+    -Zeit eingeplant für Gruppentreffen aber nicht konkret genug für Risikomanagement-Maßnamen 
+
+5.1c Zeitaufwand:
+    Aufwände nur im Gantt spezifiziert, dort zum Teil unrealistisch: z.B. die 6 Unterpunkte von 1.2.3.5 (Softwaresystemattribute) - sie sollen jeweils einen Tag dauern, das scheint arg viel, insbesondere im Vergleich zur Erstellung von Anwendungsfällen und Personas
+    
+    zudem scheint die Berechnung im Gantt-Diagramm auf Basis eines 8h-Tages zu funktionieren, wobei aber jedes Mitglied nur 14.5 Stunden pro Woche zur Verfügung hat -- das ist in sich widersprüchlich
+
+5.2a Gantt-Diagramm:
+    nicht gut lesbar,
+    zu großen Teilen nicht konsistent mit AP-Beschreibung
+    (z.B., im Gantt gibt es Mitarbeiter-Interview, dazu gibt es aber kein Paket)
+    (Herausstellen der Produktperspektiven AP 2.2.1 hat in Tabelle Zeitraum von 1.11. bis 2.11., im Gantt aber 28.10. bis 31.10)
+    
+    Kundeninterview, Mitarbeitergespräche haben keinen Aufwand verzeichnet
+
+5.2b Abhängigkeiten:
+    - Abhängigkeiten sind kaum genannt, insbesondere nicht für die Phase der Anforderungsspezifikation,
+    - kritischer Pfad wird nicht benannt, er ist im Gantt-Diagramm zum Teil verzeichnet
+
+5.2c Planung Gesamtprojekt:
+    Phasen und Meilensteine mit Zeiträumen werden genannt, aber keine Aufwände
+
+5.3 Zuteilung von Ressourcen:
+    - es erfolgt Zuordnung von Personen und jedes AP hat Hauptverantwortlichen
+    - Sebastian Bredehöft scheint etwas unter-ausgelastet, zumindest in der Planung für Anforderungsspezifikation (Abb.4)
+    - ansonsten ist die Auslastung der einzelen Mitarbeiter für die AS nur sehr schwer aus den Gantt-Diagrammen abzulesen
+    - Ansonsten wird die Belastung der einzelne Mitarbeiter für die nächsten Phasen nicht klar ersichtlich, weil noch keine Aufwände geplant sind
+
