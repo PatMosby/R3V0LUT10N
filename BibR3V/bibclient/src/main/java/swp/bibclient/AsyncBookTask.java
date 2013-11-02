@@ -42,6 +42,7 @@ import android.widget.Toast;
  *
  * @author D. Lüdemann
  *
+ *
  */
 public class AsyncBookTask extends AsyncTask<Void, Integer, List<Book>> {
 
