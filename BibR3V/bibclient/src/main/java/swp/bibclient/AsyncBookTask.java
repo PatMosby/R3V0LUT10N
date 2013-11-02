@@ -39,10 +39,7 @@ import android.widget.Toast;
  * -in-android-rest-json/
  * http://www.vogella.com/articles/AndroidJSON/article.html
  * http://www.vogella.com/articles/AndroidListView/article.html
- *
  * @author D. Lüdemann
- *
- *
  */
 public class AsyncBookTask extends AsyncTask<Void, Integer, List<Book>> {
 
