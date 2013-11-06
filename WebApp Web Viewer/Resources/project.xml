@@ -11,7 +11,7 @@
 			<key>$class</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>959</integer>
+				<integer>967</integer>
 			</dict>
 			<key>currentLookAndFeel</key>
 			<dict>
@@ -19,7 +19,7 @@
 				<integer>4</integer>
 			</dict>
 			<key>orderedScreensCount</key>
-			<integer>12</integer>
+			<integer>13</integer>
 			<key>projectLibrary</key>
 			<dict>
 				<key>CP$UID</key>
@@ -30,7 +30,7 @@
 			<key>$class</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>958</integer>
+				<integer>966</integer>
 			</dict>
 			<key>lookAndFeels</key>
 			<dict>
@@ -10007,6 +10007,14 @@
 					<key>CP$UID</key>
 					<integer>954</integer>
 				</dict>
+				<dict>
+					<key>CP$UID</key>
+					<integer>958</integer>
+				</dict>
+				<dict>
+					<key>CP$UID</key>
+					<integer>962</integer>
+				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -10497,7 +10505,7 @@
 				<integer>916</integer>
 			</dict>
 			<key>height</key>
-			<real>6</real>
+			<real>292</real>
 			<key>identifier</key>
 			<dict>
 				<key>CP$UID</key>
@@ -10509,11 +10517,11 @@
 				<integer>915</integer>
 			</dict>
 			<key>width</key>
-			<real>6</real>
+			<real>339</real>
 		</dict>
-		<string>radio-mark-pressed.png</string>
-		<string>100664331l.png</string>
-		<string>x-coredata://8A119B17-AF00-4D70-8084-3C8BA8F4FC4C/GDImageResource/p7</string>
+		<string>Vormerkzeiten</string>
+		<string>130024459l.png</string>
+		<string>169D306B-F311-4A79-859C-10B0CBBB95E9</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10555,7 +10563,7 @@
 				<integer>924</integer>
 			</dict>
 			<key>height</key>
-			<real>24</real>
+			<real>6</real>
 			<key>identifier</key>
 			<dict>
 				<key>CP$UID</key>
@@ -10565,6 +10573,35 @@
 			<dict>
 				<key>CP$UID</key>
 				<integer>923</integer>
+			</dict>
+			<key>width</key>
+			<real>6</real>
+		</dict>
+		<string>radio-mark-pressed.png</string>
+		<string>100664331l.png</string>
+		<string>x-coredata://8A119B17-AF00-4D70-8084-3C8BA8F4FC4C/GDImageResource/p7</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CP$UID</key>
+				<integer>854</integer>
+			</dict>
+			<key>fileName</key>
+			<dict>
+				<key>CP$UID</key>
+				<integer>928</integer>
+			</dict>
+			<key>height</key>
+			<real>24</real>
+			<key>identifier</key>
+			<dict>
+				<key>CP$UID</key>
+				<integer>929</integer>
+			</dict>
+			<key>name</key>
+			<dict>
+				<key>CP$UID</key>
+				<integer>927</integer>
 			</dict>
 			<key>width</key>
 			<real>24</real>
@@ -10581,19 +10618,19 @@
 			<key>fileName</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>928</integer>
+				<integer>932</integer>
 			</dict>
 			<key>height</key>
 			<real>6</real>
 			<key>identifier</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>929</integer>
+				<integer>933</integer>
 			</dict>
 			<key>name</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>927</integer>
+				<integer>931</integer>
 			</dict>
 			<key>width</key>
 			<real>6</real>
@@ -10610,19 +10647,19 @@
 			<key>fileName</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>932</integer>
+				<integer>936</integer>
 			</dict>
 			<key>height</key>
 			<real>16</real>
 			<key>identifier</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>933</integer>
+				<integer>937</integer>
 			</dict>
 			<key>name</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>931</integer>
+				<integer>935</integer>
 			</dict>
 			<key>width</key>
 			<real>16</real>
@@ -10639,19 +10676,19 @@
 			<key>fileName</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>936</integer>
+				<integer>940</integer>
 			</dict>
 			<key>height</key>
 			<real>21</real>
 			<key>identifier</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>937</integer>
+				<integer>941</integer>
 			</dict>
 			<key>name</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>935</integer>
+				<integer>939</integer>
 			</dict>
 			<key>width</key>
 			<real>24</real>
@@ -10668,19 +10705,19 @@
 			<key>fileName</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>940</integer>
+				<integer>944</integer>
 			</dict>
 			<key>height</key>
 			<real>128</real>
 			<key>identifier</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>941</integer>
+				<integer>945</integer>
 			</dict>
 			<key>name</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>939</integer>
+				<integer>943</integer>
 			</dict>
 			<key>width</key>
 			<real>128</real>
@@ -10697,19 +10734,19 @@
 			<key>fileName</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>944</integer>
+				<integer>948</integer>
 			</dict>
 			<key>height</key>
 			<real>9</real>
 			<key>identifier</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>945</integer>
+				<integer>949</integer>
 			</dict>
 			<key>name</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>943</integer>
+				<integer>947</integer>
 			</dict>
 			<key>width</key>
 			<real>11</real>
@@ -10726,19 +10763,19 @@
 			<key>fileName</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>948</integer>
+				<integer>952</integer>
 			</dict>
 			<key>height</key>
 			<real>15</real>
 			<key>identifier</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>949</integer>
+				<integer>953</integer>
 			</dict>
 			<key>name</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>947</integer>
+				<integer>951</integer>
 			</dict>
 			<key>width</key>
 			<real>15</real>
@@ -10755,19 +10792,19 @@
 			<key>fileName</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>952</integer>
+				<integer>956</integer>
 			</dict>
 			<key>height</key>
 			<real>155</real>
 			<key>identifier</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>953</integer>
+				<integer>957</integer>
 			</dict>
 			<key>name</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>951</integer>
+				<integer>955</integer>
 			</dict>
 			<key>width</key>
 			<real>960</real>
@@ -10784,19 +10821,48 @@
 			<key>fileName</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>956</integer>
+				<integer>960</integer>
+			</dict>
+			<key>height</key>
+			<real>292</real>
+			<key>identifier</key>
+			<dict>
+				<key>CP$UID</key>
+				<integer>961</integer>
+			</dict>
+			<key>name</key>
+			<dict>
+				<key>CP$UID</key>
+				<integer>959</integer>
+			</dict>
+			<key>width</key>
+			<real>339</real>
+		</dict>
+		<string>Ausleihzeiträume</string>
+		<string>125830155l.png</string>
+		<string>BF756610-9BCA-4C49-933C-6AC1AFDA6092</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CP$UID</key>
+				<integer>854</integer>
+			</dict>
+			<key>fileName</key>
+			<dict>
+				<key>CP$UID</key>
+				<integer>964</integer>
 			</dict>
 			<key>height</key>
 			<real>12</real>
 			<key>identifier</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>957</integer>
+				<integer>965</integer>
 			</dict>
 			<key>name</key>
 			<dict>
 				<key>CP$UID</key>
-				<integer>955</integer>
+				<integer>963</integer>
 			</dict>
 			<key>width</key>
 			<real>12</real>
