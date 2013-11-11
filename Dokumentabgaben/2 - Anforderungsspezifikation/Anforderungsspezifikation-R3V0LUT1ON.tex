@@ -473,63 +473,109 @@ der hier angegebenen Einschätzung gekommen seid}
 
 
 \subsection{Anwendungsfälle}
-  {\em Dieser Teil enthält die \textbf{funktionalen Anforderungen} an
-  das System. Diese werden durch Anwendungsfälle beschrieben. Insofern
-  müssen die Anwendungsfälle die Funktionalität des Systems
-  vollständig abdecken. Daher müssen auch Varianten von
-  Standard\-ab\-läufen sowie das Verhalten im Fehlerfall behandelt werden.
-  
-  In den Anwendungsfällen beschreibt Ihr, wie Eure Personas mit dem
-  System interagieren, wenn sie ein bestimmtes Ziel erreichen wollen.
-  Dabei sollte der Anwendungsfall zum Profil der Persona passen, also
-  eine typische Anwendung seiner Personengruppe sein. Ihr solltet die
-  Anwendungsfälle textuell beschreiben (im unten aufgeführten Schema)
-  und im Fall von komplexen Anwendungsfällen zusätzlich
-  Sequenzdiagramme verwenden, um durch graphische Darstellung das
-  Verständnis zu erleichtern.  Stellt sicher, dass die
-  Mindestanforderungen auf jeden Fall erfasst sind.  Weiterhin sollen
-  hier noch keine Implementierungsdetails festgelegt werden, um keine
-  Entwurfsentscheidungen vorwegzunehmen.
+\begin{figure}[htbp]
+\caption{Startseite}
+\includegraphics[width=1\textwidth]{WebApp-Screens/Startscreen-loggedOut.png}
+  \label{startseite}
+\end{figure}
 
-  Verwendet die Screenshots oder digitalisierten Bilder Eures
-  Papierprototypen, um die Benutzungsführung in den Anwendungsfällen
-  zu illustrieren und die konkrete Benutzer\-oberfläche, die es zu
-  implementieren gilt, zu spezifizieren. Die Bilder sollten im Text an
-  der entsprechenden Stelle referenziert werden, um das Verständnis
-  für die Abläufe zu gewährleisten. Die Beschreibung muss so genau
-  sein, dass klar ist, wie welche Aktionen ausgelöst werden und was
-  das für Folgen hat (Beispiel: {\glqq}Benutzer startet die
-  Suche{\grqq} -- wie macht er das?  {\glqq}{\ldots}durch Drücken des
-  Buttons {\glq}Suche{\grq}{\grqq}). Die Spezifikation, die die
-  Navigation zwischen Screens und Dialogen beschreibt, nennt man
-  das Navigationsmodell. Es kann zum Beispiel in der Notation eines   
-  UML-Zustandsdiagrammes ausgedrückt werden, wobei jeder Screen/Dialog als
-  Zustand aufgefasst wird, Benutzerinteraktionen und sonstige Ereignisse
-  als Transitionen dargestellt werden.
+\begin{table}[htbp]
+\label{1}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{1} & \textbf{Programm starten} \\ \hline
+\textbf{Akteure} & Bert Bib, Arnold Admin, Silke Schüler, Bart Besucher\\ \hline
+\textbf{Ziel} & Der Akteur möchte das Programm starten  \\ \hline
+\textbf{Vorbedingungen} & keine \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur startet das Programm \\
+&2. Das Programm startet und zeigt die Startseite \\ \hline
+\textbf{Varianten} & keine \\ \hline
+\textbf{Nachbedingungen} & Das Programm ist gestartet und der Benutzer kann dieses nun verwenden \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine \\ \hline
+\end{tabular}
+\end{table}
 
-  Die Struktur der textuellen Beschreibung sollte sein:
-  \begin{enumerate}
-    \item eindeutiger Name des Anwendungsfalls mit eindeutiger Nummer
-    
-    \item Akteure: welche externen Instanzen interagieren mit
-    dem System in diesem Anwendungsfall?  
-    
-    \item Vorbedingungen: Ausgangszustand, der vor Beginn des
-    Anwendungsfalls gelten muss -- hier sollte auch das Ziel des Akteurs
-    genannt werden
-    
-    \item Regulärer Ablauf: Abfolge von Aktionen der Akteure und
-    Reaktionen des Systems
-    
-    \item Varianten: mögliche Abweichungen vom regulären Ablauf, z.B.\ 
-    Auslassen oder Wiederholen von Aktionen
-    
-    \item Nachbedingung: Endzustand und dann mögliche Folgeaktionen 
-  
-    \item Fehler-/Ausnahmefälle mit deren Nachbedingung; z.B.\ wie wird
-    auf ungültige Eingaben reagiert?
-  \end{enumerate}
-  }
+\begin{figure}[htbp]
+\caption{Loginscreen}
+\includegraphics[width=1\textwidth]{WebApp-Screens/Loginscreen.png}
+  \label{login}
+\end{figure}
+
+\begin{table}[htbp]
+\label{2}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{2} & \textbf{Benutzer anmelden} \\ \hline
+\textbf{Akteure} & Bert Bib, Arnold Admin, Silke Schüler, Bart Besucher\\ \hline
+\textbf{Ziel} & Der Akteur möchte sich im System anmelden  \\ \hline
+\textbf{Vorbedingungen} & Das Programm wurde gestartet  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Bib gibt seinen Benutzernamen und sein Passwort ein \\
+&2. Bert Bib drückt auf den Button anmelden\\
+&3. Der Startbildschirm erscheint wieder und Bert Bib kann nun alle Funktionen eines Bibliothekars verwenden\\ \hline
+\textbf{Varianten} & 
+1. Arnold Admin gibt seinen Benutzernamen und sein Passwort ein \\
+&2. Arnold Admin drückt auf den Button anmelden\\
+&3. Der Startbildschirm erscheint wieder und Arnold Admin kann nun alle Funktionen eines Administrators verwenden\\  
+& \\
+&1. Silke Schüler gibt ihren Benutzernamen und sein Passwort ein \\
+&2. Silke Schüler drückt auf den Button anmelden\\
+&3. Der Startbildschirm erscheint wieder und Silke Schüler kann nun alle Funktionen eines registrierten Nutzers verwenden\\ \hline
+\textbf{Nachbedingungen} & Die Personen sind nun angemeldet und können nun Funktionen abhängig vom Zugriffsrecht verwenden \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & 
+1. Bart Besucher besitzt kein Benutzernamen oder Passwort, somit kann er sich nicht anmelden und hat kein Zugriff auf die anderen Funktionen \\
+&2. Es wird der falsche Nutzername oder das falsche Passwort eingegeben. Dann erscheint eine Fehlermeldung, welche dieses Problem beschreibt \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+\caption{Startseite bei angemeldeten Benutzer}
+\includegraphics[width=1\textwidth]{WebApp-Screens/Startscreen-loggedIn.png}
+  \label{startlog}
+\end{figure}
+
+\begin{table}[htbp]
+\label{3}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{3} & \textbf{Startseite anzeigen} \\ \hline
+\textbf{Akteure} & Bert Bib, Arnold Admin, Silke Schüler, Bart Besucher\\ \hline
+\textbf{Ziel} & Der Akteur möchte die Startseite des Systems aufrufen  \\ \hline
+\textbf{Vorbedingungen} & Das Programm wurde gestartet  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Ein Benutzer drückt auf den Button Start \\
+&2. Das System zeigt die Startseite an\\
+\textbf{Varianten} & 
+Anwendungsfall \ref{1} \\ \hline
+\textbf{Nachbedingungen} & Es wird nun die Startseite angezeigt \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+\caption{Publikationsscreen von Silke Schüler oder Bart Besucher}
+\includegraphics[width=1\textwidth]{WebApp-Screens/PublicationsscreenLogOut.png}
+  \label{pub}
+\end{figure}
+
+\begin{table}[htbp]
+\label{4}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{4} & \textbf{Publikationen anzeigen} \\ \hline
+\textbf{Akteure} & Bert Bib, Arnold Admin, Silke Schüler, Bart Besucher\\ \hline
+\textbf{Ziel} & Der Akteur möchte die Startseite des Systems aufrufen  \\ \hline
+\textbf{Vorbedingungen} & Das Programm wurde gestartet  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Ein Benutzer drückt auf den Button Start \\
+&2. Das System zeigt die Startseite an\\
+\textbf{Varianten} & 
+Anwendungsfall \ref{1} \\ \hline
+\textbf{Nachbedingungen} & Es wird nun die Startseite angezeigt \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine
+\end{tabular}
+\end{table}
 
 \subsection{Aktionen}
   {\em Hier sollten die gleichen Aktionen wie in den Anwendungsfällen
