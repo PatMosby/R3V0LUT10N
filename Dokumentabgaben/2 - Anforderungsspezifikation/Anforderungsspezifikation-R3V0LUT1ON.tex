@@ -488,11 +488,11 @@ der hier angegebenen Einschätzung gekommen seid}
 \textbf{Ziel} & Der Akteur möchte das Programm starten  \\ \hline
 \textbf{Vorbedingungen} & keine \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur startet das Programm \\
+1. Der Akteur startet das Programm indem er die URL aufruft \\
 &2. Das Programm startet und zeigt die Startseite \\ \hline
 \textbf{Varianten} & keine \\ \hline
 \textbf{Nachbedingungen} & Das Programm ist gestartet und der Benutzer kann dieses nun verwenden \\ \hline
-\textbf{Fehler-/Ausnahmefälle} & keine \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & Server ist nicht erreichbar \\ \hline
 \end{tabular}
 \end{table}
 
@@ -519,13 +519,32 @@ der hier angegebenen Einschätzung gekommen seid}
 &2. Arnold Admin drückt auf den Button anmelden\\
 &3. Der Startbildschirm erscheint wieder und Arnold Admin kann nun alle Funktionen eines Administrators verwenden\\  
 & \\
-&1. Silke Schüler gibt ihren Benutzernamen und sein Passwort ein \\
+&1. Silke Schüler gibt ihren Benutzernamen und ihr Passwort ein \\
 &2. Silke Schüler drückt auf den Button anmelden\\
 &3. Der Startbildschirm erscheint wieder und Silke Schüler kann nun alle Funktionen eines registrierten Nutzers verwenden\\ \hline
 \textbf{Nachbedingungen} & Die Personen sind nun angemeldet und können nun Funktionen abhängig vom Zugriffsrecht verwenden \\ \hline
 \textbf{Fehler-/Ausnahmefälle} & 
 1. Bart Besucher besitzt kein Benutzernamen oder Passwort, somit kann er sich nicht anmelden und hat kein Zugriff auf die anderen Funktionen \\
 &2. Es wird der falsche Nutzername oder das falsche Passwort eingegeben. Dann erscheint eine Fehlermeldung, welche dieses Problem beschreibt \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{3}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{3} & \textbf{Benutzer abmelden} \\ \hline
+\textbf{Akteure} & Bert Bib, Arnold Admin, Silke Schüler \\ \hline
+\textbf{Ziel} & Der Akteur möchte sich vom System abmelden  \\ \hline
+\textbf{Vorbedingungen} & Der Benutzer ist angemeldet  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Ein Benutzer drückt auf den Button Abmelden \\
+&2. Das System meldet den Benutzer ab\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Es wird nun die Startseite angezeigt und der Benutzer ist abgemeldet \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine
 \end{tabular}
 \end{table}
 
@@ -536,20 +555,22 @@ der hier angegebenen Einschätzung gekommen seid}
 \end{figure}
 
 \begin{table}[htbp]
-\label{3}
+\label{4}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{3} & \textbf{Startseite anzeigen} \\ \hline
+\textbf{4} & \textbf{Startseite anzeigen} \\ \hline
 \textbf{Akteure} & Bert Bib, Arnold Admin, Silke Schüler, Bart Besucher\\ \hline
 \textbf{Ziel} & Der Akteur möchte die Startseite des Systems aufrufen  \\ \hline
 \textbf{Vorbedingungen} & Das Programm wurde gestartet  \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Ein Benutzer drückt auf den Button Start \\
 &2. Das System zeigt die Startseite an\\
+\hline
 \textbf{Varianten} & 
-Anwendungsfall \ref{1} \\ \hline
+Anwendungsfall 1 \\ \hline
 \textbf{Nachbedingungen} & Es wird nun die Startseite angezeigt \\ \hline
-\textbf{Fehler-/Ausnahmefälle} & keine
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
 \end{tabular}
 \end{table}
 
@@ -560,23 +581,279 @@ Anwendungsfall \ref{1} \\ \hline
 \end{figure}
 
 \begin{table}[htbp]
-\label{4}
+\label{4.1}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{4} & \textbf{Publikationen anzeigen} \\ \hline
-\textbf{Akteure} & Bert Bib, Arnold Admin, Silke Schüler, Bart Besucher\\ \hline
-\textbf{Ziel} & Der Akteur möchte die Startseite des Systems aufrufen  \\ \hline
-\textbf{Vorbedingungen} & Das Programm wurde gestartet  \\ \hline
+\textbf{4.1} & \textbf{Leserprofil anzeigen} \\ \hline
+\textbf{Akteure} & Silke Schüler\\ \hline
+\textbf{Ziel} & Der Akteur möchte sich das eigene Leserprofil anzeigen lassen  \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist angemeldet  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Ein Benutzer drückt auf den Button Start \\
-&2. Das System zeigt die Startseite an\\
+1. Ein Benutzer drückt auf den Button Profil \\
+&2. Das System zeigt die Profilseite an\\
+\hline
 \textbf{Varianten} & 
-Anwendungsfall \ref{1} \\ \hline
-\textbf{Nachbedingungen} & Es wird nun die Startseite angezeigt \\ \hline
-\textbf{Fehler-/Ausnahmefälle} & keine
+keine \\ \hline
+\textbf{Nachbedingungen} & Es wird nun die Profilseite angezeigt \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
 \end{tabular}
 \end{table}
 
+\begin{table}[htbp]
+\label{4.1.1}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{4.1.1} & \textbf{Vormerkung bearbeiten} \\ \hline
+\textbf{Akteure} & Silke Schüler\\ \hline
+\textbf{Ziel} & Der Akteur möchte die eigenen Vormerkungen bearbeiten  \\ \hline
+\textbf{Vorbedingungen} & Der Benutzer hat sein Profil geöffnet  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Ein Benutzer drückt auf den Button Vormerkungen \\
+&2. Das System zeigt eine Liste der Vormerkungen an\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Es wird nun die Vormerkungen angezeigt, die bearbeitet werden können \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{5}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{5} & \textbf{Publikationen anzeigen} \\ \hline
+\textbf{Akteure} & Bert Bib, Arnold Admin, Silke Schüler, Bart Besucher\\ \hline
+\textbf{Ziel} & Der Akteur möchte die Liste der Publikationen aufrufen  \\ \hline
+\textbf{Vorbedingungen} & Das Programm wurde gestartet  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Ein Benutzer drückt auf den Button Publikationen \\
+&2. Das System zeigt die Publikationsliste an\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Es wird nun die Liste mit den Publikationen angezeigt \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{6}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{6} & \textbf{Buch hinzufügen} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte ein neues Buch hinzufügen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste aufgerufen  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer drückt auf den Button Hinzufügen \\
+&2. Das System zeigt das Formular für das Hinzufügen eines Buches an\\
+&3. Der Benutzer drückt den Button Speichern\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Das Buch wurde gespeichert und ist in die Datenbank aufgenommen worden\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & 1. falsches ISBN-Format wurde eingeben\\
+&2. Pflichtfelder wurden nicht eingegeben\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{7}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{7} & \textbf{Buch ändern} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte ein Daten eines Buches ändern \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Detailsicht eines Buches aufgerufen  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer drückt auf den Button Ändern \\
+&2. Das System zeigt das Formular für das Hinzufügen eines Buches an\\
+&3. Der Benutzer drückt den Button Änderung speichern\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Die Änderungen wurden gespeichert und sind in die Datenbank aufgenommen worden\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & 1. falsches ISBN-Format wurde eingeben\\
+&2. Pflichtfelder wurden nicht eingegeben\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{8}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{8} & \textbf{Buch löschen} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte ein Buch löschen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste aufgerufen  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer markiert die zu löschenden Bücher\\
+&2. Der Benutzer drückt auf den Button Löschen \\
+\hline
+\textbf{Varianten} & 
+1. Der Benutzer befindet sich in der Detailsicht eines Buches\\
+&2. Der Benutzer drückt auf den Button Löschen \\ \hline
+\textbf{Nachbedingungen} & Das Buch wurde gelöscht \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{9}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{9} & \textbf{CVS-Import} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte eine CVS-Datei für Bücher importieren \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer drückt auf den Button CVS-Import \\
+&2. Der Benutzer kann nun eine CVS-Datei auswählen\\
+&3. Der Benutzer drückt den Button Importieren\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Die CVS-Datei wurde hochgeladen und in der Datenbank ergänzt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & 1. falsche Datei-Format\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{10}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{10} & \textbf{CVS-Export} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte eine CVS-Datei von der Datenbank exportieren \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer drückt auf den Button CVS-Export \\
+&2. Der Benutzer kann nun den Speicherort und Name für eine CVS-Datei auswählen\\
+&3. Der Benutzer drückt den Button Exportieren\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Die CVS-Datei wurde exportiert und gespeichert\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{11}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{11} & \textbf{Buch suchen} \\ \hline
+\textbf{Akteure} & Bert Bib, Silke Schüler, Bart Besucher, Arnold Admin\\ \hline
+\textbf{Ziel} & Der Akteur möchte ein Buch suchen \\ \hline
+\textbf{Vorbedingungen} & keine \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer gibt den Suchbegriff in das Suchfeld ein und drückt Eingabe \\
+&2. Eine Liste von Büchern mit passendem Suchbegriff wird angezeigt\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Eine Liste von Büchern mit passendem Suchbegriff wird angezeigt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & Zum eingegeben Suchbegriff existieren keine Daten\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{12}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{12} & \textbf{Einzelnes Buch anzeigen/ Detailansicht} \\ \hline
+\textbf{Akteure} & Bert Bib, Silke Schüler, Bart Besucher, Arnold Admin\\ \hline
+\textbf{Ziel} & Der Akteur möchte sich Details zu einem Buch anzeigen lassen \\ \hline
+\textbf{Vorbedingungen} & Die Publikationsliste oder die Suchliste wurde aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer klickt auf den Button Details bei einem Buch in der Liste \\
+&2. Die Detailseite des Buches wird angezeigt\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Die Detailseite eines Buches wird angezeigt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}[htbp]
+\label{13}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{13} & \textbf{Buch bewerten} \\ \hline
+\textbf{Akteure} & Silke Schüler\\ \hline
+\textbf{Ziel} & Der Akteur möchte ein Buch bewerten \\ \hline
+\textbf{Vorbedingungen} & Die Detailansicht eines Buches wurde aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer klickt auf den Button Bewerten und kann nun in einem Dropdownmenü eine Punktzahl auswählen\\
+&2. Der Benutzer drückt den Button Buch bewerten\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Das Buch wurde vom Akteur bewertet und lässt sich kein zweites mal bewerten\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & Das Buch wurde schon einmal bewertet\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{14}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{14} & \textbf{Buch ausleihen} \\ \hline
+\textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
+\textbf{Ziel} & Silke Schüler möchte ein Buch ausleihen \\ \hline
+\textbf{Vorbedingungen} & Bert Bib ist im System als Bibliothekar angemeldet und Silke Schüler ist vor Ort \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Silke Schüler gibt Buch(Bücher) und ihren Bibliotheksausweis zum einscannen an Bert Bib\\
+&2. Bert Bib scannt erst den Ausweis\\
+&3. Nun scannt Bert Bib die Bücher ein\\
+&4. Die Liste der auszuleihenden Bücher wird mit dem Ausleiher angezeigt\\
+&5. Bert Bib drückt auf den Button Ausleihen\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Die Bücher stehen im System als ausgeliehen an Silke Schüler\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & Silke Schüler ist gesperrt und kann keine Bücher ausleihen\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{14.1}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{14.1} & \textbf{Buchrückgabe} \\ \hline
+\textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
+\textbf{Ziel} & Der Akteur Bücher zurückgeben \\ \hline
+\textbf{Vorbedingungen} & Bücher sind ausgeliehen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Ein Akteur gibt abzugebene Bücher dem Bibliothekaren \\
+&2. Der Bibliothekar scannt die Bücher ein\\
+&3. Der Bibliothekar drückt auf den Button Bücher zurückgeben\\
+\hline
+\textbf{Varianten} & 
+Mahngebühren werden bezahlt \\ \hline
+\textbf{Nachbedingungen} & Die Bücher stehen im System als zurückgegeben\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
 \subsection{Aktionen}
   {\em Hier sollten die gleichen Aktionen wie in den Anwendungsfällen
   genannt und genauer beschrieben werden. Mit anderen Worten: Die
