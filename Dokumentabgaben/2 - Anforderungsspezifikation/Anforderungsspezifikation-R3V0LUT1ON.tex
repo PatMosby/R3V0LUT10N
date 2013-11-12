@@ -838,7 +838,7 @@ keine \\ \hline
 \hline 
 \textbf{14.1} & \textbf{Buchrückgabe} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
-\textbf{Ziel} & Der Akteur Bücher zurückgeben \\ \hline
+\textbf{Ziel} & Der Akteur will Bücher zurückgeben \\ \hline
 \textbf{Vorbedingungen} & Bücher sind ausgeliehen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Ein Akteur gibt abzugebene Bücher dem Bibliothekaren \\
@@ -848,6 +848,229 @@ keine \\ \hline
 \textbf{Varianten} & 
 Mahngebühren werden bezahlt \\ \hline
 \textbf{Nachbedingungen} & Die Bücher stehen im System als zurückgegeben\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+\begin{table}[htbp]
+\label{26}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{26} & \textbf{Administration öffnen} \\ \hline
+\textbf{Akteure} & Bert Bib, Arnold Admin\\ \hline
+\textbf{Ziel} & Der Akteur will die Administratorseite anzeigen lassen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist im System angemeldet \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur klickt auf den Button Administration \\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Administrationsseite\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{27}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{27} & \textbf{Bibliothekarliste anzeigen} \\ \hline
+\textbf{Akteure} & Arnold Admin\\ \hline
+\textbf{Ziel} & Der Akteur will die Liste der Bibliothekare einsehen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist im System angemeldet \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur klickt auf den Button Administration \\
+&2. Der Akteur klickt auf den Button Bibliothekare\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die Bibliothekare in einer Liste anzeigen\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{28}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{28} & \textbf{Bibliothekar hinzufügen} \\ \hline
+\textbf{Akteure} & Arnold Admin\\ \hline
+\textbf{Ziel} & Der Akteur will einen neuen Bibliothekaren hinzufügen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur klickt auf den Button Hinzufügen \\
+&2. Der Admin füllt das Formular aus und klickt auf Speichern\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Bibliothekarsliste anzeigt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]
+\label{29}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{29} & \textbf{Bibliothekar löschen} \\ \hline
+\textbf{Akteure} & Arnold Admin\\ \hline
+\textbf{Ziel} & Der Akteur will einen Bibliothekaren löschen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur klickt auf einen Bibliothekaren \\
+&2. Der Admin klickt nun auf der Detailseite auf Löschen\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Bibliothekarsliste anzeigt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{30}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{30} & \textbf{Bibliothekar ändern} \\ \hline
+\textbf{Akteure} & Arnold Admin\\ \hline
+\textbf{Ziel} & Der Akteur will Daten eines Bibliothekaren ändern \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur klickt auf einen Bibliothekaren \\
+&2. Der Akteur klickt auf der Detailseite auf Ändern \\
+&3. Der Akteur füllt das Formular aus und klickt auf Speichern\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Bibliothekarsliste anzeigt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]
+\label{31}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{31} & \textbf{Statistik anzeigen} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur will die Statistiken einsehen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur klickt auf den Button Statistiken \\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Statistiken anzeigt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]
+\label{32}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{32} & \textbf{Mahnungsliste anzeigen} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur will die Mahnungsliste einsehen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur klickt auf den Button Mahnungen \\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Mahnungsliste anzeigt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{33}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{33} & \textbf{Mahnungsliste drucken} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur will die Mahnungsliste ausdrucken \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Mahnungsliste aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur klickt auf den Button Drucken \\
+\hline
+\textbf{Varianten} & 
+Einzelne Mahnungen werden ausgewählt damit nur diese ausgedruckt werden \\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Mahnungsliste anzeigt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & Probleme beim Drucken\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{34}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{34} & \textbf{Mahnungsdetails anzeigen} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur will sich Details zu einer Mahnung anschauen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Mahnungsliste aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur klickt auf eine Mahnung \\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Mahnungsdetails anzeigt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{35}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{35} & \textbf{Startseite bearbeiten} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur will die Startseite bearbeiten \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur klickt auf den Button Startseite bearbeiten \\
+&2. Der Akteur bearbeitet die Startseite nach seinen Wünschen und klickt auf Speichern\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der (neuen) Startseite \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{36}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{36} & \textbf{Abgabedaten und Mahngebühren bearbeiten} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur will Abgabedaten und Mahngebühren bearbeiten \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur klickt auf den Button Abgabedaten/Mahngebühren bearbeiten \\
+&2. Der Akteur bearbeitet die Daten und/oder Gebühren und klickt auf Speichern\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich auf der gleichen Seite und kann die neuen Daten/Gebühren sehen\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
