@@ -857,9 +857,278 @@ Mahngebühren werden bezahlt \\ \hline
 \end{tabular}
 \end{table}
 
+\begin{table}[htbp]
+\label{14.1}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{14.1} & \textbf{Buchrückgabe} \\ \hline
+\textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
+\textbf{Ziel} & Der Akteur will Bücher zurückgeben \\ \hline
+\textbf{Vorbedingungen} & Bücher sind ausgeliehen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Ein Akteur gibt abzugebene Bücher dem Bibliothekaren \\
+&2. Der Bibliothekar scannt die Bücher ein\\
+&3. Der Bibliothekar drückt auf den Button Bücher zurückgeben\\
+\hline
+\textbf{Varianten} & 
+Mahngebühren werden bezahlt \\ \hline
+\textbf{Nachbedingungen} & Die Bücher stehen im System als zurückgegeben\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
 
+\begin{table}[htbp]
+\label{15}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{15} & \textbf{Buch rezensieren} \\ \hline
+\textbf{Akteure} & Silke Schüler\\ \hline
+\textbf{Ziel} & Der Akteur will ein Buch rezensieren \\ \hline
+\textbf{Vorbedingungen} & Der Akteur befindet sich auf der Detailsicht eines Buches \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur drückt auf Buch rezensieren \\
+&2. Der Akteur schreibt seine Rezension in das entsprechende Feld\\
+&3. Der Button Rezension abschicken wird gedrückt\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Die Rezension wird abgeschickt und der Bibliothekar muss diese nun Freischalten\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & Es wurde nichts in das Bedienfeld eingegeben und dann abgeschickt.\\
+\hline
+\end{tabular}
+\end{table}
 
+\begin{table}[htbp]
+\label{16}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{16} & \textbf{Buch vormerken} \\ \hline
+\textbf{Akteure} & Silke Schüler\\ \hline
+\textbf{Ziel} & Der Akteur will ein Buch vormerken \\ \hline
+\textbf{Vorbedingungen} & Der Akteur befindet sich auf der Detailsicht eines Buches \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur drückt auf Buch vormerken \\
+&2. Das Buch wurde vorgemerkt\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Das Buch wurde vorgemerkt und erscheint nun auf der Profilseite\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & Das Buch wurde bereits vorgemerkt und kann somit nicht noch einmal vorgemerkt werden\\
+\hline
+\end{tabular}
+\end{table}
 
+\begin{table}[htbp]
+\label{17}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{17} & \textbf{Rezension freischalten} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Bibliothekar will eine Rezension überprüfen und gegebenenfalls freischalten \\ \hline
+\textbf{Vorbedingungen} & Es wurde eine Rezension geschrieben und der Bibliothekar hat diese zur Überprüfung erhalten. \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Akteur ließt sich die Rezension durch \\
+&2. Der Bibliothekar schaltet die Rezension frei\\
+\hline
+\textbf{Varianten} & 
+1. Der Akteur ließt sich die Rezension durch \\
+&2. Der Bibliothekar lehnt die Rezension ab \\ \hline
+\textbf{Nachbedingungen} & Die Rezension wurde angenommen und freigeschaltet oder abgelehnt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{18}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{18} & \textbf{Leserliste anzeigen} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte die Liste der Leser aufrufen  \\ \hline
+\textbf{Vorbedingungen} & Das Programm wurde gestartet  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Ein Benutzer drückt auf den Button Leserliste \\
+&2. Das System zeigt die Leserliste an\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Es wird nun die Liste mit den Lesern angezeigt \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{19}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{19} & \textbf{Leser hinzufügen} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte ein neuen Leser hinzufügen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer drückt auf den Button Hinzufügen \\
+&2. Das System zeigt das Formular für das Hinzufügen eines Lesers an\\
+&3. Der Bibliothekar füllt das Formular aus\\
+&4. Der Benutzer drückt den Button Speichern\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Der Leser wurde gespeichert und ist in die Datenbank aufgenommen worden\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & 1. Leser existiert bereits(Alle Angaben stimmen überein)\\
+&2. Pflichtfelder wurden nicht eingegeben\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{20}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{20} & \textbf{Leser ändern} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte ein Daten eines Lesers ändern \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Detailsicht eines Lesers aufgerufen  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer drückt auf den Button Ändern \\
+&2. Das System zeigt das Formular für das Hinzufügen eines Lesers an\\
+&3. Der Bibliothekar ändert das Formular entsprechend\\
+&4. Der Benutzer drückt den Button Änderung speichern\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Die Änderungen wurden gespeichert und sind in die Datenbank aufgenommen worden\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & 1. Leser existiert bereits\\
+&2. Pflichtfelder wurden nicht eingegeben\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{21}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{21} & \textbf{Leser löschen} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte ein Leser löschen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen  \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer markiert die zu löschenden Leser\\
+&2. Der Benutzer drückt auf den Button Löschen \\
+\hline
+\textbf{Varianten} & 
+1. Der Benutzer befindet sich in der Detailsicht eines Lesers\\
+&2. Der Benutzer drückt auf den Button Löschen \\ \hline
+\textbf{Nachbedingungen} & Der Leser wurde gelöscht \\ \hline
+\textbf{Fehler-/Ausnahmefälle} & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{22}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{22} & \textbf{CVS-Import} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte eine CVS-Datei für Leser importieren \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer drückt auf den Button CVS-Import \\
+&2. Der Benutzer kann nun eine CVS-Datei auswählen\\
+&3. Der Benutzer drückt den Button Importieren\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Die CVS-Datei wurde hochgeladen und in der Datenbank ergänzt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & 1. falsches Datei-Format\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{23}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{23} & \textbf{CVS-Export} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte eine CVS-Datei von der Datenbank exportieren \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer drückt auf den Button CVS-Export \\
+&2. Der Benutzer kann nun den Speicherort und Name für eine CVS-Datei auswählen\\
+&3. Der Benutzer drückt den Button Exportieren\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Die CVS-Datei wurde exportiert und gespeichert\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{24}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{24} & \textbf{Einzelnen Leser anzeigen/ Detailansicht} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte sich Details zu einem Leser anzeigen lassen \\ \hline
+\textbf{Vorbedingungen} & Die Leserliste wurde aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Benutzer klickt auf den Button Details bei einem Leser in der Liste \\
+&2. Die Detailseite des Lesers wird angezeigt\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Die Detailseite eines Lesers wird angezeigt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{24.1}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{24.1} & \textbf{Leser sperren} \\ \hline
+\textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
+\textbf{Ziel} & Der Bibliothekar sperrt einen Leser \\ \hline
+\textbf{Vorbedingungen} & Die Detailsicht eines Lesers wurde aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Ein Leser gibt die ausgeliehenen nicht wieder zurück\\
+&2. Der Bibliothekar sperrt den Nutzer\\
+\hline
+\textbf{Varianten} & 
+1. Ein Leser verwendet seinen Account nicht ordnungsgemäß\\
+&2. Der Bibliothekar sperrt den Nutzer\\ \hline
+\textbf{Nachbedingungen} & Der Benutzer wurde gesperrt und kann keine Bücher mehr vormerken oder ausleihen\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & keine\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\label{25}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
+\textbf{25} & \textbf{Leser suchen} \\ \hline
+\textbf{Akteure} & Bert Bib\\ \hline
+\textbf{Ziel} & Der Akteur möchte ein Leser suchen \\ \hline
+\textbf{Vorbedingungen} & Die Leserliste wurde aufgerufen \\ \hline
+\textbf{Regulärer Ablauf} & 
+1. Der Bibliothekar gibt den Suchbegriff in das Suchfeld ein und drückt Eingabe \\
+&2. Eine Liste von Lesern mit passendem Suchbegriff wird angezeigt\\
+\hline
+\textbf{Varianten} & 
+keine \\ \hline
+\textbf{Nachbedingungen} & Eine Liste von LEsern mit passendem Suchbegriff wird angezeigt\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & Zum eingegeben Suchbegriff existieren keine Daten\\
+\hline
+\end{tabular}
+\end{table}
 
 \begin{table}[htbp]
 \label{26}
@@ -879,6 +1148,8 @@ keine \\ \hline
 \hline
 \end{tabular}
 \end{table}
+
+\newpage
 
 \begin{table}[htbp]
 \label{27}
