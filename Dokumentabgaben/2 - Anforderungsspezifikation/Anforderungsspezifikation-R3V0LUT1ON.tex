@@ -163,7 +163,7 @@ Version & Datum & Änderungen \\
 \section{Einleitung}
 
 Dieses Dokument spezifiziert die Anforderungen des auszuliefernden 
-Produkts, welches in Zusammenarbeit mit dem Kunden der Oberschule 
+Produkts, welche in Zusammenarbeit mit dem Kunden der Oberschule 
 Rockwinkel und den Verantwortlichen der Veranstaltung Software Projekt 2 
 der Universität Bremen im Wintersemester 2013/14 erarbeitet wurden.
 
@@ -255,7 +255,7 @@ der Universität Bremen im Wintersemester 2013/14 erarbeitet wurden.
   
   \textbf{CSV-Im-/Export:}\\
   Es gibt eine Funktion, mithilfe dieser CSV-Dateien importiert werden können. Diese kann nur vom Administrator benutzt werden. Die Bücher werden anschließend in der Datenbank der Bibliothek vorhanden sein. \\
-  Es ist auch möglich CSV Dateien zu exportieren, welche dann abgespeichert werden.
+  Es ist auch möglich, CSV Dateien zu exportieren, welche dann abgespeichert werden.
 
 \subsubsection{Benutzerschnittstelle}
 \nurlangversion
@@ -272,9 +272,9 @@ der Universität Bremen im Wintersemester 2013/14 erarbeitet wurden.
   Version).}
   
   \textbf{Computer:}\\
-  Unser System soll auf einem Web-Browser laufen. Dabei sollte das System auf Windows laufen, welches die verwendete Plattform des Kunden ist. Dabei ist wchtig, das Windows 2000 bis Windows 8 unterstützt werden, da der Kunde Windows 2000 verwendet. Ebenfalls sollte das System Linux und MacOS unterstützen.\\
+  Unser System soll auf einem Web-Browser laufen. Dabei sollte das System auf Windows laufen, welches die verwendete Plattform des Kunden ist. Dabei ist wichtig, dass alle Betriebssysteme von Windows 2000 bis Windows 8 unterstützt werden, da der Kunde Windows 2000 verwendet. Ebenfalls sollte das System Linux und MacOS unterstützen.\\
   \textbf{Smartphone:}\\
-  Unser System unterstützt nur Geräte auf denen Android läuft. Dabei muss  die Version 2.3 oder höher vorliegen, da somit der größte Teil der Android Geräte verwendet werden kann.\\
+  Unser System unterstützt nur Geräte, auf denen Android läuft. Dabei muss  die Version 2.3 oder höher vorliegen, da somit der größte Teil der Android Geräte verwendet werden kann.\\
  
 
 \subsubsection{Softwareschnittstellen}
@@ -329,7 +329,7 @@ der hier angegebenen Einschätzung gekommen seid}
   Website wird aufgerufen/ App wird gestartet. 
   \item \textbf{2. Benutzer anmelden}\\
   Ein Benutzer meldet sich an.
-  \item \textbf{3. Benutzer abmelden}
+  \item \textbf{3. Benutzer abmelden} \\
   Ein Benutzer meldet sich ab.
   \item \textbf{4. Start anzeigen}
   \item \textbf{4.1 Leserprofil anzeigen}
@@ -383,7 +383,7 @@ der hier angegebenen Einschätzung gekommen seid}
 \begin{table}[htbp]
 \caption{Benutzer}
 \label{benutzer}
-\begin{tabular}{|p{2,5cm}|p{2,8cm}|p{2,8cm}|p{2,8cm}|p{2,8cm}|}
+\begin{tabular}{|p{2,5cm}||p{2,8cm}|p{2,8cm}|p{2,8cm}|p{2,8cm}|}
 \hline 
 \textbf{Name(fiktiv)} & Bert Bib & Arnold Admin & Silke Schüler & Bart Besucher\\ \hline
 \textbf{Bild(fiktiv)} & & & & \\ \hline
@@ -492,7 +492,7 @@ der hier angegebenen Einschätzung gekommen seid}
 \textbf{Ziel} & Der Akteur möchte das Programm starten  \\ \hline
 \textbf{Vorbedingungen} & keine \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur startet das Programm indem er die URL aufruft \\
+1. Der Akteur startet das Programm, indem er die URL aufruft \\
 &2. Das Programm startet und zeigt die Startseite \\ \hline
 \textbf{Varianten} & keine \\ \hline
 \textbf{Nachbedingungen} & Das Programm ist gestartet und der Benutzer kann dieses nun verwenden \\ \hline
@@ -520,15 +520,15 @@ der hier angegebenen Einschätzung gekommen seid}
 &3. Der Startbildschirm erscheint wieder und Bert Bib kann nun alle Funktionen eines Bibliothekars verwenden\\ \hline
 \textbf{Varianten} & 
 1. Arnold Admin gibt seinen Benutzernamen und sein Passwort ein \\
-&2. Arnold Admin drückt auf den Button anmelden\\
+&2. Arnold Admin drückt auf den Button 'Anmelden'\\
 &3. Der Startbildschirm erscheint wieder und Arnold Admin kann nun alle Funktionen eines Administrators verwenden\\  
 & \\
 &1. Silke Schüler gibt ihren Benutzernamen und ihr Passwort ein \\
-&2. Silke Schüler drückt auf den Button anmelden\\
+&2. Silke Schüler drückt auf den Button 'Anmelden'\\
 &3. Der Startbildschirm erscheint wieder und Silke Schüler kann nun alle Funktionen eines registrierten Nutzers verwenden\\ \hline
 \textbf{Nachbedingungen} & Die Personen sind nun angemeldet und können nun Funktionen abhängig vom Zugriffsrecht verwenden \\ \hline
 \textbf{Fehler-/Ausnahmefälle} & 
-1. Bart Besucher besitzt kein Benutzernamen oder Passwort, somit kann er sich nicht anmelden und hat kein Zugriff auf die anderen Funktionen \\
+1. Bart Besucher besitzt kein Benutzernamen oder Passwort, somit kann er sich nicht anmelden und hat keinen Zugriff auf die anderen Funktionen \\
 &2. Es wird der falsche Nutzername oder das falsche Passwort eingegeben. Dann erscheint eine Fehlermeldung, welche dieses Problem beschreibt \\ \hline
 \end{tabular}
 \end{table}
@@ -542,7 +542,7 @@ der hier angegebenen Einschätzung gekommen seid}
 \textbf{Ziel} & Der Akteur möchte sich vom System abmelden  \\ \hline
 \textbf{Vorbedingungen} & Der Benutzer ist angemeldet  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Ein Benutzer drückt auf den Button Abmelden \\
+1. Ein Benutzer drückt auf den Button 'Abmelden' \\
 &2. Das System meldet den Benutzer ab\\
 \hline
 \textbf{Varianten} & 
@@ -567,7 +567,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte die Startseite des Systems aufrufen  \\ \hline
 \textbf{Vorbedingungen} & Das Programm wurde gestartet  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Ein Benutzer drückt auf den Button Start \\
+1. Ein Benutzer drückt auf den Button 'Start' \\
 &2. Das System zeigt die Startseite an\\
 \hline
 \textbf{Varianten} & 
@@ -593,7 +593,7 @@ Anwendungsfall 1 \\ \hline
 \textbf{Ziel} & Der Akteur möchte sich das eigene Leserprofil anzeigen lassen  \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist angemeldet  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Ein Benutzer drückt auf den Button Profil \\
+1. Ein Benutzer drückt auf den Button 'Profil' \\
 &2. Das System zeigt die Profilseite an\\
 \hline
 \textbf{Varianten} & 
@@ -613,7 +613,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte die eigenen Vormerkungen bearbeiten  \\ \hline
 \textbf{Vorbedingungen} & Der Benutzer hat sein Profil geöffnet  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Ein Benutzer drückt auf den Button Vormerkungen \\
+1. Ein Benutzer drückt auf den Button 'Vormerkungen' \\
 &2. Das System zeigt eine Liste der Vormerkungen an\\
 \hline
 \textbf{Varianten} & 
@@ -633,7 +633,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte die Liste der Publikationen aufrufen  \\ \hline
 \textbf{Vorbedingungen} & Das Programm wurde gestartet  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Ein Benutzer drückt auf den Button Publikationen \\
+1. Ein Benutzer drückt auf den Button 'Publikationen' \\
 &2. Das System zeigt die Publikationsliste an\\
 \hline
 \textbf{Varianten} & 
@@ -653,9 +653,9 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte ein neues Buch hinzufügen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer drückt auf den Button Hinzufügen \\
+1. Der Benutzer drückt auf den Button 'Hinzufügen' \\
 &2. Das System zeigt das Formular für das Hinzufügen eines Buches an\\
-&3. Der Benutzer drückt den Button Speichern\\
+&3. Der Benutzer drückt den Button 'Speichern'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -675,9 +675,9 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Daten eines Buches ändern \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Detailsicht eines Buches aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer drückt auf den Button Ändern \\
+1. Der Benutzer drückt auf den Button 'Ändern' \\
 &2. Das System zeigt das Formular für das Hinzufügen eines Buches an\\
-&3. Der Benutzer drückt den Button Änderung speichern\\
+&3. Der Benutzer drückt den Button 'Änderung speichern'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -698,11 +698,11 @@ keine \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer markiert die zu löschenden Bücher\\
-&2. Der Benutzer drückt auf den Button Löschen \\
+&2. Der Benutzer drückt auf den Button 'Löschen' \\
 \hline
 \textbf{Varianten} & 
 1. Der Benutzer befindet sich in der Detailsicht eines Buches\\
-&2. Der Benutzer drückt auf den Button Löschen \\ \hline
+&2. Der Benutzer drückt auf den Button 'Löschen' \\ \hline
 \textbf{Nachbedingungen} & Das Buch wurde gelöscht \\ \hline
 \textbf{Fehler-/Ausnahmefälle} & \\
 \hline
@@ -720,12 +720,12 @@ keine \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer drückt auf den Button CVS-Import \\
 &2. Der Benutzer kann nun eine CVS-Datei auswählen\\
-&3. Der Benutzer drückt den Button Importieren\\
+&3. Der Benutzer drückt den Button 'Importieren'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
 \textbf{Nachbedingungen} & Die CVS-Datei wurde hochgeladen und in der Datenbank ergänzt\\ \hline
-\textbf{Fehler-/Ausnahmefälle} & 1. falsche Datei-Format\\
+\textbf{Fehler-/Ausnahmefälle} & 1. falsches Datei-Format\\
 \hline
 \end{tabular}
 \end{table}
@@ -741,7 +741,7 @@ keine \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer drückt auf den Button CVS-Export \\
 &2. Der Benutzer kann nun den Speicherort und Name für eine CVS-Datei auswählen\\
-&3. Der Benutzer drückt den Button Exportieren\\
+&3. Der Benutzer drückt den Button 'Exportieren'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -760,7 +760,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Buch suchen \\ \hline
 \textbf{Vorbedingungen} & keine \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer gibt den Suchbegriff in das Suchfeld ein und drückt Eingabe \\
+1. Der Benutzer gibt den Suchbegriff in das Suchfeld ein und drückt 'Eingabe' \\
 &2. Eine Liste von Büchern mit passendem Suchbegriff wird angezeigt\\
 \hline
 \textbf{Varianten} & 
@@ -780,7 +780,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte sich Details zu einem Buch anzeigen lassen \\ \hline
 \textbf{Vorbedingungen} & Die Publikationsliste oder die Suchliste wurde aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer klickt auf den Button Details bei einem Buch in der Liste \\
+1. Der Benutzer klickt auf den Button 'Details' bei einem Buch in der Liste \\
 &2. Die Detailseite des Buches wird angezeigt\\
 \hline
 \textbf{Varianten} & 
@@ -802,12 +802,12 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Buch bewerten \\ \hline
 \textbf{Vorbedingungen} & Die Detailansicht eines Buches wurde aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer klickt auf den Button Bewerten und kann nun in einem Dropdownmenü eine Punktzahl auswählen\\
-&2. Der Benutzer drückt den Button Buch bewerten\\
+1. Der Benutzer klickt auf den Button 'Bewerten' und kann nun in einem Dropdownmenü eine Punktzahl auswählen\\
+&2. Der Benutzer drückt den Button 'Buch bewerten'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Das Buch wurde vom Akteur bewertet und lässt sich kein zweites mal bewerten\\ \hline
+\textbf{Nachbedingungen} & Das Buch wurde vom Akteur bewertet und lässt sich kein zweites Mal bewerten\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & Das Buch wurde schon einmal bewertet\\
 \hline
 \end{tabular}
@@ -822,15 +822,15 @@ keine \\ \hline
 \textbf{Ziel} & Silke Schüler möchte ein Buch ausleihen \\ \hline
 \textbf{Vorbedingungen} & Bert Bib ist im System als Bibliothekar angemeldet und Silke Schüler ist vor Ort \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Silke Schüler gibt Buch(Bücher) und ihren Bibliotheksausweis zum einscannen an Bert Bib\\
+1. Silke Schüler gibt Buch (Bücher) und ihren Bibliotheksausweis zum Einscannen an Bert Bib\\
 &2. Bert Bib scannt erst den Ausweis\\
 &3. Nun scannt Bert Bib die Bücher ein\\
 &4. Die Liste der auszuleihenden Bücher wird mit dem Ausleiher angezeigt\\
-&5. Bert Bib drückt auf den Button Ausleihen\\
+&5. Bert Bib drückt auf den Button 'Ausleihen'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Die Bücher stehen im System als ausgeliehen an Silke Schüler\\ \hline
+\textbf{Nachbedingungen} & Die Bücher stehen im System als 'ausgeliehen an Silke Schüler'\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & Silke Schüler ist gesperrt und kann keine Bücher ausleihen\\
 \hline
 \end{tabular}
@@ -847,7 +847,7 @@ keine \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Ein Akteur gibt abzugebene Bücher dem Bibliothekaren \\
 &2. Der Bibliothekar scannt die Bücher ein\\
-&3. Der Bibliothekar drückt auf den Button Bücher zurückgeben\\
+&3. Der Bibliothekar drückt auf den Button 'Bücher zurückgeben'\\
 \hline
 \textbf{Varianten} & 
 Mahngebühren werden bezahlt \\ \hline
@@ -868,7 +868,7 @@ Mahngebühren werden bezahlt \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Ein Akteur gibt abzugebene Bücher dem Bibliothekaren \\
 &2. Der Bibliothekar scannt die Bücher ein\\
-&3. Der Bibliothekar drückt auf den Button Bücher zurückgeben\\
+&3. Der Bibliothekar drückt auf den Button 'Bücher zurückgeben'\\
 \hline
 \textbf{Varianten} & 
 Mahngebühren werden bezahlt \\ \hline
@@ -887,13 +887,13 @@ Mahngebühren werden bezahlt \\ \hline
 \textbf{Ziel} & Der Akteur will ein Buch rezensieren \\ \hline
 \textbf{Vorbedingungen} & Der Akteur befindet sich auf der Detailsicht eines Buches \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur drückt auf Buch rezensieren \\
+1. Der Akteur drückt auf 'Buch rezensieren' \\
 &2. Der Akteur schreibt seine Rezension in das entsprechende Feld\\
-&3. Der Button Rezension abschicken wird gedrückt\\
+&3. Der Button 'Rezension abschicken' wird gedrückt\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Die Rezension wird abgeschickt und der Bibliothekar muss diese nun Freischalten\\ \hline
+\textbf{Nachbedingungen} & Die Rezension wird abgeschickt und der Bibliothekar muss diese nun freischalten\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & Es wurde nichts in das Bedienfeld eingegeben und dann abgeschickt.\\
 \hline
 \end{tabular}
@@ -908,7 +908,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur will ein Buch vormerken \\ \hline
 \textbf{Vorbedingungen} & Der Akteur befindet sich auf der Detailsicht eines Buches \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur drückt auf Buch vormerken \\
+1. Der Akteur drückt auf 'Buch vormerken' \\
 &2. Das Buch wurde vorgemerkt\\
 \hline
 \textbf{Varianten} & 
@@ -928,7 +928,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Bibliothekar will eine Rezension überprüfen und gegebenenfalls freischalten \\ \hline
 \textbf{Vorbedingungen} & Es wurde eine Rezension geschrieben und der Bibliothekar hat diese zur Überprüfung erhalten. \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur ließt sich die Rezension durch \\
+1. Der Akteur liest sich die Rezension durch \\
 &2. Der Bibliothekar schaltet die Rezension frei\\
 \hline
 \textbf{Varianten} & 
@@ -949,7 +949,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte die Liste der Leser aufrufen  \\ \hline
 \textbf{Vorbedingungen} & Das Programm wurde gestartet  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Ein Benutzer drückt auf den Button Leserliste \\
+1. Ein Benutzer drückt auf den Button 'Leserliste' \\
 &2. Das System zeigt die Leserliste an\\
 \hline
 \textbf{Varianten} & 
@@ -969,15 +969,15 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte ein neuen Leser hinzufügen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer drückt auf den Button Hinzufügen \\
+1. Der Benutzer drückt auf den Button 'Hinzufügen' \\
 &2. Das System zeigt das Formular für das Hinzufügen eines Lesers an\\
 &3. Der Bibliothekar füllt das Formular aus\\
-&4. Der Benutzer drückt den Button Speichern\\
+&4. Der Benutzer drückt den Button 'Speichern'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
 \textbf{Nachbedingungen} & Der Leser wurde gespeichert und ist in die Datenbank aufgenommen worden\\ \hline
-\textbf{Fehler-/Ausnahmefälle} & 1. Leser existiert bereits(Alle Angaben stimmen überein)\\
+\textbf{Fehler-/Ausnahmefälle} & 1. Leser existiert bereits (alle Angaben stimmen überein)\\
 &2. Pflichtfelder wurden nicht eingegeben\\
 \hline
 \end{tabular}
@@ -989,13 +989,13 @@ keine \\ \hline
 \hline 
 \textbf{20} & \textbf{Leser ändern} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
-\textbf{Ziel} & Der Akteur möchte ein Daten eines Lesers ändern \\ \hline
+\textbf{Ziel} & Der Akteur möchte die Daten eines Lesers ändern \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Detailsicht eines Lesers aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer drückt auf den Button Ändern \\
+1. Der Benutzer drückt auf den Button 'Ändern' \\
 &2. Das System zeigt das Formular für das Hinzufügen eines Lesers an\\
 &3. Der Bibliothekar ändert das Formular entsprechend\\
-&4. Der Benutzer drückt den Button Änderung speichern\\
+&4. Der Benutzer drückt den Button 'Änderung speichern'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -1016,11 +1016,11 @@ keine \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer markiert die zu löschenden Leser\\
-&2. Der Benutzer drückt auf den Button Löschen \\
+&2. Der Benutzer drückt auf den Button 'Löschen' \\
 \hline
 \textbf{Varianten} & 
 1. Der Benutzer befindet sich in der Detailsicht eines Lesers\\
-&2. Der Benutzer drückt auf den Button Löschen \\ \hline
+&2. Der Benutzer drückt auf den Button 'Löschen' \\ \hline
 \textbf{Nachbedingungen} & Der Leser wurde gelöscht \\ \hline
 \textbf{Fehler-/Ausnahmefälle} & \\
 \hline
@@ -1036,9 +1036,9 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte eine CVS-Datei für Leser importieren \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer drückt auf den Button CVS-Import \\
+1. Der Benutzer drückt auf den Button 'CVS-Import' \\
 &2. Der Benutzer kann nun eine CVS-Datei auswählen\\
-&3. Der Benutzer drückt den Button Importieren\\
+&3. Der Benutzer drückt den Button 'Importieren'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -1057,9 +1057,9 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte eine CVS-Datei von der Datenbank exportieren \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer drückt auf den Button CVS-Export \\
-&2. Der Benutzer kann nun den Speicherort und Name für eine CVS-Datei auswählen\\
-&3. Der Benutzer drückt den Button Exportieren\\
+1. Der Benutzer drückt auf den Button 'CVS-Export' \\
+&2. Der Benutzer kann nun den Speicherort und Namen für eine CVS-Datei auswählen\\
+&3. Der Benutzer drückt den Button 'Exportieren'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -1078,7 +1078,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte sich Details zu einem Leser anzeigen lassen \\ \hline
 \textbf{Vorbedingungen} & Die Leserliste wurde aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer klickt auf den Button Details bei einem Leser in der Liste \\
+1. Der Benutzer klickt auf den Button 'Details' bei einem Leser in der Liste \\
 &2. Die Detailseite des Lesers wird angezeigt\\
 \hline
 \textbf{Varianten} & 
@@ -1119,12 +1119,12 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Leser suchen \\ \hline
 \textbf{Vorbedingungen} & Die Leserliste wurde aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Bibliothekar gibt den Suchbegriff in das Suchfeld ein und drückt Eingabe \\
+1. Der Bibliothekar gibt den Suchbegriff in das Suchfeld ein und drückt 'Eingabe' \\
 &2. Eine Liste von Lesern mit passendem Suchbegriff wird angezeigt\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Eine Liste von LEsern mit passendem Suchbegriff wird angezeigt\\ \hline
+\textbf{Nachbedingungen} & Eine Liste von Lesern mit passendem Suchbegriff wird angezeigt\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & Zum eingegeben Suchbegriff existieren keine Daten\\
 \hline
 \end{tabular}
@@ -1139,7 +1139,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur will die Administratorseite anzeigen lassen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist im System angemeldet \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur klickt auf den Button Administration \\
+1. Der Akteur klickt auf den Button 'Administration' \\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -1160,8 +1160,8 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur will die Liste der Bibliothekare einsehen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist im System angemeldet \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur klickt auf den Button Administration \\
-&2. Der Akteur klickt auf den Button Bibliothekare\\
+1. Der Akteur klickt auf den Button 'Administration' \\
+&2. Der Akteur klickt auf den Button 'Bibliothekare'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -1180,8 +1180,8 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur will einen neuen Bibliothekaren hinzufügen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur klickt auf den Button Hinzufügen \\
-&2. Der Admin füllt das Formular aus und klickt auf Speichern\\
+1. Der Akteur klickt auf den Button 'Hinzufügen' \\
+&2. Der Admin füllt das Formular aus und klickt auf 'Speichern'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -1202,7 +1202,7 @@ keine \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Akteur klickt auf einen Bibliothekaren \\
-&2. Der Admin klickt nun auf der Detailseite auf Löschen\\
+&2. Der Admin klickt nun auf der Detailseite auf 'Löschen'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -1222,12 +1222,12 @@ keine \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Akteur klickt auf einen Bibliothekaren \\
-&2. Der Akteur klickt auf der Detailseite auf Ändern \\
-&3. Der Akteur füllt das Formular aus und klickt auf Speichern\\
+&2. Der Akteur klickt auf der Detailseite auf 'Ändern '\\
+&3. Der Akteur füllt das Formular aus und klickt auf 'Speichern'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Bibliothekarsliste anzeigt\\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Bibliothekarliste anzeigt\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
@@ -1243,7 +1243,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur will die Statistiken einsehen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur klickt auf den Button Statistiken \\
+1. Der Akteur klickt auf den Button 'Statistiken' \\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -1263,7 +1263,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur will die Mahnungsliste einsehen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur klickt auf den Button Mahnungen \\
+1. Der Akteur klickt auf den Button 'Mahnungen' \\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -1282,7 +1282,7 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur will die Mahnungsliste ausdrucken \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Mahnungsliste aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur klickt auf den Button Drucken \\
+1. Der Akteur klickt auf den Button 'Drucken' \\
 \hline
 \textbf{Varianten} & 
 Einzelne Mahnungen werden ausgewählt damit nur diese ausgedruckt werden \\ \hline
@@ -1320,8 +1320,8 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur will die Startseite bearbeiten \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur klickt auf den Button Startseite bearbeiten \\
-&2. Der Akteur bearbeitet die Startseite nach seinen Wünschen und klickt auf Speichern\\
+1. Der Akteur klickt auf den Button 'Startseite bearbeiten' \\
+&2. Der Akteur bearbeitet die Startseite nach seinen Wünschen und klickt auf 'Speichern'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
@@ -1340,8 +1340,8 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur will Abgabedaten und Mahngebühren bearbeiten \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur klickt auf den Button Abgabedaten/Mahngebühren bearbeiten \\
-&2. Der Akteur bearbeitet die Daten und/oder Gebühren und klickt auf Speichern\\
+1. Der Akteur klickt auf den Button 'Abgabedaten/Mahngebühren bearbeiten' \\
+&2. Der Akteur bearbeitet die Daten und/oder Gebühren und klickt auf 'Speichern'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
