@@ -252,38 +252,41 @@ der Universität Bremen im Wintersemester 2013/14 erarbeitet wurden.
   Konfigurationsdateien, anzubindende externe Dienste und deren Schnittstelle,
   Anbieten der eigenen Funktionalität als API o.ä.}
   
+  Grundsätzlich wird ein bestehendes Computersystem (nebst typischen Ein- und Ausgabegeräten) mit einem Betriebssystem vorausgesetzt, das mit den notwendigen Schnittstellen wie z.B. dem Datenim- und -export umgehen kann.
   
   \textbf{CSV-Im-/Export:}\\
   Es gibt eine Funktion, mithilfe dieser CSV-Dateien importiert werden können. Diese kann nur vom Administrator benutzt werden. Die Bücher werden anschließend in der Datenbank der Bibliothek vorhanden sein. \\
   Es ist auch möglich, CSV Dateien zu exportieren, welche dann abgespeichert werden.
 
 \subsubsection{Benutzerschnittstelle}
-\nurlangversion
 
   {\em GUI-Design-Richtlinien und Interaktionsmechanismen (nicht
   Screenshots aller Dialoge --- die werden in Kapitel 3 gezeigt --- aber
   evtl.\ ein Screenshot, der einen groben Überblick und Eindruck des
   GUI-Designs gibt).}
 
+Als Schnittstelle zwischen Benutzer und Softwaresystem dient eine Internetseite, dessen Oberfläche seiner GUI als Screenshot unten dargestellt ist. \\
+Die GUI weist je nach Benutzerrechten unterschiedliche Funktionalitäten auf, da es einen Unterschied ist, ob sich ein Ausleiher ins System einloggt oder ein Administrator. \\
+Der Benutzer des Systems kann somit über einen Webbrowser mithilfe der typischen Eingabegeräte wie Tastatur und Maus auf diese Funktionen zugreifen und somit mit dem System interagieren. \\
+Als Ausgabegerät dient selbstredend ein handelsüblicher Monitor, der in puncto Auflösung oder Größe keine besonderen, sondern nur minimalen Anforderungen (typischerweise mindestens 640x480 Pixel) genügen muss, sowie die Möglichkeit, einen Drucker einzusetzen, um beispielsweise eine Liste auszudrucken. \\
+Ausgabeinteraktionsmechanismen sind in erster Linie Text sowie wenige Grafiken. 
 
-\subsubsection{Hardwareschnittstellen}
+\subsubsection{Hardwareschnittstellen} \label{hardware}
+Das Softwaresystem besitzt als Schnittstelle zur Hardware das Betriebssystem des Computers bzw. des Smartphones. \\
+  Es sind keine über minimale Anforderungen in Bezug auf RAM\footnote{RAM = Random Access Memory = Hauptspeicher des Computers}, Festplattenspeicher, Prozessoren oder sonstigen Hardwarespezifika hinaus erforderlich. Somit wird die Software auch auf älteren, internetfähigen Computersystemen laufen. \\
+ 
+\subsubsection{Softwareschnittstellen}
 
-  {\em Schnittstellen zu vorgegebenen Hardwarekomponenten (Name,
-  Version).}
+Unser System wird grundsätzlich plattformunabhängig laufen. Voraussetzung ist, dass das Java Runtime Environment sowie das Hibernate Framework (siehe Tabelle am Ende von Punkt \ref{Tabelle}) installiert ist. \\
+
+   \textbf{Computer:}\\
+  Unser System soll auf einem Web-Browser laufen. Dabei sollte das System auf Windows laufen, welches die verwendete Plattform des Kunden ist. Dabei ist wichtig, dass alle Betriebssysteme von Windows 2000 bis Windows 8 unterstützt werden, da der Kunde Windows 2000 verwendet. Ebenfalls sollte das System Linux und MacOS unterstützen. \\
   
-  \textbf{Computer:}\\
-  Unser System soll auf einem Web-Browser laufen. Dabei sollte das System auf Windows laufen, welches die verwendete Plattform des Kunden ist. Dabei ist wichtig, dass alle Betriebssysteme von Windows 2000 bis Windows 8 unterstützt werden, da der Kunde Windows 2000 verwendet. Ebenfalls sollte das System Linux und MacOS unterstützen.\\
   \textbf{Smartphone:}\\
   Unser System unterstützt nur Geräte, auf denen Android läuft. Dabei muss  die Version 2.3 oder höher vorliegen, da somit der größte Teil der Android Geräte verwendet werden kann.\\
- 
+Im Folgenden dient eine Tabelle der Veranschaulichung von erforderlichen Softwarekomponenten nebst Version.  \\ 
 
-\subsubsection{Softwareschnittstellen}
-\nurlangversion
-
-{\em Softwarebibliotheken und --rahmenwerke (Frameworks), die benutzt
-  werden sollen, mit Versionsnummer, Hersteller, Quelle etc. Dazu
-  gehört auf jeden Fall Java.}
-
+\label{Tabelle}
   \begin{tabular}{|l|l|l|l|}\hline
     \textbf{Name} & \textbf{Version} & \textbf{Hersteller} & \textbf{Quelle} \\\hline
     Java Runtime & 6 Update 37 & Oracle & \url{http://java.com} \\\hline
@@ -299,10 +302,7 @@ der Universität Bremen im Wintersemester 2013/14 erarbeitet wurden.
   oder auch private IP-Adressen?}
 
 \subsubsection{Speicherbeschränkung}
-\nurlangversion
-
-  {\em min./max.\ verfügbarer Hauptspeicher und Festplattenplatz, knappe Begründung wie Ihr zu
-der hier angegebenen Einschätzung gekommen seid}
+Wie schon im Punkt \ref{hardware} beschrieben, gibt es keine Speicherbeschränkungen. Ein PC, auf dem, wie beim Kunden, Windows 2000 läuft, kann also problemlos verwendet werden. Das Softwaresystem beansprucht nicht viele Ressourcen in puncto RAM oder Festplattenspeicher.
 
 \subsubsection{Operationen (Betriebsmodi)}
 \nurlangversion
