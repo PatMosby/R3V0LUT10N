@@ -894,14 +894,15 @@ Eine Assoziationsklasse. Ermöglicht Bibliothekare diese drei Funktionen an den 
 Leihobjekt, Ausleihe und Nutzer anzuwenden. Auch beschreibt sie Fähigkeit des Admins,
 Bibliothekare zu bearbeiten, zu löschen oder hinzuzufügen.
 \end{itemize}
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 150864c6c1fab0fd983d6c0ca4c991cc10563f0f
 
-\newpage
 \subsection{Anwendungsfälle}
+\begin{figure}[htbp]
+\caption{Startseite}
+\includegraphics[width=1\textwidth]{WebApp-Screens/Startscreen-loggedOut.png}
+  \label{startseite}
+\end{figure}
 
 \begin{table}[htbp]
 \label{1}
@@ -922,9 +923,9 @@ Bibliothekare zu bearbeiten, zu löschen oder hinzuzufügen.
 \end{table}
 
 \begin{figure}[htbp]
-\caption{Startseite}
-\includegraphics[width=1\textwidth]{ScreensWebsite/StartseiteLoggedOut.png}
-\label{startseite}
+\caption{Loginscreen}
+\includegraphics[width=1\textwidth]{WebApp-Screens/Loginscreen.png}
+  \label{login}
 \end{figure}
 
 \begin{table}[htbp]
@@ -948,20 +949,17 @@ Administrators verwenden\\
 & \\
 &1. Silke Schüler gibt ihren Benutzernamen und ihr Passwort ein \\
 &2. Silke Schüler drückt auf den Button 'Anmelden'\\
-&3. Der Startbildschirm erscheint wieder und Silke Schüler kann nun alle Funktionen eines registrierten Nutzers verwenden\\ \hline
-\textbf{Nachbedingungen} & Die Personen sind nun angemeldet und können nun Funktionen abhängig vom Zugriffsrecht verwenden \\ \hline
+&3. Der Startbildschirm erscheint wieder und Silke Schüler kann nun alle Funktionen eines registrierten 
+Nutzers verwenden\\ \hline
+\textbf{Nachbedingungen} & Die Personen sind nun angemeldet und können nun Funktionen abhängig 
+vom Zugriffsrecht verwenden \\ \hline
 \textbf{Fehler-/Ausnahmefälle} & 
-1. Bart Besucher besitzt kein Benutzernamen oder Passwort, somit kann er sich nicht anmelden und hat keinen Zugriff auf die anderen Funktionen \\
+1. Bart Besucher besitzt kein Benutzernamen oder Passwort, somit kann er sich nicht anmelden und hat 
+keinen Zugriff auf die anderen Funktionen \\
 &2. Es wird der falsche Nutzername oder das falsche Passwort eingegeben. Dann erscheint eine 
 Fehlermeldung, welche dieses Problem beschreibt \\ \hline
 \end{tabular}
 \end{table}
-
-\begin{figure}[htbp]
-\caption{Benutzer anmelden}
-\includegraphics[width=1\textwidth]{ScreensWebsite/LoginSchueler.png}
-\label{Benutzer anmelden}
-\end{figure}
 
 \begin{table}[htbp]
 \label{3}
@@ -979,9 +977,15 @@ Fehlermeldung, welche dieses Problem beschreibt \\ \hline
 keine \\ \hline
 \textbf{Nachbedingungen} & Es wird nun die Startseite angezeigt und der Benutzer ist abgemeldet\\
 \hline
-\textbf{Fehler-/Ausnahmefälle} & keine\\\hline
+\textbf{Fehler-/Ausnahmefälle} & keine
 \end{tabular}
 \end{table}
+
+\begin{figure}[htbp]
+\caption{Startseite bei angemeldeten Benutzer}
+\includegraphics[width=1\textwidth]{WebApp-Screens/Startscreen-loggedIn.png}
+  \label{startlog}
+\end{figure}
 
 \begin{table}[htbp]
 \label{4}
@@ -1004,9 +1008,9 @@ Anwendungsfall 1 \\ \hline
 \end{table}
 
 \begin{figure}[htbp]
-\caption{Startseite Leser}
-\includegraphics[width=1\textwidth]{ScreensWebsite/StartseiteLoggedInSchueler.png}
-\label{Startseite Leser}
+\caption{Publikationsscreen von Silke Schüler oder Bart Besucher}
+\includegraphics[width=1\textwidth]{WebApp-Screens/PublicationsscreenLogOut.png}
+  \label{pub}
 \end{figure}
 
 \begin{table}[htbp]
@@ -1029,12 +1033,6 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{figure}[htbp]
-\caption{Leserprofil}
-\includegraphics[width=1\textwidth]{ScreensWebsite/Profil.png}
-\label{Leserprofil}
-\end{figure}
-
 \begin{table}[htbp]
 \label{6}
 \begin{tabular}{|l|p{10cm}|}
@@ -1049,18 +1047,12 @@ keine \\ \hline
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Es werden nun die Vormerkungen angezeigt, die bearbeitet werden können.\\ 
+\textbf{Nachbedingungen} & Es wird nun die Vormerkungen angezeigt, die bearbeitet werden können.\\ 
 \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
 \end{table}
-
-\begin{figure}[htbp]
-\caption{Vormerkungen}
-\includegraphics[width=1\textwidth]{ScreensWebsite/VormerkungenSchueler.png}
-\label{Vormerkungen}
-\end{figure}
 
 \begin{table}[htbp]
 \label{7}
@@ -1081,12 +1073,6 @@ keine \\ \hline
 \hline
 \end{tabular}
 \end{table}
-
-\begin{figure}[htbp]
-\caption{Publikationsliste}
-\includegraphics[width=1\textwidth]{ScreensWebsite/PublikationslisteLoggedInBibliothekar.png}
-\label{Publikationsliste}
-\end{figure}
 
 \begin{table}[htbp]
 \label{8}
@@ -1112,12 +1098,6 @@ worden\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{figure}[htbp]
-\caption{Buch hinzufügen}
-\includegraphics[width=1\textwidth]{ScreensWebsite/PublikationHinzufuegen.png}
-\label{Publikationsliste}
-\end{figure}
-
 \begin{table}[htbp]
 \label{9}
 \begin{tabular}{|l|p{10cm}|}
@@ -1142,8 +1122,6 @@ aufgenommen worden\\ \hline
 \end{tabular}
 \end{table}
 
-
-
 \begin{table}[htbp]
 \label{10}
 \begin{tabular}{|l|p{10cm}|}
@@ -1154,7 +1132,7 @@ aufgenommen worden\\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste 
 aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer geht in die Detailansicht des  Buches\\
+1. Der Benutzer markiert die zu löschenden Bücher\\
 &2. Der Benutzer drückt auf den Button 'Löschen' \\
 \hline
 \textbf{Varianten} & 
@@ -1165,8 +1143,6 @@ aufgerufen  \\ \hline
 \hline
 \end{tabular}
 \end{table}
-
-
 
 \begin{table}[htbp]
 \label{11}
@@ -1190,14 +1166,6 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-\newpage
-\begin{figure}[htbp]
-\caption{CVS-Import \& Export}
-\includegraphics[width=1\textwidth]{ScreensWebsite/PublikationslisteLoggedInBibliothekar.png}
-\label{CVS-Import \& Export}
-\end{figure}
-
-\newpage
 \begin{table}[htbp]
 \label{12}
 \begin{tabular}{|l|p{10cm}|}
@@ -1220,7 +1188,6 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-\newpage
 \begin{table}[htbp]
 \label{13}
 \begin{tabular}{|l|p{10cm}|}
@@ -1241,7 +1208,6 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-\newpage
 \begin{table}[htbp]
 \label{14}
 \begin{tabular}{|l|p{10cm}|}
@@ -1262,9 +1228,8 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-
-
 \newpage
+
 \begin{table}[htbp]
 \label{15}
 \begin{tabular}{|l|p{10cm}|}
@@ -1287,7 +1252,6 @@ bewerten\\ \hline
 \end{tabular}
 \end{table}
 
-\newpage
 \begin{table}[htbp]
 \label{16}
 \begin{tabular}{|l|p{10cm}|}
@@ -1312,7 +1276,6 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-\newpage
 \begin{table}[htbp]
 \label{17}
 \begin{tabular}{|l|p{10cm}|}
@@ -1334,7 +1297,6 @@ Mahngebühren werden bezahlt \\ \hline
 \end{tabular}
 \end{table}
 
-\newpage
 \begin{table}[htbp]
 \label{18}
 \begin{tabular}{|l|p{10cm}|}
@@ -1355,7 +1317,7 @@ Mahngebühren werden bezahlt \\ \hline
 \hline
 \end{tabular}
 \end{table}
-\newpage
+
 \begin{table}[htbp]
 \label{19}
 \begin{tabular}{|l|p{10cm}|}
@@ -1578,15 +1540,8 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-<<<<<<< HEAD
-\newpage
-
-\begin{table}[!htbp]
-\label{24.1}
-=======
 \begin{table}[htbp]
 \label{29}
->>>>>>> 150864c6c1fab0fd983d6c0ca4c991cc10563f0f
 \begin{tabular}{|l|p{10cm}|}
 \hline 
 \textbf{29} & \textbf{Leser sperren} \\ \hline
