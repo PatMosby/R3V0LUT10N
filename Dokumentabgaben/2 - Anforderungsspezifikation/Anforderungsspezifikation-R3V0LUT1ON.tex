@@ -894,14 +894,15 @@ Eine Assoziationsklasse. Ermöglicht Bibliothekare diese drei Funktionen an den 
 Leihobjekt, Ausleihe und Nutzer anzuwenden. Auch beschreibt sie Fähigkeit des Admins,
 Bibliothekare zu bearbeiten, zu löschen oder hinzuzufügen.
 \end{itemize}
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 150864c6c1fab0fd983d6c0ca4c991cc10563f0f
 
-\newpage
 \subsection{Anwendungsfälle}
+\begin{figure}[htbp]
+\caption{Startseite}
+\includegraphics[width=1\textwidth]{WebApp-Screens/Startscreen-loggedOut.png}
+  \label{startseite}
+\end{figure}
 
 \begin{table}[htbp]
 \label{1}
@@ -922,9 +923,9 @@ Bibliothekare zu bearbeiten, zu löschen oder hinzuzufügen.
 \end{table}
 
 \begin{figure}[htbp]
-\caption{Startseite}
-\includegraphics[width=1\textwidth]{ScreensWebsite/StartseiteLoggedOut.png}
-\label{startseite}
+\caption{Loginscreen}
+\includegraphics[width=1\textwidth]{WebApp-Screens/Loginscreen.png}
+  \label{login}
 \end{figure}
 
 \begin{table}[htbp]
@@ -948,20 +949,17 @@ Administrators verwenden\\
 & \\
 &1. Silke Schüler gibt ihren Benutzernamen und ihr Passwort ein \\
 &2. Silke Schüler drückt auf den Button 'Anmelden'\\
-&3. Der Startbildschirm erscheint wieder und Silke Schüler kann nun alle Funktionen eines registrierten Nutzers verwenden\\ \hline
-\textbf{Nachbedingungen} & Die Personen sind nun angemeldet und können nun Funktionen abhängig vom Zugriffsrecht verwenden \\ \hline
+&3. Der Startbildschirm erscheint wieder und Silke Schüler kann nun alle Funktionen eines registrierten 
+Nutzers verwenden\\ \hline
+\textbf{Nachbedingungen} & Die Personen sind nun angemeldet und können nun Funktionen abhängig 
+vom Zugriffsrecht verwenden \\ \hline
 \textbf{Fehler-/Ausnahmefälle} & 
-1. Bart Besucher besitzt kein Benutzernamen oder Passwort, somit kann er sich nicht anmelden und hat keinen Zugriff auf die anderen Funktionen \\
+1. Bart Besucher besitzt kein Benutzernamen oder Passwort, somit kann er sich nicht anmelden und hat 
+keinen Zugriff auf die anderen Funktionen \\
 &2. Es wird der falsche Nutzername oder das falsche Passwort eingegeben. Dann erscheint eine 
 Fehlermeldung, welche dieses Problem beschreibt \\ \hline
 \end{tabular}
 \end{table}
-
-\begin{figure}[htbp]
-\caption{Benutzer anmelden}
-\includegraphics[width=1\textwidth]{ScreensWebsite/LoginSchueler.png}
-\label{Benutzer anmelden}
-\end{figure}
 
 \begin{table}[htbp]
 \label{3}
@@ -979,9 +977,15 @@ Fehlermeldung, welche dieses Problem beschreibt \\ \hline
 keine \\ \hline
 \textbf{Nachbedingungen} & Es wird nun die Startseite angezeigt und der Benutzer ist abgemeldet\\
 \hline
-\textbf{Fehler-/Ausnahmefälle} & keine\\\hline
+\textbf{Fehler-/Ausnahmefälle} & keine
 \end{tabular}
 \end{table}
+
+\begin{figure}[htbp]
+\caption{Startseite bei angemeldeten Benutzer}
+\includegraphics[width=1\textwidth]{WebApp-Screens/Startscreen-loggedIn.png}
+  \label{startlog}
+\end{figure}
 
 \begin{table}[htbp]
 \label{4}
@@ -1004,9 +1008,9 @@ Anwendungsfall 1 \\ \hline
 \end{table}
 
 \begin{figure}[htbp]
-\caption{Startseite Leser}
-\includegraphics[width=1\textwidth]{ScreensWebsite/StartseiteLoggedInSchueler.png}
-\label{Startseite Leser}
+\caption{Publikationsscreen von Silke Schüler oder Bart Besucher}
+\includegraphics[width=1\textwidth]{WebApp-Screens/PublicationsscreenLogOut.png}
+  \label{pub}
 \end{figure}
 
 \begin{table}[htbp]
@@ -1029,12 +1033,6 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{figure}[htbp]
-\caption{Leserprofil}
-\includegraphics[width=1\textwidth]{ScreensWebsite/Profil.png}
-\label{Leserprofil}
-\end{figure}
-
 \begin{table}[htbp]
 \label{6}
 \begin{tabular}{|l|p{10cm}|}
@@ -1049,18 +1047,12 @@ keine \\ \hline
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Es werden nun die Vormerkungen angezeigt, die bearbeitet werden können.\\ 
+\textbf{Nachbedingungen} & Es wird nun die Vormerkungen angezeigt, die bearbeitet werden können.\\ 
 \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
 \end{table}
-
-\begin{figure}[htbp]
-\caption{Vormerkungen}
-\includegraphics[width=1\textwidth]{ScreensWebsite/VormerkungenSchueler.png}
-\label{Vormerkungen}
-\end{figure}
 
 \begin{table}[htbp]
 \label{7}
@@ -1082,19 +1074,13 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{figure}[htbp]
-\caption{Publikationsliste}
-\includegraphics[width=1\textwidth]{ScreensWebsite/PublikationslisteLoggedInBibliothekar.png}
-\label{Publikationsliste}
-\end{figure}
-
 \begin{table}[htbp]
 \label{8}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{8} & \textbf{Buch hinzufügen} \\ \hline
+\textbf{8} & \textbf{Medium hinzufügen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
-\textbf{Ziel} & Der Akteur möchte ein neues Buch hinzufügen \\ \hline
+\textbf{Ziel} & Der Akteur möchte ein neues Medium hinzufügen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste 
 aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
@@ -1104,7 +1090,7 @@ aufgerufen  \\ \hline
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Das Buch wurde gespeichert und ist in die Datenbank aufgenommen 
+\textbf{Nachbedingungen} & Das Medium wurde gespeichert und ist in die Datenbank aufgenommen 
 worden\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & 1. falsches ISBN-Format wurde eingeben\\
 &2. Pflichtfelder wurden nicht eingegeben\\
@@ -1112,24 +1098,27 @@ worden\\ \hline
 \end{tabular}
 \end{table}
 
+<<<<<<< HEAD
 \begin{figure}[htbp]
 \caption{Buch hinzufügen}
 \includegraphics[width=1\textwidth]{ScreensWebsite/PublikationHinzufuegen.png}
 \label{Publikation hinzufuegen}
 \end{figure}
 
+=======
+>>>>>>> cee6bc052a3c9b2c1066ad5348f700ecbdcc806e
 \begin{table}[htbp]
 \label{9}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{9} & \textbf{Buch ändern} \\ \hline
+\textbf{9} & \textbf{Medium ändern} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
-\textbf{Ziel} & Der Akteur möchte ein Daten eines Buches ändern \\ \hline
+\textbf{Ziel} & Der Akteur möchte ein Daten eines Mediums ändern \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Detailsicht eines 
-Buches aufgerufen  \\ \hline
+Mediums aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer drückt auf den Button 'Ändern' \\
-&2. Das System zeigt das Formular für das Hinzufügen eines Buches an\\
+&2. Das System zeigt das Formular für das Hinzufügen eines Mediums an\\
 &3. Der Benutzer drückt den Button 'Änderung speichern'\\
 \hline
 \textbf{Varianten} & 
@@ -1142,31 +1131,27 @@ aufgenommen worden\\ \hline
 \end{tabular}
 \end{table}
 
-
-
 \begin{table}[htbp]
 \label{10}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{10} & \textbf{Buch löschen} \\ \hline
+\textbf{10} & \textbf{Medium löschen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
-\textbf{Ziel} & Der Akteur möchte ein Buch löschen \\ \hline
+\textbf{Ziel} & Der Akteur möchte ein Medium löschen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste 
 aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer geht in die Detailansicht des  Buches\\
+1. Der Benutzer markiert die zu löschenden Bücher\\
 &2. Der Benutzer drückt auf den Button 'Löschen' \\
 \hline
 \textbf{Varianten} & 
-1. Der Benutzer befindet sich in der Detailsicht eines Buches\\
+1. Der Benutzer befindet sich in der Detailsicht eines Mediums\\
 &2. Der Benutzer drückt auf den Button 'Löschen' \\ \hline
-\textbf{Nachbedingungen} & Das Buch wurde gelöscht \\ \hline
+\textbf{Nachbedingungen} & Das Medium wurde gelöscht \\ \hline
 \textbf{Fehler-/Ausnahmefälle} & \\
 \hline
 \end{tabular}
 \end{table}
-
-
 
 \begin{table}[htbp]
 \label{11}
@@ -1190,14 +1175,6 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-\newpage
-\begin{figure}[htbp]
-\caption{CVS-Import \& Export}
-\includegraphics[width=1\textwidth]{ScreensWebsite/PublikationslisteLoggedInBibliothekar.png}
-\label{CVS-Import \& Export}
-\end{figure}
-
-\newpage
 \begin{table}[htbp]
 \label{12}
 \begin{tabular}{|l|p{10cm}|}
@@ -1220,14 +1197,13 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-\newpage
 \begin{table}[htbp]
 \label{13}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{13} & \textbf{Buch suchen} \\ \hline
+\textbf{13} & \textbf{Medium suchen} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler, Bart Besucher, Arnold Admin\\ \hline
-\textbf{Ziel} & Der Akteur möchte ein Buch suchen \\ \hline
+\textbf{Ziel} & Der Akteur möchte ein Medium suchen \\ \hline
 \textbf{Vorbedingungen} & keine \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer gibt den Suchbegriff in das Suchfeld ein und drückt 'Eingabe' \\
@@ -1241,64 +1217,61 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-\newpage
 \begin{table}[htbp]
 \label{14}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{14} & \textbf{Einzelnes Buch anzeigen/ Detailansicht} \\ \hline
+\textbf{14} & \textbf{Einzelnes Medium anzeigen/ Detailansicht} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler, Bart Besucher, Arnold Admin\\ \hline
-\textbf{Ziel} & Der Akteur möchte sich Details zu einem Buch anzeigen lassen \\ \hline
+\textbf{Ziel} & Der Akteur möchte sich Details zu einem Medium anzeigen lassen \\ \hline
 \textbf{Vorbedingungen} & Die Publikationsliste oder die Suchliste wurde aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer klickt auf den Button 'Details' bei einem Buch in der Liste \\
-&2. Die Detailseite des Buches wird angezeigt\\
+1. Der Benutzer klickt auf den Button 'Details' bei einem Medium in der Liste \\
+&2. Die Detailseite des Mediums wird angezeigt\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Die Detailseite eines Buches wird angezeigt\\ \hline
+\textbf{Nachbedingungen} & Die Detailseite eines Mediums wird angezeigt\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
 \end{table}
 
-
-
 \newpage
+
 \begin{table}[htbp]
 \label{15}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{15} & \textbf{Buch bewerten} \\ \hline
+\textbf{15} & \textbf{Medium bewerten} \\ \hline
 \textbf{Akteure} & Silke Schüler\\ \hline
-\textbf{Ziel} & Der Akteur möchte ein Buch bewerten \\ \hline
-\textbf{Vorbedingungen} & Die Detailansicht eines Buches wurde aufgerufen \\ \hline
+\textbf{Ziel} & Der Akteur möchte ein Medium bewerten \\ \hline
+\textbf{Vorbedingungen} & Die Detailansicht eines Mediums wurde aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer klickt auf den Button 'Bewerten' und kann nun in einem Dropdownmenü eine Punktzahl 
 auswählen\\
-&2. Der Benutzer drückt den Button 'Buch bewerten'\\
+&2. Der Benutzer drückt den Button 'Medium bewerten'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Das Buch wurde vom Akteur bewertet und lässt sich kein zweites Mal 
+\textbf{Nachbedingungen} & Das Medium wurde vom Akteur bewertet und lässt sich kein zweites Mal 
 bewerten\\ \hline
-\textbf{Fehler-/Ausnahmefälle} & Das Buch wurde schon einmal bewertet\\
+\textbf{Fehler-/Ausnahmefälle} & Das Medium wurde schon einmal bewertet\\
 \hline
 \end{tabular}
 \end{table}
 
-\newpage
 \begin{table}[htbp]
 \label{16}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{16} & \textbf{Buch ausleihen} \\ \hline
+\textbf{16} & \textbf{Medium ausleihen} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
-\textbf{Ziel} & Silke Schüler möchte ein Buch ausleihen \\ \hline
+\textbf{Ziel} & Silke Schüler möchte ein Medium ausleihen \\ \hline
 \textbf{Vorbedingungen} & Bert Bib ist im System als Bibliothekar angemeldet und Silke Schüler ist vor 
 Ort \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Silke Schüler gibt Buch (Bücher) und ihren Bibliotheksausweis zum Einscannen an Bert Bib\\
+1. Silke Schüler gibt Medium (Bücher) und ihren Bibliotheksausweis zum Einscannen an Bert Bib\\
 &2. Bert Bib scannt erst den Ausweis\\
 &3. Nun scannt Bert Bib die Bücher ein\\
 &4. Die Liste der auszuleihenden Bücher wird mit dem Ausleiher angezeigt\\
@@ -1312,12 +1285,11 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-\newpage
 \begin{table}[htbp]
 \label{17}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{17} & \textbf{Buchrückgabe} \\ \hline
+\textbf{17} & \textbf{Mediumrückgabe} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
 \textbf{Ziel} & Der Akteur will Bücher zurückgeben \\ \hline
 \textbf{Vorbedingungen} & Bücher sind ausgeliehen \\ \hline
@@ -1334,12 +1306,11 @@ Mahngebühren werden bezahlt \\ \hline
 \end{tabular}
 \end{table}
 
-\newpage
 \begin{table}[htbp]
 \label{18}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{18} & \textbf{Buchrückgabe} \\ \hline
+\textbf{18} & \textbf{Mediumrückgabe} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
 \textbf{Ziel} & Der Akteur will Bücher zurückgeben \\ \hline
 \textbf{Vorbedingungen} & Bücher sind ausgeliehen \\ \hline
@@ -1355,17 +1326,17 @@ Mahngebühren werden bezahlt \\ \hline
 \hline
 \end{tabular}
 \end{table}
-\newpage
+
 \begin{table}[htbp]
 \label{19}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{19} & \textbf{Buch rezensieren} \\ \hline
+\textbf{19} & \textbf{Medium rezensieren} \\ \hline
 \textbf{Akteure} & Silke Schüler\\ \hline
-\textbf{Ziel} & Der Akteur will ein Buch rezensieren \\ \hline
-\textbf{Vorbedingungen} & Der Akteur befindet sich auf der Detailsicht eines Buches \\ \hline
+\textbf{Ziel} & Der Akteur will ein Medium rezensieren \\ \hline
+\textbf{Vorbedingungen} & Der Akteur befindet sich auf der Detailsicht eines Mediums \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur drückt auf 'Buch rezensieren' \\
+1. Der Akteur drückt auf 'Medium rezensieren' \\
 &2. Der Akteur schreibt seine Rezension in das entsprechende Feld\\
 &3. Der Button 'Rezension abschicken' wird gedrückt\\
 \hline
@@ -1382,18 +1353,18 @@ freischalten\\ \hline
 \label{20}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{20} & \textbf{Buch vormerken} \\ \hline
+\textbf{20} & \textbf{Medium vormerken} \\ \hline
 \textbf{Akteure} & Silke Schüler\\ \hline
-\textbf{Ziel} & Der Akteur will ein Buch vormerken \\ \hline
-\textbf{Vorbedingungen} & Der Akteur befindet sich auf der Detailsicht eines Buches \\ \hline
+\textbf{Ziel} & Der Akteur will ein Medium vormerken \\ \hline
+\textbf{Vorbedingungen} & Der Akteur befindet sich auf der Detailsicht eines Mediums \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Akteur drückt auf 'Buch vormerken' \\
-&2. Das Buch wurde vorgemerkt\\
+1. Der Akteur drückt auf 'Medium vormerken' \\
+&2. Das Medium wurde vorgemerkt\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Das Buch wurde vorgemerkt und erscheint nun auf der Profilseite\\ \hline
-\textbf{Fehler-/Ausnahmefälle} & Das Buch wurde bereits vorgemerkt und kann somit nicht noch einmal 
+\textbf{Nachbedingungen} & Das Medium wurde vorgemerkt und erscheint nun auf der Profilseite\\ \hline
+\textbf{Fehler-/Ausnahmefälle} & Das Medium wurde bereits vorgemerkt und kann somit nicht noch einmal 
 vorgemerkt werden\\
 \hline
 \end{tabular}
@@ -1578,15 +1549,8 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
-<<<<<<< HEAD
-\newpage
-
-\begin{table}[!htbp]
-\label{24.1}
-=======
 \begin{table}[htbp]
 \label{29}
->>>>>>> 150864c6c1fab0fd983d6c0ca4c991cc10563f0f
 \begin{tabular}{|l|p{10cm}|}
 \hline 
 \textbf{29} & \textbf{Leser sperren} \\ \hline
