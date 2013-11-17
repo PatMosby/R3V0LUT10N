@@ -161,100 +161,56 @@ Version & Datum & Änderungen \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Einleitung (Patrick Damrow)}
+\section{Einleitung}
 
-%\footnote{Bei \url{http://ieeexplore.ieee.org} im Suchfeld 'IEEE std    
-%830-1998' eingeben. Funktioniert nur innerhalb des Uni-Netzes.
+Dieses Dokument spezifiziert die Anforderungen des auszuliefernden 
+Produkts, welche in Zusammenarbeit mit dem Kunden der Oberschule 
+Rockwinkel und den Verantwortlichen der Veranstaltung Software Projekt 2 
+der Universität Bremen im Wintersemester 2013/14 erarbeitet wurden.
+
+{\em Dieses Dokument dient als Vorlage für Eure
+  Anforderungsspezifikation. Die Gliederung dieses
+  Dokuments ist an die Struktur des IEEE-Standards 830.1998 angelehnt,
+  weicht jedoch an einigen Stellen davon ab. Die Abweichungen sind
+  im weiteren Verlauf dieses Dokuments dokumentiert. Weitere detaillierte
+  Hinweise finden sich im IEEE-Standard 830.1998, der in Stud.IP      
+  beziehungsweise über die Uni-Bibliothek in digitaler Form verfügbar ist
+  \footnote{Bei \url{http://ieeexplore.ieee.org} im Suchfeld 'IEEE std    
+   830-1998' eingeben. Funktioniert nur innerhalb des Uni-Netzes.}.}
 
 \subsection{Zweck}
+\nurlangversion
 
-Dieses Dokument hat den Zweck, die Anforderungen der auszuliefernden 
-Produkte, welche in Zusammenarbeit mit dem Kunden der Oberschule 
-Rockwinkel und den Verantwortlichen der Veranstaltung Software Projekt 2 
-der Universität Bremen im Wintersemester 2013/14 erarbeitet wurden, zu spezifizieren. Desweitern dient es dem Softwareentwickler zur Erstellung der Software.
-Dem Kunden werden genaue Anforderungen erläutert und beziffert, sowie die auszuliefernden Produkte genannt.
-
+  {\em Was ist der Zweck dieser Anforderungsspezifikation? Wer sind
+  die LeserInnen?}
 
 \subsection{Rahmen}
+\nurlangversion
 
-Im Folgenden listen wir die zu erstellende Software und deren auschlaggebenden Aspekte auf:
-
-\begin{itemize}
-
-\item{\textbf{Serversystem}}
-Das Serversystem besteht aus einem Server, welcher alle Anfragen der Nutzer empfängt, verwaltet und einer integrierten Datenbank. Ausserdem empfängt das Serversystem die vom Leser eingegebenen Rezensionen und leitet diese an die Server Applikation weiter, damit die Rezensionen vom Bibliothekar nach Überprüfung durch diesen freigeschaltet werden können.
-
-\item{\textbf{Server Applikation}}
-Die Server Applikation ist in erster Linie ein Administra-tionstool für die Bibliothekare der Oberschule Rockwinkel um die Daten innerhalb der Datenbank zu pflegen und zu verwalten. Darüberhinaus soll es den Ablauf von Ausleihe und Rückgabe erheblich erleichtern und verbessern. Weitere Funktionen wie z.b. für den Leser werden weiter unten im Dokument benannt und beschrieben.
-
-\item{\textbf{Android Applikation}}
-Die Android Applikation ist nur an die Leser gerichtet. Sie bietet einen Zugang zu den in der Bibliothek erhältlichen Medien. Registrierte Nutzer können ihre Kontaktdaten einsehen, Bücher zur Ausleihe vormerken, Rezensionen der Bücher aufrufen und Bücher bewerten.
-\end{itemize}
+  {\em Dieser Abschnitt soll einen groben Überblick über die zu
+  erstellende Software geben: Welche Produkte sind zu erstellen (mit
+  Namen)? Was tut die Software? Auch: Was tut sie nicht? Wozu soll die
+  Software verwendet werden?  (Ziele etc.)}
 
 \subsection{Definitionen, Akronyme und Abkürzungen}
+\nurlangversion
 
-\begin{table}[!h]
-\caption{Definition und Akronyme}
-\centering
-\begin{tabular}{p{7cm}|p{7cm}}
-\hline Begriff & Bedeutung\\ \hline
-\hline Andorid & Betriebssystem und Software-Plattform für mobile Geräte\\
-\hline Android-SDK & SDK = Software-Development-Tool\\
-\hline Ansi/IEEE & eine festgelegte Norm vom 'Institute of Electrical and Electronics Engineers, ANSI ist die Abkürzung für 'American National Standards Institute'\\
-\hline App & Programm, welches auf mobilen Endgeräten läuft\\
-\hline GUI & Grafische Oberfläche, Abkürzung für Graphical User Interface\\
-\hline Java & Java ist eine Programmiersprache\\
-\hline JUnit & Framework zum Testen von Java-Programmen\\
-\hline Server & Ein dauerhaft erreichbarer Rechner, der einen Dienst bereitstellt\\
-\hline
-\end{tabular}
-\end{table}
+  {\em Hier geht es vor allem um Begriffe aus der Anwendungsdomäne,
+  d.h.\ aus der Welt des Kunden. Aber auch Begriffe, die dem Kunden
+  evtl.\ fremd oder unklar sind, sollten erläutert werden.}
+
 
 \subsection{Referenzen}
-
-\begin{itemize}
-
-\item{\url{http://www.informatik.uni-bremen.de/st/Lehre/swpII_1314/mindestanforderungen.html}\\ Die Mindestanforderungen für das Produkt.}
-
-\item{\url{http://www.java.com}\\ Die Programmiersprache Java.}
-
-\item{\url{http://www.rockwinkel.schule.bremen.de/}\\ Webpraesenz der Oberschule Rockwinke.l}
-
- \item{\url{https://developer.android.com/sdk/index.html}\\ Die Website von Android-SDK}
-
-\item{\url{http://www.elearning.uni-bremen.de} Plattform der Universität Bremen. Zugriff auf Folien der Veranstaltung Software Projekt 1 des Sommersemesters 2013 und Übungen des Software Projekts 2 des Wintersemesters 13/14 nur eingeschränkt möglich.}
-
-\item{Vorlage dieses Dokuments - Stud.IP Software Projekt 2\\ 1-Anforderungsspezifikation-Vorlage.tex}
-
-\item{Hinweise zu diesem Dokument - Stud.IP 1-Hinweise-Abgabe-AS.pdf}
-
-\item{Hinweise zu diesem Dokument - Stud.IP 1-Checkliste-Anforderungsspezifikation-AS.pdf}
-
-\end{itemize}
+  {\em Neben sonstigen Quellen, die Ihr verwendet habt, können dies
+  z.B.\ das Skript, dieses Beispieldokument, der zugrunde
+  liegende IEEE-Standard und anderes sein}
+  
 
 \subsection{Übersicht über das Dokument}
-Im Folgenden listen wir einen kurzen Überblick über das vorliegende Dokument, welches einer leicht veränderten Version des IEEE-Standard 830.1998 Standard folgt:
+\nurlangversion
 
-\begin{enumerate}
-\item Die \textbf{Einleitung} gibt eine Einsicht in den Inhalt dieses Dokuments.
-\item Der Abschnitt \textbf{Allgemeine Beschreibung} dient dem Aufzeigen der Ergebnisse des Ist- und des Soll-Zustands.
-\begin{itemize}
-\item[-]In \textbf{Ergebnisse der Ist-Analyse} werden die Ergebnisse des mit dem Kunden durchgeführten Interviews beschrieben.
-\item[-] \textbf{Produktperspektiven} beschreibt die Schnittstellen des zu entwickelnden Systems genauer.
-\item[-] Hier werden die \textbf{Anwendungsfälle} im Überblick aufgelistet und kurz beschrieben.
-\item[-] \textbf{Charakteristika der Benutzer} zeigt die Personas auf, welche die späteren Benutzer in der realen Welt wiederspiegeln.
-\item[-] \textbf{Einschränkungen} beinhaltet Dinge, die die Entwurfsfreiheit einschränken. Diese werden in diesem Teil analysiert und dargestellt.
-\item[-] \textbf{Annahmen und Abhängikeiten} werden analysiert und aufgezeigt.
-\item[-] \textbf{Ausblick} beschreibt knapp, welche Änderungen und Erweiterungen zukünftig möglich oder zu erwarten sind.
-\end{itemize}
-\item Die \textbf{Detaillierte Beschreibung} dient der detaillierten Spezifizierung der Anforderungen.
-\begin{itemize}
-\item[-] Das \textbf{Datenmodell} stellt die Daten im System und deren Beziehungen zueinander in Form von einem UML-Diagramm dar.
-\item[-] \textbf{Anwendungsfälle} werden hier im Detail beschrieben.
-\item[-] \textbf Die in den Anwendungsfällen genannten {Aktionen} werden genannt und genauer beschrieben.
-\item[-] \textbf{Systzemattribute} spezifiziert nichtfunktionale Anforderungen.
-\end{itemize}
-\end{enumerate}
+  {\em Was enthält die Anforderungsspezifikation? Wie ist das Dokument
+  organisiert?}
 
 
 \section{Allgemeine Beschreibung}
@@ -281,8 +237,9 @@ Im Folgenden listen wir einen kurzen Überblick über das vorliegende Dokument, 
   N.B.: Dieser Abschnitt ist im IEEE-Standard nicht vorgesehen, aber dennoch
   sinnvoll.}
 
+\newpage
 \subsubsection{Erstes Kundengespräch vom 23.10.2013}
-\nurlangversion
+
 Am Mittwoch den 23.10.2013, um 9:00 Uhr begann unser erstes Kundengespräch.
 Am Tag zuvor hat die Gruppe Ideen zu einem Fragekatalog gesammelt, der dann
 am Mittwoch, kurz vor der Besprechung fertiggestellt wurde. Er beinhaltete
