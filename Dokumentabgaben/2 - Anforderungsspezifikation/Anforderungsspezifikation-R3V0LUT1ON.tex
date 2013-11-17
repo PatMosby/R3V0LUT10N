@@ -36,7 +36,8 @@
 \setboolean{langversion}{true} %Zuweisung ist 'false' für Blockkurs
 \newcommand{\highlight}[1]{\textcolor{blue}{\textbf{#1}}}
 \newcommand{\nurlangversion}[0]{%
-\ifthenelse{\boolean{langversion}}{\highlight{Muss in SWP-2 ausgefüllt werden}}{\highlight{Entfällt in SWP-1}}}
+\ifthenelse{\boolean{langversion}}{\highlight{Muss in SWP-2 ausgefüllt werden}}
+{\highlight{Entfällt in SWP-1}}}
 
 \newcommand{\swp}[0]{\ifthenelse{\boolean{langversion}}%
 {Software-Projekt 2}{Software-Projekt 1}}
@@ -252,10 +253,14 @@ der Universität Bremen im Wintersemester 2013/14 erarbeitet wurden.
   Konfigurationsdateien, anzubindende externe Dienste und deren Schnittstelle,
   Anbieten der eigenen Funktionalität als API o.ä.}
   
-  Grundsätzlich wird ein bestehendes Computersystem (nebst typischen Ein- und Ausgabegeräten) mit einem Betriebssystem vorausgesetzt, das mit den notwendigen Schnittstellen wie z.B. dem Datenim- und -export umgehen kann.
+  Grundsätzlich wird ein bestehendes Computersystem (nebst typischen Ein- und Ausgabegeräten) 
+  mit einem Betriebssystem vorausgesetzt, das mit den notwendigen Schnittstellen wie z.B. dem 
+  Datenim- und -export umgehen kann.
   
   \textbf{CSV-Im-/Export:}\\
-  Es gibt eine Funktion, mithilfe dieser CSV-Dateien importiert werden können. Diese kann nur vom Administrator benutzt werden. Die Bücher werden anschließend in der Datenbank der Bibliothek vorhanden sein. \\
+  Es gibt eine Funktion, mithilfe dieser CSV-Dateien importiert werden können. Diese kann nur vom 
+  Administrator benutzt werden. Die Bücher werden anschließend in der Datenbank der Bibliothek 
+  vorhanden sein. \\
   Es ist auch möglich, CSV Dateien zu exportieren, welche dann abgespeichert werden.
 
 \subsubsection{Benutzerschnittstelle}
@@ -265,26 +270,43 @@ der Universität Bremen im Wintersemester 2013/14 erarbeitet wurden.
   evtl.\ ein Screenshot, der einen groben Überblick und Eindruck des
   GUI-Designs gibt).}
 
-Als Schnittstelle zwischen Benutzer und Softwaresystem dient eine Internetseite, dessen Oberfläche seiner GUI als Screenshot unten dargestellt ist. \\
-Die GUI weist je nach Benutzerrechten unterschiedliche Funktionalitäten auf, da es einen Unterschied ist, ob sich ein Ausleiher ins System einloggt oder ein Administrator. \\
-Der Benutzer des Systems kann somit über einen Webbrowser mithilfe der typischen Eingabegeräte wie Tastatur und Maus auf diese Funktionen zugreifen und somit mit dem System interagieren. \\
-Als Ausgabegerät dient selbstredend ein handelsüblicher Monitor, der in puncto Auflösung oder Größe keine besonderen, sondern nur minimalen Anforderungen (typischerweise mindestens 640x480 Pixel) genügen muss, sowie die Möglichkeit, einen Drucker einzusetzen, um beispielsweise eine Liste auszudrucken. \\
+Als Schnittstelle zwischen Benutzer und Softwaresystem dient eine Internetseite, dessen Oberfläche 
+seiner GUI als Screenshot unten dargestellt ist. \\
+Die GUI weist je nach Benutzerrechten unterschiedliche Funktionalitäten auf, da es einen Unterschied ist, 
+ob sich ein Ausleiher ins System einloggt oder ein Administrator. \\
+Der Benutzer des Systems kann somit über einen Webbrowser mithilfe der typischen Eingabegeräte wie 
+Tastatur und Maus auf diese Funktionen zugreifen und somit mit dem System interagieren. \\
+Als Ausgabegerät dient selbstredend ein handelsüblicher Monitor, der in puncto Auflösung oder Größe 
+keine besonderen, sondern nur minimalen Anforderungen (typischerweise mindestens 640x480 Pixel) 
+genügen muss, sowie die Möglichkeit, einen Drucker einzusetzen, um beispielsweise eine Liste 
+auszudrucken. \\
 Ausgabeinteraktionsmechanismen sind in erster Linie Text sowie wenige Grafiken. 
 
 \subsubsection{Hardwareschnittstellen} \label{hardware}
-Das Softwaresystem besitzt als Schnittstelle zur Hardware das Betriebssystem des Computers bzw. des Smartphones. \\
-  Es sind keine über minimale Anforderungen in Bezug auf RAM\footnote{RAM = Random Access Memory = Hauptspeicher des Computers}, Festplattenspeicher, Prozessoren oder sonstigen Hardwarespezifika hinaus erforderlich. Somit wird die Software auch auf älteren, internetfähigen Computersystemen laufen. \\
+Das Softwaresystem besitzt als Schnittstelle zur Hardware das Betriebssystem des Computers bzw. des 
+Smartphones. \\
+  Es sind keine über minimale Anforderungen in Bezug auf RAM
+  \footnote{RAM = Random Access Memory = Hauptspeicher des Computers}, Festplattenspeicher, 
+  Prozessoren oder sonstigen Hardwarespezifika hinaus erforderlich. Somit wird die Software auch auf 
+  älteren, internetfähigen Computersystemen laufen. \\
  
 \subsubsection{Softwareschnittstellen} \label{software}
 
-Unser System wird grundsätzlich plattformunabhängig laufen. Voraussetzung ist, dass das Java Runtime Environment sowie das Hibernate Framework (siehe Tabelle am Ende von Punkt \ref{Tabelle}) installiert ist. \\
+Unser System wird grundsätzlich plattformunabhängig laufen. Voraussetzung ist, dass das Java Runtime 
+Environment sowie das Hibernate Framework (siehe Tabelle am Ende von Punkt \ref{Tabelle}) installiert 
+ist. \\
 
    \textbf{Computer:}\\
-  Unser System soll auf einem Web-Browser laufen. Dabei sollte das System auf Windows laufen, welches die verwendete Plattform des Kunden ist. Dabei ist wichtig, dass alle Betriebssysteme von Windows 2000 bis Windows 8 unterstützt werden, da der Kunde Windows 2000 verwendet. Ebenfalls sollte das System Linux und MacOS unterstützen. \\
+  Unser System soll auf einem Web-Browser laufen. Dabei sollte das System auf Windows laufen, welches 
+  die verwendete Plattform des Kunden ist. Dabei ist wichtig, dass alle Betriebssysteme von Windows 
+  2000 bis Windows 8 unterstützt werden, da der Kunde Windows 2000 verwendet. Ebenfalls sollte das 
+  System Linux und MacOS unterstützen. \\
   
   \textbf{Smartphone:}\\
-  Unser System unterstützt nur Geräte, auf denen Android läuft. Dabei muss  die Version 2.3 oder höher vorliegen, da somit der größte Teil der Android Geräte verwendet werden kann.\\
-Im Folgenden dient eine Tabelle der Veranschaulichung von erforderlichen Softwarekomponenten nebst Version.  \\ 
+  Unser System unterstützt nur Geräte, auf denen Android läuft. Dabei muss  die Version 2.3 oder höher 
+  vorliegen, da somit der größte Teil der Android Geräte verwendet werden kann.\\
+Im Folgenden dient eine Tabelle der Veranschaulichung von erforderlichen Softwarekomponenten nebst 
+Version.  \\ 
 
 \label{Tabelle}
   \begin{tabular}{|l|l|l|l|}\hline
@@ -302,7 +324,9 @@ Im Folgenden dient eine Tabelle der Veranschaulichung von erforderlichen Softwar
   oder auch private IP-Adressen?}
 
 \subsubsection{Speicherbeschränkung}
-Wie schon im Punkt \ref{hardware} beschrieben, gibt es keine Speicherbeschränkungen. Ein PC, auf dem, wie beim Kunden, Windows 2000 läuft, kann also problemlos verwendet werden. Das Softwaresystem beansprucht nicht viele Ressourcen in puncto RAM oder Festplattenspeicher.
+Wie schon im Punkt \ref{hardware} beschrieben, gibt es keine Speicherbeschränkungen. Ein PC, auf dem, 
+wie beim Kunden, Windows 2000 läuft, kann also problemlos verwendet werden. Das Softwaresystem 
+beansprucht nicht viele Ressourcen in puncto RAM oder Festplattenspeicher.
 
 \subsubsection{Operationen (Betriebsmodi)}
 \nurlangversion
@@ -391,7 +415,8 @@ Wie schon im Punkt \ref{hardware} beschrieben, gibt es keine Speicherbeschränku
 \textbf{Beruf} & Bibliothekar & Bibliothekar & Schülerin & Anwalt\\ \hline
 \textbf{Alter} & 39 & 56 & 16 & 34\\ \hline
 \textbf{Ziel} & Bibliothek verwalten & System verwalten & Bücher ausleihen & Bücher ausleihen \\ \hline
-\textbf{Verwendung der Software} & Bücher und Nutzer verwalten & System und Bibliothekare verwalten & Bücher suchen, ausleihen etc. & keine\\ \hline
+\textbf{Verwendung der Software} & Bücher und Nutzer verwalten & System und Bibliothekare verwalten 
+& Bücher suchen, ausleihen etc. & keine\\ \hline
 \end{tabular}
 \end{table}
 
@@ -422,12 +447,17 @@ Wie schon im Punkt \ref{hardware} beschrieben, gibt es keine Speicherbeschränku
 
 \subsection{Annahmen und Abhängigkeiten}
 
-Bis zur Auslieferung der Software wird sich der Kunde nicht ändern. Die Anforderungsspezifikation dient als eine Art Vertrag mit dem Kunden. Deshalb ist davon auszugehen, dass nach der Abgabe der Anforderungsspezifikation keine zusätzlichen Anforderungen hinzukommen. \\
+Bis zur Auslieferung der Software wird sich der Kunde nicht ändern. Die Anforderungsspezifikation dient 
+als eine Art Vertrag mit dem Kunden. Deshalb ist davon auszugehen, dass nach der Abgabe der 
+Anforderungsspezifikation keine zusätzlichen Anforderungen hinzukommen. \\
 Abgabetermine haben Deadlines und sind somit strikt einzuhalten.\\
 
-Des Weiteren wird davon ausgegangen, dass sich die Nutzer der Software zwar mit dem System eingehend auseinandersetzen. Es wird jedoch auch für den ungeübten Nutzer leicht möglich sein, dieses zu verwenden. Der jeweilige Nutzer sollte zumindest schon mal mit einem Computer gearbeitet haben. \\
+Des Weiteren wird davon ausgegangen, dass sich die Nutzer der Software zwar mit dem System 
+eingehend auseinandersetzen. Es wird jedoch auch für den ungeübten Nutzer leicht möglich sein, dieses 
+zu verwenden. Der jeweilige Nutzer sollte zumindest schon mal mit einem Computer gearbeitet haben.\\
 
-Zu Hardware- und Software-Abhängigkeiten geben die Punkte \ref{hardware} (Hardwareschnittstellen) und \ref{software} (Softwareschnittstellen) hinreichend Aufschluss.
+Zu Hardware- und Software-Abhängigkeiten geben die Punkte \ref{hardware} (Hardwareschnittstellen) 
+und \ref{software} (Softwareschnittstellen) hinreichend Aufschluss.
  
 \subsection{Ausblick}
 \nurlangversion
@@ -496,7 +526,8 @@ Zu Hardware- und Software-Abhängigkeiten geben die Punkte \ref{hardware} (Hardw
 1. Der Akteur startet das Programm, indem er die URL aufruft \\
 &2. Das Programm startet und zeigt die Startseite \\ \hline
 \textbf{Varianten} & keine \\ \hline
-\textbf{Nachbedingungen} & Das Programm ist gestartet und der Benutzer kann dieses nun verwenden \\ \hline
+\textbf{Nachbedingungen} & Das Programm ist gestartet und der Benutzer kann dieses nun verwenden\\ 
+\hline
 \textbf{Fehler-/Ausnahmefälle} & Server ist nicht erreichbar \\ \hline
 \end{tabular}
 \end{table}
@@ -518,19 +549,25 @@ Zu Hardware- und Software-Abhängigkeiten geben die Punkte \ref{hardware} (Hardw
 \textbf{Regulärer Ablauf} & 
 1. Bib gibt seinen Benutzernamen und sein Passwort ein \\
 &2. Bert Bib drückt auf den Button anmelden\\
-&3. Der Startbildschirm erscheint wieder und Bert Bib kann nun alle Funktionen eines Bibliothekars verwenden\\ \hline
+&3. Der Startbildschirm erscheint wieder und Bert Bib kann nun alle Funktionen eines Bibliothekars 
+verwenden\\ \hline
 \textbf{Varianten} & 
 1. Arnold Admin gibt seinen Benutzernamen und sein Passwort ein \\
 &2. Arnold Admin drückt auf den Button 'Anmelden'\\
-&3. Der Startbildschirm erscheint wieder und Arnold Admin kann nun alle Funktionen eines Administrators verwenden\\  
+&3. Der Startbildschirm erscheint wieder und Arnold Admin kann nun alle Funktionen eines 
+Administrators verwenden\\  
 & \\
 &1. Silke Schüler gibt ihren Benutzernamen und ihr Passwort ein \\
 &2. Silke Schüler drückt auf den Button 'Anmelden'\\
-&3. Der Startbildschirm erscheint wieder und Silke Schüler kann nun alle Funktionen eines registrierten Nutzers verwenden\\ \hline
-\textbf{Nachbedingungen} & Die Personen sind nun angemeldet und können nun Funktionen abhängig vom Zugriffsrecht verwenden \\ \hline
+&3. Der Startbildschirm erscheint wieder und Silke Schüler kann nun alle Funktionen eines registrierten 
+Nutzers verwenden\\ \hline
+\textbf{Nachbedingungen} & Die Personen sind nun angemeldet und können nun Funktionen abhängig 
+vom Zugriffsrecht verwenden \\ \hline
 \textbf{Fehler-/Ausnahmefälle} & 
-1. Bart Besucher besitzt kein Benutzernamen oder Passwort, somit kann er sich nicht anmelden und hat keinen Zugriff auf die anderen Funktionen \\
-&2. Es wird der falsche Nutzername oder das falsche Passwort eingegeben. Dann erscheint eine Fehlermeldung, welche dieses Problem beschreibt \\ \hline
+1. Bart Besucher besitzt kein Benutzernamen oder Passwort, somit kann er sich nicht anmelden und hat 
+keinen Zugriff auf die anderen Funktionen \\
+&2. Es wird der falsche Nutzername oder das falsche Passwort eingegeben. Dann erscheint eine 
+Fehlermeldung, welche dieses Problem beschreibt \\ \hline
 \end{tabular}
 \end{table}
 
@@ -548,7 +585,8 @@ Zu Hardware- und Software-Abhängigkeiten geben die Punkte \ref{hardware} (Hardw
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Es wird nun die Startseite angezeigt und der Benutzer ist abgemeldet \\ \hline
+\textbf{Nachbedingungen} & Es wird nun die Startseite angezeigt und der Benutzer ist abgemeldet\\
+\hline
 \textbf{Fehler-/Ausnahmefälle} & keine
 \end{tabular}
 \end{table}
@@ -619,7 +657,8 @@ keine \\ \hline
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Es wird nun die Vormerkungen angezeigt, die bearbeitet werden können \\ \hline
+\textbf{Nachbedingungen} & Es wird nun die Vormerkungen angezeigt, die bearbeitet werden können.\\ 
+\hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
@@ -652,7 +691,8 @@ keine \\ \hline
 \textbf{6} & \textbf{Buch hinzufügen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein neues Buch hinzufügen \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste aufgerufen  \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste 
+aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer drückt auf den Button 'Hinzufügen' \\
 &2. Das System zeigt das Formular für das Hinzufügen eines Buches an\\
@@ -660,7 +700,8 @@ keine \\ \hline
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Das Buch wurde gespeichert und ist in die Datenbank aufgenommen worden\\ \hline
+\textbf{Nachbedingungen} & Das Buch wurde gespeichert und ist in die Datenbank aufgenommen 
+worden\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & 1. falsches ISBN-Format wurde eingeben\\
 &2. Pflichtfelder wurden nicht eingegeben\\
 \hline
@@ -674,7 +715,8 @@ keine \\ \hline
 \textbf{7} & \textbf{Buch ändern} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Daten eines Buches ändern \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Detailsicht eines Buches aufgerufen  \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Detailsicht eines 
+Buches aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer drückt auf den Button 'Ändern' \\
 &2. Das System zeigt das Formular für das Hinzufügen eines Buches an\\
@@ -682,7 +724,8 @@ keine \\ \hline
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Die Änderungen wurden gespeichert und sind in die Datenbank aufgenommen worden\\ \hline
+\textbf{Nachbedingungen} & Die Änderungen wurden gespeichert und sind in die Datenbank 
+aufgenommen worden\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & 1. falsches ISBN-Format wurde eingeben\\
 &2. Pflichtfelder wurden nicht eingegeben\\
 \hline
@@ -696,7 +739,8 @@ keine \\ \hline
 \textbf{8} & \textbf{Buch löschen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Buch löschen \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste aufgerufen  \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste 
+aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer markiert die zu löschenden Bücher\\
 &2. Der Benutzer drückt auf den Button 'Löschen' \\
@@ -717,7 +761,8 @@ keine \\ \hline
 \textbf{9} & \textbf{CVS-Import} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte eine CVS-Datei für Bücher importieren \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste 
+aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer drückt auf den Button CVS-Import \\
 &2. Der Benutzer kann nun eine CVS-Datei auswählen\\
@@ -725,7 +770,7 @@ keine \\ \hline
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Die CVS-Datei wurde hochgeladen und in der Datenbank ergänzt\\ \hline
+\textbf{Nachbedingungen} & Die CVS-Datei wurde hochgeladen und in der Datenbank ergänzt\\\hline
 \textbf{Fehler-/Ausnahmefälle} & 1. falsches Datei-Format\\
 \hline
 \end{tabular}
@@ -738,7 +783,8 @@ keine \\ \hline
 \textbf{10} & \textbf{CVS-Export} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte eine CVS-Datei von der Datenbank exportieren \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste 
+aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer drückt auf den Button CVS-Export \\
 &2. Der Benutzer kann nun den Speicherort und Name für eine CVS-Datei auswählen\\
@@ -803,12 +849,14 @@ keine \\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Buch bewerten \\ \hline
 \textbf{Vorbedingungen} & Die Detailansicht eines Buches wurde aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
-1. Der Benutzer klickt auf den Button 'Bewerten' und kann nun in einem Dropdownmenü eine Punktzahl auswählen\\
+1. Der Benutzer klickt auf den Button 'Bewerten' und kann nun in einem Dropdownmenü eine Punktzahl 
+auswählen\\
 &2. Der Benutzer drückt den Button 'Buch bewerten'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Das Buch wurde vom Akteur bewertet und lässt sich kein zweites Mal bewerten\\ \hline
+\textbf{Nachbedingungen} & Das Buch wurde vom Akteur bewertet und lässt sich kein zweites Mal 
+bewerten\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & Das Buch wurde schon einmal bewertet\\
 \hline
 \end{tabular}
@@ -821,7 +869,8 @@ keine \\ \hline
 \textbf{14} & \textbf{Buch ausleihen} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
 \textbf{Ziel} & Silke Schüler möchte ein Buch ausleihen \\ \hline
-\textbf{Vorbedingungen} & Bert Bib ist im System als Bibliothekar angemeldet und Silke Schüler ist vor Ort \\ \hline
+\textbf{Vorbedingungen} & Bert Bib ist im System als Bibliothekar angemeldet und Silke Schüler ist vor 
+Ort \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Silke Schüler gibt Buch (Bücher) und ihren Bibliotheksausweis zum Einscannen an Bert Bib\\
 &2. Bert Bib scannt erst den Ausweis\\
@@ -894,7 +943,8 @@ Mahngebühren werden bezahlt \\ \hline
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Die Rezension wird abgeschickt und der Bibliothekar muss diese nun freischalten\\ \hline
+\textbf{Nachbedingungen} & Die Rezension wird abgeschickt und der Bibliothekar muss diese nun 
+freischalten\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & Es wurde nichts in das Bedienfeld eingegeben und dann abgeschickt.\\
 \hline
 \end{tabular}
@@ -915,7 +965,8 @@ keine \\ \hline
 \textbf{Varianten} & 
 keine \\ \hline
 \textbf{Nachbedingungen} & Das Buch wurde vorgemerkt und erscheint nun auf der Profilseite\\ \hline
-\textbf{Fehler-/Ausnahmefälle} & Das Buch wurde bereits vorgemerkt und kann somit nicht noch einmal vorgemerkt werden\\
+\textbf{Fehler-/Ausnahmefälle} & Das Buch wurde bereits vorgemerkt und kann somit nicht noch einmal 
+vorgemerkt werden\\
 \hline
 \end{tabular}
 \end{table}
@@ -927,7 +978,8 @@ keine \\ \hline
 \textbf{17} & \textbf{Rezension freischalten} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Bibliothekar will eine Rezension überprüfen und gegebenenfalls freischalten \\ \hline
-\textbf{Vorbedingungen} & Es wurde eine Rezension geschrieben und der Bibliothekar hat diese zur Überprüfung erhalten. \\ \hline
+\textbf{Vorbedingungen} & Es wurde eine Rezension geschrieben und der Bibliothekar hat diese zur 
+Überprüfung erhalten. \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Akteur liest sich die Rezension durch \\
 &2. Der Bibliothekar schaltet die Rezension frei\\
@@ -935,7 +987,8 @@ keine \\ \hline
 \textbf{Varianten} & 
 1. Der Akteur ließt sich die Rezension durch \\
 &2. Der Bibliothekar lehnt die Rezension ab \\ \hline
-\textbf{Nachbedingungen} & Die Rezension wurde angenommen und freigeschaltet oder abgelehnt\\ \hline
+\textbf{Nachbedingungen} & Die Rezension wurde angenommen und freigeschaltet oder abgelehnt\\ 
+\hline
 \textbf{Fehler-/Ausnahmefälle} & \\
 \hline
 \end{tabular}
@@ -968,7 +1021,8 @@ keine \\ \hline
 \textbf{19} & \textbf{Leser hinzufügen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein neuen Leser hinzufügen \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen  \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen\\
+\hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer drückt auf den Button 'Hinzufügen' \\
 &2. Das System zeigt das Formular für das Hinzufügen eines Lesers an\\
@@ -977,7 +1031,8 @@ keine \\ \hline
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Der Leser wurde gespeichert und ist in die Datenbank aufgenommen worden\\ \hline
+\textbf{Nachbedingungen} & Der Leser wurde gespeichert und ist in die Datenbank aufgenommen 
+worden\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & 1. Leser existiert bereits (alle Angaben stimmen überein)\\
 &2. Pflichtfelder wurden nicht eingegeben\\
 \hline
@@ -991,7 +1046,8 @@ keine \\ \hline
 \textbf{20} & \textbf{Leser ändern} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte die Daten eines Lesers ändern \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Detailsicht eines Lesers aufgerufen  \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Detailsicht eines 
+Lesers aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer drückt auf den Button 'Ändern' \\
 &2. Das System zeigt das Formular für das Hinzufügen eines Lesers an\\
@@ -1000,7 +1056,8 @@ keine \\ \hline
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Die Änderungen wurden gespeichert und sind in die Datenbank aufgenommen worden\\ \hline
+\textbf{Nachbedingungen} & Die Änderungen wurden gespeichert und sind in die Datenbank 
+aufgenommen worden\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & 1. Leser existiert bereits\\
 &2. Pflichtfelder wurden nicht eingegeben\\
 \hline
@@ -1014,7 +1071,8 @@ keine \\ \hline
 \textbf{21} & \textbf{Leser löschen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Leser löschen \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen  \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste 
+aufgerufen  \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer markiert die zu löschenden Leser\\
 &2. Der Benutzer drückt auf den Button 'Löschen' \\
@@ -1035,7 +1093,8 @@ keine \\ \hline
 \textbf{22} & \textbf{CVS-Import} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte eine CVS-Datei für Leser importieren \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen\\
+\hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer drückt auf den Button 'CVS-Import' \\
 &2. Der Benutzer kann nun eine CVS-Datei auswählen\\
@@ -1056,7 +1115,8 @@ keine \\ \hline
 \textbf{23} & \textbf{CVS-Export} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte eine CVS-Datei von der Datenbank exportieren \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste 
+aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Benutzer drückt auf den Button 'CVS-Export' \\
 &2. Der Benutzer kann nun den Speicherort und Namen für eine CVS-Datei auswählen\\
@@ -1105,7 +1165,8 @@ keine \\ \hline
 \textbf{Varianten} & 
 1. Ein Leser verwendet seinen Account nicht ordnungsgemäß\\
 &2. Der Bibliothekar sperrt den Nutzer\\ \hline
-\textbf{Nachbedingungen} & Der Benutzer wurde gesperrt und kann keine Bücher mehr vormerken oder ausleihen\\ \hline
+\textbf{Nachbedingungen} & Der Benutzer wurde gesperrt und kann keine Bücher mehr vormerken oder 
+ausleihen\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
@@ -1166,7 +1227,8 @@ keine \\ \hline
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die Bibliothekare in einer Liste anzeigen\\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die Bibliothekare in einer 
+Liste anzeigen\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
@@ -1179,14 +1241,16 @@ keine \\ \hline
 \textbf{28} & \textbf{Bibliothekar hinzufügen} \\ \hline
 \textbf{Akteure} & Arnold Admin\\ \hline
 \textbf{Ziel} & Der Akteur will einen neuen Bibliothekaren hinzufügen \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste 
+aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Akteur klickt auf den Button 'Hinzufügen' \\
 &2. Der Admin füllt das Formular aus und klickt auf 'Speichern'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Bibliothekarsliste anzeigt\\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Bibliothekarsliste 
+anzeigt\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
@@ -1200,14 +1264,16 @@ keine \\ \hline
 \textbf{29} & \textbf{Bibliothekar löschen} \\ \hline
 \textbf{Akteure} & Arnold Admin\\ \hline
 \textbf{Ziel} & Der Akteur will einen Bibliothekaren löschen \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste 
+aufgerufen\\\hline
 \textbf{Regulärer Ablauf} & 
 1. Der Akteur klickt auf einen Bibliothekaren \\
 &2. Der Admin klickt nun auf der Detailseite auf 'Löschen'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Bibliothekarsliste anzeigt\\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Bibliothekarsliste 
+anzeigt\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
@@ -1220,7 +1286,8 @@ keine \\ \hline
 \textbf{30} & \textbf{Bibliothekar ändern} \\ \hline
 \textbf{Akteure} & Arnold Admin\\ \hline
 \textbf{Ziel} & Der Akteur will Daten eines Bibliothekaren ändern \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste 
+aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Akteur klickt auf einen Bibliothekaren \\
 &2. Der Akteur klickt auf der Detailseite auf 'Ändern '\\
@@ -1228,7 +1295,8 @@ keine \\ \hline
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Bibliothekarliste anzeigt\\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Bibliothekarliste 
+anzeigt\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
@@ -1242,13 +1310,15 @@ keine \\ \hline
 \textbf{31} & \textbf{Statistik anzeigen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur will die Statistiken einsehen \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite 
+aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Akteur klickt auf den Button 'Statistiken' \\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Statistiken anzeigt\\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Statistiken anzeigt\\
+\hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
@@ -1262,13 +1332,15 @@ keine \\ \hline
 \textbf{32} & \textbf{Mahnungsliste anzeigen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur will die Mahnungsliste einsehen \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite 
+aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Akteur klickt auf den Button 'Mahnungen' \\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Mahnungsliste anzeigt\\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Mahnungsliste 
+anzeigt\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
@@ -1281,13 +1353,15 @@ keine \\ \hline
 \textbf{33} & \textbf{Mahnungsliste drucken} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur will die Mahnungsliste ausdrucken \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Mahnungsliste aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Mahnungsliste 
+aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Akteur klickt auf den Button 'Drucken' \\
 \hline
 \textbf{Varianten} & 
 Einzelne Mahnungen werden ausgewählt damit nur diese ausgedruckt werden \\ \hline
-\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Mahnungsliste anzeigt\\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Mahnungsliste 
+anzeigt\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & Probleme beim Drucken\\
 \hline
 \end{tabular}
@@ -1300,13 +1374,15 @@ Einzelne Mahnungen werden ausgewählt damit nur diese ausgedruckt werden \\ \hli
 \textbf{34} & \textbf{Mahnungsdetails anzeigen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur will sich Details zu einer Mahnung anschauen \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Mahnungsliste aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Mahnungsliste 
+aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Akteur klickt auf eine Mahnung \\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Mahnungsdetails anzeigt\\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich nun auf der Seite, die die Mahnungsdetails 
+anzeigt\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
@@ -1319,7 +1395,8 @@ keine \\ \hline
 \textbf{35} & \textbf{Startseite bearbeiten} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur will die Startseite bearbeiten \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die 
+Administrationsseite aufgerufen\\\hline
 \textbf{Regulärer Ablauf} & 
 1. Der Akteur klickt auf den Button 'Startseite bearbeiten' \\
 &2. Der Akteur bearbeitet die Startseite nach seinen Wünschen und klickt auf 'Speichern'\\
@@ -1339,14 +1416,16 @@ keine \\ \hline
 \textbf{36} & \textbf{Abgabedaten und Mahngebühren bearbeiten} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur will Abgabedaten und Mahngebühren bearbeiten \\ \hline
-\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite aufgerufen \\ \hline
+\textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite 
+aufgerufen \\ \hline
 \textbf{Regulärer Ablauf} & 
 1. Der Akteur klickt auf den Button 'Abgabedaten/Mahngebühren bearbeiten' \\
 &2. Der Akteur bearbeitet die Daten und/oder Gebühren und klickt auf 'Speichern'\\
 \hline
 \textbf{Varianten} & 
 keine \\ \hline
-\textbf{Nachbedingungen} & Der Akteur befindet sich auf der gleichen Seite und kann die neuen Daten/Gebühren sehen\\ \hline
+\textbf{Nachbedingungen} & Der Akteur befindet sich auf der gleichen Seite und kann die neuen 
+Daten/Gebühren sehen\\ \hline
 \textbf{Fehler-/Ausnahmefälle} & keine\\
 \hline
 \end{tabular}
