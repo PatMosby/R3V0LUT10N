@@ -237,8 +237,25 @@ der Universität Bremen im Wintersemester 2013/14 erarbeitet wurden.
   N.B.: Dieser Abschnitt ist im IEEE-Standard nicht vorgesehen, aber dennoch
   sinnvoll.}
 
-\subsubsection{Erstes Kundengespräch vom TT.MM.JJJJ}
+\subsubsection{Erstes Kundengespräch vom 23.10.2013}
 \nurlangversion
+Am Mittwoch den 23.10.2013, um 9:00 Uhr begann unser erstes Kundengespräch.
+Am Tag zuvor hat die Gruppe Ideen zu einem Fragekatalog gesammelt, der dann
+am Mittwoch, kurz vor der Besprechung fertiggestellt wurde. Er beinhaltete
+eine Auflistung aller Mindestanforderungen, zu denen Unklarheiten bezüglich 
+des Realisierungsvorgangs notiert wurden. (Hier kommt der Ablauf vom Gespräch...)
+
+Nach dem das Gespräch wie geplant um etwa 11:00 Uhr endete, fielen uns noch 
+drei bis vier Unklarheiten auf, weswegen wir sofort im Anschluss noch einmal das Gespräch mit einer Mitarbeiterin suchten. Sie war so freundlich, um sich noch 
+einmal Zeit zu nehmen und sogar noch einen Rundgang mit uns zu machen. Die noch 
+offenen Fragen bezogen sich auf den Vorgang des Freischalten einer Rezension
+und den Ort der Benachrichtigung, nachdem eine neue Rezension vom System vermerkt
+wurde. Auch dreht sich eine Frage noch um die Unterschiede des Designs zwischen
+der geplanten Android- und der BrowserApplikation. Die abschließende Frage war 
+noch einmal bezüglich der Bibliotheksstruktur, was Standortbezeichnungen und
+Kategorisierungen angeht. Zum Schluss hat man uns noch angeboten, bei Bedarf gerne 
+noch einmal wieder zu kommen. Die uns bis dahin bewussten Verständnislücken
+wurden zufriedenstellend ausgefüllt. 
 
 \subsubsection{Interview mit einem Mitarbeiter der ...}
 \nurlangversion
@@ -579,7 +596,7 @@ und \ref{software} (Softwareschnittstellen) hinreichend Aufschluss.
 
 \subsection{Datenmodell}
 \begin{itemize}
- \item \textbf{2. Person:}\\
+ \item \textbf{1. Person:}\\
   Stellt die Oberklasse aller Nutzer, Bibliothekare oder 
   des Admins dar.
 
@@ -588,56 +605,57 @@ Die Klasse Admin oder Administrator erbt von Person und kann mithilfe der    Ass
 Bibliothekars entweder bearbeiten oder eine kompletten Bibliothekar löschen 
 oder  neu einrichten.
  
-\item \textbf{2. Bibliothekar:}\\
+\item \textbf{3. Bibliothekar:}\\
 Die Klasse Bibliothekar erbt von Person und kann Rezensionen freischalten und
 kann Daten von sowohl Leihobjekt, der Assoziationsklasse Ausleihe, als auch 
 dem Nutzer bearbeiten. Zusätzlich ist Bibliothekar an der Ausleihe beteiligt.
 
-\item \textbf{2. Nutzer:}\\
+\item \textbf{4. Nutzer:}\\
 Auch der Nutzer erbt von Person und stellt den Leser dar, der sowohl Exemplare
 ausleihen und vormerken bzw. reservieren, als auch das Leihobjekt bewerten und 
 rezensieren kann.
 
-\item \textbf{2. Leihobjekt:}\\
+\item \textbf{5. Leihobjekt:}\\
 Die Klasse Leihobjekt stellt ein beliebiges Medium dar, welches in der 
 Bibliothek vorhanden ist. Gleichzeitig ist sie die Oberklasse für Buch,
 CD und noch eine Ebene weiter auch für Exemplar. Das Leihobjekt wird vom Nutzer
 bewertet und rezensiert und vom Bibliothekar erstellt oder entweder bearbeitet 
 oder gelöscht.
 
-\item \textbf{2. Buch:}\\
+\item \textbf{6. Buch:}\\
 Das Buch erbt von Leihobjekt und ist gleichzeitig eine mögliche Oberklasse
 für Exemplar. Zusätzlich steht es mit der Klasse Buchreihe über eine Aggregation
 in Verbindung. 
 
-\item \textbf{2. Buchreihe:}\\
+\item \textbf{7. Buchreihe:}\\
 Die Klasse Buchreihe steht mit der Klasse Buch über eine Aggregation in Verbindung.
-Eine Buchreihe kann beliebig viele Buchobjekte besitzen. 
-\item \textbf{2. CD:}\\
+Eine Buchreihe kann beliebig viele Buchobjekte besitzen.
+ 
+\item \textbf{8. CD:}\\
 CD erbt ebenfalls von Leihobjekt und ist eine mögliche Oberklasse für Exemplar.
 
-\item \textbf{2. Exemplar:}\\
+\item \textbf{9. Exemplar:}\\
 Das Exemplar ist das Objekt, welches an den Nutzer verliehen und von diesem reserviert oder vorgemerkt wird. Es hat eine individuelle ID mit der bei der Rückgabe, Medien
 eindeutig dem entsprechenden Nutzer zugeordnet werden kann. Exemplar erbt entweder von
 der Klasse Buch oder von der Klasse CD, niemals beide oder keinem von beiden. Ein Exemplar ist also immer entweder eine CD oder ein Buch.
 
-\item \textbf{2. Ausleihe:}\\
+\item \textbf{10. Ausleihe:}\\
 Die Assoziationsklasse Ausleihe stellt den Vorgang des Ausleihens dar.
 Es beschreibt die Verbindung zwischen dem Nutzer, dem Bibliothekar und dem Exemplar, indem es unter anderem die ID des verliehenen Exemplars und die zu beachtende Frist 
 als Variablen bekommt. 
 
 
-\item \textbf{2. Reservierung/Vormerkung:}\\
+\item \textbf{11. Reservierung/Vormerkung:}\\
 Diese Assoziationsklasse bekommt das aktuelle oder gewünschte Datum der vom Nutzer getätigten Vormerkung oder Reservierung zugeschrieben.
 
-\item \textbf{2. Bewertung:}\\
+\item \textbf{12. Bewertung:}\\
 Die Assoziationsklasse Bewertung stellt die Bewertung eines Nutzers zu einem Leihobjekt dar. Zum Festhalten der Bewertungshöhe erhält die Klasse Bewertung
 eine Integer-Variable 'Bewertung'.
 
-\item \textbf{2. Rezensieren:}\\
+\item \textbf{13. Rezensieren:}\\
 Assoziationsklasse. Ein Nutzer kann über ein Leihobjekt eine Rezension schreiben, die allerdings vor der Veröffentlichung von einem Bibliothekar freigeschaltet werden muss. Sie bekommt eine String-Variable für den vom Nutzer verfassten Text und ein Boolean, ob die Rezension freigegeben wurde.
 
-\item \textbf{2. Bearbeiten/Löschen/Hinzufügen:}\\
+\item \textbf{14. Bearbeiten/Löschen/Hinzufügen:}\\
 Eine Assoziationsklasse. Ermöglicht Bibliothekare diese drei Funktionen an den Klassen 
 Leihobjekt, Ausleihe und Nutzer anzuwenden. Auch beschreibt sie Fähigkeit des Admins,
 Bibliothekare zu bearbeiten, zu löschen oder hinzuzufügen.
