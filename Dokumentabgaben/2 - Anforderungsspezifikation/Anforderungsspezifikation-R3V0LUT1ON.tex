@@ -204,7 +204,7 @@ Die Android Applikation ist nur an die Leser gerichtet. Sie bietet einen Zugang 
 
 \subsection{Definitionen, Akronyme und Abkürzungen}
 
-\begin{table}[!h]
+\begin{table}
 \caption{Definition und Akronyme}
 \centering
 \begin{tabular}{p{7cm}|p{7cm}}
@@ -299,10 +299,13 @@ am Mittwoch, kurz vor der Besprechung, fertiggestellt wurde. Er beinhaltete
 eine Auflistung aller Mindestanforderungen, zu denen Unklarheiten bezüglich 
 des Realisierungsvorgangs notiert wurden. 
 
-(Hier kommt der Ablauf vom Gespräch...)
+Das offizielle Gespräch begann pünktlich um 9:00 Uhr. Leider gab es keine 
+wirkliche Ordnung bei den gestellten Fragen, was es sehr schwer machte die 
+die einzelnen Vorgänge strukturiert zu durchdenken.
 
 Nach dem das Gespräch wie geplant um etwa 11:00 Uhr endete, fielen uns noch 
 drei bis vier Unklarheiten auf, weswegen wir sofort im Anschluss noch einmal das Gespräch mit einer Mitarbeiterin suchten. Sie war so freundlich, sodass sie sich noch einmal Zeit genommen hat und sogar noch einen Rundgang mit uns durch die Bibliothek machte. \\
+
 Die noch offenen Fragen bezogen sich auf den Vorgang des Freischaltens einer Rezension
 und den Ort der Benachrichtigung, nachdem eine neue Rezension vom System vermerkt
 wurde. Auch drehte sich eine Frage um die Unterschiede des Designs zwischen
@@ -311,11 +314,29 @@ Kategorisierungen anging. Zum Schluss hat man uns angeboten, bei Bedarf gerne
 noch einmal wieder zu kommen. Die uns bis dahin bewussten Verständnislücken
 wurden zufriedenstellend ausgefüllt. 
 
+\underline{Auswertung des Kundengesprächs:}\\
+
+Auf der Startseite sollte eine Art Nachrichtenfeld, dass beispielsweise rot blinkt,
+wenn eine neue Rezension vermerkt wurde, platziert werden.(Später hat sich die Idee wieder geändert)
+\\
+Die Webseite sollte so schlicht wie möglich gehalten werden, während die Android-
+Applikation möglichst auffallend und interessant gestaltet werden soll.
+\\
+Die in den Mindestanforderungen erwähnte Statistik, zur Verteilung der Ausleihen auf den
+Leser konnte genau genommen wegfallen, da es eigentlich nur um populäre und weniger
+populäre Medien ging, die leicht ausgemacht werden sollten.
+\\
+Die Kategorie eines Mediums beinhalten streng genommen bereits dessen Standort.
+(Haben wir nicht weiter beachtet)
+\\
+Bei der Annahme von Büchern brauchen nur die Medien eingescannt werden, da dieser Vorgang
+bereits das Vorhandensein von Exemplaren unterstützt.
+
 \subsubsection{Interview mit einem Mitarbeiter der Bibliothek}
 
 siehe Punkt \ref{kundengesp}.
 
-\subsubsection{Analyse eines bestehenden Systems}
+\subsubsection{Analyse eines bestehenden Systems (Sebastian)}
 
 Das System OpenBiblio ist ein freies Bibliotheksystem. 
 Es ist in PHP geschrieben und somit
@@ -335,7 +356,7 @@ nur um die Administrationsfunktionen eingeschränkt.\\
 \includegraphics[width=1\textwidth]{OpenBiblio/startseite_loggedin.png}
 \label{startseite-openbiblio}
 \end{figure}
-\\
+\newpage
 Die Funktionen werden in vier Reiter zusammengefasst: \emph{Ausleihe}, \emph{Katalogisierung}, 
 \emph{Admin} und \emph{Berichte}. Siehe Abbildung \ref{startseite-openbiblio}\\
 \\
@@ -397,11 +418,6 @@ nicht zugänglich! ):\\
 	\item Layout-Editor
 \end{itemize}
 \newpage
-\begin{figure}[h]
-\caption{Berichte in OpenBiblio}
-\includegraphics[width=1\textwidth]{OpenBiblio/reiter_berichte.png}
-  \label{berichte-openbiblio}
-\end{figure}
 Funktionen im Reiter \emph{Berichte}:\\
 \begin{itemize}
 	\item doppelte Titel anzeigen
@@ -423,12 +439,22 @@ Funktionen im Reiter \emph{Berichte}:\\
 	\item Mitgliedersuche
 	\item Rückgabeliste
 \end{itemize}
-Außerdem gibt es noch eine Hilfe:\\
 \begin{figure}[h]
+\caption{Berichte in OpenBiblio}
+\includegraphics[width=1\textwidth]{OpenBiblio/reiter_berichte.png}
+  \label{berichte-openbiblio}
+\end{figure}
+Außerdem gibt es noch eine Hilfe:
+\begin{figure}[H]
 \caption{Hilfe in OpenBiblio}
-\includegraphics[width=1\textwidth]{OpenBiblio/hilfe.png}
+\includegraphics[width=14.2cm]{OpenBiblio/hilfe.png}
   \label{hilfe-openbiblio}
 \end{figure}
+\subsubsection*{Fazit}
+Das System \emph{OpenBiblio} ist ein freies Bibliothekssystem. Es umfasst viele Funktionen, wie man den vorherigen Darstellungen entnehmen kann. Die Funktionen sind sehr detailliert und man kann nicht unbedingt intuitiv damit arbeiten.\\
+Vergleicht man die Funktionalität von \emph{OpenBiblio} mit unseren Mindestanforderungen werden viele Unterschiede deutlich. Das liegt zumal daran, dass unser Projekt sich auf einen bestimmten Kunden spezifiziert. \emph{OpenBiblio} hingegen ist öffentlich zugänglich und kann von jedem frei benutzt werden.\\
+Beispielsweise ist ein Hauptunterschied hierbei, dass das analysierte System keine fertigen Listen(sei es Buch- oder Userliste) zum anzeigen hat. Will man sich alle Bücher(bzw. alle User) anzeigen lassen, muss man das passende Suchfeld leerlassen. So werden zum Beispiel alle Bücher angezeigt. Auch gibt es keine Sortiermöglichkeiten, außer das man seine Suche spezifizieren kann.\\
+Es gibt noch sehr viel weitere Unterschiede auf die wir nun aber nicht mehr eingehen wollen. Viel mehr haben wir an diesem System erkennen können wie wir unsere, durch die Mindestanforderungen gegebene, Funktionalität des SWP2-Projekt besser umsetzen können. Dabei konnten wir uns ein erstes Bild bestehender Systeme machen um ein einfacheren und trotzdem funktionalen Umgang mit unserem System zu schaffen.
 
 \subsection{Produktperspektive (Sebastian, Tim, Daniel)}
   
@@ -499,11 +525,6 @@ Version.  \\
   
 
 \subsubsection{Kommunikationsschnittstellen}
-<<<<<<< HEAD
-
-=======
->>>>>>> 937e98860edf29b225036aa47435d8fbdc80c6d0
-
 Unsere App muss eine Möglichkeit der Kommunikation mit dem Server haben, da sie in der Lage sein wird, z.B. Bewertungen abzuschicken. \\
 Die Bandbreite des Servers muss dabei nicht so groß sein, da keine hohen Datenmengen ausgetauscht werden. \\ 
 Es ist aber ein TCP/IP-Protokoll nötig, da die Serverapplikation öffentlich erreichbar sein wird.
@@ -514,25 +535,12 @@ wie beim Kunden, Windows 2000 läuft, kann also problemlos verwendet werden. Das
 beansprucht nicht viele Ressourcen in puncto RAM oder Festplattenspeicher.
 
 \subsubsection{Operationen (Betriebsmodi)}
-<<<<<<< HEAD
-
-
-  {\em Welche Betriebsmodi gibt es? Warum? Welche Benutzerklasse darf
-  was in welchem Betriebsmodus (Rechte)? Was ist der Zusammenhang
-  zwischen Betriebsmodus und Sicherung/Wiederherstellung von Daten?}
-
-\subsubsection{Möglichkeiten der lokalen Anpassung}
-
-=======
-  
-  Das System wird vier verschiedene Betriebsmodi umfassen. Zum einen der Administratorenmodus, in dem man grundlegende Einstellungen verändern kann sowie einen Vollzugriff auf das System hat. So ist es möglich, Bibliothekare zu löschen oder hinzuzufügen. \\
+ Das System wird vier verschiedene Betriebsmodi umfassen. Zum einen der Administratorenmodus, in dem man grundlegende Einstellungen verändern kann sowie einen Vollzugriff auf das System hat. So ist es möglich, Bibliothekare zu löschen oder hinzuzufügen. \\
 Zum anderen der Bibliothekarmodus, der den Mitarbeitern der Bibliothek ermöglicht, auf fast alle Funktionen des Administrators zuzugreifen, die für den Leser oder Gast natürlich nicht vorgesehen sind (Medienbestandsverwaltung, Ausleiher sperren usw.).\\
 Im Lesermodus sind nur die Funktionen zugelassen, die für Ausleiher angemessen sind (Im Bestand suchen, Medien vormerken und rezensieren usw.). \\
 Im Gästemodus kann man schließlich nur noch die Publikationsliste einsehen und Buchdetails, nicht jedoch Medien bewerten oder vormerken.
 
 \subsubsection{Möglichkeiten der lokalen Anpassung}
->>>>>>> 937e98860edf29b225036aa47435d8fbdc80c6d0
-
  Es handelt sich bei dem System um ein lauffähiges Gesamtpaket. Es muss keine Datenbank o.Ä. eingerichtet werden. Lediglich eine IP-Adresse muss eingerichtet werden. Somit ist die App so lauffähig und es ist keine lokale Anpassung nötig.
 
 
@@ -707,7 +715,7 @@ Silke Schüler ist eine Schülerin der Oberschule Rockwinkel und besucht die 11.
 \textbf{Bart Besucher:}\\
 Bart Besucher ist 34 Jahre alt und arbeitet als Anwalt. Er wohnt in Delmenhorst und ist momentan noch verheiratet, lebt aber getrennt von seiner Frau. Er hat einen Sohn, welcher noch in den Kindergarten geht und 5 Jahre alt ist. Er ist früher an der Oberschule Rockwinkel zur Schule gegangen, weshalb er die Bibliothek noch regelmäßig besucht. Die Software würde für ihn eine leichtere Suche bedeuten, indem er auch schon zu Hause Bücher suchen kann, da er sehr beschäftigt ist und wenig Zeit hat.\\
 
-\subsection{Einschränkungen (Patrick Damrow)}
+\subsection{Einschränkungen (Patrick)}
 \label{sec:Einschraenkungen}
 Im Folgenden listen wir die Mindestanforderungen des Produkts welche ebenfalls der Webseite der Veranstaltung Software Projekt 2 der Universität Bremen im Wintersemester 2013/14 entnommen werden können\footnote{\url{http://www.informatik.uni-bremen.de/st/Lehre/swpII_1314/mindestanforderungen.html}}:
 
@@ -785,7 +793,7 @@ Hinsichtlich des Urheberrechts ist besonders auf die Regelung für Computerprogr
 
 Um das deutschen Datenschutzgesetz einzuhalten muss der Kunde weitere Maßnahmen treffen. Diese sind nicht entscheident für die Entwicklung der Software und liegen in der Verantwortung des Kunden.
 
-\subsection{Annahmen und Abhängigkeiten}
+\subsection{Annahmen und Abhängigkeiten (Tim)}
 
 Bis zur Auslieferung der Software wird sich der Kunde nicht ändern. Die Anforderungsspezifikation dient 
 als eine Art Vertrag mit dem Kunden. Deshalb ist davon auszugehen, dass nach der Abgabe der 
@@ -799,22 +807,12 @@ zu verwenden. Der jeweilige Nutzer sollte zumindest schon mal mit einem Computer
 Zu Hardware- und Software-Abhängigkeiten geben die Punkte \ref{hardware} (Hardwareschnittstellen) 
 und \ref{software} (Softwareschnittstellen) hinreichend Aufschluss.
  
-\subsection{Ausblick}
+\subsection{Ausblick (Tim)}
 
+Große Änderungen sind nach Auslieferung des Systems zwar nicht zu erwarten, aber es können sich dennoch immer wieder mit der Zeit Anpassungen ergeben. \\
+Zu nennen wäre da beispielsweise ein Medientypenzuwachs, sodass es sinnvoll wäre, Medientypen leicht anpassbar zu implementieren. \\
+Des Weiteren wäre es denkbar, dass neben der Android-App auch eine App für iOS-Geräte von Apple entwickelt werden könnte, um möglichst viele Nutzer zu erreichen.
 
-  {\em Beschreibt hier knapp, welche Änderungen und Erweiterungen
-  zukünftig (d.h.\ nach Auslieferung des Systems) zu erwarten sind.
-  Diese Information ist wichtig für den Entwurf, um mögliche
-  Änderungen frühzeitig im ersten Entwurf berücksichtigen zu können.
-  Der Entwurf kann dann so gestaltet werden, dass die zukünftigen
-  Anforderungen leicht realisierbar sind. Die zukünftigen
-  Anforderungen sollten realistisch sein, ansonsten könnte ein unnötig
-  allgemeiner und damit zu komplizierter Entwurf die Folge sein.  Auch
-  dieser Abschnitt ist im IEEE-Standard nicht vorgesehen -- zumindest
-  nicht explizit in Form eines eigenständigen Abschnitts. Dennoch
-  handelt es sich um wertvolle Information, von der der Entwurf
-  profitieren kann.}
-  
 
 \section{Detaillierte Beschreibung}
 \label{ch:DetaillierteBeschreibung}
@@ -824,6 +822,13 @@ und \ref{software} (Softwareschnittstellen) hinreichend Aufschluss.
   vorgesehen).}
 
 \subsection{Datenmodell}
+
+\begin{figure}[h]
+\caption{Datenmodell}
+\includegraphics[width=1\textwidth]{UML_Black1.png}
+  \label{datenmodell}
+\end{figure}
+
 \begin{itemize}
  \item \textbf{1. Person:}\\
   Stellt die Oberklasse aller Nutzer, Bibliothekare oder 
@@ -889,6 +894,11 @@ Eine Assoziationsklasse. Ermöglicht Bibliothekare diese drei Funktionen an den 
 Leihobjekt, Ausleihe und Nutzer anzuwenden. Auch beschreibt sie Fähigkeit des Admins,
 Bibliothekare zu bearbeiten, zu löschen oder hinzuzufügen.
 \end{itemize}
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 150864c6c1fab0fd983d6c0ca4c991cc10563f0f
 
 \newpage
 \subsection{Anwendungsfälle}
@@ -1000,10 +1010,10 @@ Anwendungsfall 1 \\ \hline
 \end{figure}
 
 \begin{table}[htbp]
-\label{4.1}
+\label{5}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{4.1} & \textbf{Leserprofil anzeigen} \\ \hline
+\textbf{5} & \textbf{Leserprofil anzeigen} \\ \hline
 \textbf{Akteure} & Silke Schüler\\ \hline
 \textbf{Ziel} & Der Akteur möchte sich das eigene Leserprofil anzeigen lassen  \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist angemeldet  \\ \hline
@@ -1026,10 +1036,10 @@ keine \\ \hline
 \end{figure}
 
 \begin{table}[htbp]
-\label{4.1.1}
+\label{6}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{4.1.1} & \textbf{Vormerkung bearbeiten} \\ \hline
+\textbf{6} & \textbf{Vormerkung bearbeiten} \\ \hline
 \textbf{Akteure} & Silke Schüler\\ \hline
 \textbf{Ziel} & Der Akteur möchte die eigenen Vormerkungen bearbeiten  \\ \hline
 \textbf{Vorbedingungen} & Der Benutzer hat sein Profil geöffnet  \\ \hline
@@ -1053,10 +1063,10 @@ keine \\ \hline
 \end{figure}
 
 \begin{table}[htbp]
-\label{5}
+\label{7}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{5} & \textbf{Publikationen anzeigen} \\ \hline
+\textbf{7} & \textbf{Publikationen anzeigen} \\ \hline
 \textbf{Akteure} & Bert Bib, Arnold Admin, Silke Schüler, Bart Besucher\\ \hline
 \textbf{Ziel} & Der Akteur möchte die Liste der Publikationen aufrufen  \\ \hline
 \textbf{Vorbedingungen} & Das Programm wurde gestartet  \\ \hline
@@ -1079,10 +1089,10 @@ keine \\ \hline
 \end{figure}
 
 \begin{table}[htbp]
-\label{6}
+\label{8}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{6} & \textbf{Buch hinzufügen} \\ \hline
+\textbf{8} & \textbf{Buch hinzufügen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein neues Buch hinzufügen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste 
@@ -1109,10 +1119,10 @@ worden\\ \hline
 \end{figure}
 
 \begin{table}[htbp]
-\label{7}
+\label{9}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{7} & \textbf{Buch ändern} \\ \hline
+\textbf{9} & \textbf{Buch ändern} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Daten eines Buches ändern \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Detailsicht eines 
@@ -1135,10 +1145,10 @@ aufgenommen worden\\ \hline
 
 
 \begin{table}[htbp]
-\label{8}
+\label{10}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{8} & \textbf{Buch löschen} \\ \hline
+\textbf{10} & \textbf{Buch löschen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Buch löschen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste 
@@ -1159,10 +1169,10 @@ aufgerufen  \\ \hline
 
 
 \begin{table}[htbp]
-\label{9}
+\label{11}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{9} & \textbf{CVS-Import} \\ \hline
+\textbf{11} & \textbf{CVS-Import} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte eine CVS-Datei für Bücher importieren \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste 
@@ -1189,10 +1199,10 @@ keine \\ \hline
 
 \newpage
 \begin{table}[htbp]
-\label{10}
+\label{12}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{10} & \textbf{CVS-Export} \\ \hline
+\textbf{12} & \textbf{CVS-Export} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte eine CVS-Datei von der Datenbank exportieren \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Publikationsliste 
@@ -1212,10 +1222,10 @@ keine \\ \hline
 
 \newpage
 \begin{table}[htbp]
-\label{11}
+\label{13}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{11} & \textbf{Buch suchen} \\ \hline
+\textbf{13} & \textbf{Buch suchen} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler, Bart Besucher, Arnold Admin\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Buch suchen \\ \hline
 \textbf{Vorbedingungen} & keine \\ \hline
@@ -1233,10 +1243,10 @@ keine \\ \hline
 
 \newpage
 \begin{table}[htbp]
-\label{12}
+\label{14}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{12} & \textbf{Einzelnes Buch anzeigen/ Detailansicht} \\ \hline
+\textbf{14} & \textbf{Einzelnes Buch anzeigen/ Detailansicht} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler, Bart Besucher, Arnold Admin\\ \hline
 \textbf{Ziel} & Der Akteur möchte sich Details zu einem Buch anzeigen lassen \\ \hline
 \textbf{Vorbedingungen} & Die Publikationsliste oder die Suchliste wurde aufgerufen \\ \hline
@@ -1256,10 +1266,10 @@ keine \\ \hline
 
 \newpage
 \begin{table}[htbp]
-\label{13}
+\label{15}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{13} & \textbf{Buch bewerten} \\ \hline
+\textbf{15} & \textbf{Buch bewerten} \\ \hline
 \textbf{Akteure} & Silke Schüler\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Buch bewerten \\ \hline
 \textbf{Vorbedingungen} & Die Detailansicht eines Buches wurde aufgerufen \\ \hline
@@ -1279,10 +1289,10 @@ bewerten\\ \hline
 
 \newpage
 \begin{table}[htbp]
-\label{14}
+\label{16}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{14} & \textbf{Buch ausleihen} \\ \hline
+\textbf{16} & \textbf{Buch ausleihen} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
 \textbf{Ziel} & Silke Schüler möchte ein Buch ausleihen \\ \hline
 \textbf{Vorbedingungen} & Bert Bib ist im System als Bibliothekar angemeldet und Silke Schüler ist vor 
@@ -1304,10 +1314,10 @@ keine \\ \hline
 
 \newpage
 \begin{table}[htbp]
-\label{14.1}
+\label{17}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{14.1} & \textbf{Buchrückgabe} \\ \hline
+\textbf{17} & \textbf{Buchrückgabe} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
 \textbf{Ziel} & Der Akteur will Bücher zurückgeben \\ \hline
 \textbf{Vorbedingungen} & Bücher sind ausgeliehen \\ \hline
@@ -1326,10 +1336,10 @@ Mahngebühren werden bezahlt \\ \hline
 
 \newpage
 \begin{table}[htbp]
-\label{14.1}
+\label{18}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{14.1} & \textbf{Buchrückgabe} \\ \hline
+\textbf{18} & \textbf{Buchrückgabe} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
 \textbf{Ziel} & Der Akteur will Bücher zurückgeben \\ \hline
 \textbf{Vorbedingungen} & Bücher sind ausgeliehen \\ \hline
@@ -1347,10 +1357,10 @@ Mahngebühren werden bezahlt \\ \hline
 \end{table}
 \newpage
 \begin{table}[htbp]
-\label{15}
+\label{19}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{15} & \textbf{Buch rezensieren} \\ \hline
+\textbf{19} & \textbf{Buch rezensieren} \\ \hline
 \textbf{Akteure} & Silke Schüler\\ \hline
 \textbf{Ziel} & Der Akteur will ein Buch rezensieren \\ \hline
 \textbf{Vorbedingungen} & Der Akteur befindet sich auf der Detailsicht eines Buches \\ \hline
@@ -1369,10 +1379,10 @@ freischalten\\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{16}
+\label{20}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{16} & \textbf{Buch vormerken} \\ \hline
+\textbf{20} & \textbf{Buch vormerken} \\ \hline
 \textbf{Akteure} & Silke Schüler\\ \hline
 \textbf{Ziel} & Der Akteur will ein Buch vormerken \\ \hline
 \textbf{Vorbedingungen} & Der Akteur befindet sich auf der Detailsicht eines Buches \\ \hline
@@ -1390,10 +1400,10 @@ vorgemerkt werden\\
 \end{table}
 
 \begin{table}[htbp]
-\label{17}
+\label{21}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{17} & \textbf{Rezension freischalten} \\ \hline
+\textbf{21} & \textbf{Rezension freischalten} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Bibliothekar will eine Rezension überprüfen und gegebenenfalls freischalten \\ \hline
 \textbf{Vorbedingungen} & Es wurde eine Rezension geschrieben und der Bibliothekar hat diese zur 
@@ -1413,10 +1423,10 @@ vorgemerkt werden\\
 \end{table}
 
 \begin{table}[htbp]
-\label{18}
+\label{22}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{18} & \textbf{Leserliste anzeigen} \\ \hline
+\textbf{22} & \textbf{Leserliste anzeigen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte die Liste der Leser aufrufen  \\ \hline
 \textbf{Vorbedingungen} & Das Programm wurde gestartet  \\ \hline
@@ -1433,10 +1443,10 @@ keine \\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{19}
+\label{23}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{19} & \textbf{Leser hinzufügen} \\ \hline
+\textbf{23} & \textbf{Leser hinzufügen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein neuen Leser hinzufügen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen\\
@@ -1458,10 +1468,10 @@ worden\\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{20}
+\label{24}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{20} & \textbf{Leser ändern} \\ \hline
+\textbf{24} & \textbf{Leser ändern} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte die Daten eines Lesers ändern \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Detailsicht eines 
@@ -1483,10 +1493,10 @@ aufgenommen worden\\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{21}
+\label{25}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{21} & \textbf{Leser löschen} \\ \hline
+\textbf{25} & \textbf{Leser löschen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Leser löschen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste 
@@ -1505,10 +1515,10 @@ aufgerufen  \\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{22}
+\label{26}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{22} & \textbf{CVS-Import} \\ \hline
+\textbf{26} & \textbf{CVS-Import} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte eine CVS-Datei für Leser importieren \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste aufgerufen\\
@@ -1527,10 +1537,10 @@ keine \\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{23}
+\label{27}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{23} & \textbf{CVS-Export} \\ \hline
+\textbf{27} & \textbf{CVS-Export} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte eine CVS-Datei von der Datenbank exportieren \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Leserliste 
@@ -1549,10 +1559,10 @@ keine \\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{24}
+\label{28}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{24} & \textbf{Einzelnen Leser anzeigen/ Detailansicht} \\ \hline
+\textbf{28} & \textbf{Einzelnen Leser anzeigen/ Detailansicht} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte sich Details zu einem Leser anzeigen lassen \\ \hline
 \textbf{Vorbedingungen} & Die Leserliste wurde aufgerufen \\ \hline
@@ -1568,13 +1578,18 @@ keine \\ \hline
 \end{tabular}
 \end{table}
 
+<<<<<<< HEAD
 \newpage
 
 \begin{table}[!htbp]
 \label{24.1}
+=======
+\begin{table}[htbp]
+\label{29}
+>>>>>>> 150864c6c1fab0fd983d6c0ca4c991cc10563f0f
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{24.1} & \textbf{Leser sperren} \\ \hline
+\textbf{29} & \textbf{Leser sperren} \\ \hline
 \textbf{Akteure} & Bert Bib, Silke Schüler\\ \hline
 \textbf{Ziel} & Der Bibliothekar sperrt einen Leser \\ \hline
 \textbf{Vorbedingungen} & Die Detailsicht eines Lesers wurde aufgerufen \\ \hline
@@ -1593,10 +1608,10 @@ ausleihen\\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{25}
+\label{30}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{25} & \textbf{Leser suchen} \\ \hline
+\textbf{30} & \textbf{Leser suchen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur möchte ein Leser suchen \\ \hline
 \textbf{Vorbedingungen} & Die Leserliste wurde aufgerufen \\ \hline
@@ -1613,10 +1628,10 @@ keine \\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{26}
+\label{31}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{26} & \textbf{Administration öffnen} \\ \hline
+\textbf{31} & \textbf{Administration öffnen} \\ \hline
 \textbf{Akteure} & Bert Bib, Arnold Admin\\ \hline
 \textbf{Ziel} & Der Akteur will die Administratorseite anzeigen lassen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist im System angemeldet \\ \hline
@@ -1634,10 +1649,10 @@ keine \\ \hline
 \newpage
 
 \begin{table}[htbp]
-\label{27}
+\label{32}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{27} & \textbf{Bibliothekarliste anzeigen} \\ \hline
+\textbf{32} & \textbf{Bibliothekarliste anzeigen} \\ \hline
 \textbf{Akteure} & Arnold Admin\\ \hline
 \textbf{Ziel} & Der Akteur will die Liste der Bibliothekare einsehen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist im System angemeldet \\ \hline
@@ -1655,10 +1670,10 @@ Liste anzeigen\\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{28}
+\label{33}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{28} & \textbf{Bibliothekar hinzufügen} \\ \hline
+\textbf{33} & \textbf{Bibliothekar hinzufügen} \\ \hline
 \textbf{Akteure} & Arnold Admin\\ \hline
 \textbf{Ziel} & Der Akteur will einen neuen Bibliothekaren hinzufügen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste 
@@ -1678,10 +1693,10 @@ anzeigt\\ \hline
 
 
 \begin{table}[htbp]
-\label{29}
+\label{34}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{29} & \textbf{Bibliothekar löschen} \\ \hline
+\textbf{34} & \textbf{Bibliothekar löschen} \\ \hline
 \textbf{Akteure} & Arnold Admin\\ \hline
 \textbf{Ziel} & Der Akteur will einen Bibliothekaren löschen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste 
@@ -1700,10 +1715,10 @@ anzeigt\\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{30}
+\label{35}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{30} & \textbf{Bibliothekar ändern} \\ \hline
+\textbf{35} & \textbf{Bibliothekar ändern} \\ \hline
 \textbf{Akteure} & Arnold Admin\\ \hline
 \textbf{Ziel} & Der Akteur will Daten eines Bibliothekaren ändern \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Admin angemeldet und hat die Bibliothekarsliste 
@@ -1724,10 +1739,10 @@ anzeigt\\ \hline
 
 
 \begin{table}[htbp]
-\label{31}
+\label{36}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{31} & \textbf{Statistik anzeigen} \\ \hline
+\textbf{36} & \textbf{Statistik anzeigen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur will die Statistiken einsehen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite 
@@ -1746,10 +1761,10 @@ keine \\ \hline
 
 
 \begin{table}[htbp]
-\label{32}
+\label{37}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{32} & \textbf{Mahnungsliste anzeigen} \\ \hline
+\textbf{37} & \textbf{Mahnungsliste anzeigen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur will die Mahnungsliste einsehen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite 
@@ -1767,10 +1782,10 @@ anzeigt\\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{33}
+\label{38}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{33} & \textbf{Mahnungsliste drucken} \\ \hline
+\textbf{38} & \textbf{Mahnungsliste drucken} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur will die Mahnungsliste ausdrucken \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Mahnungsliste 
@@ -1788,10 +1803,10 @@ anzeigt\\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{34}
+\label{39}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{34} & \textbf{Mahnungsdetails anzeigen} \\ \hline
+\textbf{39} & \textbf{Mahnungsdetails anzeigen} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur will sich Details zu einer Mahnung anschauen \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Mahnungsliste 
@@ -1809,10 +1824,10 @@ anzeigt\\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{35}
+\label{40}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{35} & \textbf{Startseite bearbeiten} \\ \hline
+\textbf{40} & \textbf{Startseite bearbeiten} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur will die Startseite bearbeiten \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die 
@@ -1830,10 +1845,10 @@ keine \\ \hline
 \end{table}
 
 \begin{table}[htbp]
-\label{36}
+\label{41}
 \begin{tabular}{|l|p{10cm}|}
 \hline 
-\textbf{36} & \textbf{Abgabedaten und Mahngebühren bearbeiten} \\ \hline
+\textbf{41} & \textbf{Abgabedaten und Mahngebühren bearbeiten} \\ \hline
 \textbf{Akteure} & Bert Bib\\ \hline
 \textbf{Ziel} & Der Akteur will Abgabedaten und Mahngebühren bearbeiten \\ \hline
 \textbf{Vorbedingungen} & Der Akteur ist als Bibliothekar angemeldet und hat die Administrationsseite 
@@ -2289,6 +2304,8 @@ Daten/Gebühren sehen\\ \hline
   \end{tabular}
   \end{table}
   
+  \newpage
+  
 \subsection{Entwurfseinschränkungen}
 
 
@@ -2302,8 +2319,23 @@ Daten/Gebühren sehen\\ \hline
   spezifiziert. Dazu gehören beispielsweise:
   \begin{itemize}
     \item Performanz:
+    Beim Entwickeln unserer Software wird Anspruch auf eine fließende
+    Arbeitsweise gelegt, was bedeutet, dass Interaktionen mit dem 
+    System möglichst schnell zu bewältigen sind. Deshalb ist darauf zu achten,
+    Berechnungsprozesse so wenig komplex wie möglich zu halten. Die 
+    Implementierung eines Ladezeichens bei aufkommenden Verbindungsschwierigkeiten 
+    ist selbstverständlich vorgesehen.
+    
     \item Zuverlässigkeit (Korrektheit, Robustheit, Ausfallsicherheit):
+    Die zu entwickelnde Software, insbesondere die Androidapplikation soll auf vielen
+    verschiedenen Geräten funktionieren, weshalb trotz sorgfältig geplanten
+    Testdurchläufe keine absolute Zuverlässigkeit garantiert werden kann. 
+
     \item Verfügbarkeit:
+    Die Webapplikation soll wie gewohnt einfach über einen beliebigen  Browser 
+    zugreifbar sein und die Androidappplikation soll auf jedem Gerät laufen,
+    dass mit Android läuft und natürlich internetfähig ist. 
+
     \item Sicherheit:
      Sicherheit bezüglich der persönlichen Daten wird zum Teil durch den 
      passwortgeschützten Login gewährleistet, wobei jeder Nutzer ein individuelles 
@@ -2311,16 +2343,19 @@ Daten/Gebühren sehen\\ \hline
      Leser und die Mitarbeiter Zugriff. Zusätzlich werden vor dem Versenden von Daten, 
      diese via SSL verschlüsselt, was die Datensicherheit in unserem System 
      garantiert.
+   
     \item Wartbarkeit:
-    
+    Um eine gute Wartbarkeit zu gewährleisten, soll der Programmcode in Komponenten
+    aufgeteilt werden, dessen Zuständigkeit klar definiert sein muss. Zusätzlich 
+    zu einer übersichtliche Programmstruktur, soll der Code sorgfältig und umfassend 
+    kommentiert werden.
+   
     \item Portabilität:
-    
+    Da die Androidapplikation auf jedem androidfähigem Gerät laufen können soll,
+    ist eine hohe Portabilität bereits gegeben. Durch Tests auf den verschiedensten 
+    Endgeräten kann die Applikation auf auf diesen absolut funktionstüchtig laufen.
   \end{itemize}
 }
-
-{\em Die spezifizierten Systemattribute müssen hinreichend konkret und
-  überprüfbar formuliert werden.}
-
 
 
 \subsection{Weitere Anforderungen}
