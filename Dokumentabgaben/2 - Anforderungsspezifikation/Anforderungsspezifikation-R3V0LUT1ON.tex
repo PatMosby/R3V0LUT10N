@@ -2259,6 +2259,8 @@ Daten/Gebühren sehen\\ \hline
   \end{tabular}
   \end{table}
   
+  \newpage
+  
 \subsection{Entwurfseinschränkungen}
 
 
@@ -2272,8 +2274,23 @@ Daten/Gebühren sehen\\ \hline
   spezifiziert. Dazu gehören beispielsweise:
   \begin{itemize}
     \item Performanz:
+    Beim Entwickeln unserer Software wird Anspruch auf eine fließende
+    Arbeitsweise gelegt, was bedeutet, dass Interaktionen mit dem 
+    System möglichst schnell zu bewältigen sind. Deshalb ist darauf zu achten,
+    Berechnungsprozesse so wenig komplex wie möglich zu halten. Die 
+    Implementierung eines Ladezeichens bei aufkommenden Verbindungsschwierigkeiten 
+    ist selbstverständlich vorgesehen.
+    
     \item Zuverlässigkeit (Korrektheit, Robustheit, Ausfallsicherheit):
+    Die zu entwickelnde Software, insbesondere die Androidapplikation soll auf vielen
+    verschiedenen Geräten funktionieren, weshalb trotz sorgfältig geplanten
+    Testdurchläufe keine absolute Zuverlässigkeit garantiert werden kann. 
+
     \item Verfügbarkeit:
+    Die Webapplikation soll wie gewohnt einfach über einen beliebigen  Browser 
+    zugreifbar sein und die Androidappplikation soll auf jedem Gerät laufen,
+    dass mit Android läuft und natürlich internetfähig ist. 
+
     \item Sicherheit:
      Sicherheit bezüglich der persönlichen Daten wird zum Teil durch den 
      passwortgeschützten Login gewährleistet, wobei jeder Nutzer ein individuelles 
@@ -2281,16 +2298,19 @@ Daten/Gebühren sehen\\ \hline
      Leser und die Mitarbeiter Zugriff. Zusätzlich werden vor dem Versenden von Daten, 
      diese via SSL verschlüsselt, was die Datensicherheit in unserem System 
      garantiert.
+   
     \item Wartbarkeit:
-    
+    Um eine gute Wartbarkeit zu gewährleisten, soll der Programmcode in Komponenten
+    aufgeteilt werden, dessen Zuständigkeit klar definiert sein muss. Zusätzlich 
+    zu einer übersichtliche Programmstruktur, soll der Code sorgfältig und umfassend 
+    kommentiert werden.
+   
     \item Portabilität:
-    
+    Da die Androidapplikation auf jedem androidfähigem Gerät laufen können soll,
+    ist eine hohe Portabilität bereits gegeben. Durch Tests auf den verschiedensten 
+    Endgeräten kann die Applikation auf auf diesen absolut funktionstüchtig laufen.
   \end{itemize}
 }
-
-{\em Die spezifizierten Systemattribute müssen hinreichend konkret und
-  überprüfbar formuliert werden.}
-
 
 
 \subsection{Weitere Anforderungen}
