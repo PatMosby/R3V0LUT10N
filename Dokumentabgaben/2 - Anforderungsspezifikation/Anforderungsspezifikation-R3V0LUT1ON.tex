@@ -548,28 +548,81 @@ Bart Besucher ist 34 Jahre alt und arbeitet als Anwalt. Er wohnt in Delmenhorst 
 
 \subsection{Einschränkungen}
 \label{sec:Einschraenkungen}
-  {\em Dinge, die die Entwurfsfreiheit einschränken, z.B.
-  \begin{itemize}
-   \item feste Vorgaben (z.B. Policies)
-   \item gesetzliche Rahmenbedingungen
-   \item Hardwarebeschränkungen
-   \item festgelegte Schnittstellen zu anderen Anwendungen
-   \item parallele Operationen (z.B. Multithreading)
-   \item Prüfungs- und Steuerungsfunktionen
-   \item Verlässlichkeitsanforderungen
-   \item Kritikalität der Anwendung
-   \item Sicherheit
-  \end{itemize}
-  }
+Im Folgenden listen wir die Mindestanforderungen des Produkts welche ebenfalls der Webseite der Veranstaltung Software Projekt 2 der Universität Bremen im Wintersemester 2013/14 entnommen werden können\footnote{\url{http://www.informatik.uni-bremen.de/st/Lehre/swpII_1314/mindestanforderungen.html}}:
 
-\subsubsection{Rahmenbedingungen}
-\nurlangversion
+\begin{itemize}
 
+\item Unterschiedliche Medientypen werden unterstützt.
+\item Exemplare werden unterstützt.
+\item Standorte der Medien innerhalb der Bibliothek werden unterstützt.
+\item Gast, Leser, Bibliothekare und Administratoren werden als Benutzergruppen unterschieden.
+\item Alle Nutzer außer Gäste müssen sich authentifizieren.
+\item Veränderungen der Daten der Bibliothek werden protokolliert (z.B. bei Veränderungen beim Verleihen, der Rückgabe, Verlängerung, Mahnung,...) und können durch Bibliothekare eingesehen werden.
+\item Medien können von den Bibliothekaren hinzugefügt, geändert und gelöscht werden.
+\item Medien können in Kategorien einsortiert werden und neue Kategorien erstellt werden.
+\item Inaktive Leser werden zur Löschung vorgeschlagen.
+\item Bibliothekare verleihen Medien.
+\item Der automatisch festgelegte Rückgabezeitraum berücksichtigt die Öffnungszeiten, die der Bibliothekar festlegt.
+\item Individuelle Abgabedaten und Mahngebühren können vom Bibliothekar festgelegt werden.
+\item Bibliothekar kann Verlängerungswünsche der Leser berücksichtigen.
+\item Leser können Medien vormerken; Bibliothekare sehen alle Vormerkungen, Leser ihre eigenen.
+\item Bibliothekare können ausgeliehene Bücher wieder entgegennehmen.
+\item Bibliothekare richten Leser ein, können sie ändern und löschen.
+\item Bibliothekare können mindestens den letzten Ausleiher einsehen.
+\item Bibliothekare haben eine Übersicht über verliehene Bücher, Versäumnisse und fällige Mahngebühren.
+\item Mahngebühren und Ausleihfristen können sich je nach Medientyp unterschiedlich von 
+\item Bibliothekaren festgelegt werden.
+\item Bibliothekare können Statistiken einsehen zu:
+\begin{itemize}
+\item Ausleihzeiträumen
+\item Verteilung der Ausleihen auf Leser
+\item Häufig und selten ausgeliehenen Medien
+\item Vormerkzeiten
+\item Bewertungen
+\end{itemize}
+\item Die Startseite kann redaktionell bearbeitet werden und aktuelle Nachrichten enthalten.
+\item Leser können Rezensionen zu Medien schreiben, die aber erst von Bibliothekaren freigeschaltet werden müssen.
+\item Ein Administrator richtet neue Bibliothekare ein, löscht sie oder verändert deren Stammdaten.
+\item Versionierte Backups und Restore aller Daten sind im laufenden Betrieb und automatisch möglich.
+\item Leser können über eine Android App bzw. über eine für mobile Geräte optimierte Website auf das System zugreifen.
+\item Leser sehen ihre ausgeliehenen Medien, Rückgabefristen und Mahngebühren.
+\item Leser können Nachrichten zu Rückgabefristen, Mahngebühren sowie verfügbare vorgemerkte Medien erhalten.
+\item Leser können Verlängerungswünsche einreichen.
+\item Ein Leser kann bestimmen, ob seine Ausleihhistorie gespeichert und für ihn einsehbar ist.
+\item Leser können Medien bewerten.
+\item Leser können Rezensionen zu Medien schreiben.
+\item Neueste freigeschaltete Rezensionen werden in einer Übersicht angezeigt.
+
+
+\end{itemize}
+
+\subsubsection{Technische Rahmenbedingungen}
+\begin{itemize}
+
+\item Softwareergonomische Prinzipien werden umgesetzt.
+\item Die Funktionalitäten aller Nutzer (Administratoren, Bibliothekare, Leser, Gäste) können über einen Web-Browser verwendet werden.
+\item Die Software funktioniert auf der Hard- und Softwareplattform des Kunden (Windows) sowie unter Linux und MacOS.
+\item Als Application-Server wird GlassFish 3.1 benutzt.
+\item Es muss eine relationale Datenbank für die serverseitige Persistenz benutzt werden:
+\begin{itemize}
+\item Persistenz-Frameworks sind erlaubt (z.B. JPA), aber dann ist eine deklarative Verwendung von SQL-ähnlichen Abfragen verlangt.
+\item Verwendung leichtgewichtiger DBMS (z.B. Derby, SQLite) ohne echte Serverinstallation ist vorgeschrieben.
+\end{itemize}
+\item Verwendung und Abgabe eines Build-/Installationsskriptes, damit die Anwendung einfach installiert und aus den Quellen gebaut werden kann. Alle notwendigen Installations- und Konfigurationsschritte sind dokumentiert.
+\item Eventuell benutzte Fremdbibliotheken dürfen für den Einsatz in Forschung und Lehre keine Beschränkungen (Geld, Benutzung, ...) aufweisen.
+\item Quelltext in Deutsch oder Englisch dokumentiert. Gleiches gilt für Variablen- und Klassennamen. Alle anderen Dokumente in Deutsch.
+\item Die Implementierungssprache ist Java 5 oder höher (weitere zulässige Sprachen in geringem Umfang sind: HTML, XML und JavaScript).
+\end{itemize}
+
+\newpage
 \subsubsection{Gesetzliche Rahmenbedingungen}
-\nurlangversion
+
+Hier gilt in erster Linie das deutsche Recht. Um genau zu sein kommen hier das Datenschutzgesetz\footnote{\url{http://www.gesetze-im-internet.de/bdsg_1990/}} und das Urheberrecht\footnote{\url{http://www.gesetze-im-internet.de/urhg/}} zum tragen. Verfahrensrechtliche Vorkehrungen um die Datensicherheit\footnote{\url{http://www.gesetze-im-internet.de/bdsg_1990/__9.html}} zu gewährleisten sind von dem Kunden zu treffen. Der Kunde wird von der Software hinsichtlich der technischen Vorkehrungen insofern unterstützt, dass der Zugriff auf die Daten und der Zugang auf das Administrationstool passwortgeschützt ist.
+Hinsichtlich des Urheberrechts ist besonders auf die Regelung für Computerprogramme\footnote{\url{http://www.gesetze-im-internet.de/urhg/BJNR012730965.htm\#BJNR012730965BJNG004201377}} zu achten.
  
 \subsubsection{Sicherheitskritische Aspekte}
-\nurlangversion
+
+Um das deutschen Datenschutzgesetz einzuhalten muss der Kunde weitere Maßnahmen treffen. Diese sind nicht entscheident für die Entwicklung der Software und liegen in der Verantwortung des Kunden.
 
 \subsection{Annahmen und Abhängigkeiten}
 
