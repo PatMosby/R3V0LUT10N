@@ -230,6 +230,17 @@ Die Android Applikation ist nur an die Leser gerichtet. Sie bietet einen Zugang 
 
 \item{Hinweise zu diesem Dokument - Stud.IP 1-Checkliste-Anforderungsspezifikation-AS.pdf}
 
+\item \textbf{Bilder} \textit{(Alle Bilder unterliegen Creativ-Common-Lizenz und wurden bereits von der Gruppe: 'Group27' in SWP 1 verwendet)}:\\
+  Bibltiothekar:\\ \url{http://farm4.staticflickr.com/3185/2329862403_b1105b4bb9_m.jpg}\\
+  Abrufdatum: 17.11.2013; 19:00 Uhr\\
+  Admin:\\ \url{http://farm4.staticflickr.com/3010/2327974752_4436950dac_o.jpg}\\
+    Abrufdatum: 17.11.2013; 19:00 Uhr\\
+  Leiher(reg.):\\ \url{http://farm8.staticflickr.com/7165/6695886905_860721c72b_o.jpg}\\
+    Abrufdatum: 17.11.2013; 19:00 Uhr\\
+  Leiher(unreg.):\\ \url{http://farm9.staticflickr.com/8458/8056742837_4958d3175c_o.jpg}\\
+    Abrufdatum: 17.11.2013; 19:00 Uhr\\
+     \bigskip \\
+
 \end{itemize}
 
 \subsection{Übersicht über das Dokument}
@@ -261,7 +272,7 @@ Im Folgenden listen wir einen kurzen Überblick über das vorliegende Dokument, 
 \section{Allgemeine Beschreibung}
 \label{ch:AllgemeineBeschreibung}
 
-\subsection{Ergebnisse der Ist-Analyse}
+\subsection{Ergebnisse der Ist-Analyse (Tim, Tobias)}
 
 Die Bibliothek der Oberschule Rockwinkel hat derzeit gar kein Softwaresystem zur Unterstützung der Arbeit in Betrieb. Es handelt sich hierbei um eine recht kleine Schulbibliothek mit einem überschaubarem Medienbestand von ca. 8000 Exemplaren, sodass bisher noch mit Ausleihkarten gearbeitet wurde, was viele Nachteile mit sich brachte. \\
 Die Bibliothekare vor Ort haben weder einen konkreten Überblick über den Bestand ihrer Medien, noch über ihre Leiher. Daten können nur handschriftlich geändert werden und es gibt keine bequeme Möglichkeit für Ausleiher, Bücher vorzumerken oder gar zu rezensieren. \\
@@ -362,10 +373,10 @@ Version.  \\
   
 
 \subsubsection{Kommunikationsschnittstellen}
-\nurlangversion
 
-{\em Anforderungen an und Bandbreite von Kommunikationsnetzwerken, öffentliche
-  oder auch private IP-Adressen?}
+Unsere App muss eine Möglichkeit der Kommunikation mit dem Server haben, da sie in der Lage sein wird, z.B. Bewertungen abzuschicken. \\
+Die Bandbreite des Servers muss dabei nicht so groß sein, da keine hohen Datenmengen ausgetauscht werden. \\ 
+Es ist aber ein TCP/IP-Protokoll nötig, da die Serverapplikation öffentlich erreichbar sein wird.
 
 \subsubsection{Speicherbeschränkung}
 Wie schon im Punkt \ref{hardware} beschrieben, gibt es keine Speicherbeschränkungen. Ein PC, auf dem, 
@@ -373,18 +384,15 @@ wie beim Kunden, Windows 2000 läuft, kann also problemlos verwendet werden. Das
 beansprucht nicht viele Ressourcen in puncto RAM oder Festplattenspeicher.
 
 \subsubsection{Operationen (Betriebsmodi)}
-\nurlangversion
-
-  {\em Welche Betriebsmodi gibt es? Warum? Welche Benutzerklasse darf
-  was in welchem Betriebsmodus (Rechte)? Was ist der Zusammenhang
-  zwischen Betriebsmodus und Sicherung/Wiederherstellung von Daten?}
+  
+  Das System wird vier verschiedene Betriebsmodi umfassen. Zum einen der Administratorenmodus, in dem man grundlegende Einstellungen verändern kann sowie einen Vollzugriff auf das System hat. So ist es möglich, Bibliothekare zu löschen oder hinzuzufügen. \\
+Zum anderen der Bibliothekarmodus, der den Mitarbeitern der Bibliothek ermöglicht, auf fast alle Funktionen des Administrators zuzugreifen, die für den Leser oder Gast natürlich nicht vorgesehen sind (Medienbestandsverwaltung, Ausleiher sperren usw.).\\
+Im Lesermodus sind nur die Funktionen zugelassen, die für Ausleiher angemessen sind (Im Bestand suchen, Medien vormerken und rezensieren usw.). \\
+Im Gästemodus kann man schließlich nur noch die Publikationsliste einsehen und Buchdetails, nicht jedoch Medien bewerten oder vormerken.
 
 \subsubsection{Möglichkeiten der lokalen Anpassung}
-\nurlangversion
 
-  {\em Was kann bei Auslieferung des Systems alles konfiguriert
-  werden? Z.B. Pfade, Datenbankname, Server-IP usw. Hier ist nicht
-  Internationalisierung gemeint!}
+ Es handelt sich bei dem System um ein lauffähiges Gesamtpaket. Es muss keine Datenbank o.Ä. eingerichtet werden. Lediglich eine IP-Adresse muss eingerichtet werden. Somit ist die App so lauffähig und es ist keine lokale Anpassung nötig.
 
 
 \subsection{Anwendungsfälle}
@@ -530,7 +538,7 @@ beansprucht nicht viele Ressourcen in puncto RAM oder Festplattenspeicher.
 \begin{tabular}{|p{2,5cm}||p{2,8cm}|p{2,8cm}|p{2,8cm}|p{2,8cm}|}
 \hline 
 \textbf{Name(fiktiv)} & Bert Bib & Arnold Admin & Silke Schüler & Bart Besucher\\ \hline
-\textbf{Bild(fiktiv)} & & & & \\ \hline
+\textbf{Bild(fiktiv)} & \includegraphics[scale=1]{bib.jpg} & \includegraphics[scale=0.6]{admin.jpg} & \includegraphics[scale=0.45]{reg.jpg} & \includegraphics[scale=0.45]{unreg.jpg} \\ \hline
 \textbf{Rolle} & Bibliothekar & Administrator & Leiherin & uregistrierter Leiher \\ \hline
 \textbf{Beruf} & Bibliothekar & Bibliothekar & Schülerin & Anwalt\\ \hline
 \textbf{Alter} & 39 & 56 & 16 & 34\\ \hline
@@ -560,28 +568,81 @@ Bart Besucher ist 34 Jahre alt und arbeitet als Anwalt. Er wohnt in Delmenhorst 
 
 \subsection{Einschränkungen}
 \label{sec:Einschraenkungen}
-  {\em Dinge, die die Entwurfsfreiheit einschränken, z.B.
-  \begin{itemize}
-   \item feste Vorgaben (z.B. Policies)
-   \item gesetzliche Rahmenbedingungen
-   \item Hardwarebeschränkungen
-   \item festgelegte Schnittstellen zu anderen Anwendungen
-   \item parallele Operationen (z.B. Multithreading)
-   \item Prüfungs- und Steuerungsfunktionen
-   \item Verlässlichkeitsanforderungen
-   \item Kritikalität der Anwendung
-   \item Sicherheit
-  \end{itemize}
-  }
+Im Folgenden listen wir die Mindestanforderungen des Produkts welche ebenfalls der Webseite der Veranstaltung Software Projekt 2 der Universität Bremen im Wintersemester 2013/14 entnommen werden können\footnote{\url{http://www.informatik.uni-bremen.de/st/Lehre/swpII_1314/mindestanforderungen.html}}:
 
-\subsubsection{Rahmenbedingungen}
-\nurlangversion
+\begin{itemize}
 
+\item Unterschiedliche Medientypen werden unterstützt.
+\item Exemplare werden unterstützt.
+\item Standorte der Medien innerhalb der Bibliothek werden unterstützt.
+\item Gast, Leser, Bibliothekare und Administratoren werden als Benutzergruppen unterschieden.
+\item Alle Nutzer außer Gäste müssen sich authentifizieren.
+\item Veränderungen der Daten der Bibliothek werden protokolliert (z.B. bei Veränderungen beim Verleihen, der Rückgabe, Verlängerung, Mahnung,...) und können durch Bibliothekare eingesehen werden.
+\item Medien können von den Bibliothekaren hinzugefügt, geändert und gelöscht werden.
+\item Medien können in Kategorien einsortiert werden und neue Kategorien erstellt werden.
+\item Inaktive Leser werden zur Löschung vorgeschlagen.
+\item Bibliothekare verleihen Medien.
+\item Der automatisch festgelegte Rückgabezeitraum berücksichtigt die Öffnungszeiten, die der Bibliothekar festlegt.
+\item Individuelle Abgabedaten und Mahngebühren können vom Bibliothekar festgelegt werden.
+\item Bibliothekar kann Verlängerungswünsche der Leser berücksichtigen.
+\item Leser können Medien vormerken; Bibliothekare sehen alle Vormerkungen, Leser ihre eigenen.
+\item Bibliothekare können ausgeliehene Bücher wieder entgegennehmen.
+\item Bibliothekare richten Leser ein, können sie ändern und löschen.
+\item Bibliothekare können mindestens den letzten Ausleiher einsehen.
+\item Bibliothekare haben eine Übersicht über verliehene Bücher, Versäumnisse und fällige Mahngebühren.
+\item Mahngebühren und Ausleihfristen können sich je nach Medientyp unterschiedlich von 
+\item Bibliothekaren festgelegt werden.
+\item Bibliothekare können Statistiken einsehen zu:
+\begin{itemize}
+\item Ausleihzeiträumen
+\item Verteilung der Ausleihen auf Leser
+\item Häufig und selten ausgeliehenen Medien
+\item Vormerkzeiten
+\item Bewertungen
+\end{itemize}
+\item Die Startseite kann redaktionell bearbeitet werden und aktuelle Nachrichten enthalten.
+\item Leser können Rezensionen zu Medien schreiben, die aber erst von Bibliothekaren freigeschaltet werden müssen.
+\item Ein Administrator richtet neue Bibliothekare ein, löscht sie oder verändert deren Stammdaten.
+\item Versionierte Backups und Restore aller Daten sind im laufenden Betrieb und automatisch möglich.
+\item Leser können über eine Android App bzw. über eine für mobile Geräte optimierte Website auf das System zugreifen.
+\item Leser sehen ihre ausgeliehenen Medien, Rückgabefristen und Mahngebühren.
+\item Leser können Nachrichten zu Rückgabefristen, Mahngebühren sowie verfügbare vorgemerkte Medien erhalten.
+\item Leser können Verlängerungswünsche einreichen.
+\item Ein Leser kann bestimmen, ob seine Ausleihhistorie gespeichert und für ihn einsehbar ist.
+\item Leser können Medien bewerten.
+\item Leser können Rezensionen zu Medien schreiben.
+\item Neueste freigeschaltete Rezensionen werden in einer Übersicht angezeigt.
+
+
+\end{itemize}
+
+\subsubsection{Technische Rahmenbedingungen}
+\begin{itemize}
+
+\item Softwareergonomische Prinzipien werden umgesetzt.
+\item Die Funktionalitäten aller Nutzer (Administratoren, Bibliothekare, Leser, Gäste) können über einen Web-Browser verwendet werden.
+\item Die Software funktioniert auf der Hard- und Softwareplattform des Kunden (Windows) sowie unter Linux und MacOS.
+\item Als Application-Server wird GlassFish 3.1 benutzt.
+\item Es muss eine relationale Datenbank für die serverseitige Persistenz benutzt werden:
+\begin{itemize}
+\item Persistenz-Frameworks sind erlaubt (z.B. JPA), aber dann ist eine deklarative Verwendung von SQL-ähnlichen Abfragen verlangt.
+\item Verwendung leichtgewichtiger DBMS (z.B. Derby, SQLite) ohne echte Serverinstallation ist vorgeschrieben.
+\end{itemize}
+\item Verwendung und Abgabe eines Build-/Installationsskriptes, damit die Anwendung einfach installiert und aus den Quellen gebaut werden kann. Alle notwendigen Installations- und Konfigurationsschritte sind dokumentiert.
+\item Eventuell benutzte Fremdbibliotheken dürfen für den Einsatz in Forschung und Lehre keine Beschränkungen (Geld, Benutzung, ...) aufweisen.
+\item Quelltext in Deutsch oder Englisch dokumentiert. Gleiches gilt für Variablen- und Klassennamen. Alle anderen Dokumente in Deutsch.
+\item Die Implementierungssprache ist Java 5 oder höher (weitere zulässige Sprachen in geringem Umfang sind: HTML, XML und JavaScript).
+\end{itemize}
+
+\newpage
 \subsubsection{Gesetzliche Rahmenbedingungen}
-\nurlangversion
+
+Hier gilt in erster Linie das deutsche Recht. Um genau zu sein kommen hier das Datenschutzgesetz\footnote{\url{http://www.gesetze-im-internet.de/bdsg_1990/}} und das Urheberrecht\footnote{\url{http://www.gesetze-im-internet.de/urhg/}} zum tragen. Verfahrensrechtliche Vorkehrungen um die Datensicherheit\footnote{\url{http://www.gesetze-im-internet.de/bdsg_1990/__9.html}} zu gewährleisten sind von dem Kunden zu treffen. Der Kunde wird von der Software hinsichtlich der technischen Vorkehrungen insofern unterstützt, dass der Zugriff auf die Daten und der Zugang auf das Administrationstool passwortgeschützt ist.
+Hinsichtlich des Urheberrechts ist besonders auf die Regelung für Computerprogramme\footnote{\url{http://www.gesetze-im-internet.de/urhg/BJNR012730965.htm\#BJNR012730965BJNG004201377}} zu achten.
  
 \subsubsection{Sicherheitskritische Aspekte}
-\nurlangversion
+
+Um das deutschen Datenschutzgesetz einzuhalten muss der Kunde weitere Maßnahmen treffen. Diese sind nicht entscheident für die Entwicklung der Software und liegen in der Verantwortung des Kunden.
 
 \subsection{Annahmen und Abhängigkeiten}
 
@@ -1675,9 +1736,9 @@ Daten/Gebühren sehen\\ \hline
   \label{a1}
   \begin{tabular}{|l|p{10cm}|}
   \hline 
-  \textbf{1} & \textbf{Abgabedaten und Mahngebühren bearbeiten} \\ \hline
-  \textbf{Beschreibung} & Hier kann der Bibliothekar die Abgabedaten und Mahngebühren bearbeiten\\ \hline
-  \textbf{Parameter} & Der Zeitraum der Ausleihdauer und die Höhe der Gebühren \\ \hline
+  \textbf{1} & \textbf{Abgabedaten bearbeiten(zeitraum)} \\ \hline
+  \textbf{Beschreibung} & Hier kann der Bibliothekar die Abgabedaten eines Buches bearbeiten\\ \hline
+  \textbf{Parameter} & Der Zeitraum, wie lange ein Buch ausgeliehen werden darf\\ \hline
   \textbf{Ausführungszeit} & 1s\\ \hline
   \end{tabular}
   \end{table}
@@ -1698,7 +1759,7 @@ Daten/Gebühren sehen\\ \hline
   \begin{tabular}{|l|p{10cm}|}
   \hline 
   \textbf{3} & \textbf{Administration öffnen} \\ \hline
-  \textbf{Beschreibung} & Die Seite der Administration öffnet sich\\ \hline
+  \textbf{Beschreibung} & Die Seite der Administration öffnet sich und alle Funktionen erscheinen\\ \hline
   \textbf{Parameter} & keine \\ \hline
   \textbf{Ausführungszeit} & 2s\\ \hline
   \end{tabular}
@@ -1708,45 +1769,371 @@ Daten/Gebühren sehen\\ \hline
   \label{a4}
   \begin{tabular}{|l|p{10cm}|}
   \hline 
-  \textbf{4} & \textbf{Anmelden} \\ \hline
-  \textbf{Beschreibung} & Der Nutzer meldet sich im System an\\ \hline
-  \textbf{Parameter} & Nutzername und Passwort \\ \hline
+  \textbf{4} & \textbf{Anmelden(name, passwort)} \\ \hline
+  \textbf{Beschreibung} & Der Nutzer meldet sich im System an und hat nun alle Zugriffsrechte die ihm zustehen\\ \hline
+  \textbf{Parameter} & Der Nutzername und das entsprechende Passwort \\ \hline
   \textbf{Ausführungszeit} & 3s\\ \hline
   \end{tabular}
   \end{table}
   
-  Bibliothekar ändern
-  Bibliothekar hinzufügen
-  Bibliothekar löschen
-  Bibliothekarsliste anzeigen
-  Buch ändern
-  Buch ausleihen
-  Buch bewerten
-  Buch hinzufügen
-  Buch löschen
-  Buch Rezension bestätigen
-  Buch suchen
-  Buch vormerken
-  Buchrückgabe
-  CVS-Import
-  CVS-Export
-  Einzelnes Buch anzeigen/ Detailansicht
-  Leser ändern
-  Leser hinzufügen
-  Leser löschen
-  Leser sperren
-  Leser suchen
-  Leserliste anzeigen
-  Leserprofil anzeigen
-  Mahnungsdetails anzeigen
-  Mahnungsliste anzeigen
-  Mahnungsliste drucken
-  Publikationen anzeigen
-  Rezension freischalten
-  Start anzeigen
-  Startseite bearbeiten
-  Statistiken anzeigen
+    \begin{table}[htbp]
+    \label{a5}
+    \begin{tabular}{|l|p{10cm}|}
+    \hline 
+    \textbf{5} & \textbf{Bibliothekar ändern(daten)} \\ \hline
+    \textbf{Beschreibung} & Der Administrator ändert die Daten eines Bibliothekars\\ \hline
+    \textbf{Parameter} & Die neuen Daten des Bibliothekars \\ \hline
+    \textbf{Ausführungszeit} & 2s\\ \hline
+    \end{tabular}
+    \end{table}
   
+\begin{table}[htbp]
+    \label{a6}
+    \begin{tabular}{|l|p{10cm}|}
+    \hline 
+    \textbf{6} & \textbf{Bibliothekar hinzufügen(daten)} \\ \hline
+    \textbf{Beschreibung} & Der Administrator fügt einen Bibliothekar hinzu\\ \hline
+    \textbf{Parameter} & Die Daten des Bibliothekars \\ \hline
+    \textbf{Ausführungszeit} & 2s\\ \hline
+    \end{tabular}
+    \end{table}
+    
+  \begin{table}[htbp]
+  \label{a7}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{7} & \textbf{Bibliothekar löschen} \\ \hline
+  \textbf{Beschreibung} & Der Administrator löscht einen bestehenden Bibliothekar\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a8}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{8} & \textbf{Bibliothekarsliste anzeigen} \\ \hline
+  \textbf{Beschreibung} & Die Liste der Bibliothekare wird angezeigt\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a9}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{9} & \textbf{Buch ändern(daten)} \\ \hline
+  \textbf{Beschreibung} & Ein vorhandenes Buch wird verändert \\ \hline
+  \textbf{Parameter} & Die neuen Daten des Buches \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a10}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{10} & \textbf{ Buch ausleihen(buch)} \\ \hline
+  \textbf{Beschreibung} & Ein Buch wird von einem Nutzer ausgeliehen und über einem Scanner erkannt \\ \hline
+  \textbf{Parameter} & Das Buch welches ausgeliehen werden soll \\ \hline
+  \textbf{Ausführungszeit} & 4s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a11}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{11} & \textbf{Buch bewerten(wertung)} \\ \hline
+  \textbf{Beschreibung} & Ein Buch wird von einem Nutzer bewertet\\ \hline
+  \textbf{Parameter} & Die Anzahl der Punkte die das Buch bekommen soll \\ \hline
+  \textbf{Ausführungszeit} & 1s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a12}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{12} & \textbf{Buch hinzufügen(daten)} \\ \hline
+  \textbf{Beschreibung} & Ein Buch wird in die Datenbank hinzugefügt\\ \hline
+  \textbf{Parameter} & Die Daten des neuen Buches \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a13}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{13} & \textbf{Buch löschen()} \\ \hline
+  \textbf{Beschreibung} & Ein Buch wird aus der Datenbank gelöscht\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 1s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a14}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{14} & \textbf{Buch rezensieren(buch)} \\ \hline
+  \textbf{Beschreibung} & Eine Rezension über ein Buch wird geschrieben\\ \hline
+  \textbf{Parameter} & Das Buch über welches die Rezension verfasst wird \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a15}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{15} & \textbf{Buch suchen(buch)} \\ \hline
+  \textbf{Beschreibung} & Ein Buch wird in der Datenbank gesucht\\ \hline
+  \textbf{Parameter} & Der Name des Buches, welches gesucht wird \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+
+  \begin{table}[htbp]
+  \label{a16}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{16} & \textbf{Buch vormerken(buch)} \\ \hline
+  \textbf{Beschreibung} & Ein Buch wird von einem Nutzer vorgemerkt\\ \hline
+  \textbf{Parameter} & Das Buch, welches vorgemerkt werden soll \\ \hline
+  \textbf{Ausführungszeit} & 1s\\ \hline
+  \end{tabular}
+  \end{table}
+
+
+  \begin{table}[htbp]
+  \label{a17}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{17} & \textbf{Buchrückgabe(buch)} \\ \hline
+  \textbf{Beschreibung} & Ein Buch wird von einem Nutzer zurückgegeben\\ \hline
+  \textbf{Parameter} & Das Buch, welches zurück gegeben werden soll \\ \hline
+  \textbf{Ausführungszeit} & 4s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a18}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{18} & \textbf{CVS-Import(datei)} \\ \hline
+  \textbf{Beschreibung} & Eine CVS-Datei wird importiert und die Daten werden in die Datenbank geschrieben\\ \hline
+  \textbf{Parameter} & Die CVS-Datei, welche importiert werden soll \\ \hline
+  \textbf{Ausführungszeit} & Abhängig von der Größe der Datei(ca. 4-15s)\\ \hline
+  \end{tabular}
+  \end{table}
+
+\newpage
+
+  \begin{table}[htbp]
+  \label{a19}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{19} & \textbf{CVS-Export(liste)} \\ \hline
+  \textbf{Beschreibung} & Eine CVS-Datei wird exportiert und die Daten werden in eine CVS-Datei gespeichert\\ \hline
+  \textbf{Parameter} & Die Liste der Bücher oder Leser, welche gespeichert werden soll \\ \hline
+  \textbf{Ausführungszeit} & Abhängig von der Größe der Liste(ca. 4-15s)\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a20}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{20} & \textbf{Einzelnes Buch anzeigen/ Detailansicht()} \\ \hline
+  \textbf{Beschreibung} & Ein ausgewähltes Buch soll im Detail angezeigt werden\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 1s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a21}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{21} & \textbf{Leser ändern(daten)} \\ \hline
+  \textbf{Beschreibung} & Die Daten eines Lesers werden verändert\\ \hline
+  \textbf{Parameter} & Die aktuellen Daten des Lesers \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a22}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{22} & \textbf{Leser hinzufügen(daten)} \\ \hline
+  \textbf{Beschreibung} & Ein Leser wird neu registriert und hinzugefügt\\ \hline
+  \textbf{Parameter} & Die Daten des neuen Lesers \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+
+  \begin{table}[htbp]
+  \label{a23}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{23} & \textbf{Leser löschen(leser)} \\ \hline
+  \textbf{Beschreibung} & Ein Leser wird aus der Datenbank gelöscht\\ \hline
+  \textbf{Parameter} & Der Leser, welcher gelöscht werden soll \\ \hline
+  \textbf{Ausführungszeit} & 1s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a24}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{24} & \textbf{Leser sperren(leser)} \\ \hline
+  \textbf{Beschreibung} & Ein Leser wird gesperrt und kann so kein Buch mehr ausleihen\\ \hline
+  \textbf{Parameter} & Der Leser, welcher gesperrt werden soll \\ \hline
+  \textbf{Ausführungszeit} & 1s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a25}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{25} & \textbf{Leser suchen(name)} \\ \hline
+  \textbf{Beschreibung} & Ein Leser wird im System gesucht\\ \hline
+  \textbf{Parameter} & Der Name des Lesers, welcher gesucht wird \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a26}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{26} & \textbf{Leserliste anzeigen()} \\ \hline
+  \textbf{Beschreibung} & Die Liste aller Leser wird angezeigt\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+
+  \begin{table}[htbp]
+  \label{a27}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{27} & \textbf{Leserprofil anzeigen()} \\ \hline
+  \textbf{Beschreibung} & Ein Leser lässt sich sein eigenes Profil anzeigen\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a28}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{28} & \textbf{Mahngebühr ändern(gebühr,buch)} \\ \hline
+  \textbf{Beschreibung} & Der Bibliothekar ändert die Gebühr eines Buches\\ \hline
+  \textbf{Parameter} & Die neue Gebühr die nun anfällt und das Buch, welches die neue Gebühr erhalten soll \\ \hline
+  \textbf{Ausführungszeit} & 1s\\ \hline
+  \end{tabular}
+  \end{table}
+  
+  
+  \begin{table}[htbp]
+  \label{a29}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{29} & \textbf{Mahnungsdetails anzeigen(mahnung)} \\ \hline
+  \textbf{Beschreibung} & Die Details einer Mahnung werden angezeigt\\ \hline
+  \textbf{Parameter} & Die Mahnung, welche angezeigt werden soll \\ \hline
+  \textbf{Ausführungszeit} & 1s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a30}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{30} & \textbf{Mahnungsliste anzeigen()} \\ \hline
+  \textbf{Beschreibung} & Die Liste der Mahnungen wird angezeigt\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a31}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{31} & \textbf{Mahnungsliste drucken()} \\ \hline
+  \textbf{Beschreibung} & Die Liste der Mahnungen wird gedruckt\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & Abhängig von der Größe der Liste und Verbindung zu Drucker(ca. 5-20s)\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a32}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{32} & \textbf{Publikationen anzeigen()} \\ \hline
+  \textbf{Beschreibung} & Die Liste der Publikationen wird angezeigt\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a33}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{33} & \textbf{Rezension freischalten()} \\ \hline
+  \textbf{Beschreibung} & Eine geschriebene Rezension wird überprüft und freigeschaltet\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 1s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a34}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{34} & \textbf{Start anzeigen()} \\ \hline
+  \textbf{Beschreibung} & Die Startseite wird angezeigt\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a35}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{35} & \textbf{Startseite bearbeiten(text)} \\ \hline
+  \textbf{Beschreibung} & Die Startseite wird bearbeitet\\ \hline
+  \textbf{Parameter} & Der Text der nun auf der Startseite erscheinen soll \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+  \label{a36}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{36} & \textbf{Statistiken anzeigen()} \\ \hline
+  \textbf{Beschreibung} & Die Statistiken werden angezeigt\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
   
 \subsection{Entwurfseinschränkungen}
 \nurlangversion
