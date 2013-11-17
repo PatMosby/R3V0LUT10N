@@ -304,6 +304,121 @@ wurden zufriedenstellend ausgefüllt.
 
 siehe Punkt \ref{kundengesp}.
 
+\subsubsection{Analyse eines bestehenden Systems}
+
+Das System OpenBiblio ist ein freies Bibliotheksystem. 
+TODO: FUßNOTE Es ist in PHP geschrieben und somit
+auf einem Webserver ausführbar. Dies kommt unserem 
+Projekt ziemlich nahe, weshalbOpenBiblio analysiert wurde.\\
+Auf der Website gibt es einen Link zu 
+\url{http://www.openbiblio.de/openbiblio/} welches eine 
+Testversion zur Verfügung stellt. Unsere Analyse bezieht 
+sich auf diese Testversion.\\
+In dieser Testversion sind alle Funktionen zugänglich, 
+außer die der Administration. Der Login lautet \emph{Tester} und 
+das Passwort \emph{test}. Durch die zugänglichen Funktionen, hat
+man nach dem Login das Recht eines Bibliothekars und ist somit 
+nur um die Administrationsfunktionen eingeschränkt.\\
+\begin{figure}[h]
+\caption{Startseite von OpenBiblio}
+\includegraphics[width=1\textwidth]{OpenBiblio/startseite_loggedin.png}
+\label{startseite-openbiblio}
+\end{figure}
+\\
+Die Funktionen werden in vier Reiter zusammengefasst: \emph{Ausleihe}, \emph{Katalogisierung}, 
+\emph{Admin} und \emph{Berichte}. Siehe Abbildung \ref{startseite-openbiblio}\\
+\\
+\begin{figure}[h]
+\caption{Ausleihe in OpenBiblio}
+\includegraphics[width=1\textwidth]{OpenBiblio/reiter_ausleihe.png}
+\label{ausleihe-openbiblio}
+\end{figure}
+\\
+Auflistung aller Funktionen vom Reiter \emph{Ausleihe}:
+\begin{itemize}
+	\item Benutzersuche nach Nummer(ID) oder Nachname
+	\item Neuen Benutzer erstellen
+	\item Medienrückgabe
+	\item Offline Ausleihe
+	\item Mitglieder-Verwaltung:
+	\begin{itemize}
+		\item Neu, Suche, Bearbeiten, Löschen von Benutzern
+		\item Detailansicht Benutzer, Ausleihliste, Benutzerinfos, Vorbestellen, Vorbestellliste
+	\end{itemize}
+\end{itemize}
+\newpage
+\begin{figure}[h]
+\caption{Katalogisierung in OpenBiblio}
+\includegraphics[width=1\textwidth]{OpenBiblio/reiter_katalogisierung.png}
+  \label{katalogisierung-openbiblio}
+\end{figure}
+Funktionen im Reiter \emph{Katalogisierung}:
+\begin{itemize}
+	\item Mediensuche
+	\item Mediendetailanischt:
+	\begin{itemize}
+		\item Medium bearbeiten
+		\item Neues Exemplar hinzufügen
+		\item Ausleihhistorie anzeigen
+		\item Vorbestellungen anzeigen
+		\item Medium löschen
+		\item Ähnliches Medium hinzufügen
+	\end{itemize}
+	\item Hinzufügen, Suchen, Bearbeiten und Löschen von Medien
+\end{itemize}
+\newpage
+\begin{figure}[h]
+\caption{Adminbereich von OpenBiblio}
+\includegraphics[width=1\textwidth]{OpenBiblio/reiter_admin.png}
+  \label{admin-openbiblio}
+\end{figure}
+Funktionen im Reiter \emph{Admin} (Anmerkung: Diese Funktionen sind in der Testversion
+nicht zugänglich! ):\\
+\begin{itemize}
+	\item Mitarbeiter verwalten, neu, bearbeiten, löschen
+	\item Generelle Einstellungen
+	\item Mitgliederarten
+	\item Mitgliederfelder
+	\item Exemplarfelder
+	\item Ausleiheinstellungen
+	\item Liste der Genres
+	\item Liste der Medienarten
+	\item Layout-Editor
+\end{itemize}
+\newpage
+\begin{figure}[h]
+\caption{Berichte in OpenBiblio}
+\includegraphics[width=1\textwidth]{OpenBiblio/reiter_berichte.png}
+  \label{berichte-openbiblio}
+\end{figure}
+Funktionen im Reiter \emph{Berichte}:\\
+\begin{itemize}
+	\item doppelte Titel anzeigen
+	\item Erwerbungen anzeigen
+	\item Exemplarsuche
+	\item Gesamtübersicht
+	\item Inventurliste (alle Bücher nach Kriterium auflisten)
+	\item Spielesuche
+	\item Statistiken anzeigen:
+	\begin{itemize}
+		\item  Autoren
+		\item Medien
+		\item Ausleihungen
+	\end{itemize}
+	\item Benutzer mit offenen Beträgen anzeigen
+	\item Benutzer mit überfälligen Medien anzeigen
+	\item Liste der ausgeliehenen Medien
+	\item Vorbestellungsliste
+	\item Mitgliedersuche
+	\item Rückgabeliste
+\end{itemize}
+Außerdem gibt es noch eine Hilfe:\\
+\begin{figure}[h]
+\caption{Hilfe in OpenBiblio}
+\includegraphics[width=1\textwidth]{OpenBiblio/hilfe.png}
+  \label{hilfe-openbiblio}
+\end{figure}
+
 \subsection{Produktperspektive (Sebastian, Tim, Daniel)}
   
 \subsubsection{Systemschnittstellen}
