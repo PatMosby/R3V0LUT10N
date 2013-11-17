@@ -1,0 +1,111 @@
+\documentclass[fontsize=12pt,paper=a4,twoside]{scrartcl}
+
+\newcommand{\grad}{\ensuremath{^{\circ}} }
+\renewcommand{\strut}{\vrule width 0pt height5mm depth2mm}
+
+\usepackage[utf8]{inputenc}
+\usepackage[final]{pdfpages}
+% obere Seitenränder gestalten können
+\usepackage{fancyhdr}
+\usepackage{moreverb}
+% Graphiken als jpg, png etc. einbinden können
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+% Floats Objekte mit [H] festsetzen
+\usepackage{float}
+% setzt URLs schön mit \url{http://bla.laber.com/~mypage}
+\usepackage{url}
+% Externe PDF's einbinden können
+\usepackage{pdflscape}
+% Verweise innerhalb des Dokuments schick mit " ... auf Seite ... "
+% automatisch versehen. Dazu \vref{labelname} benutzen
+\usepackage[ngerman]{varioref}
+\usepackage[ngerman]{babel}
+\usepackage{ngerman}
+% Bibliographie
+\usepackage{bibgerm}
+% Tabellen
+\usepackage{tabularx}
+\usepackage{supertabular}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue,
+            citecolor=blue, urlcolor=blue, hyperfigures=true,
+            pdftex=true]{hyperref}
+\usepackage{bookmark}
+
+\newboolean{langversion} %Deklaration
+\setboolean{langversion}{false} %Zuweisung ist 'false' für Blockkurs
+\newcommand{\highlight}[1]{\textcolor{blue}{\textbf{#1}}}
+\newcommand{\nurlangversion}[0]{%
+\ifthenelse{\boolean{langversion}}{\highlight{Muss in SWP-2 ausgefüllt werden}}{\highlight{Entfällt in SWP-1}}}
+
+\newcommand{\swp}[0]{\ifthenelse{\boolean{langversion}}%
+{Software--Projekt 2}{Software--Projekt 1}}
+\newcommand{\jahr}[0]{2013}
+\newcommand{\semester}[0]{\ifthenelse{\boolean{langversion}}{WiSe}{SoSe} \jahr}
+
+% Damit Latex nicht zu lange Zeilen produziert:
+\sloppy
+%Uneinheitlicher unterer Seitenrand:
+%\raggedbottom
+
+% Kein Erstzeileneinzug beim Absatzanfang
+% Sieht aber nur gut aus, wenn man zwischen Absätzen viel Platz einbaut
+\setlength{\parindent}{0ex}
+
+% Abstand zwischen zwei Absätzen
+\setlength{\parskip}{1ex}
+
+% Seitenränder für Korrekturen verändern
+\addtolength{\evensidemargin}{-1cm}
+\addtolength{\oddsidemargin}{1cm}
+
+\bibliographystyle{gerapali}
+
+
+
+%
+% Und jetzt geht das Dokument los....
+%
+
+\begin{document}
+
+\section*{Angebot}
+\textbf{Lieferant:}\\
+IT\_R3V0LUT1ON\\
+Mitarbeiter:\\
+Sebastian Bredehöft\\
+Patrick Damrow\\
+Tobias Dellert\\
+Tim Ellhoff\\
+Daniel Pupat\\
+
+\textbf{Empfänger:}\\
+Oberschule Rockwinkel\\
+Auftraggeber:Herr Meyhöfer\\
+Öffentliche Schulbibliothek Rockwinkel\\
+Uppe Angst 31 - 28355 Bremen\\
+
+\textbf{Liefergegenstand:}\\
+Wir bieten eine Bibliothekssoftware an, welche die Verwaltung der Bibliothek vereinfachen soll. Dabei setzen wir auf eine einfache und schnelle Software, damit alle Mitarbeiter schnell mit dieser problemlos umgehen können. Unsere Software baut sich auf die gestellten Mindestanforderungen auf\footnote{http://www.informatik.uni-bremen.de/st/Lehre/swpII\_1314/mindestanforderungen.html} und wir werden nur weitere Funktionen einbauen, wenn diese die Bedienung schneller und einfacher machen, jedoch keine Funktionen, welche die Software kompliziert machen würde.\\
+Wir werden die Software bis zum 23.02.2014 fertiggestellt haben und anschließend in Ihrer Schule installieren, sodass Sie die Software anschließend verwenden können. Wir bieten dazu an, ihren Mitarbeitern die Software hinreichend zu erklären, damit diese gleich nach der Installation in der Lage sind, damit umzugehen.\\
+Damit wir alles in die Wege leiten können, haben wir einen Kostenvorschlag von \textbf{75.000} Euro.\\
+Der Preis setzt sich aus der Anzahl der Mitarbeiter, dem Aufwand und dem Stundenlohn zusammen. Wir setzen einen Stundenlohn von 40 Euro für jeden Mitarbeiter an. Das Projekt geht über einen Zeitraum von 19 Wochen und für den Projektplan(14.10.2013-20.10.2013) haben wir 26,286 Stunden im Zeitraum von einer Woche pro Person gebraucht. \\
+Für die Anforderungsspezifikation etc. (21.10.2013-17.11.2013) haben wir ca. 10,375 Stunden pro Person gebraucht. \\
+Aus unseren Erfahrungen, die wir im Software-Projekt 1 gemacht haben, schätzen wir den Aufwand der Architekturbeschreibung etc.(18.11.2013-22.12.2013) auf ca. 15 Stunden und den der Implementierungsphase (23.12.2013-23.02.2014) auf 25 Stunden, da keiner von uns bereits große Erfahrung im Programmieren größerer Systeme hat. Somit ergeben sich folgende Rechnungen für den Aufwand:\\
+
+\begin{table}[htbp]
+\begin{tabular}{|p{3cm}|c|c|c|c|c|}
+\hline 
+Phase & Dauer(Wochen) & Stunden(Woche) & Mitarbeiter & Stundenlohn & Insgesamt \\ \hline \hline
+Projektplan & 1 & 26,286 & 5 & 40 & 5257,2 Euro\\ \hline
+Anforderungs- & & & & & \\ 
+spezifikation & 4 & 10,375 & 5 & 40 & 8300 Euro\\ \hline
+Architektur & 5 & 15 & 5 & 40 & 15.000 Euro\\ \hline
+Implementierung & 9 & 25 & 5 & 40 & 45.000 Euro\\ \hline
+\end{tabular}
+\end{table}
+Somit kommen wir auf den Betrag von \textbf{73557,20} Euro, hinzu kommt noch die Installation und Inbetriebnahme, weshalb sich ein Endbetrag von \textbf{75.000} Euro ergibt.\\
+Wir verwenden das Modell der Open-Source Lizenz, genauer das 'GNU General Public License' Modell\footnote{http://server02.is.uni-sb.de/courses/ident/highlights/opensource/lizenzen.php}.\\
+Wir gewährleisten, dass unsere Software nicht gegen deutsche Gesetze verstößt. Wir gewährleisten auch, dass die Software fehlerfrei funktioniert und alle Mindestanforderungen abdeckt.\\
+Im Preis sind nur Wartungen enthalten, wenn diese bis zu einer Woche nach Inbetriebnahme festgestellt werden. Dabei ist zu beachten, dass die Wartung keine neuen Funktionen enthält, sondern es wird nur bei technischen Problemen des Programms eine kostenfreie Wartung angeboten. Für die Wartung nehmen wir einen Stundenlohn von 40 Euro und der Preis wird sich dann daran messen. Bei schwerwiegenden Fehlern werden wir einen Mitarbeiter innerhalb von 3 Tagen zur Begutachtung schicken und dann darauf zeitnah reagieren. 
+\end{document}

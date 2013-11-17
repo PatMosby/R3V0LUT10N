@@ -894,29 +894,7 @@ Eine Assoziationsklasse. Ermöglicht Bibliothekare diese drei Funktionen an den 
 Leihobjekt, Ausleihe und Nutzer anzuwenden. Auch beschreibt sie Fähigkeit des Admins,
 Bibliothekare zu bearbeiten, zu löschen oder hinzuzufügen.
 \end{itemize}
- 
 
-  {\em Das Datenmodell im Kontext des Pflichtenhefts ist {\glqq}die
-  Darstellung von Informationen und deren Beziehungen in einem
-  fachlogischen Konzept{\grqq}. Es soll hier gezeigt werden, welche
-  Einheiten für das existierende System relevant sind und welche
-  Beziehungen zwischen diesen Einheiten gelten. Es handelt sich
-  hierbei noch nicht um ein Datenbankschema oder eine Spezifikation
-  von Klassen für die Implementierung (Entwurf), sondern um die
-  Modellierung der realen Welt. Das Datenmodell ist leitend für den
-  Entwurf (weil alles darin beschrieben sich auch in der Software 
-  wiederfinden wird), aber nimmt den Entwurf nicht schon vorweg.
-  
-  Das Datenmodell soll als UML-Klassendiagramm angegeben werden.
-  Wichtig ist hierbei die korrekte Verwendung der UML: Klassen,
-  Attribute, Generalisierung, Assoziation, Aggregation, Komposition,
-  Multiplizitäten. Außerdem sollte das Diagramm sinnvoll und gut
-  lesbar sein. Dazu gehört weiterhin eine kurze Beschreibung des
-  Modells mit ergänzenden Informationen, insbesondere wenn die
-  Relationen durch ihren Namen nicht selbsterklärend sind. Gebt
-  unbedingt ein Mengengerüst für die Daten an: Wie viele Instanzen der
-  wichtigsten Klassen werden erwartet? Erwartet Ihr Änderungen im
-  Datenvolumen in der Zukunft?}
 
 
 \subsection{Anwendungsfälle}
@@ -2281,6 +2259,8 @@ Daten/Gebühren sehen\\ \hline
   \end{tabular}
   \end{table}
   
+  \newpage
+  
 \subsection{Entwurfseinschränkungen}
 
 
@@ -2294,8 +2274,23 @@ Daten/Gebühren sehen\\ \hline
   spezifiziert. Dazu gehören beispielsweise:
   \begin{itemize}
     \item Performanz:
+    Beim Entwickeln unserer Software wird Anspruch auf eine fließende
+    Arbeitsweise gelegt, was bedeutet, dass Interaktionen mit dem 
+    System möglichst schnell zu bewältigen sind. Deshalb ist darauf zu achten,
+    Berechnungsprozesse so wenig komplex wie möglich zu halten. Die 
+    Implementierung eines Ladezeichens bei aufkommenden Verbindungsschwierigkeiten 
+    ist selbstverständlich vorgesehen.
+    
     \item Zuverlässigkeit (Korrektheit, Robustheit, Ausfallsicherheit):
+    Die zu entwickelnde Software, insbesondere die Androidapplikation soll auf vielen
+    verschiedenen Geräten funktionieren, weshalb trotz sorgfältig geplanten
+    Testdurchläufe keine absolute Zuverlässigkeit garantiert werden kann. 
+
     \item Verfügbarkeit:
+    Die Webapplikation soll wie gewohnt einfach über einen beliebigen  Browser 
+    zugreifbar sein und die Androidappplikation soll auf jedem Gerät laufen,
+    dass mit Android läuft und natürlich internetfähig ist. 
+
     \item Sicherheit:
      Sicherheit bezüglich der persönlichen Daten wird zum Teil durch den 
      passwortgeschützten Login gewährleistet, wobei jeder Nutzer ein individuelles 
@@ -2303,16 +2298,19 @@ Daten/Gebühren sehen\\ \hline
      Leser und die Mitarbeiter Zugriff. Zusätzlich werden vor dem Versenden von Daten, 
      diese via SSL verschlüsselt, was die Datensicherheit in unserem System 
      garantiert.
+   
     \item Wartbarkeit:
-    
+    Um eine gute Wartbarkeit zu gewährleisten, soll der Programmcode in Komponenten
+    aufgeteilt werden, dessen Zuständigkeit klar definiert sein muss. Zusätzlich 
+    zu einer übersichtliche Programmstruktur, soll der Code sorgfältig und umfassend 
+    kommentiert werden.
+   
     \item Portabilität:
-    
+    Da die Androidapplikation auf jedem androidfähigem Gerät laufen können soll,
+    ist eine hohe Portabilität bereits gegeben. Durch Tests auf den verschiedensten 
+    Endgeräten kann die Applikation auf auf diesen absolut funktionstüchtig laufen.
   \end{itemize}
 }
-
-{\em Die spezifizierten Systemattribute müssen hinreichend konkret und
-  überprüfbar formuliert werden.}
-
 
 
 \subsection{Weitere Anforderungen}
