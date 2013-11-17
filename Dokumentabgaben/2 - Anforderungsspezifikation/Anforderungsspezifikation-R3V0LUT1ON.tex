@@ -372,12 +372,6 @@ Wie schon im Punkt \ref{hardware} beschrieben, gibt es keine Speicherbeschränku
 
 
 \subsection{Charakteristika der Benutzer (Daniel)}
-  {\em Beschreibt hier Eure typischen Benutzer. Benutzt dazu die in
-  der Vorlesung vorgestellten Personas. Zur Erinnerung: Ihr beschreibt
-  konkrete Personen, die Repräsentanten der verschiedenen
-  Benutzertypen sind (mit Name, evtl. Wohnort, Tätigkeit, Alter, Bild,
-  \ldots). Diese sollten eine gewisse Motivation haben, bestimmte
-  Anwendungsfälle durchzuführen (und dort auch eingesetzt werden!).}
 
 
 \begin{table}[htbp]
@@ -394,6 +388,24 @@ Wie schon im Punkt \ref{hardware} beschrieben, gibt es keine Speicherbeschränku
 \textbf{Verwendung der Software} & Bücher und Nutzer verwalten & System und Bibliothekare verwalten & Bücher suchen, ausleihen etc. & keine\\ \hline
 \end{tabular}
 \end{table}
+
+\textbf{Bert Bib:}\\
+Bert Bib ist ein Bibliothekar in der Bibliothek und arbeitet dort. Er wohnt in Bremen und ist 39 Jahre alt. Er fährt jeden Morgen mit Auto zur Arbeit und braucht dafür 25 Minuten. Er ist Verheiratet und hat 2 Kinder, welche beide männlich sind und zur Grundschule gehen. Der Ältere geht in die 4.Klasse und der jüngere in die 1.Klasse. Er ist ein großer Fussballfan und sein Lieblingsverein ist Hannover 96, da er in Hannover geboren und aufgewachsen ist. Er arbeitet bereits seit 13 Jahren als Bibliothekar und ist seit 8 Jahren an der Schule Rockwinkel beschäftigt. Er ist mit dem momentanen System unzufrieden, da der Ausleihvorgang sehr aufwändig ist. Von der neuen Software erhofft er sich eine leichtere und schnellere Verwendung um die Bibliothek zu verwalten und Bücher auszuleihen. \\
+
+\bigskip
+
+\textbf{Arnold Admin:}\\
+Arnold Admin ist ein Lehrer an der Schule Rockwinkel und ist als Administrator für die Software zuständig. Er hat Grundkenntnisse in Informatik und kennt sich guten mit Computern aus. Er lehrt Mathematik und Physik an der Oberschule. Er ist 56 Jahre alt und wohnt auch in Bremen. Er fährt jeden Tag mit Bus zur Schule und braucht dafür 15 Minuten. Arnold war dreimal verheiratet und ist zweimal geschieden. Er hat zwei Töchter aus erster Ehe, welche bereits Berufstätig sind. Aus der aktuellen Ehe hat er einen Sohn, welcher 12 Jahre alt ist und in die 7. Klasse geht. Er liebt Bücher über alles, weshalb er sich auch als Administrator für die Bibliothek gemeldet hat. Er ist auch dafür zuständig Bibliothekare einzustellen und zu entlassen. Die Software wird er benutzen, um neue Bibliothekare zu registrieren und zu löschen. Er muss zudem auch wöchentlich die Dateien sichern und ein Back-up machen.\\
+
+\bigskip
+
+\textbf{Silke Schüler:}\\
+Silke Schüler ist eine Schülerin der Oberschule Rockwinkel und besucht die 11.Klasse. Sie ist eine durchschnittliche Schülerin, welche beliebt unter ihren Klassenkameraden ist. Sie hat einen Freund, welcher zur Zeit eine Ausbildung macht. Sie wohnt in Bremen bei ihren Eltern und ist 16 Jahre alt. Zur Schule fährt sie immer mit dem Fahrrad und braucht dafür 10 Minuten. Sie geht am Wochenende gerne in Diskotheken oder trifft sich mit ihren Freunden. Sie lernt am liebsten mit Fachbüchern über das jeweilige Thema und ist deshalb öfter mal in der Bibliothek anzutreffen. Sie wünscht sich schon seit längeren eine App für die Bibliothek, da sie viel Zeit mit ihren Smartphone verbringt und so schnell nach Büchern suchen kann. Da sie sehr vergesslich ist, ist für sie auch ein Vorteil, dass sie über die App schnell nachgucken kann, wann sie die Bücher abgeben muss.\\
+
+\bigskip
+
+\textbf{Bart Besucher:}\\
+Bart Besucher ist 34 Jahre alt und arbeitet als Anwalt. Er wohnt in Delmenhorst und ist momentan noch verheiratet, lebt aber getrennt von seiner Frau. Er hat einen Sohn, welcher noch in den Kindergarten geht und 5 Jahre alt ist. Er ist früher an der Oberschule Rockwinkel zur Schule gegangen, weshalb er die Bibliothek noch regelmäßig besucht. Die Software würde für ihn eine leichtere Suche bedeuten, indem er auch schon zu Hause Bücher suchen kann, da er sehr beschäftigt ist und wenig Zeit hat.\\
 
 \subsection{Einschränkungen}
 \label{sec:Einschraenkungen}
@@ -1387,6 +1399,82 @@ keine \\ \hline
   letztlich die Produktfunktionen, während die Anwendungsfälle die
   Interaktion zwischen Akteuren und System beschreiben. }
 
+  \begin{table}[htbp]
+  \label{a1}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{1} & \textbf{Abgabedaten und Mahngebühren bearbeiten} \\ \hline
+  \textbf{Beschreibung} & Hier kann der Bibliothekar die Abgabedaten und Mahngebühren bearbeiten\\ \hline
+  \textbf{Parameter} & Der Zeitraum der Ausleihdauer und die Höhe der Gebühren \\ \hline
+  \textbf{Ausführungszeit} & 1s\\ \hline
+  \end{tabular}
+  \end{table}
+  
+  \begin{table}[htbp]
+  \label{a2}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{2} & \textbf{Abmelden} \\ \hline
+  \textbf{Beschreibung} & Über den Button meldet sich der Nutzer ab\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 1s\\ \hline
+  \end{tabular}
+  \end{table}
+  
+  \begin{table}[htbp]
+  \label{a3}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{3} & \textbf{Administration öffnen} \\ \hline
+  \textbf{Beschreibung} & Die Seite der Administration öffnet sich\\ \hline
+  \textbf{Parameter} & keine \\ \hline
+  \textbf{Ausführungszeit} & 2s\\ \hline
+  \end{tabular}
+  \end{table}
+  
+  \begin{table}[htbp]
+  \label{a4}
+  \begin{tabular}{|l|p{10cm}|}
+  \hline 
+  \textbf{4} & \textbf{Anmelden} \\ \hline
+  \textbf{Beschreibung} & Der Nutzer meldet sich im System an\\ \hline
+  \textbf{Parameter} & Nutzername und Passwort \\ \hline
+  \textbf{Ausführungszeit} & 3s\\ \hline
+  \end{tabular}
+  \end{table}
+  
+  Bibliothekar ändern
+  Bibliothekar hinzufügen
+  Bibliothekar löschen
+  Bibliothekarsliste anzeigen
+  Buch ändern
+  Buch ausleihen
+  Buch bewerten
+  Buch hinzufügen
+  Buch löschen
+  Buch Rezension bestätigen
+  Buch suchen
+  Buch vormerken
+  Buchrückgabe
+  CVS-Import
+  CVS-Export
+  Einzelnes Buch anzeigen/ Detailansicht
+  Leser ändern
+  Leser hinzufügen
+  Leser löschen
+  Leser sperren
+  Leser suchen
+  Leserliste anzeigen
+  Leserprofil anzeigen
+  Mahnungsdetails anzeigen
+  Mahnungsliste anzeigen
+  Mahnungsliste drucken
+  Publikationen anzeigen
+  Rezension freischalten
+  Start anzeigen
+  Startseite bearbeiten
+  Statistiken anzeigen
+  
   
 \subsection{Entwurfseinschränkungen}
 \nurlangversion
