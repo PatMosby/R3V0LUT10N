@@ -109,7 +109,7 @@
   \begin{center}
   \vspace{1cm}
   \bf
-  \Large Projektplan\\ 
+  \Large Anforderungsspezifikation\\ 
   \vspace{3ex}
   \small IT\_R3V0LUT10N\\
   \vfill
@@ -143,7 +143,7 @@
   \thispagestyle{fancy}
   \fancyhead{}
   \fancyhead[LO,RE]{Software--Projekt \\  2013/2014
-  \\Projektplan}
+  \\Anforderungsspezifikation}
   \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\~}
   \fancyfoot{}
   \renewcommand{\headrulewidth}{0.4pt}
@@ -204,7 +204,7 @@ Die Android Applikation ist nur an die Leser gerichtet. Sie bietet einen Zugang 
 
 \subsection{Definitionen, Akronyme und Abkürzungen}
 
-\begin{table}[!h]
+\begin{table}
 \caption{Definition und Akronyme}
 \centering
 \begin{tabular}{p{7cm}|p{7cm}}
@@ -299,10 +299,13 @@ am Mittwoch, kurz vor der Besprechung, fertiggestellt wurde. Er beinhaltete
 eine Auflistung aller Mindestanforderungen, zu denen Unklarheiten bezüglich 
 des Realisierungsvorgangs notiert wurden. 
 
-(Hier kommt der Ablauf vom Gespräch...)
+Das offizielle Gespräch begann pünktlich um 9:00 Uhr. Leider gab es keine 
+wirkliche Ordnung bei den gestellten Fragen, was es sehr schwer machte die 
+die einzelnen Vorgänge strukturiert zu durchdenken.
 
 Nach dem das Gespräch wie geplant um etwa 11:00 Uhr endete, fielen uns noch 
 drei bis vier Unklarheiten auf, weswegen wir sofort im Anschluss noch einmal das Gespräch mit einer Mitarbeiterin suchten. Sie war so freundlich, sodass sie sich noch einmal Zeit genommen hat und sogar noch einen Rundgang mit uns durch die Bibliothek machte. \\
+
 Die noch offenen Fragen bezogen sich auf den Vorgang des Freischaltens einer Rezension
 und den Ort der Benachrichtigung, nachdem eine neue Rezension vom System vermerkt
 wurde. Auch drehte sich eine Frage um die Unterschiede des Designs zwischen
@@ -310,6 +313,24 @@ der geplanten Android- und der Browser-Applikation. Die abschließende Frage war
 Kategorisierungen anging. Zum Schluss hat man uns angeboten, bei Bedarf gerne 
 noch einmal wieder zu kommen. Die uns bis dahin bewussten Verständnislücken
 wurden zufriedenstellend ausgefüllt. 
+
+\underline{Auswertung des Kundengesprächs:}\\
+
+Auf der Startseite sollte eine Art Nachrichtenfeld, dass beispielsweise rot blinkt,
+wenn eine neue Rezension vermerkt wurde, platziert werden.(Später hat sich die Idee wieder geändert)
+\\
+Die Webseite sollte so schlicht wie möglich gehalten werden, während die Android-
+Applikation möglichst auffallend und interessant gestaltet werden soll.
+\\
+Die in den Mindestanforderungen erwähnte Statistik, zur Verteilung der Ausleihen auf den
+Leser konnte genau genommen wegfallen, da es eigentlich nur um populäre und weniger
+populäre Medien ging, die leicht ausgemacht werden sollten.
+\\
+Die Kategorie eines Mediums beinhalten streng genommen bereits dessen Standort.
+(Haben wir nicht weiter beachtet)
+\\
+Bei der Annahme von Büchern brauchen nur die Medien eingescannt werden, da dieser Vorgang
+bereits das Vorhandensein von Exemplaren unterstützt.
 
 \subsubsection{Interview mit einem Mitarbeiter der Bibliothek}
 
@@ -505,11 +526,6 @@ Version.  \\
   
 
 \subsubsection{Kommunikationsschnittstellen}
-<<<<<<< HEAD
-
-=======
->>>>>>> 937e98860edf29b225036aa47435d8fbdc80c6d0
-
 Unsere App muss eine Möglichkeit der Kommunikation mit dem Server haben, da sie in der Lage sein wird, z.B. Bewertungen abzuschicken. \\
 Die Bandbreite des Servers muss dabei nicht so groß sein, da keine hohen Datenmengen ausgetauscht werden. \\ 
 Es ist aber ein TCP/IP-Protokoll nötig, da die Serverapplikation öffentlich erreichbar sein wird.
@@ -520,25 +536,12 @@ wie beim Kunden, Windows 2000 läuft, kann also problemlos verwendet werden. Das
 beansprucht nicht viele Ressourcen in puncto RAM oder Festplattenspeicher.
 
 \subsubsection{Operationen (Betriebsmodi)}
-<<<<<<< HEAD
-
-
-  {\em Welche Betriebsmodi gibt es? Warum? Welche Benutzerklasse darf
-  was in welchem Betriebsmodus (Rechte)? Was ist der Zusammenhang
-  zwischen Betriebsmodus und Sicherung/Wiederherstellung von Daten?}
-
-\subsubsection{Möglichkeiten der lokalen Anpassung}
-
-=======
-  
-  Das System wird vier verschiedene Betriebsmodi umfassen. Zum einen der Administratorenmodus, in dem man grundlegende Einstellungen verändern kann sowie einen Vollzugriff auf das System hat. So ist es möglich, Bibliothekare zu löschen oder hinzuzufügen. \\
+ Das System wird vier verschiedene Betriebsmodi umfassen. Zum einen der Administratorenmodus, in dem man grundlegende Einstellungen verändern kann sowie einen Vollzugriff auf das System hat. So ist es möglich, Bibliothekare zu löschen oder hinzuzufügen. \\
 Zum anderen der Bibliothekarmodus, der den Mitarbeitern der Bibliothek ermöglicht, auf fast alle Funktionen des Administrators zuzugreifen, die für den Leser oder Gast natürlich nicht vorgesehen sind (Medienbestandsverwaltung, Ausleiher sperren usw.).\\
 Im Lesermodus sind nur die Funktionen zugelassen, die für Ausleiher angemessen sind (Im Bestand suchen, Medien vormerken und rezensieren usw.). \\
 Im Gästemodus kann man schließlich nur noch die Publikationsliste einsehen und Buchdetails, nicht jedoch Medien bewerten oder vormerken.
 
 \subsubsection{Möglichkeiten der lokalen Anpassung}
->>>>>>> 937e98860edf29b225036aa47435d8fbdc80c6d0
-
  Es handelt sich bei dem System um ein lauffähiges Gesamtpaket. Es muss keine Datenbank o.Ä. eingerichtet werden. Lediglich eine IP-Adresse muss eingerichtet werden. Somit ist die App so lauffähig und es ist keine lokale Anpassung nötig.
 
 
@@ -713,7 +716,7 @@ Silke Schüler ist eine Schülerin der Oberschule Rockwinkel und besucht die 11.
 \textbf{Bart Besucher:}\\
 Bart Besucher ist 34 Jahre alt und arbeitet als Anwalt. Er wohnt in Delmenhorst und ist momentan noch verheiratet, lebt aber getrennt von seiner Frau. Er hat einen Sohn, welcher noch in den Kindergarten geht und 5 Jahre alt ist. Er ist früher an der Oberschule Rockwinkel zur Schule gegangen, weshalb er die Bibliothek noch regelmäßig besucht. Die Software würde für ihn eine leichtere Suche bedeuten, indem er auch schon zu Hause Bücher suchen kann, da er sehr beschäftigt ist und wenig Zeit hat.\\
 
-\subsection{Einschränkungen (Patrick Damrow)}
+\subsection{Einschränkungen (Patrick)}
 \label{sec:Einschraenkungen}
 Im Folgenden listen wir die Mindestanforderungen des Produkts welche ebenfalls der Webseite der Veranstaltung Software Projekt 2 der Universität Bremen im Wintersemester 2013/14 entnommen werden können\footnote{\url{http://www.informatik.uni-bremen.de/st/Lehre/swpII_1314/mindestanforderungen.html}}:
 
@@ -791,7 +794,7 @@ Hinsichtlich des Urheberrechts ist besonders auf die Regelung für Computerprogr
 
 Um das deutschen Datenschutzgesetz einzuhalten muss der Kunde weitere Maßnahmen treffen. Diese sind nicht entscheident für die Entwicklung der Software und liegen in der Verantwortung des Kunden.
 
-\subsection{Annahmen und Abhängigkeiten}
+\subsection{Annahmen und Abhängigkeiten (Tim)}
 
 Bis zur Auslieferung der Software wird sich der Kunde nicht ändern. Die Anforderungsspezifikation dient 
 als eine Art Vertrag mit dem Kunden. Deshalb ist davon auszugehen, dass nach der Abgabe der 
@@ -805,22 +808,12 @@ zu verwenden. Der jeweilige Nutzer sollte zumindest schon mal mit einem Computer
 Zu Hardware- und Software-Abhängigkeiten geben die Punkte \ref{hardware} (Hardwareschnittstellen) 
 und \ref{software} (Softwareschnittstellen) hinreichend Aufschluss.
  
-\subsection{Ausblick}
+\subsection{Ausblick (Tim)}
 
+Große Änderungen sind nach Auslieferung des Systems zwar nicht zu erwarten, aber es können sich dennoch immer wieder mit der Zeit Anpassungen ergeben. \\
+Zu nennen wäre da beispielsweise ein Medientypenzuwachs, sodass es sinnvoll wäre, Medientypen leicht anpassbar zu implementieren. \\
+Des Weiteren wäre es denkbar, dass neben der Android-App auch eine App für iOS-Geräte von Apple entwickelt werden könnte, um möglichst viele Nutzer zu erreichen.
 
-  {\em Beschreibt hier knapp, welche Änderungen und Erweiterungen
-  zukünftig (d.h.\ nach Auslieferung des Systems) zu erwarten sind.
-  Diese Information ist wichtig für den Entwurf, um mögliche
-  Änderungen frühzeitig im ersten Entwurf berücksichtigen zu können.
-  Der Entwurf kann dann so gestaltet werden, dass die zukünftigen
-  Anforderungen leicht realisierbar sind. Die zukünftigen
-  Anforderungen sollten realistisch sein, ansonsten könnte ein unnötig
-  allgemeiner und damit zu komplizierter Entwurf die Folge sein.  Auch
-  dieser Abschnitt ist im IEEE-Standard nicht vorgesehen -- zumindest
-  nicht explizit in Form eines eigenständigen Abschnitts. Dennoch
-  handelt es sich um wertvolle Information, von der der Entwurf
-  profitieren kann.}
-  
 
 \section{Detaillierte Beschreibung}
 \label{ch:DetaillierteBeschreibung}
