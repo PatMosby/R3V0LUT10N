@@ -1,8 +1,13 @@
 \documentclass[fontsize=12pt,paper=a4,twoside]{scrartcl}
 
+%Befehl um ToDo-Vermerke zu erstellen
+%Autor: Stefan Macke
+%Quelle: http://blog.stefan-macke.com/2007/04/23/todo-befehl-in-latex/
+\newcommand{\todo}[1]{\textbf{\textsc{\textcolor{red}{(TODO: #1)}}}}
+
 \newcommand{\grad}{\ensuremath{^{\circ}} }
 \renewcommand{\strut}{\vrule width 0pt height5mm depth2mm}
-
+\usepackage{booktabs}
 \usepackage[utf8]{inputenc}
 \usepackage[final]{pdfpages}
 % obere Seitenränder gestalten können
@@ -13,7 +18,7 @@
 \usepackage{stmaryrd}
 % Floats Objekte mit [H] festsetzen
 \usepackage{float}
-% setzt URLs schön mit \url{http://bla.laber.com/~mypage}
+% setzt URL's schön mit \url{http://bla.laber.com/~mypage}
 \usepackage{url}
 % Externe PDF's einbinden können
 \usepackage{pdflscape}
@@ -22,7 +27,7 @@
 \usepackage[ngerman]{varioref}
 \usepackage[ngerman]{babel}
 \usepackage{ngerman}
-% Bibliographie
+ %Bibliographie
 \usepackage{bibgerm}
 % Tabellen
 \usepackage{tabularx}
@@ -30,24 +35,14 @@
 \usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue,
             citecolor=blue, urlcolor=blue, hyperfigures=true,
             pdftex=true]{hyperref}
-\usepackage{bookmark}
+%\usepackage{bookmark}
+\usepackage{hyperref}
 
-\newboolean{langversion} %Deklaration
-\setboolean{langversion}{true} %Zuweisung ist 'false' für Blockkurs
-\newcommand{\highlight}[1]{\textcolor{blue}{\textbf{#1}}}
-\newcommand{\nurlangversion}[0]{%
-\ifthenelse{\boolean{langversion}}{\highlight{Muss in SWP-2 ausgefüllt werden}}
-{\highlight{Entfällt in SWP-1}}}
-
-\newcommand{\swp}[0]{\ifthenelse{\boolean{langversion}}%
-{Software-Projekt 2}{Software-Projekt 1}}
-\newcommand{\jahr}[0]{2013}
-\newcommand{\semester}[0]{\ifthenelse{\boolean{langversion}}{WiSe}{SoSe} \jahr}
 
 % Damit Latex nicht zu lange Zeilen produziert:
 \sloppy
 %Uneinheitlicher unterer Seitenrand:
-%\raggedbottom
+\raggedbottom
 
 % Kein Erstzeileneinzug beim Absatzanfang
 % Sieht aber nur gut aus, wenn man zwischen Absätzen viel Platz einbaut
@@ -66,9 +61,22 @@
   \pagestyle{fancy}
   \setlength{\headheight}{70.55003pt}
   \fancyhead{}
-  \fancyhead[LO,RE]{\swp\\ \semester{}
-  \\Anforderungsspezifikation}
+  \fancyhead[LO,RE]{Software--Projekt 2\\ WiSe 2013/2014
+  \\Projektplan}
   \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\\slshape \rightmark}
+
+% neuer Befehl: \includegraphicstotab[..]{..}
+% Verwendung analog wie \includegraphics
+\newlength{\myx} % Variable zum Speichern der Bildbreite
+\newlength{\myy} % Variable zum Speichern der Bildhöhe
+\newcommand\includegraphicstotab[2][\relax]{%
+% Abspeichern der Bildabmessungen
+\settowidth{\myx}{\includegraphics[{#1}]{#2}}%
+\settoheight{\myy}{\includegraphics[{#1}]{#2}}%
+% das eigentliche Einfügen
+\parbox[c][1.1\myy][c]{\myx}{%
+\includegraphics[{#1}]{#2}}%
+}% Ende neuer Befehl
 
 %
 % Und jetzt geht das Dokument los....
@@ -90,7 +98,7 @@
   \begin{center}
   \bf
   \Large
-  \swp{} \jahr\\
+  Software--Projekt 2 2013/2014\\
   \smallskip
   \small
   VAK 03-BA-901.02\\
@@ -101,7 +109,7 @@
   \begin{center}
   \vspace{1cm}
   \bf
-  {\Large Anforderungsspezifikation}\\
+  \Large Projektplan\\ 
   \vspace{3ex}
   \small IT\_R3V0LUT10N\\
   \vfill
@@ -117,11 +125,12 @@
   Tobias Dellert & tode@tzi.de & 2936941\\
   Tim Ellhoff & tellhoff@tzi.de & 2520913\\
   Daniel Pupat & dpupat@tzi.de & 2703053\\
+  
   \end{tabular}
   \\ ~
   \vspace{2cm}
   \\
-  \it Abgabe: 17. November 2013 --- Version 1.1\\ ~
+  \it Abgabe: 20. Oktober. 2013 --- Version 1.0\\ ~
   \end{center}
   \end{minipage}
 
@@ -133,12 +142,14 @@
 
   \thispagestyle{fancy}
   \fancyhead{}
-  \fancyhead[LO,RE]{\swp{}\\ \semester{} \jahr{}
-  \\Anforderungsspezifikation}
+  \fancyhead[LO,RE]{Software--Projekt \\  2013/2014
+  \\Projektplan}
   \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\~}
   \fancyfoot{}
   \renewcommand{\headrulewidth}{0.4pt}
   \tableofcontents
+  \listoffigures % Abbildungsverzeichnis 
+  \listoftables % Tabellenverzeichnis 
 
 \newpage
 
@@ -373,7 +384,7 @@ Version.  \\
   
 
 \subsubsection{Kommunikationsschnittstellen}
-\nurlangversion
+
 
 {\em Anforderungen an und Bandbreite von Kommunikationsnetzwerken, öffentliche
   oder auch private IP-Adressen?}
@@ -384,14 +395,14 @@ wie beim Kunden, Windows 2000 läuft, kann also problemlos verwendet werden. Das
 beansprucht nicht viele Ressourcen in puncto RAM oder Festplattenspeicher.
 
 \subsubsection{Operationen (Betriebsmodi)}
-\nurlangversion
+
 
   {\em Welche Betriebsmodi gibt es? Warum? Welche Benutzerklasse darf
   was in welchem Betriebsmodus (Rechte)? Was ist der Zusammenhang
   zwischen Betriebsmodus und Sicherung/Wiederherstellung von Daten?}
 
 \subsubsection{Möglichkeiten der lokalen Anpassung}
-\nurlangversion
+
 
   {\em Was kann bei Auslieferung des Systems alles konfiguriert
   werden? Z.B. Pfade, Datenbankname, Server-IP usw. Hier ist nicht
@@ -569,7 +580,7 @@ Silke Schüler ist eine Schülerin der Oberschule Rockwinkel und besucht die 11.
 \textbf{Bart Besucher:}\\
 Bart Besucher ist 34 Jahre alt und arbeitet als Anwalt. Er wohnt in Delmenhorst und ist momentan noch verheiratet, lebt aber getrennt von seiner Frau. Er hat einen Sohn, welcher noch in den Kindergarten geht und 5 Jahre alt ist. Er ist früher an der Oberschule Rockwinkel zur Schule gegangen, weshalb er die Bibliothek noch regelmäßig besucht. Die Software würde für ihn eine leichtere Suche bedeuten, indem er auch schon zu Hause Bücher suchen kann, da er sehr beschäftigt ist und wenig Zeit hat.\\
 
-\subsection{Einschränkungen}
+\subsection{Einschränkungen (Patrick Damrow)}
 \label{sec:Einschraenkungen}
 Im Folgenden listen wir die Mindestanforderungen des Produkts welche ebenfalls der Webseite der Veranstaltung Software Projekt 2 der Universität Bremen im Wintersemester 2013/14 entnommen werden können\footnote{\url{http://www.informatik.uni-bremen.de/st/Lehre/swpII_1314/mindestanforderungen.html}}:
 
@@ -662,7 +673,7 @@ Zu Hardware- und Software-Abhängigkeiten geben die Punkte \ref{hardware} (Hardw
 und \ref{software} (Softwareschnittstellen) hinreichend Aufschluss.
  
 \subsection{Ausblick}
-\nurlangversion
+
 
   {\em Beschreibt hier knapp, welche Änderungen und Erweiterungen
   zukünftig (d.h.\ nach Auslieferung des Systems) zu erwarten sind.
@@ -2139,7 +2150,7 @@ Daten/Gebühren sehen\\ \hline
   \end{table}
   
 \subsection{Entwurfseinschränkungen}
-\nurlangversion
+
 
 {\em Wurde bereits in \ref{sec:Einschraenkungen} behandelt und muss
   daher hier nicht wiederholt werden. Falls aber eine detailliertere
@@ -2173,14 +2184,14 @@ Daten/Gebühren sehen\\ \hline
 
 
 \subsection{Weitere Anforderungen}
-\nurlangversion
+
 
 {\em In diesem Abschnitt können weitere relevante Anforderungen
   beschrieben werden, die in keine der oben genannten Abschnitte
   passen.}
 
 \section{Anhang}
-\nurlangversion
+
 
 {\em Hier können weitere detailliertere Ergebnisse aus der Ist-Analyse
   oder andere Informationen, die zur Erstellung der Spezifikation
