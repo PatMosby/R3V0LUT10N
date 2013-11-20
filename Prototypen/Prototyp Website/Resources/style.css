@@ -1,0 +1,118 @@
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight:bold;
+    text-shadow: 0.5px 0.5px 1px white;
+    text-align:center;
+    color:#383838;
+    margin:0px;
+    background: url(back.png);
+}
+
+.copyright {
+    position:fixed; 
+    bottom:0px; 
+    text-align:center; 
+    width: 100% 
+}
+
+h1 {
+    font-size:30px;
+    margin:0 0 10px 0;
+}
+
+.small {
+    font-size:12px;
+    font-weight:normal;
+}
+
+.more-info-box {
+    font-size:12px;
+    font-weight:normal;
+    width: 500px;
+    text-align: left;
+    margin:auto;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -o-border-radius: 8px;
+    border:1px solid #383838;
+    -moz-box-shadow: 1px 1px 1px white;
+    -webkit-box-shadow: 1px 1px 1px white;
+    box-shadow: 1px 1px 1px white;
+    padding:10px
+}
+
+.warning {
+    font-size:16px;
+    font-weight:normal;
+    color:red;
+}
+
+
+#container { 
+    width: 100%;
+    height: 100%;
+    display: table; 
+}
+
+#position {
+    display: table-cell;
+    vertical-align: middle; 
+    width: 100%; 
+    text-align: center; 
+}
+
+a:link, a:hover, a:active, a:visited {
+    color:#383838;
+    text-decoration:none;
+}
+
+a.more-info:link {
+    color: black;
+}
+
+.progressbar-out {
+    margin:auto;
+    width:500px;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    border:3px solid #383838;
+    height:28px;
+    -moz-box-shadow: 1px 1px 1px white;
+    -webkit-box-shadow: 1px 1px 1px white;
+    box-shadow: 1px 1px 1px white;
+    padding-right: 6px;
+}
+
+.progressbar-in {
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    background:#383838;
+    height:22px;
+    margin:3px;
+}
+
+#progress-hook {
+    width:0%;
+}
+
+#loadingcontainer {
+    overflow:hidden; 
+    width:100%; 
+    height:100%; 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+}
+
+
+
+:-webkit-full-screen  {  
+  width: 100%;  
+  height: 100%;  
+}  

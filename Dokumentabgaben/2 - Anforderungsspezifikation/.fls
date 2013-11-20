@@ -1,0 +1,6 @@
+PWD /Users/mosby259/Desktop/Repos/R3V0LUT10N/Dokumentabgaben/2 - Anforderungsspezifikation
+INPUT /usr/local/texlive/2013/texmf.cnf
+INPUT /usr/local/texlive/2013/texmf-dist/web2c/texmf.cnf
+INPUT .AS-Neu.fmt
+INPUT /usr/local/texlive/2013/texmf-dist/tex/latex/tools/.tex
+OUTPUT .log
