@@ -1,0 +1,1145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.4" icons="true" automaticImage="PNG" always-add-relationships="true" generalizations="true" 
+  realizations="true" associations="true" dependencies="true" nesting-relationships="true">  
+  <class id="1" language="java" name="eu.it_r3v.bibjsf.businesslogic.BusinessObjectHandler" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/businesslogic/BusinessObjectHandler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="260" width="374" x="2027" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="eu.it_r3v.bibjsf.businesslogic.ReaderHandler" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/businesslogic/ReaderHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="314" width="330" x="1895" y="3505"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="eu.it_r3v.bibjsf.businesslogic.BookHandler" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/businesslogic/BookHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="386" width="317" x="755" y="3505"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="eu.it_r3v.bibjsf.businesslogic.AdministrationHandler" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/businesslogic/AdministrationHandler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="170" width="222" x="2401" y="3505"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="eu.it_r3v.bibjsf.businesslogic.BusinessHandler" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/businesslogic/BusinessHandler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="188" width="158" x="2027" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="eu.it_r3v.bibjsf.businesslogic.BusinessHandler.InputException" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/businesslogic/BusinessHandler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="116" width="149" x="1519" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="eu.it_r3v.bibjsf.Config" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/Config.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="134" width="195" x="1792" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="eu.it_r3v.bibjsf.exception.NoSuchBookExistsException" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/exception/NoSuchBookExistsException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="116" width="225" x="755" y="5065"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="eu.it_r3v.bibjsf.exception.DataSourceException" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/exception/DataSourceException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="116" width="185" x="2654" y="5617"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="eu.it_r3v.bibjsf.exception.BookAlreadyExistsException" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/exception/BookAlreadyExistsException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="116" width="223" x="988" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="eu.it_r3v.bibjsf.exception.BibJSFException" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/exception/BibJSFException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="159" x="1122" y="3505"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="eu.it_r3v.bibjsf.exception.BusinessElementAlreadyExistsException" 
+    project="bibjsf" file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/exception/BusinessElementAlreadyExistsException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="306" x="1623" y="5617"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="eu.it_r3v.bibjsf.isbnsearch.GoogleAPIKey" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/isbnsearch/GoogleAPIKey.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="130" x="2862" y="3505"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="eu.it_r3v.bibjsf.isbnsearch.ISBNGoogleSearch" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/isbnsearch/ISBNGoogleSearch.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="296" width="278" x="2441" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="15" language="java" name="eu.it_r3v.bibjsf.persistence.Persistence" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/persistence/Persistence.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="512" width="377" x="1649" y="5065"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="16" language="java" name="eu.it_r3v.bibjsf.persistence.Data.ColumnDescriptor" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/persistence/Data.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="148" x="2108" y="5065"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="eu.it_r3v.bibjsf.persistence.Data" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/persistence/Data.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1520" width="513" x="1342" y="3505"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="eu.it_r3v.bibjsf.presentation.BusinessObjectForm" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/BusinessObjectForm.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="314" width="239" x="327" y="481"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="eu.it_r3v.bibjsf.presentation.BookTable" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/BookTable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="134" width="175" x="3121" y="481"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="eu.it_r3v.bibjsf.presentation.TableForm" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/TableForm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="404" width="281" x="3336" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="eu.it_r3v.bibjsf.presentation.AddReaderForm" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/AddReaderForm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="152" width="149" x="795" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="eu.it_r3v.bibjsf.presentation.AuthBackingBean" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/AuthBackingBean.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="148" x="2199" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="eu.it_r3v.bibjsf.presentation.TableDataModel" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/TableDataModel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="224" width="396" x="2877" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="eu.it_r3v.bibjsf.presentation.ReaderForm" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/ReaderForm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="584" width="197" x="774" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="eu.it_r3v.bibjsf.presentation.ChangeBookForm" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/ChangeBookForm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="170" width="157" x="367" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="eu.it_r3v.bibjsf.presentation.BookListDataModel" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/BookListDataModel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="134" width="202" x="83" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="eu.it_r3v.bibjsf.presentation.BookForm" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/BookForm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="2078" width="268" x="445" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="eu.it_r3v.bibjsf.presentation.ReaderTable" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/ReaderTable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="134" width="173" x="3336" y="481"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="eu.it_r3v.bibjsf.presentation.AddBookForm" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/AddBookForm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="134" width="149" x="564" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="eu.it_r3v.bibjsf.presentation.ChangeReaderForm" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/ChangeReaderForm.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="152" width="160" x="1298" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="eu.it_r3v.bibjsf.presentation.Administration" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/presentation/Administration.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="152" width="149" x="2780" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="eu.it_r3v.bibjsf.renderer.BookTagPrinter" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/renderer/BookTagPrinter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="260" width="382" x="3814" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="eu.it_r3v.bibjsf.renderer.Printer" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/renderer/Printer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="530" width="442" x="3775" y="481"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="34" language="java" name="eu.it_r3v.bibjsf.renderer.Content" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/renderer/Content.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="62" width="119" x="3900" y="3505"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="35" language="java" name="eu.it_r3v.bibjsf.renderer.IDCardPrinter" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/renderer/IDCardPrinter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="368" width="335" x="3439" y="1051"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="eu.it_r3v.bibjsf.renderer.BookTagContent" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/renderer/BookTagContent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="134" width="209" x="3670" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="eu.it_r3v.bibjsf.renderer.IDContent" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/renderer/IDContent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="152" width="191" x="3439" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="eu.it_r3v.bibjsf.services.BibServices" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/services/BibServices.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="134" width="253" x="1005" y="3169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="39" language="java" name="eu.it_r3v.bibjsf.utils.CSVReader.State" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/CSVReader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="170" width="188" x="984" y="5617"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="40" language="java" name="eu.it_r3v.bibjsf.utils.Constraint" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/Constraint.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="206" width="232" x="2005" y="5617"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="eu.it_r3v.bibjsf.utils.Reflection" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/Reflection.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="453" x="2757" y="5065"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="eu.it_r3v.bibjsf.utils.LikeConstraint" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/LikeConstraint.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="255" x="2005" y="5863"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="eu.it_r3v.bibjsf.utils.CSVReader" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/CSVReader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="476" width="299" x="1020" y="5065"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="44" language="java" name="eu.it_r3v.bibjsf.utils.Constraint.AttributeType" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/Constraint.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="157" x="2302" y="6001"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="45" language="java" name="eu.it_r3v.bibjsf.utils.Messages" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/Messages.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="152" width="162" x="553" y="5065"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="eu.it_r3v.bibjsf.utils.CSVReader.UnknownColumn" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/CSVReader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="161" x="1422" y="5617"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="eu.it_r3v.bibjsf.utils.CSVReader.CorruptInput" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/CSVReader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="149" x="1212" y="5617"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="48" language="java" name="eu.it_r3v.bibjsf.utils.Configuration" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/Configuration.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="134" width="151" x="3399" y="5065"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="49" language="java" name="eu.it_r3v.bibjsf.utils.OrderBy" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/OrderBy.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="206" width="179" x="2277" y="5617"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="eu.it_r3v.bibjsf.utils.EqualConstraint" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/EqualConstraint.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="264" x="2734" y="5863"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="51">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <dependency id="52">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="53">    
+    <bendpoint x="2349" y="3505"/>    
+    <bendpoint x="2307" y="5065"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="40"/>  
+  </dependency>  
+  <dependency id="54">    
+    <bendpoint x="3408" y="1051"/>    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="37"/>  
+  </dependency>  
+  <dependency id="55">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <generalization id="56">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <dependency id="57">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <association id="58">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="59" name="bookHandler"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="61">    
+    <bendpoint x="2328" y="3505"/>    
+    <bendpoint x="2056" y="5065"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="62">    
+    <bendpoint x="682" y="3505"/>    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <dependency id="63">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="64">    
+    <bendpoint x="1576" y="5065"/>    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="49"/>  
+  </dependency>  
+  <dependency id="65">    
+    <bendpoint x="568" y="3505"/>    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <nesting id="66">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="46"/>  
+  </nesting>  
+  <dependency id="67">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="68">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="69">    
+    <bendpoint x="3261" y="3169"/>    
+    <bendpoint x="3282" y="3505"/>    
+    <bendpoint x="3282" y="5065"/>    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="70">    
+    <bendpoint x="3408" y="3169"/>    
+    <bendpoint x="3408" y="3505"/>    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="48"/>  
+  </dependency>  
+  <dependency id="71">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="43"/>  
+  </dependency>  
+  <dependency id="72">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="73">    
+    <bendpoint x="2077" y="5065"/>    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="74">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="75">    
+    <bendpoint x="3240" y="3505"/>    
+    <bendpoint x="3240" y="5065"/>    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="76">    
+    <bendpoint x="1412" y="5065"/>    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="46"/>  
+  </dependency>  
+  <dependency id="77">    
+    <bendpoint x="52" y="1051"/>    
+    <bendpoint x="52" y="3169"/>    
+    <bendpoint x="52" y="3505"/>    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <dependency id="78">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <generalization id="79">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <dependency id="80">    
+    <bendpoint x="1513" y="5065"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="49"/>  
+  </dependency>  
+  <dependency id="81">    
+    <bendpoint x="764" y="3169"/>    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <generalization id="82">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <dependency id="83">    
+    <bendpoint x="3930" y="3169"/>    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="34"/>  
+  </dependency>  
+  <dependency id="84">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="85">    
+    <bendpoint x="1391" y="5065"/>    
+    <bendpoint x="1391" y="5617"/>    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="42"/>  
+  </dependency>  
+  <generalization id="86">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <dependency id="87">    
+    <bendpoint x="1597" y="5065"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="88">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="23"/>  
+  </dependency>  
+  <dependency id="89">    
+    <end type="SOURCE" refId="50"/>    
+    <end type="TARGET" refId="44"/>  
+  </dependency>  
+  <dependency id="90">    
+    <bendpoint x="3022" y="3169"/>    
+    <bendpoint x="3022" y="3505"/>    
+    <bendpoint x="2705" y="5065"/>    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="49"/>  
+  </dependency>  
+  <generalization id="91">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <generalization id="92">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="40"/>  
+  </generalization>  
+  <association id="93">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="94" name="handler"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="96">    
+    <bendpoint x="2286" y="5065"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="49"/>  
+  </dependency>  
+  <dependency id="97">    
+    <bendpoint x="1534" y="5065"/>    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="40"/>  
+  </dependency>  
+  <dependency id="98">    
+    <bendpoint x="3387" y="1051"/>    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="36"/>  
+  </dependency>  
+  <dependency id="99">    
+    <bendpoint x="2705" y="3505"/>    
+    <bendpoint x="2684" y="5065"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="100">    
+    <bendpoint x="3240" y="3169"/>    
+    <bendpoint x="3261" y="3505"/>    
+    <bendpoint x="3261" y="5065"/>    
+    <bendpoint x="3261" y="5617"/>    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="42"/>  
+  </dependency>  
+  <generalization id="101">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <dependency id="102">    
+    <bendpoint x="3345" y="1051"/>    
+    <bendpoint x="3345" y="3169"/>    
+    <bendpoint x="3345" y="3505"/>    
+    <bendpoint x="3345" y="5065"/>    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="103">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="104">    
+    <bendpoint x="2265" y="3505"/>    
+    <bendpoint x="2349" y="5065"/>    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="105">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="106">    
+    <bendpoint x="1001" y="1051"/>    
+    <bendpoint x="974" y="3169"/>    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="107">    
+    <bendpoint x="1698" y="3169"/>    
+    <bendpoint x="724" y="3505"/>    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <dependency id="108">    
+    <bendpoint x="469" y="3505"/>    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <dependency id="109">    
+    <bendpoint x="3303" y="1051"/>    
+    <bendpoint x="3303" y="3169"/>    
+    <bendpoint x="3303" y="3505"/>    
+    <bendpoint x="3303" y="5065"/>    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <association id="110">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="111" name="searcher"/>      
+      <multiplicity id="112" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="113">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <dependency id="114">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="23"/>  
+  </dependency>  
+  <dependency id="115">    
+    <bendpoint x="3366" y="1051"/>    
+    <bendpoint x="3387" y="3169"/>    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="34"/>  
+  </dependency>  
+  <nesting id="116">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="6"/>  
+  </nesting>  
+  <nesting id="117">    
+    <bendpoint x="2290" y="5863"/>    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="44"/>  
+  </nesting>  
+  <nesting id="118">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="16"/>  
+  </nesting>  
+  <dependency id="119">    
+    <bendpoint x="4247" y="481"/>    
+    <bendpoint x="4247" y="1051"/>    
+    <bendpoint x="4247" y="3169"/>    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="34"/>  
+  </dependency>  
+  <association id="120">    
+    <bendpoint x="1761" y="3169"/>    
+    <bendpoint x="2286" y="3505"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="121" name="persistence"/>      
+      <multiplicity id="122" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="123">    
+    <bendpoint x="2749" y="3169"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <dependency id="124">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="125">    
+    <bendpoint x="4268" y="481"/>    
+    <bendpoint x="4268" y="1051"/>    
+    <bendpoint x="4268" y="3169"/>    
+    <bendpoint x="4268" y="3505"/>    
+    <bendpoint x="4268" y="5065"/>    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="126">    
+    <bendpoint x="2328" y="5065"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <generalization id="127">    
+    <end type="SOURCE" refId="50"/>    
+    <end type="TARGET" refId="40"/>  
+  </generalization>  
+  <generalization id="128">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <dependency id="129">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="130">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="40"/>  
+  </dependency>  
+  <dependency id="131">    
+    <bendpoint x="4226" y="1051"/>    
+    <bendpoint x="4226" y="3169"/>    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="34"/>  
+  </dependency>  
+  <generalization id="132">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="33"/>  
+  </generalization>  
+  <dependency id="133">    
+    <bendpoint x="1433" y="5065"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="40"/>  
+  </dependency>  
+  <dependency id="134">    
+    <bendpoint x="2370" y="3505"/>    
+    <bendpoint x="2370" y="5065"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="49"/>  
+  </dependency>  
+  <nesting id="135">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="39"/>  
+  </nesting>  
+  <dependency id="136">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="41"/>  
+  </dependency>  
+  <dependency id="137">    
+    <bendpoint x="2980" y="3169"/>    
+    <bendpoint x="2684" y="3505"/>    
+    <bendpoint x="2621" y="5065"/>    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="40"/>  
+  </dependency>  
+  <dependency id="138">    
+    <bendpoint x="703" y="3505"/>    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="139">    
+    <bendpoint x="1488" y="3169"/>    
+    <bendpoint x="2307" y="3505"/>    
+    <bendpoint x="2391" y="5065"/>    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <association id="140">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="141" name="instance"/>      
+      <multiplicity id="142" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="143">    
+    <bendpoint x="3282" y="3169"/>    
+    <bendpoint x="3324" y="3505"/>    
+    <bendpoint x="3324" y="5065"/>    
+    <bendpoint x="3324" y="5617"/>    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="50"/>  
+  </dependency>  
+  <generalization id="144">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <dependency id="145">    
+    <bendpoint x="1349" y="5065"/>    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="47"/>  
+  </dependency>  
+  <generalization id="146">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <realization id="147">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <dependency id="148">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="149">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <nesting id="150">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="47"/>  
+  </nesting>  
+  <dependency id="151">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <dependency id="152">    
+    <bendpoint x="1555" y="5065"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="153">    
+    <bendpoint x="1370" y="5065"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="154">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <generalization id="155">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <dependency id="156">    
+    <bendpoint x="2642" y="5065"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="157">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <generalization id="158">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="33"/>  
+  </generalization>  
+  <dependency id="159">    
+    <bendpoint x="1719" y="1051"/>    
+    <bendpoint x="1719" y="3169"/>    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="160">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="36"/>  
+  </dependency>  
+  <dependency id="161">    
+    <bendpoint x="3324" y="1051"/>    
+    <bendpoint x="3366" y="3169"/>    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="34"/>  
+  </dependency>  
+  <realization id="162">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <association id="163">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="164" name="foundBooks"/>      
+      <multiplicity id="165" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="166">    
+    <bendpoint x="1618" y="5065"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="40"/>  
+  </dependency>  
+  <dependency id="167">    
+    <bendpoint x="3324" y="3169"/>    
+    <bendpoint x="3366" y="3505"/>    
+    <bendpoint x="3366" y="5065"/>    
+    <bendpoint x="3366" y="5617"/>    
+    <bendpoint x="3366" y="5863"/>    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="44"/>  
+  </dependency>  
+  <dependency id="168">    
+    <bendpoint x="1740" y="3169"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <association id="169">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="170" name="instance"/>      
+      <multiplicity id="171" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="172">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="37"/>  
+  </dependency>  
+  <dependency id="173">    
+    <bendpoint x="315" y="3169"/>    
+    <bendpoint x="315" y="3505"/>    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <dependency id="174">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="44"/>  
+  </dependency>  
+  <dependency id="175">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="49"/>  
+  </dependency>  
+  <association id="176">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="177" name="instance"/>      
+      <multiplicity id="178" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="179">    
+    <bendpoint x="2311" y="5863"/>    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="180" name="type"/>      
+      <multiplicity id="181" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="182">    
+    <bendpoint x="1311" y="3505"/>    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <dependency id="183">    
+    <bendpoint x="2663" y="3505"/>    
+    <bendpoint x="2663" y="5065"/>    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="184">    
+    <bendpoint x="2959" y="3169"/>    
+    <bendpoint x="2810" y="3505"/>    
+    <bendpoint x="2726" y="5065"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="185">    
+    <bendpoint x="2691" y="1051"/>    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="186">    
+    <bendpoint x="1492" y="5065"/>    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="187">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="48"/>  
+  </dependency>  
+  <dependency id="188">    
+    <bendpoint x="3001" y="3169"/>    
+    <bendpoint x="2831" y="3505"/>    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="41"/>  
+  </dependency>  
+  <dependency id="189">    
+    <bendpoint x="3909" y="3169"/>    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="34"/>  
+  </dependency>  
+  <association id="190">    
+    <bendpoint x="2627" y="481"/>    
+    <bendpoint x="2627" y="1051"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="191" name="handler"/>      
+      <multiplicity id="192" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="193">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <dependency id="194">    
+    <bendpoint x="336" y="1051"/>    
+    <bendpoint x="336" y="3169"/>    
+    <bendpoint x="336" y="3505"/>    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <dependency id="195">    
+    <bendpoint x="2648" y="1051"/>    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="196">    
+    <bendpoint x="743" y="1051"/>    
+    <bendpoint x="743" y="3169"/>    
+    <bendpoint x="661" y="3505"/>    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <dependency id="197">    
+    <bendpoint x="31" y="481"/>    
+    <bendpoint x="31" y="1051"/>    
+    <bendpoint x="31" y="3169"/>    
+    <bendpoint x="31" y="3505"/>    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
