@@ -183,47 +183,21 @@ Version & Datum & Änderungen \\
 \section{Globale Analyse}
 \label{sec:globale_analyse}
 
-{\it Hier werden Einflussfaktoren aufgezählt und bewertet sowie Strategien
-zum Umgang mit interferierenden Einflussfaktoren entwickelt.}
-
 \subsection{Einflussfaktoren}
 \label{sec:einflussfaktoren}
-{\it Hier sind Einflussfaktoren gefragt, die sich auf die Architektur
-  beziehen. Es sind ausschließlich architekturrelevante
-  Einflussfaktoren, und nicht z.B.\ solche, die lediglich einen
-  Einfluss auf das Projektmanagement haben. Fragt Euch also bei jedem
-  Faktor: Beeinflusst er wirklich die Architektur? Macht einen
-  einfachen Test: Wie würde die Architektur aussehen, wenn ihr den
-  Einflussfaktor E berücksichtigt? Wie würde sie aussehen, wenn Ihr E nicht
-  berücksichtigt? Kommt in beiden Fällen dieselbe Architektur heraus,
-  dann kann der Einflussfaktor nicht architekturrelevant sein.
 
-  Es geht hier um Einflussfaktoren, die
-  \begin{enumerate}
-  \item sich über die Zeit ändern,
-  \item viele Komponenten betreffen,
-  \item schwer zu erfüllen sind oder
-  \item mit denen man wenig Erfahrung hat.
-  \end{enumerate}
-  Die Flexibilität und Veränderlichkeit müssen ebenfalls charakterisiert werden. 
-  \begin{enumerate}
-  \item Flexibilität: Könnt Ihr den Faktor zum jetzigen Zeitpunkt beeinflussen?
-  \item Veränderlichkeit: ändert der Faktor sich später durch äußere Einflüsse?
-\end{enumerate}
+Die Einflussfaktoren werden im Folgenden unterteilt in:
 
-  Unter Auswirkungen sollte dann beschrieben werden, {\em wie} der
-  Faktor {\em was} beeinflusst. Das können sein:
-  \begin{itemize}
-  \item andere Faktoren
-  \item Komponenten
-  \item Operationsmodi
-  \item Designentscheidungen (Strategien)
-  \end{itemize}
+\begin{itemize}
+\item{Organisatorische Faktoren}
+\item{Technische Faktoren}
+\item{Produktfaktoren}
+\end{itemize}
 
-  Verwendet eine eindeutige Nummerierung der Faktoren, um sie auf den
-  Problemkarten einfach referenzieren zu können.  }
+\subsubsection{Organisatorische Faktoren}
+\label{sec:orgfaktoren}
 
-\begin{table}
+\begin{table}[H]
 \centering
 \caption{Organisatorische Faktoren}
 \begin{tabular}{|l|l|} \hline
@@ -236,7 +210,7 @@ O6 & Anzahl der Entwickler\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 O1 & Time-To-Market\\ \hline
 Faktor & Auslieferungsdatum 23.02.2014\\ \hline
@@ -245,7 +219,7 @@ Auswirkungen & Die Software muss zum Abgabedatum lauffähig sein\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 O2 & Auslieferung von Produktfunktionen\\ \hline
 Faktor & Alle Mindestanforderungen\\ \hline
@@ -254,7 +228,7 @@ Auswirkungen & Architektur muss alle Mindestanforderungen abdecken, es muss dara
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 O3 & Budget \\ \hline
 Faktor & Kein finanzielles Budget\\ \hline
@@ -263,7 +237,7 @@ Auswirkungen & Es können keine Kostenpflichtigen Dienste in Anspruch genommen w
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 O4 & Kenntnisse in Java und Android \\ \hline
 Faktor & Kenntnisse der Entwickler in Java und Android\\ \hline
@@ -272,7 +246,7 @@ Auswirkungen & Bei wenig Kenntnissen muss mehr Zeit eingeplant werden um sich di
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 O5 & Kenntnisse in J-Unit \\ \hline
 Faktor & Kenntnisse in J-Unit Tests\\ \hline
@@ -281,7 +255,7 @@ Auswirkungen & Bei unzureichenden Tests kann es später beim Programm zu Problem
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 O6 & Anzahl der Entwickler\\ \hline
 Faktor & Die Anzahl der Entwickler\\ \hline
@@ -290,7 +264,10 @@ Auswirkungen & Wenn Gruppenmitglieder wegfallen, müssen die restlichen mehr Arb
 \end{tabular}
 \end{table}
 
-\begin{table}
+\subsubsection{Technische Faktoren}
+\label{sec:techfaktoren}
+
+\begin{table}[H]
 \centering
 \caption{Technische Faktoren}
 \begin{tabular}{|l|l|} \hline
@@ -305,7 +282,7 @@ T8 &  Beschränkungsfreiheit für Fremdbibliotheken\\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 T1 & Software funktioniert unter Windows, Linux und MacOS \\ \hline
 Faktor & Die Software muss auf den Betriebssystemen Windows, Linux und MacOS laufen\\ \hline
@@ -314,7 +291,8 @@ Auswirkungen & Die Entwickler müssen sich mit allen Betriebsprogrammen befassen
 \end{tabular}
 \end{table}
 
-\begin{table}
+
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 T2 & Software funktioniert als App (Andriod 2.3 oder höher) \\ \hline
 Faktor & Die Software muss als Android App auf einem Smartphone laufen\\ \hline
@@ -323,7 +301,8 @@ Auswirkungen & Die Software muss wie gefordert als App auf einem Android-Smartph
 \end{tabular}
 \end{table}
 
-\begin{table}
+
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 T3 & SQL-Datenbank \\ \hline
 Faktor & Software läuft über eine relationale Datenbank\\ \hline
@@ -332,7 +311,7 @@ Auswirkungen & Es muss eine relationale Datenbank für die serverseitige Persist
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 T4 & Mehrere parallele Nutzer \\ \hline
 Faktor & Es greifen mehrere Nutzer zur gleichen Zeit auf die Software zu\\ \hline
@@ -341,7 +320,7 @@ Auswirkungen & Die Software muss darauf ausgelegt sein, mehrere Nutzer zur gleic
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 T5 & Client-Server System \\ \hline
 Faktor & Die Software arbeitet über ein Client-Server System\\ \hline
@@ -350,7 +329,7 @@ Auswirkungen & Die Implementierung wird in Server und Client aufgeteilt(siehe \r
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 T6 & Benutzerschnittstelle \\ \hline
 Faktor & \\ \hline
@@ -359,7 +338,7 @@ Auswirkungen & \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 T7 & Implementierungssprache Java \\ \hline
 Faktor & Die Software muss in Java 5 oder höher geschrieben werden\\ \hline
@@ -368,7 +347,7 @@ Auswirkungen & Die Software muss in Java geschrieben werden, daher müssen alle 
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 T8 & Beschränkungsfreiheit für Fremdbibliotheken\\ \hline
 Faktor & Fremdbibliotheken dürfen für den Einsatz in Forschung\\
@@ -378,7 +357,10 @@ Auswirkungen & Es darf keine Software oder Bibliothek verwendet werden, die Kost
 \end{tabular}
 \end{table}
 
-\begin{table}
+\subsubsection{Produkt Faktoren}
+\label{sec:produktfaktoren}
+
+\begin{table}[H]
 \centering
 \caption{Produkt Faktoren}
 \begin{tabular}{|l|l|} \hline
@@ -389,7 +371,7 @@ P4 &  Fehlererkennung \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 P1 & Mindestanforderung \\ \hline
 Faktor & Das Produkt muss alle Mindestanforderungen enthalten\\ \hline
@@ -397,10 +379,9 @@ Flexibilität und Veränderlichkeit & Alle Anforderungen müssen zum Bestehen er
 Auswirkungen & Es müssen alle Mindestanforderungen implementiert werden \\ \hline
 \end{tabular}
 \end{table}
-\newpage
 
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 P2 &  Performanz\\ \hline
 Faktor & Möglichst schnelle Ausführungszeiten\\ \hline
@@ -409,7 +390,7 @@ Auswirkungen & Es sollte bei der Implementierung auf einen schnellen Datenaustau
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 P3 &  Benutzerrechte \\ \hline
 Faktor & Es gibt verschiedene Benutzer mit unterschiedlichen Rechten\\ \hline
@@ -418,7 +399,7 @@ Auswirkungen & Es müssen unterschiedliche Benutzer implementiert werden, die un
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 P4 &  Fehlererkennung \\ \hline
 Faktor & Fehler sollten von der Software erkannt werden und entsprechend behandelt werden\\ \hline
