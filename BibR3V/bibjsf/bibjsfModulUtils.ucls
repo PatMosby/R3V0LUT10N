@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.4" icons="true" automaticImage="PNG" always-add-relationships="true" generalizations="true" 
+  realizations="true" associations="true" dependencies="true" nesting-relationships="true">  
+  <enumeration id="1" language="java" name="eu.it_r3v.bibjsf.utils.CSVReader.State" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/CSVReader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="170" width="188" x="534" y="553"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="2" language="java" name="eu.it_r3v.bibjsf.utils.Constraint" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/Constraint.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="206" width="232" x="1907" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="eu.it_r3v.bibjsf.utils.Reflection" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/Reflection.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="453" x="41" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="eu.it_r3v.bibjsf.utils.LikeConstraint" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/LikeConstraint.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="255" x="1327" y="553"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="eu.it_r3v.bibjsf.utils.CSVReader" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/CSVReader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="476" width="299" x="534" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="6" language="java" name="eu.it_r3v.bibjsf.utils.Constraint.AttributeType" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/Constraint.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="157" x="1907" y="763"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="7" language="java" name="eu.it_r3v.bibjsf.utils.Messages" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/Messages.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="152" width="405" x="873" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="eu.it_r3v.bibjsf.utils.CSVReader.UnknownColumn" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/CSVReader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="292" x="762" y="553"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="eu.it_r3v.bibjsf.utils.CSVReader.CorruptInput" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/CSVReader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="116" width="292" x="202" y="553"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="eu.it_r3v.bibjsf.utils.Configuration" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/Configuration.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="134" width="330" x="1318" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="eu.it_r3v.bibjsf.utils.OrderBy" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/OrderBy.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="206" width="179" x="1688" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="eu.it_r3v.bibjsf.utils.EqualConstraint" project="bibjsf" 
+    file="/bibjsf/src/main/java/eu/it_r3v/bibjsf/utils/EqualConstraint.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="264" x="1622" y="553"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <nesting id="13">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="8"/>  
+  </nesting>  
+  <generalization id="14">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <nesting id="15">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="9"/>  
+  </nesting>  
+  <dependency id="16">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="17">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <nesting id="18">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </nesting>  
+  <generalization id="19">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="20">    
+    <bendpoint x="1937" y="553"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="21" name="type"/>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="23">    
+    <bendpoint x="1916" y="553"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </nesting>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
