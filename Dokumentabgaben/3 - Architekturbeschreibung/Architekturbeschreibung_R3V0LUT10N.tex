@@ -448,12 +448,20 @@ Auswirkungen & Fehler müssen erkannt werden und durch Exception muss es dann en
 \section{Konzeptionelle Sicht}
 \label{sec:konzeptionell}
 
-{\it Diese Sicht beschreibt das System auf einer hohen Abstraktionsebene,
-d.h. mit sehr starkem Bezug zur Anwendungsdomäne und den geforderten
-Produktfunktionen und -attributen. Sie legt die Grobstruktur fest,
-ohne gleich in die Details von spezifischen Technologien abzugleiten. 
-Sie wird in den nachfolgenden Sichten konkretisiert und verfeinert. Die
-konzeptionelle Sicht wird mit {UML}-Komponentendiagrammen visualisiert.}
+\subsection{Überblick}
+\label{Ueberblick}
+
+\begin{figure} [H] 
+\caption{Konzeptionelle Sicht} 
+	\includegraphics[width=1\textwidth]{Diagramme/KonzeptionelleSicht.jpg} 
+	\label{konzeptionellesicht} 
+\end{figure}
+\label{sec:konzeptionell}
+
+Unsere Architektur besteht aus zwei grundlegenden Komponenten, der Serverkomponente und der Clientkomponente, welche wiederum weitere Komponenten beinhalten. Auf der einen Seite haben wir unsere Serverkomponente, die alle benötigten Daten der Medien, der Nutzer und der Ausleihvorgänge der Bibliothek speichert.
+
+Bei der Clientkomponente muss zwischen zwei Teilen unterschieden werden. Einaml der Gui-Client, welcher sich in erster Linie an die Bibliothekare richtet und der mobile Android-Client, der sich ausschließlich an die Leser richtet. 
+Der Gui-Client stellt für die Bibliothekare alle benötigten Funktionen bereit um eine Bibliothek zu verwalten. Der Android-Client ermöglicht dem Leser sich Mediendetails, Ausleihstatus, seine eigene Ausleihhistorie sowie persönliche Daten anzeigen zu lassen. Desweiteren kann der Leser sich mittels der App Bücher zur Ausleihe vormerken und Informationen über die Bibliothek abrufen.
 
 \section{Modulsicht}
 \label{sec:modulsicht}
