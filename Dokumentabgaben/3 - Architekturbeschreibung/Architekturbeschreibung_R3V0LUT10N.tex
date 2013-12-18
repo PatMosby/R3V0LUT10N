@@ -515,7 +515,13 @@ die Entstehung anhand der Strategien erläutert werden.
   
 
 \section{Ausführungssicht}
-\nurlangversion
+%\nurlangversion
+Das folgende Diagramm \vref{ausfuehrungssicht} zeigt das Laufzeitverhalten der Software.
+Auf der einen Seite haben wir den mobilen Zugang auf welchem die Android App als Prozess läuft. Die App selber verwendet die Module \emph{bibclient} und \emph{bibcommon}. Von diesem mobilem Zugang kann eine TCP/IP-Verbindung zu dem Bibliotheksserver aufgebaut werden. Dabei gibt es mehrere Verbindungen zu immer nur einem Server, daher die Multiplizitäten \emph{*} und \emph{1}.
+
+Auf der anderen Seite nimmt nun der Bibliotheksserver die TCP/IP-Verbindungen an. Er ist gleichzeitig Server und Datenbankserver. Die Datenbank läuft auf dem Subsystem Glassfish Server. Der Server verwendet die Module \emph{businesslogic, exception, isbnsearch, persistence, presentation, properties, renderer, services} und \emph{util}.
+
+Das komplette System läuft mit zwei Prozessen: einmal mit der Android App und der andere Prozess ist \emph{bibjsf} der das Subsystem mit der Datenbank enthält. Prinzipiell gibt es unendlich viele mobile Zugänge bzw. App-Prozesse die auf einen Bibliotheksserver zugreifen.
 
 \begin{figure} [H] 
 \caption{Ausführungssicht} 
@@ -523,17 +529,6 @@ die Entstehung anhand der Strategien erläutert werden.
 	\label{ausfuehrungssicht} 
 \end{figure}
 \label{sec:ausfuehrung}
-
-{\it
-Die Ausführungssicht beschreibt das Laufzeitverhalten. Hier
-werden die Laufzeitelemente aufgeführt und beschrieben, welche Module
-sie zur Ausführung bringen. Ein Modul kann von mehreren
-Laufzeitelementen zur Laufzeit verwendet werden. Die Ausführungssicht
-beschreibt darüber hinaus, welche Laufzeitelemente spezifisch
-miteinander kommunizieren. Zudem wird bei verteilten Systemen
-(z.B. Client-Server-Systeme) dargestellt, welche Module von welchen
-Prozessen auf welchen Rechnern ausgeführt werden.}
-
 
 \section{Zusammenhänge zwischen Anwendungsfällen und Architektur}
 \label{sec:anwendungsfaelle}
