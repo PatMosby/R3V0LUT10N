@@ -332,9 +332,9 @@ Auswirkungen & Die Implementierung wird in Server und Client aufgeteilt(siehe \r
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 T6 & Benutzerschnittstelle \\ \hline
-Faktor & \\ \hline
-Flexibilität und Veränderlichkeit &  \\ \hline
-Auswirkungen & \\ \hline
+Faktor & Es sollte eine übersichtliche und ansprechende GUI geben\\ \hline
+Flexibilität und Veränderlichkeit & Die Gestaltung der GUI ist uns überlassen \\ \hline
+Auswirkungen & Für eine Benutzerfreundliche Gestaltung sind gute Kenntnisse in XHTML notwendig\\ \hline
 \end{tabular}
 \end{table}
 
@@ -412,38 +412,207 @@ Auswirkungen & Fehler müssen erkannt werden und durch Exception muss es dann en
 \subsection{Probleme und Strategien}
 \label{sec:strategien}
 
-{\it Aus einer Menge von Faktoren ergeben sich Probleme, die nun in
-  Form von Problemkarten beschrieben werden. Diese resultieren
-  z.B. aus
-  \begin{itemize}
-  \item Grenzen oder Einschränkungen durch Faktoren
-  \item der Notwendigkeit, die Auswirkung eines Faktors zu begrenzen
-  \item der Schwierigkeit, einen Produktfaktor zu erfüllen, oder
-  \item der Notwendigkeit einer allgemeinen Lösung zu globalen
-    Anforderungen.
-  \end{itemize}
-  Dazu entwickelt Ihr Strategien, um mit den identifizierten Problemen
-  umzugehen.
-
-  Achtet auch hier darauf, dass die Probleme und Strategien wirklich
-  die Architektur betreffen und nicht etwa das Projektmanagement. Die
-  Strategien stellen im Prinzip die Designentscheidungen dar. Sie
-  sollten also die Erklärung für den konkreten Aufbau der
-  verschiedenen Sichten liefern.}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}\hline
+Nummer & Faktoren\\ \hline
+1 & Zeitprobleme\\ \hline
+2 & Mangelnde Kenntnisse in Java\\ \hline
+3 & Mangelnde Kenntnisse in Android\\ \hline
+4 & Mangelnde Kenntnisse von Datenbanksystemen\\ \hline
+5 & Unzureichende Softwaretests\\ \hline
+6 & Ausfall eines Gruppenmitglieds\\ \hline
+7 & Mehrere parallele Nutzer\\ \hline
+8 & Performanz\\ \hline
+9 & unterschiedliche Benutzerrechte\\ \hline
+\end{tabular}
+\end{table}
 
 
-\textit{Beschreibt möglichst mehrere Alternativen und gebt
-  an, für welche Ihr Euch letztlich aus welchem Grunde entschieden
-  habt. Natürlich müssen die genannten Strategien in den folgenden
-  Sichten auch tatsächlich umgesetzt werden!}
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+1 Zeitprobleme\\ \hline
+Es gibt einen festgesetzten Abgabetermin, der eingehalten werden muss\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O2 Auslieferung von Produktfunktionen
+\item O4 Kenntnisse in Java  und Android
+\item O5 Kenntnisse in J-Unit
+\item O6 Anzahl der Entwickler
+\item P1 Mindestanforderungen
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Modularisierung für paralleles Arbeiten \leavevmode\newline
+Durch Modularisierung können mehrere Entwickler zur gleichen Zeit am Projekt arbeiten und die Module unabhängig voneinander implementieren. Diese werden dann später zusammengesetzt 
+\item Strategie 2: Bibliotheken Benutzen \leavevmode\newline
+Es werden bereits vorhandene Java Bibliotheken verwendet, dies spart Zeit, da man dann nicht alles neu schreiben muss.
+\end{itemize}
+Es werden beide Strategien verwendet.
+\end{tabular}
+\end{table}
 
-\textit{Ein sehr häufiger Fehler ist es, dass SWP-Gruppen
-  arbeitsteilig vorgehen: die eine Gruppe schreibt das Kapitel zur
-  Analyse von Faktoren und zu den Strategien, die andere Gruppe
-  beschreibt die diversen Sichten, ohne dass diese beiden Gruppen sich
-  abstimmen. Natürlich besteht aber ein Zusammenhang zwischen den
-  Faktoren, Strategien und Sichten. Dieser muss erkennbar sein, indem
-  sich die verschiedenen Kapitel eindeutig aufeinander beziehen.}
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+2 Mangelnde Kenntnisse in Java\\ \hline
+Es werden Vorkenntnisse in Java vorausgesetzt, ohne diese könnte es zu großen Problemen kommen, da ohne ausreichende Kenntnisse das Programm nicht realisiert werden kann\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O2 Auslieferung von Produktfunktionen
+\item O4 Kenntnisse in Java und Android
+\item O6 Anzahl der Entwickler
+\item T1 Software funktioniert unter Windows, Linux und MacOS
+\item T5 Client-Server System
+\item T7 Implementierungssprache Java
+\item P1 Mindestanforderungen
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Modularisierung \leavevmode\newline
+Der Code wird in verschiedene Module aufgeteilt, wenn ein Gruppenmitglied nicht genügend Kenntnisse besitzt, kann dieses Modul von einem anderen Mitglied neu erstellt werden und der inkompetente Entwickler kann keinen Schaden auf andere Module auswirken.
+\item Strategie 2: Aufteilen in Server und Client \leavevmode\newline
+Die Implementierung wird unter den Entwicklern so aufgeteilt, dass ein Teil den Client und ein Teil den Server macht, so müssen sich die Gruppenmitglieder nicht Kenntnisse in beiden Teilen aneignen.
+\end{itemize}
+Es werden beide Strategien verwendet.
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+3 Mangelnde Kenntnisse in Android\\ \hline
+Es werden Kenntnisse in Android vorausgesetzt, da eine App entwickelt werden muss. \\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O2 Auslieferung von Produktfunktionen
+\item O4 Kenntnisse in Java und Android
+\item O6 Anzahl der Entwickler
+\item T2 Software funktioniert als App(Andriod 2.3 oder höher)
+\item T5 Client-Server System
+\item T6 Benutzerschnittstelle
+\item T7 Implementierungssprache Java
+\item P1 Mindestanforderungen
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Modularisierung \leavevmode\newline
+Der Code wird in verschiedene Module aufgeteilt, wenn ein Gruppenmitglied nicht genügend Kenntnisse besitzt, kann dieses Modul von einem anderen Mitglied neu erstellt werden und der inkompetente Entwickler kann keinen Schaden auf andere Module auswirken.
+\item Strategie 2: Bearbeitung von Gruppenmitgliedern mit Android-Erfahrung \leavevmode\newline
+Wir werden die Implementierung einen Gruppenmitglied überlassen, welches bereits Erfahrung mit Android hat. So müssen sich die anderen nicht in Android einarbeiten und können sich bei Fragen an diesen wenden.
+\end{itemize}
+Es werden beide Strategien verfolgt, sollte das Gruppenmitglied mit Android zeitlich oder fachlich nicht klarkommen, wird ein weiteres Gruppenmitglied sich mit Android beschäftigen.
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+4 Mangelnde Kenntnisse in Datenbanksystemen\\ \hline
+Es werden Kenntnisse in Datenbanksystemen vorausgesetzt, da wir für die Bibliothek eine Datenbank verwenden. Dabei werden SQL- oder SQL-ähnliche Abfragen verwendet und entsprechende Kenntnisse verlangt \\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O2 Auslieferung von Produktfunktionen
+\item O7 Kenntnisse in Datenbanksystemen
+\item O6 Anzahl der Entwickler
+\item T5 Client-Server System
+\item T7 Implementierungssprache Java
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Bearbeitung von Gruppenmitgliedern mit Erfahrung in Datenbanksystemen \leavevmode\newline
+Wir werden die Implementierung Gruppenmitgliedern überlassen, welches bereits Erfahrung mit Datenbanksystemen hat. So müssen sich die anderen nicht in Datenbanksystemen einarbeiten und können sich bei Fragen an diesen wenden.
+\end{itemize}
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+5 Unzureichende Softwaretests\\ \hline
+Es werden genügend Tests benötigt, welche Module und Komponenten testen, ob diese funktionieren\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O5 Kenntnisse in J-Unit
+\item T7 Implementierungssprache Java
+\item P1 Mindestanforderungen
+\item P2 Performanz
+\item P3 Benutzerrechte
+\item P4 Fehlererkennung
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Modularisierung \leavevmode\newline
+\end{itemize}
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+6 Ausfall eines Gruppenmitglieds\\ \hline
+Es kann jederzeit ein Gruppenmitglied aus der Gruppe austreten oder durch Krankheit etc. für eine gewisse Zeit ausfallen.\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O2 Auslieferung von Produktfunktionen
+\item O6 Anzahl der Entwickler
+\item P1 Mindestanforderungen
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Modularisierung \leavevmode\newline
+Der Code wird in verschiedene Module aufgeteilt, welche von einem Entwickler bearbeitet werden. Wenn nun ein Entwickler ausfällt, kann ein Modul von einem anderen Entwickler übernommen werden
+\end{itemize}
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+7 Mehrere parallele Nutzer\\ \hline
+Es greifen mehrere Nutzer zur gleichen Zeit auf das System zu, auf welche der Server antworten muss. Dabei soll der Server die Daten nicht an alle Clients senden\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O3 Budget
+\item T3 SQL-Datenbank
+\item T4 Mehrere parallele Nutzer
+\item P1 Mindestanforderungen
+\item P2 Performanz
+\item P3 Benutzerrechte
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Thread \leavevmode\newline
+Die Clients bekommen jeweils einen Thread, somit können sie zeitgleich auf den Server zugreifen und bekommen nur ihre Daten zurück.
+\end{itemize}
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+8 Performanz\\ \hline
+Die Software sollte kurze Ausführungszeiten haben. Dabei ist zu beachten, dass die Software/App auch auf Geräten mit geringer Leistung schnell und problemlos läuft\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item T1 Software funktioniert unter Windows, Linux und MacOS
+\item T2 Software funktioniert als App(Android 2.3 oder höher)
+\item T3 SQL-Datenbank
+\item T4 Mehrere parallele Nutzer
+\item P1 Mindestanforderungen
+\item P2 Performanz
+\item P3 Benutzerrechte
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1:  \leavevmode\newline
+
+\end{itemize}
+\end{tabular}
+\end{table}
+
 
 \section{Konzeptionelle Sicht}
 \label{sec:konzeptionell}
