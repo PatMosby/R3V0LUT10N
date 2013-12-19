@@ -648,7 +648,7 @@ Der Gui-Client stellt für die Bibliothekare alle benötigten Funktionen bereit 
 
 \begin{figure} [H] 
 \caption{Konzeptionelle Sicht Server}  \centering
-	\includegraphics[scale=2.25]{Diagramme/KonzeptionelleSichtServer.png} 
+	\includegraphics[scale=1.85]{Diagramme/KonzeptionelleSichtServer.png} 
 	\label{pic:konzeptionellesichtserver} 
 \end{figure}
 
@@ -674,7 +674,7 @@ Die Komponente Persistence ist die Schnittstelle zur Datenbank. Über das Interf
 
 \begin{figure} [H] 
 \caption{Konzeptionelle Sicht Client}  \centering
-	\includegraphics[scale=1.8]{Diagramme/KonzeptionelleSichtClient.png} 
+	\includegraphics[scale=1.7]{Diagramme/KonzeptionelleSichtClient.png} 
 	\label{pic:konzeptionellesichtclient} 
 \end{figure}
 
@@ -694,6 +694,8 @@ Die Komponente Model nimmt Ergebnisse von der Komponente Communication entgegen 
 Die Kompnente User Interface muss in zwei unterschiedliche Komponenten zerlegt werden:
 \begin{itemize}
 \item{GUI}
+
+Die GUI richtet sich in erster Linie an Bibliothekare.
 \item{Android-App}
 \end{itemize}
 
@@ -734,12 +736,18 @@ Wir haben ein Hauptpaket eu.it\_r3v in dem sich weitere Unterpakete befinden. Di
 \end{figure}
 
 
-\subsubsection{Paket bibclient}
+\subsubsection{Paket bibjsf}
 \label{sec:bibclient}
 
 \begin{figure} [H] 
-\caption{Paket bibclient} \centering
+\caption{Paketübersicht bibjsf} \centering
 	\includegraphics[width=0.45\textwidth]{Diagramme/Packagebibjsfuebersicht.png} 
+	\label{pic:PackagebibjsfUebersicht} 
+\end{figure}
+
+\begin{figure} [H] 
+\caption{Paket bibjsf} \centering
+	\includegraphics[width=1\textwidth]{Diagramme/Packagebibjsf.png} 
 	\label{pic:PackagebibjsfUebersicht} 
 \end{figure}
 
