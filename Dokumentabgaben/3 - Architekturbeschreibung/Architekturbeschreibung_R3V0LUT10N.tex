@@ -1,148 +1,151 @@
 \documentclass[fontsize=12pt,paper=a4,twoside]{scrartcl}
 
-\newcommand{\grad}{\ensuremath{^{\circ}} }
-\renewcommand{\strut}{\vrule width 0pt height5mm depth2mm}
+% Dokumentenpräambel
+% hier alle Packages die genutzt werden mittels \usepackage einbinden
+\usepackage{booktabs}
 
 \usepackage[utf8]{inputenc}
+
 \usepackage[final]{pdfpages}
+
+\usepackage[ngerman]{babel} 
+
+% für Deutschunterstützung und neue Rechtschreibung
+\usepackage[ngerman]{varioref} 
+
+% Verweise innerhalb des Dokuments schick mit " ... auf Seite ... " automatisch versehen. Dazu \vref{labelname} benutzen
+\usepackage{ngerman}
+
 % obere Seitenränder gestalten können
 \usepackage{fancyhdr}
-\usepackage{moreverb}
+
 % Graphiken als jpg, png etc. einbinden können
 \usepackage{graphicx}
+
+% Unterstützung für etliche Symbole
 \usepackage{stmaryrd}
+
 % Floats Objekte mit [H] festsetzen
 \usepackage{float}
+
 % setzt URL's schön mit \url{http://bla.laber.com/~mypage}
 \usepackage{url}
+
 % Externe PDF's einbinden können
 \usepackage{pdflscape}
-% Verweise innerhalb des Dokuments schick mit " ... auf Seite ... "
-% automatisch versehen. Dazu \vref{labelname} benutzen
-\usepackage[ngerman]{varioref}
-\usepackage[ngerman]{babel}
-\usepackage{ngerman}
+
 % Bibliographie
 \usepackage{bibgerm}
+
 % Tabellen
 \usepackage{tabularx}
+
 \usepackage{supertabular}
-\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue,
-            citecolor=blue, urlcolor=blue, hyperfigures=true,
-            pdftex=true]{hyperref}
+
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue, hyperfigures=true, pdftex=true]{hyperref}
+
 \usepackage{bookmark}
 
-\hyphenation{Arbeits-paket}
-
-\newboolean{langversion} %Deklaration
-\setboolean{langversion}{true} %Zuweisung ist 'false' für Blockkurs
-\newcommand{\highlight}[1]{\textcolor{blue}{\textbf{#1}}}
-\newcommand{\nurlangversion}[0]{%
-\ifthenelse{\boolean{langversion}}{\highlight{Muss in SWP-2 ausgefüllt werden}}{\highlight{Entfällt in SWP-1}}}
-
-% erstes Argument: SWP-2, zweites SWP-1
-\newcommand{\variante}[2]{\ifthenelse{\boolean{langversion}}{#1}{#2}}
-
-% Damit Latex nicht zu lange Zeilen produziert:
+%
+% hier Formatierungsbefehle einfügen
+%
+% Damit Latex nicht zu lange Zeilen produziert
 \sloppy
-%Uneinheitlicher unterer Seitenrand:
-%\raggedbottom
 
-% Kein Erstzeileneinzug beim Absatzanfang
-% Sieht aber nur gut aus, wenn man zwischen Absätzen viel Platz einbaut
-\setlength{\parindent}{0ex}
+% Uneinheitlicher unterer Seitenrand
+\raggedbottom
+
+% Pfad zu den Grafiken fürs Dokument. Ordner muss im gleichen Verzeichniss liegen
+\graphicspath{{graphics/},{graphics/ScreensWebsite/}}
+
+% Gafikendungen die genutzt werden
+\DeclareGraphicsExtensions{.png,.jpg}
+
+% Seitenränder für Korrekturen setzen
+\addtolength{\evensidemargin}{-1cm}\addtolength{\oddsidemargin}{1cm}
+
+% Kein Erstzeileneinzug beim Absatzanfang. Sieht nur gut aus, wenn man zwischen Absätzen viel Platz einbaut.
+\setlength{\parindent}{0ex} 
 
 % Abstand zwischen zwei Absätzen
 \setlength{\parskip}{1ex}
 
-% Seitenränder für Korrekturen verändern
-\addtolength{\evensidemargin}{-1cm}
-\addtolength{\oddsidemargin}{1cm}
-
-\bibliographystyle{gerapali}
-
-% Lustige Header auf den Seiten
-  \pagestyle{fancy}
-  \setlength{\headheight}{70.55003pt}
-  \fancyhead{}
-  \fancyhead[LO,RE]{Software--Projekt 1\\ SoSe 2013
-  \\Anforderungsspezifikation}
-  \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\\slshape \rightmark}
+% hier werden neue Befehle deklariert
+% Header für alle Seiten
+\pagestyle{fancy} \setlength{ 
+\headheight}{70.55003pt} \fancyhead{} \fancyhead[LO,RE]{Software-Projekt 2\\
+2013/14 \\Anforderungsspezifikation} \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\
+\slshape\rightmark}
 
 %
-% Und jetzt geht das Dokument los....
+% Ab hier beginnt das Dokument
 %
-
 \begin{document}
 
 % Lustige Header nur auf dieser Seite
-  \thispagestyle{fancy}
-  \fancyhead[LO,RE]{ }
-  \fancyhead[LE,RO]{Universität Bremen\\FB 3 -- Informatik\\
-  Prof. Dr. Rainer Koschke \\TutorIn: Sabrina Wilske}
-  \fancyfoot[C]{}
+\thispagestyle{fancy} \fancyhead[LO,RE]{ } \fancyhead[LE,RO]{Universität Bremen\\FB 3 -- Informatik\\
+Prof. Dr. Rainer Koschke \\TutorIn: Sabrina Wilske} \fancyfoot[C]{}
 
 % Start Titelseite
-  \vspace{3cm}
-
-  \begin{minipage}[H]{\textwidth}
-  \begin{center}
-  \bf
-  \Large
-  Software--Projekt 1 2013\\
-  \smallskip
-  \small
-  VAK 03-BA-901.02\\
-  \vspace{3cm}
-  \end{center}
-  \end{minipage}
-  \begin{minipage}[H]{\textwidth}
-  \begin{center}
-  \vspace{1cm}
-  \bf
-  \Large Architekturbeschreibung\\
-  \vspace{3ex} \small IT\_R3V0LUT10N\\
-  \vfill
-  \end{center}
-  \end{minipage}
-  \vfill
-  \begin{minipage}[H]{\textwidth}
-  \begin{center}
-  \sf
-  \begin{tabular}{lrr}
- 			Sebastian Bredehöft & sbrede@tzi.de & 2751589\\
- 			Patrick Damrow & damsen@tzi.de & 2056170\\
- 			Tobias Dellert & tode@tzi.de & 2936941\\
- 			Tim Ellhoff & tellhoff@tzi.de & 2520913\\
- 			Daniel Pupat & dpupat@tzi.de & 2703053\\
-  \end{tabular}
-  \\ ~
-  \vspace{2cm}
-  \\
-  \it Abgabe: 22. Dezember 2013 --- Version 1.1\\ ~
-  \end{center}
-  \end{minipage}
+\vspace{3cm} 
+\begin{minipage}
+	[H]{ 
+	\textwidth} 
+	\begin{center}
+		\bf \Large Software-Projekt 2 2013/14\\
+		\smallskip \small VAK 03-BA-901.02\\
+		\vspace{3cm} 
+	\end{center}
+\end{minipage}
+\begin{minipage}
+	[H]{ 
+	\textwidth} 
+	\begin{center}
+		\vspace{1cm} \bf \Large Anforderungsspezifikation\\
+		\vspace{3ex} \small IT\_R3V0LUT10N\\
+		\vfill 
+	\end{center}
+\end{minipage}
+\vfill 
+\begin{minipage}
+	[H]{ 
+	\textwidth} 
+	\begin{center}
+		\sf 
+		\begin{tabular}
+			{lrr} Sebastian Bredehöft & sbrede@tzi.de & 2751589\\
+			Patrick Damrow & damsen@tzi.de & 2056170\\
+			Tobias Dellert & tode@tzi.de & 2936941\\
+			Tim Ellhoff & tellhoff@tzi.de & 2520913\\
+			Daniel Pupat & dpupat@tzi.de & 2703053\\
+		\end{tabular}
+		\\
+		~ \vspace{2cm} \\
+		\it Abgabe: 17. Oktober 2013 -- Version 1.7 vom 20.11.2013 \\
+		~ 
+	\end{center}
+\end{minipage}
 
 % Ende Titelseite
-
-% Start Leerseite
-
+% Eine Leerseite
 \newpage
 
-  \thispagestyle{fancy}
-  \fancyhead{}
-  \fancyhead[LO,RE]{Software--Projekt \\  2013
-  \\Architekturbeschreibung}
-  \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\~}
-  \fancyfoot{}
-  \renewcommand{\headrulewidth}{0.4pt}
-  \tableofcontents
-
+\thispagestyle{fancy} \fancyhead{} \fancyhead[LO,RE]{Software-Projekt 2 \\
+2013/14 \\Anforderungsspezifikation} \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\~} \fancyfoot{} 
+\renewcommand{\headrulewidth}{0.4pt} 
+\tableofcontents
 \newpage
+% Abbildungsverzeichnis 
+\listoffigures
 
-  \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\\slshape \rightmark}
+% Tabellenverzeichnis
+\listoftables
 
+\clearpage
 
+\fancyhead[LE,RO]{Seite \thepage\\
+\slshape \leftmark\\
+\slshape\rightmark}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Version und Änderungsgeschichte}
 
@@ -161,13 +164,11 @@ Version & Datum & Änderungen \\
 \section{Einführung}
 
 \subsection{Zweck}
-\nurlangversion
 
   {\em Was ist der Zweck dieser Architekturbeschreibung? Wer sind
   die LeserInnen?}
 
 \subsection{Status}
-\nurlangversion
 
 
   
@@ -177,7 +178,7 @@ Version & Datum & Änderungen \\
 \subsection{Referenzen}
 
 \subsection{Übersicht über das Dokument}
-\nurlangversion
+
 
 
 \section{Globale Analyse}
@@ -449,7 +450,7 @@ Durch Modularisierung können mehrere Entwickler zur gleichen Zeit am Projekt ar
 \item Strategie 2: Bibliotheken Benutzen \leavevmode\newline
 Es werden bereits vorhandene Java Bibliotheken verwendet, dies spart Zeit, da man dann nicht alles neu schreiben muss.
 \end{itemize}
-Es werden beide Strategien verwendet.
+Es werden beide Strategien verwendet.\\ \hline
 \end{tabular}
 \end{table}
 
@@ -475,7 +476,7 @@ Der Code wird in verschiedene Module aufgeteilt, wenn ein Gruppenmitglied nicht 
 \item Strategie 2: Aufteilen in Server und Client \leavevmode\newline
 Die Implementierung wird unter den Entwicklern so aufgeteilt, dass ein Teil den Client und ein Teil den Server macht, so müssen sich die Gruppenmitglieder nicht Kenntnisse in beiden Teilen aneignen.
 \end{itemize}
-Es werden beide Strategien verwendet.
+Es werden beide Strategien verwendet.\\ \hline
 \end{tabular}
 \end{table}
 
@@ -503,7 +504,7 @@ Der Code wird in verschiedene Module aufgeteilt, wenn ein Gruppenmitglied nicht 
 \item Strategie 2: Bearbeitung von Gruppenmitgliedern mit Android-Erfahrung \leavevmode\newline
 Wir werden die Implementierung einen Gruppenmitglied überlassen, welches bereits Erfahrung mit Android hat. So müssen sich die anderen nicht in Android einarbeiten und können sich bei Fragen an diesen wenden.
 \end{itemize}
-Es werden beide Strategien verfolgt, sollte das Gruppenmitglied mit Android zeitlich oder fachlich nicht klarkommen, wird ein weiteres Gruppenmitglied sich mit Android beschäftigen.
+Es werden beide Strategien verfolgt, sollte das Gruppenmitglied mit Android zeitlich oder fachlich nicht klarkommen, wird ein weiteres Gruppenmitglied sich mit Android beschäftigen.\\ \hline
 \end{tabular}
 \end{table}
 
@@ -524,7 +525,7 @@ Es werden Kenntnisse in Datenbanksystemen vorausgesetzt, da wir für die Bibliot
 \begin{itemize}
 \item Strategie 1: Bearbeitung von Gruppenmitgliedern mit Erfahrung in Datenbanksystemen \leavevmode\newline
 Wir werden die Implementierung Gruppenmitgliedern überlassen, welches bereits Erfahrung mit Datenbanksystemen hat. So müssen sich die anderen nicht in Datenbanksystemen einarbeiten und können sich bei Fragen an diesen wenden.
-\end{itemize}
+\end{itemize}\\ \hline
 \end{tabular}
 \end{table}
 
@@ -545,7 +546,7 @@ Es werden genügend Tests benötigt, welche Module und Komponenten testen, ob di
 \textbf{Lösung}\\
 \begin{itemize}
 \item Strategie 1: Modularisierung \leavevmode\newline
-\end{itemize}
+\end{itemize}\\ \hline
 \end{tabular}
 \end{table}
 
@@ -564,7 +565,7 @@ Es kann jederzeit ein Gruppenmitglied aus der Gruppe austreten oder durch Krankh
 \begin{itemize}
 \item Strategie 1: Modularisierung \leavevmode\newline
 Der Code wird in verschiedene Module aufgeteilt, welche von einem Entwickler bearbeitet werden. Wenn nun ein Entwickler ausfällt, kann ein Modul von einem anderen Entwickler übernommen werden
-\end{itemize}
+\end{itemize}\\ \hline
 \end{tabular}
 \end{table}
 
@@ -586,7 +587,7 @@ Es greifen mehrere Nutzer zur gleichen Zeit auf das System zu, auf welche der Se
 \begin{itemize}
 \item Strategie 1: Thread \leavevmode\newline
 Die Clients bekommen jeweils einen Thread, somit können sie zeitgleich auf den Server zugreifen und bekommen nur ihre Daten zurück.
-\end{itemize}
+\end{itemize}\\ \hline
 \end{tabular}
 \end{table}
 
@@ -609,31 +610,102 @@ Die Software sollte kurze Ausführungszeiten haben. Dabei ist zu beachten, dass 
 \begin{itemize}
 \item Strategie 1:  \leavevmode\newline
 
-\end{itemize}
+\end{itemize}\\ \hline
 \end{tabular}
 \end{table}
 
+\newpage
 
 \section{Konzeptionelle Sicht}
 \label{sec:konzeptionell}
+
+Wir haben mithilfe von UML-Diagrammen die konzeptionelle Sicht realisiert. Im Folgenden werden die einzelnen Diagramme aufgezeigt und beschrieben.
 
 \subsection{Überblick}
 \label{Ueberblick}
 
 \begin{figure} [H] 
-\caption{Konzeptionelle Sicht} 
-	\includegraphics[width=1\textwidth]{Diagramme/KonzeptionelleSicht.jpg} 
-	\label{konzeptionellesicht} 
+\caption{Konzeptionelle Sicht (Klein)} 
+	\includegraphics[width=1\textwidth]{Diagramme/KonzeptionelleSichtKlein.png} 
+	\label{pic:konzeptionellesichtklein} 
 \end{figure}
-\label{sec:konzeptionell}
 
 Unsere Architektur besteht aus zwei grundlegenden Komponenten, der Serverkomponente und der Clientkomponente, welche wiederum weitere Komponenten beinhalten. Auf der einen Seite haben wir unsere Serverkomponente, die alle benötigten Daten der Medien, der Nutzer und der Ausleihvorgänge der Bibliothek speichert.
 
 Bei der Clientkomponente muss zwischen zwei Teilen unterschieden werden. Einaml der Gui-Client, welcher sich in erster Linie an die Bibliothekare richtet und der mobile Android-Client, der sich ausschließlich an die Leser richtet. 
 Der Gui-Client stellt für die Bibliothekare alle benötigten Funktionen bereit um eine Bibliothek zu verwalten. Der Android-Client ermöglicht dem Leser sich Mediendetails, Ausleihstatus, seine eigene Ausleihhistorie sowie persönliche Daten anzeigen zu lassen. Desweiteren kann der Leser sich mittels der App Bücher zur Ausleihe vormerken und Informationen über die Bibliothek abrufen.
 
+\begin{figure} [H] 
+\caption{Konzeptionelle Sicht}  \centering
+	\includegraphics[scale=1.8]{Diagramme/KonzeptionelleSicht.png} 
+	\label{pic:konzeptionellesicht} 
+\end{figure}
+
+\subsection{Serverkomponente}
+\label{sec:server}
+
+\begin{figure} [H] 
+\caption{Konzeptionelle Sicht Server}  \centering
+	\includegraphics[scale=2]{Diagramme/KonzeptionelleSichtServer.png} 
+	\label{pic:konzeptionellesichtserver} 
+\end{figure}
+
+\subsection{Clientkomponente}
+\label{sec:client}
+
+\begin{figure} [H] 
+\caption{Konzeptionelle Sicht Client}  \centering
+	\includegraphics[scale=2]{Diagramme/KonzeptionelleSichtClient.png} 
+	\label{pic:konzeptionellesichtclient} 
+\end{figure}
+
 \section{Modulsicht}
 \label{sec:modulsicht}
+
+\subsection{Pakete}
+\label{sec:pakete}
+
+Wir haben ein Hauptpaket eu.it\_r3v in dem sich weitere Unterpakete befinden. Diese dienen der Bündelung gemeinsamer Quellcodedateien.
+
+\begin{figure} [H] 
+\caption{Pakete Übersicht} \centering
+	\includegraphics[width=0.6\textwidth]{Diagramme/PackageUebersicht.png} 
+	\label{pic:PackageUebersicht} 
+\end{figure}
+\label{sec:PackageUebersicht}
+
+\subsubsection{Paket bibclient}
+\label{sec:bibclient}
+
+\begin{figure} [H] 
+\caption{Paket bibclient} \centering
+	\includegraphics[width=1\textwidth]{Diagramme/Packagebibclient.png} 
+	\label{pic:PackageClient} 
+\end{figure}
+
+
+\subsubsection{Pakete bibcommon}
+\label{sec:bibcommon}
+
+\begin{figure} [H] 
+\caption{Paket bibcommon} \centering
+	\includegraphics[width=1\textwidth]{Diagramme/Packagebibcommon.png} 
+	\label{pic:PackageCommon} 
+\end{figure}
+
+
+\subsubsection{Paket bibclient}
+\label{sec:bibclient}
+
+\begin{figure} [H] 
+\caption{Paket bibclient} \centering
+	\includegraphics[width=0.45\textwidth]{Diagramme/Packagebibjsfuebersicht.png} 
+	\label{pic:PackagebibjsfUebersicht} 
+\end{figure}
+
+
+
+
 
 {\it
 Diese Sicht beschreibt den statischen Aufbau des Systems mit Hilfe von
@@ -692,7 +764,7 @@ die Entstehung anhand der Strategien erläutert werden.
   
 
 \section{Ausführungssicht}
-%\nurlangversion
+
 Das folgende Diagramm \vref{ausfuehrungssicht} zeigt das Laufzeitverhalten der Software.
 Auf der einen Seite haben wir den mobilen Zugang auf welchem die Android App als Prozess läuft. Die App selber verwendet die Module \emph{bibclient} und \emph{bibcommon}. Von diesem mobilem Zugang kann eine TCP/IP-Verbindung zu dem Bibliotheksserver aufgebaut werden. Dabei gibt es mehrere Verbindungen zu immer nur einem Server, daher die Multiplizitäten \emph{*} und \emph{1}.
 
@@ -711,11 +783,11 @@ Das komplette System läuft mit zwei Prozessen: einmal mit der Android App und d
 \label{sec:anwendungsfaelle}
 
 {\it In diesem Abschnitt sollen Sequenzdiagramme mit Beschreibung(!)
-  für \variante{zwei bis drei von Euch ausgewählte
+  für {zwei bis drei von Euch ausgewählte
     Anwendungsfälle}{einen von Euch ausgewählten Anwendungsfall}
   erstellt werden. Ein Sequenzdiagramm beschreibt den
   Nachrichtenverkehr zwischen allen Modulen, die an der Realisierung
-  des Anwendungsfalles beteiligt sind.  \variante{Wählt die
+  des Anwendungsfalles beteiligt sind.  {Wählt die
     Anwendungsfälle so, dass nach Möglichkeit alle Module Eures
     entworfenen Systems in mindestens einem Sequenzdiagramm
     vorkommen. Falls Euch das nicht gelingt, versucht möglichst viele
@@ -726,7 +798,7 @@ Das komplette System läuft mit zwei Prozessen: einmal mit der Android App und d
     anstreben.} }
 
 \section{Evolution}
-\nurlangversion
+
 
 \label{sec:evolution}
 
