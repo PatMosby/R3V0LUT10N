@@ -160,34 +160,48 @@ Version & Datum & Änderungen \\
 \section{Einführung}\label{c01}
 
 \subsection{Zweck}
-\nurlangversion
+Der Testplan bietet einen Überblick über die geplanten Tests und dient u.a. als Anleitung für die Tester. Die Software soll dabei ausführlich auf Funktionalität getestet werden. 
 
-  {\em Was ist der Zweck dieses Testplans? Wer sind
-  die LeserInnen?}
+Im Testplan wird festgelegt wie man welche Komponenten testet. Dazu wird außerdem definiert welchen Umfang die Tests haben sollen und wann ein Test erfolgreich ist und wann nicht.
+
+Während der Implementierungsphase werden wir uns nach dem Testplan richten und ihn gegebenenfalls weiterführen und vervollständigen.
+
 
 \subsection{Umfang}
-\nurlangversion
+Der Testplan entspricht der vereinfachten Form des \emph{IEEE Standard for Software Test Documentation 829-1998}. 
 
 \subsection{Beziehungen zu anderen Dokumenten}
-\nurlangversion
+Dieser Testplan bezieht sich zum einen auf die Anforderungsspezifikation, da dort die Systemeigenschaften und Systemattribute spezifiziert wurden. Die Testfälle werden auf Grundlage der dortigen Anwendungsfälle entwickelt
+
+Außerdem gibt es Referenzen zur Architekturbeschreibung, da in dieser die Module und Komponenten definiert wurden, die in diesem Dokument getestet werden sollen.
 
 
 \subsection{Aufbau der Testbezeichner}
 \label{sec:aufb-der-testb}
 
-\emph{Jeder Testfall muss einen eindeutigen Bezeichner haben. Der könnte
-hierarchisch aufgebaut sein. Hier wird dieses Namensschema einheitlich festgelegt.}
+Der Aufbau der Testbezeichner richtet sich nach folgendem Schema:
+\begin{itemize}
+\item Die ersten beiden Buchstaben geben die Art des Tests vor. Dabei unterscheiden wir zwischen vier verschiedenen Testarten:
+\begin{itemize}
+	\item Komponententests = KT
+	\item Integrationstests = IT
+	\item Funktionstests = FT
+	\item Leistungstests = LT
+\end{itemize}
+\item Die Nummer steht für die jeweilige Testfallnummer
+
+\item Optional: in alphabetischer Reihenfolge werden hier Variationen oder untergeordnete Testfälle definiert
+\end{itemize}
+Nach diesem Schema sieht ein Testbezeichner nun folgendermaßen aus:
+
+\textbf{\emph{IT-3-A}}: Integrationstest, Nr. 3, Variante 1
 
 %%
 %% Dokumentation der Testergebnisse 
 %%
 \subsection{Dokumentation der Testergebnisse}
-\nurlangversion
 
-{\em In welcher Form werden die Testergebnisse dokumentiert
-($\Rightarrow$ Testprotokoll)? Wie werden gefundene Fehler dokumentiert
-(Bugtracking)?}
-
+Zu jedem Testfall wird ein kurzes Testprotokoll angefertigt. Dieses beinhaltet den Ablauf des Testfalls und die möglichen Komplikationen die bei der Durchführung entstehen können. Dann werden die Resultate des Testfalls bestimmt und eventuell gefundene Fehler beschrieben.
 
 %%
 %% Definitionen und Referenzen 
@@ -204,7 +218,9 @@ hierarchisch aufgebaut sein. Hier wird dieses Namensschema einheitlich festgeleg
 
 % Systemüberblick
 \section{Systemüberblick}\label{c02}
-\nurlangversion
+Das System besteht aus der Server- und der Clientkomponente. Die konzeptionelle Sicht der Architekturbeschreibung (vgl. Abschnitt 3 der Architekturbeschreibung) dient als Grundlage für den Testplan, da dort die verschiedenen Komponenten  beschrieben werden.
+
+Auf der Serverseite gibt es die Komponenten 
 
 {\em Dieser Abschnitt soll einen Überblick über das System geben, und
   zwar insbesondere hinsichtlich jener Komponenten, die durch
