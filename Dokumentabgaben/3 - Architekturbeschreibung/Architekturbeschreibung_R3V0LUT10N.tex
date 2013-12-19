@@ -641,25 +641,63 @@ Der Gui-Client stellt für die Bibliothekare alle benötigten Funktionen bereit 
 	\label{pic:konzeptionellesicht} 
 \end{figure}
 
-\centering Als Architekturstil verwenden wir das Model-View-Controller-Pattern.
+{\centering Als Architekturstil verwenden wir das Model-View-Controller-Pattern.\\}
 
 \subsection{Serverkomponente}
 \label{sec:server}
 
 \begin{figure} [H] 
 \caption{Konzeptionelle Sicht Server}  \centering
-	\includegraphics[scale=2]{Diagramme/KonzeptionelleSichtServer.png} 
+	\includegraphics[scale=2.25]{Diagramme/KonzeptionelleSichtServer.png} 
 	\label{pic:konzeptionellesichtserver} 
 \end{figure}
+
+Die Serverkomponente besteht aus insgesamt drei Teilkomponenten. welche sich wie folgt aufgliedern:
+
+\begin{itemize}
+\item{Communication}
+
+Die Komponente Communication nimmt Anfragen des Clients entgegen und leitet sie an die Komponente BusinessLogic weiter wo die Anfragen verarbeitet werden und sendet die Ergebnisse zurück an den Client.
+
+\item{BusinessLogic}
+
+Die Komponente BusinessLogic dient zum verarbeiten der Anfragen und leitet diese verarbeiteten Anfragen dann an die Komponente Persistence weiter.
+
+\item{Persistence}
+
+Die Komponente Persistence ist die Schnittstelle zur Datenbank. Über das Interface DBControl werden die verarbeiteten Anfragen von der Komponente BusinessLogic empfangen und in Datenbankabfragen umgewandelt, welche dann von der Datenbank entgegen genommen werden.
+
+\end{itemize}
 
 \subsection{Clientkomponente}
 \label{sec:client}
 
 \begin{figure} [H] 
 \caption{Konzeptionelle Sicht Client}  \centering
-	\includegraphics[scale=2]{Diagramme/KonzeptionelleSichtClient.png} 
+	\includegraphics[scale=1.8]{Diagramme/KonzeptionelleSichtClient.png} 
 	\label{pic:konzeptionellesichtclient} 
 \end{figure}
+
+Die Clientkomponente besteht so wie die Serverkomponente aus drei Teilkomponenten, welche sich wie folgt aufgliedern:
+
+\begin{itemize}
+\item{Communication}
+
+Die Komponente Communication sendet Anfragen des Clients an den Server, welche dort verarbeitet werden und nimmt die Ergebnisse entgegen um diese an die Komponente Model zu übergeben wo die Ergebnisse der Anfrage weiter verarbeitet werden.
+
+\item{Model}
+
+Die Komponente Model nimmt Ergebnisse von der Komponente Communication entgegen und schickt diese an die Komponente User Interface. 
+
+\item{User Interface}
+
+Die Kompnente User Interface muss in zwei unterschiedliche Komponenten zerlegt werden:
+\begin{itemize}
+\item{GUI}
+\item{Android-App}
+\end{itemize}
+
+\end{itemize}
 
 \section{Modulsicht}
 \label{sec:modulsicht}
