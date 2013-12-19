@@ -1,148 +1,151 @@
 \documentclass[fontsize=12pt,paper=a4,twoside]{scrartcl}
 
-\newcommand{\grad}{\ensuremath{^{\circ}} }
-\renewcommand{\strut}{\vrule width 0pt height5mm depth2mm}
+% Dokumentenpräambel
+% hier alle Packages die genutzt werden mittels \usepackage einbinden
+\usepackage{booktabs}
 
 \usepackage[utf8]{inputenc}
+
 \usepackage[final]{pdfpages}
+
+\usepackage[ngerman]{babel} 
+
+% für Deutschunterstützung und neue Rechtschreibung
+\usepackage[ngerman]{varioref} 
+
+% Verweise innerhalb des Dokuments schick mit " ... auf Seite ... " automatisch versehen. Dazu \vref{labelname} benutzen
+\usepackage{ngerman}
+
 % obere Seitenränder gestalten können
 \usepackage{fancyhdr}
-\usepackage{moreverb}
+
 % Graphiken als jpg, png etc. einbinden können
 \usepackage{graphicx}
+
+% Unterstützung für etliche Symbole
 \usepackage{stmaryrd}
+
 % Floats Objekte mit [H] festsetzen
 \usepackage{float}
+
 % setzt URL's schön mit \url{http://bla.laber.com/~mypage}
 \usepackage{url}
+
 % Externe PDF's einbinden können
 \usepackage{pdflscape}
-% Verweise innerhalb des Dokuments schick mit " ... auf Seite ... "
-% automatisch versehen. Dazu \vref{labelname} benutzen
-\usepackage[ngerman]{varioref}
-\usepackage[ngerman]{babel}
-\usepackage{ngerman}
+
 % Bibliographie
 \usepackage{bibgerm}
+
 % Tabellen
 \usepackage{tabularx}
+
 \usepackage{supertabular}
-\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue,
-            citecolor=blue, urlcolor=blue, hyperfigures=true,
-            pdftex=true]{hyperref}
+
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue, hyperfigures=true, pdftex=true]{hyperref}
+
 \usepackage{bookmark}
 
-\hyphenation{Arbeits-paket}
-
-\newboolean{langversion} %Deklaration
-\setboolean{langversion}{true} %Zuweisung ist 'false' für Blockkurs
-\newcommand{\highlight}[1]{\textcolor{blue}{\textbf{#1}}}
-\newcommand{\nurlangversion}[0]{%
-\ifthenelse{\boolean{langversion}}{\highlight{Muss in SWP-2 ausgefüllt werden}}{\highlight{Entfällt in SWP-1}}}
-
-% erstes Argument: SWP-2, zweites SWP-1
-\newcommand{\variante}[2]{\ifthenelse{\boolean{langversion}}{#1}{#2}}
-
-% Damit Latex nicht zu lange Zeilen produziert:
+%
+% hier Formatierungsbefehle einfügen
+%
+% Damit Latex nicht zu lange Zeilen produziert
 \sloppy
-%Uneinheitlicher unterer Seitenrand:
-%\raggedbottom
 
-% Kein Erstzeileneinzug beim Absatzanfang
-% Sieht aber nur gut aus, wenn man zwischen Absätzen viel Platz einbaut
-\setlength{\parindent}{0ex}
+% Uneinheitlicher unterer Seitenrand
+\raggedbottom
+
+% Pfad zu den Grafiken fürs Dokument. Ordner muss im gleichen Verzeichniss liegen
+\graphicspath{{graphics/},{graphics/ScreensWebsite/}}
+
+% Gafikendungen die genutzt werden
+\DeclareGraphicsExtensions{.png,.jpg}
+
+% Seitenränder für Korrekturen setzen
+\addtolength{\evensidemargin}{-1cm}\addtolength{\oddsidemargin}{1cm}
+
+% Kein Erstzeileneinzug beim Absatzanfang. Sieht nur gut aus, wenn man zwischen Absätzen viel Platz einbaut.
+\setlength{\parindent}{0ex} 
 
 % Abstand zwischen zwei Absätzen
 \setlength{\parskip}{1ex}
 
-% Seitenränder für Korrekturen verändern
-\addtolength{\evensidemargin}{-1cm}
-\addtolength{\oddsidemargin}{1cm}
-
-\bibliographystyle{gerapali}
-
-% Lustige Header auf den Seiten
-  \pagestyle{fancy}
-  \setlength{\headheight}{70.55003pt}
-  \fancyhead{}
-  \fancyhead[LO,RE]{Software--Projekt 1\\ SoSe 2013
-  \\Anforderungsspezifikation}
-  \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\\slshape \rightmark}
+% hier werden neue Befehle deklariert
+% Header für alle Seiten
+\pagestyle{fancy} \setlength{ 
+\headheight}{70.55003pt} \fancyhead{} \fancyhead[LO,RE]{Software-Projekt 2\\
+2013/14 \\Anforderungsspezifikation} \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\
+\slshape\rightmark}
 
 %
-% Und jetzt geht das Dokument los....
+% Ab hier beginnt das Dokument
 %
-
 \begin{document}
 
 % Lustige Header nur auf dieser Seite
-  \thispagestyle{fancy}
-  \fancyhead[LO,RE]{ }
-  \fancyhead[LE,RO]{Universität Bremen\\FB 3 -- Informatik\\
-  Prof. Dr. Rainer Koschke \\TutorIn: Sabrina Wilske}
-  \fancyfoot[C]{}
+\thispagestyle{fancy} \fancyhead[LO,RE]{ } \fancyhead[LE,RO]{Universität Bremen\\FB 3 -- Informatik\\
+Prof. Dr. Rainer Koschke \\TutorIn: Sabrina Wilske} \fancyfoot[C]{}
 
 % Start Titelseite
-  \vspace{3cm}
-
-  \begin{minipage}[H]{\textwidth}
-  \begin{center}
-  \bf
-  \Large
-  Software--Projekt 1 2013\\
-  \smallskip
-  \small
-  VAK 03-BA-901.02\\
-  \vspace{3cm}
-  \end{center}
-  \end{minipage}
-  \begin{minipage}[H]{\textwidth}
-  \begin{center}
-  \vspace{1cm}
-  \bf
-  \Large Architekturbeschreibung\\
-  \vspace{3ex} \small IT\_R3V0LUT10N\\
-  \vfill
-  \end{center}
-  \end{minipage}
-  \vfill
-  \begin{minipage}[H]{\textwidth}
-  \begin{center}
-  \sf
-  \begin{tabular}{lrr}
- 			Sebastian Bredehöft & sbrede@tzi.de & 2751589\\
- 			Patrick Damrow & damsen@tzi.de & 2056170\\
- 			Tobias Dellert & tode@tzi.de & 2936941\\
- 			Tim Ellhoff & tellhoff@tzi.de & 2520913\\
- 			Daniel Pupat & dpupat@tzi.de & 2703053\\
-  \end{tabular}
-  \\ ~
-  \vspace{2cm}
-  \\
-  \it Abgabe: 22. Dezember 2013 --- Version 1.1\\ ~
-  \end{center}
-  \end{minipage}
+\vspace{3cm} 
+\begin{minipage}
+	[H]{ 
+	\textwidth} 
+	\begin{center}
+		\bf \Large Software-Projekt 2 2013/14\\
+		\smallskip \small VAK 03-BA-901.02\\
+		\vspace{3cm} 
+	\end{center}
+\end{minipage}
+\begin{minipage}
+	[H]{ 
+	\textwidth} 
+	\begin{center}
+		\vspace{1cm} \bf \Large Anforderungsspezifikation\\
+		\vspace{3ex} \small IT\_R3V0LUT10N\\
+		\vfill 
+	\end{center}
+\end{minipage}
+\vfill 
+\begin{minipage}
+	[H]{ 
+	\textwidth} 
+	\begin{center}
+		\sf 
+		\begin{tabular}
+			{lrr} Sebastian Bredehöft & sbrede@tzi.de & 2751589\\
+			Patrick Damrow & damsen@tzi.de & 2056170\\
+			Tobias Dellert & tode@tzi.de & 2936941\\
+			Tim Ellhoff & tellhoff@tzi.de & 2520913\\
+			Daniel Pupat & dpupat@tzi.de & 2703053\\
+		\end{tabular}
+		\\
+		~ \vspace{2cm} \\
+		\it Abgabe: 17. Oktober 2013 -- Version 1.7 vom 20.11.2013 \\
+		~ 
+	\end{center}
+\end{minipage}
 
 % Ende Titelseite
-
-% Start Leerseite
-
+% Eine Leerseite
 \newpage
 
-  \thispagestyle{fancy}
-  \fancyhead{}
-  \fancyhead[LO,RE]{Software--Projekt \\  2013
-  \\Architekturbeschreibung}
-  \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\~}
-  \fancyfoot{}
-  \renewcommand{\headrulewidth}{0.4pt}
-  \tableofcontents
-
+\thispagestyle{fancy} \fancyhead{} \fancyhead[LO,RE]{Software-Projekt 2 \\
+2013/14 \\Anforderungsspezifikation} \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\~} \fancyfoot{} 
+\renewcommand{\headrulewidth}{0.4pt} 
+\tableofcontents
 \newpage
+% Abbildungsverzeichnis 
+\listoffigures
 
-  \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\\slshape \rightmark}
+% Tabellenverzeichnis
+\listoftables
 
+\clearpage
 
+\fancyhead[LE,RO]{Seite \thepage\\
+\slshape \leftmark\\
+\slshape\rightmark}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Version und Änderungsgeschichte}
 
@@ -161,13 +164,11 @@ Version & Datum & Änderungen \\
 \section{Einführung}
 
 \subsection{Zweck}
-\nurlangversion
 
   {\em Was ist der Zweck dieser Architekturbeschreibung? Wer sind
   die LeserInnen?}
 
 \subsection{Status}
-\nurlangversion
 
 
   
@@ -177,7 +178,7 @@ Version & Datum & Änderungen \\
 \subsection{Referenzen}
 
 \subsection{Übersicht über das Dokument}
-\nurlangversion
+
 
 
 \section{Globale Analyse}
@@ -201,18 +202,18 @@ Die Einflussfaktoren werden im Folgenden unterteilt in:
 \centering
 \caption{Organisatorische Faktoren}
 \begin{tabular}{|l|l|} \hline
-O1 & Time-To-Market \\ \hline
-O2 & Auslieferung von Produktfunktionen \\ \hline
-O3 & Budget \\ \hline
-O4 & Kenntnisse in Java und Android \\ \hline
-O5 & Kenntnisse in J-Unit \\ \hline
-O6 & Anzahl der Entwickler\\ \hline
+\textbf{O1} & \textbf{Time-To-Market} \\ \hline
+\textbf{O2} & \textbf{Auslieferung von Produktfunktionen} \\ \hline
+\textbf{O3} & \textbf{Budget} \\ \hline
+\textbf{O4} & \textbf{Kenntnisse in Java und Android} \\ \hline
+\textbf{O5} & \textbf{Kenntnisse in J-Unit} \\ \hline
+\textbf{O6} & \textbf{Anzahl der Entwickler}\\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-O1 & Time-To-Market\\ \hline
+\textbf{O1} & \textbf{Time-To-Market}\\ \hline \hline
 Faktor & Auslieferungsdatum 23.02.2014\\ \hline
 Flexibilität und Veränderlichkeit & Die Deadline kann nicht verändert werden\\ \hline
 Auswirkungen & Die Software muss zum Abgabedatum lauffähig sein\\ \hline
@@ -221,7 +222,7 @@ Auswirkungen & Die Software muss zum Abgabedatum lauffähig sein\\ \hline
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-O2 & Auslieferung von Produktfunktionen\\ \hline
+\textbf{O2} & \textbf{Auslieferung von Produktfunktionen}\\ \hline \hline
 Faktor & Alle Mindestanforderungen\\ \hline
 Flexibilität und Veränderlichkeit & Es müssen alle Mindestanforderungen erfüllt sein, sind jedoch vom Kunden oder beim verlassen eines Gruppenmitglieds veränderbar\\ \hline
 Auswirkungen & Architektur muss alle Mindestanforderungen abdecken, es muss darauf geachtet werden, dass diese sich im Verlauf noch ändern\\ \hline
@@ -230,7 +231,7 @@ Auswirkungen & Architektur muss alle Mindestanforderungen abdecken, es muss dara
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-O3 & Budget \\ \hline
+\textbf{O3} & \textbf{Budget} \\ \hline \hline
 Faktor & Kein finanzielles Budget\\ \hline
 Flexibilität und Veränderlichkeit & Es werden keine finanziellen Unterstützungen für das Produkt geben \\ \hline
 Auswirkungen & Es können keine Kostenpflichtigen Dienste in Anspruch genommen werden\\ \hline
@@ -239,7 +240,7 @@ Auswirkungen & Es können keine Kostenpflichtigen Dienste in Anspruch genommen w
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-O4 & Kenntnisse in Java und Android \\ \hline
+\textbf{O4} & \textbf{Kenntnisse in Java und Android} \\ \hline \hline
 Faktor & Kenntnisse der Entwickler in Java und Android\\ \hline
 Flexibilität und Veränderlichkeit & Kenntnisse sind nicht flexibel, es muss in Java programmiert werden und über Smartphone laufen. Die Kenntnisse können sich im Laufe ändern, durch neue Erfahrungen und neu erworbenen Kenntnissen\\ \hline
 Auswirkungen & Bei wenig Kenntnissen muss mehr Zeit eingeplant werden um sich diese anzueignen\\ \hline
@@ -248,7 +249,7 @@ Auswirkungen & Bei wenig Kenntnissen muss mehr Zeit eingeplant werden um sich di
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-O5 & Kenntnisse in J-Unit \\ \hline
+\textbf{O5} & \textbf{Kenntnisse in J-Unit} \\ \hline \hline
 Faktor & Kenntnisse in J-Unit Tests\\ \hline
 Flexibilität und Veränderlichkeit & Da Tests mit J-Unit gefordert werden, sind diese nicht verhandelbar oder Flexibel\\ \hline
 Auswirkungen & Bei unzureichenden Tests kann es später beim Programm zu Problemen kommen, da Fehler spät oder gar nicht erkannt werden\\ \hline
@@ -257,7 +258,7 @@ Auswirkungen & Bei unzureichenden Tests kann es später beim Programm zu Problem
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-O6 & Anzahl der Entwickler\\ \hline
+\textbf{O6} & \textbf{Anzahl der Entwickler}\\ \hline \hline
 Faktor & Die Anzahl der Entwickler\\ \hline
 Flexibilität und Veränderlichkeit & Es können keine neuen Gruppenmitglieder dazukommen, es können aber jederzeit Gruppenmitglieder wegfallen \\ \hline
 Auswirkungen & Wenn Gruppenmitglieder wegfallen, müssen die restlichen mehr Arbeiten und mehr Zeit einplanen. Auch müssen Projektplan und Architektur neu angepasst werden.\\ \hline
@@ -271,20 +272,20 @@ Auswirkungen & Wenn Gruppenmitglieder wegfallen, müssen die restlichen mehr Arb
 \centering
 \caption{Technische Faktoren}
 \begin{tabular}{|l|l|} \hline
-T1 & Software funktioniert unter Windows, Linux und MacOS \\ \hline
-T2 & Software funktioniert als App(Andriod 2.3 oder höher) \\ \hline
-T3 & SQL-Datenbank \\ \hline
-T4 & Mehrere parallele Nutzer \\ \hline
-T5 & Client-Server System \\ \hline
-T6 & Benutzerschnittstelle \\ \hline
-T7 & Implementierungssprache Java \\ \hline
-T8 &  Beschränkungsfreiheit für Fremdbibliotheken\\ \hline
+\textbf{T1} & \textbf{Software funktioniert unter Windows, Linux und MacOS} \\ \hline
+\textbf{T2} & \textbf{Software funktioniert als App(Andriod 2.3 oder höher)}\\ \hline
+\textbf{T3} & \textbf{SQL-Datenbank} \\ \hline
+\textbf{T4} & \textbf{Mehrere parallele Nutzer} \\ \hline
+\textbf{T5} & \textbf{Client-Server System} \\ \hline
+\textbf{T6} & \textbf{Benutzerschnittstelle} \\ \hline
+\textbf{T7} & \textbf{Implementierungssprache Java} \\ \hline
+\textbf{T8} &  \textbf{Beschränkungsfreiheit für Fremdbibliotheken}\\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-T1 & Software funktioniert unter Windows, Linux und MacOS \\ \hline
+\textbf{T1} & \textbf{Software funktioniert unter Windows, Linux und MacOS} \\ \hline \hline
 Faktor & Die Software muss auf den Betriebssystemen Windows, Linux und MacOS laufen\\ \hline
 Flexibilität und Veränderlichkeit & nicht Flexibel, da dies zu den Mindestanforderungen gehört. Veränderungen können jederzeit vom Kunden vorgenommen werden.  \\ \hline
 Auswirkungen & Die Entwickler müssen sich mit allen Betriebsprogrammen befassen und sichergehen, dass es auf allen funktioniert\\ \hline
@@ -294,7 +295,7 @@ Auswirkungen & Die Entwickler müssen sich mit allen Betriebsprogrammen befassen
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-T2 & Software funktioniert als App (Andriod 2.3 oder höher) \\ \hline
+\textbf{T2} & \textbf{Software funktioniert als App (Andriod 2.3 oder höher)} \\ \hline \hline
 Faktor & Die Software muss als Android App auf einem Smartphone laufen\\ \hline
 Flexibilität und Veränderlichkeit & nicht Flexibel, da dies zu den Mindestanforderungen gehört. Veränderungen können jederzeit vom Kunden vorgenommen werden.  \\ \hline
 Auswirkungen & Die Software muss wie gefordert als App auf einem Android-Smartphone laufen\\ \hline
@@ -304,7 +305,7 @@ Auswirkungen & Die Software muss wie gefordert als App auf einem Android-Smartph
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-T3 & SQL-Datenbank \\ \hline
+\textbf{T3} & \textbf{SQL-Datenbank} \\ \hline \hline
 Faktor & Software läuft über eine relationale Datenbank\\ \hline
 Flexibilität und Veränderlichkeit & Flexibel jedoch muss eine Datenbank mit SQL oder SQL-ähnlichen abfragen verwendet werden  \\ \hline
 Auswirkungen & Es muss eine relationale Datenbank für die serverseitige Persistenz benutzt werden. Es muss eine Datenbank mit SQL oder SQL-ähnlichen abfragen verwendet werden\\ \hline
@@ -313,7 +314,7 @@ Auswirkungen & Es muss eine relationale Datenbank für die serverseitige Persist
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-T4 & Mehrere parallele Nutzer \\ \hline
+\textbf{T4} & \textbf{Mehrere parallele Nutzer} \\ \hline \hline
 Faktor & Es greifen mehrere Nutzer zur gleichen Zeit auf die Software zu\\ \hline
 Flexibilität und Veränderlichkeit & Es ist uns überlassen, wie viele Nutzer zur gleichen Zeit auf das System zugreifen dürfen  \\ \hline
 Auswirkungen & Die Software muss darauf ausgelegt sein, mehrere Nutzer zur gleichen Zeit zu verwalten\\ \hline
@@ -322,7 +323,7 @@ Auswirkungen & Die Software muss darauf ausgelegt sein, mehrere Nutzer zur gleic
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-T5 & Client-Server System \\ \hline
+\textbf{T5} & \textbf{Client-Server System} \\ \hline \hline
 Faktor & Die Software arbeitet über ein Client-Server System\\ \hline
 Flexibilität und Veränderlichkeit & Da wir übers Internet auf den Server zugreifen müssen, ist es notwendig ein Server-Client System zu verwenden \\ \hline
 Auswirkungen & Die Implementierung wird in Server und Client aufgeteilt(siehe \ref{sec:konzeptionell}) Übers Internet werden die Daten zwischen Server und Client ausgetauscht\\ \hline
@@ -331,16 +332,16 @@ Auswirkungen & Die Implementierung wird in Server und Client aufgeteilt(siehe \r
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-T6 & Benutzerschnittstelle \\ \hline
-Faktor & \\ \hline
-Flexibilität und Veränderlichkeit &  \\ \hline
-Auswirkungen & \\ \hline
+\textbf{T6} & \textbf{Benutzerschnittstelle} \\ \hline \hline
+Faktor & Es sollte eine übersichtliche und ansprechende GUI geben\\ \hline
+Flexibilität und Veränderlichkeit & Die Gestaltung der GUI ist uns überlassen \\ \hline
+Auswirkungen & Für eine Benutzerfreundliche Gestaltung sind gute Kenntnisse in XHTML notwendig\\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-T7 & Implementierungssprache Java \\ \hline
+\textbf{T7} & \textbf{Implementierungssprache Java} \\ \hline \hline
 Faktor & Die Software muss in Java 5 oder höher geschrieben werden\\ \hline
 Flexibilität und Veränderlichkeit & Nicht Flexibel, da dies zu den Mindestanforderungen gehört\\ \hline
 Auswirkungen & Die Software muss in Java geschrieben werden, daher müssen alle Entwickler diese Sprache beherrschen \\ \hline
@@ -349,7 +350,7 @@ Auswirkungen & Die Software muss in Java geschrieben werden, daher müssen alle 
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-T8 & Beschränkungsfreiheit für Fremdbibliotheken\\ \hline
+\textbf{T8} & \textbf{Beschränkungsfreiheit für Fremdbibliotheken}\\ \hline \hline
 Faktor & Fremdbibliotheken dürfen für den Einsatz in Forschung\\
 & und Lehre keine Beschränkungen aufweisen \\ \hline
 Flexibilität und Veränderlichkeit & Nicht Flexibel, da dies zu den Mindestanforderungen gehört\\ \hline
@@ -364,16 +365,16 @@ Auswirkungen & Es darf keine Software oder Bibliothek verwendet werden, die Kost
 \centering
 \caption{Produkt Faktoren}
 \begin{tabular}{|l|l|} \hline
-P1 & Mindestanforderung \\ \hline
-P2 &  Performanz\\ \hline
-P3 &  Benutzerrechte \\ \hline
-P4 &  Fehlererkennung \\ \hline
+\textbf{P1} & \textbf{Mindestanforderung} \\ \hline
+\textbf{P2} &  \textbf{Performanz}\\ \hline
+\textbf{P3} &  \textbf{Benutzerrechte} \\ \hline
+\textbf{P4} &  \textbf{Fehlererkennung} \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-P1 & Mindestanforderung \\ \hline
+\textbf{P1} & \textbf{Mindestanforderung} \\ \hline \hline
 Faktor & Das Produkt muss alle Mindestanforderungen enthalten\\ \hline
 Flexibilität und Veränderlichkeit & Alle Anforderungen müssen zum Bestehen erfüllt werden. Die Anforderungen können vom Kunden oder Dozenten verändert werden oder die Anforderungen werden bei einem Austritt eines Mitglieds verringert.\\ \hline
 Auswirkungen & Es müssen alle Mindestanforderungen implementiert werden \\ \hline
@@ -383,7 +384,7 @@ Auswirkungen & Es müssen alle Mindestanforderungen implementiert werden \\ \hli
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-P2 &  Performanz\\ \hline
+\textbf{P2} &  \textbf{Performanz}\\ \hline \hline
 Faktor & Möglichst schnelle Ausführungszeiten\\ \hline
 Flexibilität und Veränderlichkeit & Flexibel, da nichts davon in den Mindestanforderungen steht\\ \hline
 Auswirkungen & Es sollte bei der Implementierung auf einen schnellen Datenaustausch zwischen Server und Client geachtet werden \\ \hline
@@ -392,7 +393,7 @@ Auswirkungen & Es sollte bei der Implementierung auf einen schnellen Datenaustau
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-P3 &  Benutzerrechte \\ \hline
+\textbf{P3} &  \textbf{Benutzerrechte} \\ \hline \hline
 Faktor & Es gibt verschiedene Benutzer mit unterschiedlichen Rechten\\ \hline
 Flexibilität und Veränderlichkeit & Nicht Flexibel, da dies vom Kunden gefordert wird\\ \hline
 Auswirkungen & Es müssen unterschiedliche Benutzer implementiert werden, die unterschiedliche Rechte haben und diese auch nicht überschreiten dürfen \\ \hline
@@ -401,7 +402,7 @@ Auswirkungen & Es müssen unterschiedliche Benutzer implementiert werden, die un
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-P4 &  Fehlererkennung \\ \hline
+\textbf{P4} &  \textbf{Fehlererkennung} \\ \hline \hline
 Faktor & Fehler sollten von der Software erkannt werden und entsprechend behandelt werden\\ \hline
 Flexibilität und Veränderlichkeit & Flexibel, da dies nicht ausdrücklich vom Kunden gefordert wird\\ \hline
 Auswirkungen & Fehler müssen erkannt werden und durch Exception muss es dann entsprechend Korrigiert werden. Die Software sollte weiter laufen  \\ \hline
@@ -412,51 +413,299 @@ Auswirkungen & Fehler müssen erkannt werden und durch Exception muss es dann en
 \subsection{Probleme und Strategien}
 \label{sec:strategien}
 
-{\it Aus einer Menge von Faktoren ergeben sich Probleme, die nun in
-  Form von Problemkarten beschrieben werden. Diese resultieren
-  z.B. aus
-  \begin{itemize}
-  \item Grenzen oder Einschränkungen durch Faktoren
-  \item der Notwendigkeit, die Auswirkung eines Faktors zu begrenzen
-  \item der Schwierigkeit, einen Produktfaktor zu erfüllen, oder
-  \item der Notwendigkeit einer allgemeinen Lösung zu globalen
-    Anforderungen.
-  \end{itemize}
-  Dazu entwickelt Ihr Strategien, um mit den identifizierten Problemen
-  umzugehen.
-
-  Achtet auch hier darauf, dass die Probleme und Strategien wirklich
-  die Architektur betreffen und nicht etwa das Projektmanagement. Die
-  Strategien stellen im Prinzip die Designentscheidungen dar. Sie
-  sollten also die Erklärung für den konkreten Aufbau der
-  verschiedenen Sichten liefern.}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}\hline
+\textbf{Nummer} & \textbf{Faktoren}\\ \hline
+1 & Zeitprobleme\\ \hline
+2 & Mangelnde Kenntnisse in Java\\ \hline
+3 & Mangelnde Kenntnisse in Android\\ \hline
+4 & Mangelnde Kenntnisse von Datenbanksystemen\\ \hline
+5 & Unzureichende Softwaretests\\ \hline
+6 & Ausfall eines Gruppenmitglieds\\ \hline
+7 & Mehrere parallele Nutzer\\ \hline
+8 & Performanz\\ \hline
+9 & unterschiedliche Benutzerrechte\\ \hline
+\end{tabular}
+\end{table}
 
 
-\textit{Beschreibt möglichst mehrere Alternativen und gebt
-  an, für welche Ihr Euch letztlich aus welchem Grunde entschieden
-  habt. Natürlich müssen die genannten Strategien in den folgenden
-  Sichten auch tatsächlich umgesetzt werden!}
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+1 Zeitprobleme\\ \hline
+Es gibt einen festgesetzten Abgabetermin, der eingehalten werden muss\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O2 Auslieferung von Produktfunktionen
+\item O4 Kenntnisse in Java  und Android
+\item O5 Kenntnisse in J-Unit
+\item O6 Anzahl der Entwickler
+\item P1 Mindestanforderungen
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Modularisierung für paralleles Arbeiten \leavevmode\newline
+Durch Modularisierung können mehrere Entwickler zur gleichen Zeit am Projekt arbeiten und die Module unabhängig voneinander implementieren. Diese werden dann später zusammengesetzt 
+\item Strategie 2: Bibliotheken Benutzen \leavevmode\newline
+Es werden bereits vorhandene Java Bibliotheken verwendet, dies spart Zeit, da man dann nicht alles neu schreiben muss.
+\end{itemize}
+Es werden beide Strategien verwendet.\\ \hline
+\end{tabular}
+\end{table}
 
-\textit{Ein sehr häufiger Fehler ist es, dass SWP-Gruppen
-  arbeitsteilig vorgehen: die eine Gruppe schreibt das Kapitel zur
-  Analyse von Faktoren und zu den Strategien, die andere Gruppe
-  beschreibt die diversen Sichten, ohne dass diese beiden Gruppen sich
-  abstimmen. Natürlich besteht aber ein Zusammenhang zwischen den
-  Faktoren, Strategien und Sichten. Dieser muss erkennbar sein, indem
-  sich die verschiedenen Kapitel eindeutig aufeinander beziehen.}
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+2 Mangelnde Kenntnisse in Java\\ \hline
+Es werden Vorkenntnisse in Java vorausgesetzt, ohne diese könnte es zu großen Problemen kommen, da ohne ausreichende Kenntnisse das Programm nicht realisiert werden kann\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O2 Auslieferung von Produktfunktionen
+\item O4 Kenntnisse in Java und Android
+\item O6 Anzahl der Entwickler
+\item T1 Software funktioniert unter Windows, Linux und MacOS
+\item T5 Client-Server System
+\item T7 Implementierungssprache Java
+\item P1 Mindestanforderungen
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Modularisierung \leavevmode\newline
+Der Code wird in verschiedene Module aufgeteilt, wenn ein Gruppenmitglied nicht genügend Kenntnisse besitzt, kann dieses Modul von einem anderen Mitglied neu erstellt werden und der inkompetente Entwickler kann keinen Schaden auf andere Module auswirken.
+\item Strategie 2: Aufteilen in Server und Client \leavevmode\newline
+Die Implementierung wird unter den Entwicklern so aufgeteilt, dass ein Teil den Client und ein Teil den Server macht, so müssen sich die Gruppenmitglieder nicht Kenntnisse in beiden Teilen aneignen.
+\end{itemize}
+Es werden beide Strategien verwendet.\\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+3 Mangelnde Kenntnisse in Android\\ \hline
+Es werden Kenntnisse in Android vorausgesetzt, da eine App entwickelt werden muss. \\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O2 Auslieferung von Produktfunktionen
+\item O4 Kenntnisse in Java und Android
+\item O6 Anzahl der Entwickler
+\item T2 Software funktioniert als App(Andriod 2.3 oder höher)
+\item T5 Client-Server System
+\item T6 Benutzerschnittstelle
+\item T7 Implementierungssprache Java
+\item P1 Mindestanforderungen
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Modularisierung \leavevmode\newline
+Der Code wird in verschiedene Module aufgeteilt, wenn ein Gruppenmitglied nicht genügend Kenntnisse besitzt, kann dieses Modul von einem anderen Mitglied neu erstellt werden und der inkompetente Entwickler kann keinen Schaden auf andere Module auswirken.
+\item Strategie 2: Bearbeitung von Gruppenmitgliedern mit Android-Erfahrung \leavevmode\newline
+Wir werden die Implementierung einen Gruppenmitglied überlassen, welches bereits Erfahrung mit Android hat. So müssen sich die anderen nicht in Android einarbeiten und können sich bei Fragen an diesen wenden.
+\end{itemize}
+Es werden beide Strategien verfolgt, sollte das Gruppenmitglied mit Android zeitlich oder fachlich nicht klarkommen, wird ein weiteres Gruppenmitglied sich mit Android beschäftigen.\\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+4 Mangelnde Kenntnisse in Datenbanksystemen\\ \hline
+Es werden Kenntnisse in Datenbanksystemen vorausgesetzt, da wir für die Bibliothek eine Datenbank verwenden. Dabei werden SQL- oder SQL-ähnliche Abfragen verwendet und entsprechende Kenntnisse verlangt \\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O2 Auslieferung von Produktfunktionen
+\item O7 Kenntnisse in Datenbanksystemen
+\item O6 Anzahl der Entwickler
+\item T5 Client-Server System
+\item T7 Implementierungssprache Java
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Bearbeitung von Gruppenmitgliedern mit Erfahrung in Datenbanksystemen \leavevmode\newline
+Wir werden die Implementierung Gruppenmitgliedern überlassen, welches bereits Erfahrung mit Datenbanksystemen hat. So müssen sich die anderen nicht in Datenbanksystemen einarbeiten und können sich bei Fragen an diesen wenden.
+\end{itemize}\\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+5 Unzureichende Softwaretests\\ \hline
+Es werden genügend Tests benötigt, welche Module und Komponenten testen, ob diese funktionieren\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O5 Kenntnisse in J-Unit
+\item T7 Implementierungssprache Java
+\item P1 Mindestanforderungen
+\item P2 Performanz
+\item P3 Benutzerrechte
+\item P4 Fehlererkennung
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Modularisierung \leavevmode\newline
+\end{itemize}\\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+6 Ausfall eines Gruppenmitglieds\\ \hline
+Es kann jederzeit ein Gruppenmitglied aus der Gruppe austreten oder durch Krankheit etc. für eine gewisse Zeit ausfallen.\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O2 Auslieferung von Produktfunktionen
+\item O6 Anzahl der Entwickler
+\item P1 Mindestanforderungen
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Modularisierung \leavevmode\newline
+Der Code wird in verschiedene Module aufgeteilt, welche von einem Entwickler bearbeitet werden. Wenn nun ein Entwickler ausfällt, kann ein Modul von einem anderen Entwickler übernommen werden
+\end{itemize}\\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+7 Mehrere parallele Nutzer\\ \hline
+Es greifen mehrere Nutzer zur gleichen Zeit auf das System zu, auf welche der Server antworten muss. Dabei soll der Server die Daten nicht an alle Clients senden\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item O3 Budget
+\item T3 SQL-Datenbank
+\item T4 Mehrere parallele Nutzer
+\item P1 Mindestanforderungen
+\item P2 Performanz
+\item P3 Benutzerrechte
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Thread \leavevmode\newline
+Die Clients bekommen jeweils einen Thread, somit können sie zeitgleich auf den Server zugreifen und bekommen nur ihre Daten zurück.
+\end{itemize}\\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+8 Performanz\\ \hline
+Die Software sollte kurze Ausführungszeiten haben. Dabei ist zu beachten, dass die Software/App auch auf Geräten mit geringer Leistung schnell und problemlos läuft\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item T1 Software funktioniert unter Windows, Linux und MacOS
+\item T2 Software funktioniert als App(Android 2.3 oder höher)
+\item T3 SQL-Datenbank
+\item T4 Mehrere parallele Nutzer
+\item P1 Mindestanforderungen
+\item P2 Performanz
+\item P3 Benutzerrechte
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1:  \leavevmode\newline
+
+\end{itemize}\\ \hline
+\end{tabular}
+\end{table}
+
+\newpage
 
 \section{Konzeptionelle Sicht}
 \label{sec:konzeptionell}
 
-{\it Diese Sicht beschreibt das System auf einer hohen Abstraktionsebene,
-d.h. mit sehr starkem Bezug zur Anwendungsdomäne und den geforderten
-Produktfunktionen und -attributen. Sie legt die Grobstruktur fest,
-ohne gleich in die Details von spezifischen Technologien abzugleiten. 
-Sie wird in den nachfolgenden Sichten konkretisiert und verfeinert. Die
-konzeptionelle Sicht wird mit {UML}-Komponentendiagrammen visualisiert.}
+Wir haben mithilfe von UML-Diagrammen die konzeptionelle Sicht realisiert. Im Folgenden werden die einzelnen Diagramme aufgezeigt und beschrieben.
+
+\subsection{Überblick}
+\label{Ueberblick}
+
+\begin{figure} [H] 
+\caption{Konzeptionelle Sicht (Klein)} 
+	\includegraphics[width=1\textwidth]{Diagramme/KonzeptionelleSichtKlein.png} 
+	\label{pic:konzeptionellesichtklein} 
+\end{figure}
+
+Unsere Architektur besteht aus zwei grundlegenden Komponenten, der Serverkomponente und der Clientkomponente, welche wiederum weitere Komponenten beinhalten. Auf der einen Seite haben wir unsere Serverkomponente, die alle benötigten Daten der Medien, der Nutzer und der Ausleihvorgänge der Bibliothek speichert.
+
+Bei der Clientkomponente muss zwischen zwei Teilen unterschieden werden. Einaml der Gui-Client, welcher sich in erster Linie an die Bibliothekare richtet und der mobile Android-Client, der sich ausschließlich an die Leser richtet. 
+Der Gui-Client stellt für die Bibliothekare alle benötigten Funktionen bereit um eine Bibliothek zu verwalten. Der Android-Client ermöglicht dem Leser sich Mediendetails, Ausleihstatus, seine eigene Ausleihhistorie sowie persönliche Daten anzeigen zu lassen. Desweiteren kann der Leser sich mittels der App Bücher zur Ausleihe vormerken und Informationen über die Bibliothek abrufen.
+
+\begin{figure} [H] 
+\caption{Konzeptionelle Sicht}  \centering
+	\includegraphics[scale=1.8]{Diagramme/KonzeptionelleSicht.png} 
+	\label{pic:konzeptionellesicht} 
+\end{figure}
+
+\subsection{Serverkomponente}
+\label{sec:server}
+
+\begin{figure} [H] 
+\caption{Konzeptionelle Sicht Server}  \centering
+	\includegraphics[scale=2]{Diagramme/KonzeptionelleSichtServer.png} 
+	\label{pic:konzeptionellesichtserver} 
+\end{figure}
+
+\subsection{Clientkomponente}
+\label{sec:client}
+
+\begin{figure} [H] 
+\caption{Konzeptionelle Sicht Client}  \centering
+	\includegraphics[scale=2]{Diagramme/KonzeptionelleSichtClient.png} 
+	\label{pic:konzeptionellesichtclient} 
+\end{figure}
 
 \section{Modulsicht}
 \label{sec:modulsicht}
+
+\subsection{Pakete}
+\label{sec:pakete}
+
+Wir haben ein Hauptpaket eu.it\_r3v in dem sich weitere Unterpakete befinden. Diese dienen der Bündelung gemeinsamer Quellcodedateien.
+
+\begin{figure} [H] 
+\caption{Pakete Übersicht} \centering
+	\includegraphics[width=0.6\textwidth]{Diagramme/PackageUebersicht.png} 
+	\label{pic:PackageUebersicht} 
+\end{figure}
+\label{sec:PackageUebersicht}
+
+\subsubsection{Paket bibclient}
+\label{sec:bibclient}
+
+\begin{figure} [H] 
+\caption{Paket bibclient} \centering
+	\includegraphics[width=1\textwidth]{Diagramme/Packagebibclient.png} 
+	\label{pic:PackageClient} 
+\end{figure}
+
+
+\subsubsection{Pakete bibcommon}
+\label{sec:bibcommon}
+
+\begin{figure} [H] 
+\caption{Paket bibcommon} \centering
+	\includegraphics[width=1\textwidth]{Diagramme/Packagebibcommon.png} 
+	\label{pic:PackageCommon} 
+\end{figure}
+
+
+\subsubsection{Paket bibclient}
+\label{sec:bibclient}
+
+\begin{figure} [H] 
+\caption{Paket bibclient} \centering
+	\includegraphics[width=0.45\textwidth]{Diagramme/Packagebibjsfuebersicht.png} 
+	\label{pic:PackagebibjsfUebersicht} 
+\end{figure}
+
+
+
+
 
 {\it
 Diese Sicht beschreibt den statischen Aufbau des Systems mit Hilfe von
@@ -515,7 +764,7 @@ die Entstehung anhand der Strategien erläutert werden.
   
 
 \section{Ausführungssicht}
-%\nurlangversion
+
 Das folgende Diagramm \vref{ausfuehrungssicht} zeigt das Laufzeitverhalten der Software.
 Auf der einen Seite haben wir den mobilen Zugang auf welchem die Android App als Prozess läuft. Die App selber verwendet die Module \emph{bibclient} und \emph{bibcommon}. Von diesem mobilem Zugang kann eine TCP/IP-Verbindung zu dem Bibliotheksserver aufgebaut werden. Dabei gibt es mehrere Verbindungen zu immer nur einem Server, daher die Multiplizitäten \emph{*} und \emph{1}.
 
@@ -534,11 +783,11 @@ Das komplette System läuft mit zwei Prozessen: einmal mit der Android App und d
 \label{sec:anwendungsfaelle}
 
 {\it In diesem Abschnitt sollen Sequenzdiagramme mit Beschreibung(!)
-  für \variante{zwei bis drei von Euch ausgewählte
+  für {zwei bis drei von Euch ausgewählte
     Anwendungsfälle}{einen von Euch ausgewählten Anwendungsfall}
   erstellt werden. Ein Sequenzdiagramm beschreibt den
   Nachrichtenverkehr zwischen allen Modulen, die an der Realisierung
-  des Anwendungsfalles beteiligt sind.  \variante{Wählt die
+  des Anwendungsfalles beteiligt sind.  {Wählt die
     Anwendungsfälle so, dass nach Möglichkeit alle Module Eures
     entworfenen Systems in mindestens einem Sequenzdiagramm
     vorkommen. Falls Euch das nicht gelingt, versucht möglichst viele
@@ -549,7 +798,7 @@ Das komplette System läuft mit zwei Prozessen: einmal mit der Android App und d
     anstreben.} }
 
 \section{Evolution}
-\nurlangversion
+
 
 \label{sec:evolution}
 
