@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 \contentsline {figure}{\numberline {1}{\ignorespaces Konzeptionelle Sicht (Klein)}}{18}{figure.1}
 \contentsline {figure}{\numberline {2}{\ignorespaces Konzeptionelle Sicht}}{19}{figure.2}
 \contentsline {figure}{\numberline {3}{\ignorespaces Konzeptionelle Sicht Server}}{20}{figure.3}
@@ -8,3 +9,14 @@
 \contentsline {figure}{\numberline {8}{\ignorespaces Paket\IeC {\"u}bersicht bibjsf}}{25}{figure.8}
 \contentsline {figure}{\numberline {9}{\ignorespaces Paket bibjsf}}{26}{figure.9}
 \contentsline {figure}{\numberline {10}{\ignorespaces Ausf\IeC {\"u}hrungssicht}}{28}{figure.10}
+=======
+\contentsline {figure}{\numberline {1}{\ignorespaces Konzeptionelle Sicht (Klein)}}{19}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Konzeptionelle Sicht}}{20}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Konzeptionelle Sicht Server}}{21}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Konzeptionelle Sicht Client}}{22}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Pakete \IeC {\"U}bersicht}}{24}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Paket bibclient}}{25}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Paket bibcommon}}{26}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Paket bibclient}}{27}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Ausf\IeC {\"u}hrungssicht}}{29}{figure.9}
+>>>>>>> 3aecd9c381cd8e3a5835c4fe21460557c4c9046f

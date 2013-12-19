@@ -160,34 +160,48 @@ Version & Datum & Änderungen \\
 \section{Einführung}\label{c01}
 
 \subsection{Zweck}
-\nurlangversion
+Der Testplan bietet einen Überblick über die geplanten Tests und dient u.a. als Anleitung für die Tester. Die Software soll dabei ausführlich auf Funktionalität getestet werden. 
 
-  {\em Was ist der Zweck dieses Testplans? Wer sind
-  die LeserInnen?}
+Im Testplan wird festgelegt wie man welche Komponenten testet. Dazu wird außerdem definiert welchen Umfang die Tests haben sollen und wann ein Test erfolgreich ist und wann nicht.
+
+Während der Implementierungsphase werden wir uns nach dem Testplan richten und ihn gegebenenfalls weiterführen und vervollständigen.
+
 
 \subsection{Umfang}
-\nurlangversion
+Der Testplan entspricht der vereinfachten Form des \emph{IEEE Standard for Software Test Documentation 829-1998}. 
 
 \subsection{Beziehungen zu anderen Dokumenten}
-\nurlangversion
+Dieser Testplan bezieht sich zum einen auf die Anforderungsspezifikation, da dort die Systemeigenschaften und Systemattribute spezifiziert wurden. Die Testfälle werden auf Grundlage der dortigen Anwendungsfälle entwickelt
+
+Außerdem gibt es Referenzen zur Architekturbeschreibung, da in dieser die Module und Komponenten definiert wurden, die in diesem Dokument getestet werden sollen.
 
 
 \subsection{Aufbau der Testbezeichner}
 \label{sec:aufb-der-testb}
 
-\emph{Jeder Testfall muss einen eindeutigen Bezeichner haben. Der könnte
-hierarchisch aufgebaut sein. Hier wird dieses Namensschema einheitlich festgelegt.}
+Der Aufbau der Testbezeichner richtet sich nach folgendem Schema:
+\begin{itemize}
+\item Die ersten beiden Buchstaben geben die Art des Tests vor. Dabei unterscheiden wir zwischen vier verschiedenen Testarten:
+\begin{itemize}
+	\item Komponententests = KT
+	\item Integrationstests = IT
+	\item Funktionstests = FT
+	\item Leistungstests = LT
+\end{itemize}
+\item Die Nummer steht für die jeweilige Testfallnummer
+
+\item Optional: in alphabetischer Reihenfolge werden hier Variationen oder untergeordnete Testfälle definiert
+\end{itemize}
+Nach diesem Schema sieht ein Testbezeichner nun folgendermaßen aus:
+
+\textbf{\emph{IT-3-A}}: Integrationstest, Nr. 3, Variante 1
 
 %%
 %% Dokumentation der Testergebnisse 
 %%
 \subsection{Dokumentation der Testergebnisse}
-\nurlangversion
 
-{\em In welcher Form werden die Testergebnisse dokumentiert
-($\Rightarrow$ Testprotokoll)? Wie werden gefundene Fehler dokumentiert
-(Bugtracking)?}
-
+Zu jedem Testfall wird ein kurzes Testprotokoll angefertigt. Dieses beinhaltet den Ablauf des Testfalls und die möglichen Komplikationen die bei der Durchführung entstehen können. Dann werden die Resultate des Testfalls bestimmt und eventuell gefundene Fehler beschrieben.
 
 %%
 %% Definitionen und Referenzen 
@@ -204,18 +218,14 @@ hierarchisch aufgebaut sein. Hier wird dieses Namensschema einheitlich festgeleg
 
 % Systemüberblick
 \section{Systemüberblick}\label{c02}
-\nurlangversion
+Das System besteht aus der Server- und der Clientkomponente. Die konzeptionelle Sicht der Architekturbeschreibung (vgl. Abschnitt 3 der Architekturbeschreibung) dient als Grundlage für den Testplan, da dort die verschiedenen Komponenten  beschrieben werden.
 
-{\em Dieser Abschnitt soll einen Überblick über das System geben, und
-  zwar insbesondere hinsichtlich jener Komponenten, die durch
-  Komponententests geprüft werden sollen. Dazu ist die richtige
-  Granularität der Komponenten wichtig (einzelne Klassen, ganze Pakete
-  oder Systeme etc.). Für den Integrationstest sind die Abhängigkeiten
-  der Komponenten voneinander von besonderer Wichtigkeit.}
+Auf der Serverseite gibt es die Komponenten \emph{Communication, BusinessLogic} und \emph{Persistence} (vgl. Abbildung 3: Konzeptionelle Sicht Server; Architekturbeschreibung).
 
-{\em Der Überblick sollte leicht verständlich sein und sich auf die
-  wesentlichen benötigten Informationen konzentrieren. Hier sind
-  evtl.\ auch Referenzen auf die Architekturbeschreibung angebracht.}
+Die Clientseite besteht aus den Komponenten \emph{Communication, Model} und \emph{User Interface} (vgl. Abbildung 4: Konzeptionelle Sicht Client; Architekturbeschreibung).
+
+Da starke Abhängigkeiten zwischen all diesen Komponenten bestehen, ist es wichtig das diese Komponenten fehlerfrei funktionieren. 
+
 
 {\em Es sollten die Hofmeister-Konzepte verwendet
   werden.\ Benutzt am besten Diagramme aus der Architekturbeschreibung.}
@@ -239,25 +249,78 @@ Beschreibung dazu.}
 
 \section{Merkmale}
 
-{\em Hier sollen die zu testenden Merkmale, aber auch die nicht zu
-  testenden Merkmale (mit Begründung) aufgelistet werden. Welche
-  Kombinationen von Merkmalen sind relevant?}
+Zu testende Merkmale sind in erster Linie Funktionen, die in den Mindestanforderungen enthalten sind. Dabei ist zu beachten, dass die Funktionen des Lesers für die Website und der App getestet werden müssen, während die anderen Testmerkmale sich auf die Website beziehen. Beide sind im Folgenden aufgelistet:\\
 
-\subsection{Zu testende Merkmale}\label{c04}
-
-
+1. Benutzerrechte\\
+\begin{itemize}
+\item[1.1]Administrator 
+\item[1.2]Bibliothekar 
+\item[1.3]Leser 
+\item[1.4]Gast
+\end{itemize}
+\bigskip
+2. Administrator\\
+\begin{itemize}
+\item[2.1]Bibliothekar hinzufügen
+\item[2.2]Bibliothekar löschen
+\item[2.3]Bibliothekar ändern
+\end{itemize}
+\bigskip
+3. Bibliothekar\\
+\begin{itemize}
+\item[3.1]Medium hinzufügen
+\item[3.2]Medium löschen
+\item[3.3]Medium ändern
+\item[3.4]Medium ausleihen
+\item[3.5]Medium zurücknehmen
+\item[3.6]Abgabedaten und Mahngebühren ändern
+\item[3.7]Vormerkungen anzeigen
+\item[3.8]Übersicht über verliehene Bücher(Versäumnisse, Mahngebühren)
+\item[3.9]Statistiken anzeigen
+\end{itemize}
+\bigskip
+4.Leser\\
+\begin{itemize}
+\item[4.1]Medium suchen
+\item[4.2]Medium anzeigen
+\item[4.3]Medium vormerken
+\end{itemize}
+\bigskip
+Dazu kommt noch der Gast, der unangemeldet nur suchen kann und man sollte die Unterklassen von Medium noch einzeln testen, ob diese die geforderten Attribute und Funktionen enthalten.
 
 \subsubsection{Funktionale Anforderungen} 
 
-{\em Welche sind besonders wichtig?}
+Besonders wichtig sind die Funktionen des Bibliothekars(3.1-3.5), die sollten gut getestet werden, da es beim Ausleihvorgang nicht zu Problemen kommen soll, sodass irgendwo Bücher verschwinden oder Ausleiher oder Bücher verwechselt werden. Auch wichtig ist die Benutzerunterscheidung, damit Leser nicht irgendwas löschen oder hinzufügen. Dann sollte man noch die Suche und das anzeigen der Bücher ausgiebig testen, da dies die Hauptfunktionen des Lesers sind.
 
 \subsection{Nicht zu testende Merkmale}\label{c05}
+Nicht zu testende Merkmale sind in erster Linie alle Trivialen Funktionen. Zudem brauchen bereits Implementierte Funktionen, wie Leser verwalten, Backup und Restore, Buchaufkleber drucken, Leserausweise drucken, Import und Export von Buch- und Leserdaten nicht mehr getestet werden, sofern man diese nicht verändert. Da wir Buch verwalten noch verändern, da wir mit mehreren Medientypen arbeiten, ist dieses wie in \ref{c04} beschrieben noch zu testen.
 
 % Abnahme- und Testkriterien
 \section{Abnahme- und Testendekriterien}\label{c07}
+Fehler werden in eine Kategorie eingeordnet und erhalten entsprechende Fehlerwerte. Aus diesen Fehlerwerten ergeben sich Prioritäten, die die Reihenfolge der Fehlerbehandlung angibt. Das Testen wird beendet, wenn der berechnete Fehlerwert aller Fehler pro 1000 Zeilen Code unter dem Wert 10 liegt und die Software nicht beeinträchtigt wird, d.h. es keinen Fehler der Klasse Mittel oder höher gibt.
+
+\textbf{Testabdeckung}
 
 {\em Wann wird das Testen beendet? Die angegebenen Kriterien müssen
   objektiv prüfbar sein.}
+  
+
+\textbf{Fehlerbewertung:}\\
+Die nachfolgende Tabelle spezifiziert die Auswirkung eines Fehlers durch welche man diese nach Priorität einordnen kann.\\
+
+\begin{tabularx}{\textwidth}{|p{2cm}|p{11.53cm}|c|}
+\hline
+	Fehlerklasse & Beschreibung & Wert\\
+\hline
+	Leicht & Unwesentliche Fehler, die den Programmablauf nicht beeinträchtigen aber trotzdem behandelt werden sollten. & 1\\
+\hline
+	Mittel & Fehler in dieser Art haben Auswirkungen auf den Programmablauf. Dieser beinträchtigt aber nicht die grundlegenden Funktionen. & 10\\
+\hline
+	Schwer & Fehler der Klasse ,,Schwer'' beinträchtigen die Funktionsfähigkeit des Systems sehr stark und müssen sofort behandelt werden & 20\\
+\hline
+	Fatal & Diese Fehler machen den Programmablauf unmöglich und können zum Absturz des Systems führen.  & 100\\
+\hline
+\end{tabularx}
 
 
 

@@ -413,10 +413,12 @@ Auswirkungen & Fehler müssen erkannt werden und durch Exception muss es dann en
 \subsection{Probleme und Strategien}
 \label{sec:strategien}
 
+Folgenden Probleme haben wir identifiziert:\\
+
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|}\hline
-\textbf{Nummer} & \textbf{Faktoren}\\ \hline
+Nummer & Faktoren\\ \hline
 1 & Zeitprobleme\\ \hline
 2 & Mangelnde Kenntnisse in Java\\ \hline
 3 & Mangelnde Kenntnisse in Android\\ \hline
@@ -429,6 +431,7 @@ Auswirkungen & Fehler müssen erkannt werden und durch Exception muss es dann en
 \end{tabular}
 \end{table}
 
+Diese versuchen wir mit folgenden Strategien zu überbrücken:\\
 
 \begin{table}[H]
 \begin{tabular}{|p{\textwidth}|}\hline
@@ -504,7 +507,7 @@ Der Code wird in verschiedene Module aufgeteilt, wenn ein Gruppenmitglied nicht 
 \item Strategie 2: Bearbeitung von Gruppenmitgliedern mit Android-Erfahrung \leavevmode\newline
 Wir werden die Implementierung einen Gruppenmitglied überlassen, welches bereits Erfahrung mit Android hat. So müssen sich die anderen nicht in Android einarbeiten und können sich bei Fragen an diesen wenden.
 \end{itemize}
-Es werden beide Strategien verfolgt, sollte das Gruppenmitglied mit Android zeitlich oder fachlich nicht klarkommen, wird ein weiteres Gruppenmitglied sich mit Android beschäftigen.\\ \hline
+Es werden beide Strategien verfolgt, sollte das Gruppenmitglied mit Android zeitlich oder fachlich nicht klarkommen, wird ein weiteres Gruppenmitglied sich mit Android beschäftigen. \\ \hline
 \end{tabular}
 \end{table}
 
@@ -546,7 +549,8 @@ Es werden genügend Tests benötigt, welche Module und Komponenten testen, ob di
 \textbf{Lösung}\\
 \begin{itemize}
 \item Strategie 1: Modularisierung \leavevmode\newline
-\end{itemize}\\ \hline
+Es werden Tests für die jeweilig implementierten Module geschrieben, ob diese ihren Zweck erfüllen und danach werden Module zusammen getestet. 
+\end{itemize} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -564,8 +568,8 @@ Es kann jederzeit ein Gruppenmitglied aus der Gruppe austreten oder durch Krankh
 \textbf{Lösung}\\
 \begin{itemize}
 \item Strategie 1: Modularisierung \leavevmode\newline
-Der Code wird in verschiedene Module aufgeteilt, welche von einem Entwickler bearbeitet werden. Wenn nun ein Entwickler ausfällt, kann ein Modul von einem anderen Entwickler übernommen werden
-\end{itemize}\\ \hline
+Der Code wird in verschiedene Module aufgeteilt, welche von einem Entwickler bearbeitet werden. Wenn nun ein Entwickler ausfällt, kann ein Modul von einem anderen Entwickler übernommen werden.
+\end{itemize} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -587,7 +591,7 @@ Es greifen mehrere Nutzer zur gleichen Zeit auf das System zu, auf welche der Se
 \begin{itemize}
 \item Strategie 1: Thread \leavevmode\newline
 Die Clients bekommen jeweils einen Thread, somit können sie zeitgleich auf den Server zugreifen und bekommen nur ihre Daten zurück.
-\end{itemize}\\ \hline
+\end{itemize} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -608,9 +612,29 @@ Die Software sollte kurze Ausführungszeiten haben. Dabei ist zu beachten, dass 
 \end{itemize}\\ \hline
 \textbf{Lösung}\\
 \begin{itemize}
-\item Strategie 1:  \leavevmode\newline
-
+\item Strategie 1: Code effizient schreiben \leavevmode\newline
+Den Code effizient schreiben, damit die Software kurze Ausführungszeiten hat.
 \end{itemize}\\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|p{\textwidth}|}\hline
+9 unterschiedliche Benutzerrechte\\ \hline
+Die Software hat unterschiedliche Benutzer, welche unterschiedliche Rechte besitzen und diese müssen unterschieden werden\\ \hline
+\textbf{Einflussfaktoren}\\
+\begin{itemize}
+\item O1 Time-To-Market
+\item T3 SQL-Datenbank
+\item T4 Mehrere parallele Nutzer
+\item P1 Mindestanforderungen
+\item P3 Benutzerrechte
+\end{itemize}\\ \hline
+\textbf{Lösung}\\
+\begin{itemize}
+\item Strategie 1: Identifikation durch Group Id \leavevmode\newline
+In der Datenbank wird eine Group Id eingefügt, welche dann die verschiedenen Nutzer speichert. Über diese werden dann die verschiedenen Rechte geregelt.
+\end{itemize} \\ \hline
 \end{tabular}
 \end{table}
 
