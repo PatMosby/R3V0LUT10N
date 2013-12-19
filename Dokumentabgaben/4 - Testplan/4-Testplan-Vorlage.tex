@@ -220,18 +220,12 @@ Zu jedem Testfall wird ein kurzes Testprotokoll angefertigt. Dieses beinhaltet d
 \section{Systemüberblick}\label{c02}
 Das System besteht aus der Server- und der Clientkomponente. Die konzeptionelle Sicht der Architekturbeschreibung (vgl. Abschnitt 3 der Architekturbeschreibung) dient als Grundlage für den Testplan, da dort die verschiedenen Komponenten  beschrieben werden.
 
-Auf der Serverseite gibt es die Komponenten 
+Auf der Serverseite gibt es die Komponenten \emph{Communication, BusinessLogic} und \emph{Persistence} (vgl. Abbildung 3: Konzeptionelle Sicht Server; Architekturbeschreibung).
 
-{\em Dieser Abschnitt soll einen Überblick über das System geben, und
-  zwar insbesondere hinsichtlich jener Komponenten, die durch
-  Komponententests geprüft werden sollen. Dazu ist die richtige
-  Granularität der Komponenten wichtig (einzelne Klassen, ganze Pakete
-  oder Systeme etc.). Für den Integrationstest sind die Abhängigkeiten
-  der Komponenten voneinander von besonderer Wichtigkeit.}
+Die Clientseite besteht aus den Komponenten \emph{Communication, Model} und \emph{User Interface} (vgl. Abbildung 4: Konzeptionelle Sicht Client; Architekturbeschreibung).
 
-{\em Der Überblick sollte leicht verständlich sein und sich auf die
-  wesentlichen benötigten Informationen konzentrieren. Hier sind
-  evtl.\ auch Referenzen auf die Architekturbeschreibung angebracht.}
+Da starke Abhängigkeiten zwischen all diesen Komponenten bestehen, ist es wichtig das diese Komponenten fehlerfrei funktionieren. 
+
 
 {\em Es sollten die Hofmeister-Konzepte verwendet
   werden.\ Benutzt am besten Diagramme aus der Architekturbeschreibung.}
@@ -271,9 +265,30 @@ Beschreibung dazu.}
 
 % Abnahme- und Testkriterien
 \section{Abnahme- und Testendekriterien}\label{c07}
+Fehler werden in eine Kategorie eingeordnet und erhalten entsprechende Fehlerwerte. Aus diesen Fehlerwerten ergeben sich Prioritäten, die die Reihenfolge der Fehlerbehandlung angibt. Das Testen wird beendet, wenn der berechnete Fehlerwert aller Fehler pro 1000 Zeilen Code unter dem Wert 10 liegt und die Software nicht beeinträchtigt wird, d.h. es keinen Fehler der Klasse Mittel oder höher gibt.
+
+\textbf{Testabdeckung}
 
 {\em Wann wird das Testen beendet? Die angegebenen Kriterien müssen
   objektiv prüfbar sein.}
+  
+
+\textbf{Fehlerbewertung:}\\
+Die nachfolgende Tabelle spezifiziert die Auswirkung eines Fehlers durch welche man diese nach Priorität einordnen kann.\\
+
+\begin{tabularx}{\textwidth}{|p{2cm}|p{11.53cm}|c|}
+\hline
+	Fehlerklasse & Beschreibung & Wert\\
+\hline
+	Leicht & Unwesentliche Fehler, die den Programmablauf nicht beeinträchtigen aber trotzdem behandelt werden sollten. & 1\\
+\hline
+	Mittel & Fehler in dieser Art haben Auswirkungen auf den Programmablauf. Dieser beinträchtigt aber nicht die grundlegenden Funktionen. & 10\\
+\hline
+	Schwer & Fehler der Klasse ,,Schwer'' beinträchtigen die Funktionsfähigkeit des Systems sehr stark und müssen sofort behandelt werden & 20\\
+\hline
+	Fatal & Diese Fehler machen den Programmablauf unmöglich und können zum Absturz des Systems führen.  & 100\\
+\hline
+\end{tabularx}
 
 
 
