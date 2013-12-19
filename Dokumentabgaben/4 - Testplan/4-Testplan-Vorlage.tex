@@ -249,19 +249,51 @@ Beschreibung dazu.}
 
 \section{Merkmale}
 
-{\em Hier sollen die zu testenden Merkmale, aber auch die nicht zu
-  testenden Merkmale (mit Begründung) aufgelistet werden. Welche
-  Kombinationen von Merkmalen sind relevant?}
+Zu testende Merkmale sind in erster Linie Funktionen, die in den Mindestanforderungen enthalten sind. Dabei ist zu beachten, dass die Funktionen des Lesers für die Website und der App getestet werden müssen, während die anderen Testmerkmale sich auf die Website beziehen. Beide sind im Folgenden aufgelistet:\\
 
-\subsection{Zu testende Merkmale}\label{c04}
-
-
+1. Benutzerrechte\\
+\begin{itemize}
+\item[1.1]Administrator 
+\item[1.2]Bibliothekar 
+\item[1.3]Leser 
+\item[1.4]Gast
+\end{itemize}
+\bigskip
+2. Administrator\\
+\begin{itemize}
+\item[2.1]Bibliothekar hinzufügen
+\item[2.2]Bibliothekar löschen
+\item[2.3]Bibliothekar ändern
+\end{itemize}
+\bigskip
+3. Bibliothekar\\
+\begin{itemize}
+\item[3.1]Medium hinzufügen
+\item[3.2]Medium löschen
+\item[3.3]Medium ändern
+\item[3.4]Medium ausleihen
+\item[3.5]Medium zurücknehmen
+\item[3.6]Abgabedaten und Mahngebühren ändern
+\item[3.7]Vormerkungen anzeigen
+\item[3.8]Übersicht über verliehene Bücher(Versäumnisse, Mahngebühren)
+\item[3.9]Statistiken anzeigen
+\end{itemize}
+\bigskip
+4.Leser\\
+\begin{itemize}
+\item[4.1]Medium suchen
+\item[4.2]Medium anzeigen
+\item[4.3]Medium vormerken
+\end{itemize}
+\bigskip
+Dazu kommt noch der Gast, der unangemeldet nur suchen kann und man sollte die Unterklassen von Medium noch einzeln testen, ob diese die geforderten Attribute und Funktionen enthalten.
 
 \subsubsection{Funktionale Anforderungen} 
 
-{\em Welche sind besonders wichtig?}
+Besonders wichtig sind die Funktionen des Bibliothekars(3.1-3.5), die sollten gut getestet werden, da es beim Ausleihvorgang nicht zu Problemen kommen soll, sodass irgendwo Bücher verschwinden oder Ausleiher oder Bücher verwechselt werden. Auch wichtig ist die Benutzerunterscheidung, damit Leser nicht irgendwas löschen oder hinzufügen. Dann sollte man noch die Suche und das anzeigen der Bücher ausgiebig testen, da dies die Hauptfunktionen des Lesers sind.
 
 \subsection{Nicht zu testende Merkmale}\label{c05}
+Nicht zu testende Merkmale sind in erster Linie alle Trivialen Funktionen. Zudem brauchen bereits Implementierte Funktionen, wie Leser verwalten, Backup und Restore, Buchaufkleber drucken, Leserausweise drucken, Import und Export von Buch- und Leserdaten nicht mehr getestet werden, sofern man diese nicht verändert. Da wir Buch verwalten noch verändern, da wir mit mehreren Medientypen arbeiten, ist dieses wie in \ref{c04} beschrieben noch zu testen.
 
 % Abnahme- und Testkriterien
 \section{Abnahme- und Testendekriterien}\label{c07}
