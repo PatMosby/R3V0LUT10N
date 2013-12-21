@@ -874,16 +874,36 @@ Das komplette System läuft mit zwei Prozessen: einmal mit der Android App und d
 
 \label{sec:evolution}
 
-{\it
-  Beschreibt in diesem Abschnitt, welche Änderungen Ihr
-  vornehmen müsst, wenn sich Anforderungen oder Rahmenbedingungen
-  ändern. Insbesondere sollten hierbei die in der
-  Anforderungsspezifikation unter "`Ausblick"' bereits genannten
-  Punkte behandelt werden.}
+In diesem Abschnitt geht es um mögliche Änderungen, Anpassungen bzw. Erweiterungen, die vorgenommen werden müssten, wenn sich Anforderungen des Systems ändern. \\
+Dabei ist wichtig, dass sich solche Änderungen möglichst modular realisieren lassen, ohne die bestehende Architektur komplett zu verändern, was sehr aufwändig und somit nicht wünschenswert wäre. \\
+Im Folgenden werden einige wichtige mögliche neue Anforderungen bzw. Erweiterungen aufgelistet und deren jeweiligen zu implementierenden Änderungen an der Architektur beschrieben. 
 
-\dots
+\subsection*{Erweiterungsmöglichkeiten aus der Anforderungsspezifikation}
 
+Wir haben bereits in der Anforderungsspezifikation im Punkt ''Ausblick'' zwei mögliche Änderungen genannt, die wir im hier detaillierter beschreiben möchten. 
 
+\subsubsection*{1. Medientypenzuwachs}
+
+Wie schon in der Anforderungsspezifikation im Punkt ''2.7 Ausblick'' angedeutet, wäre eine zu erwartende bzw. recht wahrscheinliche Erweiterung der Bibliothekssoftware, neben den vorhandenen Medien wie Büchern, Zeitschriften, CDs usw. weitere Medien wie z.B. Blu-Rays verwenden zu wollen und diese entsprechend im System aufzunehmen.\\
+Da in unserem System nicht alle Medien allein für sich stehen, sondern ihre gemeinsamen Eigenschaften ihrer Klassen in einer Superklasse namens \texttt{Medium} zusammengefasst werden, ist es recht einfach, einen solchen Medientypenzuwachs ohne großen Aufwand zu realisieren. Man muss lediglich eine weitere Subklasse der Klasse \texttt{Medium}, z.B. mit Namen \texttt{BluRay} ins Modul \texttt{bibcommon} einbauen.
+
+\subsubsection*{2. Erweiterung des Systems für iOS-Geräte}
+
+Wir werden für unser System eine Android-App entwickeln, die für den mobilen Zugang mit Smartphones einen Zugang zu dem Bibliothekssystem bietet. Da Android sehr verbreitet ist, werden wir mit dieser Lösung sicherlich viele Nutzer erreichen können, jedoch natürlich längst nicht alle. \\
+Insofern wäre zu überlegen, ob man nicht auch eine zusätzliche App für iOS-Geräte entwickeln könnte. Um dies zu realisieren, bedarf es jedoch nicht, wie oben angestrebt, modularen Änderungen, sondern der Entwicklung eines grundlegend anderen Systems. Insofern kann an dieser Stelle auch nicht beschrieben werden, welche Änderungen vorzunehmen sind, weil es sich hierbei ja eben nicht um aufbauende Erweiterungen des bestehenden Systems, sondern im Prinzip um eine Neuentwicklung einer zweiten App handeln  würde.
+
+\subsection*{Zusätzliche denkbare Erweiterungen}
+
+Über die genannten Punkte aus der Anforderungsspezifikation hinaus könnten sich weitere Änderungen ergeben, die im Folgenden beschrieben werden.
+
+\subsubsection*{1. Erweiterung des GUI-Layouts}
+
+Es wäre möglicherweise durchaus wünschenswert, wenn man als Benutzer nicht nur ein GUI-Design verwenden könnte, sondern mehrere. Dafür müsste eine Funktionalität hinzugefügt werden, um zwischen verschiedenen Benutzeroberflächen wählen zu können. \\
+Dazu müssten entsprechende Referenzierungen von neuen GUI-Style-Änderungen mit Bilddateien stattfinden sowie für Textanpassungen die XML-Dateien im Paket \texttt{biblient/res/layout} verändert bzw. erweitert werden. 
+
+\subsubsection*{2. Mehrsprachigkeit}
+
+Gemäß den Mindestanforderungen wird das System so implementiert sein, dass die Möglichkeit besteht, mehrere Sprachen für das Bibliothekssystem zu unterstützen. Insofern wäre es denkbar, dass neben Deutsch eine weitere Sprache eingebaut werden könnte. Englisch würde sich natürlich anbieten.
 \end{document}
 
 
