@@ -162,7 +162,7 @@ Version & Datum & Änderungen \\
 \subsection{Zweck}
 Der Testplan bietet einen Überblick über die geplanten Tests und dient u.a. als Anleitung für die Tester. Die Software soll dabei ausführlich auf Funktionalität getestet werden. 
 
-Im Testplan wird festgelegt wie man welche Komponenten testet. Dazu wird außerdem definiert welchen Umfang die Tests haben sollen und wann ein Test erfolgreich ist und wann nicht.
+Im Testplan wird festgelegt, wie man welche Komponenten testet. Dazu wird außerdem definiert, welchen Umfang die Tests haben sollen und wann ein Test erfolgreich ist und wann nicht.
 
 Während der Implementierungsphase werden wir uns nach dem Testplan richten und ihn gegebenenfalls weiterführen und vervollständigen.
 
@@ -171,7 +171,7 @@ Während der Implementierungsphase werden wir uns nach dem Testplan richten und 
 Der Testplan entspricht der vereinfachten Form des \emph{IEEE Standard for Software Test Documentation 829-1998}. 
 
 \subsection{Beziehungen zu anderen Dokumenten}
-Dieser Testplan bezieht sich zum einen auf die Anforderungsspezifikation, da dort die Systemeigenschaften und Systemattribute spezifiziert wurden. Die Testfälle werden auf Grundlage der dortigen Anwendungsfälle entwickelt
+Dieser Testplan bezieht sich zum einen auf die Anforderungsspezifikation, da dort die Systemeigenschaften und Systemattribute spezifiziert wurden. Die Testfälle werden auf Grundlage der dortigen Anwendungsfälle entwickelt.
 
 Außerdem gibt es Referenzen zur Architekturbeschreibung, da in dieser die Module und Komponenten definiert wurden, die in diesem Dokument getestet werden sollen.
 
@@ -201,7 +201,7 @@ Nach diesem Schema sieht ein Testbezeichner nun folgendermaßen aus:
 %%
 \subsection{Dokumentation der Testergebnisse}
 
-Zu jedem Testfall wird ein kurzes Testprotokoll angefertigt. Dieses beinhaltet den Ablauf des Testfalls und die möglichen Komplikationen die bei der Durchführung entstehen können. Dann werden die Resultate des Testfalls bestimmt und eventuell gefundene Fehler beschrieben.
+Zu jedem Testfall wird ein kurzes Testprotokoll angefertigt. Dieses beinhaltet den Ablauf des Testfalls und die möglichen Komplikationen, die bei der Durchführung entstehen können. Dann werden die Resultate des Testfalls bestimmt und eventuell gefundene Fehler beschrieben.
 
 %%
 %% Definitionen und Referenzen 
@@ -220,11 +220,11 @@ Zu jedem Testfall wird ein kurzes Testprotokoll angefertigt. Dieses beinhaltet d
 \section{Systemüberblick}\label{c02}
 Das System besteht aus der Server- und der Clientkomponente. Die konzeptionelle Sicht der Architekturbeschreibung (vgl. Abschnitt 3 der Architekturbeschreibung) dient als Grundlage für den Testplan, da dort die verschiedenen Komponenten  beschrieben werden.
 
-Auf der Serverseite gibt es die Komponenten \emph{Communication, BusinessLogic} und \emph{Persistence} (vgl. Abbildung 3: Konzeptionelle Sicht Server; Architekturbeschreibung).
+Auf der Serverseite gibt es die Komponenten \texttt{Communication, BusinessLogic} und \texttt{Persistence} (vgl. Abbildung 3: Konzeptionelle Sicht Server; Architekturbeschreibung).
 
-Die Clientseite besteht aus den Komponenten \emph{Communication, Model} und \emph{User Interface} (vgl. Abbildung 4: Konzeptionelle Sicht Client; Architekturbeschreibung).
+Die Clientseite besteht aus den Komponenten \texttt{Communication, Model} und \texttt{User Interface} (vgl. Abbildung 4: Konzeptionelle Sicht Client; Architekturbeschreibung).
 
-Da starke Abhängigkeiten zwischen all diesen Komponenten bestehen, ist es wichtig das diese Komponenten fehlerfrei funktionieren. 
+Da starke Abhängigkeiten zwischen all diesen Komponenten bestehen, ist es wichtig, dass diese Komponenten fehlerfrei funktionieren. 
 
 
 {\em Es sollten die Hofmeister-Konzepte verwendet
@@ -249,7 +249,7 @@ Beschreibung dazu.}
 
 \section{Merkmale}
 
-Zu testende Merkmale sind in erster Linie Funktionen, die in den Mindestanforderungen enthalten sind. Dabei ist zu beachten, dass die Funktionen des Lesers für die Website und der App getestet werden müssen, während die anderen Testmerkmale sich auf die Website beziehen. Beide sind im Folgenden aufgelistet:\\
+Zu testende Merkmale sind in erster Linie Funktionen, die in den Mindestanforderungen enthalten sind. Dabei ist zu beachten, dass die Funktionen des Lesers für die Website und der App getestet werden müssen, während sich die anderen Testmerkmale auf die Website beziehen. Beide sind im Folgenden aufgelistet:\\
 
 1. Benutzerrechte\\
 \begin{itemize}
@@ -290,14 +290,14 @@ Dazu kommt noch der Gast, der unangemeldet nur suchen kann und man sollte die Un
 
 \subsubsection{Funktionale Anforderungen} 
 
-Besonders wichtig sind die Funktionen des Bibliothekars(3.1-3.5), die sollten gut getestet werden, da es beim Ausleihvorgang nicht zu Problemen kommen soll, sodass irgendwo Bücher verschwinden oder Ausleiher oder Bücher verwechselt werden. Auch wichtig ist die Benutzerunterscheidung, damit Leser nicht irgendwas löschen oder hinzufügen. Dann sollte man noch die Suche und das anzeigen der Bücher ausgiebig testen, da dies die Hauptfunktionen des Lesers sind.
+Besonders wichtig sind die Funktionen des Bibliothekars (3.1-3.5). Die sollten gut getestet werden, da es beim Ausleihvorgang nicht zu Problemen kommen soll, sodass irgendwo Bücher verschwinden oder Ausleiher oder Bücher verwechselt werden. Auch wichtig ist die Benutzerunterscheidung, damit Leser nicht irgendwas löschen oder hinzufügen. Außerdem sollte man die Suche und das Anzeigen der Bücher ausgiebig testen, da dies die Hauptfunktionen des Lesers sind.
 
 \subsection{Nicht zu testende Merkmale}\label{c05}
-Nicht zu testende Merkmale sind in erster Linie alle Trivialen Funktionen. Zudem brauchen bereits Implementierte Funktionen, wie Leser verwalten, Backup und Restore, Buchaufkleber drucken, Leserausweise drucken, Import und Export von Buch- und Leserdaten nicht mehr getestet werden, sofern man diese nicht verändert. Da wir Buch verwalten noch verändern, da wir mit mehreren Medientypen arbeiten, ist dieses wie in \ref{c04} beschrieben noch zu testen.
+Nicht zu testende Merkmale sind in erster Linie alle trivialen Funktionen. Zudem brauchen bereits implementierte Funktionen, wie \texttt{Leser verwalten, Backup} und \texttt{Restore, Buchaufkleber drucken, Leserausweise drucken, Import und Export von Buch- und Leserdaten} nicht mehr getestet werden, sofern man diese nicht verändert. Da wir \texttt{Buch verwalten} noch verändern, da wir mit mehreren Medientypen arbeiten, ist dieses wie in \ref{c04} beschrieben noch zu testen.
 
 % Abnahme- und Testkriterien
 \section{Abnahme- und Testendekriterien}\label{c07}
-Fehler werden in eine Kategorie eingeordnet und erhalten entsprechende Fehlerwerte. Aus diesen Fehlerwerten ergeben sich Prioritäten, die die Reihenfolge der Fehlerbehandlung angibt. Das Testen wird beendet, wenn der berechnete Fehlerwert aller Fehler pro 1000 Zeilen Code unter dem Wert 10 liegt und die Software nicht beeinträchtigt wird, d.h. es keinen Fehler der Klasse Mittel oder höher gibt.
+Fehler werden in eine Kategorie eingeordnet und erhalten entsprechende Fehlerwerte. Aus diesen Fehlerwerten ergeben sich Prioritäten, die die Reihenfolge der Fehlerbehandlung angibt. Das Testen wird beendet, wenn der berechnete Fehlerwert aller Fehler pro 1000 Zeilen Code unter dem Wert 10 liegt und die Software nicht beeinträchtigt wird, d.h. es keinen Fehler der Fehlerklasse \texttt{Mittel} oder höher gibt.
 
 \textbf{Testabdeckung}
 
@@ -306,17 +306,17 @@ Fehler werden in eine Kategorie eingeordnet und erhalten entsprechende Fehlerwer
   
 
 \textbf{Fehlerbewertung:}\\
-Die nachfolgende Tabelle spezifiziert die Auswirkung eines Fehlers durch welche man diese nach Priorität einordnen kann.\\
+Die nachfolgende Tabelle spezifiziert die Auswirkung eines Fehlers, durch die man diese nach Priorität einordnen kann.\\
 
 \begin{tabularx}{\textwidth}{|p{2cm}|p{11.53cm}|c|}
 \hline
-	Fehlerklasse & Beschreibung & Wert\\
+	\textbf{Fehlerkl.\footnote{=Fehlerklasse}} & \textbf{Beschreibung} & \textbf{Wert}\\
 \hline
-	Leicht & Unwesentliche Fehler, die den Programmablauf nicht beeinträchtigen aber trotzdem behandelt werden sollten. & 1\\
+	Leicht & Unwesentliche Fehler, die den Programmablauf nicht beeinträchtigen, aber trotzdem behandelt werden sollten. & 1\\
 \hline
-	Mittel & Fehler in dieser Art haben Auswirkungen auf den Programmablauf. Dieser beinträchtigt aber nicht die grundlegenden Funktionen. & 10\\
+	Mittel & Fehler in dieser Art haben Auswirkungen auf den Programmablauf. Dieser beeinträchtigt aber nicht die grundlegenden Funktionen. & 10\\
 \hline
-	Schwer & Fehler der Klasse ,,Schwer'' beinträchtigen die Funktionsfähigkeit des Systems sehr stark und müssen sofort behandelt werden & 20\\
+	Schwer & Fehler der Klasse ,,Schwer'' beeinträchtigen die Funktionsfähigkeit des Systems sehr stark und müssen sofort behandelt werden. & 20\\
 \hline
 	Fatal & Diese Fehler machen den Programmablauf unmöglich und können zum Absturz des Systems führen.  & 100\\
 \hline
@@ -341,20 +341,20 @@ Die nachfolgende Tabelle spezifiziert die Auswirkung eines Fehlers durch welche 
 
 \section{Aufhebung und Wiederaufnahme}\label{c08}
 
-Wir werden Tests unterbrechen, wenn ein gewisser Wert überschritten wird, welcher über die Tabelle \ref{testende}berechnet wird. In dem Fall werden wir sofort wieder mit der Implementierung anfangen. Da wir mit der Bottom-up Strategie testen, werden wir bei Fehlern in der unteren Schicht einen niedrigeren Wert nehmen.\\
-Bei Fehlern der Data setzen wir einen Wert von 10, bei Fehlern in der Logik einen Wert von 20 und bei Fehlern, welche die GUI betreffen einen von 40 und bei den restlichen Faktoren einen von 100.\\
-Sollten die Fehler behoben sein, testen wir noch einmal alle Komponenten, welche mit den veränderten Interagieren.
+Wir werden Tests unterbrechen, wenn ein gewisser Wert überschritten wird, welcher über die Tabelle \ref{testende}berechnet wird. In diesem Fall werden wir sofort wieder mit der Implementierung anfangen. Da wir mit der Bottom-up Strategie testen, werden wir bei Fehlern in der unteren Schicht einen niedrigeren Wert nehmen.\\
+Bei Fehlern der Data setzen wir einen Wert von 10, bei Fehlern in der Logik einen Wert von 20 und bei Fehlern, welche die GUI betreffen, einen von 40 und bei den restlichen Faktoren einen von 100.\\
+Sollten die Fehler behoben sein, testen wir noch einmal alle Komponenten, die mit den veränderten interagieren.
 
 \section{Hardware- und Softwareanforderungen}\label{c09}
 
 
 \subsection{Hardware}
 
-Als Hardware stehen uns unsere Notebooks und Smartphones, sowie die Unirechner zur Verfügung. Dabei haben wir alle geforderten Betriebssysteme mindestens einmal auf unseren Notebooks installiert, sodass wir auf jeden Testen können. Wir besitzen ebenfalls einen PC der über Windows 2000 läuft, darüber testen wir auch noch, da dies den Rechnern des Kunden entspricht. Da nur Android Unterstützung gefordert ist, werden wir die App über unseren vorhandenen Smartphones die Android haben testen.
+Als Hardware stehen uns unsere Notebooks und Smartphones, sowie die Unirechner zur Verfügung. Dabei haben wir alle geforderten Betriebssysteme mindestens einmal auf unseren Notebooks installiert, sodass wir auf jeden Gerät testen können. Wir besitzen ebenfalls einen PC, der über Windows 2000 läuft, darüber testen wir auch noch, da dies den Rechnern des Kunden entspricht. Da nur Android Unterstützung gefordert ist, werden wir die App über unseren vorhandenen Smartphones, die Android haben, testen.
 
 \subsection{Software}
 
-Als Software benutzen wir in der Eclipse Umgebung JUnit Tests. Diese werden in Form von BlackBox- und WhiteBoxtests implementiert. Die App werden wir mithilfe eines Android Emulators testen.
+Als Software benutzen wir in der Eclipse Umgebung JUnit-Tests. Diese werden in Form von BlackBox- und WhiteBox-Tests implementiert. Die App werden wir mithilfe eines Android Emulators testen.
 
 % Testfälle
 \section{Testfälle}\label{c10}
