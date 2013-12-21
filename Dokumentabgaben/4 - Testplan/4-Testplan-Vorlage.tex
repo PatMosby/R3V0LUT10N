@@ -341,20 +341,20 @@ Die nachfolgende Tabelle spezifiziert die Auswirkung eines Fehlers durch welche 
 
 \section{Aufhebung und Wiederaufnahme}\label{c08}
 
+Wir werden Tests unterbrechen, wenn ein gewisser Wert überschritten wird, welcher über die Tabelle \ref{testende}berechnet wird. In dem Fall werden wir sofort wieder mit der Implementierung anfangen. Da wir mit der Bottom-up Strategie testen, werden wir bei Fehlern in der unteren Schicht einen niedrigeren Wert nehmen.\\
+Bei Fehlern der Data setzen wir einen Wert von 10, bei Fehlern in der Logik einen Wert von 20 und bei Fehlern, welche die GUI betreffen einen von 40 und bei den restlichen Faktoren einen von 100.\\
+Sollten die Fehler behoben sein, testen wir noch einmal alle Komponenten, welche mit den veränderten Interagieren.
 
 \section{Hardware- und Softwareanforderungen}\label{c09}
-\nurlangversion
 
-{\em Hier soll das zu prüfende Material spezifiziert werden. Auf
-  welchen Rechnern werden die Tests durchgeführt? Welche anderen
-  Hilfsmittel oder Ressourcen sind dafür nötig?}
 
 \subsection{Hardware}
 
-\nurlangversion
+Als Hardware stehen uns unsere Notebooks und Smartphones, sowie die Unirechner zur Verfügung. Dabei haben wir alle geforderten Betriebssysteme mindestens einmal auf unseren Notebooks installiert, sodass wir auf jeden Testen können. Wir besitzen ebenfalls einen PC der über Windows 2000 läuft, darüber testen wir auch noch, da dies den Rechnern des Kunden entspricht. Da nur Android Unterstützung gefordert ist, werden wir die App über unseren vorhandenen Smartphones die Android haben testen.
 
 \subsection{Software}
-\nurlangversion
+
+Als Software benutzen wir in der Eclipse Umgebung JUnit Tests. Diese werden in Form von BlackBox- und WhiteBoxtests implementiert. Die App werden wir mithilfe eines Android Emulators testen.
 
 % Testfälle
 \section{Testfälle}\label{c10}
