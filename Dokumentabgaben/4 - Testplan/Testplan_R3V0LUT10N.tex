@@ -434,13 +434,7 @@ Als Software benutzen wir in der Eclipse Umgebung JUnit-Tests. Diese werden in F
 
 \subsection{Komponententest}\label{c10-0}
 
-{\em Auf die genaue Spezifikation der Komponententests könnt Ihr
-  verzichten -- diese werden durch die JUnit-Testfälle gegeben. Uns
-  genügt hierzu eine Beschreibung, welche Komponenten/Klassen wie,
-  wann und durch wen getestet werden sollen. Die zugehörigen
-  JUnit-Tests werden separat abgegeben (Black-Box jetzt, White-Box
-  später bei der Abgabe der Implementierung) und müssen im Testplan
-  nicht als Code aufgeführt werden.}
+Wir haben hier alle Klassen aufgelistet, welche wir testen wollen. Dabei werden wir keine abstrakten Klassen und Interfaces testen. Vorgegebene Klassen, welche bereits funktionieren, werden wir nicht testen. Exceptions testen wir nicht einzeln, sondern diese werden mit den zugehörigen Methoden getestet.
 
 \begin{table}[h]
 \centering
@@ -448,22 +442,39 @@ Als Software benutzen wir in der Eclipse Umgebung JUnit-Tests. Diese werden in F
 \hline
 Klasse & Implementierer & Tester & Testart \\
 \hline
-ReferenceManagement & Klaus  & Hans    & Blackbox \\
-UserManagement      & Anna   & Klaus   & Blackbox \\
-\dots               & \dots  & \dots   & \dots \\
-ReferenceTable      & Heinz  & Bert    & Whitebox \\
+AsyncBookTask & Patrick  & Tim    & Blackbox \\
+BookAdapter      & Patrick   & Daniel   & Blackbox \\
+MainActivity     & Patrick  & Sebastian   & Blackbox \\
+Network      & Patrick  & Tobias    & Blackbox \\
+ShowBookActivity      & Patrick  & Tim    & Blackbox \\
+Admin      & Tim  & Daniel    & Blackbox \\
+Medium      & Tim  & Patrick    & Blackbox \\
+Reader      & Tim  & Tobias    & Blackbox \\
+Librarian      & Tim  & Daniel    & Blackbox \\
+Config      & Tim  & Sebastian    & Blackbox \\
+AdministrationHandler      & Daniel  & Patrick    & Blackbox \\
+BorrowHandler      & Daniel  & Tim    & Blackbox \\
+MediumHandler      & Daniel  & Tobias    & Blackbox \\
+LibrarianHandler      & Daniel  & Tim    & Blackbox \\
+ReaderHandler      & Daniel  & Tim    & Blackbox \\
+Data      & Daniel  & Tobias    & Blackbox \\
+AddLibrarianForm      & Tobias  & Patrick    & Blackbox \\
+AddMediumForm      & Tobias  & Tim    & Blackbox \\
+AddReaderForm      & Tobias  & Sebastian    & Blackbox \\
+Administration      & Tobias  & Patrick    & Blackbox \\
+AuthBackingBean      & Tobias  & Tim    & Blackbox \\
+MediumListDataModel      & Sebastian  & Patrick    & Blackbox \\
+MediumTable      & Sebastian  & Daniel    & Blackbox \\
+ReaderTable      & Sebastian  & Tobias    & Blackbox \\
+ChangeMediumForm      & Sebastian  & Tim    & Blackbox \\
+ChangeReaderForm      & Sebastian  & Daniel    & Blackbox \\
+TableDataModel      & Sebastian  & Patrick    & Blackbox \\
+BibServices      & Sebastian  & Tim    & Blackbox \\
 \hline
 \end{tabular}
 \caption{Komponententests}
 \label{tab:komponententests}
 \end{table}
-
-{\em Achtet darauf, dass der Tester ein anderer ist als der
-  Implementierer. Jeder soll mindestens eine Klasse als Black-Box und
-  eine Klasse als White-Box testen!}
-
-{\em Hier könnten später noch die Kontrollflussdiagramme für die
-  Whiteboxtests eingefügt werden.}
 
 \clearpage
 \subsection{Integrationstest}\label{c10a}
