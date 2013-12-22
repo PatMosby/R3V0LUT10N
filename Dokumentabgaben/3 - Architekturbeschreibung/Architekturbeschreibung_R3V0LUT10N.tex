@@ -1002,7 +1002,7 @@ Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten 
 Im Folgenden werden die einzelnen Pakete in Klassendiagramme umgestellt, da 
 ein einzelnes Klassendiagramm aller benutzten Klassen unübersichtlich wäre.
 Zusätzlich sei angemerkt, dass die Klassen lediglich mit Methoden oder Attributen
-angezeigt werden, sofern sie durch die Projektarbeit neu erstellt oder verändert wurden.
+angezeigt werden, sofern sie durch die Projektarbeit neu erstellt oder verändert wurden. Außerdem sei noch angemerkt, dass sich zwar Änderungen z.B. von Variablen durch die Erweiterung der Mindestanforderungen ergeben. Diese kleinen Änderungen werden aber im Folgenden nicht berücksichtigt.
 \newpage
 \subsubsection{Klassendiagramme \texttt{bibjsf}}
 
@@ -1040,31 +1040,35 @@ Die ehemaligen Klassen \texttt{BookForm, AddBookForm} und \texttt{ChangeBookForm
 
 \textbf{Persistence:}
 
+Im Paket \texttt{Persistence} kam es bisher zu keinen erwähnenswerten, signifikanten Änderungen oder Erweiterungen in Form von Methoden o.Ä.
+
 \begin{figure} [H] 
 \caption{Paket \texttt{Persistence}} \centering
- \includegraphics[width=1\textwidth]{Diagramme/Persistence.png} 
+ \includegraphics[width=0.9\textwidth]{Diagramme/Persistence.png} 
  \label{Persistence} 
 \end{figure}
 \newpage
 
 \textbf{Renderer:}
 
+Da wir nun die Klassen \texttt{MediumTagPrinter} und \texttt{MediumTagContent} haben, unterstützt das Package nun mehrere Medien und nicht nur Bücher, so wie es zuvor implementiert war.
 \begin{figure} [H] 
 \caption{Paket \texttt{Renderer}} \centering
- \includegraphics[width=1\textwidth]{Diagramme/Renderer.png} 
+ \includegraphics[width=0.9\textwidth]{Diagramme/Renderer.png} 
  \label{Renderer} 
 \end{figure}
 
 \textbf{Utils:}
 
+In diesem Paket wurde bisher nichts erweitert, was wir für angemessen hielten.
 \begin{figure} [H] 
 \caption{Paket \texttt{Utils}} \centering
  \includegraphics[width=1\textwidth]{Diagramme/Utils.png} 
  \label{Utils} 
 \end{figure}
 
-\textbf{Exception:}
-
+\textbf{Exception:} \\
+In diesem Paket haben wir bisher die Klassen, die mit Büchern arbeiten, noch nicht in entsprechende Klassen für Medien, wie z.B. \texttt{MediumAlreadyExists} geändert, weil wir dies zu diesem Zeitpunkt noch nicht für erforderlich hielten.
 \begin{figure} [H] 
 \caption{Paket \texttt{Exception}} \centering
  \includegraphics[width=1\textwidth]{Diagramme/exception.png} 
@@ -1072,27 +1076,35 @@ Die ehemaligen Klassen \texttt{BookForm, AddBookForm} und \texttt{ChangeBookForm
 \end{figure}
 
 \textbf{ISBNSearch:}
-
+In diesem Paket wurde bisher nichts erweitert, was wir für angemessen hielten.
 \begin{figure} [H] 
 \caption{Paket \texttt{ISBNSearch}} \centering
  \includegraphics[width=0.7\textwidth]{Diagramme/ISBNSearch.png} 
  \label{ISBNSearch} 
 \end{figure}
 
+\textbf{Services:}
+In diesem Paket wurde bisher nichts erweitert, was wir für angemessen hielten.
+\begin{figure} [H] 
+\caption{Paket \texttt{Services}} \centering
+ \includegraphics[width=0.7\textwidth]{Diagramme/services.png} 
+ \label{Services} 
+\end{figure}
+
 
 \subsubsection{Klassendiagramm \texttt{BibClient}}
-
+In diesem Paket haben wir keine Veränderungen implementiert.
 \begin{figure} [H] 
 \caption{Paket \texttt{BibClient}} \centering
- \includegraphics[width=1\textwidth]{Diagramme/bibclient.png} 
+ \includegraphics[width=0.8\textwidth]{Diagramme/bibclient.png} 
  \label{BibClient} 
 \end{figure}
 
 \subsubsection{Klassendiagramm \texttt{BibCommon}}
-
+Hier haben wir die größten Änderungen vorgenommen. Wir haben nämlich Unterklassen von \texttt{Medium} implementiert, die entsprechend davon erben, wie \texttt{Book, CD, Hörbücher} usw. mit entsprechenden Attributen, die nur auf das entsprechende Medium zugeschnitten sind.
 \begin{figure} [H] 
 \caption{Paket \texttt{BibCommon}} \centering
- \includegraphics[width=1\textwidth]{Diagramme/bibcommon.png} 
+ \includegraphics[width=0.8\textwidth]{Diagramme/bibcommon.png} 
  \label{BibCommon} 
 \end{figure}
 
