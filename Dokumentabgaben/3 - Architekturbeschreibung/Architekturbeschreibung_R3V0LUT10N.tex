@@ -857,7 +857,7 @@ An weiteren Funktionalitäten der Klassen aus dem Paket \texttt{bibclient} sind 
 \subsubsection{Pakete \texttt{bibcommon}}
 \label{sec:bibcommon}
 
-Das Paket \texttt{bibcommon} stellt eine Sammlung von Quellcodedateien zur verfügung, welche von den Komponenten \texttt{bibclient} und \texttt{bibjsf}
+Das Paket \texttt{bibcommon} stellt eine Sammlung von Quellcodedateien zur Verfügung, welche von den Komponenten \texttt{bibclient} und \texttt{bibjsf} gemeinsam genutzt werden. \texttt{bibcommon} besteht aus folgenden Klassen:
 
 \begin{itemize}
 \item{BusinessObject.java}
@@ -865,11 +865,9 @@ Das Paket \texttt{bibcommon} stellt eine Sammlung von Quellcodedateien zur verf�
 \item{IllegalRating.java}
 \item{Reader.java}
 \item{}
-\item{}
-\item{}
-\item{}
-\item{}
 \end{itemize}
+
+Weiter Funktionalitäten auf die die Klassen aus dem Paket \texttt{bibcommon} zugreifen sind aus \texttt{com.google.gson}, \texttt{java.io.Serializable}, \texttt{java.lang}, \texttt{jav.util}, \texttt{java.text}, \texttt{java.ws.rs} was aus dem Diagramm \vref{pic:PackageCommon} ersichtlich wird.
 
 \begin{figure} [H] 
 \caption{Paket \texttt{bibcommon}} \centering
@@ -881,6 +879,8 @@ Das Paket \texttt{bibcommon} stellt eine Sammlung von Quellcodedateien zur verf�
 \newpage
 \subsubsection{Paket \texttt{bibjsf}}
 \label{sec:bibclient}
+
+Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vref{pic:Packagebibjsf}). Diese wiederum beinhalten die logisch zusammenhängenden Java-Quellcodedateien die für den Server benötigt werden. Im folgenden werden die einzelnen Pakete und deren zughörigen Java-Klassen aufgelistet. 
 
 \begin{itemize}
 \item{Paket \texttt{eu.it\_r3v.businesslogic}}
@@ -970,8 +970,11 @@ Das Paket \texttt{bibcommon} stellt eine Sammlung von Quellcodedateien zur verf�
 \begin{figure} [H] 
 \caption{Paketübersicht \texttt{bibjsf}} \centering
 	\includegraphics[width=0.45\textwidth]{Diagramme/Packagebibjsfuebersicht.png} 
-	\label{pic:PackagebibjsfUebersicht} 
+	\label{pic:Packagebibjsf} 
 \end{figure}
+
+Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten zu entnehmen welche von den einzelnen Java-Klassen benötigt werden.
+
 
 \begin{figure} [H] 
 \caption{Paket bibjsf} \centering
@@ -982,51 +985,6 @@ Das Paket \texttt{bibcommon} stellt eine Sammlung von Quellcodedateien zur verf�
 
 \section{Datensicht (Tobias)}
 \label{sec:datensicht}
-
-{\it
-Diese Sicht beschreibt den statischen Aufbau des Systems mit Hilfe von
-Modulen, Subsystemen, Schichten und Schnittstellen. 
-Diese Sicht ist hierarchisch, d.h. Module werden in Teilmodule
-zerlegt. Die Zerlegung endet bei Modulen, die ein klar umrissenes
-Arbeitspaket für eine Person darstellen und in einer Kalenderwoche
-implementiert werden können. Die Modulbeschreibung der Blätter dieser
-Hierarchie muss genau genug und ausreichend sein, um das Modul 
-implementieren zu können.
-
-Die Modulsicht wird durch {UML}-Paket- und Klassendiagramme visualisiert.
-
-Die Module werden durch ihre Schnittstellen beschrieben. 
-Die Schnittstelle eines Moduls $M$ ist die Menge aller Annahmen, die
-andere Module über $M$ machen dürfen, bzw.\ jene Annahmen, die $M$
-über seine verwendeten Module macht (bzw. seine Umgebung, wozu auch
-Speicher, Laufzeit etc.\ gehören).
-Konkrete Implementierungen dieser Schnittstellen sind das Geheimnis des Moduls
-und können vom Programmierer festgelegt werden. Sie sollen hier
-dementsprechend nicht beschrieben werden. 
-
-Die Diagramme der Modulsicht sollten die zur Schnittstelle gehörenden Methoden
-enthalten. Die Beschreibung der einzelnen Methoden (im Sinne der Schnittstellenbeschreibung)
-geschieht allerdings per Javadoc im zugehörigen Quelltext. Das bedeutet, dass Ihr
-für alle Eure Module Klassen, Interfaces und Pakete erstellt und sie mit den Methoden der
-Schnittstellen verseht. Natürlich noch ohne Methodenrümpfe bzw.\ mit minimalen Rümpfen.
-Dieses Vorgehen vereinfacht den Schnittstellenentwurf und stellt Konsistenz sicher.
-
-Jeder Schnittstelle liegt ein
-Protokoll zugrunde. Das Protokoll beschreibt die Vor- und
-Nachbedingungen der Schnittstellenelemente. Dazu gehören die erlaubten
-Reihenfolgen, in denen Methoden der Schnittstelle aufgerufen werden
-dürfen, sowie Annahmen über Eingabeparameter und Zusicherungen über
-Ausgabeparameter. Das Protokoll von Modulen wird in der Modulsicht beschrieben.
-Dort, wo es sinnvoll ist, sollte es mit Hilfe von Zustands- oder
-Sequenzdiagrammen spezifiziert werden. Diese sind dann einzusetzen, wenn der
-Text allein kein ausreichendes Verständnis vermittelt (insbesondere
-bei komplexen oder nicht offensichtlichen Zusammenhängen).
-
-Der Bezug zur konzeptionellen Sicht muss klar ersichtlich sein. Im
-Zweifel sollte er explizit erklärt werden. Auch für diese Sicht muss
-die Entstehung anhand der Strategien erläutert werden.
-}
-
 
 \section{Ausführungssicht (Sebastian)}
 
