@@ -180,6 +180,15 @@ Dies ist der erste Architekturentwurf vom 22.12.2013.
 
 \subsection{Referenzen}
 
+\begin{itemize}
+	\item{\url{http://www.informatik.uni-bremen.de/st/Lehre/swpII_1314/mindestanforderungen.html}\\
+	Die Mindestanforderungen für das Produkt.}
+	\item{\url{http://www.elearning.uni-bremen.de} Plattform der Universität Bremen. Zugriff auf Folien der Veranstaltung Software Projekt 1 des Sommersemesters 2013 und Übungen des Software Projekts 2 des Wintersemesters 13/14 nur eingeschränkt möglich.} 
+	\item{Vorlage dieses Dokuments - Stud.IP Software Projekt 2\\
+	 3-Architekturbeschreibung-Vorlage.tex} 
+	\item{Hinweise zu diesem Dokument - Stud.IP 3-Hinweise-Abgabe-Architektur.pdf} 
+	\item{\url{http://www.informatik.uni-bremen.de/st/lehre/swp0809/anette_architekturbeschreibung.pdf}} Architekturbeschreibung einer Gruppe aus dem Software-Projekt 08/09 der Universität Bremen.
+\end{itemize}
 \subsection{Übersicht über das Dokument}
 
 Dieses Dokument basiert auf der Vorlage des \textit{IEEE P1471 2002} Standards. Der Inhalt dieses Dokuments ist wie folgt aufgegliedert:
@@ -219,8 +228,6 @@ In diesem Teil der Architekturbeschreibung wird beschrieben, welche Änderungen 
 
 \end{enumerate}
 
-\newpage
-
 \section{Globale Analyse (Daniel)}
 \label{sec:globale_analyse}
 
@@ -252,6 +259,7 @@ Die Einflussfaktoren werden im Folgenden unterteilt in:
 \end{table}
 
 \begin{table}[H]
+\caption{O1}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{O1} & \textbf{Time-To-Market}\\ \hline \hline
 Faktor & Auslieferungsdatum 23.02.2014\\ \hline
@@ -261,6 +269,7 @@ Auswirkungen & Die Software muss zum Abgabedatum lauffähig sein.\\ \hline
 \end{table}
 
 \begin{table}[H]
+\caption{O2}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{O2} & \textbf{Auslieferung von Produktfunktionen}\\ \hline \hline
 Faktor & Alle Mindestanforderungen\\ \hline
@@ -270,6 +279,7 @@ Auswirkungen & Architektur muss alle Mindestanforderungen abdecken; es muss dara
 \end{table}
 
 \begin{table}[H]
+\caption{O3}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{O3} & \textbf{Budget} \\ \hline \hline
 Faktor & Kein finanzielles Budget\\ \hline
@@ -279,6 +289,7 @@ Auswirkungen & Es können keine kostenpflichtigen Dienste in Anspruch genommen w
 \end{table}
 
 \begin{table}[H]
+\caption{O4}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{O4} & \textbf{Kenntnisse in Java und Android} \\ \hline \hline
 Faktor & Kenntnisse der Entwickler in Java und Android\\ \hline
@@ -288,6 +299,7 @@ Auswirkungen & Bei wenig Kenntnissen muss mehr Zeit eingeplant werden, um sich d
 \end{table}
 
 \begin{table}[H]
+\caption{O5}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{O5} & \textbf{Kenntnisse in J-Unit} \\ \hline \hline
 Faktor & Kenntnisse in J-Unit Tests\\ \hline
@@ -297,6 +309,7 @@ Auswirkungen & Bei unzureichenden Tests kann es später beim Programm zu Problem
 \end{table}
 
 \begin{table}[H]
+\caption{O6}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{O6} & \textbf{Anzahl der Entwickler}\\ \hline \hline
 Faktor & Die Anzahl der Entwickler\\ \hline
@@ -324,6 +337,7 @@ Auswirkungen & Wenn Gruppenmitglieder wegfallen, müssen die restlichen Mitglied
 \end{table}
 
 \begin{table}[H]
+\caption{T1}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T1} & \textbf{Software funktioniert unter Windows, Linux und MacOS} \\ \hline \hline
 Faktor & Die Software muss auf den Betriebssystemen Windows, Linux und MacOS laufen.\\ \hline
@@ -334,6 +348,7 @@ Auswirkungen & Die Entwickler müssen sich mit allen Betriebsprogrammen befassen
 
 
 \begin{table}[H]
+\caption{T2}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T2} & \textbf{Software funktioniert als App (Andriod 2.3 oder höher)}. \\ \hline \hline
 Faktor & Die Software muss als Android App auf einem Smartphone laufen.\\ \hline
@@ -344,6 +359,7 @@ Auswirkungen & Die Software muss wie gefordert als App auf einem Android-Smartph
 
 
 \begin{table}[H]
+\caption{T3}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T3} & \textbf{SQL-Datenbank} \\ \hline \hline
 Faktor & Software läuft über eine relationale Datenbank.\\ \hline
@@ -353,6 +369,7 @@ Auswirkungen & Es muss eine relationale Datenbank für die serverseitige Persist
 \end{table}
 
 \begin{table}[H]
+\caption{T4}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T4} & \textbf{Mehrere parallele Nutzer} \\ \hline \hline
 Faktor & Es greifen mehrere Nutzer zur gleichen Zeit auf die Software zu.\\ \hline
@@ -362,6 +379,7 @@ Auswirkungen & Die Software muss darauf ausgelegt sein, mehrere Nutzer zur gleic
 \end{table}
 
 \begin{table}[H]
+\caption{T5}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T5} & \textbf{Client-Server System} \\ \hline \hline
 Faktor & Die Software arbeitet über ein Client-Server System.\\ \hline
@@ -371,6 +389,7 @@ Auswirkungen & Die Implementierung wird in Server und Client aufgeteilt (siehe \
 \end{table}
 
 \begin{table}[H]
+\caption{T6}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T6} & \textbf{Benutzerschnittstelle} \\ \hline \hline
 Faktor & Es sollte eine übersichtliche und ansprechende GUI geben.\\ \hline
@@ -380,6 +399,7 @@ Auswirkungen & Für eine benutzerfreundliche Gestaltung sind gute Kenntnisse in 
 \end{table}
 
 \begin{table}[H]
+\caption{T7}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T7} & \textbf{Implementierungssprache Java} \\ \hline \hline
 Faktor & Die Software muss in Java 5 oder höher geschrieben werden.\\ \hline
@@ -389,6 +409,7 @@ Auswirkungen & Die Software muss in Java geschrieben werden, daher müssen alle 
 \end{table}
 
 \begin{table}[H]
+\caption{T8}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T8} & \textbf{Beschränkungsfreiheit für Fremdbibliotheken}\\ \hline \hline
 Faktor & Fremdbibliotheken dürfen für den Einsatz in Forschung.\\
@@ -413,6 +434,7 @@ Auswirkungen & Es darf keine Software oder Bibliothek verwendet werden, die kost
 \end{table}
 
 \begin{table}[H]
+\caption{P1}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{P1} & \textbf{Mindestanforderung} \\ \hline \hline
 Faktor & Das Produkt muss alle Mindestanforderungen enthalten.\\ \hline
@@ -421,8 +443,8 @@ Auswirkungen & Es müssen alle Mindestanforderungen implementiert werden. \\ \hl
 \end{tabular}
 \end{table}
 
-
 \begin{table}[H]
+\caption{P2}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{P2} &  \textbf{Performanz}\\ \hline \hline
 Faktor & Möglichst schnelle Ausführungszeiten\\ \hline
@@ -432,6 +454,7 @@ Auswirkungen & Es sollte bei der Implementierung auf einen schnellen Datenaustau
 \end{table}
 
 \begin{table}[H]
+\caption{P3}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{P3} &  \textbf{Benutzerrechte} \\ \hline \hline
 Faktor & Es gibt verschiedene Benutzer mit unterschiedlichen Rechten.\\ \hline
@@ -441,6 +464,7 @@ Auswirkungen & Es müssen unterschiedliche Benutzer implementiert werden, die un
 \end{table}
 
 \begin{table}[H]
+\caption{P4}
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{P4} &  \textbf{Fehlererkennung} \\ \hline \hline
 Faktor & Fehler sollten von der Software erkannt werden und entsprechend behandelt werden.\\ \hline
@@ -449,6 +473,8 @@ Auswirkungen & Fehler müssen erkannt und durch entsprechende Exceptions korrigi
 \end{tabular}
 \end{table}
 
+\newpage
+
 \subsection{Probleme und Strategien}
 \label{sec:strategien}
 
@@ -456,6 +482,7 @@ Folgenden Probleme haben wir identifiziert:\\
 
 \begin{table}[H]
 \centering
+\caption{Probleme und Strategien}
 \begin{tabular}{|l|l|}\hline
 \textbf{Nummer} & \textbf{Faktoren}\\ \hline \hline
 1 & Zeitprobleme\\ \hline
@@ -473,10 +500,11 @@ Folgenden Probleme haben wir identifiziert:\\
 Diese versuchen wir mit folgenden Strategien zu überbrücken:
 
 \begin{table}[H]
+\caption{PuS1}
 \begin{tabular}{|p{\textwidth}|}\hline
 1 Zeitprobleme\\ \hline
 Es gibt einen festgesetzten Abgabetermin, der eingehalten werden muss.\\ \hline
-\textbf{Einflussfaktoren}\\
+\textbf{Einflussfaktoren}
 \begin{itemize}
 \item O1 Time-To-Market
 \item O2 Auslieferung von Produktfunktionen
@@ -485,7 +513,7 @@ Es gibt einen festgesetzten Abgabetermin, der eingehalten werden muss.\\ \hline
 \item O6 Anzahl der Entwickler
 \item P1 Mindestanforderungen
 \end{itemize}\\ \hline
-\textbf{Lösung}\\
+\textbf{Lösung}
 \begin{itemize}
 \item Strategie 1: Modularisierung für paralleles Arbeiten \leavevmode\newline
 Durch Modularisierung können mehrere Entwickler zur gleichen Zeit am Projekt arbeiten und die Module unabhängig voneinander implementieren. Diese werden dann später zusammengesetzt.
@@ -497,10 +525,11 @@ Es werden beide Strategien verwendet.\\ \hline
 \end{table}
 
 \begin{table}[H]
+\caption{PuS2}
 \begin{tabular}{|p{\textwidth}|}\hline
 2 Mangelnde Kenntnisse in Java\\ \hline
 Es werden Vorkenntnisse in Java vorausgesetzt; ohne diese könnte es zu großen Problemen kommen, da ohne ausreichende Kenntnisse das Programm nicht realisiert werden kann.\\ \hline
-\textbf{Einflussfaktoren}\\
+\textbf{Einflussfaktoren}
 \begin{itemize}
 \item O1 Time-To-Market
 \item O2 Auslieferung von Produktfunktionen
@@ -511,7 +540,7 @@ Es werden Vorkenntnisse in Java vorausgesetzt; ohne diese könnte es zu großen 
 \item T7 Implementierungssprache Java
 \item P1 Mindestanforderungen
 \end{itemize}\\ \hline
-\textbf{Lösung}\\
+\textbf{Lösung}
 \begin{itemize}
 \item Strategie 1: Modularisierung \leavevmode\newline
 Der Code wird in verschiedene Module aufgeteilt. Wenn ein Gruppenmitglied nicht genügend Kenntnisse besitzt, kann dieses Modul von einem anderen Mitglied neu erstellt werden und der inkompetente Entwickler kann keinen Schaden auf andere Module anrichten.
@@ -524,10 +553,11 @@ Es werden beide Strategien verwendet.\\ \hline
 
 
 \begin{table}[H]
+\caption{PuS3}
 \begin{tabular}{|p{\textwidth}|}\hline
 3 Mangelnde Kenntnisse in Android\\ \hline
 Es werden Kenntnisse in Android vorausgesetzt, da eine App entwickelt werden muss. \\ \hline
-\textbf{Einflussfaktoren}\\
+\textbf{Einflussfaktoren}
 \begin{itemize}
 \item O1 Time-To-Market
 \item O2 Auslieferung von Produktfunktionen
@@ -539,7 +569,7 @@ Es werden Kenntnisse in Android vorausgesetzt, da eine App entwickelt werden mus
 \item T7 Implementierungssprache Java
 \item P1 Mindestanforderungen
 \end{itemize}\\ \hline
-\textbf{Lösung}\\
+\textbf{Lösung}
 \begin{itemize}
 \item Strategie 1: Modularisierung \leavevmode\newline
 Der Code wird in verschiedene Module aufgeteilt. Wenn ein Gruppenmitglied nicht genügend Kenntnisse besitzt, kann dieses Modul von einem anderen Mitglied neu erstellt werden und der inkompetente Entwickler kann keinen Schaden auf andere Module anrichten.
@@ -551,10 +581,11 @@ Es werden beide Strategien verfolgt; sollte das Gruppenmitglied mit Android zeit
 \end{table}
 
 \begin{table}[H]
+\caption{PuS4}
 \begin{tabular}{|p{\textwidth}|}\hline
 4 Mangelnde Kenntnisse in Datenbanksystemen\\ \hline
 Es werden Kenntnisse in Datenbanksystemen vorausgesetzt, da wir für die Bibliothek eine Datenbank verwenden. Dabei werden SQL- oder SQL-ähnliche Abfragen verwendet und entsprechende Kenntnisse verlangt. \\ \hline
-\textbf{Einflussfaktoren}\\
+\textbf{Einflussfaktoren}
 \begin{itemize}
 \item O1 Time-To-Market
 \item O2 Auslieferung von Produktfunktionen
@@ -563,7 +594,7 @@ Es werden Kenntnisse in Datenbanksystemen vorausgesetzt, da wir für die Bibliot
 \item T5 Client-Server System
 \item T7 Implementierungssprache Java
 \end{itemize}\\ \hline
-\textbf{Lösung}\\
+\textbf{Lösung}
 \begin{itemize}
 \item Strategie 1: Bearbeitung von Gruppenmitgliedern mit Erfahrung in Datenbanksystemen \leavevmode\newline
 Wir werden die Implementierung Gruppenmitgliedern überlassen, die bereits Erfahrung mit Datenbanksystemen haben. So müssen sich die anderen nicht in Datenbanksystemen einarbeiten und können sich bei Fragen an diese wenden.
@@ -572,10 +603,11 @@ Wir werden die Implementierung Gruppenmitgliedern überlassen, die bereits Erfah
 \end{table}
 
 \begin{table}[H]
+\caption{PuS5}
 \begin{tabular}{|p{\textwidth}|}\hline
 5 Unzureichende Softwaretests\\ \hline
 Es werden genügend Tests benötigt, welche Module und Komponenten testen, ob diese funktionieren.\\ \hline
-\textbf{Einflussfaktoren}\\
+\textbf{Einflussfaktoren}
 \begin{itemize}
 \item O1 Time-To-Market
 \item O5 Kenntnisse in J-Unit
@@ -585,7 +617,7 @@ Es werden genügend Tests benötigt, welche Module und Komponenten testen, ob di
 \item P3 Benutzerrechte
 \item P4 Fehlererkennung
 \end{itemize}\\ \hline
-\textbf{Lösung}\\
+\textbf{Lösung}
 \begin{itemize}
 \item Strategie 1: Modularisierung \leavevmode\newline
 Es werden Tests für die jeweilig implementierten Module geschrieben. Ziel ist es, zu prüfen, ob diese ihren Zweck erfüllen und danach werden Module zusammen getestet. 
@@ -594,17 +626,18 @@ Es werden Tests für die jeweilig implementierten Module geschrieben. Ziel ist e
 \end{table}
 
 \begin{table}[H]
+\caption{PuS6}
 \begin{tabular}{|p{\textwidth}|}\hline
 6 Ausfall eines Gruppenmitglieds\\ \hline
 Es kann jederzeit ein Gruppenmitglied aus der Gruppe austreten oder durch Krankheit etc. für eine gewisse Zeit ausfallen.\\ \hline
-\textbf{Einflussfaktoren}\\
+\textbf{Einflussfaktoren}
 \begin{itemize}
 \item O1 Time-To-Market
 \item O2 Auslieferung von Produktfunktionen
 \item O6 Anzahl der Entwickler
 \item P1 Mindestanforderungen
 \end{itemize}\\ \hline
-\textbf{Lösung}\\
+\textbf{Lösung}
 \begin{itemize}
 \item Strategie 1: Modularisierung \leavevmode\newline
 Der Code wird in verschiedene Module aufgeteilt, die von einem Entwickler bearbeitet werden. Wenn nun ein Entwickler ausfällt, kann ein Modul von einem anderen Entwickler übernommen werden.
@@ -613,10 +646,11 @@ Der Code wird in verschiedene Module aufgeteilt, die von einem Entwickler bearbe
 \end{table}
 
 \begin{table}[H]
+\caption{PuS7}
 \begin{tabular}{|p{\textwidth}|}\hline
 7 Mehrere parallele Nutzer\\ \hline
 Es greifen mehrere Nutzer zur gleichen Zeit auf das System zu, auf das der Server antworten muss. Dabei soll der Server die Daten nicht an alle Clients senden.\\ \hline
-\textbf{Einflussfaktoren}\\
+\textbf{Einflussfaktoren}
 \begin{itemize}
 \item O1 Time-To-Market
 \item O3 Budget
@@ -626,7 +660,7 @@ Es greifen mehrere Nutzer zur gleichen Zeit auf das System zu, auf das der Serve
 \item P2 Performanz
 \item P3 Benutzerrechte
 \end{itemize}\\ \hline
-\textbf{Lösung}\\
+\textbf{Lösung}
 \begin{itemize}
 \item Strategie 1: Thread \leavevmode\newline
 Die Clients bekommen jeweils einen Thread. Somit können sie zeitgleich auf den Server zugreifen und bekommen nur ihre Daten zurück.
@@ -635,10 +669,11 @@ Die Clients bekommen jeweils einen Thread. Somit können sie zeitgleich auf den 
 \end{table}
 
 \begin{table}[H]
+\caption{PuS8}
 \begin{tabular}{|p{\textwidth}|}\hline
 8 Performanz\\ \hline
 Die Software sollte kurze Ausführungszeiten haben. Dabei ist zu beachten, dass die Software/App auch auf Geräten mit geringer Leistung schnell und problemlos läuft.\\ \hline
-\textbf{Einflussfaktoren}\\
+\textbf{Einflussfaktoren}
 \begin{itemize}
 \item O1 Time-To-Market
 \item T1 Software funktioniert unter Windows, Linux und MacOS
@@ -649,7 +684,7 @@ Die Software sollte kurze Ausführungszeiten haben. Dabei ist zu beachten, dass 
 \item P2 Performanz
 \item P3 Benutzerrechte
 \end{itemize}\\ \hline
-\textbf{Lösung}\\
+\textbf{Lösung}
 \begin{itemize}
 \item Strategie 1: Code effizient schreiben \leavevmode\newline
 Den Code effizient schreiben, damit die Software kurze Ausführungszeiten hat.
@@ -658,10 +693,11 @@ Den Code effizient schreiben, damit die Software kurze Ausführungszeiten hat.
 \end{table}
 
 \begin{table}[H]
+\caption{PuS9}
 \begin{tabular}{|p{\textwidth}|}\hline
 9 unterschiedliche Benutzerrechte\\ \hline
 Die Software hat unterschiedliche Benutzer, welche unterschiedliche Rechte besitzen und diese müssen unterschieden werden.\\ \hline
-\textbf{Einflussfaktoren}\\
+\textbf{Einflussfaktoren}
 \begin{itemize}
 \item O1 Time-To-Market
 \item T3 SQL-Datenbank
@@ -669,7 +705,7 @@ Die Software hat unterschiedliche Benutzer, welche unterschiedliche Rechte besit
 \item P1 Mindestanforderungen
 \item P3 Benutzerrechte
 \end{itemize}\\ \hline
-\textbf{Lösung}\\
+\textbf{Lösung}
 \begin{itemize}
 \item Strategie 1: Identifikation durch Group Id \leavevmode\newline
 In der Datenbank wird eine Group Id eingefügt, die dann die verschiedenen Nutzer speichert. Über diese werden dann die verschiedenen Rechte geregelt.
@@ -716,7 +752,7 @@ Der GUI-Client stellt für die Bibliothekare alle benötigten Funktionen bereit,
 	\label{pic:konzeptionellesichtserver} 
 \end{figure}
 
-Die Serverkomponente besteht aus insgesamt drei Teilkomponenten, welche sich wie folgt aufgliedern:
+Die Serverkomponente (siehe Abb. \vref{pic:konzeptionellesichtserver} besteht aus insgesamt drei Teilkomponenten, welche sich wie folgt aufgliedern:
 
 \begin{itemize}
 \item{Communication}
@@ -738,18 +774,16 @@ Die Komponente \texttt{Persistence} ist die Schnittstelle zur Datenbank. Über d
 
 \begin{figure} [H] 
 \caption{Konzeptionelle Sicht Client}  \centering
-	\includegraphics[scale=1.7]{Diagramme/KonzeptionelleSichtClient.png} 
+	\includegraphics[scale=2]{Diagramme/KonzeptionelleSichtClient.png} 
 	\label{pic:konzeptionellesichtclient} 
 \end{figure}
 
-Die Clientkomponente besteht so wie die Serverkomponente aus drei Teilkomponenten, welche sich wie folgt aufgliedern:
+Die Clientkomponente (siehe Abb. \vref{pic:konzeptionellesichtclient} besteht so wie die Serverkomponente aus drei Teilkomponenten, welche sich wie folgt aufgliedern:
 
 \begin{itemize}
 \item{Communication}
 
 Die Komponente \texttt{Communication} sendet Anfragen des Clients an den Server, welche dort verarbeitet werden und nimmt die Ergebnisse entgegen, um diese an die Komponente \texttt{Model} zu übergeben, wo die Ergebnisse der Anfrage weiter verarbeitet werden.
-
-\newpage
 
 \item{Model}
 
@@ -779,7 +813,7 @@ Die Android-App richtet sich auschließlich an die Nutzer/Leser. und bietet ihne
 \subsection{Pakete (Patrick)}
 \label{sec:pakete}
 
-Wir haben ein Hauptpaket \texttt{eu.it\_r3v} (siehe Abb. \vref{pic:PackageUebersicht}), in dem sich weitere Unterpakete befinden. Dies dient der Übersicht indem wir gemeinsame Quellcodedateien bündeln und so logisch zusammenhängende Einheiten erzeugen.
+Wir haben ein Hauptpaket \texttt{eu.it\_r3v} (siehe Abb. \vref{pic:PackageUebersicht} Übersicht), in dem sich weitere Unterpakete befinden. Dies dient der Übersicht indem wir gemeinsame Quellcodedateien bündeln und so logisch zusammenhängende Einheiten erzeugen.
 
 \begin{figure} [H] 
 \caption{Pakete Übersicht} \centering
@@ -845,11 +879,11 @@ Die Klasse EarmarkActivity dient dem Vormerken von Medien zur Ausleihe.
 \newpage
 
 An weiteren Funktionalitäten der Klassen aus dem Paket \texttt{bibclient} sind noch \texttt{java.lang},
-\texttt{java.util}, \texttt{java.io}, \texttt{javax}, \texttt{android}, \texttt{com.google.gson}, \texttt{org.apache.http} sowie \texttt{eu.it\_r3v.bibcommon.Book} zu nennen.
+\texttt{java.util}, \texttt{java.io}, \texttt{javax}, \texttt{android}, \texttt{com.google.gson} -- eine Java-Bibliothek zum konvertieren von Java-Objekten in ihre JSON Repräsentation, \texttt{org.apache.http} -- die Kern-Interfaces und Klassen für HTTP-Komponenten, sowie \texttt{eu.it\_r3v.bibcommon.Book} zu nennen.
 
 \begin{figure} [H] 
 \caption{Paket \texttt{bibclient}} \centering
-	\includegraphics[scale=2]{Diagramme/Packagebibclient.png} 
+	\includegraphics[scale=1.9]{Diagramme/Packagebibclient.png} 
 	\label{pic:PackageClient} 
 \end{figure}
 
@@ -867,7 +901,7 @@ Das Paket \texttt{bibcommon} stellt eine Sammlung von Quellcodedateien zur Verf�
 \item{}
 \end{itemize}
 
-Weiter Funktionalitäten auf die die Java-Klassen aus dem Paket \texttt{bibcommon} zugreifen sind aus \texttt{com.google.gson}, \texttt{java.io.Serializable}, \texttt{java.lang}, \texttt{jav.util}, \texttt{java.text}, \texttt{java.ws.rs}, was aus dem Diagramm \vref{pic:PackageCommon} ersichtlich wird.
+Weiter Funktionalitäten auf die die Java-Klassen aus dem Paket \texttt{bibcommon} zugreifen sind \texttt{com.google.gson} -- eine Java-Bibliothek zum konvertieren von Java-Objekten in ihre JSON Repräsentation, \texttt{java.io.Serializable} -- um Klassen serialisierbar zu machen, \texttt{java.lang}, \texttt{java.util}, \texttt{java.text}, \texttt{java.ws.rs} -- High-Level-Interfaces die genutzt werden um RESTful Service-Ressourcen, was aus dem Diagramm \vref{pic:PackageCommon} ersichtlich wird.
 
 \begin{figure} [H] 
 \caption{Paket \texttt{bibcommon}} \centering
@@ -973,7 +1007,7 @@ Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vre
 	\label{pic:Packagebibjsf} 
 \end{figure}
 
-Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten \texttt{org.primfaces}, \texttt{com.google.api}, \texttt{eu.it\_r3v.bibjsf}, \texttt{eu.it\_r3v.bibcommon}, \texttt{org.apache}, \texttt{javax}, \texttt{java.text}, \texttt{java.sql}, \texttt{java.security}, \texttt{java.util}, \texttt{java.math}, \texttt{java.lang} und \texttt{java.io} zu entnehmen, welche von den einzelnen Java-Klassen benötigt werden.
+Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten \texttt{org.primfaces} -- eine Open-Source JSF Komponentensammlung mit unterschiedlichen Erweiterungen), \texttt{com.google.api} -- eine Bibliothek für Zugriff auf Googe APIs via JSON, \texttt{eu.it\_r3v.bibjsf}, \texttt{eu.it\_r3v.bibcommon}, \texttt{org.apache} -- die Kern-Interfaces und Klassen für HTTP-Komponenten, \texttt{javax}, \texttt{java.text}, \texttt{java.sql} -- für den Zugriff auf Datenbank, \texttt{java.security} -- eine Sammlung von APIs und Tools zur Implementierung von Sicherheitsalgorithmen, \texttt{java.util}, \texttt{java.math}, \texttt{java.lang} und \texttt{java.io} zu entnehmen, welche von den einzelnen Java-Klassen benötigt werden.
 
 
 \begin{figure} [H] 
@@ -982,13 +1016,15 @@ Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten 
 	\label{pic:PackagebibjsfUebersicht} 
 \end{figure}
 
+\newpage
+
 \subsection{Klassendiagramme (Tobias)}
 
 Im Folgenden werden die einzelnen Pakete in Klassendiagramme umgestellt, da 
 ein einzelnes Klassendiagramm aller benutzten Klassen unübersichtlich wäre.
 Zusätzlich sei angemerkt, dass die Klassen lediglich mit Methoden oder Attributen
 angezeigt werden, sofern sie durch die Projektarbeit neu erstellt oder verändert wurden.
-\newpage
+
 \subsubsection{Klassendiagramme \texttt{bibjsf}}
 
 \textbf{BusinessLogic:}
