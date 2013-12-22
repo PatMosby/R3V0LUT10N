@@ -776,7 +776,7 @@ Die Android-App richtet sich auschließlich an die Nutzer/Leser. und bietet ihne
 \section{Modulsicht (Patrick, Tobias)}
 \label{sec:modulsicht}
 
-\subsection{Pakete(Patrick)}
+\subsection{Pakete (Patrick)}
 \label{sec:pakete}
 
 Wir haben ein Hauptpaket \texttt{eu.it\_r3v} (siehe Abb. \vref{pic:PackageUebersicht}), in dem sich weitere Unterpakete befinden. Dies dient der Übersicht indem wir gemeinsame Quellcodedateien bündeln und so logisch zusammenhängende Einheiten erzeugen.
@@ -979,6 +979,36 @@ Das Paket \texttt{bibcommon} stellt eine Sammlung von Quellcodedateien zur verf�
 	\label{pic:PackagebibjsfUebersicht} 
 \end{figure}
 
+\subsection{Klassendiagramme (Tobias)}
+
+Im Folgenden werden die einzelnen Pakete in Klassendiagramme umgestellt, da 
+ein einzelnes Klassendiagramm aller benutzten Klassen unübersichtlich wäre.
+Zusätzlich sei angemerkt, dass die Klassen lediglich mit Methoden oder Attributen
+angezeigt werden, sofern sie durch die Projektarbeit neu erstellt oder verändert wurden.
+\newpage
+\subsubsection{Klassendiagramme \texttt{bibjsf}}
+
+\textbf{BusinessLogic:}
+
+Das Package \texttt{BusinessLogic} erhält hinzukommend \texttt{LibrarianHandler} und die Klasse
+\texttt{BookHandler} wird durch \texttt{MediumHandler} ersetzt.
+\texttt{LibrarianHandler} erhält die Methoden:
+\texttt{addLibrarian()},
+\texttt{deleteLibrarian()},
+\texttt{editLibrarian()}. \\
+\texttt{MediumHandler} erhält dieselben Methoden wie \texttt{BookHandler}, nur dass die Methodennamen 
+mit dem Namensinhalt \texttt{Book} in \texttt{Medium} geändert werden. Zum Beispiel:
+\texttt{getAllBooks():List<Book>} wird zu  \texttt{getAllMedien():List<Medium>}. Diese Veränderungen haben den Zweck, \texttt{MediumHandler} für alle Medientypen verwenden zu können, wofür zutreffendere Methodennamen geeigneter sind:
+\texttt{getAllMedien()},
+\texttt{add(Medium)},
+\texttt{update(Medium)},
+\texttt{delete(List<Medium>)}.
+
+\begin{figure} [H] 
+\caption{Paket bibjsf} \centering
+ \includegraphics[width=1\textwidth]{Diagramme/BusinessLogic.png} 
+ \label{BusinessLogic} 
+\end{figure}
 
 \section{Datensicht (Tobias)}
 \label{sec:datensicht}
