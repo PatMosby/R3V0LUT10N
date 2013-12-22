@@ -11,4 +11,10 @@
 \contentsline {figure}{\numberline {11}{\ignorespaces Paket \texttt {Presentation}}}{35}{figure.11}
 \contentsline {figure}{\numberline {12}{\ignorespaces Paket \texttt {Persistence}}}{35}{figure.12}
 \contentsline {figure}{\numberline {13}{\ignorespaces Paket \texttt {Renderer}}}{36}{figure.13}
+<<<<<<< HEAD
 \contentsline {figure}{\numberline {14}{\ignorespaces Ausf\IeC {\"u}hrungssicht}}{37}{figure.14}
+=======
+\contentsline {figure}{\numberline {14}{\ignorespaces Paket \texttt {Utils}}}{36}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Paket \texttt {BibClient}}}{37}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Ausf\IeC {\"u}hrungssicht}}{38}{figure.16}
+>>>>>>> f2012aa0a8df35d7b1393391c66ba35cc373f6fe
