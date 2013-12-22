@@ -149,9 +149,6 @@ Prof. Dr. Rainer Koschke \\TutorIn: Sabrina Wilske} \fancyfoot[C]{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Version und Änderungsgeschichte}
 
-{\em Die aktuelle Versionsnummer des Dokumentes sollte eindeutig und gut zu
-identifizieren sein, hier und optimalerweise auf dem Titelblatt.}
-
 \begin{tabular}{ccl}
 Version & Datum & Änderungen \\
 \hline
@@ -218,7 +215,7 @@ In diesem Teil der Architekturbeschreibung wird beschrieben, welche Änderungen 
 
 \newpage
 
-\section{Globale Analyse}
+\section{Globale Analyse (Daniel)}
 \label{sec:globale_analyse}
 
 \subsection{Einflussfaktoren}
@@ -252,8 +249,8 @@ Die Einflussfaktoren werden im Folgenden unterteilt in:
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{O1} & \textbf{Time-To-Market}\\ \hline \hline
 Faktor & Auslieferungsdatum 23.02.2014\\ \hline
-Flexibilität und Veränderlichkeit & Die Deadline kann nicht verändert werden\\ \hline
-Auswirkungen & Die Software muss zum Abgabedatum lauffähig sein\\ \hline
+Flexibilität und Veränderlichkeit & Die Deadline kann nicht verändert werden.\\ \hline
+Auswirkungen & Die Software muss zum Abgabedatum lauffähig sein.\\ \hline
 \end{tabular}
 \end{table}
 
@@ -261,8 +258,8 @@ Auswirkungen & Die Software muss zum Abgabedatum lauffähig sein\\ \hline
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{O2} & \textbf{Auslieferung von Produktfunktionen}\\ \hline \hline
 Faktor & Alle Mindestanforderungen\\ \hline
-Flexibilität und Veränderlichkeit & Es müssen alle Mindestanforderungen erfüllt sein, sind jedoch vom Kunden oder beim verlassen eines Gruppenmitglieds veränderbar\\ \hline
-Auswirkungen & Architektur muss alle Mindestanforderungen abdecken, es muss darauf geachtet werden, dass diese sich im Verlauf noch ändern\\ \hline
+Flexibilität und Veränderlichkeit & Es müssen alle Mindestanforderungen erfüllt sein; sie sind jedoch vom Kunden oder beim Verlassen eines Gruppenmitglieds veränderbar.\\ \hline
+Auswirkungen & Architektur muss alle Mindestanforderungen abdecken; es muss darauf geachtet werden, dass diese sich im Verlauf noch ändern.\\ \hline
 \end{tabular}
 \end{table}
 
@@ -270,8 +267,8 @@ Auswirkungen & Architektur muss alle Mindestanforderungen abdecken, es muss dara
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{O3} & \textbf{Budget} \\ \hline \hline
 Faktor & Kein finanzielles Budget\\ \hline
-Flexibilität und Veränderlichkeit & Es werden keine finanziellen Unterstützungen für das Produkt geben \\ \hline
-Auswirkungen & Es können keine Kostenpflichtigen Dienste in Anspruch genommen werden\\ \hline
+Flexibilität und Veränderlichkeit & Es werden keine finanziellen Unterstützungen für das Produkt geben. \\ \hline
+Auswirkungen & Es können keine kostenpflichtigen Dienste in Anspruch genommen werden.\\ \hline
 \end{tabular}
 \end{table}
 
@@ -279,8 +276,8 @@ Auswirkungen & Es können keine Kostenpflichtigen Dienste in Anspruch genommen w
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{O4} & \textbf{Kenntnisse in Java und Android} \\ \hline \hline
 Faktor & Kenntnisse der Entwickler in Java und Android\\ \hline
-Flexibilität und Veränderlichkeit & Kenntnisse sind nicht flexibel, es muss in Java programmiert werden und über Smartphone laufen. Die Kenntnisse können sich im Laufe ändern, durch neue Erfahrungen und neu erworbenen Kenntnissen\\ \hline
-Auswirkungen & Bei wenig Kenntnissen muss mehr Zeit eingeplant werden um sich diese anzueignen\\ \hline
+Flexibilität und Veränderlichkeit & Kenntnisse sind nicht flexibel, es muss in Java programmiert werden und über Smartphone laufen. Die Kenntnisse können sich im Laufe ändern, z.B. durch neue Erfahrungen und neu erworbene Kenntnisse.\\ \hline
+Auswirkungen & Bei wenig Kenntnissen muss mehr Zeit eingeplant werden, um sich diese anzueignen.\\ \hline
 \end{tabular}
 \end{table}
 
@@ -288,8 +285,8 @@ Auswirkungen & Bei wenig Kenntnissen muss mehr Zeit eingeplant werden um sich di
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{O5} & \textbf{Kenntnisse in J-Unit} \\ \hline \hline
 Faktor & Kenntnisse in J-Unit Tests\\ \hline
-Flexibilität und Veränderlichkeit & Da Tests mit J-Unit gefordert werden, sind diese nicht verhandelbar oder Flexibel\\ \hline
-Auswirkungen & Bei unzureichenden Tests kann es später beim Programm zu Problemen kommen, da Fehler spät oder gar nicht erkannt werden\\ \hline
+Flexibilität und Veränderlichkeit & Da Tests mit J-Unit gefordert werden, sind diese nicht verhandelbar oder flexibel.\\ \hline
+Auswirkungen & Bei unzureichenden Tests kann es später beim Programm zu Problemen kommen, da Fehler spät oder gar nicht erkannt werden.\\ \hline
 \end{tabular}
 \end{table}
 
@@ -297,8 +294,8 @@ Auswirkungen & Bei unzureichenden Tests kann es später beim Programm zu Problem
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{O6} & \textbf{Anzahl der Entwickler}\\ \hline \hline
 Faktor & Die Anzahl der Entwickler\\ \hline
-Flexibilität und Veränderlichkeit & Es können keine neuen Gruppenmitglieder dazukommen, es können aber jederzeit Gruppenmitglieder wegfallen \\ \hline
-Auswirkungen & Wenn Gruppenmitglieder wegfallen, müssen die restlichen mehr Arbeiten und mehr Zeit einplanen. Auch müssen Projektplan und Architektur neu angepasst werden.\\ \hline
+Flexibilität und Veränderlichkeit & Es können keine neuen Gruppenmitglieder dazukommen, es können aber jederzeit Gruppenmitglieder wegfallen. \\ \hline
+Auswirkungen & Wenn Gruppenmitglieder wegfallen, müssen die restlichen Mitglieder mehr Arbeit und mehr Zeit einplanen. Auch müssen Projektplan und Architektur neu angepasst werden.\\ \hline
 \end{tabular}
 \end{table}
 
@@ -323,19 +320,19 @@ Auswirkungen & Wenn Gruppenmitglieder wegfallen, müssen die restlichen mehr Arb
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T1} & \textbf{Software funktioniert unter Windows, Linux und MacOS} \\ \hline \hline
-Faktor & Die Software muss auf den Betriebssystemen Windows, Linux und MacOS laufen\\ \hline
-Flexibilität und Veränderlichkeit & nicht Flexibel, da dies zu den Mindestanforderungen gehört. Veränderungen können jederzeit vom Kunden vorgenommen werden.  \\ \hline
-Auswirkungen & Die Entwickler müssen sich mit allen Betriebsprogrammen befassen und sichergehen, dass es auf allen funktioniert\\ \hline
+Faktor & Die Software muss auf den Betriebssystemen Windows, Linux und MacOS laufen.\\ \hline
+Flexibilität und Veränderlichkeit & nicht flexibel, da dies zu den Mindestanforderungen gehört. Veränderungen können jederzeit vom Kunden vorgenommen werden.  \\ \hline
+Auswirkungen & Die Entwickler müssen sich mit allen Betriebsprogrammen befassen und sichergehen, dass es auf allen funktioniert.\\ \hline
 \end{tabular}
 \end{table}
 
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
-\textbf{T2} & \textbf{Software funktioniert als App (Andriod 2.3 oder höher)} \\ \hline \hline
-Faktor & Die Software muss als Android App auf einem Smartphone laufen\\ \hline
-Flexibilität und Veränderlichkeit & nicht Flexibel, da dies zu den Mindestanforderungen gehört. Veränderungen können jederzeit vom Kunden vorgenommen werden.  \\ \hline
-Auswirkungen & Die Software muss wie gefordert als App auf einem Android-Smartphone laufen\\ \hline
+\textbf{T2} & \textbf{Software funktioniert als App (Andriod 2.3 oder höher)}. \\ \hline \hline
+Faktor & Die Software muss als Android App auf einem Smartphone laufen.\\ \hline
+Flexibilität und Veränderlichkeit & nicht flexibel, da dies zu den Mindestanforderungen gehört. Veränderungen können jederzeit vom Kunden vorgenommen werden.  \\ \hline
+Auswirkungen & Die Software muss wie gefordert als App auf einem Android-Smartphone laufen.\\ \hline
 \end{tabular}
 \end{table}
 
@@ -343,64 +340,64 @@ Auswirkungen & Die Software muss wie gefordert als App auf einem Android-Smartph
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T3} & \textbf{SQL-Datenbank} \\ \hline \hline
-Faktor & Software läuft über eine relationale Datenbank\\ \hline
-Flexibilität und Veränderlichkeit & Flexibel jedoch muss eine Datenbank mit SQL oder SQL-ähnlichen abfragen verwendet werden  \\ \hline
-Auswirkungen & Es muss eine relationale Datenbank für die serverseitige Persistenz benutzt werden. Es muss eine Datenbank mit SQL oder SQL-ähnlichen abfragen verwendet werden\\ \hline
+Faktor & Software läuft über eine relationale Datenbank.\\ \hline
+Flexibilität und Veränderlichkeit & Flexibel, jedoch muss eine Datenbank mit SQL oder SQL-ähnlichen Abfragen verwendet werden.  \\ \hline
+Auswirkungen & Es muss eine relationale Datenbank für die serverseitige Persistenz benutzt werden. Es muss eine Datenbank mit SQL oder SQL-ähnlichen abfragen verwendet werden.\\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T4} & \textbf{Mehrere parallele Nutzer} \\ \hline \hline
-Faktor & Es greifen mehrere Nutzer zur gleichen Zeit auf die Software zu\\ \hline
-Flexibilität und Veränderlichkeit & Es ist uns überlassen, wie viele Nutzer zur gleichen Zeit auf das System zugreifen dürfen  \\ \hline
-Auswirkungen & Die Software muss darauf ausgelegt sein, mehrere Nutzer zur gleichen Zeit zu verwalten\\ \hline
+Faktor & Es greifen mehrere Nutzer zur gleichen Zeit auf die Software zu.\\ \hline
+Flexibilität und Veränderlichkeit & Es ist uns überlassen, wie viele Nutzer zur gleichen Zeit auf das System zugreifen dürfen.  \\ \hline
+Auswirkungen & Die Software muss darauf ausgelegt sein, mehrere Nutzer zur gleichen Zeit zu verwalten.\\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T5} & \textbf{Client-Server System} \\ \hline \hline
-Faktor & Die Software arbeitet über ein Client-Server System\\ \hline
-Flexibilität und Veränderlichkeit & Da wir übers Internet auf den Server zugreifen müssen, ist es notwendig ein Server-Client System zu verwenden \\ \hline
-Auswirkungen & Die Implementierung wird in Server und Client aufgeteilt(siehe \ref{sec:konzeptionell}) Übers Internet werden die Daten zwischen Server und Client ausgetauscht\\ \hline
+Faktor & Die Software arbeitet über ein Client-Server System.\\ \hline
+Flexibilität und Veränderlichkeit & Da wir übers Internet auf den Server zugreifen müssen, ist es notwendig, ein Server-Client System zu verwenden. \\ \hline
+Auswirkungen & Die Implementierung wird in Server und Client aufgeteilt (siehe \ref{sec:konzeptionell}). Übers Internet werden die Daten zwischen Server und Client ausgetauscht.\\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T6} & \textbf{Benutzerschnittstelle} \\ \hline \hline
-Faktor & Es sollte eine übersichtliche und ansprechende GUI geben\\ \hline
-Flexibilität und Veränderlichkeit & Die Gestaltung der GUI ist uns überlassen \\ \hline
-Auswirkungen & Für eine Benutzerfreundliche Gestaltung sind gute Kenntnisse in XHTML notwendig\\ \hline
+Faktor & Es sollte eine übersichtliche und ansprechende GUI geben.\\ \hline
+Flexibilität und Veränderlichkeit & Die Gestaltung der GUI ist uns überlassen. \\ \hline
+Auswirkungen & Für eine benutzerfreundliche Gestaltung sind gute Kenntnisse in XHTML notwendig.\\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T7} & \textbf{Implementierungssprache Java} \\ \hline \hline
-Faktor & Die Software muss in Java 5 oder höher geschrieben werden\\ \hline
-Flexibilität und Veränderlichkeit & Nicht Flexibel, da dies zu den Mindestanforderungen gehört\\ \hline
-Auswirkungen & Die Software muss in Java geschrieben werden, daher müssen alle Entwickler diese Sprache beherrschen \\ \hline
+Faktor & Die Software muss in Java 5 oder höher geschrieben werden.\\ \hline
+Flexibilität und Veränderlichkeit & Nicht flexibel, da dies zu den Mindestanforderungen gehört.\\ \hline
+Auswirkungen & Die Software muss in Java geschrieben werden, daher müssen alle Entwickler diese Sprache beherrschen. \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{T8} & \textbf{Beschränkungsfreiheit für Fremdbibliotheken}\\ \hline \hline
-Faktor & Fremdbibliotheken dürfen für den Einsatz in Forschung\\
-& und Lehre keine Beschränkungen aufweisen \\ \hline
-Flexibilität und Veränderlichkeit & Nicht Flexibel, da dies zu den Mindestanforderungen gehört\\ \hline
-Auswirkungen & Es darf keine Software oder Bibliothek verwendet werden, die Kostenpflichtig ist \\ \hline
+Faktor & Fremdbibliotheken dürfen für den Einsatz in Forschung.\\
+& und Lehre keine Beschränkungen aufweisen. \\ \hline
+Flexibilität und Veränderlichkeit & Nicht flexibel, da dies zu den Mindestanforderungen gehört.\\ \hline
+Auswirkungen & Es darf keine Software oder Bibliothek verwendet werden, die kostenpflichtig ist. \\ \hline
 \end{tabular}
 \end{table}
 
-\subsubsection{Produkt Faktoren}
+\subsubsection{Produktfaktoren}
 \label{sec:produktfaktoren}
 
 \begin{table}[H]
 \centering
-\caption{Produkt Faktoren}
+\caption{Produktfaktoren}
 \begin{tabular}{|l|l|} \hline
 \textbf{P1} & \textbf{Mindestanforderung} \\ \hline
 \textbf{P2} &  \textbf{Performanz}\\ \hline
@@ -412,9 +409,9 @@ Auswirkungen & Es darf keine Software oder Bibliothek verwendet werden, die Kost
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{P1} & \textbf{Mindestanforderung} \\ \hline \hline
-Faktor & Das Produkt muss alle Mindestanforderungen enthalten\\ \hline
+Faktor & Das Produkt muss alle Mindestanforderungen enthalten.\\ \hline
 Flexibilität und Veränderlichkeit & Alle Anforderungen müssen zum Bestehen erfüllt werden. Die Anforderungen können vom Kunden oder Dozenten verändert werden oder die Anforderungen werden bei einem Austritt eines Mitglieds verringert.\\ \hline
-Auswirkungen & Es müssen alle Mindestanforderungen implementiert werden \\ \hline
+Auswirkungen & Es müssen alle Mindestanforderungen implementiert werden. \\ \hline
 \end{tabular}
 \end{table}
 
@@ -423,26 +420,26 @@ Auswirkungen & Es müssen alle Mindestanforderungen implementiert werden \\ \hli
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{P2} &  \textbf{Performanz}\\ \hline \hline
 Faktor & Möglichst schnelle Ausführungszeiten\\ \hline
-Flexibilität und Veränderlichkeit & Flexibel, da nichts davon in den Mindestanforderungen steht\\ \hline
-Auswirkungen & Es sollte bei der Implementierung auf einen schnellen Datenaustausch zwischen Server und Client geachtet werden \\ \hline
+Flexibilität und Veränderlichkeit & Flexibel, da nichts davon in den Mindestanforderungen steht.\\ \hline
+Auswirkungen & Es sollte bei der Implementierung auf einen schnellen Datenaustausch zwischen Server und Client geachtet werden. \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{P3} &  \textbf{Benutzerrechte} \\ \hline \hline
-Faktor & Es gibt verschiedene Benutzer mit unterschiedlichen Rechten\\ \hline
-Flexibilität und Veränderlichkeit & Nicht Flexibel, da dies vom Kunden gefordert wird\\ \hline
-Auswirkungen & Es müssen unterschiedliche Benutzer implementiert werden, die unterschiedliche Rechte haben und diese auch nicht überschreiten dürfen \\ \hline
+Faktor & Es gibt verschiedene Benutzer mit unterschiedlichen Rechten.\\ \hline
+Flexibilität und Veränderlichkeit & Nicht flexibel, da dies vom Kunden gefordert wird.\\ \hline
+Auswirkungen & Es müssen unterschiedliche Benutzer implementiert werden, die unterschiedliche Rechte haben und diese auch nicht überschreiten dürfen. \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{12cm}|}\hline
 \textbf{P4} &  \textbf{Fehlererkennung} \\ \hline \hline
-Faktor & Fehler sollten von der Software erkannt werden und entsprechend behandelt werden\\ \hline
-Flexibilität und Veränderlichkeit & Flexibel, da dies nicht ausdrücklich vom Kunden gefordert wird\\ \hline
-Auswirkungen & Fehler müssen erkannt werden und durch Exception muss es dann entsprechend Korrigiert werden. Die Software sollte weiter laufen  \\ \hline
+Faktor & Fehler sollten von der Software erkannt werden und entsprechend behandelt werden.\\ \hline
+Flexibilität und Veränderlichkeit & Flexibel, da dies nicht ausdrücklich vom Kunden gefordert wird.\\ \hline
+Auswirkungen & Fehler müssen erkannt und durch entsprechende Exceptions korrigiert werden. Die Software sollte weiter laufen.  \\ \hline
 \end{tabular}
 \end{table}
 
@@ -455,7 +452,7 @@ Folgenden Probleme haben wir identifiziert:\\
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|}\hline
-Nummer & Faktoren\\ \hline
+\textbf{Nummer} & \textbf{Faktoren}\\ \hline \hline
 1 & Zeitprobleme\\ \hline
 2 & Mangelnde Kenntnisse in Java\\ \hline
 3 & Mangelnde Kenntnisse in Android\\ \hline
@@ -473,7 +470,7 @@ Diese versuchen wir mit folgenden Strategien zu überbrücken:\\
 \begin{table}[H]
 \begin{tabular}{|p{\textwidth}|}\hline
 1 Zeitprobleme\\ \hline
-Es gibt einen festgesetzten Abgabetermin, der eingehalten werden muss\\ \hline
+Es gibt einen festgesetzten Abgabetermin, der eingehalten werden muss.\\ \hline
 \textbf{Einflussfaktoren}\\
 \begin{itemize}
 \item O1 Time-To-Market
@@ -486,9 +483,9 @@ Es gibt einen festgesetzten Abgabetermin, der eingehalten werden muss\\ \hline
 \textbf{Lösung}\\
 \begin{itemize}
 \item Strategie 1: Modularisierung für paralleles Arbeiten \leavevmode\newline
-Durch Modularisierung können mehrere Entwickler zur gleichen Zeit am Projekt arbeiten und die Module unabhängig voneinander implementieren. Diese werden dann später zusammengesetzt 
+Durch Modularisierung können mehrere Entwickler zur gleichen Zeit am Projekt arbeiten und die Module unabhängig voneinander implementieren. Diese werden dann später zusammengesetzt.
 \item Strategie 2: Bibliotheken Benutzen \leavevmode\newline
-Es werden bereits vorhandene Java Bibliotheken verwendet, dies spart Zeit, da man dann nicht alles neu schreiben muss.
+Es werden bereits vorhandene Java Bibliotheken verwendet; dies spart Zeit, da man dann nicht alles neu schreiben muss.
 \end{itemize}
 Es werden beide Strategien verwendet.\\ \hline
 \end{tabular}
@@ -497,7 +494,7 @@ Es werden beide Strategien verwendet.\\ \hline
 \begin{table}[H]
 \begin{tabular}{|p{\textwidth}|}\hline
 2 Mangelnde Kenntnisse in Java\\ \hline
-Es werden Vorkenntnisse in Java vorausgesetzt, ohne diese könnte es zu großen Problemen kommen, da ohne ausreichende Kenntnisse das Programm nicht realisiert werden kann\\ \hline
+Es werden Vorkenntnisse in Java vorausgesetzt; ohne diese könnte es zu großen Problemen kommen, da ohne ausreichende Kenntnisse das Programm nicht realisiert werden kann.\\ \hline
 \textbf{Einflussfaktoren}\\
 \begin{itemize}
 \item O1 Time-To-Market
@@ -512,9 +509,9 @@ Es werden Vorkenntnisse in Java vorausgesetzt, ohne diese könnte es zu großen 
 \textbf{Lösung}\\
 \begin{itemize}
 \item Strategie 1: Modularisierung \leavevmode\newline
-Der Code wird in verschiedene Module aufgeteilt, wenn ein Gruppenmitglied nicht genügend Kenntnisse besitzt, kann dieses Modul von einem anderen Mitglied neu erstellt werden und der inkompetente Entwickler kann keinen Schaden auf andere Module auswirken.
+Der Code wird in verschiedene Module aufgeteilt. Wenn ein Gruppenmitglied nicht genügend Kenntnisse besitzt, kann dieses Modul von einem anderen Mitglied neu erstellt werden und der inkompetente Entwickler kann keinen Schaden auf andere Module anrichten.
 \item Strategie 2: Aufteilen in Server und Client \leavevmode\newline
-Die Implementierung wird unter den Entwicklern so aufgeteilt, dass ein Teil den Client und ein Teil den Server macht, so müssen sich die Gruppenmitglieder nicht Kenntnisse in beiden Teilen aneignen.
+Die Implementierung wird unter den Entwicklern so aufgeteilt, dass ein Teil den Client und der andere Teil den Server macht; so müssen sich die Gruppenmitglieder nicht Kenntnisse in beiden Bereichen aneignen.
 \end{itemize}
 Es werden beide Strategien verwendet.\\ \hline
 \end{tabular}
@@ -540,18 +537,18 @@ Es werden Kenntnisse in Android vorausgesetzt, da eine App entwickelt werden mus
 \textbf{Lösung}\\
 \begin{itemize}
 \item Strategie 1: Modularisierung \leavevmode\newline
-Der Code wird in verschiedene Module aufgeteilt, wenn ein Gruppenmitglied nicht genügend Kenntnisse besitzt, kann dieses Modul von einem anderen Mitglied neu erstellt werden und der inkompetente Entwickler kann keinen Schaden auf andere Module auswirken.
+Der Code wird in verschiedene Module aufgeteilt. Wenn ein Gruppenmitglied nicht genügend Kenntnisse besitzt, kann dieses Modul von einem anderen Mitglied neu erstellt werden und der inkompetente Entwickler kann keinen Schaden auf andere Module anrichten.
 \item Strategie 2: Bearbeitung von Gruppenmitgliedern mit Android-Erfahrung \leavevmode\newline
-Wir werden die Implementierung einen Gruppenmitglied überlassen, welches bereits Erfahrung mit Android hat. So müssen sich die anderen nicht in Android einarbeiten und können sich bei Fragen an diesen wenden.
+Wir werden die Implementierung einem Gruppenmitglied überlassen, das bereits Erfahrung mit Android hat. So müssen sich die anderen nicht in Android einarbeiten und können sich bei Fragen an eben diesen wenden.
 \end{itemize}
-Es werden beide Strategien verfolgt, sollte das Gruppenmitglied mit Android zeitlich oder fachlich nicht klarkommen, wird ein weiteres Gruppenmitglied sich mit Android beschäftigen. \\ \hline
+Es werden beide Strategien verfolgt; sollte das Gruppenmitglied mit Android zeitlich oder fachlich nicht klarkommen, wird sich ein weiteres Gruppenmitglied mit Android beschäftigen. \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
 \begin{tabular}{|p{\textwidth}|}\hline
 4 Mangelnde Kenntnisse in Datenbanksystemen\\ \hline
-Es werden Kenntnisse in Datenbanksystemen vorausgesetzt, da wir für die Bibliothek eine Datenbank verwenden. Dabei werden SQL- oder SQL-ähnliche Abfragen verwendet und entsprechende Kenntnisse verlangt \\ \hline
+Es werden Kenntnisse in Datenbanksystemen vorausgesetzt, da wir für die Bibliothek eine Datenbank verwenden. Dabei werden SQL- oder SQL-ähnliche Abfragen verwendet und entsprechende Kenntnisse verlangt. \\ \hline
 \textbf{Einflussfaktoren}\\
 \begin{itemize}
 \item O1 Time-To-Market
@@ -564,7 +561,7 @@ Es werden Kenntnisse in Datenbanksystemen vorausgesetzt, da wir für die Bibliot
 \textbf{Lösung}\\
 \begin{itemize}
 \item Strategie 1: Bearbeitung von Gruppenmitgliedern mit Erfahrung in Datenbanksystemen \leavevmode\newline
-Wir werden die Implementierung Gruppenmitgliedern überlassen, welches bereits Erfahrung mit Datenbanksystemen hat. So müssen sich die anderen nicht in Datenbanksystemen einarbeiten und können sich bei Fragen an diesen wenden.
+Wir werden die Implementierung Gruppenmitgliedern überlassen, die bereits Erfahrung mit Datenbanksystemen haben. So müssen sich die anderen nicht in Datenbanksystemen einarbeiten und können sich bei Fragen an diese wenden.
 \end{itemize}\\ \hline
 \end{tabular}
 \end{table}
@@ -572,7 +569,7 @@ Wir werden die Implementierung Gruppenmitgliedern überlassen, welches bereits E
 \begin{table}[H]
 \begin{tabular}{|p{\textwidth}|}\hline
 5 Unzureichende Softwaretests\\ \hline
-Es werden genügend Tests benötigt, welche Module und Komponenten testen, ob diese funktionieren\\ \hline
+Es werden genügend Tests benötigt, welche Module und Komponenten testen, ob diese funktionieren.\\ \hline
 \textbf{Einflussfaktoren}\\
 \begin{itemize}
 \item O1 Time-To-Market
@@ -586,7 +583,7 @@ Es werden genügend Tests benötigt, welche Module und Komponenten testen, ob di
 \textbf{Lösung}\\
 \begin{itemize}
 \item Strategie 1: Modularisierung \leavevmode\newline
-Es werden Tests für die jeweilig implementierten Module geschrieben, ob diese ihren Zweck erfüllen und danach werden Module zusammen getestet. 
+Es werden Tests für die jeweilig implementierten Module geschrieben. Ziel ist es, zu prüfen, ob diese ihren Zweck erfüllen und danach werden Module zusammen getestet. 
 \end{itemize} \\ \hline
 \end{tabular}
 \end{table}
@@ -605,7 +602,7 @@ Es kann jederzeit ein Gruppenmitglied aus der Gruppe austreten oder durch Krankh
 \textbf{Lösung}\\
 \begin{itemize}
 \item Strategie 1: Modularisierung \leavevmode\newline
-Der Code wird in verschiedene Module aufgeteilt, welche von einem Entwickler bearbeitet werden. Wenn nun ein Entwickler ausfällt, kann ein Modul von einem anderen Entwickler übernommen werden.
+Der Code wird in verschiedene Module aufgeteilt, die von einem Entwickler bearbeitet werden. Wenn nun ein Entwickler ausfällt, kann ein Modul von einem anderen Entwickler übernommen werden.
 \end{itemize} \\ \hline
 \end{tabular}
 \end{table}
@@ -613,7 +610,7 @@ Der Code wird in verschiedene Module aufgeteilt, welche von einem Entwickler bea
 \begin{table}[H]
 \begin{tabular}{|p{\textwidth}|}\hline
 7 Mehrere parallele Nutzer\\ \hline
-Es greifen mehrere Nutzer zur gleichen Zeit auf das System zu, auf welche der Server antworten muss. Dabei soll der Server die Daten nicht an alle Clients senden\\ \hline
+Es greifen mehrere Nutzer zur gleichen Zeit auf das System zu, auf das der Server antworten muss. Dabei soll der Server die Daten nicht an alle Clients senden.\\ \hline
 \textbf{Einflussfaktoren}\\
 \begin{itemize}
 \item O1 Time-To-Market
@@ -627,7 +624,7 @@ Es greifen mehrere Nutzer zur gleichen Zeit auf das System zu, auf welche der Se
 \textbf{Lösung}\\
 \begin{itemize}
 \item Strategie 1: Thread \leavevmode\newline
-Die Clients bekommen jeweils einen Thread, somit können sie zeitgleich auf den Server zugreifen und bekommen nur ihre Daten zurück.
+Die Clients bekommen jeweils einen Thread. Somit können sie zeitgleich auf den Server zugreifen und bekommen nur ihre Daten zurück.
 \end{itemize} \\ \hline
 \end{tabular}
 \end{table}
@@ -635,7 +632,7 @@ Die Clients bekommen jeweils einen Thread, somit können sie zeitgleich auf den 
 \begin{table}[H]
 \begin{tabular}{|p{\textwidth}|}\hline
 8 Performanz\\ \hline
-Die Software sollte kurze Ausführungszeiten haben. Dabei ist zu beachten, dass die Software/App auch auf Geräten mit geringer Leistung schnell und problemlos läuft\\ \hline
+Die Software sollte kurze Ausführungszeiten haben. Dabei ist zu beachten, dass die Software/App auch auf Geräten mit geringer Leistung schnell und problemlos läuft.\\ \hline
 \textbf{Einflussfaktoren}\\
 \begin{itemize}
 \item O1 Time-To-Market
@@ -658,7 +655,7 @@ Den Code effizient schreiben, damit die Software kurze Ausführungszeiten hat.
 \begin{table}[H]
 \begin{tabular}{|p{\textwidth}|}\hline
 9 unterschiedliche Benutzerrechte\\ \hline
-Die Software hat unterschiedliche Benutzer, welche unterschiedliche Rechte besitzen und diese müssen unterschieden werden\\ \hline
+Die Software hat unterschiedliche Benutzer, welche unterschiedliche Rechte besitzen und diese müssen unterschieden werden.\\ \hline
 \textbf{Einflussfaktoren}\\
 \begin{itemize}
 \item O1 Time-To-Market
@@ -670,17 +667,17 @@ Die Software hat unterschiedliche Benutzer, welche unterschiedliche Rechte besit
 \textbf{Lösung}\\
 \begin{itemize}
 \item Strategie 1: Identifikation durch Group Id \leavevmode\newline
-In der Datenbank wird eine Group Id eingefügt, welche dann die verschiedenen Nutzer speichert. Über diese werden dann die verschiedenen Rechte geregelt.
+In der Datenbank wird eine Group Id eingefügt, die dann die verschiedenen Nutzer speichert. Über diese werden dann die verschiedenen Rechte geregelt.
 \end{itemize} \\ \hline
 \end{tabular}
 \end{table}
 
 \newpage
 
-\section{Konzeptionelle Sicht}
+\section{Konzeptionelle Sicht (Sebastian)}
 \label{sec:konzeptionell}
 
-Wir haben mithilfe von UML-Diagrammen die konzeptionelle Sicht realisiert. Im Folgenden werden die einzelnen Diagramme aufgezeigt und beschrieben und in nachfolgenden Sichten zusätzlich verfeinert und konkretsiert.
+Wir haben mithilfe von UML-Diagrammen die konzeptionelle Sicht realisiert. Im Folgenden werden die einzelnen Diagramme aufgezeigt und beschrieben und in nachfolgenden Sichten zusätzlich verfeinert und konkretisiert.
 
 \subsection{Überblick}
 \label{Ueberblick}
@@ -691,10 +688,10 @@ Wir haben mithilfe von UML-Diagrammen die konzeptionelle Sicht realisiert. Im Fo
 	\label{pic:konzeptionellesichtklein} 
 \end{figure}
 
-Unsere Architektur besteht aus zwei grundlegenden Komponenten, der Serverkomponente und der Clientkomponente. Diese Komponenten beinhalten wiederum weitere Komponenten . Auf der einen Seite haben wir unsere Serverkomponente, die alle benötigten Daten der Medien, der Nutzer und der Ausleihvorgänge der Bibliothek speichert.
+Unsere Architektur besteht aus zwei grundlegenden Komponenten, der Serverkomponente und der Clientkomponente. Diese Komponenten beinhalten wiederum weitere Komponenten. Auf der einen Seite haben wir unsere Serverkomponente, die alle benötigten Daten der Medien, der Nutzer und der Ausleihvorgänge der Bibliothek speichert.
 
-Auf der anderen Seite, der Clientkomponente, muss zwischen zwei Teilen unterschieden werden. Einmal der Gui-Client, welcher sich in erster Linie an die Bibliothekare richtet und der mobile Android-Client, der sich ausschließlich an die Leser richtet. \\
-Der Gui-Client stellt für die Bibliothekare alle benötigten Funktionen bereit um eine Bibliothek zu verwalten. Der Android-Client ermöglicht dem Leser sich Mediendetails, Ausleihstatus, seine eigene Ausleihhistorie sowie persönliche Daten anzeigen zu lassen. Desweiteren kann der Leser sich mittels der App Bücher zur Ausleihe vormerken und Informationen über die Bibliothek abrufen.
+Auf der anderen Seite, der Clientkomponente, muss zwischen zwei Teilen unterschieden werden. Einmal dem GUI-Client, welcher sich in erster Linie an die Bibliothekare richtet und der mobile Android-Client, der sich ausschließlich an die Leser richtet. \\
+Der GUI-Client stellt für die Bibliothekare alle benötigten Funktionen bereit, um eine Bibliothek zu verwalten. Der Android-Client ermöglicht dem Leser, sich Mediendetails, Ausleihstatus, seine eigene Ausleihhistorie sowie persönliche Daten anzeigen zu lassen. Des Weiteren kann der Leser sich mittels der App Bücher zur Ausleihe vormerken und Informationen über die Bibliothek abrufen.
 
 \begin{figure} [H] 
 \caption{Konzeptionelle Sicht}  \centering
@@ -713,20 +710,20 @@ Der Gui-Client stellt für die Bibliothekare alle benötigten Funktionen bereit 
 	\label{pic:konzeptionellesichtserver} 
 \end{figure}
 
-Die Serverkomponente besteht aus insgesamt drei Teilkomponenten. welche sich wie folgt aufgliedern:
+Die Serverkomponente besteht aus insgesamt drei Teilkomponenten, welche sich wie folgt aufgliedern:
 
 \begin{itemize}
 \item{Communication}
 
-Die Komponente Communication nimmt Anfragen des Clients entgegen und leitet sie an die Komponente BusinessLogic weiter wo die Anfragen verarbeitet werden und sendet die Ergebnisse zurück an den Client.
+Die Komponente \texttt{Communication} nimmt Anfragen des Clients entgegen und leitet sie an die Komponente \texttt{BusinessLogic} weiter, wo die Anfragen verarbeitet werden und sendet die Ergebnisse zurück an den Client.
 
 \item{BusinessLogic}
 
-Die Komponente BusinessLogic dient zum verarbeiten der Anfragen und leitet diese verarbeiteten Anfragen dann an die Komponente Persistence weiter.
+Die Komponente \texttt{BusinessLogic} dient zum Verarbeiten der Anfragen und leitet diese verarbeiteten Anfragen dann an die Komponente \texttt{Persistence} weiter.
 
 \item{Persistence}
 
-Die Komponente Persistence ist die Schnittstelle zur Datenbank. Über das Interface DBControl werden die verarbeiteten Anfragen von der Komponente BusinessLogic empfangen und in Datenbankabfragen umgewandelt, welche dann von der Datenbank entgegen genommen werden.
+Die Komponente \texttt{Persistence} ist die Schnittstelle zur Datenbank. Über das Interface \texttt{DBControl} werden die verarbeiteten Anfragen von der Komponente \texttt{BusinessLogic} empfangen und in Datenbankabfragen umgewandelt, welche dann von der Datenbank entgegen genommen werden.
 
 \end{itemize}
 
@@ -744,15 +741,15 @@ Die Clientkomponente besteht so wie die Serverkomponente aus drei Teilkomponente
 \begin{itemize}
 \item{Communication}
 
-Die Komponente Communication sendet Anfragen des Clients an den Server, welche dort verarbeitet werden und nimmt die Ergebnisse entgegen um diese an die Komponente Model zu übergeben wo die Ergebnisse der Anfrage weiter verarbeitet werden.
+Die Komponente \texttt{Communication} sendet Anfragen des Clients an den Server, welche dort verarbeitet werden und nimmt die Ergebnisse entgegen, um diese an die Komponente \texttt{Model} zu übergeben, wo die Ergebnisse der Anfrage weiter verarbeitet werden.
 
 \item{Model}
 
-Die Komponente Model nimmt Ergebnisse von der Komponente Communication entgegen und schickt diese an die Komponente User Interface. 
+Die Komponente \texttt{Model} nimmt Ergebnisse von der Komponente \texttt{Communication} entgegen und schickt diese an die Komponente \texttt{User Interface}. 
 
 \item{User Interface}
 
-Die Kompnente User Interface muss in zwei unterschiedliche Komponenten zerlegt werden:
+Die Komponente \texttt{User Interface} muss in zwei unterschiedliche Komponenten zerlegt werden:
 \begin{itemize}
 \item{GUI}
 
@@ -760,7 +757,11 @@ Die GUI richtet sich in erster Linie an Bibliothekare und nimmt alle möglichen 
 
 \item{Android-App}
 
+<<<<<<< HEAD
 Die Android-App richtet sich an die Leser und bietet ihnen grundlegende Funktionen die in der Anforderungsspezifikation erarbeitet wurden.
+=======
+Die Android-App richtet sich in erster Linie an die Nutzer/Leser.
+>>>>>>> 34be0615dfbf886b595ff4213c9f767b2f0365d0
 \end{itemize}
 
 \end{itemize}
@@ -771,7 +772,7 @@ Die Android-App richtet sich an die Leser und bietet ihnen grundlegende Funktion
 \subsection{Pakete}
 \label{sec:pakete}
 
-Wir haben ein Hauptpaket eu.it\_r3v in dem sich weitere Unterpakete befinden. Diese dienen der Bündelung gemeinsamer Quellcodedateien.
+Wir haben ein Hauptpaket \texttt{eu.it\_r3v}, in dem sich weitere Unterpakete befinden. Diese dienen der Bündelung gemeinsamer Quellcodedateien.
 
 \begin{figure} [H] 
 \caption{Pakete Übersicht} \centering
@@ -780,31 +781,31 @@ Wir haben ein Hauptpaket eu.it\_r3v in dem sich weitere Unterpakete befinden. Di
 \end{figure}
 \label{sec:PackageUebersicht}
 
-\subsubsection{Paket bibclient}
+\subsubsection{Paket \texttt{bibclient}}
 \label{sec:bibclient}
 
 \begin{figure} [H] 
-\caption{Paket bibclient} \centering
+\caption{Paket \texttt{bibclient}} \centering
 	\includegraphics[width=1\textwidth]{Diagramme/Packagebibclient.png} 
 	\label{pic:PackageClient} 
 \end{figure}
 
 
-\subsubsection{Pakete bibcommon}
+\subsubsection{Pakete \texttt{bibcommon}}
 \label{sec:bibcommon}
 
 \begin{figure} [H] 
-\caption{Paket bibcommon} \centering
+\caption{Paket \texttt{bibcommon}} \centering
 	\includegraphics[width=1\textwidth]{Diagramme/Packagebibcommon.png} 
 	\label{pic:PackageCommon} 
 \end{figure}
 
 
-\subsubsection{Paket bibjsf}
+\subsubsection{Paket \texttt{bibjsf}}
 \label{sec:bibclient}
 
 \begin{figure} [H] 
-\caption{Paketübersicht bibjsf} \centering
+\caption{Paketübersicht \texttt{bibjsf}} \centering
 	\includegraphics[width=0.45\textwidth]{Diagramme/Packagebibjsfuebersicht.png} 
 	\label{pic:PackagebibjsfUebersicht} 
 \end{figure}
@@ -878,11 +879,11 @@ die Entstehung anhand der Strategien erläutert werden.
 \section{Ausführungssicht}
 
 Das folgende Diagramm \vref{ausfuehrungssicht} zeigt das Laufzeitverhalten der Software.
-Auf der einen Seite haben wir den mobilen Zugang auf welchem die Android App als Prozess läuft. Die App selber verwendet die Module \emph{bibclient} und \emph{bibcommon}. Von diesem mobilem Zugang kann eine TCP/IP-Verbindung zu dem Bibliotheksserver aufgebaut werden. Dabei gibt es mehrere Verbindungen zu immer nur einem Server, daher die Multiplizitäten \emph{*} und \emph{1}.
+Auf der einen Seite haben wir den mobilen Zugang, auf dem die Android App als Prozess läuft. Die App selbst verwendet die Module \texttt{bibclient} und \texttt{bibcommon}. Von diesem mobilem Zugang kann eine TCP/IP-Verbindung zu dem Bibliotheksserver aufgebaut werden. Dabei gibt es mehrere Verbindungen zu immer nur einem Server, daher die Multiplizitäten \texttt{*} und \texttt{1}.
 
-Auf der anderen Seite nimmt nun der Bibliotheksserver die TCP/IP-Verbindungen an. Er ist gleichzeitig Server und Datenbankserver. Die Datenbank läuft auf dem Subsystem Glassfish Server. Der Server verwendet die Module \emph{businesslogic, exception, isbnsearch, persistence, presentation, properties, renderer, services} und \emph{util}.
+Auf der anderen Seite nimmt nun der Bibliotheksserver die TCP/IP-Verbindungen an. Er ist gleichzeitig Server und Datenbankserver. Die Datenbank läuft auf dem Subsystem Glassfish Server. Der Server verwendet die Module \texttt{businesslogic, exception, isbnsearch, persistence, presentation, properties, renderer, services} und \texttt{util}.
 
-Das komplette System läuft mit zwei Prozessen: einmal mit der Android App und der andere Prozess ist \emph{bibjsf} der das Subsystem mit der Datenbank enthält. Prinzipiell gibt es unendlich viele mobile Zugänge bzw. App-Prozesse die auf einen Bibliotheksserver zugreifen.
+Das komplette System läuft mit zwei Prozessen: einmal mit der Android App und dem anderen Prozess \texttt{bibjsf}, der das Subsystem mit der Datenbank enthält. Prinzipiell gibt es unendlich viele mobile Zugänge bzw. App-Prozesse, die auf einen Bibliotheksserver zugreifen.
 
 \begin{figure} [H] 
 \caption{Ausführungssicht} 
@@ -909,21 +910,41 @@ Das komplette System läuft mit zwei Prozessen: einmal mit der Android App und d
     betrachten und eine umfangreichere Abdeckung der Architektur
     anstreben.} }
 
-\section{Evolution}
+\section{Evolution (Tim)}
 
 
 \label{sec:evolution}
 
-{\it
-  Beschreibt in diesem Abschnitt, welche Änderungen Ihr
-  vornehmen müsst, wenn sich Anforderungen oder Rahmenbedingungen
-  ändern. Insbesondere sollten hierbei die in der
-  Anforderungsspezifikation unter "`Ausblick"' bereits genannten
-  Punkte behandelt werden.}
+In diesem Abschnitt geht es um mögliche Änderungen, Anpassungen bzw. Erweiterungen, die vorgenommen werden müssten, wenn sich Anforderungen des Systems ändern. \\
+Dabei ist wichtig, dass sich solche Änderungen möglichst modular realisieren lassen, ohne die bestehende Architektur komplett zu verändern, was sehr aufwändig und somit nicht wünschenswert wäre. \\
+Im Folgenden werden einige wichtige mögliche neue Anforderungen bzw. Erweiterungen aufgelistet und deren jeweiligen zu implementierenden Änderungen an der Architektur beschrieben. 
 
-\dots
+\subsection*{Erweiterungsmöglichkeiten aus der Anforderungsspezifikation}
 
+Wir haben bereits in der Anforderungsspezifikation im Punkt ''Ausblick'' zwei mögliche Änderungen genannt, die wir im hier detaillierter beschreiben möchten. 
 
+\subsubsection*{1. Medientypenzuwachs}
+
+Wie schon in der Anforderungsspezifikation im Punkt ''2.7 Ausblick'' angedeutet, wäre eine zu erwartende bzw. recht wahrscheinliche Erweiterung der Bibliothekssoftware, neben den vorhandenen Medien wie Büchern, Zeitschriften, CDs usw. weitere Medien wie z.B. Blu-Rays verwenden zu wollen und diese entsprechend im System aufzunehmen.\\
+Da in unserem System nicht alle Medien allein für sich stehen, sondern ihre gemeinsamen Eigenschaften ihrer Klassen in einer Superklasse namens \texttt{Medium} zusammengefasst werden, ist es recht einfach, einen solchen Medientypenzuwachs ohne großen Aufwand zu realisieren. Man muss lediglich eine weitere Subklasse der Klasse \texttt{Medium}, z.B. mit Namen \texttt{BluRay} ins Modul \texttt{bibcommon} einbauen.
+
+\subsubsection*{2. Erweiterung des Systems für iOS-Geräte}
+
+Wir werden für unser System eine Android-App entwickeln, die für den mobilen Zugang mit Smartphones einen Zugang zu dem Bibliothekssystem bietet. Da Android sehr verbreitet ist, werden wir mit dieser Lösung sicherlich viele Nutzer erreichen können, jedoch natürlich längst nicht alle. \\
+Insofern wäre zu überlegen, ob man nicht auch eine zusätzliche App für iOS-Geräte entwickeln könnte. Um dies zu realisieren, bedarf es jedoch nicht, wie oben angestrebt, modularen Änderungen, sondern der Entwicklung eines grundlegend anderen Systems. Insofern kann an dieser Stelle auch nicht beschrieben werden, welche Änderungen vorzunehmen sind, weil es sich hierbei ja eben nicht um aufbauende Erweiterungen des bestehenden Systems, sondern im Prinzip um eine Neuentwicklung einer zweiten App handeln  würde.
+
+\subsection*{Zusätzliche denkbare Erweiterungen}
+
+Über die genannten Punkte aus der Anforderungsspezifikation hinaus könnten sich weitere Änderungen ergeben, die im Folgenden beschrieben werden.
+
+\subsubsection*{1. Erweiterung des GUI-Layouts}
+
+Es wäre möglicherweise durchaus wünschenswert, wenn man als Benutzer nicht nur ein GUI-Design verwenden könnte, sondern mehrere. Dafür müsste eine Funktionalität hinzugefügt werden, um zwischen verschiedenen Benutzeroberflächen wählen zu können. \\
+Dazu müssten entsprechende Referenzierungen von neuen GUI-Style-Änderungen mit Bilddateien stattfinden sowie für Textanpassungen die XML-Dateien im Paket \texttt{biblient/res/layout} verändert bzw. erweitert werden. 
+
+\subsubsection*{2. Mehrsprachigkeit}
+
+Gemäß den Mindestanforderungen wird das System so implementiert sein, dass die Möglichkeit besteht, mehrere Sprachen für das Bibliothekssystem zu unterstützen. Insofern wäre es denkbar, dass neben Deutsch eine weitere Sprache eingebaut werden könnte. Englisch würde sich natürlich anbieten.
 \end{document}
 
 
