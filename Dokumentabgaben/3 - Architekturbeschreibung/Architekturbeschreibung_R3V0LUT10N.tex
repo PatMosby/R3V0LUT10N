@@ -674,7 +674,7 @@ In der Datenbank wird eine Group Id eingefügt, die dann die verschiedenen Nutze
 
 \newpage
 
-\section{Konzeptionelle Sicht (Sebastian)}
+\section{Konzeptionelle Sicht (Patrick, Sebastian)}
 \label{sec:konzeptionell}
 
 Wir haben mithilfe von UML-Diagrammen die konzeptionelle Sicht realisiert. Im Folgenden werden die einzelnen Diagramme aufgezeigt und beschrieben und in nachfolgenden Sichten zusätzlich verfeinert und konkretisiert.
@@ -757,11 +757,8 @@ Die GUI richtet sich in erster Linie an Bibliothekare und nimmt alle möglichen 
 
 \item{Android-App}
 
-<<<<<<< HEAD
-Die Android-App richtet sich an die Leser und bietet ihnen grundlegende Funktionen die in der Anforderungsspezifikation erarbeitet wurden.
-=======
-Die Android-App richtet sich in erster Linie an die Nutzer/Leser.
->>>>>>> 34be0615dfbf886b595ff4213c9f767b2f0365d0
+Die Android-App richtet sich in erster Linie an die Nutzer/Leser. und bietet ihnen grundlegende Funktionen die in der Anforderungsspezifikation erarbeitet wurden.
+
 \end{itemize}
 
 \end{itemize}
@@ -769,14 +766,14 @@ Die Android-App richtet sich in erster Linie an die Nutzer/Leser.
 \section{Modulsicht}
 \label{sec:modulsicht}
 
-\subsection{Pakete}
+\subsection{Pakete(Patrick)}
 \label{sec:pakete}
 
-Wir haben ein Hauptpaket \texttt{eu.it\_r3v}, in dem sich weitere Unterpakete befinden. Diese dienen der Bündelung gemeinsamer Quellcodedateien.
+Wir haben ein Hauptpaket \texttt{eu.it\_r3v}, in dem sich weitere Unterpakete befinden. Dies dient der Übersicht indem wir gemeinsame Quellcodedateien bündeln und so logisch zusammenhängende Einheiten erzeugen.
 
 \begin{figure} [H] 
 \caption{Pakete Übersicht} \centering
-	\includegraphics[width=0.6\textwidth]{Diagramme/PackageUebersicht.png} 
+	\includegraphics[scale=1.55]{Diagramme/PackageUebersicht.png} 
 	\label{pic:PackageUebersicht} 
 \end{figure}
 \label{sec:PackageUebersicht}
@@ -784,9 +781,23 @@ Wir haben ein Hauptpaket \texttt{eu.it\_r3v}, in dem sich weitere Unterpakete be
 \subsubsection{Paket \texttt{bibclient}}
 \label{sec:bibclient}
 
+Das Paket \texttt{bibclient} beinhaltet die Quellcodedateien für die Android-App. Es besteht aus mehreren Klassen:
+\begin{itemize}
+\item{AsyncBookTask}
+\item{BookAdapter}
+\item{MainActivity}
+\item{Network}
+\item{ShowBookActivity}
+\item{ShowUserInfoActivity}
+\item{LoginActivity}
+\item{ShowImpressumActivity}
+\item{ShowLeasedBooksActivity}
+\item{EarmarkActivity}
+\end{itemize}
+
 \begin{figure} [H] 
 \caption{Paket \texttt{bibclient}} \centering
-	\includegraphics[width=1\textwidth]{Diagramme/Packagebibclient.png} 
+	\includegraphics[scale=2]{Diagramme/Packagebibclient.png} 
 	\label{pic:PackageClient} 
 \end{figure}
 
@@ -794,15 +805,113 @@ Wir haben ein Hauptpaket \texttt{eu.it\_r3v}, in dem sich weitere Unterpakete be
 \subsubsection{Pakete \texttt{bibcommon}}
 \label{sec:bibcommon}
 
+\begin{itemize}
+\item{BusinessObject.java}
+\item{GsonMessageHandler.java}
+\item{IllegalRating.java}
+\item{Reader.java}
+\item{}
+\item{}
+\item{}
+\item{}
+\item{}
+\end{itemize}
+
 \begin{figure} [H] 
 \caption{Paket \texttt{bibcommon}} \centering
-	\includegraphics[width=1\textwidth]{Diagramme/Packagebibcommon.png} 
+	\includegraphics[scale=2]{Diagramme/Packagebibcommon.png} 
 	\label{pic:PackageCommon} 
 \end{figure}
 
 
+\newpage
 \subsubsection{Paket \texttt{bibjsf}}
 \label{sec:bibclient}
+
+\begin{itemize}
+\item{Paket \texttt{eu.it\_r3v.businesslogic}}
+
+\begin{itemize}
+\item{AdministrationHandler.java}
+\item{BusinessHandler.java}
+\item{BusinessObjectHandler.java}
+\item{}
+\item{}
+\end{itemize}
+
+\item{Paket \texttt{eu.it\_r3v.exceptions}}
+
+\begin{itemize}
+\item{BibJSFException.java}
+\item{}
+\item{BusinessElementAlreadyExistsException.java}
+\item{}
+\item{DataSourceException.java}
+\end{itemize}
+
+\item{Paket \texttt{eu.it\_r3v.isbnsearch}}
+
+\begin{itemize}
+\item{GoogleAPIKey.java}
+\item{ISBNGoogleSearch.java}
+\end{itemize}
+
+\item{Paket \texttt{eu.it\_r3v.persistence}}
+\begin{itemize}
+\item{Data.java}
+\item{Persitence.java}
+\end{itemize}
+
+\item{Paket \texttt{eu.it\_r3v.presentation}}
+\begin{itemize}
+\item{}
+\item{}
+\item{Administration.java}
+\item{AuthBackingBean.java}
+\item{}
+\item{}
+\item{}
+\item{BusinessObjectForm.java}
+\item{}
+\item{}
+\item{}
+\item{}
+\item{TableDataModel.java}
+\item{TableForm}
+\end{itemize}
+
+\item{Paket \texttt{eu.it\_r3v.renderer}}
+
+\begin{itemize}
+\item{}
+\item{}
+\item{Content.java}
+\item{IDCardPrinter.java}
+\item{IDContent.java}
+\item{Printer.java}
+\end{itemize}
+
+\item{Paket \texttt{eu.it\_r3v.services}}
+
+\begin{itemize}
+\item{Bibservices.java}
+\end{itemize}
+
+\item{Paket \texttt{eu.it\_r3v.utils}}
+
+\begin{itemize}
+\item{Configuration.java}
+\item{Constraint.java}
+\item{CSVReader.java}
+\item{EqualConstraint.java}
+\item{LikeConstraint.java}
+\item{Messages.java}
+\item{OrderBy.java}
+\item{Reflection.java}
+\end{itemize}
+
+\end{itemize}
+
 
 \begin{figure} [H] 
 \caption{Paketübersicht \texttt{bibjsf}} \centering
@@ -816,65 +925,9 @@ Wir haben ein Hauptpaket \texttt{eu.it\_r3v}, in dem sich weitere Unterpakete be
 	\label{pic:PackagebibjsfUebersicht} 
 \end{figure}
 
-
-
-
-
-{\it
-Diese Sicht beschreibt den statischen Aufbau des Systems mit Hilfe von
-Modulen, Subsystemen, Schichten und Schnittstellen. 
-Diese Sicht ist hierarchisch, d.h. Module werden in Teilmodule
-zerlegt. Die Zerlegung endet bei Modulen, die ein klar umrissenes
-Arbeitspaket für eine Person darstellen und in einer Kalenderwoche
-implementiert werden können. Die Modulbeschreibung der Blätter dieser
-Hierarchie muss genau genug und ausreichend sein, um das Modul 
-implementieren zu können.
-
-Die Modulsicht wird durch {UML}-Paket- und Klassendiagramme visualisiert.
-
-Die Module werden durch ihre Schnittstellen beschrieben. 
-Die Schnittstelle eines Moduls $M$ ist die Menge aller Annahmen, die
-andere Module über $M$ machen dürfen, bzw.\ jene Annahmen, die $M$
-über seine verwendeten Module macht (bzw. seine Umgebung, wozu auch
-Speicher, Laufzeit etc.\ gehören).
-Konkrete Implementierungen dieser Schnittstellen sind das Geheimnis des Moduls
-und können vom Programmierer festgelegt werden. Sie sollen hier
-dementsprechend nicht beschrieben werden. 
-
-Die Diagramme der Modulsicht sollten die zur Schnittstelle gehörenden Methoden
-enthalten. Die Beschreibung der einzelnen Methoden (im Sinne der Schnittstellenbeschreibung)
-geschieht allerdings per Javadoc im zugehörigen Quelltext. Das bedeutet, dass Ihr
-für alle Eure Module Klassen, Interfaces und Pakete erstellt und sie mit den Methoden der
-Schnittstellen verseht. Natürlich noch ohne Methodenrümpfe bzw.\ mit minimalen Rümpfen.
-Dieses Vorgehen vereinfacht den Schnittstellenentwurf und stellt Konsistenz sicher.
-
-Jeder Schnittstelle liegt ein
-Protokoll zugrunde. Das Protokoll beschreibt die Vor- und
-Nachbedingungen der Schnittstellenelemente. Dazu gehören die erlaubten
-Reihenfolgen, in denen Methoden der Schnittstelle aufgerufen werden
-dürfen, sowie Annahmen über Eingabeparameter und Zusicherungen über
-Ausgabeparameter. Das Protokoll von Modulen wird in der Modulsicht beschrieben.
-Dort, wo es sinnvoll ist, sollte es mit Hilfe von Zustands- oder
-Sequenzdiagrammen spezifiziert werden. Diese sind dann einzusetzen, wenn der
-Text allein kein ausreichendes Verständnis vermittelt (insbesondere
-bei komplexen oder nicht offensichtlichen Zusammenhängen).
-
-Der Bezug zur konzeptionellen Sicht muss klar ersichtlich sein. Im
-Zweifel sollte er explizit erklärt werden. Auch für diese Sicht muss
-die Entstehung anhand der Strategien erläutert werden.
-}
-
 \section{Datensicht}
 \label{sec:datensicht}
 
-{\it Hier wird das der Anwendung zugrundeliegende Datenmodell
-  beschrieben. Hierzu werden neben einem erläuternden Text auch ein
-  oder mehrere {UML}-Klassendiagramme verwendet. Das hier beschriebene
-  Datenmodell wird u.a. jenes der Anforderungsspezifikation enthalten,
-  allerdings mit implementierungsspezifischen Änderungen und
-  Erweiterungen. Siehe die gesonderten Hinweise.}
-  
-  
 
 \section{Ausführungssicht}
 
@@ -895,20 +948,7 @@ Das komplette System läuft mit zwei Prozessen: einmal mit der Android App und d
 \section{Zusammenhänge zwischen Anwendungsfällen und Architektur}
 \label{sec:anwendungsfaelle}
 
-{\it In diesem Abschnitt sollen Sequenzdiagramme mit Beschreibung(!)
-  für {zwei bis drei von Euch ausgewählte
-    Anwendungsfälle}{einen von Euch ausgewählten Anwendungsfall}
-  erstellt werden. Ein Sequenzdiagramm beschreibt den
-  Nachrichtenverkehr zwischen allen Modulen, die an der Realisierung
-  des Anwendungsfalles beteiligt sind.  {Wählt die
-    Anwendungsfälle so, dass nach Möglichkeit alle Module Eures
-    entworfenen Systems in mindestens einem Sequenzdiagramm
-    vorkommen. Falls Euch das nicht gelingt, versucht möglichst viele
-    und die wichtigsten Module abzudecken.}{Dazu könnt ihr Euch einen
-    Anwendungsfall heraussuchen, der möglichst viele Module der
-    Architektur abdeckt. In SWP-2 werden wir mehrere Anwendungsfälle
-    betrachten und eine umfangreichere Abdeckung der Architektur
-    anstreben.} }
+
 
 \section{Evolution (Tim)}
 
