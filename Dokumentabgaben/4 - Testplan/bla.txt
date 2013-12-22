@@ -1,0 +1,40 @@
+Login
+Logout
+Leser anzeigen
+Vormerkung bearbeiten
+Medien anzeigen
+Medien hinzufügen
+das selbe Medium wird hinzugefügt
+das gleiche Medium wird hinzugefügt
+Medien ändern
+Medien löschen
+CSV-Import
+CSV-Export
+Medium suchen
+Medium anzeigen
+Medium ausleihen
+Ausleihzeitraum anzeigen
+Medium zurückgeben
+Medium vormerken
+Leserliste anzeigen
+Leser hinzufügen
+Leser löschen
+Leser ändern
+Leser sperren
+Leser suchen
+Bibliothekare anzeigen
+Bibliothekare löschen
+Bibliothekare ändern
+Bibliothekare hinzufügen
+Statistiken anzeigen: meist ausgeliehene Bücher <-> am wenigstens ausgeliehene Bücher
+Mahnungsliste anzeigen
+Mahnungsliste drucken
+Mahnungsdetails anzeigen
+Startseite bearbeiten
+Abgabedaten/ Mahngebühren bearbeiten
+Vormerkungen anzeigen
+Zeige letzten Ausleiher
+Liste ausgeliehener Bücher anzeigen
+automatisches Backup
+Verlängerungswunsch einreichen
+Ausleihhistorie ein/ausschalten
