@@ -162,46 +162,46 @@ Version & Datum & Änderungen \\
 
 \subsection{Zweck}
 
-Dieses Dokument ist die Architekturbeschreibung der von uns zu entwickelnden Software. Sie hat den Zweck der Kommunikation zwischen allen Interessenten. Dies ist unerlässlich für die Entwicklung des Systems, da die Entwickler der Architekturbeschreibung die Funktionalität einzelner Komponenten entnehmen. Sie dient der Aufteilung der Arbeit in unabhängig bearbeitbare Teile, besitzt Anfangs einen hohen Abstraktionsgrad, der von vielen verstanden werden kann und wird in den Schichten weiter unten in diesem Dokument präziser ausgearbeitet. Die präzise Ausarbeitung der Architektur ist wichtig um Möglichkeiten und Probleme der Entwicklung auszuloten und präventive Strategien und Maßnahmen zu entwickeln.
+Dieses Dokument ist die Architekturbeschreibung der von uns zu entwickelnden Software. Sie dient der Kommunikation zwischen allen Interessenten. Dies ist unerlässlich für die Entwicklung des Systems, da die Entwickler der Architekturbeschreibung die Funktionalität einzelner Komponenten entnehmen. Sie dient der Aufteilung der Arbeit in unabhängig bearbeitbare Teile, besitzt anfangs einen hohen Abstraktionsgrad, der von vielen verstanden werden kann und wird in den Schichten weiter unten in diesem Dokument präziser ausgearbeitet. Die präzise Ausarbeitung der Architektur ist wichtig, um Möglichkeiten und Probleme der Entwicklung auszuloten und präventive Strategien und Maßnahmen zu entwickeln.
 
-Die Architektur des Systems ist daher das Fundament unserer Implementierung, welche direkt aus der Architektur resultiert.
+Die Architektur des Systems ist daher das Fundament unserer Implementierung, die direkt aus der Architektur resultiert.
 
 
 \subsection{Status}
 
-Dies ist der erste Architekturentwurf vom 22.12.2013
+Dies ist der erste Architekturentwurf vom 22.12.2013.
 \subsection{Definitionen, Akronyme und Abkürzungen}
 
 \subsection{Referenzen}
 
 \subsection{Übersicht über das Dokument}
 
-Dieses Dokument basiert auf der Vorlage des IEEE P1471 2002 Standards. Der Inhalt dieses Dokuments ist wie folgt aufgegliedert:
+Dieses Dokument basiert auf der Vorlage des \textit{IEEE P1471 2002} Standards. Der Inhalt dieses Dokuments ist wie folgt aufgegliedert:
 
 \begin{enumerate}
 \item{\textbf{Einführung}}
 
-Die Einführung beschreibt den Nutzen dieses Dokuments. Es erläutert Definitonen, Akronyme und Abkkürzungen und listet die benutzten Referenzen auf, sowie eine Übersicht über diese Dokument.
+Die Einführung beschreibt den Nutzen dieses Dokuments. Sie erläutert Definitionen, Akronyme und Abkürzungen und listet die benutzten Referenzen auf, sowie eine Übersicht über dieses Dokument.
 
 \item{\textbf{Globale Analyse}}
 
-In diesem Abschnitt werden die relevanten Einflussfaktoren aufgezeigt und bewertet, sowie Strategien entwickelt um Probleme bzw. interferierende Einflussfaktoren zu behandeln und auf diese entsprechend zu reagieren.
+In diesem Abschnitt werden die relevanten Einflussfaktoren aufgezeigt und bewertet, sowie Strategien entwickelt, um Probleme bzw. interferierende Einflussfaktoren zu behandeln und auf diese entsprechend zu reagieren.
 
 \item{\textbf{Konzeptionelle Sicht}}
 
-Die konzeptionelle Sicht zeigt grob die einzelnen Komponenten und derer Zusammenspiel des zu entwickelnden Systems auf. Dies geschieht auf einer hohen Abstraktionsebene und wird im weiteren Verlauf des Dokuments und den folgenden Sichten konkretisiert und verfeinert.
+Die konzeptionelle Sicht zeigt grob die einzelnen Komponenten und deren Zusammenspiel des zu entwickelnden Systems auf. Dies geschieht auf einer hohen Abstraktionsebene und wird im weiteren Verlauf des Dokuments und den folgenden Sichten konkretisiert und verfeinert.
 
 \item{\textbf{Modulsicht}}
 
-Im Abschnitt Modulsicht dieser Architekturbeschreibung geht es um eine tiefere Ebene der Abstraktion. Hier werden die Komponenten in einzelne Pakete zerlegt und diese wiederum in Module, welche eine Einheit bilden die ein Entwickler in einer Arbeitswoche implementieren kann.
+Im Abschnitt Modulsicht dieser Architekturbeschreibung geht es um eine tiefere Ebene der Abstraktion. Hier werden die Komponenten in einzelne Pakete zerlegt und diese wiederum in Module, welche eine Einheit bilden, die ein Entwickler in einer Arbeitswoche implementieren kann.
 
 \item{\textbf{Datensicht}}
 
-Die Datensicht beschreibt das zugrundeliegende Datenmodel und das Zusammenspiel der einzelnen Daten der Datenbank. Dies wird in Form eines erklärenden Textes und Uml-Diagrammen realisiert.
+Die Datensicht beschreibt das zugrundeliegende Datenmodell und das Zusammenspiel der einzelnen Daten der Datenbank. Dies wird in Form eines erklärenden Textes und UML-Diagrammen realisiert.
 
 \item{\textbf{Ausführungssicht}}
 
-Die Ausführungssicht zeigt im Prinzip das System in ''Aktion'', d.h. es zeigt auf welche Prozesse laufen, welche Module hierfür gebraucht werden und wie dieses zusammenspielen.
+Die Ausführungssicht zeigt im Prinzip das System in ''Aktion'', d.h. es zeigt auf, welche Prozesse laufen, welche Module hierfür gebraucht werden und wie diese zusammenspielen.
 
 \item{\textbf{Zusammenhänge zwischen Anwendungsfällen und Architektur}}
 
@@ -209,7 +209,7 @@ Hier werden die Zusammenhänge zwischen Architektur und den Anwendungsfällen de
 
 \item{\textbf{Evolutoin}}
 
-In diesem Teil der Architekturbeschreibung wird beschrieben, welche Änderungen vorgenommen werden müssen wenn sich Anforderungen und/oder Rahmenbedingungen ändern. Ein besonderes Augenmerk liegt hierbei auf die in der Anforderungsspezifikation unter Ausblick  genannten Punkte.
+In diesem Teil der Architekturbeschreibung wird beschrieben, welche Änderungen vorgenommen werden müssen, wenn sich Anforderungen und oder Rahmenbedingungen ändern. Ein besonderes Augenmerk liegt hierbei auf die in der Anforderungsspezifikation unter ''Ausblick'' genannten Punkte.
 
 \end{enumerate}
 
@@ -674,7 +674,11 @@ In der Datenbank wird eine Group Id eingefügt, die dann die verschiedenen Nutze
 
 \newpage
 
+<<<<<<< HEAD
 \section{Konzeptionelle Sicht (Patrick, Sebastian)}
+=======
+\section{Konzeptionelle Sicht (Name)}
+>>>>>>> 19212b8ed46ba3ef9038578acda7757d64156857
 \label{sec:konzeptionell}
 
 Wir haben mithilfe von UML-Diagrammen die konzeptionelle Sicht realisiert. Im Folgenden werden die einzelnen Diagramme aufgezeigt und beschrieben und in nachfolgenden Sichten zusätzlich verfeinert und konkretisiert.
@@ -763,7 +767,7 @@ Die Android-App richtet sich in erster Linie an die Nutzer/Leser. und bietet ihn
 
 \end{itemize}
 
-\section{Modulsicht}
+\section{Modulsicht (Patrick, Tobias)}
 \label{sec:modulsicht}
 
 \subsection{Pakete(Patrick)}
@@ -925,11 +929,63 @@ Das Paket \texttt{bibclient} beinhaltet die Quellcodedateien für die Android-Ap
 	\label{pic:PackagebibjsfUebersicht} 
 \end{figure}
 
+<<<<<<< HEAD
 \section{Datensicht}
+=======
+
+
+
+
+{\it
+Diese Sicht beschreibt den statischen Aufbau des Systems mit Hilfe von
+Modulen, Subsystemen, Schichten und Schnittstellen. 
+Diese Sicht ist hierarchisch, d.h. Module werden in Teilmodule
+zerlegt. Die Zerlegung endet bei Modulen, die ein klar umrissenes
+Arbeitspaket für eine Person darstellen und in einer Kalenderwoche
+implementiert werden können. Die Modulbeschreibung der Blätter dieser
+Hierarchie muss genau genug und ausreichend sein, um das Modul 
+implementieren zu können.
+
+Die Modulsicht wird durch {UML}-Paket- und Klassendiagramme visualisiert.
+
+Die Module werden durch ihre Schnittstellen beschrieben. 
+Die Schnittstelle eines Moduls $M$ ist die Menge aller Annahmen, die
+andere Module über $M$ machen dürfen, bzw.\ jene Annahmen, die $M$
+über seine verwendeten Module macht (bzw. seine Umgebung, wozu auch
+Speicher, Laufzeit etc.\ gehören).
+Konkrete Implementierungen dieser Schnittstellen sind das Geheimnis des Moduls
+und können vom Programmierer festgelegt werden. Sie sollen hier
+dementsprechend nicht beschrieben werden. 
+
+Die Diagramme der Modulsicht sollten die zur Schnittstelle gehörenden Methoden
+enthalten. Die Beschreibung der einzelnen Methoden (im Sinne der Schnittstellenbeschreibung)
+geschieht allerdings per Javadoc im zugehörigen Quelltext. Das bedeutet, dass Ihr
+für alle Eure Module Klassen, Interfaces und Pakete erstellt und sie mit den Methoden der
+Schnittstellen verseht. Natürlich noch ohne Methodenrümpfe bzw.\ mit minimalen Rümpfen.
+Dieses Vorgehen vereinfacht den Schnittstellenentwurf und stellt Konsistenz sicher.
+
+Jeder Schnittstelle liegt ein
+Protokoll zugrunde. Das Protokoll beschreibt die Vor- und
+Nachbedingungen der Schnittstellenelemente. Dazu gehören die erlaubten
+Reihenfolgen, in denen Methoden der Schnittstelle aufgerufen werden
+dürfen, sowie Annahmen über Eingabeparameter und Zusicherungen über
+Ausgabeparameter. Das Protokoll von Modulen wird in der Modulsicht beschrieben.
+Dort, wo es sinnvoll ist, sollte es mit Hilfe von Zustands- oder
+Sequenzdiagrammen spezifiziert werden. Diese sind dann einzusetzen, wenn der
+Text allein kein ausreichendes Verständnis vermittelt (insbesondere
+bei komplexen oder nicht offensichtlichen Zusammenhängen).
+
+Der Bezug zur konzeptionellen Sicht muss klar ersichtlich sein. Im
+Zweifel sollte er explizit erklärt werden. Auch für diese Sicht muss
+die Entstehung anhand der Strategien erläutert werden.
+}
+
+\section{Datensicht (Tobias)}
+>>>>>>> 19212b8ed46ba3ef9038578acda7757d64156857
 \label{sec:datensicht}
 
 
-\section{Ausführungssicht}
+\section{Ausführungssicht (Sebastian)}
 
 Das folgende Diagramm \vref{ausfuehrungssicht} zeigt das Laufzeitverhalten der Software.
 Auf der einen Seite haben wir den mobilen Zugang, auf dem die Android App als Prozess läuft. Die App selbst verwendet die Module \texttt{bibclient} und \texttt{bibcommon}. Von diesem mobilem Zugang kann eine TCP/IP-Verbindung zu dem Bibliotheksserver aufgebaut werden. Dabei gibt es mehrere Verbindungen zu immer nur einem Server, daher die Multiplizitäten \texttt{*} und \texttt{1}.
