@@ -1150,6 +1150,15 @@ Hier haben wir die größten Änderungen vorgenommen. Wir haben nämlich Unterkl
 \section{Datensicht (Tobias)}
 \label{sec:datensicht}
 
+\begin{figure} [H] 
+\caption{Paket \texttt{BibCommon}} \centering
+ \includegraphics[width=0.8\textwidth]{Diagramme/Datensicht.png} 
+ \label{BibCommon} 
+\end{figure}
+
+Veränderungen: Die einzelnen Personen( Admin, Librarian und Reader) leiten sich nicht mehr von Person ab, da diese nicht vom Datenmodell übernommen wurde. Bibliothekar heißt nun Librarian. 
+Die Klassen Bewertung und Rezensieren wurden ebenfalls entfernt, da sie sich nicht mehr innerhalb unserer Mindestanforderungen befinden. Das Bearbeiten von Personen also entweder Librarian oder Reader wird mit den Handler-Klassen geregelt.\\
+
 \section{Ausführungssicht (Sebastian)}
 
 Das folgende Diagramm \vref{ausfuehrungssicht} zeigt das Laufzeitverhalten der Software.
