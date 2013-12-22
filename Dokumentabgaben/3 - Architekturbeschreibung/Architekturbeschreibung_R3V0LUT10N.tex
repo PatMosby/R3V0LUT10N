@@ -835,7 +835,7 @@ AsyncMediumTask ist ein eigener AsynTask für ListMediumActivity zum holen und a
 
 \item{MediumAdapter}
 
-Ist ein Array-Adapter und erstetzt den normalen Array-Adapter damit wir selber bestimmen können wie wir den Text aus einem Medium ziehen und ihn anzeigen lassen können.
+Ist ein Array-Adapter und ersetzt den normalen Array-Adapter damit wir selber bestimmen können wie wir den Text aus einem Medium ziehen und ihn anzeigen lassen können.
 
 \newpage
 \item{MainActivity}
@@ -898,15 +898,24 @@ Das Paket \texttt{bibcommon} stellt eine Sammlung von Quellcodedateien zur Verf�
 \item{GsonMessageHandler.java}
 \item{IllegalRating.java}
 \item{Reader.java}
-\item{}
+\item{Librarian}
+\item{Admin}
+\item{Medium}
+\item{Book}
+\item{Magazine}
+\item{Software}
+\item{Hörbücher}
+\item{Movie}
+\item{CD}
+\item{Misc}
 \end{itemize}
 
 Weiter Funktionalitäten auf die die Java-Klassen aus dem Paket \texttt{bibcommon} zugreifen sind \texttt{com.google.gson} -- eine Java-Bibliothek zum konvertieren von Java-Objekten in ihre JSON Repräsentation, \texttt{java.io.Serializable} -- um Klassen serialisierbar zu machen, \texttt{java.lang}, \texttt{java.util}, \texttt{java.text}, \texttt{java.ws.rs} -- High-Level-Interfaces die genutzt werden um RESTful Service-Ressourcen, was aus dem Diagramm \vref{pic:PackageCommon} ersichtlich wird.
 
 \begin{figure} [H] 
 \caption{Paket \texttt{bibcommon}} \centering
-	\includegraphics[scale=2]{Diagramme/Packagebibcommon.png} 
-	\label{pic:PackageCommon} 
+ \includegraphics[scale=2]{Diagramme/Packagebibcommon.png} 
+ \label{pic:PackageCommon} 
 \end{figure}
 
 
@@ -920,20 +929,23 @@ Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vre
 \item{Paket \texttt{eu.it\_r3v.businesslogic}}
 
 \begin{itemize}
-\item{AdministrationHandler.java}
 \item{BusinessHandler.java}
+\item{AdministrationHandler.java}
+\item{InputException}
 \item{BusinessObjectHandler.java}
-\item{}
-\item{}
+\item{ReaderHandler}
+\item{LibrarianHandler}
+\item{MediumHandler}
+\item{BorrowHandler}
 \end{itemize}
 
 \item{Paket \texttt{eu.it\_r3v.exceptions}}
 
 \begin{itemize}
 \item{BibJSFException.java}
-\item{}
+\item{BookAlreadyExistsException}
 \item{BusinessElementAlreadyExistsException.java}
-\item{}
+\item{NoSearchBookExistException}
 \item{DataSourceException.java}
 \end{itemize}
 
@@ -952,31 +964,34 @@ Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vre
 
 \item{Paket \texttt{eu.it\_r3v.presentation}}
 \begin{itemize}
-\item{}
-\item{}
 \item{Administration.java}
 \item{AuthBackingBean.java}
-\item{}
-\item{}
-\item{}
 \item{BusinessObjectForm.java}
-\item{}
-\item{}
-\item{}
-\item{}
+\item{MediumForm}
+\item{AddMediumForm}
+\item{ChangeMediumForm}
+\item{BookListDataModel}
+\item{ReaderForm}
+\item{AddReaderForm}
+\item{ChangeReaderForm}
+\item{LibrarianForm}
+\item{AddLibrarianFrom}
+\item{ChangeLibrarianForm}
 \item{TableDataModel.java}
 \item{TableForm}
+\item{MediumTable}
+\item{ReaderTable}
 \end{itemize}
 
 \item{Paket \texttt{eu.it\_r3v.renderer}}
 
 \begin{itemize}
-\item{}
-\item{}
 \item{Content.java}
 \item{IDCardPrinter.java}
 \item{IDContent.java}
 \item{Printer.java}
+\item{MediumTagPrinter}
+\item{MediumTagContent}
 \end{itemize}
 
 \item{Paket \texttt{eu.it\_r3v.services}}
@@ -1003,8 +1018,8 @@ Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vre
 
 \begin{figure} [H] 
 \caption{Paketübersicht \texttt{bibjsf}} \centering
-	\includegraphics[width=0.45\textwidth]{Diagramme/Packagebibjsfuebersicht.png} 
-	\label{pic:Packagebibjsf} 
+ \includegraphics[width=0.45\textwidth]{Diagramme/Packagebibjsfuebersicht.png} 
+ \label{pic:Packagebibjsf} 
 \end{figure}
 
 Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten \texttt{org.primfaces} -- eine Open-Source JSF Komponentensammlung mit unterschiedlichen Erweiterungen), \texttt{com.google.api} -- eine Bibliothek für Zugriff auf Googe APIs via JSON, \texttt{eu.it\_r3v.bibjsf}, \texttt{eu.it\_r3v.bibcommon}, \texttt{org.apache} -- die Kern-Interfaces und Klassen für HTTP-Komponenten, \texttt{javax}, \texttt{java.text}, \texttt{java.sql} -- für den Zugriff auf Datenbank, \texttt{java.security} -- eine Sammlung von APIs und Tools zur Implementierung von Sicherheitsalgorithmen, \texttt{java.util}, \texttt{java.math}, \texttt{java.lang} und \texttt{java.io} zu entnehmen, welche von den einzelnen Java-Klassen benötigt werden.
@@ -1012,8 +1027,8 @@ Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten 
 
 \begin{figure} [H] 
 \caption{Paket bibjsf} \centering
-	\includegraphics[width=1\textwidth]{Diagramme/Packagebibjsf.png} 
-	\label{pic:PackagebibjsfUebersicht} 
+ \includegraphics[width=1\textwidth]{Diagramme/Packagebibjsf.png} 
+ \label{pic:PackagebibjsfUebersicht} 
 \end{figure}
 
 \newpage
@@ -1023,8 +1038,13 @@ Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten 
 Im Folgenden werden die einzelnen Pakete in Klassendiagramme umgestellt, da 
 ein einzelnes Klassendiagramm aller benutzten Klassen unübersichtlich wäre.
 Zusätzlich sei angemerkt, dass die Klassen lediglich mit Methoden oder Attributen
+<<<<<<< HEAD
 angezeigt werden, sofern sie durch die Projektarbeit neu erstellt oder verändert wurden.
 
+=======
+angezeigt werden, sofern sie durch die Projektarbeit neu erstellt oder verändert wurden. Außerdem sei noch angemerkt, dass sich zwar Änderungen z.B. von Variablen durch die Erweiterung der Mindestanforderungen ergeben. Diese kleinen Änderungen werden aber im Folgenden nicht berücksichtigt.
+\newpage
+>>>>>>> f7fb2a8ebd914bc8fbe40ff2628413d86c92e31b
 \subsubsection{Klassendiagramme \texttt{bibjsf}}
 
 \textbf{BusinessLogic:}
@@ -1061,42 +1081,71 @@ Die ehemaligen Klassen \texttt{BookForm, AddBookForm} und \texttt{ChangeBookForm
 
 \textbf{Persistence:}
 
+Im Paket \texttt{Persistence} kam es bisher zu keinen erwähnenswerten, signifikanten Änderungen oder Erweiterungen in Form von Methoden o.Ä.
+
 \begin{figure} [H] 
 \caption{Paket \texttt{Persistence}} \centering
- \includegraphics[width=1\textwidth]{Diagramme/Persistence.png} 
+ \includegraphics[width=0.9\textwidth]{Diagramme/Persistence.png} 
  \label{Persistence} 
 \end{figure}
 \newpage
 
 \textbf{Renderer:}
 
+Da wir nun die Klassen \texttt{MediumTagPrinter} und \texttt{MediumTagContent} haben, unterstützt das Package nun mehrere Medien und nicht nur Bücher, so wie es zuvor implementiert war.
 \begin{figure} [H] 
 \caption{Paket \texttt{Renderer}} \centering
- \includegraphics[width=1\textwidth]{Diagramme/Renderer.png} 
+ \includegraphics[width=0.9\textwidth]{Diagramme/Renderer.png} 
  \label{Renderer} 
 \end{figure}
 
 \textbf{Utils:}
 
+In diesem Paket wurde bisher nichts erweitert, was wir für angemessen hielten.
 \begin{figure} [H] 
 \caption{Paket \texttt{Utils}} \centering
- \includegraphics[width=1\textwidth]{Diagramme/Utils.png} 
+ \includegraphics[width=0.8\textwidth]{Diagramme/Utils.png} 
  \label{Utils} 
 \end{figure}
+\newpage
+\textbf{Exception:} \\
+In diesem Paket haben wir bisher die Klassen, die mit Büchern arbeiten, noch nicht in entsprechende Klassen für Medien, wie z.B. \texttt{MediumAlreadyExists} geändert, weil wir dies zu diesem Zeitpunkt noch nicht für erforderlich hielten.
+\begin{figure} [H] 
+\caption{Paket \texttt{Exception}} \centering
+ \includegraphics[width=1\textwidth]{Diagramme/exception.png} 
+ \label{Exception} 
+\end{figure}
+
+\textbf{ISBNSearch:}
+In diesem Paket wurde bisher nichts erweitert, was wir für angemessen hielten.
+\begin{figure} [H] 
+\caption{Paket \texttt{ISBNSearch}} \centering
+ \includegraphics[width=0.7\textwidth]{Diagramme/ISBNSearch.png} 
+ \label{ISBNSearch} 
+\end{figure}
+
+\textbf{Services:}
+In diesem Paket wurde bisher nichts erweitert, was wir für angemessen hielten.
+\begin{figure} [H] 
+\caption{Paket \texttt{Services}} \centering
+ \includegraphics[width=0.7\textwidth]{Diagramme/services.png} 
+ \label{Services} 
+\end{figure}
+
 
 \subsubsection{Klassendiagramm \texttt{BibClient}}
-
+In diesem Paket haben wir keine Veränderungen implementiert.
 \begin{figure} [H] 
 \caption{Paket \texttt{BibClient}} \centering
- \includegraphics[width=1\textwidth]{Diagramme/bibclient.png} 
+ \includegraphics[width=0.8\textwidth]{Diagramme/bibclient.png} 
  \label{BibClient} 
 \end{figure}
 
 \subsubsection{Klassendiagramm \texttt{BibCommon}}
-
+Hier haben wir die größten Änderungen vorgenommen. Wir haben nämlich Unterklassen von \texttt{Medium} implementiert, die entsprechend davon erben, wie \texttt{Book, CD, Hörbücher} usw. mit entsprechenden Attributen, die nur auf das entsprechende Medium zugeschnitten sind.
 \begin{figure} [H] 
 \caption{Paket \texttt{BibCommon}} \centering
- \includegraphics[width=1\textwidth]{Diagramme/bibcommon.png} 
+ \includegraphics[width=0.8\textwidth]{Diagramme/bibcommon.png} 
  \label{BibCommon} 
 \end{figure}
 

@@ -152,6 +152,7 @@ Version & Datum & Änderungen \\
 \hline
 1.0 & 18.12.2013 & Dokumentvorlage als initiale Fassung kopiert \\
 1.1 & 21.12.2013 & Bis auf Testfälle und Testzeitplan vervollständigt \\
+1.2 & 22.12.2013 & Testplan abgabefertig
 \end{tabular}
 
 
@@ -227,33 +228,36 @@ Die Clientseite besteht aus den Komponenten \texttt{Communication, Model} und \t
 
 Da starke Abhängigkeiten zwischen all diesen Komponenten bestehen, ist es wichtig, dass diese Komponenten fehlerfrei funktionieren. 
 
-
-{\em Es sollten die Hofmeister-Konzepte verwendet
-  werden.\ Benutzt am besten Diagramme aus der Architekturbeschreibung.}
-
-\emph{Dieser Abschnitt ist nicht einfach nur Copy\&Paste der
-  Architekturbeschreibung. Es gilt einerseits, Redundanzen soweit wie
-  möglich zu vermeiden, und andererseits, dieses Dokument so
-  selbsterklärend wie möglich zu machen.}
-
 \subsection{Module der Anwendungsschicht und deren Funktionen}
 \label{mod-controller}
-\nurlangversion
 
-{\em Hier solltet ihr dann die einzelnen Module aus Sicht des
-Tests weiter verfeinern. Auch wäre noch eine Grafik angebracht, die
-die Abhängigkeiten der Subsysteme/Module zeigt, sowie eine kurze
-Beschreibung dazu.}
+In der nachfolgenden Tabelle werden die Module verfeinert die in Punkt 5 visualisiert sind.
 
-\subsubsection{Server}
-
-
-\subsubsection{Client}
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	GUI & webapp(xhtml)\\
+\hline
+	AndroidApp & AsyncBookTask.java BookAdapter.java MainActivity.java  ShowBookActivity.java\\
+\hline
+	Model & it\_r3v.bibjsf.presentation\\
+\hline
+	Communication & Network.java\\
+\hline
+	UserInterface & GUI AndroidApp\\
+\hline
+	BusinessLogic & AdministrationHandler.java MediumHandler.java BusinessHandler.java BusinessObjectHandler.java ReaderHandler.java LibrarianHandler.java BorrowHandler.java\\
+\hline
+	BibCommon & Medium.java BusinessObject.java Reader.java Admin.java Librarian.java\\
+\hline
+	Persistence & Data.java Persistence.java\\
+\hline
+\end{tabular}
 
 
 \clearpage
 
 \section{Merkmale (Daniel)}
+\label{c04}
 
 Zu testende Merkmale sind in erster Linie Funktionen, die in den Mindestanforderungen enthalten sind. Dabei ist zu beachten, dass die Funktionen des Lesers für die Website und der App getestet werden müssen, während sich die anderen Testmerkmale auf die Website beziehen. Beide sind im Folgenden aufgelistet:\\
 
@@ -335,25 +339,25 @@ Die nachfolgende Tabelle spezifiziert die Auswirkung eines Fehlers, durch die ma
 Die beiden Komponenten Server und Client werden bezüglich der Integrationstests zunächst unabhängig voneinander getestet und erst bei wenn das sichere Laufen der einzelnen Komponente gewährleistet ist, wird das System als ganzes getestet.
 
 \subsection*{Server}
-Es wird zuerst die Persistenz mit \texttt{eu.it\_r3v.bibcommon} und \texttt{eu.it\_r3v.persistence} getestet:
+Es wird zuerst die Persistenz mit \texttt{BibCommon} und \texttt{Persistence} getestet:
 
 {\qtreeshowframes
-\Tree [.eu.it\_r3v.persistence eu.it\_r3v.bibcommon
+\Tree [.Persistence BibCommon
 ]}\\
 \\
 \\
 \\
-Nun folgt das Zusammenspiel mit der BusinessLogic \texttt{eu.it\_r3v.businesslogic}:\\
+Nun folgt das Zusammenspiel mit der BusinessLogic \texttt{BusinessLogic}:\\
 
 {\qtreeshowframes
-\Tree [.eu.it\_r3v.persistence [.eu.it\_r3v.businesslogic ] {eu.it\_r3v.bibcommon} ]}\\
+\Tree [.Persistence [.Businesslogic ] {BibCommon} ]}\\
 \\
 \\
 \\
-Darauf folgt nun die Kommunikation \texttt{eu.it\_r3v.communication} mit den vorigen Komponenten:
+Darauf folgt nun die Kommunikation \texttt{Communication} mit den vorigen Komponenten:
 
 {\qtreeshowframes
-\Tree [.eu.it\_r3v.persistence [.eu.it\_r3v.businesslogic {eu.it\_r3v.communication} ] {eu.it\_r3v.bibcommon} ]}\\
+\Tree [.Persistence [.BusinessLogic {Communication} ] {BibCommon} ]}\\
 \\
 \\
 \\
@@ -394,7 +398,7 @@ Nun ist das Zusammenspiel der Komponenten des Clients gewährleistet.
 Um die kompletten Systemkomponenten zu testen werden jetzt der komplette Client und der komplette Server zusammen getestet:
 
 {\qtreeshowframes
-\Tree [.eu.it\_r3v.persistence [.eu.it\_r3v.businesslogic [.eu.it\_r3v.communication [.Model [.UserInterface GUI AndroidApp ] ] ] ] eu.it\_r3v.bibcommon ]
+\Tree [.Persistence [.BusinessLogic [.Communication [.Model [.UserInterface GUI AndroidApp ] ] ] ] BibCommon ]
 
 \subsection{Funktionstest}
 
@@ -403,7 +407,7 @@ Die Funktionstest sind durch jene Anwendungsfälle aus der Anforderungsspezifika
 
 \section{Aufhebung und Wiederaufnahme (Daniel)}\label{c08}
 
-Wir werden Tests unterbrechen, wenn ein gewisser Wert überschritten wird, welcher über die Tabelle \ref{testende}berechnet wird. In diesem Fall werden wir sofort wieder mit der Implementierung anfangen. Da wir mit der Bottom-up Strategie testen, werden wir bei Fehlern in der unteren Schicht einen niedrigeren Wert nehmen.\\
+Wir werden Tests unterbrechen, wenn ein gewisser Wert überschritten wird, welcher über die Tabelle in Abschnitt  \ref{c07} berechnet wird. In diesem Fall werden wir sofort wieder mit der Implementierung anfangen. Da wir mit der Bottom-up Strategie testen, werden wir bei Fehlern in der unteren Schicht einen niedrigeren Wert nehmen.\\
 Bei Fehlern der Data setzen wir einen Wert von 10, bei Fehlern in der Logik einen Wert von 20 und bei Fehlern, welche die GUI betreffen, einen von 40 und bei den restlichen Faktoren einen von 100.\\
 Sollten die Fehler behoben sein, testen wir noch einmal alle Komponenten, die mit den veränderten interagieren.
 
@@ -419,28 +423,11 @@ Als Hardware stehen uns unsere Notebooks und Smartphones, sowie die Unirechner z
 Als Software benutzen wir in der Eclipse Umgebung JUnit-Tests. Diese werden in Form von BlackBox- und WhiteBox-Tests implementiert. Die App werden wir mithilfe eines Android Emulators testen.
 
 % Testfälle
-\section{Testfälle}\label{c10}
-
-{\em Dies ist der wichtigste (und vermutlich umfangreichste) Teil des
-  Testplans. Hier wird genau aufgelistet, {\bf was wie} und {\bf von
-  wem} getestet wird. Das spätere Testen besteht dann einfach aus
-  einer Durchführung dieser Tests.}
-
-{\em Zu jedem Testfall muss es eine {\bf Testfallspezifikation}
-  geben (außer Komponententests, siehe unten). Schwerpunkt sollen
-  hier Integrations- und Leistungstests sein. Welche Arten von
-  Integrationstests und Leistungstests seht Ihr vor und wie wollt Ihr
-  diese genau ausgestalten?}
+\section{Testfälle (Daniel \& Sebastian)}\label{c10}
 
 \subsection{Komponententest}\label{c10-0}
 
-{\em Auf die genaue Spezifikation der Komponententests könnt Ihr
-  verzichten -- diese werden durch die JUnit-Testfälle gegeben. Uns
-  genügt hierzu eine Beschreibung, welche Komponenten/Klassen wie,
-  wann und durch wen getestet werden sollen. Die zugehörigen
-  JUnit-Tests werden separat abgegeben (Black-Box jetzt, White-Box
-  später bei der Abgabe der Implementierung) und müssen im Testplan
-  nicht als Code aufgeführt werden.}
+Wir haben hier alle Klassen aufgelistet, welche wir testen wollen. Dabei werden wir keine abstrakten Klassen und Interfaces testen. Vorgegebene Klassen, welche bereits funktionieren, werden wir nicht testen. Exceptions testen wir nicht einzeln, sondern diese werden mit den zugehörigen Methoden getestet.
 
 \begin{table}[h]
 \centering
@@ -448,97 +435,965 @@ Als Software benutzen wir in der Eclipse Umgebung JUnit-Tests. Diese werden in F
 \hline
 Klasse & Implementierer & Tester & Testart \\
 \hline
-ReferenceManagement & Klaus  & Hans    & Blackbox \\
-UserManagement      & Anna   & Klaus   & Blackbox \\
-\dots               & \dots  & \dots   & \dots \\
-ReferenceTable      & Heinz  & Bert    & Whitebox \\
+AsyncBookTask & Patrick  & Tim    & Blackbox \\
+BookAdapter      & Patrick   & Daniel   & Blackbox \\
+MainActivity     & Patrick  & Sebastian   & Blackbox \\
+Network      & Patrick  & Tobias    & Blackbox \\
+ShowBookActivity      & Patrick  & Tim    & Blackbox \\
+Admin      & Tim  & Daniel    & Blackbox \\
+Medium      & Tim  & Patrick    & Blackbox \\
+Reader      & Tim  & Tobias    & Blackbox \\
+Librarian      & Tim  & Daniel    & Blackbox \\
+Config      & Tim  & Sebastian    & Blackbox \\
+AdministrationHandler      & Daniel  & Patrick    & Blackbox \\
+BorrowHandler      & Daniel  & Tim    & Blackbox \\
+MediumHandler      & Daniel  & Tobias    & Blackbox \\
+LibrarianHandler      & Daniel  & Tim    & Blackbox \\
+ReaderHandler      & Daniel  & Tim    & Blackbox \\
+Data      & Daniel  & Tobias    & Blackbox \\
+AddLibrarianForm      & Tobias  & Patrick    & Blackbox \\
+AddMediumForm      & Tobias  & Tim    & Blackbox \\
+AddReaderForm      & Tobias  & Sebastian    & Blackbox \\
+Administration      & Tobias  & Patrick    & Blackbox \\
+AuthBackingBean      & Tobias  & Tim    & Blackbox \\
+MediumListDataModel      & Sebastian  & Patrick    & Blackbox \\
+MediumTable      & Sebastian  & Daniel    & Blackbox \\
+ReaderTable      & Sebastian  & Tobias    & Blackbox \\
+ChangeMediumForm      & Sebastian  & Tim    & Blackbox \\
+ChangeReaderForm      & Sebastian  & Daniel    & Blackbox \\
+TableDataModel      & Sebastian  & Patrick    & Blackbox \\
+BibServices      & Sebastian  & Tim    & Blackbox \\
 \hline
 \end{tabular}
 \caption{Komponententests}
 \label{tab:komponententests}
 \end{table}
 
-{\em Achtet darauf, dass der Tester ein anderer ist als der
-  Implementierer. Jeder soll mindestens eine Klasse als Black-Box und
-  eine Klasse als White-Box testen!}
-
-{\em Hier könnten später noch die Kontrollflussdiagramme für die
-  Whiteboxtests eingefügt werden.}
-
 \clearpage
 \subsection{Integrationstest}\label{c10a}
 
-{\em Die Integrationstests werden hier genauer beschrieben: Welche
-  Klassen sind beteiligt? Wie ist der Zustand des Systems vor Beginn?
-  Welche Eingaben werden getätigt? Welche Ergebnisse/welches Verhalten
-  wird erwartet?}
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	Testfallbezeichner & IT-1-a Medium hinzufügen\\
+\hline
+	Testobjekte & Persistence, Bibcommon\\
+\hline
+	Eingabe & Mediendaten(Titel, Autor etc.)\\
+\hline
+	Ausgabe & Erfolgreich Medium hinzugefügt\\
+\hline
+	Umgebungserfordernisse & Glassfishserver läuft, Datenbank existiert\\
+\hline
+	Anforderungen & keine\\
+\hline
+	Abhängigkeiten & keine \\
+\hline
+\end{tabular}
 
-{\em Aufbau einer Testfallspezifikation:
-\begin{enumerate}
-\item eindeutiger Testfallbezeichner (entspricht Namenskonvention aus Abschnitt~\ref{sec:aufb-der-testb})
-\item Testobjekte: welche Komponenten werden getestet?
-\item Eingabespezifikationen (Eingaben des Testfalls)
-\item Ausgabespezifikationen (erwartete Ausgaben)
-\item Umgebungserfordernisse (notwendige Software- und
-  Hardwareplattform sowie Testtreiber und -rümpfe)
-\item besondere prozedurale Anforderungen (Einschränkungen wie
-  Zeitvorgaben, Belastung oder Eingreifen durch den Operator)
-\item Abhängigkeiten zwischen Testfällen
-\end{enumerate}
-}
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	Testfallbezeichner & IT-1-b Medium löschen\\
+\hline
+	Testobjekte & Persistence, Bibcommon\\
+\hline
+	Eingabe & MediumID\\
+\hline
+	Ausgabe & Erfolgreich Medium gelöscht\\
+\hline
+	Umgebungserfordernisse & Glassfishserver läuft, Datenbank existiert\\
+\hline
+	Anforderungen & Medium ist in Datenbank vorhanden\\
+\hline
+	Abhängigkeiten & IT-1-a \\
+\hline
+\end{tabular}
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	Testfallbezeichner & IT-2-a Leser hinzufügen\\
+\hline
+	Testobjekte & BusinessLogic, Persistence, Bibcommon\\
+\hline
+	Eingabe & Leserdaten(Name, Nachname etc.)\\
+\hline
+	Ausgabe & Erfolgreich Leser hinzugefügt\\
+\hline
+	Umgebungserfordernisse & Glassfishserver läuft, Datenbank existiert\\
+\hline
+	Anforderungen & keine\\
+\hline
+	Abhängigkeiten & keine \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	Testfallbezeichner & IT-2-b Leser löschen\\
+\hline
+	Testobjekte & BusinessLogic, Persistence, Bibcommon\\
+\hline
+	Eingabe & LeserID\\
+\hline
+	Ausgabe & Erfolgreich Leser gelöscht\\
+\hline
+	Umgebungserfordernisse & Glassfishserver läuft, Datenbank existiert\\
+\hline
+	Anforderungen & Leser ist in Datenbank vorhanden\\
+\hline
+	Abhängigkeiten & IT-2-a \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	Testfallbezeichner & IT-3-a Alle Medien zurückgeben\\
+\hline
+	Testobjekte & Communication, BusinesLogic, Persistence, Bibcommon\\
+\hline
+	Eingabe & Mediendatenbank\\
+\hline
+	Ausgabe & Liste zurückgeben\\
+\hline
+	Umgebungserfordernisse & Glassfishserver läuft, Datenbank existiert\\
+\hline
+	Anforderungen & Datenbank enthält verschiedene Medien\\
+\hline
+	Abhängigkeiten & keine \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	Testfallbezeichner & IT-3-b Alle Bücher zurückgeben\\
+\hline
+	Testobjekte & Communication, BusinesLogic, Persistence, Bibcommon\\
+\hline
+	Eingabe & Medienart, nach welcher sortiert werden soll\\
+\hline
+	Ausgabe & Liste zurückgeben\\
+\hline
+	Umgebungserfordernisse & Glassfishserver läuft, Datenbank existiert\\
+\hline
+	Anforderungen & Datenbank enthält verschiedene Medien\\
+\hline
+	Abhängigkeiten & keine \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	Testfallbezeichner & IT-4-a Alle Medien als Liste anzeigen\\
+\hline
+	Testobjekte & GUI, Model\\
+\hline
+	Eingabe &  Liste anzeigen\\
+\hline
+	Ausgabe & Medienliste anzeigen\\
+\hline
+	Umgebungserfordernisse & Website ist aufgerufen, Glassfishserver läuft, Datenbank existiert\\
+\hline
+	Anforderungen & Datenbank enthält verschiedene Medien\\
+\hline
+	Abhängigkeiten & IT-1 bis IT-3 \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	Testfallbezeichner & IT-4-b Alle Medien als Liste anzeigen\\
+\hline
+	Testobjekte & AndroidApp, Model\\
+\hline
+	Eingabe &  Liste anzeigen\\
+\hline
+	Ausgabe & Medienliste anzeigen\\
+\hline
+	Umgebungserfordernisse & App ist gestartet, Glassfishserver läuft, Datenbank existiert\\
+\hline
+	Anforderungen & Datenbank enthält verschiedene Medien\\
+\hline
+	Abhängigkeiten & IT-1 bis IT-3 \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	Testfallbezeichner & IT-5 Angezeigte Medienliste nach Titel sortieren\\
+\hline
+	Testobjekte & UserInterface, Model\\
+\hline
+	Eingabe &  Titel sortieren\\
+\hline
+	Ausgabe & sortierte Liste\\
+\hline
+	Umgebungserfordernisse & Website ist aufgerufen/App ist gestartet, Glassfishserver läuft, Datenbank existiert\\
+\hline
+	Anforderungen & Datenbank enthält verschiedene Medien\\
+\hline
+	Abhängigkeiten & IT-1 bis IT-3 \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	Testfallbezeichner & IT-6 Dvd suchen\\
+\hline
+	Testobjekte & Communication, UserInterface, Model\\
+\hline
+	Eingabe &  Suchbegriff\\
+\hline
+	Ausgabe & gefundene Dvd\\
+\hline
+	Umgebungserfordernisse & Website ist aufgerufen/App ist gestartet, Glassfishserver läuft, Datenbank existiert\\
+\hline
+	Anforderungen & Datenbank enthält verschiedene Medien\\
+\hline
+	Abhängigkeiten & IT-1 bis IT-3 \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	Testfallbezeichner & IT-7 Ausleihhistorie eines Benutzers anzeigen\\
+\hline
+	Testobjekte & Communication, UserInterface, Model, BusinessLogic, Persistence, BibCommon\\
+\hline
+	Eingabe &  Eine BenutzerID\\
+\hline
+	Ausgabe & Liste der ausgeliehenen Medien\\
+\hline
+	Umgebungserfordernisse & Website ist aufgerufen, Glassfishserver läuft, Datenbank existiert, \\
+\hline
+	Anforderungen & Benutzer ist Bibliothekar, gesuchter Benutzer befindet sich in Datenbank, Datenbank enthält verschiedene Medien\\
+\hline
+	Abhängigkeiten & IT-1 bis IT-6 \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{12cm}|}
+\hline
+	Testfallbezeichner & IT-8 Einloggen\\
+\hline
+	Testobjekte & Communication, UserInterface, Model, BusinessLogic, Persistence, BibCommon\\
+\hline
+	Eingabe &  Logindaten\\
+\hline
+	Ausgabe & erfolgreich eingeloggt\\
+\hline
+	Umgebungserfordernisse & Website ist aufgerufen/App ist gestartet, Glassfishserver läuft, Datenbank existiert\\
+\hline
+	Anforderungen & Nutzer existiert, Datenbank enthält verschiedene Medien\\
+\hline
+	Abhängigkeiten & IT-1 bis IT-6 \\
+\hline
+\end{tabular}
+
 
 \subsection{Funktionstest}\label{c10b}
-\nurlangversion
 
-\variante{}{\emph{Auch wenn dieser Teil in SWP-1 nicht gefordert ist,
-    so müsst Ihr Euch dennoch über den Funktionstest Gedanken machen
-    und ihn planen. In SWP-1 ist der Plan für den Funktionstest
-    letztlich nichts anderes als das Drehbuch Eurer
-    Abschlusspräsentation, die den Akzeptanztest darstellt.}}
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-1\\
+\hline
+	Anwendungsfall & Login\\
+\hline
+	Eingabe & Anmeldedaten(Nutzername, Passwort)\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiche Anmeldung\\ &
+	Bei Fehlerfall: Rückmeldung Anmeldung nicht erfolgreich\\
+\hline
+	Umsetzung & Manuelle Eingabe der Nutzerdaten, Benutzer ist registriert\\
+\hline
+\end{tabular}
 
-{\em Die Funktionstests basieren auf den Anwendungsfällen. Diese
-  müssen hier nun konkretisiert werden, um einen Testfall zu
-  erhalten. Es müssen also konkrete Werte für Ein- und Ausgabe
-  festgelegt werden. Auch das Verhalten im Fehlerfall sollte getestet
-  werden.}
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-2\\
+\hline
+	Anwendungsfall & Logout\\
+\hline
+	Eingabe & Logout-Button wird gedrückt\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiche Abmeldung\\ &
+	Bei Fehlerfall: Rückmeldung Abmeldung nicht erfolgreich\\
+\hline
+	Umsetzung & Manuelles ausloggen, Benutzer ist registriert\\
+\hline
+\end{tabular}
 
-{\em Die Anwendungsfälle müssen nicht alle wiederholt werden. Sie
-  werden schließlich in der Anforderungsspezifikation
-  spezifiziert. Hier genügt eine tabellarische Auflistung aller zu
-  testenden Anwendungsfälle, deren konkrete Ein- und Ausgaben sowie
-  die Umsetzung (automatisiert oder manuell und falls manuell, durch
-  welche Art von Benutzer?). Insbesondere müsst Ihr an dieser Stelle
-  klären, welche Varianten von Anwendungsfällen getestet werden. Falls
-  Varianten oder gar ganze Anwendungsfälle nicht getestet werden
-  sollen, dann wird hier eine plausible Begründung erwartet.}
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-3\\
+\hline
+	Anwendungsfall & Leserinformationen anzeigen\\
+\hline
+	Eingabe & Detailbutton in der Leserliste wird gedrückt\\ & Alternativ: Lesersuche und dann auf Leser klicken\\
+\hline
+	Ausgabe & Leserinformation\\ &
+	Bei Fehlerfall: Fehlerrückmeldung\\
+\hline
+	Umsetzung & Manuell auf einen Leser klicken; Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
 
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-4\\
+\hline
+	Anwendungsfall & Vormerkung bearbeiten\\
+\hline
+	Eingabe & Benutzer sieht seine Vormerkungen; Bearbeiten bei einer Vormerkung klicken\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Ändern\\ &
+	Bei Fehlerfall: Rückmeldung Ändern war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist registrierter Leser\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-5\\
+\hline
+	Anwendungsfall & Alle Medien anzeigen\\
+\hline
+	Eingabe & Medienliste aufrufen\\
+\hline
+	Ausgabe & Medienliste wird angezeigt\\ &
+	Bei Fehlerfall: Medienliste wird nicht angezeigt\\
+\hline
+	Umsetzung & Manuell, beliebiger Benutzer\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-6\\
+\hline
+	Anwendungsfall & Medien hinzufügen\\
+\hline
+	Eingabe & Mediendaten (Manuell oder durch Scanner)\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Hinzufügen\\ &
+	Bei Fehlerfall: Rückmeldung Hinzufügen war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-7\\
+\hline
+	Anwendungsfall & Dasselbe Medium wird hinzugefügt\\
+\hline
+	Eingabe & Mediendaten eines schon vorhandenen Mediums\\
+\hline
+	Ausgabe & Fehlermeldung; Medium schon vorhanden\\ &
+	Bei Fehlerfall: Medium wurde erfolgreich hinzugefügt\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-8\\
+\hline
+	Anwendungsfall & Das gleiche Medium wird hinzugefügt (anderes Exemplar)\\
+\hline
+	Eingabe & Mediendaten eines schon vorhandenen Mediums, mit individueller ID\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Hinzufügen des Exemplars\\ &
+	Bei Fehlerfall: Rückmeldung Hinzufügen war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-9\\
+\hline
+	Anwendungsfall & Medium bearbeiten\\
+\hline
+	Eingabe & neue Mediendaten\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Ändern\\ &
+	Bei Fehlerfall: Rückmeldung Ändern war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-10\\
+\hline
+	Anwendungsfall & Medium löschen\\
+\hline
+	Eingabe & MediumID\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Löschen\\ &
+	Bei Fehlerfall: Rückmeldung Ändern war nicht erfolgreich\\
+\hline
+	Umsetzung & automatisch\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-11\\
+\hline
+	Anwendungsfall & CSV-Import\\
+\hline
+	Eingabe & CSV-Datei\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Importieren\\ &
+	Bei Fehlerfall: Rückmeldung Importieren war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-12\\
+\hline
+	Anwendungsfall & CSV-Export\\
+\hline
+	Eingabe & Datenbank\\
+\hline
+	Ausgabe & CSV-Datei der Eingabe\\ &
+	Bei Fehlerfall: Rückmeldung Exportieren war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-13\\
+\hline
+	Anwendungsfall & Medium suchen\\
+\hline
+	Eingabe & Suchbegriff\\
+\hline
+	Ausgabe & Liste von gefundenen Medien\\ &
+	Bei Fehlerfall: Rückmeldung Suche war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, beliebiger Nutzer\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-14\\
+\hline
+	Anwendungsfall & Medium anzeigen\\
+\hline
+	Eingabe & Auf ein Medium in einer Liste klicken\\
+\hline
+	Ausgabe & Mediendetails werden angezeigt\\ &
+	Bei Fehlerfall: Details werden nicht angezeigt\\
+\hline
+	Umsetzung & Manuell, beliebiger Nutzer\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-15\\
+\hline
+	Anwendungsfall & Medium ausleihen\\
+\hline
+	Eingabe & Medium und Leser\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Ausleihen\\ &
+	Bei Fehlerfall: Rückmeldung Ausleihen war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-16\\
+\hline
+	Anwendungsfall & Ausleihzeitraum anzeigen\\
+\hline
+	Eingabe & Leser, der Medien ausgeliehen hat\\
+\hline
+	Ausgabe & Ausleihzeitraum\\ &
+	Bei Fehlerfall: Ausleihzeitraum wird nicht angezeigt\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-17\\
+\hline
+	Anwendungsfall & Medium zurückgeben\\
+\hline
+	Eingabe & Medium und Leser\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches zurückgeben\\ &
+	Bei Fehlerfall: Rückmeldung Zurückgeben war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-18\\
+\hline
+	Anwendungsfall & Medium vormerken\\
+\hline
+	Eingabe & Medium\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Vormerken\\ &
+	Bei Fehlerfall: Rückmeldung Vormerken war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist registrierter Leser\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-19\\
+\hline
+	Anwendungsfall & Leserliste anzeigen\\
+\hline
+	Eingabe & Leserliste aufrufen\\
+\hline
+	Ausgabe & Leserliste\\ &
+	Bei Fehlerfall: Leserliste wird nicht angezeigt\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-20\\
+\hline
+	Anwendungsfall & Leser hinzufügen\\
+\hline
+	Eingabe & Leserdaten\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Hinzufügen\\ &
+	Bei Fehlerfall: Rückmeldung Hinzufügen war nicht erfolgreich\\
+\hline
+	Umsetzung & automatisch\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-21\\
+\hline
+	Anwendungsfall & Leser löschen\\
+\hline
+	Eingabe & LeserID\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Löschen\\ &
+	Bei Fehlerfall: Rückmeldung Löschen war nicht erfolgreich\\
+\hline
+	Umsetzung & automatisch\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-22\\
+\hline
+	Anwendungsfall & Leser bearbeiten\\
+\hline
+	Eingabe & neue Leserdaten\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Bearbeiten\\ &
+	Bei Fehlerfall: Rückmeldung Bearbeiten war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-23\\
+\hline
+	Anwendungsfall & Leser sperren\\
+\hline
+	Eingabe & LeserID\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Sperren\\ &
+	Bei Fehlerfall: Rückmeldung Sperren war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-24\\
+\hline
+	Anwendungsfall & Leser suchen\\
+\hline
+	Eingabe & Suchbegriff\\
+\hline
+	Ausgabe & Suchergebnis\\ &
+	Bei Fehlerfall: Rückmeldung Suchen war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-25\\
+\hline
+	Anwendungsfall & Bibliothekare anzeigen\\
+\hline
+	Eingabe & BibliothekarID\\
+\hline
+	Ausgabe & Bibliothekarliste\\ &
+	Bei Fehlerfall: leere Liste\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Administrator\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-26\\
+\hline
+	Anwendungsfall & Bibliothekar löschen\\
+\hline
+	Eingabe & BibliothekarID\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Löschen\\ &
+	Bei Fehlerfall: Rückmeldung Löschen war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Administrator\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-27\\
+\hline
+	Anwendungsfall & Bibliothekar bearbeiten\\
+\hline
+	Eingabe & BibliothekarID\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Bearbeiten\\ &
+	Bei Fehlerfall: Rückmeldung Bearbeiten war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Administrator\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-28\\
+\hline
+	Anwendungsfall & Bibliothekar hinzufügen\\
+\hline
+	Eingabe & Bibliothekardaten\\
+\hline
+	Ausgabe & Rückmeldung über erfolgreiches Hinzufügen\\ &
+	Bei Fehlerfall: Rückmeldung Hinzufügen war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Administrator\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-29\\
+\hline
+	Anwendungsfall & Statistiken anzeigen: am meisten ausgeliehene Bücher\\
+\hline
+	Eingabe & Statistiken aufrufen\\
+\hline
+	Ausgabe & Statistik wird angezeigt\\ &
+	Bei Fehlerfall: Rückmeldung Anzeigen war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-30\\
+\hline
+	Anwendungsfall & Statistiken anzeigen: am wenigsten ausgeliehene Bücher\\
+\hline
+	Eingabe & Statistiken aufrufen\\
+\hline
+	Ausgabe & Statistik wird angezeigt\\ &
+	Bei Fehlerfall: Rückmeldung Anzeigen war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-31\\
+\hline
+	Anwendungsfall & Mahnungsliste anzeigen\\
+\hline
+	Eingabe & Mahnungsliste aufrufen\\
+\hline
+	Ausgabe & Mahnungsliste wird angezeigt\\ &
+	Bei Fehlerfall: Rückmeldung Anzeige war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-32\\
+\hline
+	Anwendungsfall & Mahnungsliste drucken\\
+\hline
+	Eingabe & Druckbutton drücken\\
+\hline
+	Ausgabe & Drucken erfolgreich\\ &
+	Bei Fehlerfall: Rückmeldung Drucken war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-33\\
+\hline
+	Anwendungsfall & Startseite bearbeiten\\
+\hline
+	Eingabe & Startseiteninhalt\\
+\hline
+	Ausgabe & Überarbeitete Startseite\\ &
+	Bei Fehlerfall: Rückmeldung Bearbeiten war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-34\\
+\hline
+	Anwendungsfall & Abgabedaten/ Mahngebühren bearbeiten\\
+\hline
+	Eingabe & neue Abgabedaten/ Mahngebühren\\
+\hline
+	Ausgabe & Bearbeiten erfolgreich\\ &
+	Bei Fehlerfall: Rückmeldung Bearbeiten war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-35\\
+\hline
+	Anwendungsfall & Vormerkung anzeigen\\
+\hline
+	Eingabe & BuchID\\
+\hline
+	Ausgabe & Liste der Vormerkungen\\ &
+	Bei Fehlerfall: Rückmeldung Anzeigen war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-36\\
+\hline
+	Anwendungsfall & Zeige letzten Ausleiher\\
+\hline
+	Eingabe & BuchID\\
+\hline
+	Ausgabe & letzter Ausleiher\\ &
+	Bei Fehlerfall: Rückmeldung Anzeigen war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist Bibliothekar\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-37\\
+\hline
+	Anwendungsfall & Liste ausgeliehener Bücher anzeigen\\
+\hline
+	Eingabe & Historie anzeigen klicken\\
+\hline
+	Ausgabe & Liste der ausgeliehenen Bücher\\ &
+	Bei Fehlerfall: Rückmeldung Anzeigen war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist registrierter Benutzer\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-38\\
+\hline
+	Anwendungsfall & automatisches Backup\\
+\hline
+	Eingabe & Backupintervall (Wann immer ein Backup durchgeführt werden soll)\\
+\hline
+	Ausgabe & Backup erfolgreich\\ &
+	Bei Fehlerfall: Rückmeldung Backup war nicht erfolgreich\\
+\hline
+	Umsetzung & automatisch\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-39\\
+\hline
+	Anwendungsfall & Verlängerungswunsch einreichen\\
+\hline
+	Eingabe & Button Verlängern klicken\\
+\hline
+	Ausgabe & Verlängerungswunsch wird abgeschickt\\ &
+	Bei Fehlerfall: Rückmeldung Wunsch einreichen war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist registrierter Leser\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-40\\
+\hline
+	Anwendungsfall & Ausleihhistorie einschalten\\
+\hline
+	Eingabe & Einschalten klicken\\
+\hline
+	Ausgabe & Ausleihhistorie aktiviert\\ &
+	Bei Fehlerfall: Rückmeldung Aktivierung war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist registrierter Leser\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & FT-41\\
+\hline
+	Anwendungsfall & Ausleihhistorie ausschalten\\
+\hline
+	Eingabe & Ausschalten klicken\\
+\hline
+	Ausgabe & Ausleihhistorie deaktiviert\\ &
+	Bei Fehlerfall: Rückmeldung Deaktivierung war nicht erfolgreich\\
+\hline
+	Umsetzung & Manuell, Benutzer ist registrierter Leser\\
+\hline
+\end{tabular}
 
 \subsection{Leistungstest}\label{c10c}
-\nurlangversion
-
-{\em Die Leistungstests prüfen die Leistungsanforderungen, wie z.B.\ Reaktionszeiten, 
-das Verhalten unter extremen Bedingungen, bei großen Datenmengen etc\ldots}
 
 \subsubsection{Härtetest}
-\nurlangversion
-
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & LT-1\\
+\hline
+	Beschreibung & 100 Nutzer lassen sich gleichzeitig die Bücherliste anzeigen\\
+\hline
+	Ziel: & Robustheit der Datenbank mit vielen Anfragen umzugehen wird getestet\\
+\hline
+	Bei Erfolg: & Datenbank kann Anfragen bearbeiten; es gibt keine langen Wartezeiten\\
+\hline
+	Fehler: & TimeOut, Absturz\\
+\hline
+\end{tabular}
 
 \subsubsection{Volumentest}
-\nurlangversion
-
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & LT-2\\
+\hline
+	Beschreibung & Eine sehr große CSV-Datei wird importiert\\
+\hline
+	Ziel: & Robustheit der Datenbank mit großen Datenmengen umzugehen wird getestet\\
+\hline
+	Bei Erfolg: & Datenbank kann mit der Verarbeitung umgehen; es gibt Fehler\\
+\hline
+	Fehler: & TimeOut, Absturz\\
+\hline
+\end{tabular}
 
 \subsubsection{Sicherheitstest}
-\nurlangversion
+
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & LT-3\\
+\hline
+	Beschreibung & Ein Nutzer gibt ein falsches Passwort ein\\
+\hline
+	Ziel: & Korrekte Authentifizierung wird getestet\\
+\hline
+	Bei Erfolg: & Nutzer kann sich nicht einloggen; System gibt Fehlermeldung\\
+\hline
+	Fehler: & Benutzer kann sich anmelden\\
+\hline
+\end{tabular}
 
 \subsubsection{Erholungstest}
-\nurlangversion
 
-{\em Hier wird geprüft, ob sich das System von Fehlerzuständen auch wieder erholt.
- Es werden also gezielt Fehler provoziert, um die Korrektheit der Systemreaktion herauszufinden.}
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & LT-4\\
+\hline
+	Beschreibung & Ein Nutzer gibt mehrmals ein falsches Passwort ein\\
+\hline
+	Ziel: & Erholt sich das System; Kann man sich danach problemlos mit dem richtigen Passwort einloggen\\
+\hline
+	Bei Erfolg: & Bei richtiger Eingabe der Logindaten, ist man eingeloggt\\
+\hline
+	Fehler: & Man kann sich nicht mehr einloggen, Absturz\\
+\hline
+\end{tabular}
 
+\begin{tabular}{|l|p{13.75cm}|}
+\hline
+	Bezeichner: & LT-5\\
+\hline
+	Beschreibung & Der Server geht offline und startet die Verbindung neu\\
+\hline
+	Ziel: & Ist das System nach neuer Verbindung wieder funktionstüchtig\\
+\hline
+	Bei Erfolg: & System produziert keine Fehler\\
+\hline
+	Fehler: & Funktionen werden nicht mehr unterstützt, Datenverlust, TimeOut, Absturz\\
+\hline
+\end{tabular}
 
-\section{Testzeitplan}
+\section{Testzeitplan (Daniel \& Sebastian)}
 \label{sec:testzeitplan}
-\nurlangversion
+
+
+Komponententests: Woche ab 20.1.2014\\
+Integrationstests: Woche ab 20.1.2014\\
+Funktionstests: Woche ab 20.1.2014\\
+
+Komponententests v2: 5.2.2014 bis 10.2.2014\\
+Leistungstests: 15.2.2014 bis 23.2.2014\\
+Akzeptanztests: Woche vom 10.02.2014 bis 15.02.2014
+
 
 \end{document}
