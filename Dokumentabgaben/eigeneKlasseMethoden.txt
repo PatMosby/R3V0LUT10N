@@ -1,0 +1,27 @@
+LibrarianHandler neue Methoden:
+
+addLibrarian()
+deleteLibrarian()
+editLibrarian()
+
+bibcommon:
+Reader, Admin, Librarian dementprechend auch die Handler
+
+ReaderHandler, Data, Persistence:
+showInactiveReader()
+
+MediumHandler, ReaderHandler:
+reserveMedium(MediumID, UserID)
+showLastUser(MediumID)
+
+BorrowHandler:
+calculateDate(Date)
+borrowMedium(Reader, MediumList)
+calculateFees()
+returnMedium(Reader, MediumList)
+checkOverdue()
+
+ReaderForm:
+setBorrowHistory()
+getBorrowHistory()
+
