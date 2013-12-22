@@ -13,4 +13,9 @@
 \contentsline {figure}{\numberline {13}{\ignorespaces Paket \texttt {Renderer}}}{36}{figure.13}
 \contentsline {figure}{\numberline {14}{\ignorespaces Paket \texttt {Utils}}}{36}{figure.14}
 \contentsline {figure}{\numberline {15}{\ignorespaces Paket \texttt {BibClient}}}{37}{figure.15}
+<<<<<<< HEAD
 \contentsline {figure}{\numberline {16}{\ignorespaces Ausf\IeC {\"u}hrungssicht}}{38}{figure.16}
+=======
+\contentsline {figure}{\numberline {16}{\ignorespaces Paket \texttt {BibCommon}}}{38}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Ausf\IeC {\"u}hrungssicht}}{39}{figure.17}
+>>>>>>> 70789e9a82ae89fc41921be5f0deb3f86656a92a
