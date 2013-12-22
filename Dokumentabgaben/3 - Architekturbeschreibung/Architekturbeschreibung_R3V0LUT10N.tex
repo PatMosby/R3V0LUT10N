@@ -161,25 +161,62 @@ Version & Datum & Änderungen \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Einführung}
+\section{Einführung (Patrick)}
 
 \subsection{Zweck}
 
-  {\em Was ist der Zweck dieser Architekturbeschreibung? Wer sind
-  die LeserInnen?}
+Dieses Dokument ist die Architekturbeschreibung der von uns zu entwickelnden Software. Sie hat den Zweck der Kommunikation zwischen allen Interessenten. Dies ist unerlässlich für die Entwicklung des Systems, da die Entwickler der Architekturbeschreibung die Funktionalität einzelner Komponenten entnehmen. Sie dient der Aufteilung der Arbeit in unabhängig bearbeitbare Teile, besitzt Anfangs einen hohen Abstraktionsgrad, der von vielen verstanden werden kann und wird in den Schichten weiter unten in diesem Dokument präziser ausgearbeitet. Die präzise Ausarbeitung der Architektur ist wichtig um Möglichkeiten und Probleme der Entwicklung auszuloten und präventive Strategien und Maßnahmen zu entwickeln.
+
+Die Architektur des Systems ist daher das Fundament unserer Implementierung, welche direkt aus der Architektur resultiert.
+
 
 \subsection{Status}
 
-
-  
+Dies ist der erste Architekturentwurf vom 22.12.2013
 \subsection{Definitionen, Akronyme und Abkürzungen}
-
 
 \subsection{Referenzen}
 
 \subsection{Übersicht über das Dokument}
 
+Dieses Dokument basiert auf der Vorlage des IEEE P1471 2002 Standards. Der Inhalt dieses Dokuments ist wie folgt aufgegliedert:
 
+\begin{enumerate}
+\item{\textbf{Einführung}}
+
+Die Einführung beschreibt den Nutzen dieses Dokuments. Es erläutert Definitonen, Akronyme und Abkkürzungen und listet die benutzten Referenzen auf, sowie eine Übersicht über diese Dokument.
+
+\item{\textbf{Globale Analyse}}
+
+In diesem Abschnitt werden die relevanten Einflussfaktoren aufgezeigt und bewertet, sowie Strategien entwickelt um Probleme bzw. interferierende Einflussfaktoren zu behandeln und auf diese entsprechend zu reagieren.
+
+\item{\textbf{Konzeptionelle Sicht}}
+
+Die konzeptionelle Sicht zeigt grob die einzelnen Komponenten und derer Zusammenspiel des zu entwickelnden Systems auf. Dies geschieht auf einer hohen Abstraktionsebene und wird im weiteren Verlauf des Dokuments und den folgenden Sichten konkretisiert und verfeinert.
+
+\item{\textbf{Modulsicht}}
+
+Im Abschnitt Modulsicht dieser Architekturbeschreibung geht es um eine tiefere Ebene der Abstraktion. Hier werden die Komponenten in einzelne Pakete zerlegt und diese wiederum in Module, welche eine Einheit bilden die ein Entwickler in einer Arbeitswoche implementieren kann.
+
+\item{\textbf{Datensicht}}
+
+Die Datensicht beschreibt das zugrundeliegende Datenmodel und das Zusammenspiel der einzelnen Daten der Datenbank. Dies wird in Form eines erklärenden Textes und Uml-Diagrammen realisiert.
+
+\item{\textbf{Ausführungssicht}}
+
+Die Ausführungssicht zeigt im Prinzip das System in ''Aktion'', d.h. es zeigt auf welche Prozesse laufen, welche Module hierfür gebraucht werden und wie dieses zusammenspielen.
+
+\item{\textbf{Zusammenhänge zwischen Anwendungsfällen und Architektur}}
+
+Hier werden die Zusammenhänge zwischen Architektur und den Anwendungsfällen der Anforderungsspezifikation beschrieben.
+
+\item{\textbf{Evolutoin}}
+
+In diesem Teil der Architekturbeschreibung wird beschrieben, welche Änderungen vorgenommen werden müssen wenn sich Anforderungen und/oder Rahmenbedingungen ändern. Ein besonderes Augenmerk liegt hierbei auf die in der Anforderungsspezifikation unter Ausblick  genannten Punkte.
+
+\end{enumerate}
+
+\newpage
 
 \section{Globale Analyse}
 \label{sec:globale_analyse}
@@ -719,8 +756,11 @@ Die Kompnente User Interface muss in zwei unterschiedliche Komponenten zerlegt w
 \begin{itemize}
 \item{GUI}
 
-Die GUI richtet sich in erster Linie an Bibliothekare.
+Die GUI richtet sich in erster Linie an Bibliothekare und nimmt alle möglichen Aktionen der Bibliothekare entgegen und schickt diese weiter an die Komponente Model um weiter verarbeitet zu werden. Sie bildet ebenfalls eine eigenständige Komponente.
+
 \item{Android-App}
+
+Die Android-App richtet sich an die Leser und bietet ihnen grundlegende Funktionen die in der Anforderungsspezifikation erarbeitet wurden.
 \end{itemize}
 
 \end{itemize}
