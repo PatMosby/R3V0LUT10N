@@ -801,7 +801,7 @@ AsyncMediumTask ist ein eigener AsynTask für ListMediumActivity zum holen und a
 
 \item{MediumAdapter}
 
-Ist ein Array-Adapter und erstetzt den normalen Array-Adapter damit wir selber bestimmen können wie wir den Text aus einem Medium ziehen und ihn anzeigen lassen können.
+Ist ein Array-Adapter und ersetzt den normalen Array-Adapter damit wir selber bestimmen können wie wir den Text aus einem Medium ziehen und ihn anzeigen lassen können.
 
 \newpage
 \item{MainActivity}
@@ -864,15 +864,24 @@ Das Paket \texttt{bibcommon} stellt eine Sammlung von Quellcodedateien zur Verf�
 \item{GsonMessageHandler.java}
 \item{IllegalRating.java}
 \item{Reader.java}
-\item{}
+\item{Librarian}
+\item{Admin}
+\item{Medium}
+\item{Book}
+\item{Magazine}
+\item{Software}
+\item{Hörbücher}
+\item{Movie}
+\item{CD}
+\item{Misc}
 \end{itemize}
 
 Weiter Funktionalitäten auf die die Java-Klassen aus dem Paket \texttt{bibcommon} zugreifen sind aus \texttt{com.google.gson}, \texttt{java.io.Serializable}, \texttt{java.lang}, \texttt{jav.util}, \texttt{java.text}, \texttt{java.ws.rs}, was aus dem Diagramm \vref{pic:PackageCommon} ersichtlich wird.
 
 \begin{figure} [H] 
 \caption{Paket \texttt{bibcommon}} \centering
-	\includegraphics[scale=2]{Diagramme/Packagebibcommon.png} 
-	\label{pic:PackageCommon} 
+ \includegraphics[scale=2]{Diagramme/Packagebibcommon.png} 
+ \label{pic:PackageCommon} 
 \end{figure}
 
 
@@ -886,20 +895,23 @@ Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vre
 \item{Paket \texttt{eu.it\_r3v.businesslogic}}
 
 \begin{itemize}
-\item{AdministrationHandler.java}
 \item{BusinessHandler.java}
+\item{AdministrationHandler.java}
+\item{InputException}
 \item{BusinessObjectHandler.java}
-\item{}
-\item{}
+\item{ReaderHandler}
+\item{LibrarianHandler}
+\item{MediumHandler}
+\item{BorrowHandler}
 \end{itemize}
 
 \item{Paket \texttt{eu.it\_r3v.exceptions}}
 
 \begin{itemize}
 \item{BibJSFException.java}
-\item{}
+\item{BookAlreadyExistsException}
 \item{BusinessElementAlreadyExistsException.java}
-\item{}
+\item{NoSearchBookExistException}
 \item{DataSourceException.java}
 \end{itemize}
 
@@ -918,31 +930,34 @@ Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vre
 
 \item{Paket \texttt{eu.it\_r3v.presentation}}
 \begin{itemize}
-\item{}
-\item{}
 \item{Administration.java}
 \item{AuthBackingBean.java}
-\item{}
-\item{}
-\item{}
 \item{BusinessObjectForm.java}
-\item{}
-\item{}
-\item{}
-\item{}
+\item{MediumForm}
+\item{AddMediumForm}
+\item{ChangeMediumForm}
+\item{BookListDataModel}
+\item{ReaderForm}
+\item{AddReaderForm}
+\item{ChangeReaderForm}
+\item{LibrarianForm}
+\item{AddLibrarianFrom}
+\item{ChangeLibrarianForm}
 \item{TableDataModel.java}
 \item{TableForm}
+\item{MediumTable}
+\item{ReaderTable}
 \end{itemize}
 
 \item{Paket \texttt{eu.it\_r3v.renderer}}
 
 \begin{itemize}
-\item{}
-\item{}
 \item{Content.java}
 \item{IDCardPrinter.java}
 \item{IDContent.java}
 \item{Printer.java}
+\item{MediumTagPrinter}
+\item{MediumTagContent}
 \end{itemize}
 
 \item{Paket \texttt{eu.it\_r3v.services}}
@@ -969,8 +984,8 @@ Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vre
 
 \begin{figure} [H] 
 \caption{Paketübersicht \texttt{bibjsf}} \centering
-	\includegraphics[width=0.45\textwidth]{Diagramme/Packagebibjsfuebersicht.png} 
-	\label{pic:Packagebibjsf} 
+ \includegraphics[width=0.45\textwidth]{Diagramme/Packagebibjsfuebersicht.png} 
+ \label{pic:Packagebibjsf} 
 \end{figure}
 
 Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten \texttt{org.primfaces}, \texttt{com.google.api}, \texttt{eu.it\_r3v.bibjsf}, \texttt{eu.it\_r3v.bibcommon}, \texttt{org.apache}, \texttt{javax}, \texttt{java.text}, \texttt{java.sql}, \texttt{java.security}, \texttt{java.util}, \texttt{java.math}, \texttt{java.lang} und \texttt{java.io} zu entnehmen, welche von den einzelnen Java-Klassen benötigt werden.
@@ -978,8 +993,8 @@ Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten 
 
 \begin{figure} [H] 
 \caption{Paket bibjsf} \centering
-	\includegraphics[width=1\textwidth]{Diagramme/Packagebibjsf.png} 
-	\label{pic:PackagebibjsfUebersicht} 
+ \includegraphics[width=1\textwidth]{Diagramme/Packagebibjsf.png} 
+ \label{pic:PackagebibjsfUebersicht} 
 \end{figure}
 
 \subsection{Klassendiagramme (Tobias)}
@@ -1047,6 +1062,23 @@ Die ehemaligen Klassen \texttt{BookForm, AddBookForm} und \texttt{ChangeBookForm
  \includegraphics[width=1\textwidth]{Diagramme/Utils.png} 
  \label{Utils} 
 \end{figure}
+
+\textbf{Exception:}
+
+\begin{figure} [H] 
+\caption{Paket \texttt{Exception}} \centering
+ \includegraphics[width=1\textwidth]{Diagramme/exception.png} 
+ \label{Exception} 
+\end{figure}
+
+\textbf{ISBNSearch:}
+
+\begin{figure} [H] 
+\caption{Paket \texttt{ISBNSearch}} \centering
+ \includegraphics[width=0.7\textwidth]{Diagramme/ISBNSearch.png} 
+ \label{ISBNSearch} 
+\end{figure}
+
 
 \subsubsection{Klassendiagramm \texttt{BibClient}}
 
