@@ -829,11 +829,11 @@ Wir haben ein Hauptpaket \texttt{eu.it\_r3v} (siehe Abb. \vref{pic:PackageUebers
 Das Paket \texttt{bibclient}(siehe Abb. \vref{pic:PackageClient}) bündelt die Quellcodedateien die für die Android-App benutzt werden. Es besteht aus mehreren Klassen:
 \begin{itemize}
 
-\item{AsyncMediumTask}
+\item{AsyncMediumTask.java}
 
 AsyncMediumTask ist ein eigener AsynTask für ListMediumActivity zum holen und anzeigen der Medien.
 
-\item{MediumAdapter}
+\item{MediumAdapter.java}
 
 Ist ein Array-Adapter und ersetzt den normalen Array-Adapter damit wir selber bestimmen können wie wir den Text aus einem Medium ziehen und ihn anzeigen lassen können.
 
@@ -842,35 +842,35 @@ Ist ein Array-Adapter und ersetzt den normalen Array-Adapter damit wir selber be
 
 Ist der Startscreen der angezeigt wird wenn die App auf dem Smartphone gestartet wurde und geladen ist. Von hier aus erreicht man alle anderen Funktionen der App.
 
-\item{ListMediumActivity}
+\item{ListMediumActivity.java}
 
 Aktivität um die Medien in einer Liste anzeigen zu lassen.
 
-\item{Network}
+\item{Network.java}
 
 Die Network-Klasse sorgt für die Kommunikation der App mit dem zugehörigen REST-Service.
 
-\item{ShowMediumActivity}
+\item{ShowMediumActivity.java}
 
 Die ShowMediumActivity-Klasse wird benutzt um die Detailansicht eines Mediums aufzurufen
 
-\item{ShowUserInfoActivity}
+\item{ShowUserInfoActivity.java}
 
 Mit der Klasse ShowUserInfoActivity kann sich der Nutzer seine persönlichen Daten anzeigen lassen.
 
-\item{LoginActivity}
+\item{LoginActivity.java}
 
 Die LoginActivity-Klasse dient zum anmelden im System um zusätzliche Funktionen zu aktivieren, welche nur registrierten Nutzern vorbehalten sind.
 
-\item{ShowImpressumActivity}
+\item{ShowImpressumActivity.java}
 
 Die Klasse ShowImpressumActivity zeigt alle Information rund um die Bibliothek der Oberschule Rockwinkel an. Diese beinhalten Kontaktdaten sowie Öffnungszeiten.
 
-\item{ShowLeasedMediumActivity}
+\item{ShowLeasedMediumActivity.java}
 
 Die ShowLeasedMediumActivity-Klasse zeigt alle Medien an, welche sich zur Zeit in der persönlichen Ausleige befinden.
 
-\item{EarmarkActivity}
+\item{EarmarkActivity.java}
 
 Die Klasse EarmarkActivity dient dem Vormerken von Medien zur Ausleihe.
 
@@ -898,16 +898,16 @@ Das Paket \texttt{bibcommon} stellt eine Sammlung von Quellcodedateien zur Verf�
 \item{GsonMessageHandler.java}
 \item{IllegalRating.java}
 \item{Reader.java}
-\item{Librarian}
-\item{Admin}
-\item{Medium}
-\item{Book}
-\item{Magazine}
-\item{Software}
-\item{Hörbücher}
-\item{Movie}
-\item{CD}
-\item{Misc}
+\item{Librarian.java}
+\item{Admin.java}
+\item{Medium.java}
+\item{Book.java}
+\item{Magazine.java}
+\item{Software.java}
+\item{Hörbücher.java}
+\item{Movie.java}
+\item{CD.java}
+\item{Misc.java}
 \end{itemize}
 
 Weiter Funktionalitäten auf die die Java-Klassen aus dem Paket \texttt{bibcommon} zugreifen sind \texttt{com.google.gson} -- eine Java-Bibliothek zum konvertieren von Java-Objekten in ihre JSON Repräsentation, \texttt{java.io.Serializable} -- um Klassen serialisierbar zu machen, \texttt{java.lang}, \texttt{java.util}, \texttt{java.text}, \texttt{java.ws.rs} -- High-Level-Interfaces die genutzt werden um RESTful Service-Ressourcen, was aus dem Diagramm \vref{pic:PackageCommon} ersichtlich wird.
@@ -931,21 +931,21 @@ Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vre
 \begin{itemize}
 \item{BusinessHandler.java}
 \item{AdministrationHandler.java}
-\item{InputException}
+\item{InputException.java}
 \item{BusinessObjectHandler.java}
-\item{ReaderHandler}
-\item{LibrarianHandler}
-\item{MediumHandler}
-\item{BorrowHandler}
+\item{ReaderHandler.java}
+\item{LibrarianHandle.javar}
+\item{MediumHandler.java}
+\item{BorrowHandler.java}
 \end{itemize}
 
 \item{Paket \texttt{eu.it\_r3v.exceptions}}
 
 \begin{itemize}
 \item{BibJSFException.java}
-\item{BookAlreadyExistsException}
+\item{BookAlreadyExistsException.java}
 \item{BusinessElementAlreadyExistsException.java}
-\item{NoSearchBookExistException}
+\item{NoSearchBookExistException.java}
 \item{DataSourceException.java}
 \end{itemize}
 
@@ -967,20 +967,20 @@ Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vre
 \item{Administration.java}
 \item{AuthBackingBean.java}
 \item{BusinessObjectForm.java}
-\item{MediumForm}
-\item{AddMediumForm}
-\item{ChangeMediumForm}
-\item{BookListDataModel}
-\item{ReaderForm}
-\item{AddReaderForm}
-\item{ChangeReaderForm}
-\item{LibrarianForm}
-\item{AddLibrarianFrom}
-\item{ChangeLibrarianForm}
-\item{TableDataModel.java}
-\item{TableForm}
-\item{MediumTable}
-\item{ReaderTable}
+\item{MediumForm.java}
+\item{AddMediumForm.java}
+\item{ChangeMediumForm.java}
+\item{BookListDataModel.java}
+\item{ReaderForm.java}
+\item{AddReaderForm.java}
+\item{ChangeReaderForm.java}
+\item{LibrarianForm.java}
+\item{AddLibrarianFrom.java}
+\item{ChangeLibrarianForm.java}
+\item{TableDataModel.java.java}
+\item{TableForm.java}
+\item{MediumTable.java}
+\item{ReaderTable.java}
 \end{itemize}
 
 \item{Paket \texttt{eu.it\_r3v.renderer}}
@@ -990,8 +990,8 @@ Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vre
 \item{IDCardPrinter.java}
 \item{IDContent.java}
 \item{Printer.java}
-\item{MediumTagPrinter}
-\item{MediumTagContent}
+\item{MediumTagPrinter.java}
+\item{MediumTagContent.java}
 \end{itemize}
 
 \item{Paket \texttt{eu.it\_r3v.services}}
@@ -1037,14 +1037,11 @@ Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten 
 
 Im Folgenden werden die einzelnen Pakete in Klassendiagramme umgestellt, da 
 ein einzelnes Klassendiagramm aller benutzten Klassen unübersichtlich wäre.
-Zusätzlich sei angemerkt, dass die Klassen lediglich mit Methoden oder Attributen
-<<<<<<< HEAD
+Zusätzlich sei angemerkt, dass die Klassen lediglich mit Methoden oder Attributen.
 angezeigt werden, sofern sie durch die Projektarbeit neu erstellt oder verändert wurden.
-
-=======
-angezeigt werden, sofern sie durch die Projektarbeit neu erstellt oder verändert wurden. Außerdem sei noch angemerkt, dass sich zwar Änderungen z.B. von Variablen durch die Erweiterung der Mindestanforderungen ergeben. Diese kleinen Änderungen werden aber im Folgenden nicht berücksichtigt.
+Außerdem sei noch angemerkt, dass sich zwar Änderungen z.B. von Variablen durch die Erweiterung der Mindestanforderungen ergeben. Diese kleinen Änderungen werden aber im Folgenden nicht berücksichtigt.
 \newpage
->>>>>>> f7fb2a8ebd914bc8fbe40ff2628413d86c92e31b
+
 \subsubsection{Klassendiagramme \texttt{bibjsf}}
 
 \textbf{BusinessLogic:}
@@ -1169,7 +1166,7 @@ Das komplette System läuft mit zwei Prozessen: einmal mit der Android App und d
 \end{figure}
 \label{sec:ausfuehrung}
 
-\section{Zusammenhänge zwischen Anwendungsfällen und Architektur}
+\section{Zusammenhänge zwischen Anwendungsfällen und Architektur (Tim)}
 \label{sec:anwendungsfaelle}
 
 
@@ -1210,12 +1207,3 @@ Dazu müssten entsprechende Referenzierungen von neuen GUI-Style-Änderungen mit
 
 Gemäß den Mindestanforderungen wird das System so implementiert sein, dass die Möglichkeit besteht, mehrere Sprachen für das Bibliothekssystem zu unterstützen. Insofern wäre es denkbar, dass neben Deutsch eine weitere Sprache eingebaut werden könnte. Englisch würde sich natürlich anbieten.
 \end{document}
-
-
-%%% Local Variables: 
-%%% mode: latex
-%%% mode: reftex
-%%% mode: flyspell
-%%% ispell-local-dictionary: "de_DE"
-%%% TeX-master: t
-%%% End: 
