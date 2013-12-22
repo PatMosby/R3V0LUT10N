@@ -693,7 +693,7 @@ Wir haben mithilfe von UML-Diagrammen die konzeptionelle Sicht realisiert. Im Fo
 	\label{pic:konzeptionellesichtklein} 
 \end{figure}
 
-Unsere Architektur besteht aus zwei grundlegenden Komponenten, der Serverkomponente und der Clientkomponente. Diese Komponenten beinhalten wiederum weitere Komponenten. Auf der einen Seite haben wir unsere Serverkomponente, die alle benötigten Daten der Medien, der Nutzer und der Ausleihvorgänge der Bibliothek speichert.
+Unsere Architektur besteht aus zwei grundlegenden Komponenten, der Serverkomponente und der Clientkomponente (siehe Abb. \vref{pic:konzeptionellesichtklein} und Abb. \vref{pic:konzeptionellesicht}). Diese Komponenten beinhalten wiederum weitere Komponenten. Auf der einen Seite haben wir unsere Serverkomponente, die alle benötigten Daten der Medien, der Nutzer und der Ausleihvorgänge der Bibliothek speichert.
 
 Auf der anderen Seite, der Clientkomponente, muss zwischen zwei Komponenten unterschieden werden. Einmal der Komponente GUI-Client, welche sich in erster Linie an die Bibliothekare richtet und dann noch der mobile Android-Client, der sich ausschließlich an die Leser/Nutzer richtet.
 
@@ -867,7 +867,7 @@ Das Paket \texttt{bibcommon} stellt eine Sammlung von Quellcodedateien zur Verf�
 \item{}
 \end{itemize}
 
-Weiter Funktionalitäten auf die die Klassen aus dem Paket \texttt{bibcommon} zugreifen sind aus \texttt{com.google.gson}, \texttt{java.io.Serializable}, \texttt{java.lang}, \texttt{jav.util}, \texttt{java.text}, \texttt{java.ws.rs} was aus dem Diagramm \vref{pic:PackageCommon} ersichtlich wird.
+Weiter Funktionalitäten auf die die Java-Klassen aus dem Paket \texttt{bibcommon} zugreifen sind aus \texttt{com.google.gson}, \texttt{java.io.Serializable}, \texttt{java.lang}, \texttt{jav.util}, \texttt{java.text}, \texttt{java.ws.rs}, was aus dem Diagramm \vref{pic:PackageCommon} ersichtlich wird.
 
 \begin{figure} [H] 
 \caption{Paket \texttt{bibcommon}} \centering
@@ -880,7 +880,7 @@ Weiter Funktionalitäten auf die die Klassen aus dem Paket \texttt{bibcommon} zu
 \subsubsection{Paket \texttt{bibjsf}}
 \label{sec:bibclient}
 
-Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vref{pic:Packagebibjsf}). Diese wiederum beinhalten die logisch zusammenhängenden Java-Quellcodedateien die für den Server benötigt werden. Im folgenden werden die einzelnen Pakete und deren zughörigen Java-Klassen aufgelistet. 
+Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vref{pic:Packagebibjsf}). Diese wiederum beinhalten die logisch zusammenhängenden Java-Quellcodedateien die für den Server benötigt werden. Im folgenden werden die einzelnen Pakete und die zughörigen Java-Klassen aufgelistet. 
 
 \begin{itemize}
 \item{Paket \texttt{eu.it\_r3v.businesslogic}}
@@ -973,7 +973,7 @@ Das Paket \texttt{bibjsf} besteht aus unterschiedlichen Paketen (siehe Abb. \vre
 	\label{pic:Packagebibjsf} 
 \end{figure}
 
-Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten zu entnehmen welche von den einzelnen Java-Klassen benötigt werden.
+Der Abb. \vref{pic:PackagebibjsfUebersicht} sind die weiteren Funktionalitäten \texttt{org.primfaces}, \texttt{com.google.api}, \texttt{eu.it\_r3v.bibjsf}, \texttt{eu.it\_r3v.bibcommon}, \texttt{org.apache}, \texttt{javax}, \texttt{java.text}, \texttt{java.sql}, \texttt{java.security}, \texttt{java.util}, \texttt{java.math}, \texttt{java.lang} und \texttt{java.io} zu entnehmen, welche von den einzelnen Java-Klassen benötigt werden.
 
 
 \begin{figure} [H] 
