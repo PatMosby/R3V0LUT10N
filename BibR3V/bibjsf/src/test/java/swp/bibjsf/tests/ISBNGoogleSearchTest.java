@@ -21,11 +21,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-import swp.bibjsf.isbnsearch.ISBNGoogleSearch;
-
 import com.google.api.services.books.model.Volume;
 import com.google.api.services.books.model.Volume.VolumeInfo;
 import com.google.api.services.books.model.Volume.VolumeInfo.ImageLinks;
+
+import eu.it_r3v.bibjsf.isbnsearch.ISBNGoogleSearch;
 
 /**
  * Test for ISBNGoogleSearch.

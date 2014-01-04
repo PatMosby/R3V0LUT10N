@@ -26,9 +26,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import swp.bibjsf.renderer.BookTagContent;
-import swp.bibjsf.renderer.BookTagPrinter;
-import swp.bibjsf.renderer.Content;
+import eu.it_r3v.bibjsf.renderer.BookTagContent;
+import eu.it_r3v.bibjsf.renderer.BookTagPrinter;
+import eu.it_r3v.bibjsf.renderer.Content;
 
 /**
  * Test of class BookTagPrinter.

@@ -26,9 +26,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import swp.bibjsf.renderer.Content;
-import swp.bibjsf.renderer.IDCardPrinter;
-import swp.bibjsf.renderer.IDContent;
+import eu.it_r3v.bibjsf.renderer.Content;
+import eu.it_r3v.bibjsf.renderer.IDCardPrinter;
+import eu.it_r3v.bibjsf.renderer.IDContent;
 
 /**
  * Test for IDCardPrinter.

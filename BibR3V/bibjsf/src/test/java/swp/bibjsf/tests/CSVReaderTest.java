@@ -27,9 +27,9 @@ import java.io.StringBufferInputStream;
 
 import org.junit.Test;
 
-import swp.bibjsf.utils.CSVReader;
-import swp.bibjsf.utils.CSVReader.CorruptInput;
-import swp.bibjsf.utils.CSVReader.UnknownColumn;
+import eu.it_r3v.bibjsf.utils.CSVReader;
+import eu.it_r3v.bibjsf.utils.CSVReader.CorruptInput;
+import eu.it_r3v.bibjsf.utils.CSVReader.UnknownColumn;
 
 /**
  * Unit test cases for CSVReader.
