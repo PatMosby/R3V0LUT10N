@@ -17,6 +17,8 @@
 
 package swp.bibjsf.tests;
 
+import it_r3v.bibjsf.isbnsearch.ISBNGoogleSearch;
+
 import java.util.List;
 
 import org.junit.Test;
@@ -24,8 +26,6 @@ import org.junit.Test;
 import com.google.api.services.books.model.Volume;
 import com.google.api.services.books.model.Volume.VolumeInfo;
 import com.google.api.services.books.model.Volume.VolumeInfo.ImageLinks;
-
-import eu.it_r3v.bibjsf.isbnsearch.ISBNGoogleSearch;
 
 /**
  * Test for ISBNGoogleSearch.
