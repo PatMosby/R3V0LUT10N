@@ -12,7 +12,7 @@
 
 	<servlet>
 		<servlet-name>BibConfig</servlet-name>
-		<servlet-class>it_r3v.bibjsf.Config</servlet-class>
+		<servlet-class>swp.bibjsf.Config</servlet-class>
 		<init-param>
 			<param-name>log4j-properties-location</param-name>
 			<param-value>WEB-INF/log4j.properties</param-value>

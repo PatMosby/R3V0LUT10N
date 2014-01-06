@@ -17,10 +17,6 @@
 
 package swp.bibjsf.tests;
 
-import it_r3v.bibjsf.renderer.BookTagContent;
-import it_r3v.bibjsf.renderer.BookTagPrinter;
-import it_r3v.bibjsf.renderer.Content;
-
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,6 +25,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+
+import swp.bibjsf.renderer.BookTagContent;
+import swp.bibjsf.renderer.BookTagPrinter;
+import swp.bibjsf.renderer.Content;
 
 /**
  * Test of class BookTagPrinter.

@@ -21,14 +21,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import it_r3v.bibjsf.utils.CSVReader;
-import it_r3v.bibjsf.utils.CSVReader.CorruptInput;
-import it_r3v.bibjsf.utils.CSVReader.UnknownColumn;
 
 import java.io.InputStream;
 import java.io.StringBufferInputStream;
 
 import org.junit.Test;
+
+import swp.bibjsf.utils.CSVReader;
+import swp.bibjsf.utils.CSVReader.CorruptInput;
+import swp.bibjsf.utils.CSVReader.UnknownColumn;
 
 /**
  * Unit test cases for CSVReader.
