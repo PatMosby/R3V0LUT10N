@@ -34,7 +34,7 @@ import org.apache.log4j.Logger;
  */
 @ManagedBean
 @RequestScoped
-@DeclareRoles({"ADMIN", "USER"})
+@DeclareRoles({"ADMIN", "USER", "LIBRARIAN"})
 public class AuthBackingBean {
 
   private static Logger log = Logger.getLogger(AuthBackingBean.class.getName());
@@ -54,4 +54,13 @@ public class AuthBackingBean {
 
 	  return result;
   }
-}
+  
+  public boolean isLoggedIn(){
+	  FacesContext context = FacesContext.getCurrentInstance();
+	  HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();
+	  if(request != null){
+		  return true;
+	  }
+	  return false;
+	  }
+  }

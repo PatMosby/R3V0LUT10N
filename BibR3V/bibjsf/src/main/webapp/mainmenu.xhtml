@@ -15,15 +15,17 @@
 
 			<p:submenu label="#{messages.books}" icon="ui-icon-document">
 				<p:menuitem value="#{messages.search}" url="/book/list.xhtml" />
-				<p:menuitem value="#{messages.add}" url="/book/add.xhtml" />
+				<p:menuitem value="#{messages.add}" url="/book/add.xhtml" rendered="#{request.isUserInRole('LIBRARIAN')}"/>
 				<p:menuitem value="#{messages.list}" url="/book/list.xhtml" />
 			</p:submenu>
 
-			<p:submenu label="#{messages.readers}" icon="ui-icon-person">
+			<p:submenu label="#{messages.readers}" icon="ui-icon-person" rendered="#{request.isUserInRole('LIBRARIAN')}">
 				<p:menuitem value="#{messages.search}" url="/reader/list.xhtml" />
 				<p:menuitem value="#{messages.add}" url="/reader/add.xhtml" />
 				<p:menuitem value="#{messages.list}" url="/reader/list.xhtml" />
 			</p:submenu>
+			
+			<p:menuitem value="#{messages.profile}" url="/users/user.xhtml" rendered="#{request.isUserInRole('USER')}"/>
 
 			<p:submenu label="#{messages.help}" icon="ui-icon-help">
 				<p:menuitem value="#{messages.contents}" url="#" />
@@ -31,10 +33,13 @@
 			</p:submenu>
 
 			<p:menuitem value="#{messages.administration}" icon="ui-icon-gear"
-				url="/admin/admin.xhtml" />
+				url="/admin/admin.xhtml" rendered="#{request.isUserInRole('ADMIN')}"/>
 
 			<p:menuitem value="#{messages.login}" icon="ui-icon-extlink"
-				url="/faces/login.xhtml" />
+				url="/faces/login.xhtml" rendered="#{!request.isUserInRole('USER')}" />
+				
+			<p:menuitem value="#{messages.logout}" icon="ui-icon-extlink" 
+				action="#{authBackingBean.logout}" rendered="#{request.isUserInRole('USER')}"/>
 		</p:menubar>
 	</ui:composition>
 </body>

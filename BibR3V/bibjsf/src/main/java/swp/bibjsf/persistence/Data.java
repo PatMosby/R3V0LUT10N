@@ -165,6 +165,10 @@ public class Data implements Persistence {
 	 */
 	private static final String ADMINGROUP = "ADMIN";
 	/**
+	 * Gruppe der Bibliothekare.
+	 */
+	private static final String LIBRARIANGROUP = "LIBRARIAN";
+	/**
 	 * Group of normal users.
 	 */
 	private static final String USERGROUP = "USER";

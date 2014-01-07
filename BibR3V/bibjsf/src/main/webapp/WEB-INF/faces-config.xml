@@ -22,13 +22,17 @@
         <navigation-case>
             <from-outcome>success</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>       
+        </navigation-case>      
+        <navigation-case>
+            <from-outcome>profile</from-outcome>
+            <to-view-id>/users/user.xhtml</to-view-id>
+        </navigation-case>
         <navigation-case>
             <from-outcome>error</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>          
     </navigation-rule>
-
+    
 	<!-- login form -->
     <navigation-rule>
     	<display-name>faces/login.xhtml</display-name>
@@ -36,6 +40,14 @@
     	<navigation-case>
     		<from-outcome>index</from-outcome>
     		<to-view-id>/index.xhtml</to-view-id>
+    	</navigation-case>
+    	<navigation-case>
+    	    <from-outcome>index</from-outcome>
+    	    <to-view-id>/index.xhtml</to-view-id>
+    	</navigation-case>
+    	<navigation-case>
+    	    <from-outcome>index</from-outcome>
+    	    <to-view-id>/index.xhtml</to-view-id>
     	</navigation-case>
     </navigation-rule>  
 
