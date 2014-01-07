@@ -18,9 +18,7 @@
 package swp.bibcommon;
 
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 /**
  *
@@ -56,16 +54,8 @@ import java.util.Date;
  * @author D. Lüdemann, R. Koschke
  *
  */
-public class Book extends BusinessObject implements Serializable {
+public class Book extends Medium implements Serializable {
 
-	/**
-	 * The format to store dates as string.
-	 */
-	private static final String DateFormat = "yyyy-MM-dd";
-	/**
-	 * Used to convert strings to java.util.Date and vice versa.
-	 */
-	private static final SimpleDateFormat DateFormatter = new SimpleDateFormat(DateFormat);
 
 	/**
 	 * Unique ID for serialization.
@@ -90,24 +80,12 @@ public class Book extends BusinessObject implements Serializable {
 	 * be an ISSN in case of magazine.
 	 */
 	private String industrialIdentifier;
+
+
 	/**
-	 * Average rating in the range of 0.0 .. 5.0 where greater is better.
-	 * Corresponds to the number of stars.
+	 * Seitenzahl des Buches
 	 */
-	private double avgRating = 0.0;
-	/**
-	 * Number of votes for the rating.
-	 */
-	private int votes = 0;
-	/**
-	 * An URL to an image file for the book.
-	 */
-	private String imageURL;
-	/**
-	 * A synopsis of the volume. The text of the description is formatted in
-	 * HTML and includes simple formatting elements, such as b, i, and br tags.
-	 */
-	private String description;
+	private int pageCount;;
 
 	/**
 	 * Any kind of note on the book, usually created by the librarian, for
@@ -118,19 +96,7 @@ public class Book extends BusinessObject implements Serializable {
 	 * A list of subject categories, such as "Fiction", "Suspense", etc.
 	 * Categories are separated by ;.
 	 */
-	private String categories;
-	/**
-	 * Best language for this volume (based on content). It is the two-letter
-	 * ISO 639-1 code such as 'fr', 'en', etc.
-	 */
-	private String language;
-	/**
-	 * Total number of pages.
-	 */
-	private int pageCount = 0;
-	/**
-	 * Type of publication of this volume.
-	 */
+
 	private String printType;
 	/**
 	 * Subtitle of the book.
@@ -140,18 +106,12 @@ public class Book extends BusinessObject implements Serializable {
 	 * Publisher of this book.
 	 */
 	private String publisher;
-	/**
-	 * Date of publication.
-	 */
-	private String dateOfPublication;
+
 	/**
 	 * URL to preview this volume on the Google Books site.
 	 */
 	private String previewLink;
-	/**
-	 * The date at which this book was added to the library.
-	 */
-	private String dateOfAddition;
+
 	/**
 	 * Price of the book. Any currency, e.g., EUR or dollar.
 	 */
@@ -167,19 +127,7 @@ public class Book extends BusinessObject implements Serializable {
 	public Book() {
 	}
 
-	/**
-	 * Returns a copy of value.
-	 *
-	 * @param value string to be copied; may be null
-	 * @return a new copy of value if value != null; null otherwise
-	 */
-	private static String copyString(String value) {
-		if (value == null) {
-			return null;
-		} else {
-			return new String (value);
-		}
-	}
+
 
 	/**
 	 * Copy constructor.
@@ -194,26 +142,12 @@ public class Book extends BusinessObject implements Serializable {
 		// to check whether every field is actually set. If any field
 		// is added (either to this class or any of its superclasses,
 		// you need to add a corresponding assignment here.
+		super(book);
 		this.authors              = copyString(book.authors);
-		this.avgRating            = book.avgRating;
-		this.categories           = copyString(book.categories);
-		this.dateOfAddition       = copyString(book.dateOfAddition);
-		this.dateOfPublication    = copyString(book.dateOfPublication);
-		this.description          = copyString(book.description);
-		this.id                   = book.id;
-		this.imageURL             = copyString(book.imageURL);
 		this.industrialIdentifier = copyString(book.industrialIdentifier);
-		this.language             = copyString(book.language);
-		this.location             = copyString(book.location);
-		this.note                 = copyString(book.note);
 		this.pageCount            = book.pageCount;
 		this.previewLink          = copyString(book.previewLink);
-		this.price                = book.price;
-		this.printType            = copyString(book.printType);
 		this.publisher            = copyString(book.publisher);
-		this.subtitle             = copyString(book.subtitle);
-		this.title                = copyString(book.title);
-		this.votes                = book.votes;
 	}
 
 	/**
@@ -232,43 +166,7 @@ public class Book extends BusinessObject implements Serializable {
 		this.industrialIdentifier = copyString(identifier);
 	}
 
-	/* ****************************************************************
-	 * Utilities.
-	 * ***************************************************************/
 
-	/**
-	 * Converts date string to java.util.Date.
-	 *
-	 * @param date date formatted as described by DateFormat
-	 * @return the date or null if given date is null, empty, or malformed
-	 */
-	private static Date toDate(String date) {
-		if (date == null || date.isEmpty()) {
-			return null;
-		} else {
-			try {
-				return DateFormatter.parse(date);
-			} catch (ParseException e) {
-				return null;
-			}
-		}
-	}
-
-	/**
-	 * Converts date given as java.util.Date to a string formatted
-	 * according to DateFormat.
-	 *
-	 * @param date date
-	 * @return the date formatted as described by DateFormat
-	 *   or null if given date is null.
-	 */
-	private String toString(Date date) {
-		if (date == null) {
-			return null;
-		} else {
-			return DateFormatter.format(date);
-		}
-	}
 
 	/* ****************************************************************
 	 * Setters and getters
@@ -292,50 +190,6 @@ public class Book extends BusinessObject implements Serializable {
 		this.note = note;
 	}
 
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * @param description
-	 *            the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	/**
-	 * @return the categories
-	 */
-	public String getCategories() {
-		return categories;
-	}
-
-	/**
-	 * @param categories
-	 *            the categories to set
-	 */
-	public void setCategories(String categories) {
-		this.categories = categories;
-	}
-
-	/**
-	 * @return the language
-	 */
-	public String getLanguage() {
-		return language;
-	}
-
-	/**
-	 * @param language
-	 *            the language to set
-	 */
-	public void setLanguage(String language) {
-		this.language = language;
-	}
 
 	/**
 	 * @return the pageCount
@@ -398,29 +252,6 @@ public class Book extends BusinessObject implements Serializable {
 	}
 
 	/**
-	 * @return the dateOfPublication
-	 */
-	public Date getDateOfPublication() {
-		if (dateOfPublication == null) {
-			return null;
-		} else {
-			return toDate(dateOfPublication);
-		}
-	}
-
-	/**
-	 * @param dateOfPublication
-	 *            the dateOfPublication to set
-	 */
-	public void setDateOfPublication(Date dateOfPublication) {
-		if (dateOfPublication == null) {
-			this.dateOfPublication = null;
-		} else {
-			this.dateOfPublication = toString(dateOfPublication);
-		}
-	}
-
-	/**
 	 * @return the previewLink
 	 */
 	public String getPreviewLink() {
@@ -433,29 +264,6 @@ public class Book extends BusinessObject implements Serializable {
 	 */
 	public void setPreviewLink(String previewLink) {
 		this.previewLink = previewLink;
-	}
-
-	/**
-	 * @return the dateOfAddition
-	 */
-	public Date getDateOfAddition() {
-		if (dateOfAddition == null) {
-			return null;
-		} else {
-			return toDate(dateOfAddition);
-		}
-	}
-
-	/**
-	 * @param dateOfAddition
-	 *            the dateOfAddition to set
-	 */
-	public void setDateOfAddition(Date dateOfAddition) {
-		if (dateOfAddition == null) {
-			this.dateOfAddition = null;
-		} else {
-			this.dateOfAddition = toString(dateOfAddition);
-		}
 	}
 
 	/**
@@ -486,24 +294,6 @@ public class Book extends BusinessObject implements Serializable {
 	 */
 	public void setLocation(String location) {
 		this.location = location;
-	}
-
-	/**
-	 * Returns book title.
-	 *
-	 * @return book title (may be null)
-	 */
-	public final String getTitle() {
-		return title;
-	}
-
-	/**
-	 * Sets book title.
-	 *
-	 * @param title new title
-	 */
-	public final void setTitle(final String title) {
-		this.title = title;
 	}
 
 	/**
@@ -545,22 +335,6 @@ public class Book extends BusinessObject implements Serializable {
 		this.industrialIdentifier = industrialIdentifier;
 	}
 
-	/**
-	 * @return a URL to an image file for the book cover; may be null or empty
-	 */
-	public final String getImageURL() {
-		return imageURL;
-	}
-
-	/**
-	 * Sets the URL to an image file for the book cover.
-	 *
-	 * @param imageURL
-	 *            new URL
-	 */
-	public final void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
-	}
 
 	/**
 	 * Return the book as String.
@@ -574,47 +348,7 @@ public class Book extends BusinessObject implements Serializable {
 				+ ", ISBN/ISSN=" + industrialIdentifier + "]";
 	}
 
-	/**
-	 * Return the amount of votes for this book.
-	 *
-	 * @return number of votes for the rating
-	 */
-	public final int getVotes() {
-		return votes;
-	}
 
-	/**
-	 * Sets the amount of votes for this book.
-	 *
-	 * @param votes new number of votes for the rating
-	 */
-	public final void setVotes(final int votes) {
-		this.votes = votes;
-	}
-
-	/**
-	 * Sets the average rating for this book.
-	 *
-	 * @param avgRating
-	 *            the rating as Double.
-	 * @throws IllegalRating
-	 */
-	public final void setAvgRating(final double avgRating) throws IllegalRating {
-		if (0.0 <= avgRating && avgRating <= 5.0) {
-			this.avgRating = avgRating;
-		} else {
-			throw new IllegalRating(((Double) avgRating).toString());
-		}
-	}
-
-	/**
-	 * Return the average rating of this book.
-	 *
-	 * @return average rating
-	 */
-	public final double getAvgRating() {
-		return avgRating;
-	}
 
 	/*
 	 * (non-Javadoc)

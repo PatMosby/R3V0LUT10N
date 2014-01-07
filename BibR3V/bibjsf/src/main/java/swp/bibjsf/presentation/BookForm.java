@@ -422,20 +422,20 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         if (isImageURLSelected()) {
             toBook.setImageURL(fromBook.getImageURL());
         }
-        if (isVotesSelected()) {
+/*        if (isVotesSelected()) {
             toBook.setVotes(fromBook.getVotes());
         }
-        if (isNoteSelected()) {
+*/        if (isNoteSelected()) {
             toBook.setNote(fromBook.getNote());
         }
-        if (isAvgRatingSelected()) {
+/*        if (isAvgRatingSelected()) {
             try {
 				toBook.setAvgRating(fromBook.getAvgRating());
 			} catch (IllegalRating e) {
 				// cannot happen
 			}
         }
-	}
+*/	}
 
     /**
      * Returns the list of books matching given identifier asking Google.
@@ -590,7 +590,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         lookup();
     }
 
-    public int getVotes() {
+/*    public int getVotes() {
     	return element.getVotes();
     }
 
@@ -601,7 +601,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     public double getAvgRating() {
     	return element.getAvgRating();
     }
-
+*/
     public String getImageURL() {
     	return element.getImageURL();
     }
@@ -610,7 +610,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     	element.setImageURL(url);
     }
 
-    public void setAvgRating(double rating) {
+ /*   public void setAvgRating(double rating) {
     	try {
 			element.setAvgRating(rating);
 		} catch (IllegalRating e) {
@@ -620,7 +620,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
                                      e.getLocalizedMessage()));
 		}
     }
-
+*/
     public String getCategories() {
         return element.getCategories();
     }

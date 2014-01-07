@@ -116,7 +116,7 @@ public class BibServices {
      * @param params ID of the book and its ranking wrapped in a map
      * @return reply to client on the status of this operation (OK, BAD_REQUEST, GONE).
      */
-    @POST
+ /*   @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("books/rate")
     public final Response rateBook(final Map<String, Integer> params) {
@@ -140,5 +140,5 @@ public class BibServices {
         }
         return Response.status(Response.Status.OK)
                 .entity("Book rating has been updated").build();
-    }
+    } */
 }

@@ -24,10 +24,10 @@ import java.util.List;
 import javax.naming.NamingException;
 
 import swp.bibcommon.Book;
-import swp.bibcommon.IllegalRating;
+//import swp.bibcommon.IllegalRating;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
 import swp.bibjsf.exception.DataSourceException;
-import swp.bibjsf.exception.NoSuchBookExistsException;
+//import swp.bibjsf.exception.NoSuchBookExistsException;
 import swp.bibjsf.utils.Constraint;
 import swp.bibjsf.utils.Messages;
 import swp.bibjsf.utils.OrderBy;
@@ -120,12 +120,13 @@ public class BookHandler extends BusinessObjectHandler<Book> {
      * @throws DataSourceException
      *            is thrown if there are issues with the persistence component.
      */
-    private Book getBookForID(final Integer bookID) throws DataSourceException,
+ /*   private Book getBookForID(final Integer bookID) throws DataSourceException,
             NoSuchBookExistsException {
         logger.info("return book for id: " + bookID);
         Book book = persistence.getBook(bookID);
         return book;
     }
+*/
 
     /**
      * Adds a book with the transfered ID.
@@ -140,26 +141,26 @@ public class BookHandler extends BusinessObjectHandler<Book> {
      * @throws NoSuchBookExistsException
      *             if there is no book for this id.
      */
-    public synchronized void rateBook(final Integer bookID, final Integer stars)
-            throws DataSourceException, NoSuchBookExistsException {
-        logger.info("rate with " + stars + " stars the book with id: " + bookID);
-        Book book = getBookForID(bookID);
-        if (book == null) {
-            throw new NoSuchBookExistsException();
-        }
-        Double rating = book.getAvgRating();
-        Integer noOfVotes = book.getVotes();
-        rating = ((rating * noOfVotes) + stars) / (++noOfVotes);
-        try {
-			book.setAvgRating(rating);
-		} catch (IllegalRating e) {
-			// should never occur
-			logger.error("BookHandler.rateBook(): invalid average rating " + rating);
-			e.printStackTrace();
-		}
-        book.setVotes(noOfVotes);
-        update(book);
-    }
+//    public synchronized void rateBook(final Integer bookID, final Integer stars)
+//            throws DataSourceException, NoSuchBookExistsException {
+//        logger.info("rate with " + stars + " stars the book with id: " + bookID);
+//        Book book = getBookForID(bookID);
+//        if (book == null) {
+//            throw new NoSuchBookExistsException();
+//        }
+//        Double rating = book.getAvgRating();
+//        Integer noOfVotes = book.getVotes();
+//        rating = ((rating * noOfVotes) + stars) / (++noOfVotes);
+//        try {
+//			book.setAvgRating(rating);
+//		} catch (IllegalRating e) {
+//			// should never occur
+//			logger.error("BookHandler.rateBook(): invalid average rating " + rating);
+//			e.printStackTrace();
+//		}
+//        book.setVotes(noOfVotes);
+//        update(book);
+//    }
 
     /**
      * Updates book.
