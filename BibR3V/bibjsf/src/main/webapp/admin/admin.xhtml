@@ -17,13 +17,15 @@
 
 		<h1>#{messages.administration}</h1>
 
-		<h:panelGrid columns="3">
+		<h:panelGrid columns="4">
 			<p:commandButton value="#{messages.backupDB}" icon="ui-icon-disk"
 				onclick="confirmBackupDBDialog.show()" update="@parent" />
 			<p:commandButton value="#{messages.restoreDB}"
 				icon="ui-icon-arrowrefresh-1-w"
 				onclick="confirmRestoreDBDialog.show()" update="@parent" />
 			<p:commandButton value="#{messages.resetDB}" icon="ui-icon-trash"
+				onclick="confirmResetDBDialog.show()" update="@parent" />
+			<p:commandButton value="#{messages.addLibrarian}" icon="ui-icon-add"
 				onclick="confirmResetDBDialog.show()" update="@parent" />
 		</h:panelGrid>
 
