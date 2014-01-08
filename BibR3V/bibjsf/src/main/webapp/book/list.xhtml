@@ -73,21 +73,22 @@
   	  
       <!-- trigger for editing row -->
       <p:column id="rowEditorColumn" style="width:3%">  
-        <p:commandButton icon="ui-icon-pencil" style="width: auto; height: 20px" action="#{changeBookForm.edit(book)}" />
+        <p:commandButton icon="ui-icon-pencil" style="width: auto; height: 20px" action="#{changeBookForm.edit(book)}" 
+        		rendered="#{request.isUserInRole('LIBRARIAN')}" />
       </p:column> 
         
       <f:facet name="footer">
-        <p:commandButton id="newBook" value="#{messages.newBook}" icon="ui-icon-circle-plus" action="add" ></p:commandButton>
+        <p:commandButton id="newBook" value="#{messages.newBook}" icon="ui-icon-circle-plus" action="add" rendered="#{request.isUserInRole('LIBRARIAN')}"></p:commandButton>
         <p:commandButton id="printButton" value="#{messages.print}"  title="#{messages.printBookTag_help}" update="@parent" ajax="false"
-          icon="ui-icon-print">
+          icon="ui-icon-print" rendered="#{request.isUserInRole('LIBRARIAN')}">
           <p:fileDownload value="#{bookTable.pDF}" />
         </p:commandButton>        
         <p:commandButton id="csvButton" value="#{messages.csvexport}"  title="#{messages.csvexport_help}" update="@parent" ajax="false"
-          icon="ui-icon-folder-open">
+          icon="ui-icon-folder-open" rendered="#{request.isUserInRole('LIBRARIAN')}">
           <p:fileDownload value="#{bookTable.cSV}" />
         </p:commandButton>
         <p:commandButton type="button" onclick="confirmDialog.show()" value="#{messages.delete}"  title="#{messages.delete_help}" update="@parent"
-            icon="ui-icon-trash" />
+            icon="ui-icon-trash" rendered="#{request.isUserInRole('LIBRARIAN')}"/>
       </f:facet>
 
       <p:rowExpansion> 
@@ -295,7 +296,8 @@
                   fileLimitMessage="#{messages.fileLimitMessage}"
                   update="messages, bookTable" 
                   sizeLimit="1000000" fileLimit="3" 
-                  allowTypes="/(\.|\/)csv$/" >
+                  allowTypes="/(\.|\/)csv$/" 
+                  rendered="#{request.isUserInRole('LIBRARIAN')}">
     </p:fileUpload>
 
     <p:confirmDialog message="#{messages.deleteSelectedQuestion}"

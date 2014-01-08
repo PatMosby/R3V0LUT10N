@@ -9,7 +9,7 @@
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>addbook</from-outcome>
-            <to-view-id>/book/add.xhtml</to-view-id>
+            <to-view-id>/book/auth/add.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>addreader</from-outcome>
@@ -115,25 +115,25 @@
         <from-view-id>/book/list.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>add</from-outcome>
-            <to-view-id>/book/add.xhtml</to-view-id>
+            <to-view-id>/book/auth/add.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>edit</from-outcome>
-            <to-view-id>/book/change.xhtml</to-view-id>
+            <to-view-id>/book/auth/change.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
         
 	<!-- book addition form -->        
 	<navigation-rule>
 		<display-name>book/add.xhtml</display-name>
-		<from-view-id>/book/add.xhtml</from-view-id>
+		<from-view-id>/book/auth/add.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/book/add.xhtml</to-view-id>
+			<to-view-id>/book/auth/add.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>error</from-outcome>
-			<to-view-id>/book/add.xhtml</to-view-id>
+			<to-view-id>/book/auth/add.xhtml</to-view-id>
 		</navigation-case>		
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
@@ -141,7 +141,7 @@
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>reset</from-outcome>
-			<to-view-id>/book/add.xhtml</to-view-id>
+			<to-view-id>/book/auth/add.xhtml</to-view-id>
 		</navigation-case>					
 	</navigation-rule>
 
@@ -162,7 +162,7 @@
     <!-- book change form -->   
     <navigation-rule>
         <display-name>book/change.xhtml</display-name>
-        <from-view-id>/book/change.xhtml</from-view-id>
+        <from-view-id>/book/auth/change.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>success</from-outcome>
             <to-view-id>/book/list.xhtml</to-view-id>
@@ -173,11 +173,11 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>reset</from-outcome>
-            <to-view-id>/book/change.xhtml</to-view-id>
+            <to-view-id>/book/auth/change.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>error</from-outcome>
-            <to-view-id>/book/change.xhtml</to-view-id>
+            <to-view-id>/book/auth/change.xhtml</to-view-id>
         </navigation-case> 
     </navigation-rule>
 

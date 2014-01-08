@@ -68,7 +68,7 @@
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>Admin user</web-resource-name>
-			<url-pattern>/book/*</url-pattern>
+			<url-pattern>/book/auth/*</url-pattern>
 			<http-method>GET</http-method>
 			<http-method>POST</http-method>
 		</web-resource-collection>
@@ -86,7 +86,7 @@
 			<http-method>POST</http-method>
 		</web-resource-collection>
 		<auth-constraint>
-			<role-name>ADMIN</role-name>
+			<role-name>LIBRARIAN</role-name>
 			<role-name>USER</role-name>
 		</auth-constraint>
 	</security-constraint>

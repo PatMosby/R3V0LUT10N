@@ -19,17 +19,36 @@
 				<p:menuitem value="#{messages.list}" url="/book/list.xhtml" />
 			</p:submenu>
 
-			<p:submenu label="#{messages.readers}" icon="ui-icon-person" rendered="#{request.isUserInRole('LIBRARIAN')}">
+			<p:submenu label="#{messages.readers}" icon="ui-icon-arrowreturnthick-1-e" rendered="#{request.isUserInRole('LIBRARIAN')}">
 				<p:menuitem value="#{messages.search}" url="/reader/list.xhtml" />
 				<p:menuitem value="#{messages.add}" url="/reader/add.xhtml" />
 				<p:menuitem value="#{messages.list}" url="/reader/list.xhtml" />
 			</p:submenu>
 			
-			<p:menuitem value="#{messages.profile}" url="/users/user.xhtml" rendered="#{request.isUserInRole('USER')}"/>
+			<p:submenu label="#{messages.profile}" icon="ui-icon-person" rendered="#{request.isUserInRole('USER')}">
+				<p:menuitem value="#{messages.myData}" url="#" />
+				<p:menuitem value="#{messages.myBooks}" url="#" />
+				<p:menuitem value="#{messages.history}" url="#" />
+				<p:menuitem value="#{messages.settings}" icon="ui-icon-gear" url="#" />
+			
+			</p:submenu>
 
 			<p:submenu label="#{messages.help}" icon="ui-icon-help">
 				<p:menuitem value="#{messages.contents}" url="#" />
 				<p:menuitem value="#{messages.search}" icon="ui-icon-search" />
+			</p:submenu>
+
+			<p:submenu label="#{messages.bib}" icon="ui-icon-note" rendered="#{request.isUserInRole('LIBRARIAN')}">
+				<p:menuitem value="#{messages.borrow}" url="#" />
+				<p:menuitem value="#{messages.return}" url="#" />
+				<p:menuitem value="#{messages.statistic}" url="#"/>
+				
+				<p:submenu label="#{messages.settings}" icon="ui-icon-gear">
+					<p:menuitem value="#{messages.editIndex}" url="#"/>
+					<p:menuitem value="#{messages.editOpening}" url="#"/>
+					<p:menuitem value="#{messages.fines}" url="#"/>
+					<p:menuitem value="#{messages.reservation}" url="#"/>
+				</p:submenu>
 			</p:submenu>
 
 			<p:menuitem value="#{messages.administration}" icon="ui-icon-gear"
