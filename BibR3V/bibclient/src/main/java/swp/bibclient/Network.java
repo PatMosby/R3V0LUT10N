@@ -154,38 +154,4 @@ public class Network {
             }
         }
     }
-
-    /**
-     * Fügt ein Buch hinzu.
-     * 
-     * @param book
-     *            Das Buch, das hinzugefügt werden soll.
-     * @return Der Http Response.
-     * @throws IOException
-     *             Kann eine IOException werfen.
-     */
-    public final String addBook(final Book book) throws IOException {
-        DefaultHttpClient httpClient = new DefaultHttpClient();
-
-        // Setzen eines ConnectionTimeout von 2 Sekunden:
-        HttpParams httpparams = httpClient.getParams();
-        httpparams.setIntParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, timeout);
-        httpClient.setParams(httpparams);
-
-        // Der BibServer sollte lokal laufen, daher zugriff auf Localhost
-        // 10.0.2.2 für den AndroidEmulator.
-        HttpContext localContext = new BasicHttpContext();
-        HttpPut httpPut = new HttpPut(server + bookpath);
-        Gson gson = new Gson();
-        String json = gson.toJson(book);
-
-        httpPut.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON);
-        httpPut.addHeader(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
-        HttpResponse response = null;
-
-        httpPut.setEntity(new StringEntity(json));
-        response = httpClient.execute(httpPut, localContext);
-        return response.toString();
-    }
-
 }

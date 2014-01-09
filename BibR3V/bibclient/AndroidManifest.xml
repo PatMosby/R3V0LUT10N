@@ -25,6 +25,10 @@
             android:name="swp.bibclient.ShowBookActivity"
             android:label="@string/title_activity_show_book" >
         </activity>
+        <activity
+            android:name="swp.bibclient.Books"
+            android:label="@string/title_activity_books" >
+        </activity>
     </application>
 
 </manifest>

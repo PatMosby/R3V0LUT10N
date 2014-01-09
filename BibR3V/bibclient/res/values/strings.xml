@@ -14,5 +14,6 @@
     <string name="book_transmitted">Buch erfolgreich eingefügt</string>
     <string name="book_not_transmitted">FEHLER: Übertragung fehlgeschlagen</string>
     <string name="text_view">TextView</string>
+    <string name="title_activity_books">Books</string>
 
 </resources>
