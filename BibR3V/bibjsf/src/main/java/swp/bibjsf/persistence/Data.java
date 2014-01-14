@@ -355,11 +355,11 @@ public class Data implements Persistence {
 					+ ",groupid) values ('" + username + "', '" + USERGROUP + "')");
 	}
 	
-	private void insertLibrarian(String username) throws DataSourceException, SQLException {
-		logger.debug("inserting user to LIBRARIAN");
-		run.update("insert into " + groupTableName + "(" + UsernameField
-				+ ",groupid) values ('" + username + "', '" + LIBRARIANGROUP + "')");
-}
+//	private void insertLibrarian(String username) throws DataSourceException, SQLException {
+//		logger.debug("inserting user to LIBRARIAN");
+//		run.update("insert into " + groupTableName + "(" + UsernameField
+//				+ ",groupid) values ('" + username + "', '" + LIBRARIANGROUP + "')");
+//}
 
 
 	/**
@@ -1135,10 +1135,10 @@ public class Data implements Persistence {
 					Set<String> toIgnore = new HashSet<String>();
 					HashMap<String, Object> replace = new HashMap<String, Object>();
 					replace.put("password", password);
+					int result = insertByID(reader, readerTableName, readerMinID, toIgnore, replace);
 					insertUser(reader.getUsername());
 					//TODO: Bib und User unterscheiden. Jetzt nur USER
-					return insertByID(reader, readerTableName, readerMinID,
-							toIgnore, replace);
+					return result;
 				} catch (NoSuchAlgorithmException e) {
 					logger.error("MD5 problem");
 					throw new DataSourceException(e.getMessage());
