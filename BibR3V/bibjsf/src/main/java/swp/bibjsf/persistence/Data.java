@@ -151,7 +151,7 @@ public class Data implements Persistence {
 	/**
 	 * User groups.
 	 */
-	private final static String groupTableName = "grouptable";
+	private final static String groupTableName = "GROUPTABLE";
 	/**
 	 * The ID of the admin in reader table. Admin must always exist.
 	 */
@@ -348,6 +348,19 @@ public class Data implements Persistence {
 					+ "')");
 		}
 	}
+	
+	private void insertUser(String username) throws DataSourceException, SQLException {
+			logger.debug("inserting user to USER");
+			run.update("insert into " + groupTableName + "(" + UsernameField
+					+ ",groupid) values ('" + username + "', '" + USERGROUP + "')");
+	}
+	
+//	private void insertLibrarian(String username) throws DataSourceException, SQLException {
+//		logger.debug("inserting user to LIBRARIAN");
+//		run.update("insert into " + groupTableName + "(" + UsernameField
+//				+ ",groupid) values ('" + username + "', '" + LIBRARIANGROUP + "')");
+//}
+
 
 	/**
 	 * Returns the lower-case names of all tables in the database.
@@ -1122,8 +1135,10 @@ public class Data implements Persistence {
 					Set<String> toIgnore = new HashSet<String>();
 					HashMap<String, Object> replace = new HashMap<String, Object>();
 					replace.put("password", password);
-					return insertByID(reader, readerTableName, readerMinID,
-							toIgnore, replace);
+					int result = insertByID(reader, readerTableName, readerMinID, toIgnore, replace);
+					insertUser(reader.getUsername());
+					//TODO: Bib und User unterscheiden. Jetzt nur USER
+					return result;
 				} catch (NoSuchAlgorithmException e) {
 					logger.error("MD5 problem");
 					throw new DataSourceException(e.getMessage());

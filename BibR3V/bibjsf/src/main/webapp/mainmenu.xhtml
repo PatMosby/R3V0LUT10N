@@ -51,14 +51,24 @@
 				</p:submenu>
 			</p:submenu>
 
-			<p:menuitem value="#{messages.administration}" icon="ui-icon-gear"
-				url="/admin/admin.xhtml" rendered="#{request.isUserInRole('ADMIN')}"/>
+			<p:submenu label="#{messages.administration}" icon="ui-icon-gear" rendered="#{request.isUserInRole('ADMIN')}">
+				<p:menuitem value="#{messages.addlibrarian}" url="/admin/addlibrarian.xhtml"/>
+				<p:menuitem value="#{messages.resetDB}" url="#"/>
+				<p:menuitem value="#{messages.restoreDB}" url="#"/>
+				<p:menuitem value="#{messages.backupDB}" url="#"/>
+			</p:submenu>
 
 			<p:menuitem value="#{messages.login}" icon="ui-icon-extlink"
 				url="/faces/login.xhtml" rendered="#{!request.isUserInRole('USER')}" />
 				
 			<p:menuitem value="#{messages.logout}" icon="ui-icon-extlink" 
 				action="#{authBackingBean.logout}" rendered="#{request.isUserInRole('USER')}"/>
+				
+			<p:menuitem value="#{messages.logout}" icon="ui-icon-extlink" 
+				action="#{authBackingBean.logout}" rendered="#{request.isUserInRole('LIBRARIAN')}"/>
+				
+			<p:menuitem value="#{messages.logout}" icon="ui-icon-extlink" 
+				action="#{authBackingBean.logout}" rendered="#{request.isUserInRole('ADMIN')}"/>
 		</p:menubar>
 	</ui:composition>
 </body>
