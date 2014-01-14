@@ -117,7 +117,7 @@
     and conversion errors messages; for production use Production (the default). -->
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Developement</param-value>
+        <param-value>Development</param-value>
     </context-param>
     
     <!-- Comments are not sent in HTML rendering. This avoid also the problem of
