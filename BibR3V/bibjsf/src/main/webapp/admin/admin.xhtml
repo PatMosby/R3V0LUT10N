@@ -25,8 +25,8 @@
 				onclick="confirmRestoreDBDialog.show()" update="@parent" />
 			<p:commandButton value="#{messages.resetDB}" icon="ui-icon-trash"
 				onclick="confirmResetDBDialog.show()" update="@parent" />
-			<p:commandButton value="#{messages.addLibrarian}" icon="ui-icon-add"
-				onclick="confirmResetDBDialog.show()" update="@parent" />
+			<p:commandButton value="#{messages.addlibrarian}" icon="ui-icon-add"
+				url="/addlibrarian.xhtml" />
 		</h:panelGrid>
 
 		<p:confirmDialog id="resetDBDialog"

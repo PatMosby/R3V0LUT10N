@@ -74,6 +74,7 @@
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>ADMIN</role-name>
+			<role-name>LIBRARIAN</role-name>
 			<role-name>USER</role-name>
 		</auth-constraint>
 	</security-constraint>
@@ -87,7 +88,6 @@
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>LIBRARIAN</role-name>
-			<role-name>USER</role-name>
 		</auth-constraint>
 	</security-constraint>
 	
@@ -99,8 +99,7 @@
             <http-method>POST</http-method>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>ADMIN</role-name>
-            <role-name>USER</role-name>
+            <role-name>ADMIN</role-name>            
         </auth-constraint>
     </security-constraint>
     	
@@ -118,7 +117,7 @@
     and conversion errors messages; for production use Production (the default). -->
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Development</param-value>
+        <param-value>Developement</param-value>
     </context-param>
     
     <!-- Comments are not sent in HTML rendering. This avoid also the problem of
