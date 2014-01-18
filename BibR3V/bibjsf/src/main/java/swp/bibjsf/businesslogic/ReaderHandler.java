@@ -124,6 +124,43 @@ public class ReaderHandler extends BusinessObjectHandler<Reader> {
         }
         return result;
     }
+    
+    /**
+     * Adds Librarian to database. Librarian must not yet exist.
+     *
+     * @param librarian
+     *            new librarian to be added
+     * @return the ID of the added librarian
+     * @throws DataSourceException
+     *             in case of problems with data source
+     * @throws BusinessElementAlreadyExistsException
+     *             if the librarian exists already in the database
+     */
+    public synchronized int addLibrarian(Reader reader) throws DataSourceException,
+        BusinessElementAlreadyExistsException {
+        logger.info("add librarian: " + reader);
+        if (reader.hasId() && persistence.getReader(reader.getId()) != null) {
+            logger.info("librarian already exists and could not be added: "
+                    + reader);
+            throw new BusinessElementAlreadyExistsException(Messages.get("readerexists") + " "
+            		+ Messages.get("id") + " = " + reader.getId());
+        }
+        // if reader has no assigned user name, he/she gets a default user name
+        final String username = reader.getUsername();
+		if (username == null || username.isEmpty()) {
+        	reader.setUsername(defaultUsername(reader));
+        }
+        // assert: reader has a user name
+        if (persistence.getReaderByUsername(username) != null) {
+        	throw new BusinessElementAlreadyExistsException(Messages.get("readerexists")
+        			+ " " + Messages.get("username") + " = " + username);
+        }
+        int result = persistence.addLibrarian(reader);
+        if (result < 0) {
+            throw new DataSourceException(Messages.get("readernotadded"));
+        }
+        return result;
+    }
 
 	/**
 	 * Creates a default username as a concatenation of the the user's first letter

@@ -236,6 +236,21 @@ public interface Persistence {
 	 */
 	public int addReader(Reader reader) throws DataSourceException,
 			BusinessElementAlreadyExistsException;
+	
+	/**
+	 * Adds a new librarian to the list of registered readers. If the lirbarian does
+	 * not yet have a valid ID, it will receive a new unique ID.
+	 *
+	 * @param librarian
+	 *            new librarian to be added
+	 * @return the number of added librarians
+	 * @throws DataSourceException
+	 *             in case of problems with data source
+	 * @throws BusinessElementAlreadyExistsException
+	 *             in case the reader to be added exists already
+	 */
+	public int addLibrarian(Reader reader) throws DataSourceException,
+			BusinessElementAlreadyExistsException;
 
 	/**
 	 * Adds either all readers in 'readers' or none.

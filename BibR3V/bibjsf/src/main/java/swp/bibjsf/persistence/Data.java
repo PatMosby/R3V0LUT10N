@@ -342,8 +342,6 @@ public class Data implements Persistence {
 					+ "','" + ADMIN + "','"
 					+ new java.sql.Date(System.currentTimeMillis()) + "')");
 			run.update("insert into " + groupTableName + "(" + UsernameField
-					+ ",groupid) values ('" + ADMIN + "', '" + USERGROUP + "')");
-			run.update("insert into " + groupTableName + "(" + UsernameField
 					+ ",groupid) values ('" + ADMIN + "', '" + ADMINGROUP
 					+ "')");
 		}
@@ -355,11 +353,11 @@ public class Data implements Persistence {
 					+ ",groupid) values ('" + username + "', '" + USERGROUP + "')");
 	}
 	
-//	private void insertLibrarian(String username) throws DataSourceException, SQLException {
-//		logger.debug("inserting user to LIBRARIAN");
-//		run.update("insert into " + groupTableName + "(" + UsernameField
-//				+ ",groupid) values ('" + username + "', '" + LIBRARIANGROUP + "')");
-//}
+	private void insertLibrarian(String username) throws DataSourceException, SQLException {
+		logger.debug("inserting user to LIBRARIAN");
+		run.update("insert into " + groupTableName + "(" + UsernameField
+				+ ",groupid) values ('" + username + "', '" + LIBRARIANGROUP + "')");
+	}
 
 
 	/**
@@ -1137,7 +1135,6 @@ public class Data implements Persistence {
 					replace.put("password", password);
 					int result = insertByID(reader, readerTableName, readerMinID, toIgnore, replace);
 					insertUser(reader.getUsername());
-					//TODO: Bib und User unterscheiden. Jetzt nur USER
 					return result;
 				} catch (NoSuchAlgorithmException e) {
 					logger.error("MD5 problem");
@@ -1146,6 +1143,49 @@ public class Data implements Persistence {
 			}
 		} catch (SQLException e) {
 			logger.error("add reader failure");
+			throw new DataSourceException(e.getMessage());
+		}
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see swp.bibjsf.persistence.Persistence#addLibrarian(swp.bibcommon.Reader)
+	 */
+	@Override
+	public int addLibrarian(Reader reader) throws DataSourceException,
+			BusinessElementAlreadyExistsException {
+		logger.debug("add librarian " + reader);
+		try {
+			if (getReader(reader.getId()) != null) {
+				// ID must be unique
+				throw new BusinessElementAlreadyExistsException(
+						Messages.get("readerexists") + " " + Messages.get("id")
+								+ " = " + reader.getId());
+			} else if (!reader.getUsername().isEmpty()
+					&& getReaderByUsername(reader.getUsername()) != null) {
+				// user name must be unique if defined
+				throw new BusinessElementAlreadyExistsException(
+						Messages.get("readerexists") + Messages.get("username")
+								+ " = " + reader.getUsername());
+			} else {
+				logger.debug("reader " + reader
+						+ " does not yet exist; has ID: " + reader.hasId());
+				try {
+					final String password = hashPassword(reader);
+					Set<String> toIgnore = new HashSet<String>();
+					HashMap<String, Object> replace = new HashMap<String, Object>();
+					replace.put("password", password);
+					int result = insertByID(reader, readerTableName, readerMinID, toIgnore, replace);
+					insertLibrarian(reader.getUsername());
+					return result;
+				} catch (NoSuchAlgorithmException e) {
+					logger.error("MD5 problem");
+					throw new DataSourceException(e.getMessage());
+				}
+			}
+		} catch (SQLException e) {
+			logger.error("add librarian failure");
 			throw new DataSourceException(e.getMessage());
 		}
 	}
