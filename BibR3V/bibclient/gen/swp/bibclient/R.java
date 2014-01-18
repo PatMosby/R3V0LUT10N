@@ -55,6 +55,7 @@ public final class R {
         public static final int string_title=0x7f060007;
         public static final int text_list_books=0x7f060002;
         public static final int text_view=0x7f06000c;
+        public static final int title_activity_books=0x7f06000d;
         public static final int title_activity_show_book=0x7f060009;
     }
 }

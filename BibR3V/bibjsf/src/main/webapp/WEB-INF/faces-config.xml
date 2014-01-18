@@ -83,6 +83,28 @@
         </navigation-case> 
     </navigation-rule>
     
+    <!-- librarian addition form -->   
+    <navigation-rule>
+        <display-name>admin/addlibrarian.xhtml</display-name>
+        <from-view-id>/admin/addlibrarian.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/admin/addlibrarian.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>reset</from-outcome>
+            <to-view-id>/admin/addlibrarian.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/admin/addlibrarian.xhtml</to-view-id>
+        </navigation-case> 
+    </navigation-rule>
+    
     <!-- reader change form -->   
     <navigation-rule>
         <display-name>reader/change.xhtml</display-name>

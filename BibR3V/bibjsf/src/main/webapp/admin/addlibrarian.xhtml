@@ -16,30 +16,30 @@
     <h:form id="form" >
     <ui:include src="/mainmenu.xhtml" />
     
-    <!-- <p:panel id="panel" header="#{messages.addlibrarian}">  
+    <p:panel id="panel" header="#{messages.addlibrarian}">  
         <h:panelGrid columns="3" cellpadding="5">  
             
-             ID (read-only) 
+            <!-- ID (read-only) -->
             <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold"/>
-            <h:outputText id="id" value="#{addReaderForm.id}"  size="#{addReaderForm.textWidth}"/>
+            <h:outputText id="id" value="#{addLibrarianForm.id}"  size="#{addLibrarianForm.textWidth}"/>
             <p:message for="id"  display="both" />
 
-            <ui:include src="readerAttributes.xhtml">
-                <ui:param name="readerForm" value="#{addReaderForm}"/>
-            </ui:include>  -->
+            <ui:include src="/librarian/librarianAttributes.xhtml">
+                <ui:param name="readerForm" value="#{addLibrarianForm}"/>
+            </ui:include>
             
-            <!-- buttons in footer  
+            <!-- buttons in footer -->
 			<f:facet name="footer">
 			  <h:panelGroup>
-			  <p:commandButton id="saveButton" value="#{messages.save}" action="#{addReaderForm.save}" 
+			  <p:commandButton id="saveButton" value="#{messages.save}" action="#{addLibrarianForm.save}" 
 			      ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
-			  <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{addReaderForm.reset}" title="#{messages.reset_help}" update="panel" />
+			  <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{addLibrarianForm.reset}" title="#{messages.reset_help}" update="panel" />
 			  <p:commandButton id="cancelButton" value="#{messages.cancel}"
-                  action="#{addReaderForm.cancel}" immediate="true"  title="#{messages.cancel_help} "/>
+                  action="#{addLibrarianForm.cancel}" immediate="true"  title="#{messages.cancel_help} "/>
               </h:panelGroup>
              </f:facet>                
         </h:panelGrid>  
-    </p:panel> --> 
+    </p:panel>
 
     <p:messages showDetail="true" autoUpdate="true"/>
     <p:defaultCommand target="saveButton"/>
