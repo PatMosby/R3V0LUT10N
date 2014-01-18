@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+>
+<!-- Form for file upload -->
+<!-- http://www.primefaces.org/showcase/ui/datatableCellEditing.jsf -->
+<h:head>
+    <title>#{messages.readerlisttitle}</title>
+</h:head>
+<h:body>
+<h:outputStylesheet name="css/bib.css" />
+<f:view>
+	<!-- we can ignore the enter key event altogether in this form by 
+	   setting the form attribute as follows: onkeypress="return event.keyCode != 13";
+	   an alternative is to use p:defaultCommand -->
+    <h:form id="form" onkeypress="return event.keyCode != 13">
+    <ui:include src="/mainmenu.xhtml" />
+    
+    <!--  draggableColumns="true" does not work in Primefaces 3.5. It will hinder editing filter fields -->
+    <!--  it is claimed, this bug was fixed in 3.5.1, but that version is not available -->
+    <p:dataTable id="readerTable" 
+     value="#{readerTable.model}" 
+     var="reader"
+     lazy="true"
+     sortMode="multiple"
+     editable="#{readerTable.modifiable}"
+     filteredValue="#{readerTable.filteredElements}"
+     emptyMessage="#{messages.noReadersFound}" 
+     selection="#{readerTable.selectedElements}"
+     resizableColumns="true" liveResize="true"
+     paginator="true"
+     rows="25"
+     rowsPerPageTemplate="10,25,50,100,200,500,1000"
+     >  
+  
+      <f:facet name="header" value="#{messages.readerlisttitle}" />  
+                  
+      <p:column selectionMode="multiple" style="width:2%" />
+
+      <p:column style="width:2%">  
+          <p:rowToggler />  
+      </p:column>  
+        
+      <!-- ID -->
+      <p:column id="IDColumn" sortBy="#{reader.id}" filterBy="#{reader.id}"   
+                headerText="#{messages.id}"
+                filterMatchMode="startsWith">  
+        <h:outputText value="#{reader.id}" />   
+      </p:column>  
+                  
+      <!-- Last Name -->
+      <p:column id="lastNameColumn" sortBy="#{reader.lastName}" filterBy="#{reader.lastName}"  
+              headerText="#{messages.lastname}" filterMatchMode="contains">
+        <h:outputText value="#{reader.lastName}" />   
+      </p:column>  
+  
+      <!-- First Name -->
+      <p:column id="firstNameColumn" sortBy="#{reader.firstName}" filterBy="#{reader.firstName}"  
+              headerText="#{messages.firstname}" filterMatchMode="contains">
+        <h:outputText value="#{reader.firstName}" />  
+      </p:column>
+
+	  <!-- Important note on time converters: JSF defaults to UTC timezone 
+        for date/time converters. To override this, you need to set the timeZone attribute 
+        (e.g., timeZone="CET") in every date/time converter. Or, if you want to override the 
+        default UTC timezone to be the operating platform default timezone, then you need 
+        to add an appropriate context param to web.xml -->
+
+      <!-- Birthday -->
+      <p:column id="birthdayColumn" sortBy="#{reader.birthday}"   
+              headerText="#{messages.birthday}" >
+        <h:outputText value="#{reader.birthday}" >
+          <f:convertDateTime pattern="dd.MM.yyyy" />
+        </h:outputText>   
+      </p:column>
+  
+      <!-- trigger for editing row -->
+      <p:column id="rowEditorColumn" style="width:6%">  
+        <p:commandButton icon="ui-icon-pencil" style="width: auto; height: 20px" action="#{changeReaderForm.edit(reader)}" />
+      </p:column> 
+        
+      <f:facet name="footer">
+        <p:commandButton id="newReader" value="#{messages.newReader}" icon="ui-icon-circle-plus" action="add" ></p:commandButton>
+        <p:commandButton id="printButton" value="#{messages.print}"  title="#{messages.printIDCard_help}" update="@parent" ajax="false"
+          icon="ui-icon-print">
+          <p:fileDownload value="#{readerTable.pDF}" />
+        </p:commandButton>
+        <p:commandButton id="csvButton" value="#{messages.csvexport}"  title="#{messages.csvexport_help}" update="@parent" ajax="false"
+          icon="ui-icon-folder-open">
+          <p:fileDownload value="#{readerTable.cSV}" />
+        </p:commandButton>
+        <p:commandButton type="button" onclick="confirmDialog.show()" value="#{messages.delete}"  title="#{messages.delete_help}" update="@parent"
+            icon="ui-icon-trash" />
+      </f:facet>
+
+      <p:rowExpansion> 
+         <h:panelGrid id="displayDetails" columns="2" cellpadding="5" style="width:700px;"
+                      styleClass=" ui-widget-content grid">
+            <!-- username -->
+			<h:outputLabel for="username" value="#{messages.username}" />
+            <h:outputText id="username" value="#{reader.username}" />
+
+            <!-- email -->
+            <h:outputLabel for="email" value="#{messages.email}" />
+            <h:outputText id="email" value="#{reader.email}" /> 
+                        
+            <!-- street -->
+            <h:outputLabel for="street" value="#{messages.street}" />
+            <h:outputText id="street" value="#{reader.street}" />                
+                    
+            <!-- zipcode -->
+            <h:outputLabel for="zipcode" value="#{messages.zipcode}" />
+            <h:outputText id="zipcode" value="#{reader.zipcode}" />               
+            
+            <!-- city -->
+            <h:outputLabel for="city" value="#{messages.city}" />
+            <h:outputText id="city" value="#{reader.city}" /> 
+
+            <!-- phone -->
+            <h:outputLabel for="phone" value="#{messages.phone}" />
+            <h:outputText id="phone" value="#{reader.phone}" />      
+            
+            <!-- entryDate -->
+            <h:outputLabel for="entryDate" value="#{messages.entryDate}" />
+            <h:outputText id="entryDate" value="#{reader.entryDate}" >
+               <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET"/>
+            </h:outputText> 
+                            
+            <!-- lastUse -->
+            <h:outputLabel for="lastUse" value="#{messages.lastUse}" />
+            <h:outputText id="lastUse" value="#{reader.lastUse}"  >
+               <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET"/>
+            </h:outputText>
+
+			<!-- note -->
+			<h:outputLabel for="note" value="#{messages.note}" />
+			<h:outputText id="note" value="#{reader.note}" />
+            
+        </h:panelGrid>  
+      </p:rowExpansion>  
+        
+    </p:dataTable>
+
+     <p:fileUpload fileUploadListener="#{readerTable.handleFileUpload}" 
+                  mode="advanced"
+                  label="#{messages.fileselect}"
+                  uploadLabel="#{messages.upload}" 
+                  cancelLabel="#{messages.cancel}"
+                  invalidSizeMessage="#{messages.invalidSizeMessage}"
+                  invalidFileMessage="#{messages.invalidFileMessage}"
+                  fileLimitMessage="#{messages.fileLimitMessage}"
+                  update="messages, readerTable" 
+                  sizeLimit="100000" fileLimit="3" 
+                  allowTypes="/(\.|\/)csv$/" >
+    </p:fileUpload>
+
+    <p:confirmDialog message="#{messages.deleteSelectedQuestion}"
+            header="#{messages.delete}" severity="alert" widgetVar="confirmDialog">
+      <p:commandButton value="#{messages.yes}" actionListener="#{readerTable.deleteSelected}"
+           styleClass="ui-confirmdialog-yes" icon="ui-icon-check"
+           update="messages, readerTable" oncomplete="confirmDialog.hide()" />
+      <p:commandButton value="#{messages.no}" onclick="confirmDialog.hide();" type="button"
+           styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+    </p:confirmDialog>
+
+    <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+</h:form>
+</f:view>
+</h:body>
+</html>

@@ -201,15 +201,15 @@
 
     <!-- admin form -->        
     <navigation-rule>
-        <display-name>admin/admin.xhtml</display-name>
-        <from-view-id>/admin/admin.xhtml</from-view-id>
+        <display-name>admin/manlib.xhtml</display-name>
+        <from-view-id>/admin/manlib.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>success</from-outcome>
-            <to-view-id>/admin/admin.xhtml</to-view-id>
+            <to-view-id>/admin/manlib.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>cancel</from-outcome>
-            <to-view-id>/admin/admin.xhtml</to-view-id>
+            <to-view-id>/admin/manlib.xhtml</to-view-id>
         </navigation-case>      
     </navigation-rule>
     	

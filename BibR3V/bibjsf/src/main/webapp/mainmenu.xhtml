@@ -52,14 +52,14 @@
 			</p:submenu>
 
 			<p:submenu label="#{messages.administration}" icon="ui-icon-gear" rendered="#{request.isUserInRole('ADMIN')}">
-				<p:menuitem value="#{messages.addlibrarian}" url="/admin/addlibrarian.xhtml"/>
+				<p:menuitem value="#{messages.managelibrarian}" url="/admin/manlib.xhtml"/>
 				<p:menuitem value="#{messages.resetDB}" url="#"/>
 				<p:menuitem value="#{messages.restoreDB}" url="#"/>
 				<p:menuitem value="#{messages.backupDB}" url="#"/>
 			</p:submenu>
 
 			<p:menuitem value="#{messages.login}" icon="ui-icon-extlink"
-				url="/faces/login.xhtml" rendered="#{!request.isUserInRole('USER')}" />
+				url="/faces/login.xhtml" rendered="#{!request.isRequestedSessionIdValid()}" />
 				
 			<p:menuitem value="#{messages.logout}" icon="ui-icon-extlink" 
 				action="#{authBackingBean.logout}" rendered="#{request.isUserInRole('USER')}"/>

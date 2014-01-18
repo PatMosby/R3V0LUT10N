@@ -23,6 +23,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
@@ -44,9 +45,11 @@ public class AuthBackingBean {
 	  //    String result="index";
 	  FacesContext context = FacesContext.getCurrentInstance();
 	  HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();
+	  HttpSession session = (HttpSession)context.getExternalContext().getSession(false);
 
 	  try {
 		  request.logout();
+		  session.invalidate();
 	  } catch (ServletException e) {
 		  log.error("ERROR in logout: " + e.getLocalizedMessage());
 		  result = "/loginError?faces-redirect=true";
