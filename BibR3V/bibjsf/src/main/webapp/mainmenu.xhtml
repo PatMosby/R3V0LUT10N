@@ -53,9 +53,7 @@
 
 			<p:submenu label="#{messages.administration}" icon="ui-icon-gear" rendered="#{request.isUserInRole('ADMIN')}">
 				<p:menuitem value="#{messages.managelibrarian}" url="/admin/manlib.xhtml"/>
-				<p:menuitem value="#{messages.resetDB}" url="#"/>
-				<p:menuitem value="#{messages.restoreDB}" url="#"/>
-				<p:menuitem value="#{messages.backupDB}" url="#"/>
+				<p:menuitem value="#{messages.manageDB}" url="/admin/mandata.xhtml"/>
 			</p:submenu>
 
 			<p:menuitem value="#{messages.login}" icon="ui-icon-extlink"

@@ -1103,7 +1103,7 @@ public class Data implements Persistence {
 		return getElements(constraints, from, to, order, readerTableName,
 				Reader.class);
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 *
@@ -1573,7 +1573,7 @@ public class Data implements Persistence {
 		logger.debug("get reader with ID=" + id);
 		return getReaderWhere("ID", id);
 	}
-
+	
 	/**
 	 * Returns a single reader whose attribute <code>fieldName</code> has the
 	 * value <code>fieldValue</code>.

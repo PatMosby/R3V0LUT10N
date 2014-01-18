@@ -15,58 +15,125 @@
 	<h:form id="form">
         <ui:include src="/mainmenu.xhtml" />
 
-		<h1>#{messages.administration}</h1>
+		<h1>#{messages.managelibrarian}</h1>
+		
+		<p:dataTable id="readerTable" 
+     value="#{readerTable.model}" 
+     var="reader"
+     lazy="true"
+     sortMode="multiple"
+     editable="#{readerTable.modifiable}"
+     filteredValue="#{readerTable.filteredElements}"
+     emptyMessage="#{messages.noReadersFound}" 
+     selection="#{readerTable.selectedElements}"
+     resizableColumns="true" liveResize="true"
+     paginator="true"
+     rows="25"
+     rowsPerPageTemplate="10,25,50,100,200,500,1000"
+     >  
+  
+      <f:facet name="header" value="#{messages.readerlisttitle}" />  
+                  
+      <p:column selectionMode="multiple" style="width:2%" />
 
-		<h:panelGrid columns="4">
-			<p:commandButton value="#{messages.backupDB}" icon="ui-icon-disk"
-				onclick="confirmBackupDBDialog.show()" update="@parent" />
-			<p:commandButton value="#{messages.restoreDB}"
-				icon="ui-icon-arrowrefresh-1-w"
-				onclick="confirmRestoreDBDialog.show()" update="@parent" />
-			<p:commandButton value="#{messages.resetDB}" icon="ui-icon-trash"
-				onclick="confirmResetDBDialog.show()" update="@parent" />
-			<p:commandButton value="#{messages.addlibrarian}" icon="ui-icon-add"
-				url="/addlibrarian.xhtml" />
-		</h:panelGrid>
+      <p:column style="width:2%">  
+          <p:rowToggler />  
+      </p:column>  
+        
+      <!-- ID -->
+      <p:column id="IDColumn" sortBy="#{reader.id}" filterBy="#{reader.id}"   
+                headerText="#{messages.id}"
+                filterMatchMode="startsWith">  
+        <h:outputText value="#{reader.id}" />   
+      </p:column>  
+                  
+      <!-- Last Name -->
+      <p:column id="lastNameColumn" sortBy="#{reader.lastName}" filterBy="#{reader.lastName}"  
+              headerText="#{messages.lastname}" filterMatchMode="contains">
+        <h:outputText value="#{reader.lastName}" />   
+      </p:column>  
+  
+      <!-- First Name -->
+      <p:column id="firstNameColumn" sortBy="#{reader.firstName}" filterBy="#{reader.firstName}"  
+              headerText="#{messages.firstname}" filterMatchMode="contains">
+        <h:outputText value="#{reader.firstName}" />  
+      </p:column>
 
-		<p:confirmDialog id="resetDBDialog"
-			message="#{messages.resetDBquestion}" header="#{messages.delete}"
-			severity="alert" widgetVar="confirmResetDBDialog">
-			<p:commandButton id="resetDBDialogyes" value="#{messages.yes}"
-				actionListener="#{administration.resetDB}"
-				styleClass="ui-confirmdialog-yes" icon="ui-icon-check"
-				update="messages" oncomplete="confirmResetDBDialog.hide()" />
-			<p:commandButton id="resetDBDialogno" value="#{messages.no}"
-				onclick="confirmResetDBDialog.hide();" type="button"
-				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-		</p:confirmDialog>
+	  <!-- Important note on time converters: JSF defaults to UTC timezone 
+        for date/time converters. To override this, you need to set the timeZone attribute 
+        (e.g., timeZone="CET") in every date/time converter. Or, if you want to override the 
+        default UTC timezone to be the operating platform default timezone, then you need 
+        to add an appropriate context param to web.xml -->
 
-		<p:confirmDialog id="backupDBDialog"
-			message="#{messages.backupDBquestion}" header="#{messages.backupDB}"
-			severity="alert" widgetVar="confirmBackupDBDialog">
-			<p:commandButton id="backupDBDialogyes" value="#{messages.yes}"
-				actionListener="#{administration.backupDB}"
-				styleClass="ui-confirmdialog-yes" icon="ui-icon-check"
-				update="messages" oncomplete="confirmBackupDBDialog.hide()" />
-			<p:commandButton id="backupDBDialogno" value="#{messages.no}"
-				onclick="confirmBackupDBDialog.hide();" type="button"
-				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-		</p:confirmDialog>
+      <!-- Birthday -->
+      <p:column id="birthdayColumn" sortBy="#{reader.birthday}"   
+              headerText="#{messages.birthday}" >
+        <h:outputText value="#{reader.birthday}" >
+          <f:convertDateTime pattern="dd.MM.yyyy" />
+        </h:outputText>   
+      </p:column>
+  
+      <!-- trigger for editing row -->
+      <p:column id="rowEditorColumn" style="width:6%">  
+        <p:commandButton icon="ui-icon-pencil" style="width: auto; height: 20px" action="#{changeReaderForm.edit(reader)}" />
+      </p:column> 
+        
+      <f:facet name="footer">
+        <p:commandButton id="newReader" value="#{messages.addlibrarian}" icon="ui-icon-circle-plus" action="add" ></p:commandButton>
+        <p:commandButton type="button" value="#{messages.editlibrarian}" icon="ui-icon-pencil" action="#{changeReaderForm.edit(reader)}" />
+        <p:commandButton type="button" onclick="confirmDialog.show()" value="#{messages.delete}"  title="#{messages.delete_help}" update="@parent"
+            icon="ui-icon-trash" />
+      </f:facet>
 
-		<p:confirmDialog id="restoreDBDialog"
-			message="#{messages.restoreDBquestion}"
-			header="#{messages.restoreDB}" severity="alert"
-			widgetVar="confirmRestoreDBDialog">
-			<p:commandButton id="restoreDBDialogyes" value="#{messages.yes}"
-				actionListener="#{administration.restoreDB}"
-				styleClass="ui-confirmdialog-yes" icon="ui-icon-check"
-				update="messages" oncomplete="confirmRestoreDBDialog.hide()" />
-			<p:commandButton id="restoreDBDialogno" value="#{messages.no}"
-				onclick="confirmRestoreDBDialog.hide();" type="button"
-				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-		</p:confirmDialog>
+      <p:rowExpansion> 
+         <h:panelGrid id="displayDetails" columns="2" cellpadding="5" style="width:700px;"
+                      styleClass=" ui-widget-content grid">
+            <!-- username -->
+			<h:outputLabel for="username" value="#{messages.username}" />
+            <h:outputText id="username" value="#{reader.username}" />
 
-        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+            <!-- email -->
+            <h:outputLabel for="email" value="#{messages.email}" />
+            <h:outputText id="email" value="#{reader.email}" /> 
+                        
+            <!-- street -->
+            <h:outputLabel for="street" value="#{messages.street}" />
+            <h:outputText id="street" value="#{reader.street}" />                
+                    
+            <!-- zipcode -->
+            <h:outputLabel for="zipcode" value="#{messages.zipcode}" />
+            <h:outputText id="zipcode" value="#{reader.zipcode}" />               
+            
+            <!-- city -->
+            <h:outputLabel for="city" value="#{messages.city}" />
+            <h:outputText id="city" value="#{reader.city}" /> 
+
+            <!-- phone -->
+            <h:outputLabel for="phone" value="#{messages.phone}" />
+            <h:outputText id="phone" value="#{reader.phone}" />      
+            
+            <!-- entryDate -->
+            <h:outputLabel for="entryDate" value="#{messages.entryDate}" />
+            <h:outputText id="entryDate" value="#{reader.entryDate}" >
+               <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET"/>
+            </h:outputText> 
+                            
+            <!-- lastUse -->
+            <h:outputLabel for="lastUse" value="#{messages.lastUse}" />
+            <h:outputText id="lastUse" value="#{reader.lastUse}"  >
+               <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET"/>
+            </h:outputText>
+
+			<!-- note -->
+			<h:outputLabel for="note" value="#{messages.note}" />
+			<h:outputText id="note" value="#{reader.note}" />
+            
+        </h:panelGrid>  
+      </p:rowExpansion>  
+        
+    </p:dataTable>
+
+		<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 
 	</h:form>
 </h:body>

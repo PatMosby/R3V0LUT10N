@@ -24,7 +24,7 @@
     <!--  draggableColumns="true" does not work in Primefaces 3.5. It will hinder editing filter fields -->
     <!--  it is claimed, this bug was fixed in 3.5.1, but that version is not available -->
     <p:dataTable id="readerTable" 
-     value="#{readerTable.model}" 
+     value="#{readerHandler.getLibrarians}" 
      var="reader"
      lazy="true"
      sortMode="multiple"

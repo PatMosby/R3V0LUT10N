@@ -208,7 +208,7 @@ public interface Persistence {
 	public List<Reader> getReaders(List<Constraint> constraints,
 			final int from, final int to, List<OrderBy> order)
 			throws DataSourceException;
-
+	
 	/**
 	 * Returns the number of readers fulfilling the given constraints.
 	 *

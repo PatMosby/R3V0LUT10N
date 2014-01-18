@@ -66,7 +66,7 @@ public abstract class BusinessObjectHandler<BusinessObject> extends BusinessHand
      */
     public abstract List<BusinessObject> get(List<Constraint> constraints, final int from, final int to, List<OrderBy> order)
        throws DataSourceException;
-
+    
     /**
      * The number of elements fulfilling given constraints.
      * @param constraints the set of constraints to be fulfilled to be counted

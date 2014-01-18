@@ -86,7 +86,7 @@ public class ReaderHandler extends BusinessObjectHandler<Reader> {
             throws DataSourceException {
         return persistence.getReaders(constraints, from, to, order);
     }
-
+    
     /**
      * Adds reader to database. Reader must not yet exist.
      *
