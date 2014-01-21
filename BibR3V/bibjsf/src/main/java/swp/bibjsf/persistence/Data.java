@@ -124,9 +124,18 @@ public class Data implements Persistence {
 	 */
 	private static final String UsernameField = "username";
 	/**
-	 * The name of the table in the database where the books are stored.
+	 * The name of the tables in the database where the mediums are stored.
 	 */
+	private final static String mediumTableName = "MEDIUM";
 	private final static String bookTableName = "BOOK";
+	private final static String magazineTableName = "MAGAZINE";
+	private final static String softwareTableName = "SOFTWARE";
+	private final static String audiobookTableName = "AUDIOBOOK";
+	private final static String cdTableName = "CD";
+	private final static String movieTableName = "MOVIE";
+	private final static String cassetteTableName = "CASSETTE";
+	private final static String otherTableName = "OTHER";
+	
 	/*
 	 * The minimal ID a book can have. We are using different ranges for book
 	 * and reader IDs to avoid user input mistakes. By making sure the ID ranges
@@ -253,13 +262,26 @@ public class Data implements Persistence {
 		for (String name : tableNames) {
 			logger.debug("database table " + name + " exists");
 		}
+		if (!tableExists(tableNames, mediumTableName)) {
+			logger.debug("database table " + mediumTableName
+					+ " does not exist, creating new one");
+			// The table of all books in the library.
+			run.update("CREATE TABLE " + mediumTableName
+					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
+					+ "categories VARCHAR(128), " + "dateOfAddition DATE, "
+					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
+					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
+					+ "language VARCHAR(2), " + "subcategories VARCHAR(128), "
+					+ "price DECIMAL(10,2), " + "subtitle VARCHAR(128), "
+					+ "title VARCHAR(256)" + ")");
+		}
 		if (!tableExists(tableNames, bookTableName)) {
 			logger.debug("database table " + bookTableName
 					+ " does not exist, creating new one");
 			// The table of all books in the library.
 			run.update("CREATE TABLE " + bookTableName
 					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
-					+ "authors VARCHAR(256), " + "avgrating DOUBLE, "
+					+ "authors VARCHAR(256), "
 					+ "categories VARCHAR(128), " + "dateOfAddition DATE, "
 					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
 					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
@@ -268,7 +290,114 @@ public class Data implements Persistence {
 					+ "pageCount INT, " + "previewLink VARCHAR(128), "
 					+ "price DECIMAL(10,2), " + "printType VARCHAR(64), "
 					+ "publisher VARCHAR(64), " + "subtitle VARCHAR(128), "
-					+ "title VARCHAR(256), " + "votes INT" + ")");
+					+ "title VARCHAR(256)" + ")");
+		}
+		if (!tableExists(tableNames, magazineTableName)) {
+			logger.debug("database table " + magazineTableName
+					+ " does not exist, creating new one");
+			// The table of all books in the library.
+			run.update("CREATE TABLE " + magazineTableName
+					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
+					+ "categories VARCHAR(128), " + "dateOfAddition DATE, "
+					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
+					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
+					+ "language VARCHAR(2), " + "subcategories VARCHAR(128), "
+					+ "price DECIMAL(10,2), " + "printType VARCHAR(64), "
+				    + "subtitle VARCHAR(128), "
+					+ "title VARCHAR(256), " + "editorList VARCHAR(256), "
+					+ industrialIdentifier + "printType VARCHAR(64), " 
+					+ "pageCount INT, " + "publisher VARCHAR(64), " 
+					+ "previewLink VARCHAR(128)" + ")");
+		}
+		if (!tableExists(tableNames, softwareTableName)) {
+			logger.debug("database table " + softwareTableName
+					+ " does not exist, creating new one");
+			// The table of all books in the library.
+			run.update("CREATE TABLE " + softwareTableName
+					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
+					+ "categories VARCHAR(128), " + "dateOfAddition DATE, "
+					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
+					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
+					+ "language VARCHAR(2), " + "subcategories VARCHAR(128), "
+					+ "price DECIMAL(10,2), " + "printType VARCHAR(64), "
+					+ "publisher VARCHAR(64), " + "subtitle VARCHAR(128), "
+					+ "title VARCHAR(256), " +  "media INT" + ")");
+		}
+		if (!tableExists(tableNames, audiobookTableName)) {
+			logger.debug("database table " + audiobookTableName
+					+ " does not exist, creating new one");
+			// The table of all books in the library.
+			run.update("CREATE TABLE " + audiobookTableName
+					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
+					+ "categories VARCHAR(128), " + "dateOfAddition DATE, "
+					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
+					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
+					+ "language VARCHAR(2), " + "subcategories VARCHAR(128), "
+					+ "price DECIMAL(10,2), " + "printType VARCHAR(64), "
+					+ "publisher VARCHAR(64), " + "subtitle VARCHAR(128), "
+					+ "title VARCHAR(256), " + "media INT, " 
+					+ "playTime INT" + ")");
+		}
+		if (!tableExists(tableNames, cdTableName)) {
+			logger.debug("database table " + cdTableName
+					+ " does not exist, creating new one");
+			// The table of all books in the library.
+			run.update("CREATE TABLE " + cdTableName
+					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
+					+ "categories VARCHAR(128), " + "dateOfAddition DATE, "
+					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
+					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
+					+ "language VARCHAR(2), " + "subcategories VARCHAR(128), "
+					+ "price DECIMAL(10,2), " + "printType VARCHAR(64), "
+					+ "subtitle VARCHAR(128), "
+					+ "title VARCHAR(256), " + "artistList VARCHAR(256), "
+					+ "label VARCHAR(64), "+ "media INT, " 
+					+ "playTime INT, " + "titleCount INT" + ")");
+		}
+		if (!tableExists(tableNames, movieTableName)) {
+			logger.debug("database table " + movieTableName
+					+ " does not exist, creating new one");
+			// The table of all books in the library.
+			run.update("CREATE TABLE " + movieTableName
+					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
+					+ "categories VARCHAR(128), " + "dateOfAddition DATE, "
+					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
+					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
+					+ "language VARCHAR(2), " + "subcategories VARCHAR(128), "
+					+ "price DECIMAL(10,2), " + "printType VARCHAR(64), "
+					+ "subtitle VARCHAR(128), "
+					+ "title VARCHAR(256), " + "regisseur VARCHAR(128), "
+					+ "media INT, " + "playTime INT, "
+					+ "filmPublisher VARCHAR(128), " + "fsk INT" + ")");
+		}
+		if (!tableExists(tableNames, cassetteTableName)) {
+			logger.debug("database table " + cassetteTableName
+					+ " does not exist, creating new one");
+			// The table of all books in the library.
+			run.update("CREATE TABLE " + cassetteTableName
+					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
+					+ "categories VARCHAR(128), " + "dateOfAddition DATE, "
+					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
+					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
+					+ "language VARCHAR(2), " + "subcategories VARCHAR(128), "
+					+ "price DECIMAL(10,2), " + "printType VARCHAR(64), "
+					+ "publisher VARCHAR(64), " + "subtitle VARCHAR(128), "
+					+ "title VARCHAR(256), " + "playTime INT" + ")");
+		}
+		if (!tableExists(tableNames, otherTableName)) {
+			logger.debug("database table " + otherTableName
+					+ " does not exist, creating new one");
+			// The table of all books in the library.
+			run.update("CREATE TABLE " + otherTableName
+					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
+					+ "categories VARCHAR(128), " + "dateOfAddition DATE, "
+					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
+					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
+					+ "language VARCHAR(2), " + "subcategories VARCHAR(128), "
+					+ "price DECIMAL(10,2), " + "printType VARCHAR(64), "
+					+ "subtitle VARCHAR(128), "
+					+ "title VARCHAR(256), " + "author VARCHAR(256), "
+					+ "producer VARCHAR(128)" + ")");
 		}
 		if (!tableExists(tableNames, readerTableName)) {
 			logger.debug("database table " + readerTableName
