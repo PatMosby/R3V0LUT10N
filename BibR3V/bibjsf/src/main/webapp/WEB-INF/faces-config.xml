@@ -83,6 +83,33 @@
         </navigation-case> 
     </navigation-rule>
     
+    
+    <navigation-rule>
+        <display-name>admin/manlib.xhtml</display-name>
+        <from-view-id>admin/manlib.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/admin/addlibrarian.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/admin/changelibrarian.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/admin/manlib.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>reset</from-outcome>
+            <to-view-id>/admin/changelibrarian.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/admin/changelibrarian.xhtml</to-view-id>
+        </navigation-case> 
+    </navigation-rule>
+    
+    
     <!-- librarian addition form -->   
     <navigation-rule>
         <display-name>admin/addlibrarian.xhtml</display-name>
@@ -102,6 +129,28 @@
         <navigation-case>
             <from-outcome>error</from-outcome>
             <to-view-id>/admin/addlibrarian.xhtml</to-view-id>
+        </navigation-case> 
+    </navigation-rule>
+    
+    <!-- librarian change form -->   
+    <navigation-rule>
+        <display-name>/admin/changelibrarian.xhtml</display-name>
+        <from-view-id>/admin/changelibrarian.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/admin/manlib.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/admin/manlib.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>reset</from-outcome>
+            <to-view-id>/admin/changelibrarian.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/admin/changelibrarian.xhtml</to-view-id>
         </navigation-case> 
     </navigation-rule>
     

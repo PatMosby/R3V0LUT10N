@@ -80,7 +80,6 @@
         
       <f:facet name="footer">
         <p:commandButton id="newReader" value="#{messages.addlibrarian}" icon="ui-icon-circle-plus" action="add" ></p:commandButton>
-        <p:commandButton type="button" value="#{messages.editlibrarian}" icon="ui-icon-pencil" action="#{changeReaderForm.edit(reader)}" />
         <p:commandButton type="button" onclick="confirmDialog.show()" value="#{messages.delete}"  title="#{messages.delete_help}" update="@parent"
             icon="ui-icon-trash" />
       </f:facet>
@@ -132,6 +131,15 @@
       </p:rowExpansion>  
         
     </p:dataTable>
+    
+    <p:confirmDialog message="#{messages.deleteSelectedQuestion}"
+            header="#{messages.delete}" severity="alert" widgetVar="confirmDialog">
+      <p:commandButton value="#{messages.yes}" actionListener="#{readerTable.deleteSelected}"
+           styleClass="ui-confirmdialog-yes" icon="ui-icon-check"
+           update="messages, readerTable" oncomplete="confirmDialog.hide()" />
+      <p:commandButton value="#{messages.no}" onclick="confirmDialog.hide();" type="button"
+           styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+    </p:confirmDialog>
 
 		<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 
