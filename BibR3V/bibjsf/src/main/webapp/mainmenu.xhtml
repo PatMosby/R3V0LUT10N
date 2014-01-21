@@ -14,9 +14,16 @@
 				url="/index.xhtml" />
 
 			<p:submenu label="#{messages.books}" icon="ui-icon-document">
-				<p:menuitem value="#{messages.search}" url="/book/list.xhtml" />
-				<p:menuitem value="#{messages.add}" url="/book/add.xhtml" rendered="#{request.isUserInRole('LIBRARIAN')}"/>
-				<p:menuitem value="#{messages.list}" url="/book/list.xhtml" />
+				<p:menuitem value="#{messages.add}" url="/book/auth/add.xhtml" rendered="#{request.isUserInRole('LIBRARIAN')}"/>
+				<p:menuitem value="#{messages.listall}" url="/all/list.xhtml" />
+				<p:menuitem value="#{messages.audiobooks}" url="/audibook/list.xhtml" />
+				<p:menuitem value="#{messages.books}" url="/book/list.xhtml" />
+				<p:menuitem value="#{messages.cassettes}" url="/cassette/list.xhtml" />
+				<p:menuitem value="#{messages.cds}" url="/cd/list.xhtml" />
+				<p:menuitem value="#{messages.magazines}" url="/magazine/list.xhtml" />
+				<p:menuitem value="#{messages.movies}" url="/movie/list.xhtml" />
+				<p:menuitem value="#{messages.software}" url="/software/list.xhtml" />
+				<p:menuitem value="#{messages.other}" url="/other/list.xhtml" />
 			</p:submenu>
 
 			<p:submenu label="#{messages.readers}" icon="ui-icon-arrowreturnthick-1-e" rendered="#{request.isUserInRole('LIBRARIAN')}">
