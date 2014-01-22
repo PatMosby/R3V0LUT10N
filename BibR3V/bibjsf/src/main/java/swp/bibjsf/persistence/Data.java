@@ -476,12 +476,26 @@ public class Data implements Persistence {
 		}
 	}
 	
+	/**
+	 * Fügt einen Leser mit Benutzerrolle eines Lesers
+	 * in die Benutzerrollentabelle ein.
+	 * @param username
+	 * @throws DataSourceException
+	 * @throws SQLException
+	 */
 	private void insertUser(String username) throws DataSourceException, SQLException {
 			logger.debug("inserting user to USER");
 			run.update("insert into " + groupTableName + "(" + UsernameField
 					+ ",groupid) values ('" + username + "', '" + USERGROUP + "')");
 	}
 	
+	/**
+	 * Fügt einen Bibliothekar mit Benutzerrolle eines Bibliothekaren
+	 * in die Benutzerollentabelle ein.
+	 * @param username
+	 * @throws DataSourceException
+	 * @throws SQLException
+	 */
 	private void insertLibrarian(String username) throws DataSourceException, SQLException {
 		logger.debug("inserting user to LIBRARIAN");
 		run.update("insert into " + groupTableName + "(" + UsernameField

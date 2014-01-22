@@ -58,6 +58,10 @@ public class AuthBackingBean {
 	  return result;
   }
   
+  /**
+   * Überprüft ob ein Client eingeloggt ist.
+   * @return true wenn Client eingeloggt ist
+   */
   public boolean isLoggedIn(){
 	  FacesContext context = FacesContext.getCurrentInstance();
 	  HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();
