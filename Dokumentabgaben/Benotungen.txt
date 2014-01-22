@@ -1,0 +1,20 @@
+Dokument																	Gewicht				Note
+
+Projektplan																6%						2.2
+Anforderungsspezifikation									15%						2.9
+Angebot																		1%						2.0
+GUI-Prototyp															6%						1.6
+Architekturbeschreibung										16%						2.8
+Schnittstellenbeschreibung								6%						5.0
+Blackbox-Tests														4%						5.0
+Erste lauffähige Basisversion 
+	(Abgabe durch Vorführung)								0%
+Whitebox-Tests														4%
+Testplan																	8%						2.0
+Testprotokoll															7%
+Implementierung														21%
+Akzeptanztest (Abgabe durch Vorführung)		0%
+Benutzerdokumentation											4%
+Berichtshefte 
+	(regelmäßige Abgaben über MEMS)					0%
+Abschlusspräsentation (kein Dokument)			2%
