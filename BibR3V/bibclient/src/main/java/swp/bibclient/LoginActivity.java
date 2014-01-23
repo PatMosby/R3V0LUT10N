@@ -33,9 +33,6 @@ public class LoginActivity extends Activity {
 		
 			public final void onClick(final View arg0) {
 				
-				Intent intent = new Intent(getApplicationContext(),
-						BooksActivity.class);
-				startActivity(intent);
 			}
 		});	
 		
@@ -45,7 +42,7 @@ public class LoginActivity extends Activity {
 			public final void onClick(final View arg0) {
 				
 				Intent intent = new Intent(getApplicationContext(),
-						BooksActivity.class);
+						MainActivity.class);
 				startActivity(intent);
 			}
 		});	

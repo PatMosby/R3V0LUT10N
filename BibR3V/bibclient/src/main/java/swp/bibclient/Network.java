@@ -41,6 +41,7 @@ import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 
 import swp.bibcommon.Book;
+import swp.bibcommon.Medium;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -70,15 +71,20 @@ public class Network {
      * Pfad zum Buchservices.
      */
     private final String bookpath = "/bibjsf/rest/books";
+    
+    /**
+     * Pfad zum Mediumservice.
+     */
+    private final String mediumpath = "/bibjsf/rest/mediums";
 
     /**
-     * Fragt bei einem Server nach den Büchern an.
+     * Fragt bei einem Server nach den Medien an.
      *
-     * @return Die Liste der Bücher.
+     * @return Die Liste der Medien.
      * @throws IOException
-     *             Kann geworden werden bei IO-Problemen.
+     *             Kann geworfen werden bei IO-Problemen.
      */
-    public final List<Book> getBooks() throws IOException {
+    public final List<Medium> getMediums() throws IOException {
         DefaultHttpClient httpClient = new DefaultHttpClient();
 
         // Setzen eines ConnectionTimeout von 2 Sekunden:
@@ -89,7 +95,7 @@ public class Network {
         // Der BibServer sollte lokal laufen, daher zugriff auf Localhost
         // 10.0.2.2 für den AndroidEmulator.
         HttpContext localContext = new BasicHttpContext();
-        HttpGet httpGet = new HttpGet(server + bookpath);
+        HttpGet httpGet = new HttpGet(server + mediumpath);
         String text = null;
 
         Log.i(Network.class.getName(), "Try to get a http connection...");
@@ -101,7 +107,7 @@ public class Network {
         Log.i(Network.class.getName(), "Create listOfTestObject");
         // Wir arbeiten mit einem TypeToken um für eine generische Liste wieder
         // Objekte zu erhalten.
-        Type listOfTestObject = new TypeToken<List<Book>>() { }.getType();
+        Type listOfTestObject = new TypeToken<List<Medium>>() { }.getType();
 
         Log.i(Network.class.getName(), "Convert to a list.");
         /*
@@ -111,8 +117,8 @@ public class Network {
          */
         try {
             @SuppressWarnings("unchecked")
-            List<Book> list
-               = Collections.synchronizedList((List<Book>) gson.fromJson(text, listOfTestObject));
+            List<Medium> list
+               = Collections.synchronizedList((List<Medium>) gson.fromJson(text, listOfTestObject));
             return list;
         } catch (ClassCastException e) {
             throw new ClientProtocolException("Returned type is not a list of book objects");
