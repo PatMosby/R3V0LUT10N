@@ -57,7 +57,8 @@ public class Cassette extends Medium implements Serializable{
 	/**
 	 * Setzt die Spielzeit.
 	 *
-	 * @param note
+	 * @param playtime
+	 *              Spieldauer der Cassette
 	 */
 	public void setPlayTime(int playTime) {
 		this.playTime = playTime;

@@ -46,19 +46,37 @@ public class Other extends Medium implements Serializable{
 	/* ********************
 	 * getter und setter
 	 *********************/
-
+	/**
+	 * Gibt die Autorenliste zurück.
+	 *
+	 * @return Autorenliste
+	 */
 	public String getAutorenliste() {
 		return author;
 	}
-
+	/**
+	 * Setzt die Autorenlist.
+	 *
+	 * @param author
+	 *              Autorenliste
+	 */
 	public void setAutorenliste(String author) {
 		this.author = author;
 	}
-
+	/**
+	 * Gibt den Hersteller zurück.
+	 *
+	 * @return Hersteller
+	 */
 	public String getProducer() {
 		return producer;
 	}
-
+	/**
+	 * Setzt den Hersteller.
+	 *
+	 * @param producer
+	 *              Hersteller des Mediums Sonstiges
+	 */
 	public void setProducer(String producer) {
 		this.producer = producer;
 	}

@@ -93,8 +93,7 @@ public class Book extends Medium implements Serializable {
 	 */
 	private String note;
 	/**
-	 * A list of subject categories, such as "Fiction", "Suspense", etc.
-	 * Categories are separated by ;.
+	 * Ausgabe des Buches
 	 */
 
 	private String printType;

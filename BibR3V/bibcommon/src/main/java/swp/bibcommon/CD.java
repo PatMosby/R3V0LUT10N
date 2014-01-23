@@ -75,7 +75,8 @@ public class CD extends Medium implements Serializable{
 	/**
 	 * Setzt die Spielzeit
 	 *
-	 * @param spielzeit
+	 * @param playtime
+	 *                  spielzeit der CD
 	 */
 	public void setPlayTime(int playTime) {
 		this.playTime = playTime;
