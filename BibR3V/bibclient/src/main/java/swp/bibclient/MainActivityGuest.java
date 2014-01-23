@@ -5,16 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 
 /**
- * Eine Klasse ist zum anzeigen und der zur Ausleihe vorgemerkten
- * Medien.
+ * Die eigentliche Startseite der App für Gäste.
  * 
  * @author Patrick Damrow
  *
  */
 
-public class EarmarkActivity extends Activity{
+public class MainActivityGuest extends Activity{
 	
 	/**
 	 * Die Aktuelle Activity als Referenz für die OnClickListener.
@@ -33,6 +33,8 @@ public class EarmarkActivity extends Activity{
 	public final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.i(this.getClass().getName(), "onCreate");
-		setContentView(R.layout.earmark_layout);
+		setContentView(R.layout.main_guest_layout);
 	}
+
+
 }

@@ -12,12 +12,12 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 
 /**
- * Die Activity um die Medien anzeigen zu lassen in unserer App.
+ * Die Activity um die Medien in einer Liste anzeigen zu lassen.
  *
  * @author Patrick Damrow
  *
  */
-public class MediumsActivity extends Activity {
+public class ListMediumActivity extends Activity {
 
     /**
      * Die aktuelle Activity als Referenz für die OnClickListener.
@@ -65,10 +65,10 @@ public class MediumsActivity extends Activity {
                     final View arg1, final int pos, final long id) {
 
                 Log.v("long clicked", "pos" + " " + pos);
-                // Wechsel zur ShowMediumActivity, falls auf "hinzufügen"
+                // Wechsel zur ShowMediumDetailedActivity, falls auf "hinzufügen"
                 // geklickt wird.
                 Intent intent = new Intent(getApplicationContext(),
-                        ShowMediumActivity.class);
+                        ShowMediumDetailedActivity.class);
                 MediumAdapter mediumAdapter = (MediumAdapter) listView.getAdapter();
                 intent.putExtra(Medium.class.getName(), mediumAdapter.getItem(pos));
                 Log.i(this.getClass().getName(), mediumAdapter.getItem(pos)

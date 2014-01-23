@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 /**
- * Ein eigener AsyncTask für die MainAcivity zum holen und anzeigen der Medien.
+ * Ein eigener AsyncTask für die ListMediumActivity zum holen und anzeigen der Medien.
  *
  *@author Patrick Damrow
  */
@@ -40,7 +40,7 @@ public class AsyncMediumTask extends AsyncTask<Void, Integer, List<Medium>> {
 	 */
 	@Override
 	protected final List<Medium> doInBackground(final Void... arg0) {
-		List<Medium> list;
+		List<Medium> list = null;
 		try {
 			Network network = new Network();
 			list = network.getMediums();
@@ -94,7 +94,7 @@ public class AsyncMediumTask extends AsyncTask<Void, Integer, List<Medium>> {
 	 * Statusupdates anzuzeigen.
 	 *
 	 * @param integers
-	 *            Eine Code für den Zustand.
+	 *            Ein Code für den Zustand.
 	 */
 	
 	//http://developer.android.com/reference/android/os/AsyncTask.html.

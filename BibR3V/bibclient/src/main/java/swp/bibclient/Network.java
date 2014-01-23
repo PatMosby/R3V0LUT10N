@@ -25,22 +25,18 @@ import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.List;
 
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.MediaType;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPut;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.CoreConnectionPNames;
+import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 
-import swp.bibcommon.Book;
 import swp.bibcommon.Medium;
 import android.util.Log;
 
@@ -76,6 +72,12 @@ public class Network {
      * Pfad zum Mediumservice.
      */
     private final String mediumpath = "/bibjsf/rest/mediums";
+    
+    
+    /**
+     * Pfad zum Userservice
+     */
+    private final String userpath = "/bibjsf/rest/reader";
 
     /**
      * Fragt bei einem Server nach den Medien an.
@@ -159,5 +161,5 @@ public class Network {
                 // ignore, we cannot do anything here anyway
             }
         }
-    }
+    }   
 }

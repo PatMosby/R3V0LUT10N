@@ -33,6 +33,9 @@
             android:name="swp.bibclient.ShowImpressumActivity"
             android:label="@string/title_activity_impressum" >
         </activity>
+        <activity 
+            android:name="swp.bibclient.MainActivityGuest"
+            android:label="@string/title_activity_mainguest"></activity>
     </application>
 
 </manifest>

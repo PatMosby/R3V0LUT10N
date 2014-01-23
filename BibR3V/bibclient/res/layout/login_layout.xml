@@ -44,5 +44,15 @@
         android:layout_alignBottom="@+id/button_login"
         android:layout_alignRight="@+id/editText_password"
         android:text="@string/button_gastzugang" />
+
+    <EditText
+        android:id="@+id/textView_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="45dp"
+        android:ems="10"
+        android:inputType="none" />
 				
 </RelativeLayout>

@@ -12,7 +12,7 @@ import android.widget.TextView;
  * @author Patrick Damrow
  *
  */
-public class ShowMediumActivity extends Activity {
+public class ShowMediumDetailedActivity extends Activity {
 
 	/**
 	 * Hier wird das Layout mit den aktuellen Daten befüllt.

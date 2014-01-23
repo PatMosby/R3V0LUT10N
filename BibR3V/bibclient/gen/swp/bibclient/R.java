@@ -24,43 +24,48 @@ public final class R {
         public static final int icon=0x7f020001;
     }
     public static final class id {
-        public static final int bookicon=0x7f070007;
+        public static final int bookicon=0x7f070009;
         public static final int button1=0x7f070002;
         public static final int button_gastzugang=0x7f070006;
         public static final int button_login=0x7f070005;
+        public static final int editText1=0x7f070008;
         public static final int editText_password=0x7f070004;
         public static final int editText_username=0x7f070003;
-        public static final int label=0x7f070008;
+        public static final int label=0x7f07000a;
         public static final int listView1=0x7f070000;
-        public static final int ratingBar1=0x7f07000b;
+        public static final int ratingBar1=0x7f07000d;
         public static final int textView1=0x7f070001;
-        public static final int textView2=0x7f070009;
-        public static final int textView3=0x7f07000a;
-        public static final int textView4=0x7f07000c;
-        public static final int textView5=0x7f07000d;
-        public static final int textView6=0x7f07000e;
-        public static final int textView7=0x7f07000f;
-        public static final int textView_Impressum=0x7f070010;
-        public static final int textView_Name=0x7f070015;
-        public static final int textView_Oeffnungszeiten=0x7f07001b;
-        public static final int textView_OffenDi=0x7f070017;
-        public static final int textView_OffenDo=0x7f070019;
-        public static final int textView_OffenFr=0x7f07001a;
-        public static final int textView_OffenMi=0x7f070018;
-        public static final int textView_OffenMo=0x7f070016;
-        public static final int textView_Ort=0x7f070013;
-        public static final int textView_PLZ=0x7f070011;
-        public static final int textView_Phone=0x7f070012;
-        public static final int textView_Strasse=0x7f070014;
+        public static final int textView2=0x7f07000b;
+        public static final int textView3=0x7f07000c;
+        public static final int textView4=0x7f07000e;
+        public static final int textView5=0x7f07000f;
+        public static final int textView6=0x7f070010;
+        public static final int textView7=0x7f070011;
+        public static final int textView_Impressum=0x7f070012;
+        public static final int textView_Name=0x7f070017;
+        public static final int textView_Oeffnungszeiten=0x7f07001d;
+        public static final int textView_OffenDi=0x7f070019;
+        public static final int textView_OffenDo=0x7f07001b;
+        public static final int textView_OffenFr=0x7f07001c;
+        public static final int textView_OffenMi=0x7f07001a;
+        public static final int textView_OffenMo=0x7f070018;
+        public static final int textView_Ort=0x7f070015;
+        public static final int textView_PLZ=0x7f070013;
+        public static final int textView_Phone=0x7f070014;
+        public static final int textView_Strasse=0x7f070016;
+        public static final int textView_error=0x7f070007;
     }
     public static final class layout {
         public static final int books_layout=0x7f030000;
-        public static final int login_layout=0x7f030001;
-        public static final int mediums_layout=0x7f030002;
-        public static final int rowlayout=0x7f030003;
-        public static final int show_book_layout=0x7f030004;
-        public static final int show_impressum_layout=0x7f030005;
-        public static final int show_medium_layout=0x7f030006;
+        public static final int earmark_layout=0x7f030001;
+        public static final int login_layout=0x7f030002;
+        public static final int main_guest_layout=0x7f030003;
+        public static final int main_layout=0x7f030004;
+        public static final int mediums_layout=0x7f030005;
+        public static final int rowlayout=0x7f030006;
+        public static final int show_book_layout=0x7f030007;
+        public static final int show_impressum_layout=0x7f030008;
+        public static final int show_medium_layout=0x7f030009;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
@@ -93,6 +98,7 @@ public final class R {
         public static final int text_view=0x7f06000c;
         public static final int title_activity_books=0x7f06000d;
         public static final int title_activity_impressum=0x7f06001c;
+        public static final int title_activity_mainguest=0x7f06001f;
         public static final int title_activity_show_book=0x7f060009;
     }
 }
