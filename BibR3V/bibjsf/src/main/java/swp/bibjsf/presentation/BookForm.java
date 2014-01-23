@@ -342,7 +342,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
      * If only one book is found, that books is entered in the
      * edit form immediately.
      */
-    private void lookup() {
+ /*   private void lookup() {
     	logger.debug("BookForm.lookup()");
     	foundBooks = new BookListDataModel(find(element.getIndustrialIdentifier()));
     	if (foundBooks.getRowCount() == 1) {
@@ -365,7 +365,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 		} catch (DataSourceException e) {
 			// nothing to, it's just an informative message
 		}
-    }
+    }*/
 
 	/**
 	 * Merges all selected attributes from fromBook into toBook.
@@ -374,15 +374,15 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 	 * @param fromBook book from which to merge the attributes
 	 */
 	protected void mergeSelectedAttributes(Book toBook, Book fromBook) {
-		if (isIsbnSelected()) {
+/*		if (isIsbnSelected()) {
             toBook.setIndustrialIdentifier(fromBook.getIndustrialIdentifier());
-        }
+        }*/
         if (isTitleSelected()) {
             toBook.setTitle(fromBook.getTitle());
         }
-        if (isAuthorsSelected()) {
+/*        if (isAuthorsSelected()) {
             toBook.setAuthors(fromBook.getAuthors());
-        }
+        }*/
         if (isSubtitleSelected()) {
             toBook.setSubtitle(fromBook.getSubtitle());
         }
@@ -404,21 +404,21 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         if (isLocationSelected()) {
             toBook.setLocation(fromBook.getLocation());
         }
-        if (isPageCountSelected()) {
+/*        if (isPageCountSelected()) {
             toBook.setPageCount(fromBook.getPageCount());
         }
         if (isPreviewLinkSelected()) {
             toBook.setPreviewLink(fromBook.getPreviewLink());
-        }
+        }*/
         if (isPriceSelected()) {
             toBook.setPrice(fromBook.getPrice());
         }
-        if (isPrintTypeSelected()) {
+ /*       if (isPrintTypeSelected()) {
             toBook.setPrintType(fromBook.getPrintType());
         }
         if (isPublisherSelected()) {
             toBook.setPublisher(fromBook.getPublisher());
-        }
+        }*/
         if (isImageURLSelected()) {
             toBook.setImageURL(fromBook.getImageURL());
         }
@@ -557,7 +557,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
      * Getter for authors.
      *
      * @return list of authors
-     */
+     *
     public String getAuthors() {
         return element.getAuthors();
     }
@@ -566,7 +566,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
      * Setter for authors.
      *
      * @param authors new list of authors
-     */
+     *
     public void setAuthors(final String authors) {
         element.setAuthors(authors);
     }
@@ -575,7 +575,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
      * Getter for ISBN/ISSN.
      *
      * @return ISBN/ISSN of current book
-     */
+     *
     public String getIndustrialIdentifier() {
         return element.getIndustrialIdentifier();
     }
@@ -584,7 +584,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
      * Setter for ISBN/ISSN.
      *
      * @param identifier new ISBN/ISSN
-     */
+     *
     public void setIndustrialIdentifier(final String identifier) {
         element.setIndustrialIdentifier(identifier);
         lookup();
@@ -682,14 +682,14 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         element.setLocation(location);
     }
 
-    public int getPageCount() {
+ /*   public int getPageCount() {
         return element.getPageCount();
     }
 
     public void setPageCount(int pageCount) {
         element.setPageCount(pageCount);
     }
-
+*/
     public BigDecimal getPrice() {
         return element.getPrice();
     }
@@ -698,7 +698,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         element.setPrice(price);
     }
 
-    public String getPreviewLink() {
+/*    public String getPreviewLink() {
         return element.getPreviewLink();
     }
 
@@ -720,7 +720,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 
     public void setPublisher(String publisher) {
         element.setPublisher(publisher);
-    }
+    }*/
 
     public String getNote() {
         return element.getNote();

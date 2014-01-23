@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author Pupat
  *
  */
-public class Audiobook extends Medium implements Serializable {
+public class Audiobook extends Book implements Serializable {
 	
 	private static final long serialVersionUID = -2835684051415448366L;
 

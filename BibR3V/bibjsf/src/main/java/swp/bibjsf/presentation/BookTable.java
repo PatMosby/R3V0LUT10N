@@ -77,7 +77,7 @@ public class BookTable extends TableForm<Book> {
 	protected List<Content> getContent() {
 		List<Content> idcontent = new ArrayList<Content>();
         for(Book b : selectedElements) {
-            idcontent.add(new BookTagContent(b.getId(), b.getTitle(), b.getIndustrialIdentifier()));
+            idcontent.add(new BookTagContent(b.getId(), b.getTitle(),"1" ));
         }
 		return idcontent;
 	}

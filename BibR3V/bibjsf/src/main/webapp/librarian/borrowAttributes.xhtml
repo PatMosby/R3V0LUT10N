@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head />
+<body>
+<!-- attribute input fields for borrow attributes shared by librarian/borrow.xhtml -->
+<ui:composition>
+            
+            <!-- cardID -->
+            <h:outputLabel for="cardID" value="#{messages.cardID}: *" style="font-weight:bold"/>
+            <p:inputText id="cardID" value="#{readerForm.cardID}"
+               required="true" requiredMessage="#{messages.cardIDreq}"  size="#{readerForm.textWidth}"/>
+            <p:message for="cardID"  display="both" />
+			
+			<!-- mediumID -->
+            <h:outputLabel for="mediumID" value="#{messages.mediumID}: *" style="font-weight:bold"/>
+            <p:inputText id="mediumID" value="#{readerForm.mediumID}"
+               required="true" requiredMessage="#{messages.mediumIDreq}"  size="#{readerForm.textWidth}"/>
+            <p:message for="mediumID"  display="both" />
+                        
+</ui:composition>
+</body>
+</html>            

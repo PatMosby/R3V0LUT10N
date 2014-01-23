@@ -89,6 +89,11 @@ public class Medium extends BusinessObject implements Serializable{
 	private String subcategories;
 	
 	/**
+	* Boolean, ob das Medium verfügbar ist
+	*/
+	private boolean available;
+	
+	/**
 	 * Constructor required for DBUtils.
 	 */
 	public Medium() {
@@ -120,7 +125,6 @@ public class Medium extends BusinessObject implements Serializable{
 		this.title                = copyString(medium.title);
 		this.categories           = copyString(medium.categories);
 		this.subcategories        = copyString(medium.subcategories);
-
 	}
 	
 	/**
@@ -391,6 +395,25 @@ public class Medium extends BusinessObject implements Serializable{
 	
 	public void setCategories(String categories) {
 		this.categories = categories;
+	}
+	
+	/**
+	 * Gibt zurück, ob das Medium verfügbar ist
+	 * 
+	 * @return true wenn verfügbar, sonst false
+	 */
+	public boolean getAvailable() {
+		return available;
+	}
+	
+	/**
+	 * Setzt ob es verfügbar ist 
+	 * 
+	 * @param true wenn verfügbar, sonst false
+	 */
+	
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 	
 

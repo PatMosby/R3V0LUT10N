@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author Pupat
  *
  */
-public class Movie extends Medium implements Serializable{
+public class Movie extends Book implements Serializable{
 	
 	private static final long serialVersionUID = -2835684051415448364L;
 	

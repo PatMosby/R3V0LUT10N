@@ -155,17 +155,13 @@ public class ISBNGoogleSearch {
     		Volume.VolumeInfo volumeInfo = volume.getVolumeInfo();
 
     		final StringBuilder authorlist = getAuthorList(volumeInfo);
-    		final Book book = new Book(authorlist.toString(), volumeInfo.getTitle(), identifier.toString());
+    		final Book book = new Book(authorlist.toString(), volumeInfo.getTitle());
     		setImage(volumeInfo, book);
     		setCategories(volumeInfo, book);
     		setDateOfPublication(volumeInfo, book);
     		book.setDateOfAddition(new Date());
     		book.setDescription(volumeInfo.getDescription());
     		book.setLanguage(volumeInfo.getLanguage());
-    		book.setPageCount(volumeInfo.getPageCount());
-    		book.setPreviewLink(volumeInfo.getPreviewLink());
-    		book.setPrintType(volumeInfo.getPrintType());
-    		book.setPublisher(volumeInfo.getPublisher());
 			result.add(book);
     	}
     	return result;
