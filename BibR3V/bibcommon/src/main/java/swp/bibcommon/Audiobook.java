@@ -38,8 +38,8 @@ public class Audiobook extends Medium implements Serializable {
 	 *
 	 * IMPORTANT NOTE: Do not forget to add an assignment for every new field.
 	 *
-	 * @param CD
-	 *            the CD whose values are to be copied
+	 * @param audiobook
+	 *            the audiobook whose values are to be copied
 	 */
 	public Audiobook(Audiobook audiobook){
 		super(audiobook);
@@ -51,27 +51,54 @@ public class Audiobook extends Medium implements Serializable {
 	/* ********************
 	 * getter und setter
 	 **********************/
-
+	/**
+	 * Gibt die den Herausgeber zurück.
+	 *
+	 * @return herausgeber des Magazines
+	 */
 	public String getPublisher() {
 		return publisher;
 	}
-
+	/**
+	 * Setzt den Herausgeber.
+	 *
+	 * @param publisher
+	 *              Herausgeber des Hörbuches
+	 */
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
-
+	/**
+	 * Gibt die Anzahl der Datenträger zurück.
+	 *
+	 * @return datenträgeranzahl des Hörbuches
+	 */
 	public int getMedia() {
 		return media;
 	}
-
+	/**
+	 * Setzt die Anzahl der Datenträger.
+	 *
+	 * @param media
+	 *              Anzahl der Datenträger
+	 */
 	public void setMedia(int media) {
 		this.media = media;
 	}
-
+	/**
+	 * Gibt die Spielzeit zurück.
+	 *
+	 * @return spielzeit des Hörbuches
+	 */
 	public int getPlayTime() {
 		return playTime;
 	}
-
+	/**
+	 * Setzt die Spieldauer.
+	 *
+	 * @param playtime
+	 *              Spieldauer des Hörbuches
+	 */
 	public void setPlayTime(int playTime) {
 		this.playTime = playTime;
 	}

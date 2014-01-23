@@ -45,18 +45,39 @@ public class Software extends Medium implements Serializable {
 	/* ********************
 	 * getter und setter
 	 ***********************/
+	 
+	 	
+	/**
+	 * Gibt den Herausgeber zurück.
+	 *
+	 * @return Herausgeber der Software
+	 */
 	public String getPublisher() {
 		return publisher;
 	}
-
+	/**
+	 * Setzt den Herausgeber.
+	 *
+	 * @param publisher
+	 *              Herausgeber der Software
+	 */
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
-
+	/**
+	 * Gibt die Anzahl der Datenträger zurück.
+	 *
+	 * @return datenträgeranzahl der Software
+	 */
 	public int getMedia() {
 		return media;
 	}
-
+	/**
+	 * Setzt die Anzahl der Datenträger.
+	 *
+	 * @param media
+	 *              Anzahl der Datenträger
+	 */
 	public void setMedia(int media) {
 		this.media = media;
 	}

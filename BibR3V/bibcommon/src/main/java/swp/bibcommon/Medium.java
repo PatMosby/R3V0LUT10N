@@ -340,16 +340,16 @@ public class Medium extends BusinessObject implements Serializable{
 	}
 
 	/**
-	 * Returns book title.
+	 * Returns Medium title.
 	 *
-	 * @return book title (may be null)
+	 * @return medium title (may be null)
 	 */
 	public final String getTitle() {
 		return title;
 	}
 
 	/**
-	 * Sets book title.
+	 * Sets medium title.
 	 *
 	 * @param title new title
 	 */
@@ -358,14 +358,14 @@ public class Medium extends BusinessObject implements Serializable{
 	}
 
 	/**
-	 * @return a URL to an image file for the book cover; may be null or empty
+	 * @return a URL to an image file for the medium cover; may be null or empty
 	 */
 	public final String getImageURL() {
 		return imageURL;
 	}
 
 	/**
-	 * Sets the URL to an image file for the book cover.
+	 * Sets the URL to an image file for the medium cover.
 	 *
 	 * @param imageURL
 	 *            new URL
