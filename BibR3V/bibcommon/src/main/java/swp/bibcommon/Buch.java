@@ -123,7 +123,7 @@ public class Buch extends Book implements Serializable {
 	/**
 	 * Constructor required for DBUtils.
 	 */
-	public Book() {
+	public Buch() {
 	}
 
 
@@ -136,17 +136,17 @@ public class Buch extends Book implements Serializable {
 	 * @param book
 	 *            the book whose values are to be copied
 	 */
-	public Book(Book book) {
+	public Buch(Buch buch) {
 		// Keep these assignments in alphabetic order. It will ease
 		// to check whether every field is actually set. If any field
 		// is added (either to this class or any of its superclasses,
 		// you need to add a corresponding assignment here.
 		super(book);
-		this.authors              = copyString(book.authors);
-		this.industrialIdentifier = copyString(book.industrialIdentifier);
-		this.pageCount            = book.pageCount;
-		this.previewLink          = copyString(book.previewLink);
-		this.publisher            = copyString(book.publisher);
+		this.authors              = copyString(buch.authors);
+		this.industrialIdentifier = copyString(buch.industrialIdentifier);
+		this.pageCount            = buch.pageCount;
+		this.previewLink          = copyString(buch.previewLink);
+		this.publisher            = copyString(buch.publisher);
 	}
 
 	/**
@@ -159,7 +159,7 @@ public class Buch extends Book implements Serializable {
 	 * @param identifier
 	 *            the book's industrial identifier ISBN/ISSN
 	 */
-	public Book(final String authors, final String title, final String identifier) {
+	public Buch(final String authors, final String title, final String identifier) {
 		this.title                = copyString(title);
 		this.authors              = copyString(authors);
 		this.industrialIdentifier = copyString(identifier);

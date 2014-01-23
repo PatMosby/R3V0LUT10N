@@ -96,7 +96,7 @@ public class Book extends BusinessObject implements Serializable{
 	/**
 	 * Constructor required for DBUtils.
 	 */
-	public Medium() {
+	public Book() {
 	}
 	
 	/**
@@ -107,24 +107,24 @@ public class Book extends BusinessObject implements Serializable{
 	 * @param medium
 	 *            the medium whose values are to be copied
 	 */
-	public Medium(Medium medium) {
+	public Book(Book book) {
 		// Keep these assignments in alphabetic order. It will ease
 		// to check whether every field is actually set. If any field
 		// is added (either to this class or any of its superclasses,
 		// you need to add a corresponding assignment here.
-		this.dateOfAddition       = copyString(medium.dateOfAddition);
-		this.dateOfPublication    = copyString(medium.dateOfPublication);
-		this.description          = copyString(medium.description);
-		this.id                   = medium.id;
-		this.imageURL             = copyString(medium.imageURL);
-		this.language             = copyString(medium.language);
-		this.location             = copyString(medium.location);
-		this.note                 = copyString(medium.note);
-		this.price                = medium.price;
-		this.subtitle             = copyString(medium.subtitle);
-		this.title                = copyString(medium.title);
-		this.categories           = copyString(medium.categories);
-		this.subcategories        = copyString(medium.subcategories);
+		this.dateOfAddition       = copyString(book.dateOfAddition);
+		this.dateOfPublication    = copyString(book.dateOfPublication);
+		this.description          = copyString(book.description);
+		this.id                   = book.id;
+		this.imageURL             = copyString(book.imageURL);
+		this.language             = copyString(book.language);
+		this.location             = copyString(book.location);
+		this.note                 = copyString(book.note);
+		this.price                = book.price;
+		this.subtitle             = copyString(book.subtitle);
+		this.title                = copyString(book.title);
+		this.categories           = copyString(book.categories);
+		this.subcategories        = copyString(book.subcategories);
 	}
 	
 	/**
@@ -135,7 +135,7 @@ public class Book extends BusinessObject implements Serializable{
 	 * @param categories
 	 *            the mediums categories
 	 */
-	public Medium(final String title, final String categories) {
+	public Book(final String title, final String categories) {
 		this.title                = copyString(title);
 		this.categories           = copyString(categories);
 	}
