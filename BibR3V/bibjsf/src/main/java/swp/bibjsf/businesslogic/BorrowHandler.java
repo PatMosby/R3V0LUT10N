@@ -4,11 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import swp.bibcommon.Reader;
-import swp.bibcommon.Medium;
+import swp.bibcommon.Book;
 import java.util.List;
 
-import swp.bibcommon.Reader;
-import swp.bibcommon.Medium;
 
 
 public class BorrowHandler {
@@ -41,7 +39,7 @@ public class BorrowHandler {
    * @param reader The Borrower
    * @param mediumList List of borrowed media
    */
-  public void borrowMedium(Reader reader, List<Medium> mediumList){
+  public void borrowMedium(Reader reader, List<Book> mediumList){
     
   }
   
@@ -49,7 +47,7 @@ public class BorrowHandler {
    * Marks medium as borrowed.
    * @param medium the medium to be marked
    */
-  public void setBorrowed(Medium medium){
+  public void setBorrowed(Book book){
 	  
   }
   
@@ -67,7 +65,7 @@ public class BorrowHandler {
    * @param userId unique identifier of a reader.
    * @return list of overdue media
    */
-  public List<Medium> overdueMediaList(Reader reader){
+  public List<Book> overdueMediaList(Reader reader){
     return null ;
   }
   
