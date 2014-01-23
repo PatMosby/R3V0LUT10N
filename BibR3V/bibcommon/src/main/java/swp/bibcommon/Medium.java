@@ -397,19 +397,19 @@ public class Medium extends BusinessObject implements Serializable{
 		this.categories = categories;
 	}
 	
-		/**
-	 * Gibt die Kategorie zurück
+	/**
+	 * Gibt zurück, ob das Medium verfügbar ist
 	 * 
-	 * @return categorie
+	 * @return true wenn verfügbar, sonst false
 	 */
 	public boolean getAvailable() {
 		return available;
 	}
 	
 	/**
-	 * Setzt die Categorie 
+	 * Setzt ob es verfügbar ist 
 	 * 
-	 * @param die categorie die gesetzt werden soll
+	 * @param true wenn verfügbar, sonst false
 	 */
 	
 	public void setAvailable(boolean available) {
