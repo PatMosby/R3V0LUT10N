@@ -1,116 +1,74 @@
-/*
- * Copyright (c) 2013 AG Softwaretechnik, University of Bremen, Germany
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
 package swp.bibcommon;
 
 import java.io.Serializable;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
- *
- * This class represents a Book in our bib-system and is used by the server and
- * by the android client. This Book class is designed as a bean: all attributes
- * have setter and getter, the class is serializable and it has a public
- * constructor without parameters.
- *
- * IMPORTANT MAINTENANCE NOTE:
- *
- * If you add a field, you need to make the following additional changes:
- *
- * - add an assignment in copy constructor Book(Book) here below - add a
- * corresponding field in the persistence layer, namely, Data; the name of the
- * field must be identical to the name given here - add an input field to
- * bibjsf/src/main/webapp/book/bookAttributes.xhtml - add an output field to
- * bibjsf/src/main/webapp/book/list.xhtml - add a setter/getter for that field
- * in class swp.bibjsf.presentation.BookForm - add a selection marker (boolean)
- * for that field in class swp.bibjsf.presentation.BookForm - handle overriding
- * of selected field in method
- * swp.bibjsf.presentation.BookForm.mergeSelectedAttributes()
- *
- * IMPLEMENTATION ADVICE:
- *
- * Another note on data types for fields: Instances of Book are stored in the
- * data base and they are transmitted via GSON accessible from a REST web
- * service. GSON poses some restrictions on the data types that can be used
- * for fields. For instance, java.util.Date is currently not supported. Likewise,
- * the data base access (read and write) is implemented through reflection,
- * which handles all primitive data types but not necessarily types that are classes.
- * For this reason, you should prefer primitive data types for the fields of Book.
- *
- * @author D. Lüdemann, R. Koschke
+ * Repräsentiert die Oberklasse aller Medien. Beinhaltet alle gemeinsamen
+ * Attribute und die entsprechenden getter und setter Methoden
+ * @author Pupat
  *
  */
-public class Book extends Medium implements Serializable {
+public class Book extends BusinessObject implements Serializable{
 
-
+	private static final long serialVersionUID = -2835684051415448361L;
+	
 	/**
-	 * Unique ID for serialization.
+	 * The format to store dates as string.
 	 */
-	private static final long serialVersionUID = -2835684051415448365L;
-
-	/*
-	 * Some of the attributes below are those described in the Google Books API
-	 * at https://developers.google.com/books/docs/v1/reference/volumes
-	 */
-
+	private static final String DateFormat = "yyyy-MM-dd";
 	/**
-	 * Title of the book.
+	 * Used to convert strings to java.util.Date and vice versa.
+	 */
+	private static final SimpleDateFormat DateFormatter = new SimpleDateFormat(DateFormat);
+
+	
+	/**
+	 * Titel des Medium.
 	 */
 	private String title;
 	/**
-	 * List of authors of this book. Authors are separated by ;.
+	 * Untertitel des Mediums.
 	 */
-	private String authors;
+	private String subtitle;
 	/**
 	 * Industrial identifier. May be ISBN-10 or ISBN-13 in case of a book. May
 	 * be an ISSN in case of magazine.
 	 */
-	private String industrialIdentifier;
-
 
 	/**
-	 * Seitenzahl des Buches
+	 * An URL to an image file for the Medium.
 	 */
-	private int pageCount;;
+	private String imageURL;
+	/**
+	 * A synopsis of the volume. The text of the description is formatted in
+	 * HTML and includes simple formatting elements, such as b, i, and br tags.
+	 */
+	private String description;
 
 	/**
-	 * Any kind of note on the book, usually created by the librarian, for
+	 * Any kind of note on the Medium, usually created by the librarian, for
 	 * instance, regarding the damage status of the book.
 	 */
 	private String note;
-	/**
-	 * Ausgabe des Buches
-	 */
-
-	private String printType;
-	/**
-	 * Subtitle of the book.
-	 */
-	private String subtitle;
-	/**
-	 * Publisher of this book.
-	 */
-	private String publisher;
 
 	/**
-	 * URL to preview this volume on the Google Books site.
+	 * Sprache des Mediums
 	 */
-	private String previewLink;
+	private String language;
 
+
+	/**
+	 * Date of publication.
+	 */
+	private String dateOfPublication;
+
+	/**
+	 * The date at which this book was added to the library.
+	 */
+	private String dateOfAddition;
 	/**
 	 * Price of the book. Any currency, e.g., EUR or dollar.
 	 */
@@ -119,69 +77,140 @@ public class Book extends Medium implements Serializable {
 	 * The location of the book in the library.
 	 */
 	private String location;
-
+	
+	/**
+	 * Kategorie des Mediums
+	 */
+	private String categories;
+	
+	/**
+	 * Nebenkategorien des Mediums
+	 */
+	private String subcategories;
+	
+	/**
+	* Boolean, ob das Medium verfügbar ist
+	*/
+	private boolean available;
+	
 	/**
 	 * Constructor required for DBUtils.
 	 */
-	public Book() {
+	public Medium() {
 	}
-
-
-
+	
 	/**
 	 * Copy constructor.
 	 *
 	 * IMPORTANT NOTE: Do not forget to add an assignment for every new field.
 	 *
-	 * @param book
-	 *            the book whose values are to be copied
+	 * @param medium
+	 *            the medium whose values are to be copied
 	 */
-	public Book(Book book) {
+	public Medium(Medium medium) {
 		// Keep these assignments in alphabetic order. It will ease
 		// to check whether every field is actually set. If any field
 		// is added (either to this class or any of its superclasses,
 		// you need to add a corresponding assignment here.
-		super(book);
-		this.authors              = copyString(book.authors);
-		this.industrialIdentifier = copyString(book.industrialIdentifier);
-		this.pageCount            = book.pageCount;
-		this.previewLink          = copyString(book.previewLink);
-		this.publisher            = copyString(book.publisher);
+		this.dateOfAddition       = copyString(medium.dateOfAddition);
+		this.dateOfPublication    = copyString(medium.dateOfPublication);
+		this.description          = copyString(medium.description);
+		this.id                   = medium.id;
+		this.imageURL             = copyString(medium.imageURL);
+		this.language             = copyString(medium.language);
+		this.location             = copyString(medium.location);
+		this.note                 = copyString(medium.note);
+		this.price                = medium.price;
+		this.subtitle             = copyString(medium.subtitle);
+		this.title                = copyString(medium.title);
+		this.categories           = copyString(medium.categories);
+		this.subcategories        = copyString(medium.subcategories);
 	}
-
+	
 	/**
-	 * Constructor with author, title, and industrial identifier
+	 * Constructor with title and categories
 	 *
-	 * @param authors
-	 *            the book's author
 	 * @param title
-	 *            the book's title
-	 * @param identifier
-	 *            the book's industrial identifier ISBN/ISSN
+	 *            the mediums title
+	 * @param categories
+	 *            the mediums categories
 	 */
-	public Book(final String authors, final String title, final String identifier) {
+	public Medium(final String title, final String categories) {
 		this.title                = copyString(title);
-		this.authors              = copyString(authors);
-		this.industrialIdentifier = copyString(identifier);
+		this.categories           = copyString(categories);
 	}
+	
+	/* ****************************************************************
+	 * Utilities.
+	 * ***************************************************************/
 
-
-
+	
+	/**
+	 * Returns a copy of value.
+	 *
+	 * @param value string to be copied; may be null
+	 * @return a new copy of value if value != null; null otherwise
+	 */
+	public static String copyString(String value) {
+		if (value == null) {
+			return null;
+		} else {
+			return new String (value);
+		}
+	}
+	
+	/**
+	 * Converts date given as java.util.Date to a string formatted
+	 * according to DateFormat.
+	 *
+	 * @param date date
+	 * @return the date formatted as described by DateFormat
+	 *   or null if given date is null.
+	 */
+	private String toString(Date date) {
+		if (date == null) {
+			return null;
+		} else {
+			return DateFormatter.format(date);
+		}
+	}
+	
+	
+	/**
+	 * Converts date string to java.util.Date.
+	 *
+	 * @param date date formatted as described by DateFormat
+	 * @return the date or null if given date is null, empty, or malformed
+	 */
+	private static Date toDate(String date) {
+		if (date == null || date.isEmpty()) {
+			return null;
+		} else {
+			try {
+				return DateFormatter.parse(date);
+			} catch (ParseException e) {
+				return null;
+			}
+		}
+	}
+	
+	
+	
 	/* ****************************************************************
 	 * Setters and getters
 	 * ***************************************************************/
 
 	/**
-	 * Returns a note about the book as added by setNote().
+	 * Returns a note about the medium as added by setNote().
 	 *
-	 * @return note about the book
+	 * @return note about the medium
 	 */
 	public String getNote() {
 		return note;
 	}
 
 	/**
-	 * Sets the note about this book.
+	 * Sets the note about this medium.
 	 *
 	 * @param note
 	 */
@@ -189,36 +218,37 @@ public class Book extends Medium implements Serializable {
 		this.note = note;
 	}
 
-
 	/**
-	 * @return the pageCount
+	 * @return the description
 	 */
-	public int getPageCount() {
-		return pageCount;
+	public String getDescription() {
+		return description;
 	}
 
 	/**
-	 * @param pageCount
-	 *            the pageCount to set
+	 * @param description
+	 *            the description to set
 	 */
-	public void setPageCount(int pageCount) {
-		this.pageCount = pageCount;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	/**
+	 * @return the language
+	 */
+	public String getLanguage() {
+		return language;
 	}
 
 	/**
-	 * @return the printType
+	 * @param language
+	 *            the language to set
 	 */
-	public String getPrintType() {
-		return printType;
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
-	/**
-	 * @param printType
-	 *            the printType to set
-	 */
-	public void setPrintType(String printType) {
-		this.printType = printType;
-	}
 
 	/**
 	 * @return the subtitle
@@ -235,34 +265,52 @@ public class Book extends Medium implements Serializable {
 		this.subtitle = subtitle;
 	}
 
+
 	/**
-	 * @return the publisher
+	 * @return the dateOfPublication
 	 */
-	public String getPublisher() {
-		return publisher;
+	public Date getDateOfPublication() {
+		if (dateOfPublication == null) {
+			return null;
+		} else {
+			return toDate(dateOfPublication);
+		}
 	}
 
 	/**
-	 * @param publisher
-	 *            the publisher to set
+	 * @param dateOfPublication
+	 *            the dateOfPublication to set
 	 */
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
+	public void setDateOfPublication(Date dateOfPublication) {
+		if (dateOfPublication == null) {
+			this.dateOfPublication = null;
+		} else {
+			this.dateOfPublication = toString(dateOfPublication);
+		}
+	}
+
+
+	/**
+	 * @return the dateOfAddition
+	 */
+	public Date getDateOfAddition() {
+		if (dateOfAddition == null) {
+			return null;
+		} else {
+			return toDate(dateOfAddition);
+		}
 	}
 
 	/**
-	 * @return the previewLink
+	 * @param dateOfAddition
+	 *            the dateOfAddition to set
 	 */
-	public String getPreviewLink() {
-		return previewLink;
-	}
-
-	/**
-	 * @param previewLink
-	 *            the previewLink to set
-	 */
-	public void setPreviewLink(String previewLink) {
-		this.previewLink = previewLink;
+	public void setDateOfAddition(Date dateOfAddition) {
+		if (dateOfAddition == null) {
+			this.dateOfAddition = null;
+		} else {
+			this.dateOfAddition = toString(dateOfAddition);
+		}
 	}
 
 	/**
@@ -296,95 +344,78 @@ public class Book extends Medium implements Serializable {
 	}
 
 	/**
-	 * Returns list of authors of this book. Authors are separated by ;.
+	 * Returns Medium title.
 	 *
-	 * @return list of authors of this book; authors are separated by ;
+	 * @return medium title (may be null)
 	 */
-	public final String getAuthors() {
-		return authors;
+	public final String getTitle() {
+		return title;
 	}
 
 	/**
-	 * Sets list of authors. Authors are separated by ;.
+	 * Sets medium title.
 	 *
-	 * @param authors
-	 *            new list of authors
+	 * @param title new title
 	 */
-	public final void setAuthors(final String authors) {
-		this.authors = authors;
+	public final void setTitle(final String title) {
+		this.title = title;
 	}
 
 	/**
-	 * Yields industrial identifier (ISBN or ISSN).
-	 *
-	 * @return industrial identifier (ISBN or ISSN)
+	 * @return a URL to an image file for the medium cover; may be null or empty
 	 */
-	public final String getIndustrialIdentifier() {
-		return industrialIdentifier;
+	public final String getImageURL() {
+		return imageURL;
 	}
 
 	/**
-	 * Sets industrial identifier (ISBN or ISSN).
+	 * Sets the URL to an image file for the medium cover.
 	 *
-	 * @param industrialIdentifier
-	 *            new industrial identifier
-	 *
+	 * @param imageURL
+	 *            new URL
 	 */
-	public final void setIndustrialIdentifier(final String industrialIdentifier) {
-		this.industrialIdentifier = industrialIdentifier;
-	}
-
-
+	public final void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}	
+	
 	/**
-	 * Return the book as String.
-	 *
-	 * @see java.lang.Object#toString()
-	 * @return book as a string
+	 * Gibt die Kategorie zurück
+	 * 
+	 * @return categorie
 	 */
-	@Override
-	public final String toString() {
-		return "Book [ id=" + id + ", authors=" + authors + ", title=" + title
-				+ ", ISBN/ISSN=" + industrialIdentifier + "]";
+	public final String getCategories() {
+		return categories;
 	}
-
-
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#equals(java.lang.Object)
+	
+	/**
+	 * Setzt die Categorie 
+	 * 
+	 * @param die categorie die gesetzt werden soll
 	 */
-	@Override
-	public final boolean equals(final Object other) {
-		if (this == other) {
-			return true;
-		}
-		if (other == null || !(other instanceof Book)) {
-			return false;
-		}
-
-		Book otherBook = (Book) other;
-		return ((id == otherBook.id)
-				&& title.equals(otherBook.title)
-				&& authors.equals(otherBook.authors)
-				&& industrialIdentifier.equals(otherBook.industrialIdentifier));
+	
+	public void setCategories(String categories) {
+		this.categories = categories;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#hashCode()
+	
+	/**
+	 * Gibt zurück, ob das Medium verfügbar ist
+	 * 
+	 * @return true wenn verfügbar, sonst false
 	 */
-	@Override
-	public final int hashCode() {
-		final int multiplier = 23;
-		final int initialHashCode = 133;
-		int hashCode = initialHashCode;
-		hashCode = multiplier * hashCode + authors.hashCode();
-		hashCode = multiplier * hashCode + title.hashCode();
-		hashCode = multiplier * hashCode + industrialIdentifier.hashCode();
-		hashCode = hashCode + id;
-		return hashCode;
+	public boolean getAvailable() {
+		return available;
 	}
+	
+	/**
+	 * Setzt ob es verfügbar ist 
+	 * 
+	 * @param true wenn verfügbar, sonst false
+	 */
+	
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+	
 
+	
 }

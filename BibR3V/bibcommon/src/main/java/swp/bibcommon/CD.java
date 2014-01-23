@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author Pupat
  *
  */
-public class CD extends Medium implements Serializable{
+public class CD extends Book implements Serializable{
 	
 	private static final long serialVersionUID = -2835684051415448363L;
 	
