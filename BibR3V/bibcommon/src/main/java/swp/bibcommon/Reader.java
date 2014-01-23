@@ -137,6 +137,11 @@ public class Reader extends BusinessObject implements Serializable, Cloneable {
      * Arbitrary note for a reader.
      */
     private String note;
+    
+    /**
+     * setting for permission to save History of lendings.
+     */
+    private boolean saveHistory = false;
 
     /* ************************************
      * Constructors
@@ -404,5 +409,19 @@ public class Reader extends BusinessObject implements Serializable, Cloneable {
      */
     public final void setLastUse(final Date lastUse) {
         this.lastUse = lastUse;
+    }
+    
+    /**
+     * @return the lastUse
+     */
+    public boolean getsaveHistory(){
+       return saveHistory;
+    }
+    
+    /**
+     * @param saveHistory the saveHistory to set
+     */
+    public void setsaveHistory(boolean saveHistory){
+    	this.saveHistory = saveHistory;
     }
 }
