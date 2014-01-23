@@ -141,7 +141,7 @@ public class Reader extends BusinessObject implements Serializable, Cloneable {
     /**
      * setting for permission to save History of lendings.
      */
-    private boolean saveHistory = false;
+   // private boolean saveHistory = false;
 
     /* ************************************
      * Constructors
@@ -414,14 +414,19 @@ public class Reader extends BusinessObject implements Serializable, Cloneable {
     /**
      * @return the lastUse
      */
+   /** 
     public boolean getsaveHistory(){
        return saveHistory;
     }
+    */
     
     /**
      * @param saveHistory the saveHistory to set
      */
+    /**
     public void setsaveHistory(boolean saveHistory){
     	this.saveHistory = saveHistory;
     }
+    */
+    
 }

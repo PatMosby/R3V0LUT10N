@@ -5,6 +5,11 @@ import java.util.List;
 
 import swp.bibcommon.Reader;
 import swp.bibcommon.Medium;
+import java.util.List;
+
+import swp.bibcommon.Reader;
+import swp.bibcommon.Medium;
+
 
 public class BorrowHandler {
 
@@ -12,46 +17,67 @@ public class BorrowHandler {
   
   
   /**
-   * Berechnet das Abgabedatum bei der Ausleihe. Berücksichtigt die
-   * Öffnungszeiten der Bibliothek.
-   * @return Das Abgabedatum
+   * Calculates date of return for borrowed media.
+   * Considers opening times of library.
+   * @return Date of return
    */
   public Date calculateDate(){
     return date;
   }
   
   /**
-   * Trägt das Medium in der Datenbank als ausgeliehen ein.
-   * @param reader Der Ausleiher
-   * @param mediumList Liste der Medien, die ausgeliehen werden
+   * Assigns the String id to a reader.
+   * Assigns the String list to media.
+   * @param id of the borrowing reader
+   * @param list contains the ID's of one or more media
+   */
+  public void getInfo(String id, String list ){
+	
+  }
+  
+  /**
+   * Adds reader to a list of borrower, if not already contained.
+   * Reader gets mediumList as attribute.
+   * @param reader The Borrower
+   * @param mediumList List of borrowed media
    */
   public void borrowMedium(Reader reader, List<Medium> mediumList){
     
   }
   
   /**
-   * Berechnet die Mahngebühren.
-   * @return Die Mahngebühren
+   * Marks medium as borrowed.
+   * @param medium the medium to be marked
    */
-  public int calculateFees(){
+  public void setBorrowed(Medium medium){
+	  
+  }
+  
+  /**
+   * Calculates fines of a user.
+   * @param userId unique identifier of a user
+   * @return the fines
+   */
+  public double calculateFines(int userId){
     return 0;
   }
   
   /**
-   * Gibt ein Medium zurück.
-   * @param reader Der Ausleiher
-   * @param mediumList Die Liste der Medienm die zurückgegeben werden.
+   * returns a list of overdue media from the mediaList of the reader .
+   * @param userId unique identifier of a reader.
+   * @return list of overdue media
    */
-  public void returnMedium(Reader reader, List<Medium> mediumList){
-    
+  public List<Medium> overdueMediaList(Reader reader){
+    return null ;
   }
   
+  
   /**
-   * Überprüft die Fälligkeiten der ausgeliehenen Medien.
-   * @return Die Liste der Überfälligen Medien
+   * 
+   * @return
    */
-  public List<Medium> checkOverdue(){
-    return null ;
+  public boolean isOverdue(){
+	return true;
   }
   
   
