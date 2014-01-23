@@ -32,15 +32,14 @@
 			  <h:panelGroup>
 			  <p:commandButton id="borrowButton" value="#{messages.borrow2}" action="#{addLibrarianForm.borrow2}" 
 			      ajax="false" icon="ui-icon-check" validateClient="true"/>
-			  <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{addLibrarianFormForm.reset}" title="#{messages.reset_help}" update="panel" />
               </h:panelGroup>
              </f:facet>    
                      
         </h:panelGrid>  
     </p:panel>  
-
+    
     <p:messages showDetail="true" autoUpdate="true"/>
-    <p:defaultCommand target="saveButton"/>
+
  </h:form>
 </f:view>
 </h:body>
