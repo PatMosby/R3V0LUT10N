@@ -141,7 +141,11 @@ public class Buch extends Book implements Serializable {
 		// to check whether every field is actually set. If any field
 		// is added (either to this class or any of its superclasses,
 		// you need to add a corresponding assignment here.
+<<<<<<< HEAD
 		super(buch);
+=======
+		super(book);
+>>>>>>> 9f77281... fix
 		this.authors              = copyString(buch.authors);
 		this.industrialIdentifier = copyString(buch.industrialIdentifier);
 		this.pageCount            = buch.pageCount;
