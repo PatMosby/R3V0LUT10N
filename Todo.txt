@@ -2,7 +2,7 @@
 -	Exemplare werden unterstützt
 ----	Gast, Leser etc. werden als Benutzergruppen unterschieden
 ----	Alles Nutzer außer Gäste müssen sich authentifizieren
-- Medien können von Bib hinzugefügt, gelöscht und geändert werden
+- 	Medien können von Bib hinzugefügt, gelöscht und geändert werden
 -	Medien in Kategorien einsortiere
 -	Neue Kategorien erstellen
 -	Bibs Verleihen Medien
