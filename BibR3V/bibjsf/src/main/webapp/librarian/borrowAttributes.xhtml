@@ -11,16 +11,16 @@
 <ui:composition>
             
             <!-- cardID -->
-            <h:outputLabel for="cardID" value="#{messages.cardID}: *" style="font-weight:bold"/>
-            <p:inputText id="cardID" value="#{readerForm.cardID}"
-               required="true" requiredMessage="#{messages.cardIDreq}"  size="#{readerForm.textWidth}"/>
-            <p:message for="cardID"  display="both" />
+            <h:outputLabel for="id" value="#{messages.cardID}: *" style="font-weight:bold"/>
+            <p:inputText id="id" value="#{borrowHandler.id}"
+               required="true" requiredMessage="#{messages.cardIDreq}"  size="#{librarianForm.textWidth}"/>
+            <p:message for="id"  display="both" />
 			
 			<!-- mediumID -->
-            <h:outputLabel for="mediumID" value="#{messages.mediumID}: *" style="font-weight:bold"/>
-            <p:inputText id="mediumID" value="#{readerForm.mediumID}"
-               required="true" requiredMessage="#{messages.mediumIDreq}"  size="#{readerForm.textWidth}"/>
-            <p:message for="mediumID"  display="both" />
+            <h:outputLabel for="list" value="#{messages.mediumID}: *" style="font-weight:bold"/>
+            <p:inputText id="list" value="#{borrowHandler.list}"
+               required="true" requiredMessage="#{messages.mediumIDreq}"  size="#{librarianForm.textWidth}"/>
+            <p:message for="list"  display="both" />
                         
 </ui:composition>
 </body>
