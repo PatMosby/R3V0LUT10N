@@ -8,7 +8,11 @@ import swp.bibcommon.Medium;
 import swp.bibjsf.persistence.Data;
 
 
-
+/**
+ * Ein Businesshandler der die Ausleihe realisiert.
+ * 
+ * @author Tobias
+ */
 public class BorrowHandler {
 
   private Date date;

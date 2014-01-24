@@ -28,9 +28,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_add_book_form_8java.html",
-"classswp_1_1bibcommon_1_1_medium.html#a25d884363621ef2334f82f29974f698f",
-"classswp_1_1bibjsf_1_1presentation_1_1_book_form.html#a873173e6b12e68007ac468a1425d03ea",
-"functions_0x64.html"
+"classswp_1_1bibcommon_1_1_book.html#ad1aae2ca17466f4cd2addce8da869879",
+"classswp_1_1bibjsf_1_1persistence_1_1_data.html#a2b473b3255dd05ceb6059149b8425cb9",
+"classswp_1_1bibjsf_1_1tests_1_1_c_s_v_reader_test.html#a8ee510ac2ca40fdccac1a41f4c551c1b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

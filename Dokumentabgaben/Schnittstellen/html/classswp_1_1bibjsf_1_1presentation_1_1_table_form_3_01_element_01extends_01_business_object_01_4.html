@@ -171,6 +171,8 @@ Static Protected Attributes</h2></td></tr>
 <div class="textblock"><p>A table form for Elements. Supports selection, sorting, filtering, CSV import/export, and lazy loading. Editing is not supported. There will be extra forms for that.</p>
 <p>Why is editing not supported? Editing turned out to be too difficult to get right. Here is a summary of my attempts. PrimeFaces offers row editors, which can be used to edit rows. They don't allow you to modify expanded rows, however. You could allow modifying expanded rows by conditional rendering input or output text fields. Yet, all these attempts finally failed if a user is allowed to modify the identifying attribute (the ID). That ID is needed to identify the database entry. If it can be changed, we need to have the ID before and after the modification. We could track the old ID by saving it during the OnEditInit event by storing it in a map &lt;object reference -&gt; ID&gt;. The problem is that the row editor seems to create copies of the row element changed. This is another object and the object reference is different from the original object reference stored in the map upon OnEditInit. So we cannot lookup the element in the map anymore. I finally gave up here.</p>
 <dl class="section author"><dt>Author</dt><dd>koschke </dd></dl>
+
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00069">69</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a890395315e7e9260d0574d9417db5b4e"></a>
 <div class="memitem">
@@ -193,6 +195,8 @@ Static Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00085">85</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -209,6 +213,8 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Deletes all selected elements from the data model. </p>
+
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00163">163</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
 
 </div>
 </div>
@@ -252,6 +258,8 @@ Static Protected Attributes</h2></td></tr>
 <p>Creates a CSV export file containing all business objects in the table.</p>
 <dl class="section return"><dt>Returns</dt><dd>a stream containing the generated CSV </dd></dl>
 
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00249">249</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a44d05c5c359abcde0474327e835516dd"></a>
@@ -268,6 +276,8 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a list of all selected rows.</p>
 <dl class="section return"><dt>Returns</dt><dd>list of all selected rows. </dd></dl>
+
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00116">116</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
 
 </div>
 </div>
@@ -286,6 +296,8 @@ Static Protected Attributes</h2></td></tr>
 <p>Returns the data model.</p>
 <dl class="section return"><dt>Returns</dt><dd>the data model </dd></dl>
 
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00198">198</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad6c02324fa3eab9aeff062761e40f6aa"></a>
@@ -303,6 +315,8 @@ Static Protected Attributes</h2></td></tr>
 <p>True if the table may be modified.</p>
 <dl class="section return"><dt>Returns</dt><dd>true if the table may be modified </dd></dl>
 
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00098">98</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a656da935f8809b4e50faf4fb661f20f1"></a>
@@ -319,6 +333,8 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Creates a PDF printout for the ID cards of all selected readers in the table.</p>
 <dl class="section return"><dt>Returns</dt><dd>a stream containing the generated PDF </dd></dl>
+
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00299">299</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
 
 </div>
 </div>
@@ -362,6 +378,8 @@ Static Protected Attributes</h2></td></tr>
 <p>Returns all rows currently selected.</p>
 <dl class="section return"><dt>Returns</dt><dd>all rows currently selected or null if none are selected </dd></dl>
 
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00143">143</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae14e5d26a81529e0ddcc4169de5afe6e"></a>
@@ -384,6 +402,8 @@ Static Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00221">221</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
 
 </div>
 </div>
@@ -408,6 +428,8 @@ Static Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00125">125</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a0060f06c4296393ce9dc2959b3092185"></a>
@@ -430,6 +452,8 @@ Static Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00207">207</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
 
 </div>
 </div>
@@ -454,6 +478,8 @@ Static Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00156">156</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -476,6 +502,8 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>List of all selected rows. </p>
 
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00109">109</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae1abae6c11b05e4c968d8e99556bd802"></a>
@@ -497,6 +525,8 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The business handler that takes care of the service requests. </p>
 
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00078">78</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8eb60df7da78ef11c7d4bcb2c1d5206a"></a>
@@ -516,6 +546,8 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00073">73</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
 
 </div>
 </div>
@@ -538,6 +570,8 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The lazy loading data model. </p>
 
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00191">191</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8d0d88b8c3f2fb32e6f06299914c6aa4"></a>
@@ -559,10 +593,12 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>All rows currently selected. </p>
 
+<p>Definition at line <a class="el" href="_table_form_8java_source.html#l00136">136</a> of file <a class="el" href="_table_form_8java_source.html">TableForm.java</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>bibjsf/src/main/java/swp/bibjsf/presentation/<a class="el" href="_table_form_8java.html">TableForm.java</a></li>
+<li>bibjsf/src/main/java/swp/bibjsf/presentation/<a class="el" href="_table_form_8java_source.html">TableForm.java</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -570,7 +606,7 @@ Static Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceswp.html">swp</a></li><li class="navelem"><a class="el" href="namespaceswp_1_1bibjsf.html">bibjsf</a></li><li class="navelem"><a class="el" href="namespaceswp_1_1bibjsf_1_1presentation.html">presentation</a></li><li class="navelem"><a class="el" href="classswp_1_1bibjsf_1_1presentation_1_1_table_form_3_01_element_01extends_01_business_object_01_4.html">TableForm< Element extends BusinessObject ></a></li>
-    <li class="footer">Generated on Fri Jan 24 2014 10:49:22 for Bib-R3V0LUT10N by
+    <li class="footer">Generated on Fri Jan 24 2014 11:14:22 for Bib-R3V0LUT10N by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>
