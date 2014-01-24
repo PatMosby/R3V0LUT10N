@@ -56,7 +56,6 @@ public class AsyncMediumTask extends AsyncTask<Void, Integer, List<Medium>> {
 			onProgressUpdate(2);
 			return null;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Log.i(AsyncMediumTask.class.getName(), "Get all mediums.");

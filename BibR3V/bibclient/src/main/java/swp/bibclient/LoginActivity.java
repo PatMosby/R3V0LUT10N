@@ -18,7 +18,7 @@ import org.apache.http.message.BasicNameValuePair;
 /**
  * Die Activity für die Login-Funktion.
  * 
- * @author mosby259
+ * @author Patrick Damrow
  *
  */
 
@@ -29,10 +29,22 @@ public class LoginActivity extends Activity {
 	 */
 	Activity activity = this;
 
-	
+	/**
+	 * TextView zum Auslesen des Usernames und des Passworts für den Login
+	 */
 	EditText username, password;
+	
+	/**
+	 * TextView zum anzeigen eines erfolgreichen Logins, oder falls 
+	 * Username und/oder das Passwort falsch ist/sind.
+	 */
 	TextView error;
+	
+	/**
+	 * String zum überprüfen ob der Login erfolgreich war
+	 */
 	private String response;
+	
 	private String errorMessage;
 	
 	
@@ -75,7 +87,7 @@ public class LoginActivity extends Activity {
 
 			      String response = null;
 			      try {
-			       response = LoginHttpClient.executeHttpPost("http://10.0.2.2:8080", postParameters);
+			       response = LoginHttpClient.executeHttpPost("http://10.0.2.2:8080/bibjsf/faces/login.xhtml", postParameters);
 			       String res = response.toString();
 			       response = res.replaceAll("\\s+", "");
 
@@ -101,6 +113,7 @@ public class LoginActivity extends Activity {
 			    	}
 			    } catch (Exception e) {
 			    	error.setText(e.getMessage());
+			    	Log.i(errorMessage, e.getMessage());
 			    	}
 			   }
 		 });

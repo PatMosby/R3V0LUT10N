@@ -17,12 +17,11 @@ import android.widget.TextView;
  * ein ArrayAdapter<T> verwenden. Mit unserem eigenem Adapter können wir selber
  * bestimmen, wie wir aus dem Meium ein Text für unsere Listview machen.
  *
- * Tutorial:
- * http://stackoverflow.com/questions/2265661/how-to-use-arrayadaptermyclass
- *
  * @author Patrick Damrow
  * 
  */
+
+//Tutorial: http://stackoverflow.com/questions/2265661/how-to-use-arrayadaptermyclass
 public class MediumAdapter extends ArrayAdapter<Medium> {
 
 	/**

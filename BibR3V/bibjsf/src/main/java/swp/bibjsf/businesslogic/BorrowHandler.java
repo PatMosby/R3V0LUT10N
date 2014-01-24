@@ -4,8 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import swp.bibcommon.Reader;
-import swp.bibcommon.Book;
-import java.util.List;
+import swp.bibcommon.Medium;
+import swp.bibjsf.persistence.Data;
 
 
 
@@ -15,67 +15,67 @@ public class BorrowHandler {
   
   
   /**
-   * Calculates date of return for borrowed media.
-   * Considers opening times of library.
-   * @return Date of return
+   * Berechnet Rückgabedatum .
+   * Berücksichtigt Öffnungszeiten der Bibliothek.
+   * @return date das Rückgabedatum
    */
-  public Date calculateDate(){
+  public Date calculateDate(Medium medium){
     return date;
   }
   
   /**
-   * Assigns the String id to a reader.
-   * Assigns the String list to media.
-   * @param id of the borrowing reader
-   * @param list contains the ID's of one or more media
+   * Ordnet dem String 'id' einem existierenden Reader zu.
+   * Ordnet dem String 'list' existierende Medien zu. 
+   * @param id ist ID eines Readers
+   * @param list enthält die ID's von einem oder mehreren Medien.
    */
   public void getInfo(String id, String list ){
-	
+ 
   }
   
   /**
-   * Adds reader to a list of borrower, if not already contained.
-   * Reader gets mediumList as attribute.
-   * @param reader The Borrower
-   * @param mediumList List of borrowed media
+   * Fügt die Medien aus mediumList der Ausleihliste LENDING zu.
+   * Reader wird in LENDING seinen ausgeliehenen Medien zugeordnet.
+   * @param reader der Ausleihende
+   * @param mediumList Liste der auszuleihenden Medien
    */
-  public void borrowMedium(Reader reader, List<Book> mediumList){
+  public void borrowMedium(Reader reader, List<Medium> mediumList){
     
   }
   
   /**
-   * Marks medium as borrowed.
-   * @param medium the medium to be marked
+   * Markiert Medien als ausgeliehen.
+   * @param mediumList die zu markierenden Medien
    */
-  public void setBorrowed(Book book){
-	  
+  public void setBorrowed(List<Medium> mediumList){
+   
   }
   
   /**
-   * Calculates fines of a user.
-   * @param userId unique identifier of a user
-   * @return the fines
+   * Berechnet Mahngebühren eines Reader.
+   * @param readerId die eindeutige ID des Reader
+   * @return Mahngebühren des Reader
    */
-  public double calculateFines(int userId){
+  public double calculateFines(int readerId){
     return 0;
   }
   
   /**
-   * returns a list of overdue media from the mediaList of the reader .
-   * @param userId unique identifier of a reader.
-   * @return list of overdue media
+   * Gibt eine Liste mit überfälligen Medien mithilfe der Ausleihliste LENDING zurück.
+   * @param readerId die eindeutige ID des Reader
+   * @return Liste der überfälligen Medien 
    */
-  public List<Book> overdueMediaList(Reader reader){
+  public List<Medium> overdueMediaList(int readerId){
     return null ;
   }
   
   
   /**
-   * 
-   * @return
+   * Prüft, ob es überfällige Medien gibt.
+   * @return Boolean
    */
   public boolean isOverdue(){
-	return true;
+ return true;
   }
   
   

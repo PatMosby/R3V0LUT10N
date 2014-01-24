@@ -18,14 +18,19 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
 public class LoginHttpClient {
- /** The time it takes for our client to timeout */
+ 
+	/**
+	 *  Timoeout für die Connection 
+	 */
     public static final int TIMEOUT = 30 * 1000; // milliseconds
 
-    /** Single instance of our HttpClient */
+    /** 
+     * Die einzige Instanz des HttpCLients 
+     */
     private static HttpClient httpClient;
 
     /**
-     * Get our single instance of our HttpClient object.
+     * Hier holen wie uns die einzige Instanz.
      *
      * @return ein HttpClient Objekt mit gesetzten connection Parametern
      * 

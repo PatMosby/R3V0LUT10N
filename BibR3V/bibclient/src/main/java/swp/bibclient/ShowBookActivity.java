@@ -26,7 +26,7 @@ import android.widget.TextView;
 /**
  * Diese Activity wird benutzt um ein Buch im Detail anzuzeigen.
  *
- * @author D. Lüdemann
+ * @author Patrick Damrow
  *
  */
 public class ShowBookActivity extends Activity {
@@ -54,16 +54,13 @@ public class ShowBookActivity extends Activity {
 		if (bookFromIntent != null) {
 
 			TextView textView1 = (TextView) findViewById(R.id.textView1);
-			textView1.setText(bookFromIntent.getAuthors());
+			textView1.setText(bookFromIntent.getTitle());
 
 			TextView textView2 = (TextView) findViewById(R.id.textView2);
-			textView2.setText(bookFromIntent.getTitle());
+			textView2.setText(bookFromIntent.getCategories());
 
-			TextView textView3 = (TextView) findViewById(R.id.textView3);
-			textView3.setText(bookFromIntent.getIndustrialIdentifier());
-
-			TextView textView4 = (TextView) findViewById(R.id.textView4);
-			textView4.setText(String.valueOf(bookFromIntent.getId()));
+			TextView textView3 = (TextView) findViewById(R.id.textView4);
+			textView3.setText(String.valueOf(bookFromIntent.getId()));
 		}
 	}
 
