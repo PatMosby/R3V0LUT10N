@@ -25,19 +25,19 @@
             <p:message for="id"  display="both" />
 
             <ui:include src="borrowAttributes.xhtml">
+            	<ui:param name="librarianForm" value="#{addLibrarianForm}"/>
             </ui:include>
             
             <!-- buttons in footer  -->
 			<f:facet name="footer">
 			  <h:panelGroup>
-			  <p:commandButton id="borrowButton" value="#{messages.borrow2}" action="#{addLibrarianForm.borrow2}" 
-			      ajax="false" icon="ui-icon-check" validateClient="true"/>
+			  <p:commandButton id="burrowButton" value="#{messages.borrow2}" action="#{borrowHandler.getInfo}" 
+			      icon="ui-icon-check"/>
               </h:panelGroup>
              </f:facet>    
                      
         </h:panelGrid>  
     </p:panel>  
-    
     <p:messages showDetail="true" autoUpdate="true"/>
 
  </h:form>
