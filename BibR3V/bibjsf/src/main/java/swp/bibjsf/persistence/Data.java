@@ -2073,44 +2073,7 @@ public class Data implements Persistence {
 				+ DEFAULT_QUOTE;
 	}
 	
-	/**
-	  * Macht neuen Eintrag in LENDING.
-	  * @param bookID ID des ausgeliehenen Mediums.
-	  * @param readerID die ID des Ausleihers
-	  * @param date das Rückgabedatum der Ausleihe
-	  * @throws DataSourceException
-	  */
-	 public final void addLending(int bookID, int readerID, Date date) throws DataSourceException {
-
-	 }
-	 /**
-	  * Macht Einträge für mehrere Medien eines Ausleihers.
-	  * @param bookIDs die ID's der auszuleihenden Medien
-	  * @param readerID die ID des Ausleihenden
-	  * @param dates die individuellen Rückgabedaten der Medien 
-	  * @throws DataSourceException
-	  */
-	 public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException {
-	  
-	 }
-	 
-	 /**
-	  * Verändert Rückgabedatum der Ausleihe.
-	  * @param date das Rückgabedatum
-	  * @throws DataSourceException
-	  */
-	 public final void updateLending(Date date)throws DataSourceException {
-	  
-	 }
-	 
-	 /**
-	  * Löscht Eintrag in LENDING.
-	  * @param bookID die ID des zu löschenden Mediums
-	  * @throws DataSourceException
-	  */
-	 public final void deleteLending(int bookID) throws DataSourceException {
-	  
-	 }
+	
 	 
 	 /**
 	  * Gibt alle verliehenen Medien eines Ausleihers zurück.
@@ -2119,26 +2082,6 @@ public class Data implements Persistence {
 	  * @throws DataSourceException
 	  */
 	 public final List<Book> getLendings(int readerID) throws DataSourceException {
-	  return null;
-	 }
-	 
-	 /**
-	  * Gibt alle überfälligen Medien in Form einer List zurück.
-	  * @param date aktuelles Tagesdatum
-	  * @return Liste mit Medien
-	  * @throws DataSourceException
-	  */
-	 public final List<Book> getOverdueLendings(Date date) throws DataSourceException {
-	  return null;
-	 }
-	 
-	 /**
-	  * Gibt den Ausleiher eines verliehen Mediums zurück.
-	  * @param bookID 
-	  * @return Reader. der Ausleiher des Mediums
-	  * @throws DataSourceException
-	  */
-	 public final Reader getLendingReader(int bookID) throws DataSourceException {
 	  return null;
 	 }
 

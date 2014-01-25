@@ -20,13 +20,12 @@ public class BorrowerForm extends BusinessObjectForm<Borrower>{
 	private static final long serialVersionUID = 380665113958410405L;
 
 	@Override
-	 public String save() {
+	 public String save(String table) {
 	    	logger.debug("request to save reader " + ((element == null) ? "NULL" : element.toString()));
 	    	if (element != null) {
 	    		try {
-	    			BorrowHandler bh = BorrowHandler.getInstance();
-	    			String str = element.getReaderID();	  	    			
-	    			return success(bh.add(element));
+	    			BorrowHandler bh = BorrowHandler.getInstance();	    			
+	    			return success(bh.add(element, table));
 	    		} catch (Exception e) {
 	    			return failure(e);
 	    		}
@@ -36,6 +35,6 @@ public class BorrowerForm extends BusinessObjectForm<Borrower>{
 	    }
 	
 	public String wawa(){
-		return borrow;
+		return null;
 	}
 }

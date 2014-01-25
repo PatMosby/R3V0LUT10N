@@ -11,7 +11,6 @@ import java.util.List;
 import swp.bibcommon.Borrower;
 import swp.bibcommon.Reader;
 import swp.bibcommon.Medium;
-<<<<<<< HEAD
 import swp.bibjsf.businesslogic.BusinessHandler.InputException;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
 import swp.bibjsf.exception.DataSourceException;
@@ -24,20 +23,9 @@ import swp.bibjsf.utils.OrderBy;
 
 
 public class BorrowHandler extends BusinessObjectHandler<Borrower>{
-=======
-import swp.bibjsf.persistence.Data;
-
-
-/**
- * Ein Businesshandler der die Ausleihe realisiert.
- * 
- * @author Tobias
- */
-public class BorrowHandler {
->>>>>>> a7ae9d661fc0844b8dc0aec06fbe0ddfea56b0fd
 
   private Date date;
-  private static final long serialVersionUID = -5653849921779676759L;
+  private static final long serialVersionUID = -5653849921779676752L;
   
   private static volatile BorrowHandler instance;
   
@@ -61,11 +49,7 @@ public class BorrowHandler {
    * @param list enthält die ID's von einem oder mehreren Medien.
    */
   public void getInfo(String id, String list ){
-<<<<<<< HEAD
     System.out.println("" +id + ""+ list);
-=======
- 
->>>>>>> a7ae9d661fc0844b8dc0aec06fbe0ddfea56b0fd
   }
   
   /**
@@ -111,7 +95,6 @@ public class BorrowHandler {
    */
   public boolean isOverdue(){
  return true;
-<<<<<<< HEAD
   }
   
   
@@ -131,7 +114,7 @@ public class BorrowHandler {
   
   public synchronized List<Borrower> get(List<Constraint> constraints, final int from, final int to, List<OrderBy> order)
           throws DataSourceException {
-      return null;
+      return null; //persistence.getReaders(constraints, from, to, order);
   }
   
   /**
@@ -146,11 +129,15 @@ public class BorrowHandler {
    *             if the reader exists already in the database
    */
   @Override
-  public synchronized int add(Borrower borrower) throws DataSourceException,
+  public synchronized int add(Borrower borrower, String tablename) throws DataSourceException,
       BusinessElementAlreadyExistsException {
-	  persistence.getLendings(borrower);
+      
+      
+      persistence.getLendings(borrower);
+      
       return 2;
-      } 
+  }
+  
   /**
    * Adds Librarian to database. Librarian must not yet exist.
    *
@@ -290,8 +277,6 @@ public class BorrowHandler {
   @Override
   public synchronized Borrower getPrototype() {
       return null; //prototype;
-=======
->>>>>>> a7ae9d661fc0844b8dc0aec06fbe0ddfea56b0fd
   }
    
   
