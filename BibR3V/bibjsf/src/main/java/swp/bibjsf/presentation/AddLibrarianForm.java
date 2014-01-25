@@ -64,7 +64,7 @@ public class AddLibrarianForm extends ReaderForm {
      *         navigation. See faces-config.xml.
      */
     @Override
-    public String save() {
+    public String save(String tablename) {
     	logger.debug("request to save librarian " + ((element == null) ? "NULL" : element.toString()));
     	if (element != null) {
     		try {

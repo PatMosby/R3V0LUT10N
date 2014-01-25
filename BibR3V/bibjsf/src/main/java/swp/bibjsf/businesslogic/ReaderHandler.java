@@ -99,7 +99,7 @@ public class ReaderHandler extends BusinessObjectHandler<Reader> {
      *             if the reader exists already in the database
      */
     @Override
-    public synchronized int add(Reader reader) throws DataSourceException,
+    public synchronized int add(Reader reader, String tablename) throws DataSourceException,
         BusinessElementAlreadyExistsException {
         logger.info("add reader: " + reader);
         if (reader.hasId() && persistence.getReader(reader.getId()) != null) {

@@ -1005,7 +1005,7 @@ public class Data implements Persistence {
 	 *             if there is a problem with the database.
 	 */
 	@Override
-    public final int addBook(final Book book) throws DataSourceException {
+    public final int addBook(final Book book, String tablename) throws DataSourceException {
 		logger.debug("add book " + book);
 		try {
 			Set<String> toIgnore = new HashSet<String>();

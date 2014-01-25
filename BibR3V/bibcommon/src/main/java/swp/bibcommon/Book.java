@@ -90,15 +90,7 @@ public class Book extends BusinessObject implements Serializable {
 	 * be an ISSN in case of magazine.
 	 */
 	private String industrialIdentifier;
-	/**
-	 * Average rating in the range of 0.0 .. 5.0 where greater is better.
-	 * Corresponds to the number of stars.
-	 */
-	private double avgRating = 0.0;
-	/**
-	 * Number of votes for the rating.
-	 */
-	private int votes = 0;
+
 	/**
 	 * An URL to an image file for the book.
 	 */
@@ -195,7 +187,6 @@ public class Book extends BusinessObject implements Serializable {
 		// is added (either to this class or any of its superclasses,
 		// you need to add a corresponding assignment here.
 		this.authors              = copyString(book.authors);
-		this.avgRating            = book.avgRating;
 		this.categories           = copyString(book.categories);
 		this.dateOfAddition       = copyString(book.dateOfAddition);
 		this.dateOfPublication    = copyString(book.dateOfPublication);
@@ -213,7 +204,6 @@ public class Book extends BusinessObject implements Serializable {
 		this.publisher            = copyString(book.publisher);
 		this.subtitle             = copyString(book.subtitle);
 		this.title                = copyString(book.title);
-		this.votes                = book.votes;
 	}
 
 	/**
@@ -579,42 +569,8 @@ public class Book extends BusinessObject implements Serializable {
 	 *
 	 * @return number of votes for the rating
 	 */
-	public final int getVotes() {
-		return votes;
-	}
 
-	/**
-	 * Sets the amount of votes for this book.
-	 *
-	 * @param votes new number of votes for the rating
-	 */
-	public final void setVotes(final int votes) {
-		this.votes = votes;
-	}
 
-	/**
-	 * Sets the average rating for this book.
-	 *
-	 * @param avgRating
-	 *            the rating as Double.
-	 * @throws IllegalRating
-	 */
-	public final void setAvgRating(final double avgRating) throws IllegalRating {
-		if (0.0 <= avgRating && avgRating <= 5.0) {
-			this.avgRating = avgRating;
-		} else {
-			throw new IllegalRating(((Double) avgRating).toString());
-		}
-	}
-
-	/**
-	 * Return the average rating of this book.
-	 *
-	 * @return average rating
-	 */
-	public final double getAvgRating() {
-		return avgRating;
-	}
 
 	/*
 	 * (non-Javadoc)

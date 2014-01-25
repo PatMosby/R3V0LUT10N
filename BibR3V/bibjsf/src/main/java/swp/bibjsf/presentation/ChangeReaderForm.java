@@ -68,7 +68,7 @@ public class ChangeReaderForm extends ReaderForm {
      * @see swp.bibjsf.presentation.ReaderForm#save()
      */
     @Override
-    public String save() {
+    public String save(String tablename) {
         try {
             ReaderHandler bh = ReaderHandler.getInstance();
             return success(bh.update(oldID, element));

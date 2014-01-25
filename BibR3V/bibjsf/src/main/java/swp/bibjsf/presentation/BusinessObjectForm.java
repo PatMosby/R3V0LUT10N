@@ -139,7 +139,7 @@ public abstract class BusinessObjectForm<Element extends BusinessObject> impleme
      * @return "success" or "error" as a string. Is used for
      *         navigation. See faces-config.xml.
      */
-    public abstract String save();
+    public abstract String save(String tablename);
 
     /**
      * Cancels addition of an element. Navigation continues with main page.

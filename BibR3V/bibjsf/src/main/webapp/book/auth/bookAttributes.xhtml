@@ -172,29 +172,8 @@
             <p:ajax />
         </p:selectBooleanCheckbox>
 		<p:message for="imageURL" display="both" />
-
-		<!-- votes -->
-		<h:outputLabel for="votes" value="#{messages.votes}:"
-			style="font-weight:bold" title="#{messages.votes_help}" />
-		<p:inputText id="votes" value="#{bookForm.votes}" size="#{bookForm.textWidth}" validatorMessage="#{messages.nonnegative}">
-			<f:validateLongRange minimum="0" />
-		</p:inputText>
-		<p:selectBooleanCheckbox value="#{bookForm.votesSelected}" rendered="#{bookForm.selectable}" >
-            <p:ajax />
-        </p:selectBooleanCheckbox>
-		<p:message for="votes" display="both" />
 		
-		<!-- avgRating -->
-		<h:outputLabel for="avgRating" value="#{messages.avgRating}:"
-			style="font-weight:bold" title="#{messages.avgRating_help}" />
-		<p:inputText id="avgRating" value="#{bookForm.avgRating}" size="#{bookForm.textWidth}" validatorMessage="#{messages.invalidRating}">
-			<f:validateLongRange minimum="0" maximum="5" />
-			<f:convertNumber type="number" maxFractionDigits="2" locale="de" />
-		</p:inputText>
-		<p:selectBooleanCheckbox value="#{bookForm.avgRatingSelected}" rendered="#{bookForm.selectable}" >
-            <p:ajax />
-        </p:selectBooleanCheckbox>
-		<p:message for="avgRating" display="both" />
+
 		
 		<!-- note -->
 		<h:outputLabel for="note" value="#{messages.note}:"

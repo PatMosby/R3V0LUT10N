@@ -26,7 +26,7 @@
             <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold" title="#{messages.bookid_help}"/>
             <h:outputText id="id" value="#{addBookForm.id}" />
             <!-- <p:selectBooleanCheckbox value="#{bookForm.isbnSelected}" rendered="#{bookForm.selectable}" /> -->
-            <h:outputText value="" /> <!--just a dummy to have a column -->
+            <h:outputText value="" /> <!-- just a dummy to have a column -->
             <p:message for="id"  display="both" />
             
             <ui:include src="bookAttributes.xhtml">
@@ -36,7 +36,7 @@
             <!-- buttons in footer  -->
             <f:facet name="footer">
               <h:panelGroup>
-              <p:commandButton id="saveButton" value="#{messages.save}" action="#{addBookForm.save}" 
+              <p:commandButton id="saveButton" value="#{messages.save}" action="#{addBookForm.save(bookTableName)}" 
                   ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
               <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{addBookForm.reset}" title="#{messages.reset_help}" update="panel" />
               <p:commandButton id="cancelButton" value="#{messages.cancel}"

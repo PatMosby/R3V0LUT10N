@@ -31,7 +31,7 @@
             <!-- buttons in footer -->
 			<f:facet name="footer">
 			  <h:panelGroup>
-			  <p:commandButton id="saveButton" value="#{messages.save}" action="#{addLibrarianForm.save}" 
+			  <p:commandButton id="saveButton" value="#{messages.save}" action="#{addLibrarianForm.save(s)}" 
 			      ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
 			  <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{addLibrarianForm.reset}" title="#{messages.reset_help}" update="panel" />
 			  <p:commandButton id="cancelButton" value="#{messages.cancel}"

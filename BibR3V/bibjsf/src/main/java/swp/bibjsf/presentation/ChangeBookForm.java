@@ -77,7 +77,7 @@ public class ChangeBookForm extends BookForm {
      * for navigation; cf. faces-config.xml.
      */
     @Override
-    public String save() {
+    public String save(String tablename) {
         logger.debug("request to save new book " + ((element == null) ? "NULL" : element.toString()));
         if (element != null) {
             try {
