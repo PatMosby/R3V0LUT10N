@@ -19,11 +19,13 @@ package swp.bibjsf.persistence;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Date;
 import java.util.List;
 
 import swp.bibcommon.Book;
 import swp.bibcommon.BusinessObject;
 import swp.bibcommon.Reader;
+import swp.bibcommon.Borrower;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
 import swp.bibjsf.exception.DataSourceException;
 import swp.bibjsf.utils.Constraint;
@@ -378,5 +380,20 @@ public interface Persistence {
 	 *             because there was no backup found
 	 */
 	public void restore() throws DataSourceException;
+	
+	public void addLending(int bookID, int readerID, Date date) throws DataSourceException;
+	
+	public void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException;
+	
+	public void updateLending(Date date)throws DataSourceException;
+	
+	public void deleteLending(int bookID) throws DataSourceException;
+	
+	public List<Book> getLendings(Borrower borrower) throws DataSourceException;
+	
+	public List<Book> getOverdueLendings(Date date) throws DataSourceException;
+	
+	public Reader getLendingReader(int bookID) throws DataSourceException;
+	
 
 }

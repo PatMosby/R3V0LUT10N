@@ -19,25 +19,35 @@
     <p:panel id="panel" header="#{messages.borrowMedium}">  
         <h:panelGrid columns="3" cellpadding="5">  
             
-            <!-- ID (read-only) -->
+             <!-- ID (read-only) -->
             <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold"/>
-            <h:outputText id="id" value="#{addLibrarianForm.id}"  size="#{addLibrarianForm.textWidth}"/>
+            <h:outputText id="id" value="#{borrowerForm.id}"  size="#{borrowerForm.textWidth}"/>
             <p:message for="id"  display="both" />
 
             <ui:include src="borrowAttributes.xhtml">
-            </ui:include>
+             <ui:param name="borrowerForm" value="#{borrowerForm}"/>
+            </ui:include>  
+            
+            <!-- ID (read-only) -->
+          <!--   <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold"/>
+            <h:outputText id="id" value="#{addReaderForm.id}"  size="#{addReaderForm.textWidth}"/>
+            <p:message for="id"  display="both" />
+
+            <ui:include src="/reader/readerAttributes.xhtml">
+                <ui:param name="readerForm" value="#{addReaderForm}"/>
+            </ui:include> -->
+           
             
             <!-- buttons in footer  -->
 			<f:facet name="footer">
 			  <h:panelGroup>
-			  <p:commandButton id="borrowButton" value="#{messages.borrow2}" action="#{addLibrarianForm.borrow2}" 
+			  <p:commandButton id="borrowButton" value="#{messages.borrow2}" action="#{borrowerForm.save}" 
 			      ajax="false" icon="ui-icon-check" validateClient="true"/>
               </h:panelGroup>
              </f:facet>    
                      
         </h:panelGrid>  
     </p:panel>  
-    
     <p:messages showDetail="true" autoUpdate="true"/>
 
  </h:form>

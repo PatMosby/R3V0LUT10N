@@ -60,6 +60,7 @@ public class AddBookForm extends BookForm {
     public String save() {
     	logger.debug("request to save new book " + ((element == null) ? "NULL" : element.toString()));
     	if (element != null) {
+    		System.out.println("vsvjsvsblsbb ");
     		try {
     			BookHandler bh = BookHandler.getInstance();
     			int newID = bh.add(element);

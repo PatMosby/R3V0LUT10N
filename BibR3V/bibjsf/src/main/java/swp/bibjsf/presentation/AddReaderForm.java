@@ -22,6 +22,8 @@ import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import org.apache.log4j.Logger;
+
 import swp.bibcommon.Reader;
 import swp.bibjsf.businesslogic.ReaderHandler;
 import swp.bibjsf.utils.Messages;
@@ -41,6 +43,8 @@ public class AddReaderForm extends ReaderForm {
      * Unique ID for serialization.
      */
     private static final long serialVersionUID = -494454216495818377L;
+    
+    
 
     public AddReaderForm() {
         super();
@@ -66,6 +70,7 @@ public class AddReaderForm extends ReaderForm {
     public String save() {
     	logger.debug("request to save reader " + ((element == null) ? "NULL" : element.toString()));
     	if (element != null) {
+    		String str = element.getFirstName();
     		try {
     			ReaderHandler bh = ReaderHandler.getInstance();
     			return success(bh.add(element));

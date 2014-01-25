@@ -58,9 +58,12 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.log4j.Logger;
 
+import android.util.Log;
+
 import swp.bibcommon.Book;
 import swp.bibcommon.BusinessObject;
 import swp.bibcommon.Reader;
+import swp.bibcommon.Borrower;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
 import swp.bibjsf.exception.DataSourceException;
 import swp.bibjsf.utils.CSVReader;
@@ -135,6 +138,8 @@ public class Data implements Persistence {
 	private final static String movieTableName = "MOVIE";
 	private final static String cassetteTableName = "CASSETTE";
 	private final static String otherTableName = "OTHER";
+	private final static String borrowTableName = "LENDING";
+	
 	
 	/*
 	 * The minimal ID a book can have. We are using different ranges for book
@@ -435,6 +440,23 @@ public class Data implements Persistence {
 					+ UsernameField + ") REFERENCES " + readerTableName + "("
 					+ UsernameField + ") ON DELETE CASCADE ON UPDATE RESTRICT)");
 		}
+		
+		if (!tableExists(tableNames, borrowTableName)) {
+			logger.debug("database table " + borrowTableName
+					+ " does not exist, creating new one");
+			// The table of all books in the library.
+			run.update("CREATE TABLE " + borrowTableName
+					+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
+					+ " <= ID AND ID < " + bookMinID + "), " + UsernameField
+					+ " VARCHAR(128) NOT NULL UNIQUE, "
+					+ "firstname VARCHAR(256) NOT NULL, "
+					+ "lastname VARCHAR(256) NOT NULL, "					
+					+ "date DATE, ");
+					
+					
+					
+		}
+		
 		if (createAdmin) {
 			insertAdmin();
 		}
@@ -1150,6 +1172,79 @@ public class Data implements Persistence {
 			throw new DataSourceException(e.getLocalizedMessage());
 		}
 	}
+	
+	
+	/**
+	 * Macht neuen Eintrag in LENDING.
+	 * @param bookID ID des ausgeliehenen Mediums.
+	 * @param readerID die ID des Ausleihers
+	 * @param date das Rückgabedatum der Ausleihe
+	 * @throws DataSourceException
+	 */
+	public final void addLending(int bookID, int readerID, Date date) throws DataSourceException {
+
+	}
+	/**
+	 * Macht Einträge für mehrere Medien eines Ausleihers.
+	 * @param bookIDs die ID's der auszuleihenden Medien
+	 * @param readerID die ID des Ausleihenden
+	 * @param dates die individuellen Rückgabedaten der Medien 
+	 * @throws DataSourceException
+	 */
+	public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException {
+		
+	}
+	
+	/**
+	 * Verändert Rückgabedatum der Ausleihe.
+	 * @param date das Rückgabedatum
+	 * @throws DataSourceException
+	 */
+	public final void updateLending(Date date)throws DataSourceException {
+		
+	}
+	
+	/**
+	 * Löscht Eintrag in LENDING.
+	 * @param bookID die ID des zu löschenden Mediums
+	 * @throws DataSourceException
+	 */
+	public final void deleteLending(int bookID) throws DataSourceException {
+		
+	}
+	
+	/**
+	 * Gibt alle verliehenen Medien eines Ausleihers zurück.
+	 * @param readerID die ID des Ausleihers
+	 * @return eine Liste mit Medien
+	 * @throws DataSourceException
+	 */
+	public final List<Book> getLendings(Borrower borrower) throws DataSourceException {
+		System.out.print(borrower.getReaderID());
+		Log.i("diesdas", borrower.getReaderID());
+		return null;
+	}
+	
+	/**
+	 * Gibt alle überfälligen Medien in Form einer List zurück.
+	 * @param date aktuelles Tagesdatum
+	 * @return Liste mit Medien
+	 * @throws DataSourceException
+	 */
+	public final List<Book> getOverdueLendings(Date date) throws DataSourceException {
+		return null;
+	}
+	
+	/**
+	 * Gibt den Ausleiher eines verliehen Mediums zurück.
+	 * @param bookID 
+	 * @return Reader. der Ausleiher des Mediums
+	 * @throws DataSourceException
+	 */
+	public final Reader getLendingReader(int bookID) throws DataSourceException {
+		return null;
+	}
+	
 
 	/*
 	 * (non-Javadoc)
@@ -1193,6 +1288,8 @@ public class Data implements Persistence {
 			throw new DataSourceException(e.getLocalizedMessage());
 		}
 	}
+	
+
 
 	/*
 	 * (non-Javadoc)
