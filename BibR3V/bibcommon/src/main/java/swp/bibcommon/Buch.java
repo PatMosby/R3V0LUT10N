@@ -54,7 +54,7 @@ import java.io.Serializable;
  * @author D. Lüdemann, R. Koschke
  *
  */
-public class Buch extends Book implements Serializable {
+public class Buch extends Medium implements Serializable {
 
 
 	/**

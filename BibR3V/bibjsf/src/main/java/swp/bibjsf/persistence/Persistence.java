@@ -61,7 +61,7 @@ public interface Persistence {
 	 * @throws DataSourceException
 	 *             if there are problems with the database.
 	 */
-	public int addBook(final Book book) throws DataSourceException;
+	public int addBook(final Book book, String tablename) throws DataSourceException;
 
 	/**
 	 * Creates a book-object for the transmitted book-ID.

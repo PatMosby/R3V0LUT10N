@@ -91,8 +91,6 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     private boolean printTypeSelected         = false;
     private boolean publisherSelected         = false;
     private boolean imageURLSelected          = false;
-    private boolean votesSelected             = false;
-    private boolean avgRatingSelected         = false;
     private boolean noteSelected              = false;
 
 	/**
@@ -228,21 +226,6 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 		this.imageURLSelected = imageURLSelected;
 	}
 
-	public boolean isVotesSelected() {
-		return votesSelected;
-	}
-
-	public void setVotesSelected(boolean votesSelected) {
-		this.votesSelected = votesSelected;
-	}
-
-	public boolean isAvgRatingSelected() {
-		return avgRatingSelected;
-	}
-
-	public void setAvgRatingSelected(boolean avgRatingSelected) {
-		this.avgRatingSelected = avgRatingSelected;
-	}
 
     public boolean isNoteSelected() {
 		return noteSelected;
@@ -374,15 +357,15 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 	 * @param fromBook book from which to merge the attributes
 	 */
 	protected void mergeSelectedAttributes(Book toBook, Book fromBook) {
-/*		if (isIsbnSelected()) {
+		if (isIsbnSelected()) {
             toBook.setIndustrialIdentifier(fromBook.getIndustrialIdentifier());
-        }*/
+        }
         if (isTitleSelected()) {
             toBook.setTitle(fromBook.getTitle());
         }
-/*        if (isAuthorsSelected()) {
+        if (isAuthorsSelected()) {
             toBook.setAuthors(fromBook.getAuthors());
-        }*/
+        }
         if (isSubtitleSelected()) {
             toBook.setSubtitle(fromBook.getSubtitle());
         }
@@ -404,38 +387,28 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         if (isLocationSelected()) {
             toBook.setLocation(fromBook.getLocation());
         }
-/*        if (isPageCountSelected()) {
+        if (isPageCountSelected()) {
             toBook.setPageCount(fromBook.getPageCount());
         }
         if (isPreviewLinkSelected()) {
             toBook.setPreviewLink(fromBook.getPreviewLink());
-        }*/
+        }
         if (isPriceSelected()) {
             toBook.setPrice(fromBook.getPrice());
         }
- /*       if (isPrintTypeSelected()) {
+        if (isPrintTypeSelected()) {
             toBook.setPrintType(fromBook.getPrintType());
         }
         if (isPublisherSelected()) {
             toBook.setPublisher(fromBook.getPublisher());
-        }*/
+        }
         if (isImageURLSelected()) {
             toBook.setImageURL(fromBook.getImageURL());
         }
-/*        if (isVotesSelected()) {
-            toBook.setVotes(fromBook.getVotes());
-        }
-*/        if (isNoteSelected()) {
+        if (isNoteSelected()) {
             toBook.setNote(fromBook.getNote());
         }
-/*        if (isAvgRatingSelected()) {
-            try {
-				toBook.setAvgRating(fromBook.getAvgRating());
-			} catch (IllegalRating e) {
-				// cannot happen
-			}
-        }
-*/	}
+	}
 
     /**
      * Returns the list of books matching given identifier asking Google.
@@ -557,7 +530,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
      * Getter for authors.
      *
      * @return list of authors
-     *
+     */
     public String getAuthors() {
         return element.getAuthors();
     }
@@ -566,7 +539,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
      * Setter for authors.
      *
      * @param authors new list of authors
-     *
+     */
     public void setAuthors(final String authors) {
         element.setAuthors(authors);
     }
@@ -575,7 +548,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
      * Getter for ISBN/ISSN.
      *
      * @return ISBN/ISSN of current book
-     *
+     */
     public String getIndustrialIdentifier() {
         return element.getIndustrialIdentifier();
     }
@@ -584,10 +557,10 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
      * Setter for ISBN/ISSN.
      *
      * @param identifier new ISBN/ISSN
-     *
+     */
     public void setIndustrialIdentifier(final String identifier) {
         element.setIndustrialIdentifier(identifier);
-        lookup();
+ //       lookup();
     }
 
 /*    public int getVotes() {
@@ -600,8 +573,8 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 
     public double getAvgRating() {
     	return element.getAvgRating();
-    }
-*/
+    }*/
+
     public String getImageURL() {
     	return element.getImageURL();
     }
@@ -619,8 +592,8 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
                                      Messages.get("invalidRating"),
                                      e.getLocalizedMessage()));
 		}
-    }
-*/
+    }*/
+
     public String getCategories() {
         return element.getCategories();
     }
@@ -682,14 +655,14 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         element.setLocation(location);
     }
 
- /*   public int getPageCount() {
+    public int getPageCount() {
         return element.getPageCount();
     }
 
     public void setPageCount(int pageCount) {
         element.setPageCount(pageCount);
     }
-*/
+
     public BigDecimal getPrice() {
         return element.getPrice();
     }
@@ -698,7 +671,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         element.setPrice(price);
     }
 
-/*    public String getPreviewLink() {
+    public String getPreviewLink() {
         return element.getPreviewLink();
     }
 
@@ -720,7 +693,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 
     public void setPublisher(String publisher) {
         element.setPublisher(publisher);
-    }*/
+    }
 
     public String getNote() {
         return element.getNote();

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>#{messages.addMedium}</title>
+	<link rel="stylesheet" media="screen,projection"
+		title="Standardstylesheet" href="bib.css" type="text/css" />
+</h:head>
+
+<body>
+	<p:graphicImage url="/resources/images/header.png" border="0" />
+	<f:view>
+		<h:form>
+		    <ui:include src="/mainmenu.xhtml" />
+			<p:messages id="messages" closable="true" showSummary ="true" showDetail="true" autoUpdate="true" />
+		</h:form>
+	</f:view>
+
+<h:form>
+    <h:commandButton  id="addAudiobook" value="#{messages.audiobook}" action="addaudiobook"/>
+  </h:form>
+  <h:form>
+    <h:commandButton  id="addBook" value="#{messages.book}" action="addbook"/>
+  </h:form>
+  <h:form>
+    <h:commandButton  id="addCassette" value="#{messages.cassette}" action="addcassette"/>
+  </h:form>
+  <h:form>
+    <h:commandButton  id="addCd" value="#{messages.cd}" action="addcd"/>
+  </h:form>
+  <h:form>
+    <h:commandButton  id="addMagazine" value="#{messages.magazine}" action="addmagazine"/>
+  </h:form>
+  <h:form>
+    <h:commandButton  id="addMovie" value="#{messages.movie}" action="addmovie"/>
+  </h:form>
+  <h:form>
+    <h:commandButton  id="addSoftware" value="#{messages.software}" action="addsoftware"/>
+  </h:form>
+  <h:form>
+    <h:commandButton  id="addOther" value="#{messages.other}" action="addother"/>
+  </h:form>
+
+</body>
+</html>

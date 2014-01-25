@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['lastname',['lastname',['../classswp_1_1bibjsf_1_1renderer_1_1_i_d_content.html#a8f1e1eb3858b13660f66e2cbc11076ef',1,'swp::bibjsf::renderer::IDContent']]],
+  ['linelength',['lineLength',['../classswp_1_1bibjsf_1_1renderer_1_1_printer.html#a34ff3d4e241c70cd7bcbeeee5022f8ec',1,'swp::bibjsf::renderer::Printer']]],
+  ['logger',['logger',['../classswp_1_1bibjsf_1_1businesslogic_1_1_business_handler.html#ab3fe23817b76659c00ce832e9946e8e1',1,'swp.bibjsf.businesslogic.BusinessHandler.logger()'],['../classswp_1_1bibjsf_1_1presentation_1_1_business_object_form_3_01_element_01extends_01_business_object_01_4.html#a75899e73c1478c1e96ae78795d6d0d33',1,'swp.bibjsf.presentation.BusinessObjectForm&lt; Element extends BusinessObject &gt;.logger()'],['../classswp_1_1bibjsf_1_1presentation_1_1_table_form_3_01_element_01extends_01_business_object_01_4.html#a8eb60df7da78ef11c7d4bcb2c1d5206a',1,'swp.bibjsf.presentation.TableForm&lt; Element extends BusinessObject &gt;.logger()'],['../classswp_1_1bibjsf_1_1renderer_1_1_printer.html#aa93378ba3e26af694c28cc4cedfa894f',1,'swp.bibjsf.renderer.Printer.logger()'],['../classswp_1_1bibjsf_1_1utils_1_1_configuration.html#a94cf6487a2b81a9028b97b68c2bd953b',1,'swp.bibjsf.utils.Configuration.logger()']]]
+];

@@ -25,6 +25,7 @@
             <p:message for="id"  display="both" />
 
             <ui:include src="borrowAttributes.xhtml">
+<<<<<<< HEAD
              <ui:param name="borrowerForm" value="#{borrowerForm}"/>
             </ui:include>  
             
@@ -37,12 +38,21 @@
                 <ui:param name="readerForm" value="#{addReaderForm}"/>
             </ui:include> -->
            
+=======
+            	<ui:param name="librarianForm" value="#{addLibrarianForm}"/>
+            </ui:include>
+>>>>>>> a7ae9d661fc0844b8dc0aec06fbe0ddfea56b0fd
             
             <!-- buttons in footer  -->
 			<f:facet name="footer">
 			  <h:panelGroup>
+<<<<<<< HEAD
 			  <p:commandButton id="borrowButton" value="#{messages.borrow2}" action="#{borrowerForm.save}" 
 			      ajax="false" icon="ui-icon-check" validateClient="true"/>
+=======
+			  <p:commandButton id="borrowButton" value="#{messages.borrow2}" action="#{borrowHandler.getInfo}" 
+			      icon="ui-icon-check"/>
+>>>>>>> a7ae9d661fc0844b8dc0aec06fbe0ddfea56b0fd
               </h:panelGroup>
              </f:facet>    
                      
