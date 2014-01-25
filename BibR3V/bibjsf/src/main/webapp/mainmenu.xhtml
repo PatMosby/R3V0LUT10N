@@ -14,7 +14,6 @@
 				url="/index.xhtml" />
 
 			<p:submenu label="#{messages.books}" icon="ui-icon-document">
-				<p:menuitem value="#{messages.add}" url="/book/auth/add.xhtml" rendered="#{request.isUserInRole('LIBRARIAN')}"/>
 				<p:menuitem value="#{messages.listall}" url="/all/list.xhtml" />
 				<p:menuitem value="#{messages.audiobooks}" url="/audibook/list.xhtml" />
 				<p:menuitem value="#{messages.books}" url="/book/list.xhtml" />
@@ -46,6 +45,7 @@
 			</p:submenu>
 
 			<p:submenu label="#{messages.bib}" icon="ui-icon-note" rendered="#{request.isUserInRole('LIBRARIAN')}">
+				<p:menuitem value="#{messages.addmedium}" url="/librarian/addMedium.xhtml" />
 				<p:menuitem value="#{messages.borrow}" url="/librarian/borrow.xhtml" />
 				<p:menuitem value="#{messages.return}" url="#" />
 				<p:menuitem value="#{messages.statistic}" url="#"/>

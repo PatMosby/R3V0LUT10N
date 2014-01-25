@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+<!-- Addition of a book -->
+<h:head>
+    <title>#{messages.addsoftware}</title>
+</h:head>
+<h:body>
+    <h:outputStylesheet name="css/bib.css" />
+    <f:view>
+    <h:form id="form1">
+    <ui:include src="/mainmenu.xhtml" />
+    
+    <p:panel id="panel" header="#{messages.addsoftware}" >  
+    
+    	<p:focus context="panel"/>
+    	
+        <h:panelGrid columns="4" cellpadding="5">  
+
+            <!-- ID (read-only)
+            <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold" title="#{messages.bookid_help}"/>
+            <h:outputText id="id" value="#{addBookForm.id}" />
+            <!-- <p:selectBooleanCheckbox value="#{bookForm.isbnSelected}" rendered="#{bookForm.selectable}" /> 
+            <h:outputText value="" /> <!-- just a dummy to have a column 
+            <p:message for="id"  display="both" />
+            
+            <ui:include src="bookAttributes.xhtml">
+                <ui:param name="bookForm" value="#{addBookForm}"/>
+            </ui:include>  -->
+
+            <!-- buttons in footer  -->
+            <f:facet name="footer">
+              <h:panelGroup>
+              <p:commandButton id="saveButton" value="#{messages.save}" action="#{addSoftwareForm.save}" 
+                  ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
+              <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{addSoftwareForm.reset}" title="#{messages.reset_help}" update="panel" />
+              <p:commandButton id="cancelButton" value="#{messages.cancel}"
+                  action="#{addSoftwareForm.cancel}" immediate="true"  title="#{messages.cancel_help} "/>
+              <p:commandButton id="lookupButton" value="#{messages.search}" update=":form2:foundBooksTable panel"
+                  partialSubmit="true" process="isbn"
+                  immediate="true"  title="#{messages.lookupButton_help} "/>
+              </h:panelGroup>
+             </f:facet>                
+        </h:panelGrid>  
+    </p:panel>
+    <p:resizable for="panel" minWidth="300" minHeight="300" />  
+
+    <p:messages showDetail="true" autoUpdate="true"/>
+    <p:defaultCommand target="lookupButton"/>
+ </h:form>
+ 
+ <!-- <h:form id="form2">
+    <p:dataTable id="foundBooksTable" var="book" value="#{addBookForm.foundBooks}"   
+                 selection="#{addBookForm.selectedBook}" emptyMessage="#{messages.noBooksFound}"
+                 resizableColumns="true" >  
+  
+        <f:facet name="header">  
+             #{messages.booklisttitle}
+        </f:facet>
+  
+        <p:column selectionMode="single" style="width:2%" />  
+  
+        <p:column headerText="#{messages.isbn}" style="width:10%">  
+            #{book.industrialIdentifier}
+        </p:column>   
+  
+        <p:column headerText="#{messages.title}" style="width:25%">  
+            #{book.title}
+        </p:column>
+        
+        <p:column headerText="#{messages.price}" style="width:25%">  
+            #{book.price}
+        </p:column> -->
+
+        <f:facet name="footer">  
+            <p:commandButton id="viewButton" value="#{messages.view}" icon="ui-icon-zoomin" 
+                             update=":form2:displaySingle" oncomplete="singleBookDialog.show()"/>  
+            <p:commandButton id="selectButton" value="#{messages.copy}" icon="ui-icon-copy" 
+            	update=":form1" action="#{addSoftwareForm.copySelected}"/> 
+        </f:facet>  
+    </p:dataTable>  
+    
+    <!-- <p:dialog id="dialog" header="#{messages.bookDetails}" widgetVar="singleBookDialog" resizable="false"  
+              showEffect="fade" hideEffect="explode" modal="true" >  
+  
+        <h:panelGrid id="displaySingle" columns="2" cellpadding="4">  
+  
+            <f:facet name="header">  
+                <p:graphicImage value="#{addBookForm.selectedBook.imageURL}"/>  
+            </f:facet>  
+            
+            <h:outputLabel for="foundISBN" value="#{messages.isbn}" />  
+            <h:outputText id="foundISBN" value="#{addBookForm.selectedBook.industrialIdentifier}" style="font-weight:bold"/>  
+  
+            <h:outputLabel for="foundTitle" value="#{messages.title}" />  
+            <h:outputText id="foundTitle" value="#{addBookForm.selectedBook.title}" style="font-weight:bold"/> 
+            
+            <h:outputLabel for="foundsubtitle" value="#{messages.subtitle}" />  
+            <h:outputText id="foundsubtitle" value="#{addBookForm.selectedBook.subtitle}" style="font-weight:bold"/> 
+            
+            <h:outputLabel for="foundauthors" value="#{messages.authors}" />  
+            <h:outputText id="foundauthors" value="#{addBookForm.selectedBook.authors}" style="font-weight:bold"/> 
+
+            <h:outputLabel for="foundcategories" value="#{messages.categories}" />  
+            <h:outputText id="foundcategories" value="#{addBookForm.selectedBook.categories}" style="font-weight:bold"/> 
+                 
+            <h:outputLabel for="founddescription" value="#{messages.description}" />  
+            <h:outputText id="founddescription" value="#{addBookForm.selectedBook.description}" style="font-weight:bold"/> 
+            
+            <h:outputLabel for="founddateOfPublication" value="#{messages.dateOfPublication}" />  
+            <h:outputText id="founddateOfPublication" value="#{addBookForm.selectedBook.dateOfPublication}" style="font-weight:bold" >
+                <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET" />
+            </h:outputText> 
+            
+            <h:outputLabel for="founddateOfAddition" value="#{messages.dateOfAddition}" />  
+            <h:outputText id="founddateOfAddition" value="#{addBookForm.selectedBook.dateOfAddition}" style="font-weight:bold" >
+                <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET" />
+            </h:outputText> 
+                        
+            <h:outputLabel for="foundlanguage" value="#{messages.language}" />  
+            <h:outputText id="foundlanguage" value="#{addBookForm.selectedBook.language}" style="font-weight:bold"/> 
+
+            <h:outputLabel for="foundpageCount" value="#{messages.pageCount}" />  
+            <h:outputText id="foundpageCount" value="#{addBookForm.selectedBook.pageCount}" style="font-weight:bold"/> 
+
+            <h:outputLabel for="foundpreviewLink" value="#{messages.previewLink}" />  
+            <h:outputText id="foundpreviewLink" value="#{addBookForm.selectedBook.previewLink}" style="font-weight:bold"/> 
+
+            <h:outputLabel for="foundprice" value="#{messages.price}" />  
+            <h:outputText id="foundprice" value="#{addBookForm.selectedBook.price}" style="font-weight:bold"/> 
+            
+            <h:outputLabel for="foundprintType" value="#{messages.printType}" />  
+            <h:outputText id="foundprintType" value="#{addBookForm.selectedBook.printType}" style="font-weight:bold"/> 
+
+            <h:outputLabel for="foundpublisher" value="#{messages.publisher}" />  
+            <h:outputText id="foundpublisher" value="#{addBookForm.selectedBook.publisher}" style="font-weight:bold"/> 
+             
+        </h:panelGrid>
+    </p:dialog>  -->
+</h:form>
+
+</f:view>
+</h:body>
+</html>

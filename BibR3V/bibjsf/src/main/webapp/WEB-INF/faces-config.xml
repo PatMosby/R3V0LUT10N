@@ -36,7 +36,7 @@
             <to-view-id>/admin/addlibrarian.xhtml</to-view-id>
         </navigation-case>          
     </navigation-rule>
-    
+      
 	<!-- login form -->
     <navigation-rule>
     	<display-name>faces/login.xhtml</display-name>
@@ -190,6 +190,45 @@
         </navigation-case>
     </navigation-rule>
         
+    
+    <navigation-rule>
+        <display-name>librarian/addMedium.xhtml</display-name>
+        <from-view-id>/librarian/addMedium.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>addaudiobook</from-outcome>
+            <to-view-id>/audiobook/add.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>addbook</from-outcome>
+            <to-view-id>/book/auth/add.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>addcassette</from-outcome>
+            <to-view-id>/cassette/add.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>addcd</from-outcome>
+            <to-view-id>/cd/add.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>addmagazine</from-outcome>
+            <to-view-id>/magazine/add.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>addmovie</from-outcome>
+            <to-view-id>/movie/add.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>addsoftware</from-outcome>
+            <to-view-id>/software/add.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>addother</from-outcome>
+            <to-view-id>/other/add.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
 	<!-- book addition form -->        
 	<navigation-rule>
 		<display-name>book/add.xhtml</display-name>
