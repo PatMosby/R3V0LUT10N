@@ -114,22 +114,21 @@
         <h:outputLabel for="pageCount" value="#{messages.pageCount}:"
             style="font-weight:bold" title="#{messages.pageCount_help}" />
         <p:inputText id="pageCount" value="#{bookForm.pageCount}" size="#{bookForm.textWidth}"  validatorMessage="#{messages.nonnegative}">
-			<f:validateLongRange minimum="0" />
         </p:inputText>
         <p:selectBooleanCheckbox value="#{bookForm.pageCountSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
         <p:message for="pageCount" display="both" />
         
-        <!-- previewLink -->
-        <h:outputLabel for="previewLink" value="#{messages.previewLink}:"
+         <!-- previewLink -->
+ <!--        <h:outputLabel for="previewLink" value="#{messages.previewLink}:"
             style="font-weight:bold" title="#{messages.previewLink_help}" />
         <p:inputText id="previewLink" value="#{bookForm.previewLink}" size="#{bookForm.textWidth}" />
         <p:selectBooleanCheckbox value="#{bookForm.previewLinkSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
         <p:message for="previewLink" display="both" />
-                
+                -->
         <!-- price -->
         <h:outputLabel for="price" value="#{messages.price}:"
             style="font-weight:bold" title="#{messages.price_help}" />
@@ -141,21 +140,18 @@
         </p:selectBooleanCheckbox>
         <p:message for="price" display="both" />
                         
-        <!-- printType -->
-        <h:outputLabel for="printType" value="#{messages.printType}:"
-            style="font-weight:bold" title="#{messages.printType_help}" />
- 		<p:selectOneRadio id="printType" value="#{bookForm.printType}">  
- 			<!-- the following itemValues are our internal names -->
-            <f:selectItem itemLabel="#{messages.book}"     itemValue="BOOK" />   
-            <f:selectItem itemLabel="#{messages.magazine}" itemValue="MAGAZINE" />  
-            <f:selectItem itemLabel="#{messages.other}"    itemValue="OTHER" />  
-        </p:selectOneRadio>
-        <p:selectBooleanCheckbox value="#{bookForm.printTypeSelected}" rendered="#{bookForm.selectable}" >
+     <!-- Typ 
+        <h:outputLabel for="typ" value="#{messages.typ}:" title="#{messages.language_help}"
+            style="font-weight:bold" />
+        <p:selectOneMenu id="language" value="#{bookForm.language}" editable="true">  
+            <f:selectItems value="#{bookForm.languages}" />  
+        </p:selectOneMenu>
+        <p:selectBooleanCheckbox value="#{bookForm.languageSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
-        <p:message for="printType" display="both" />
-        
-        <!-- publisher -->
+        <p:message for="language" display="both" />
+        -->
+        <!-- publisher 
         <h:outputLabel for="publisher" value="#{messages.publisher}:"
             style="font-weight:bold" title="#{messages.publisher_help}" />
         <p:inputText id="publisher" value="#{bookForm.publisher}" size="#{bookForm.textWidth}" />
@@ -163,7 +159,7 @@
             <p:ajax />
         </p:selectBooleanCheckbox>
         <p:message for="publisher" display="both" />
-                
+   -->             
 		<!-- imageURL -->
 		<h:outputLabel for="imageURL" value="#{messages.imageURL}:"
 			style="font-weight:bold" title="#{messages.imageURL_help}" />

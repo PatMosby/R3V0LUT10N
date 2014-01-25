@@ -1,4 +1,5 @@
 /*
+ /*
  * Copyright (c) 2013 AG Softwaretechnik, University of Bremen, Germany
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +28,6 @@ import javax.faces.context.FacesContext;
 
 import swp.bibcommon.Book;
 import swp.bibcommon.BusinessObject;
-import swp.bibcommon.IllegalRating;
 import swp.bibjsf.businesslogic.BookHandler;
 import swp.bibjsf.exception.DataSourceException;
 import swp.bibjsf.isbnsearch.ISBNGoogleSearch;
@@ -75,8 +75,6 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     /**
      * True if user selected the corresponding form field for the book attribute.
      */
-    private boolean isbnSelected              = false;
-    private boolean authorsSelected           = false;
 	private boolean titleSelected             = false;
     private boolean subtitleSelected          = false;
     private boolean categoriesSelected        = false;
@@ -85,34 +83,26 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     private boolean descriptionSelected       = false;
     private boolean languageSelected          = false;
     private boolean locationSelected          = false;
-    private boolean pageCountSelected         = false;
-    private boolean previewLinkSelected       = false;
     private boolean priceSelected             = false;
-    private boolean printTypeSelected         = false;
-    private boolean publisherSelected         = false;
     private boolean imageURLSelected          = false;
     private boolean noteSelected              = false;
+    private boolean authorsSelected           = false;
+    private boolean isbnSelected              = false;
+    private boolean pageCountSelected         = false;
+    private boolean previewLinkSelected               = false;
+    private boolean publisherSelected                 = false;
+    private boolean playTimeSelected                  = false;
+    private boolean mediaSelected                     = false;
+    private boolean artistListSelected                = false;
+    private boolean labelSelected                     = false;
+    private boolean titleCountSelected  		      = false;
+    private boolean editorListSelected                = false;
+    private boolean printTypeSelected                 = false;
+    private boolean fskSelected                       = false;
+    private boolean regisseurSelected                 = false;
+    private boolean producerSelected                  = false;
+    private boolean typSelected                       = false;
 
-	/**
-     * @return the isbnSelected
-     */
-    public boolean isIsbnSelected() {
-        return isbnSelected;
-    }
-    /**
-     * @param isbnSelected the isbnSelected to set
-     */
-    public void setIsbnSelected(boolean isbnSelected) {
-        this.isbnSelected = isbnSelected;
-    }
-
-    public boolean isAuthorsSelected() {
-		return authorsSelected;
-	}
-
-	public void setAuthorsSelected(boolean authorsSelected) {
-		this.authorsSelected = authorsSelected;
-	}
 
 	public boolean isTitleSelected() {
 		return titleSelected;
@@ -178,21 +168,6 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 		this.locationSelected = locationSelected;
 	}
 
-	public boolean isPageCountSelected() {
-		return pageCountSelected;
-	}
-
-	public void setPageCountSelected(boolean pageCountSelected) {
-		this.pageCountSelected = pageCountSelected;
-	}
-
-	public boolean isPreviewLinkSelected() {
-		return previewLinkSelected;
-	}
-
-	public void setPreviewLinkSelected(boolean previewLinkSelected) {
-		this.previewLinkSelected = previewLinkSelected;
-	}
 
 	public boolean isPriceSelected() {
 		return priceSelected;
@@ -202,21 +177,6 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 		this.priceSelected = priceSelected;
 	}
 
-	public boolean isPrintTypeSelected() {
-		return printTypeSelected;
-	}
-
-	public void setPrintTypeSelected(boolean printTypeSelected) {
-		this.printTypeSelected = printTypeSelected;
-	}
-
-	public boolean isPublisherSelected() {
-		return publisherSelected;
-	}
-
-	public void setPublisherSelected(boolean publisherSelected) {
-		this.publisherSelected = publisherSelected;
-	}
 
 	public boolean isImageURLSelected() {
 		return imageURLSelected;
@@ -233,6 +193,58 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 
 	public void setNoteSelected(boolean noteSelected) {
 		this.noteSelected = noteSelected;
+	}
+	
+    public boolean isPageCountSelected() {
+		return pageCountSelected;
+	}
+
+	public void setPageCountSelected(boolean pageCountSelected) {
+		this.pageCountSelected = pageCountSelected;
+	}
+    public boolean isPreviewLinkSelected() {
+		return previewLinkSelected;
+	}
+
+	public void isPreviewLinkSelected(boolean previewLinkSelected) {
+		this.previewLinkSelected = previewLinkSelected;
+	}
+    public boolean isPrintTypeSelected() {
+		return printTypeSelected;
+	}
+
+	public void isPrintTypeSelected(boolean printTypeSelected) {
+		this.printTypeSelected = printTypeSelected;
+	}
+	
+    public boolean isPublisherSelected() {
+		return publisherSelected;
+	}
+
+	public void isPublisherSelected(boolean publisherSelected) {
+		this.publisherSelected = publisherSelected;
+	}
+	
+	
+	/**
+     * @return the isbnSelected
+     */
+    public boolean isIsbnSelected() {
+        return isbnSelected;
+    }
+    /**
+     * @param isbnSelected the isbnSelected to set
+     */
+    public void setIsbnSelected(boolean isbnSelected) {
+        this.isbnSelected = isbnSelected;
+    }
+
+    public boolean isAuthorsSelected() {
+		return authorsSelected;
+	}
+
+	public void setAuthorsSelected(boolean authorsSelected) {
+		this.authorsSelected = authorsSelected;
 	}
 
     /* **************************************
@@ -405,10 +417,20 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         if (isImageURLSelected()) {
             toBook.setImageURL(fromBook.getImageURL());
         }
-        if (isNoteSelected()) {
+/*        if (isVotesSelected()) {
+            toBook.setVotes(fromBook.getVotes());
+        }
+*/        if (isNoteSelected()) {
             toBook.setNote(fromBook.getNote());
         }
-	}
+/*        if (isAvgRatingSelected()) {
+            try {
+				toBook.setAvgRating(fromBook.getAvgRating());
+			} catch (IllegalRating e) {
+				// cannot happen
+			}
+        }
+*/	}
 
     /**
      * Returns the list of books matching given identifier asking Google.
@@ -563,18 +585,6 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
  //       lookup();
     }
 
-/*    public int getVotes() {
-    	return element.getVotes();
-    }
-
-    public void setVotes(int votes) {
-    	element.setVotes(votes);
-    }
-
-    public double getAvgRating() {
-    	return element.getAvgRating();
-    }*/
-
     public String getImageURL() {
     	return element.getImageURL();
     }
@@ -582,17 +592,6 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     public void setImageURL(String url) {
     	element.setImageURL(url);
     }
-
- /*   public void setAvgRating(double rating) {
-    	try {
-			element.setAvgRating(rating);
-		} catch (IllegalRating e) {
-			FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                     Messages.get("invalidRating"),
-                                     e.getLocalizedMessage()));
-		}
-    }*/
 
     public String getCategories() {
         return element.getCategories();
@@ -702,4 +701,139 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     public void setNote(String note) {
         element.setNote(note);
     }
+    //TODO:
+
+    
+    
+    
+    /* ***********************
+     * Getter und setter
+     ************************** */
+/*	public boolean isAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(boolean authors) {
+		this.authors = authors;
+	}
+
+	public boolean isIsbn() {
+		return isbn;
+	}
+
+	public void setIndustrialIdentifier(boolean isbn) {
+		this.isbn = isbn;
+	}*/
+
+	public boolean isPageCount() {
+		return pageCountSelected;
+	}
+
+	public void setPageCount(boolean pageCount) {
+		this.pageCountSelected = pageCount;
+	}
+
+	public boolean isPreviewLink() {
+		return previewLinkSelected;
+	}
+
+	public void setPreviewLink(boolean previewLink) {
+		this.previewLinkSelected = previewLink;
+	}
+
+	public boolean isPublisher() {
+		return publisherSelected;
+	}
+
+	public void setPublisher(boolean publisher) {
+		this.publisherSelected = publisher;
+	}
+
+	public boolean isPlayTime() {
+		return playTimeSelected;
+	}
+
+	public void setPlayTime(boolean playTime) {
+		this.playTimeSelected = playTime;
+	}
+
+	public boolean isMedia() {
+		return mediaSelected;
+	}
+
+	public void setMedia(boolean media) {
+		this.mediaSelected = media;
+	}
+
+	public boolean isArtistList() {
+		return artistListSelected;
+	}
+
+	public void setArtistList(boolean artistList) {
+		this.artistListSelected = artistList;
+	}
+
+	public boolean isLabel() {
+		return labelSelected;
+	}
+
+	public void setLabel(boolean label) {
+		this.labelSelected = label;
+	}
+
+	public boolean isTitleCount() {
+		return titleCountSelected;
+	}
+
+	public void setTitleCount(boolean titleCount) {
+		this.titleCountSelected = titleCount;
+	}
+
+	public boolean isEditorList() {
+		return editorListSelected;
+	}
+
+	public void setEditorList(boolean editorList) {
+		this.editorListSelected = editorList;
+	}
+
+	public boolean isPrintType() {
+		return printTypeSelected;
+	}
+
+	public void setPrintType(boolean printType) {
+		this.printTypeSelected = printType;
+	}
+
+	public boolean isFsk() {
+		return fskSelected;
+	}
+
+	public void setFsk(boolean fsk) {
+		this.fskSelected = fskSelected;
+	}
+
+	public boolean isRegisseur() {
+		return regisseurSelected;
+	}
+
+	public void setRegisseur(boolean regisseur) {
+		this.regisseurSelected = regisseur;
+	}
+
+	public boolean isProducer() {
+		return producerSelected;
+	}
+
+	public void setProducer(boolean producer) {
+		this.producerSelected = producer;
+	}
+
+	public boolean isTyp() {
+		return typSelected;
+	}
+
+	public void setTyp(boolean typ) {
+		this.typSelected = typ;
+	}
 }

@@ -286,15 +286,20 @@ public class Data implements Persistence {
 			// The table of all books in the library.
 			run.update("CREATE TABLE " + bookTableName
 					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
-					+ "authors VARCHAR(256), "
 					+ "categories VARCHAR(128), " + "dateOfAddition DATE, "
 					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
 					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
+					+ "language VARCHAR(2), " + "subcategories VARCHAR(128), "
+					+ "price DECIMAL(10,2), " + "subtitle VARCHAR(128), "
+					+ "location VARCHAR(128), " + "pageCount INT, " 
+					+ "previewLink VARCHAR(128), "	+ "printType VARCHAR(64), "
+					+ "publisher VARCHAR(64), " + "editorList VARCHAR(256), "
 					+ industrialIdentifier + " VARCHAR(29), "
-					+ "language VARCHAR(2), " + "location VARCHAR(64), "
-					+ "pageCount INT, " + "previewLink VARCHAR(128), "
-					+ "price DECIMAL(10,2), " + "printType VARCHAR(64), "
-					+ "publisher VARCHAR(64), " + "subtitle VARCHAR(128), "
+					+ "authors VARCHAR(256), " + "label VARCHAR(128), "
+					+ "media INT, "  + "artistList VARCHAR(256), "
+					+ "playTime INT, " + "titleCount INT, "
+					+ "regisseur VARCHAR(128), " + "fsk INT, "
+					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
 					+ "title VARCHAR(256)" + ")");
 		}
 		if (!tableExists(tableNames, magazineTableName)) {
