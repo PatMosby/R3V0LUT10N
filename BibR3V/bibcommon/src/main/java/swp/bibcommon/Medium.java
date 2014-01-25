@@ -94,8 +94,14 @@ public class Medium extends BusinessObject implements Serializable{
 	private boolean available;
 	
 	/**
+	 * Double für die Mahngebühr des Mediums
+	 */
+	private double charges; 
+	
+	/**
 	 * Constructor required for DBUtils.
 	 */
+	
 	public Medium() {
 	}
 	
@@ -112,6 +118,9 @@ public class Medium extends BusinessObject implements Serializable{
 		// to check whether every field is actually set. If any field
 		// is added (either to this class or any of its superclasses,
 		// you need to add a corresponding assignment here.
+		
+		this.categories           = copyString(medium.categories);
+		this.charges			  = medium.charges;
 		this.dateOfAddition       = copyString(medium.dateOfAddition);
 		this.dateOfPublication    = copyString(medium.dateOfPublication);
 		this.description          = copyString(medium.description);
@@ -121,10 +130,9 @@ public class Medium extends BusinessObject implements Serializable{
 		this.location             = copyString(medium.location);
 		this.note                 = copyString(medium.note);
 		this.price                = medium.price;
+		this.subcategories        = copyString(medium.subcategories);
 		this.subtitle             = copyString(medium.subtitle);
 		this.title                = copyString(medium.title);
-		this.categories           = copyString(medium.categories);
-		this.subcategories        = copyString(medium.subcategories);
 	}
 	
 	/**
@@ -416,6 +424,21 @@ public class Medium extends BusinessObject implements Serializable{
 		this.available = available;
 	}
 	
-
+	/**
+	 * Gibt die Mahngebühr eines Mediums zurück.
+	 * @return charges
+	 */
+	public double getCharges() {
+		return charges;
+	}
+	
+	/**
+	 * Setzt die Mahngebühr eines Mediums
+	 * @param charges
+	 * 			Mahngebühr eines Mediums
+	 */
+	public void setCharges(double charges) {
+		this.charges = charges;
+	}
 	
 }
