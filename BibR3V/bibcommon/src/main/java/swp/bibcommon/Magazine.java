@@ -26,7 +26,7 @@ public class Magazine extends Book implements Serializable {
 	/**
 	 * Ausgabe des Magazines
 	 */
-	private int printType;
+	private String printType;
 	
 	/**
 	 * Seitenzahl
@@ -109,7 +109,7 @@ public class Magazine extends Book implements Serializable {
 	 *
 	 * @return Ausgabe des Magazines
 	 */
-	public int getPrintType() {
+	public String getPrintType() {
 		return printType;
 	}
 	/**
@@ -118,7 +118,7 @@ public class Magazine extends Book implements Serializable {
 	 * @param printType
 	 *              Ausgabe des Magazines
 	 */
-	public void setPrintType(int printType) {
+	public void setPrintType(String printType) {
 		this.printType = printType;
 	}
 	/**
