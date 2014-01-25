@@ -455,7 +455,7 @@ public class Data implements Persistence {
 					+ " <= ID AND ID < " + bookMinID + "), " + UsernameField
 					+ " VARCHAR(128) NOT NULL UNIQUE, "
 					+ "firstname VARCHAR(256) NOT NULL, "
-					+ "lastname VARCHAR(256) NOT NULL, "					
+					+ "lastname VARCHAR(256) NOT NULL, "
 					+ "date DATE, " + "charges DECIMAL(10,2))");
 					
 					
@@ -1037,7 +1037,7 @@ public class Data implements Persistence {
 		try {
 			Set<String> toIgnore = new HashSet<String>();
 			HashMap<String, Object> replace = new HashMap<String, Object>();
-			return insertByID(book, bookTableName, bookMinID, toIgnore, replace);
+			return insertByID(book, tablename, bookMinID, toIgnore, replace);
 		} catch (SQLException e) {
 			logger.error("add book failure");
 			throw new DataSourceException(e.getMessage());

@@ -36,6 +36,8 @@ import swp.bibjsf.utils.Messages;
 @SessionScoped
 public class AddBookForm extends BookForm {
 
+	public String tablename = "bookTableName";
+	
     /**
      * Unique serial number.
      */
@@ -58,9 +60,9 @@ public class AddBookForm extends BookForm {
      */
     @Override
     public String save(String tablename) {
-    	logger.debug("request to save new book " + ((element == null) ? "NULL" : element.toString()));
+    	logger.debug("tablename" + tablename + "request to save new book " + ((element == null) ? "NULL" : element.toString()));
     	if (element != null) {
-    		System.out.println("vsvjsvsblsbb ");
+    		System.out.println(tablename);
     		try {
     			BookHandler bh = BookHandler.getInstance();
     			int newID = bh.add(element, tablename);
