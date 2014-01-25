@@ -456,7 +456,7 @@ public class Data implements Persistence {
 					+ " VARCHAR(128) NOT NULL UNIQUE, "
 					+ "firstname VARCHAR(256) NOT NULL, "
 					+ "lastname VARCHAR(256) NOT NULL, "					
-					+ "date DATE)");
+					+ "date DATE, " + "charges DECIMAL(10,2))");
 					
 					
 					
