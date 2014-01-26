@@ -20,7 +20,6 @@ public class AddBorrowerForm extends BorrowerForm{
 	    	logger.debug("request to save reader " + ((element == null) ? "NULL" : element.toString()));
 	    //	if (element != null) {
 	    		try {
-	    		    borrower = new Borrower();
 	    			BorrowHandler bh = BorrowHandler.getInstance();	    			
 	    			return success(bh.add(borrower));
 	    		} catch (Exception e) {

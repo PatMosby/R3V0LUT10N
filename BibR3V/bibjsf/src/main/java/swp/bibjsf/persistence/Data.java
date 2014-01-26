@@ -129,6 +129,8 @@ public class Data implements Persistence {
 	 */
 	private static final String UsernameField = "username";
 	//private final static String ReaderIDField = "readerID";
+	private static final String UserID = "USER_ID";
+	private static final String BookID = "BOOK_ID";
 	/**
 	 * The name of the tables in the database where the mediums are stored.
 	 */
@@ -209,6 +211,8 @@ public class Data implements Persistence {
 	 * Logger für Log-Ausgaben.
 	 */
 	private static final Logger logger = Logger.getLogger(Data.class);
+	
+	
 
 	/************************************************************************
 	 * Database structure.
@@ -450,16 +454,16 @@ public class Data implements Persistence {
 		}
 		
 		 if (!tableExists(tableNames, borrowTableName)) {
-				logger.debug("database table " + borrowTableName
-						+ " does not exist, creating new one");
-				// The table of all books in the library.
-				run.update("CREATE TABLE " + borrowTableName
-						+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
-						+ "<= ID AND ID < " + bookMinID + "), "
-						+ "BOOK_ID INT NOT NULL," + " CONSTRAINT BOOK_ID_FK FOREIGN KEY (BOOK_ID) REFERENCES BOOK (ID), "
-						+ UsernameField + " VARCHAR(128) NOT NULL UNIQUE, "
-						+ "date DATE, " 
-						+ "charges DECIMAL(10,2))");
+			    logger.debug("database table " + borrowTableName
+			      + " does not exist, creating new one");
+			    // The table of all books in the library.
+			    run.update("CREATE TABLE " + borrowTableName
+			      + " (ID INT PRIMARY KEY CHECK (" + readerMinID
+			      + "<= ID AND ID < " + bookMinID + "), "
+			      + "BOOK_ID INT NOT NULL," + " CONSTRAINT BOOK_ID_FK FOREIGN KEY (BOOK_ID) REFERENCES BOOK (ID), "
+			      + "USER_ID INT NOT NULL," 
+			      + "date DATE, " 
+			      + "charges DECIMAL(10,2))");
 		}
 		
 		if (createAdmin) {
@@ -1188,12 +1192,14 @@ public class Data implements Persistence {
 	 * @throws SQLException 
 	 */
 	public final void addLending(int bookID, int readerID, Date date, double charges) throws DataSourceException, SQLException {
-		logger.debug("inserting user to LENDING..." + bookID +""+ readerID + "");
+		logger.debug("inserting user to LENDING..." + bookID +"   "+ readerID + "");
 		String str = failure();
-		run.update("insert into " + borrowTableName + "(" + UsernameField
-		+ ",groupid) values ('" + bookID + "', '" + readerID + "', '" + date + "', '" + charges + "')");
+		run.update("insert into " + borrowTableName + "(id", "book_id" , "user_d" , "date" , "charges)" values ( "book_id , user_d + date , charges") ;
+				
+			
 		failure();
 	}
+	
 	
 	 public String failure() {
 	        logger.debug("Daaaattaaaa: " + "element" + ": ");
@@ -1268,6 +1274,14 @@ logger.debug("add reader " + borrower);
 	 */
 	public final void deleteLending(int bookID) throws DataSourceException {
 		
+		logger.info("!!!!!!!!!deleting lending !!!!!!!!!" + "");
+		try {
+			run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+					bookID);
+		} catch (SQLException e) {
+			logger.error("failure in deleting lending- " + e.getErrorCode());
+			throw new DataSourceException(e.getLocalizedMessage());
+		}
 	}
 	
 	/**

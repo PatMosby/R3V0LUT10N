@@ -17,8 +17,6 @@ public abstract class BorrowerForm extends BusinessObjectForm<Borrower>{
 	
 	private static final long serialVersionUID = 380665113958410405L;
 
-	
-	
 	public abstract String getReaderID();
 
     public abstract void  setReaderID(final String readerID);

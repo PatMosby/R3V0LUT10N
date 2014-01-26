@@ -139,6 +139,16 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower>{
 	  return 0;
   }
   
+  public void getBack(Borrower borrower) throws DataSourceException,
+  BusinessElementAlreadyExistsException {
+	  logger.debug("request BorrowHandler" );
+  try{
+             persistence.deleteLending( Integer.parseInt(borrower.getBookID()));
+     }
+  catch(Exception e){ }
+  
+  }
+
   /**
    * Adds Librarian to database. Librarian must not yet exist.
    *

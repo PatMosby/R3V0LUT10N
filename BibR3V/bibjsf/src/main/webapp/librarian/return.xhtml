@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+<!-- Addition of a reader -->
+<h:head>
+    <title>#{messages.returntitle}</title>
+</h:head>
+<h:body>
+    <h:outputStylesheet name="css/bib.css" />
+    <f:view>
+    <h:form id="form" >
+    <ui:include src="/mainmenu.xhtml" />
+    
+    <p:panel id="panel" header="#{messages.returntitle}">  
+        <h:panelGrid columns="3" cellpadding="5">  
+            
+           
+            <!--  mediumID -->
+            <h:outputLabel for="mediumID" value="#{messages.mediumID}: *" style="font-weight:bold" />
+            <p:inputText id="mediumID" value="#{myBean.mediumID}"
+               required="true" requiredMessage="#{messages.mediumIDreq}"   />
+            <p:message for="mediumID"  display="both" /> 
+            
+            <!-- buttons in footer  -->
+			<f:facet name="footer">
+			  <h:panelGroup>
+
+                  
+                  <p:commandButton id="returnButton" value="#{messages.returnbutton}" action="#{MyBean.returnMedium}" 
+                  ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
+              </h:panelGroup>
+             </f:facet>                
+        </h:panelGrid>  
+    </p:panel>  
+
+    <p:messages showDetail="true" autoUpdate="true"/>
+    <p:defaultCommand target="returnButton"/>
+ </h:form>
+</f:view>
+</h:body>
+</html>
+
+  
