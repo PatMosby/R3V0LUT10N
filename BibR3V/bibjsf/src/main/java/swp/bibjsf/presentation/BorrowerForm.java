@@ -12,52 +12,28 @@ import swp.bibcommon.Borrower;
 import swp.bibjsf.businesslogic.BorrowHandler;
 import swp.bibjsf.utils.Messages;
 
-@ManagedBean
-@SessionScoped
-public class BorrowerForm extends BusinessObjectForm<Borrower>{
+public abstract class BorrowerForm extends BusinessObjectForm<Borrower>{
 
 	
 	private static final long serialVersionUID = 380665113958410405L;
 
-	@Override
-	 public String save(String table) {
-	    	logger.debug("request to save reader " + ((element == null) ? "NULL" : element.toString()));
-	    	if (element != null) {
-	    		try {
-	    			BorrowHandler bh = BorrowHandler.getInstance();	    			
-	    			return success(bh.add(element, table));
-	    		} catch (Exception e) {
-	    			return failure(e);
-	    		}
-	    	} else {
-	    		return failure(Messages.get("elementNotSet"));
-	    	}
-	    }
+	
 	
 	public String getReaderID() {
-        return null;
+        return element.getReaderID();
     }
 
-    /**
-     * Sets first name.
-     *
-     * @param firstName
-     *            new first name
-     */
+
     public void setReaderID(final String readerID) {
     	element.setReaderID(trim(readerID));
     }
     
+    
     public String getMediumID() {
-        return null;
+        return element.getMediumID();
     }
 
-    /**
-     * Sets last name.
-     *
-     * @param lastName
-     *            new last name
-     */
+    
     public void setMediumID(final String mediumID) {
         element.setMediumID(trim(mediumID));
     }

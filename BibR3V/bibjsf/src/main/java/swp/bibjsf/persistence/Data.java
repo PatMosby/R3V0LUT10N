@@ -1191,8 +1191,44 @@ public class Data implements Persistence {
 	 * @param date das Rückgabedatum der Ausleihe
 	 * @throws DataSourceException
 	 */
-	public final void addLending(int bookID, int readerID, Date date) throws DataSourceException {
-
+	public final void addLending( Borrower borrower, Date date) 
+			throws DataSourceException, BusinessElementAlreadyExistsException{
+        		
+		 
+	logger.debug("add reader " + borrower);
+	try {
+		if (getReader(reader.getId()) != null) {
+			// ID must be unique
+			throw new BusinessElementAlreadyExistsException(
+					Messages.get("readerexists") + " " + Messages.get("id")
+							+ " = " + reader.getId());
+		} else if (!reader.getUsername().isEmpty()
+				&& getReaderByUsername(reader.getUsername()) != null) {
+			// user name must be unique if defined
+			throw new BusinessElementAlreadyExistsException(
+					Messages.get("readerexists") + Messages.get("username")
+							+ " = " + reader.getUsername());
+		} else {
+			logger.debug("reader " + reader
+					+ " does not yet exist; has ID: " + reader.hasId());
+			try {
+				final String password = hashPassword(reader);
+				Set<String> toIgnore = new HashSet<String>();
+				HashMap<String, Object> replace = new HashMap<String, Object>();
+				replace.put("password", password);
+				int result = insertByID(reader, readerTableName, readerMinID, toIgnore, replace);
+				insertUser(reader.getUsername());
+				return result;
+			} catch (NoSuchAlgorithmException e) {
+				logger.error("MD5 problem");
+				throw new DataSourceException(e.getMessage());
+			}
+		}
+	} catch (SQLException e) {
+		logger.error("add reader failure");
+		throw new DataSourceException(e.getMessage());
+	}
+}
 	}
 	/**
 	 * Macht Einträge für mehrere Medien eines Ausleihers.

@@ -381,7 +381,8 @@ public interface Persistence {
 	 */
 	public void restore() throws DataSourceException;
 	
-	public void addLending(int bookID, int readerID, Date date) throws DataSourceException;
+	public void addLending(Borrower borrower, Date date) throws DataSourceException,
+	BusinessElementAlreadyExistsException ;
 	
 	public void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException;
 	
