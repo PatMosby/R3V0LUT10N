@@ -25,6 +25,7 @@ import java.util.List;
 
 import swp.bibcommon.Book;
 import swp.bibcommon.BusinessObject;
+import swp.bibcommon.Charges;
 import swp.bibcommon.Reader;
 import swp.bibcommon.Borrower;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
@@ -398,6 +399,8 @@ public interface Persistence {
 	public List<Book> getOverdueLendings(Date date) throws DataSourceException;
 	
 	public Reader getLendingReader(int bookID) throws DataSourceException;
+	
+	public int addCharges(final Charges charges)throws DataSourceException;
 	
 
 }

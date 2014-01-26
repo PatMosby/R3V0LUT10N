@@ -61,9 +61,9 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.log4j.Logger;
 
 import android.util.Log;
-
 import swp.bibcommon.Book;
 import swp.bibcommon.BusinessObject;
+import swp.bibcommon.Charges;
 import swp.bibcommon.Reader;
 import swp.bibcommon.Borrower;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
@@ -2594,5 +2594,23 @@ logger.debug("add reader " + borrower);
 		File f = new File(filename);
 		return f.exists();
 	}
+
+	@Override
+	public int addCharges(Charges charges) throws DataSourceException {
+		logger.debug("add charges " + charges);
+		try {
+			int result = 1;
+			Set<String> toIgnore = new HashSet<String>();
+			HashMap<String, Object> replace = new HashMap<String, Object>();
+			insert(chargesTableName, charges, toIgnore, replace);
+			return result;
+		} catch (SQLException e) {
+			logger.error("add book failure");
+			throw new DataSourceException(e.getMessage());
+		}
+		
+	}
+	
+
 
 }

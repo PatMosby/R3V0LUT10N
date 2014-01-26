@@ -9,10 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import swp.bibcommon.Charges;
-import swp.bibjsf.businesslogic.BorrowHandler;
+import swp.bibjsf.businesslogic.ChargesHandler;
 import swp.bibjsf.utils.Messages;
 
-public abstract class ChargeForm extends BusinessObjectForm<Charges>{
+public abstract class ChargesForm extends BusinessObjectForm<Charges>{
 
 	
 	private static final long serialVersionUID = 380665113958410405L;

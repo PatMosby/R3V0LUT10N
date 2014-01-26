@@ -22,20 +22,20 @@
 	<!-- Mahngebühr -->
 	<h:outputLabel for="type" value="#{messages.typ}:" title="#{messages.typ_help}"
     	style="font-weight:bold" />
-    <p:inputText id="type" value="#{bookForm.type}" size="#{bookForm.textWidth}"/>  
+    <p:inputText id="type" value="#{changeChargesForm.typ}" size="#{bookForm.textWidth}"/>  
     <p:message for="type" display="both"/>
     
     <h:outputLabel for="charges" value="#{messages.charges}:" title="#{messages.charges_help}"
     	style="font-weight:bold" />
-    <p:inputText id="charges" value="#{bookForm.charges}" size="#{bookForm.textWidth}"/>  
+    <p:inputText id="charges" value="#{changeChargesForm.charges}" size="#{bookForm.textWidth}"/>  
     <p:message for="charges" display="both"/>
     
-    <f:facet name="footer">
-              <h:panelGroup>
-              <p:commandButton id="saveButton" value="#{messages.save}" action="#{addBookForm.save}" 
+    <!--  <f:facet name="footer">
+              <h:panelGroup>-->
+              <p:commandButton id="saveButton" value="#{messages.save}" action="#{changeChargesForm.save}" 
                   ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
-              </h:panelGroup>
-             </f:facet>  
+             <!--  </h:panelGroup>
+             </f:facet> --> 
     
     <!--  
 	<h:outputLabel for="foundtype" value="#{messages.typ}" />  

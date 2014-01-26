@@ -22,8 +22,9 @@ import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import swp.bibcommon.Book;
+import swp.bibcommon.Charges;
 import swp.bibjsf.businesslogic.BookHandler;
+import swp.bibjsf.businesslogic.ChargesHandler;
 import swp.bibjsf.utils.Messages;
 
 /**
@@ -34,7 +35,7 @@ import swp.bibjsf.utils.Messages;
  */
 @ManagedBean
 @SessionScoped
-public class changeChargesForm extends BookForm {
+public class changeChargesForm extends ChargesForm {
 
 	public String tablename = "bookTableName";
 	
@@ -46,10 +47,10 @@ public class changeChargesForm extends BookForm {
     /**
      * Constructor.
      */
-    public AddBookForm() {
-        element = new Book();
+    public changeChargesForm() {
+        element = new Charges();
     	// set default date of addition (today)
-        element.setDateOfAddition(new Date());
+        //element.setDateOfAddition(new Date());
     }
 
     /**
@@ -64,8 +65,8 @@ public class changeChargesForm extends BookForm {
     	if (element != null) {
     		System.out.println(tablename);
     		try {
-    			BookHandler bh = BookHandler.getInstance();
-    			int newID = bh.add(element);
+    			ChargesHandler ch = ChargesHandler.getInstance();
+    			int newID = ch.add(element);
     			// reset so that the next book can be added without need to press a button
     			reset();
     			return success(newID);
@@ -83,12 +84,33 @@ public class changeChargesForm extends BookForm {
      */
     @Override
     public String reset() {
-        Book newElement = new Book();
+        Charges newElement = new Charges();
     	// set default date of addition (today)
-        newElement.setDateOfAddition(new Date());
-        mergeSelectedAttributes(newElement, element);
+        //newElement.setDateOfAddition(new Date());
+        //mergeSelectedAttributes(newElement, element);
         element = newElement;
         return super.reset();
     }
+
+	@Override
+	public String getTyp() {
+		return element.getTyp();
+ 	}
+
+	@Override
+	public void setTyp(String typ) {
+		element.setTyp(typ);
+		
+	}
+
+	@Override
+	public Double getCharges() {
+		return element.getCharges();
+	}
+
+	@Override
+	public void setCharges(Double charges) {
+		element.setCharges(charges);
+	}
 
 }

@@ -13,7 +13,13 @@ public class Charges extends BusinessObject implements Serializable, Cloneable {
 	public String getTyp() {
 		return typ;
 	}
- 
+	public void setTyp(String typ) {
+		this.typ = typ;
+	}
+	
+	public Double getCharges(){
+		return charges;
+	}
 	public void setCharges(Double charges) {
 		this.charges = charges;
 	}
