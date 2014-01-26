@@ -42,7 +42,7 @@
                   
       <p:column selectionMode="multiple" style="width:2%" />
 
-      <p:column style="width:2%">  
+      <p:column style="width:5%">  
           <p:rowToggler />  
       </p:column>  
         
@@ -55,30 +55,30 @@
                   
       <!-- Title -->
       <p:column id="titleColumn" sortBy="#{book.title}" filterBy="#{book.title}"  
-              headerText="#{messages.title}" filterMatchMode="contains" style="width:50%"> 
+              headerText="#{messages.title}" filterMatchMode="contains" style="width:10%"> 
         <h:outputText value="#{book.title}" />   
       </p:column>  
   
       <!-- Categories -->
       <p:column id="categoriesColumn" sortBy="#{book.categories}" filterBy="#{book.categories}"  
-              headerText="#{messages.categories}" filterMatchMode="contains" style="width:30%">
+              headerText="#{messages.categories}" filterMatchMode="contains" style="width:10%">
         <h:outputText value="#{book.categories}" />  
       </p:column>
   
   	  <!-- isbn/issn -->
   	  <p:column id="isbnColumn" sortBy="#{book.industrialIdentifier}" filterBy="#{book.industrialIdentifier}"  
-              headerText="#{messages.isbn}" filterMatchMode="contains" style="width:7%">
+              headerText="#{messages.isbn}" filterMatchMode="contains" style="width:10%">
         <h:outputText id="isbn" value="#{book.industrialIdentifier}" />
   	  </p:column>
   	  
   	  <!-- Typ -->
       <p:column id="typColumn" sortBy="#{book.typ}" filterBy="#{book.typ}"  
-              headerText="#{messages.typ}" filterMatchMode="contains" style="width:30%">
+              headerText="#{messages.typ}" filterMatchMode="contains" style="width:10%">
         <h:outputText value="#{book.typ}" />  
       </p:column>
   	  
       <!-- trigger for editing row -->
-      <p:column id="rowEditorColumn" style="width:3%">  
+      <p:column id="rowEditorColumn" style="width:5%">  
         <p:commandButton icon="ui-icon-pencil" style="width: auto; height: 20px" action="#{changeBookForm.edit(book)}" 
         		rendered="#{request.isUserInRole('LIBRARIAN')}" />
       </p:column> 
@@ -119,6 +119,17 @@
 					styleClass="content" />
 			</p:column>
 		</p:row>
+		
+				<!-- author -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="authors" value="#{messages.authors}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="authors" value="#{book.authors}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
 
 
 		<!-- subtitle -->
@@ -135,7 +146,7 @@
 		<!-- subcategories -->
 		<p:row>
 			<p:column styleClass="label">
-				<h:outputLabel for="subcategories" value="#{messages.subcategories}" />
+				<h:outputLabel for="subcategories" value="#{messages.subcategorie}" />
 			</p:column>
 			<p:column>
 				<h:outputText id="subcategories" value="#{book.subcategories}"
@@ -286,17 +297,87 @@
 			</p:column>
 		</p:row>
 		
+								<!-- titleCount -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="titlecount" value="#{messages.titlecount}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="titlecount" value="#{book.titleCount}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
 		<!-- Editorenliste -->
 		<p:row>
 			<p:column styleClass="label">
-				<h:outputLabel for="editors" value="#{messages.editors}" />
+				<h:outputLabel for="editorList" value="#{messages.editorlist}" />
 			</p:column>
 			<p:column>
-				<h:outputText id="editors" value="#{book.publisher}"
+				<h:outputText id="editorList" value="#{book.editorList}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+
+		
+				<!-- artistList -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="artistList" value="#{messages.artistlist}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="artistList" value="#{book.artistList}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+		
+				<!-- label -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="labela" value="#{messages.label}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="labela" value="#{book.label}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+						<!-- regisseur -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="regisseur" value="#{messages.regisseur}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="regisseur" value="#{book.regisseur}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+						<!-- producer -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="producer" value="#{messages.producer}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="producer" value="#{book.producer}"
 					styleClass="content" />
 			</p:column>
 		</p:row>
 
+
+				<!-- fsk -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="fsk" value="#{messages.fsk}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="fsk" value="#{book.fsk}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
 	  </p:panelGrid>
     </p:rowExpansion>  
         
