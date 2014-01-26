@@ -33,7 +33,7 @@
 			  <h:panelGroup>
 
                   
-                  <p:commandButton id="saveButton" value="#{messages.save}" action="#{addReaderForm.save(readertable)}" 
+                  <p:commandButton id="saveButton" value="#{messages.save}" action="#{addReaderForm.save}" 
                   ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
               <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{addReaderForm.reset}" title="#{messages.reset_help}" update="panel" />
               <p:commandButton id="cancelButton" value="#{messages.cancel}"

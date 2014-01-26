@@ -1030,12 +1030,12 @@ public class Data implements Persistence {
 	 *             if there is a problem with the database.
 	 */
 	@Override
-    public final int addBook(final Book book, String tablename) throws DataSourceException {
+    public final int addBook(final Book book) throws DataSourceException {
 		logger.debug("add book " + book);
 		try {
 			Set<String> toIgnore = new HashSet<String>();
 			HashMap<String, Object> replace = new HashMap<String, Object>();
-			return insertByID(book, tablename, bookMinID, toIgnore, replace);
+			return insertByID(book, bookTableName, bookMinID, toIgnore, replace);
 		} catch (SQLException e) {
 			logger.error("add book failure");
 			throw new DataSourceException(e.getMessage());
@@ -1189,7 +1189,56 @@ public class Data implements Persistence {
 		logger.debug("inserting user to LENDING");
 		run.update("insert into " + borrowTableName + "(" + UsernameField
 		+ ",groupid) values ('" + bookID + "', '" + readerID + "', '" + date + "', '" + charges + "')");
+<<<<<<< HEAD
+=======
+=======
+	public final void addLending( Borrower borrower, Date date) 
+			throws DataSourceException, BusinessElementAlreadyExistsException{
+        		
+		 
+<<<<<<< HEAD
+	
+     }
+	
+=======
+	logger.debug("add reader " + borrower);
+	try {
+		if (getReader(reader.getId()) != null) {
+			// ID must be unique
+			throw new BusinessElementAlreadyExistsException(
+					Messages.get("readerexists") + " " + Messages.get("id")
+							+ " = " + reader.getId());
+		} else if (!reader.getUsername().isEmpty()
+				&& getReaderByUsername(reader.getUsername()) != null) {
+			// user name must be unique if defined
+			throw new BusinessElementAlreadyExistsException(
+					Messages.get("readerexists") + Messages.get("username")
+							+ " = " + reader.getUsername());
+		} else {
+			logger.debug("reader " + reader
+					+ " does not yet exist; has ID: " + reader.hasId());
+			try {
+				final String password = hashPassword(reader);
+				Set<String> toIgnore = new HashSet<String>();
+				HashMap<String, Object> replace = new HashMap<String, Object>();
+				replace.put("password", password);
+				int result = insertByID(reader, readerTableName, readerMinID, toIgnore, replace);
+				insertUser(reader.getUsername());
+				return result;
+			} catch (NoSuchAlgorithmException e) {
+				logger.error("MD5 problem");
+				throw new DataSourceException(e.getMessage());
+			}
+		}
+	} catch (SQLException e) {
+		logger.error("add reader failure");
+		throw new DataSourceException(e.getMessage());
 	}
+}
+>>>>>>> b00fb14432e8e3357772dae258082afdb130d526
+>>>>>>> d18f0bd58b6568cedd0c507806647e3055ce043b
+	}
+>>>>>>> 02e2f232b6b7020c6f2cb149aa38eb42ef5d88ac
 	/**
 	 * Macht Einträge für mehrere Medien eines Ausleihers.
 	 * @param bookIDs die ID's der auszuleihenden Medien

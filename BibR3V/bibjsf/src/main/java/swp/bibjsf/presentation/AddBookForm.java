@@ -59,13 +59,13 @@ public class AddBookForm extends BookForm {
      * for navigation; cf. faces-config.xml.
      */
     @Override
-    public String save(String tablename) {
+    public String save() {
     	logger.debug("tablename" + tablename + "request to save new book " + ((element == null) ? "NULL" : element.toString()));
     	if (element != null) {
     		System.out.println(tablename);
     		try {
     			BookHandler bh = BookHandler.getInstance();
-    			int newID = bh.add(element, tablename);
+    			int newID = bh.add(element);
     			// reset so that the next book can be added without need to press a button
     			reset();
     			return success(newID);

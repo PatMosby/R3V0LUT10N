@@ -10,12 +10,12 @@ public class Borrower extends BusinessObject implements Serializable, Cloneable 
   /**
      * Card ID of a reader.
      */
- private String readerID;
+ private String readerID = "2";
  
   /**
      * ID of a medium.
      */
- private String mediumID;
+ private String mediumID= "30001";
  
  public String getReaderID(){
 	 return readerID;

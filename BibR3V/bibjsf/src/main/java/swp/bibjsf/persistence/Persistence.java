@@ -62,7 +62,7 @@ public interface Persistence {
 	 * @throws DataSourceException
 	 *             if there are problems with the database.
 	 */
-	public int addBook(final Book book, String tablename) throws DataSourceException;
+	public int addBook(final Book book) throws DataSourceException;
 
 	/**
 	 * Creates a book-object for the transmitted book-ID.
@@ -383,6 +383,13 @@ public interface Persistence {
 	public void restore() throws DataSourceException;
 	
 	public void addLending(int bookID, int readerID, Date date, double charges) throws DataSourceException, SQLException;
+<<<<<<< HEAD
+=======
+
+	public void addLending(Borrower borrower, Date date) throws DataSourceException,
+	BusinessElementAlreadyExistsException ;
+
+>>>>>>> d18f0bd58b6568cedd0c507806647e3055ce043b
 	
 	public void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException;
 	

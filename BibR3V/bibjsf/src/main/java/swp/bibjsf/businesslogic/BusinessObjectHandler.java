@@ -83,7 +83,7 @@ public abstract class BusinessObjectHandler<BusinessObject> extends BusinessHand
 	 * @throws DataSourceException thrown if there is any problem with the data source
 	 * @throws BusinessElementAlreadyExistsException thrown if the element to be added exists already
 	 */
-	public abstract int add(BusinessObject element, String tablename) throws DataSourceException, BusinessElementAlreadyExistsException;
+	public abstract int add(BusinessObject element) throws DataSourceException, BusinessElementAlreadyExistsException;
 
     /**
      * Updates the element with given ID by all values in newValue.
