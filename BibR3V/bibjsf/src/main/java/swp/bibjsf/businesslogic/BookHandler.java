@@ -93,7 +93,7 @@ public class BookHandler extends BusinessObjectHandler<Book> {
      * @see swp.bibjsf.businesslogic.BusinessObjectHandler#add(java.lang.Object)
      */
     @Override
-    public synchronized int add(Book book, String tablename) throws DataSourceException,
+    public synchronized int add(Book book) throws DataSourceException,
         BusinessElementAlreadyExistsException {
     	logger.info("add book: " + book);
         if (book.hasId() && persistence.getBook(book.getId()) != null) {
@@ -102,7 +102,7 @@ public class BookHandler extends BusinessObjectHandler<Book> {
             throw new BusinessElementAlreadyExistsException(Messages.get("bookexists") + " "
             		+ Messages.get("id") + " = " + book.getId());
         }
-        int result = persistence.addBook(book, tablename);
+        int result = persistence.addBook(book);
         if (result < 0) {
             throw new DataSourceException(Messages.get("bookAdditionFailure"));
         }

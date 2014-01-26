@@ -1052,12 +1052,12 @@ public class Data implements Persistence {
 	 *             if there is a problem with the database.
 	 */
 	@Override
-    public final int addBook(final Book book, String tablename) throws DataSourceException {
+    public final int addBook(final Book book) throws DataSourceException {
 		logger.debug("add book " + book);
 		try {
 			Set<String> toIgnore = new HashSet<String>();
 			HashMap<String, Object> replace = new HashMap<String, Object>();
-			return insertByID(book, tablename, bookMinID, toIgnore, replace);
+			return insertByID(book, bookTableName, bookMinID, toIgnore, replace);
 		} catch (SQLException e) {
 			logger.error("add book failure");
 			throw new DataSourceException(e.getMessage());

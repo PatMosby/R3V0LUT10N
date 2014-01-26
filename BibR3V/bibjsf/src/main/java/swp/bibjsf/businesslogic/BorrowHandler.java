@@ -129,7 +129,7 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower>{
    *             if the reader exists already in the database
    */
   @Override
-  public synchronized int add(Borrower borrower, String tablename) throws DataSourceException,
+  public synchronized int add(Borrower borrower) throws DataSourceException,
       BusinessElementAlreadyExistsException {
       
 	  persistence.addLending( borrower, date);
