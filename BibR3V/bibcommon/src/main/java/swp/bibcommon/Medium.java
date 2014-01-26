@@ -94,14 +94,18 @@ public class Medium extends BusinessObject implements Serializable{
 	private boolean available;
 	
 	/**
-	 * Double für die Mahngebühr des Mediums
+	 * Double für die Mahngebühr des Mediums.
 	 */
 	private double charges; 
 	
 	/**
+	 * Integer für die Ausleihdauer des Mediums.
+	 */
+	private int dueTo;
+	
+	/**
 	 * Constructor required for DBUtils.
 	 */
-	
 	public Medium() {
 	}
 	
@@ -124,6 +128,7 @@ public class Medium extends BusinessObject implements Serializable{
 		this.dateOfAddition       = copyString(medium.dateOfAddition);
 		this.dateOfPublication    = copyString(medium.dateOfPublication);
 		this.description          = copyString(medium.description);
+		this.dueTo				  = medium.dueTo;
 		this.id                   = medium.id;
 		this.imageURL             = copyString(medium.imageURL);
 		this.language             = copyString(medium.language);
@@ -405,6 +410,9 @@ public class Medium extends BusinessObject implements Serializable{
 		this.categories = categories;
 	}
 	
+	
+	
+	
 	/**
 	 * Gibt zurück, ob das Medium verfügbar ist
 	 * 
@@ -433,12 +441,28 @@ public class Medium extends BusinessObject implements Serializable{
 	}
 	
 	/**
-	 * Setzt die Mahngebühr eines Mediums
+	 * Setzt die Mahngebühr eines Mediums.
 	 * @param charges
-	 * 			Mahngebühr eines Mediums
+	 * 			Mahngebühr eines Mediums.
 	 */
 	public void setCharges(double charges) {
 		this.charges = charges;
+	}
+	
+	/**
+	 * Gibt die Ausleihdauer eines Mediums zurück.
+	 * @return dueTo
+	 */
+	public int getDueTo(){
+		return dueTo;
+	}
+	
+	/**
+	 * Setzt die Ausleidauer eines Mediums.
+	 * @param dueTo
+	 */
+	public void setDueTo(int dueTo){
+		this.dueTo = dueTo;
 	}
 	
 }
