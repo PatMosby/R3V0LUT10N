@@ -59,10 +59,10 @@
         <h:outputText value="#{book.title}" />   
       </p:column>  
   
-      <!-- Authors -->
-      <p:column id="authorColumn" sortBy="#{book.authors}" filterBy="#{book.authors}"  
-              headerText="#{messages.authors}" filterMatchMode="contains" style="width:30%">
-        <h:outputText value="#{book.authors}" />  
+      <!-- Categories -->
+      <p:column id="categoriesColumn" sortBy="#{book.categories}" filterBy="#{book.categories}"  
+              headerText="#{messages.categories}" filterMatchMode="contains" style="width:30%">
+        <h:outputText value="#{book.categories}" />  
       </p:column>
   
   	  <!-- isbn/issn -->
@@ -70,6 +70,12 @@
               headerText="#{messages.isbn}" filterMatchMode="contains" style="width:7%">
         <h:outputText id="isbn" value="#{book.industrialIdentifier}" />
   	  </p:column>
+  	  
+  	  <!-- Typ -->
+      <p:column id="typColumn" sortBy="#{book.typ}" filterBy="#{book.typ}"  
+              headerText="#{messages.typ}" filterMatchMode="contains" style="width:30%">
+        <h:outputText value="#{book.typ}" />  
+      </p:column>
   	  
       <!-- trigger for editing row -->
       <p:column id="rowEditorColumn" style="width:3%">  

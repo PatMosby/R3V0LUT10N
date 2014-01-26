@@ -1189,26 +1189,19 @@ public class Data implements Persistence {
 		logger.debug("inserting user to LENDING");
 		run.update("insert into " + borrowTableName + "(" + UsernameField
 		+ ",groupid) values ('" + bookID + "', '" + readerID + "', '" + date + "', '" + charges + "')");
-<<<<<<< HEAD
-=======
-=======
+	}
+	
 	public final void addLending( Borrower borrower, Date date) 
 			throws DataSourceException, BusinessElementAlreadyExistsException{
         		
-		 
-<<<<<<< HEAD
-	
-     }
-	
-=======
-	logger.debug("add reader " + borrower);
+logger.debug("add reader " + borrower);
 	try {
-		if (getReader(reader.getId()) != null) {
+		if (getReader(borrower.getId()) != null) {
 			// ID must be unique
 			throw new BusinessElementAlreadyExistsException(
-					Messages.get("readerexists") + " " + Messages.get("id")
-							+ " = " + reader.getId());
-		} else if (!reader.getUsername().isEmpty()
+					Messages.get("readerexists") + " " + Messages.get("id"));
+//							+ " = " + reader.getId());
+/*		} else if (!reader.getUsername().isEmpty()
 				&& getReaderByUsername(reader.getUsername()) != null) {
 			// user name must be unique if defined
 			throw new BusinessElementAlreadyExistsException(
@@ -1229,16 +1222,14 @@ public class Data implements Persistence {
 				logger.error("MD5 problem");
 				throw new DataSourceException(e.getMessage());
 			}
-		}
-	} catch (SQLException e) {
-		logger.error("add reader failure");
+*/		}
+//	} catch (SQLException e) {
+	} catch (BusinessElementAlreadyExistsException e) {
+ 		logger.error("add reader failure");
 		throw new DataSourceException(e.getMessage());
 	}
 }
->>>>>>> b00fb14432e8e3357772dae258082afdb130d526
->>>>>>> d18f0bd58b6568cedd0c507806647e3055ce043b
-	}
->>>>>>> 02e2f232b6b7020c6f2cb149aa38eb42ef5d88ac
+
 	/**
 	 * Macht Einträge für mehrere Medien eines Ausleihers.
 	 * @param bookIDs die ID's der auszuleihenden Medien
