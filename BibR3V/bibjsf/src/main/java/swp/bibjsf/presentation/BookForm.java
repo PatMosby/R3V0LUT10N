@@ -206,14 +206,14 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 		return previewLinkSelected;
 	}
 
-	public void isPreviewLinkSelected(boolean previewLinkSelected) {
+	public void setPreviewLinkSelected(boolean previewLinkSelected) {
 		this.previewLinkSelected = previewLinkSelected;
 	}
     public boolean isPrintTypeSelected() {
 		return printTypeSelected;
 	}
 
-	public void isPrintTypeSelected(boolean printTypeSelected) {
+	public void setPrintTypeSelected(boolean printTypeSelected) {
 		this.printTypeSelected = printTypeSelected;
 	}
 	
@@ -221,8 +221,88 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 		return publisherSelected;
 	}
 
-	public void isPublisherSelected(boolean publisherSelected) {
+	public void setPublisherSelected(boolean publisherSelected) {
 		this.publisherSelected = publisherSelected;
+	}
+	
+    public boolean isTypSelected() {
+		return typSelected;
+	}
+
+	public void setTypSelected(boolean typSelected) {
+		this.typSelected = typSelected;
+	}
+	
+    public boolean isPlayTimeSelected() {
+		return playTimeSelected;
+	}
+
+	public void setPlayTimeSelected(boolean playTimeSelected) {
+		this.playTimeSelected = playTimeSelected;
+	}
+	
+    public boolean isMediaSelected() {
+		return mediaSelected;
+	}
+
+	public void setMediaSelected(boolean mediaSelected) {
+		this.mediaSelected = mediaSelected;
+	}
+	
+    public boolean isArtistListSelected() {
+		return artistListSelected;
+	}
+
+	public void setArtistListSelected(boolean artistListSelected) {
+		this.artistListSelected = artistListSelected;
+	}
+	
+    public boolean isLabelSelected() {
+		return labelSelected;
+	}
+
+	public void setLabelSelected(boolean labelSelected) {
+		this.labelSelected = labelSelected;
+	}
+	
+    public boolean isTitleCountSelected() {
+		return titleCountSelected;
+	}
+
+	public void setTitleCountSelected(boolean titleCountSelected) {
+		this.titleCountSelected = titleCountSelected;
+	}
+	
+    public boolean isEditorListSelected() {
+		return editorListSelected;
+	}
+
+	public void setEditorListSelected(boolean editorListSelected) {
+		this.editorListSelected = editorListSelected;
+	}
+	
+    public boolean isFskSelected() {
+		return fskSelected;
+	}
+
+	public void setFskSelected(boolean fskSelected) {
+		this.fskSelected = fskSelected;
+	}
+	
+    public boolean isRegisseurSelected() {
+		return regisseurSelected;
+	}
+
+	public void setRegisseurSelected(boolean regisseurSelected) {
+		this.regisseurSelected = regisseurSelected;
+	}
+	
+    public boolean isProducerSelected() {
+		return producerSelected;
+	}
+
+	public void setProducerSelected(boolean producerSelected) {
+		this.producerSelected = producerSelected;
 	}
 	
 	
@@ -417,20 +497,41 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         if (isImageURLSelected()) {
             toBook.setImageURL(fromBook.getImageURL());
         }
-/*        if (isVotesSelected()) {
-            toBook.setVotes(fromBook.getVotes());
+        if (isTypSelected()) {
+            toBook.setTyp(fromBook.getTyp());
         }
-*/        if (isNoteSelected()) {
+        if (isNoteSelected()) {
             toBook.setNote(fromBook.getNote());
         }
-/*        if (isAvgRatingSelected()) {
-            try {
-				toBook.setAvgRating(fromBook.getAvgRating());
-			} catch (IllegalRating e) {
-				// cannot happen
-			}
+        if (isPlayTimeSelected()) {
+            toBook.setPlayTime(fromBook.getPlayTime());
         }
-*/	}
+        if (isMediaSelected()) {
+            toBook.setMedia(fromBook.getMedia());
+        }
+        if (isArtistListSelected()) {
+            toBook.setArtistList(fromBook.getArtistList());
+        }
+        if (isNoteSelected()) {
+            toBook.setLabel(fromBook.getLabel());
+        }
+        if (isNoteSelected()) {
+            toBook.setTitleCount(fromBook.getTitleCount());
+        }
+        if (isNoteSelected()) {
+            toBook.setEditorList(fromBook.getEditorList());
+        }
+        if (isFskSelected()) {
+            toBook.setFsk(fromBook.getFsk());
+        }
+        if (isNoteSelected()) {
+            toBook.setRegisseur(fromBook.getRegisseur());
+        }
+        if (isProducerSelected()) {
+            toBook.setProducer(fromBook.getProducer());
+        }
+        
+	}
 
     /**
      * Returns the list of books matching given identifier asking Google.
@@ -701,139 +802,80 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     public void setNote(String note) {
         element.setNote(note);
     }
-    //TODO:
+    public String getTyp() {
+        return element.getTyp();
+    }
 
+    public void setTyp(String typ) {
+        element.setTyp(typ);
+    }
+    
+    public int getPlayTime() {
+        return element.getPlayTime();
+    }
+
+    public void setPlayTime(int playTime) {
+        element.setPlayTime(playTime);
+    }
+    public int getMedia() {
+        return element.getMedia();
+    }
+
+    public void setMedia(int media) {
+        element.setMedia(media);
+    }
+    public String getArtistList() {
+        return element.getArtistList();
+    }
+
+    public void setArtistList(String artistList) {
+        element.setArtistList(artistList);
+    }
+    public String getLabel() {
+        return element.getLabel();
+    }
+
+    public void setLabel(String label) {
+        element.setLabel(label);
+    }
+    public int getTitleCount() {
+        return element.getTitleCount();
+    }
+
+    public void setTitleCount(int titleCount) {
+        element.setTitleCount(titleCount);
+    }
+    public String getEditorList() {
+        return element.getEditorList();
+    }
+
+    public void setEditorList(String editorList) {
+        element.setEditorList(editorList);
+    }
+    public int getFsk() {
+        return element.getFsk();
+    }
+
+    public void setFsk(int fsk) {
+        element.setFsk(fsk);
+    }
+    public String getRegisseur() {
+        return element.getRegisseur();
+    }
+
+    public void setRegisseur(String regisseur) {
+        element.setRegisseur(regisseur);
+    }
+    public String getProducer() {
+        return element.getProducer();
+    }
+
+    public void setProducer(String producer) {
+        element.setTyp(producer);
+    }
     
     
     
-    /* ***********************
-     * Getter und setter
-     ************************** */
-/*	public boolean isAuthors() {
-		return authors;
-	}
-
-	public void setAuthors(boolean authors) {
-		this.authors = authors;
-	}
-
-	public boolean isIsbn() {
-		return isbn;
-	}
-
-	public void setIndustrialIdentifier(boolean isbn) {
-		this.isbn = isbn;
-	}*/
-
-	public boolean isPageCount() {
-		return pageCountSelected;
-	}
-
-	public void setPageCount(boolean pageCount) {
-		this.pageCountSelected = pageCount;
-	}
-
-	public boolean isPreviewLink() {
-		return previewLinkSelected;
-	}
-
-	public void setPreviewLink(boolean previewLink) {
-		this.previewLinkSelected = previewLink;
-	}
-
-	public boolean isPublisher() {
-		return publisherSelected;
-	}
-
-	public void setPublisher(boolean publisher) {
-		this.publisherSelected = publisher;
-	}
-
-	public boolean isPlayTime() {
-		return playTimeSelected;
-	}
-
-	public void setPlayTime(boolean playTime) {
-		this.playTimeSelected = playTime;
-	}
-
-	public boolean isMedia() {
-		return mediaSelected;
-	}
-
-	public void setMedia(boolean media) {
-		this.mediaSelected = media;
-	}
-
-	public boolean isArtistList() {
-		return artistListSelected;
-	}
-
-	public void setArtistList(boolean artistList) {
-		this.artistListSelected = artistList;
-	}
-
-	public boolean isLabel() {
-		return labelSelected;
-	}
-
-	public void setLabel(boolean label) {
-		this.labelSelected = label;
-	}
-
-	public boolean isTitleCount() {
-		return titleCountSelected;
-	}
-
-	public void setTitleCount(boolean titleCount) {
-		this.titleCountSelected = titleCount;
-	}
-
-	public boolean isEditorList() {
-		return editorListSelected;
-	}
-
-	public void setEditorList(boolean editorList) {
-		this.editorListSelected = editorList;
-	}
-
-	public boolean isPrintType() {
-		return printTypeSelected;
-	}
-
-	public void setPrintType(boolean printType) {
-		this.printTypeSelected = printType;
-	}
-
-	public boolean isFsk() {
-		return fskSelected;
-	}
-
-	public void setFsk(boolean fsk) {
-		this.fskSelected = fskSelected;
-	}
-
-	public boolean isRegisseur() {
-		return regisseurSelected;
-	}
-
-	public void setRegisseur(boolean regisseur) {
-		this.regisseurSelected = regisseur;
-	}
-
-	public boolean isProducer() {
-		return producerSelected;
-	}
-
-	public void setProducer(boolean producer) {
-		this.producerSelected = producer;
-	}
-
-	public boolean isTyp() {
-		return typSelected;
-	}
-
-	public void setTyp(boolean typ) {
-		this.typSelected = typ;
-	}
+    
+  
 }

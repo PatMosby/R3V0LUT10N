@@ -23,14 +23,14 @@
         </p:selectBooleanCheckbox>
 		<p:message for="isbn" display="both" />
 				
-		<!-- authors required="true"	requiredMessage="#{messages.authorreq}"
+		<!-- authors required="true"	requiredMessage="#{messages.authorreq}" -->
 		<h:outputLabel for="authors" value="#{messages.authors}:"
 			style="font-weight:bold" title="#{messages.authors_help}" />
 		<p:inputText id="authors" value="#{bookForm.authors}"  size="#{bookForm.textWidth}" />
 		<p:selectBooleanCheckbox value="#{bookForm.authorsSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
-		<p:message for="authors" display="both" /> -->
+		<p:message for="authors" display="both" />
 
 		<!-- title required="true" requiredMessage="#{messages.titlereq}" -->
 		<h:outputLabel for="title" value="#{messages.title}:"
@@ -110,16 +110,25 @@
         </p:selectBooleanCheckbox>
         <p:message for="location" display="both" />
       
-      
+        <!-- pageCount -->
+        <h:outputLabel for="pageCount" value="#{messages.pageCount}:"
+            style="font-weight:bold" title="#{messages.pageCount_help}" />
+        <p:inputText id="pageCount" value="#{bookForm.pageCount}" size="#{bookForm.textWidth}"  validatorMessage="#{messages.nonnegative}">
+        </p:inputText>
+        <p:selectBooleanCheckbox value="#{bookForm.pageCountSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="pageCount" display="both" />
+        
          <!-- previewLink -->
-        <h:outputLabel for="previewLink" value="#{messages.previewLink}:"
+         <h:outputLabel for="previewLink" value="#{messages.previewLink}:"
             style="font-weight:bold" title="#{messages.previewLink_help}" />
         <p:inputText id="previewLink" value="#{bookForm.previewLink}" size="#{bookForm.textWidth}" />
         <p:selectBooleanCheckbox value="#{bookForm.previewLinkSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
         <p:message for="previewLink" display="both" />
-               
+                
         <!-- price -->
         <h:outputLabel for="price" value="#{messages.price}:"
             style="font-weight:bold" title="#{messages.price_help}" />
@@ -131,16 +140,16 @@
         </p:selectBooleanCheckbox>
         <p:message for="price" display="both" />
                         
-     	<!-- typ --> 
+        <!-- typ -->
         <h:outputLabel for="typ" value="#{messages.typ}:"
-            style="font-weight:bold" title="#{messages.typ_help}" />
+            style="font-weight:bold" title="#{messages.publisher_help}" />
         <p:inputText id="typ" value="#{bookForm.typ}" size="#{bookForm.textWidth}" />
         <p:selectBooleanCheckbox value="#{bookForm.typSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
         <p:message for="typ" display="both" />
-       
-        <!-- publisher --> 
+        
+        <!-- publisher -->
         <h:outputLabel for="publisher" value="#{messages.publisher}:"
             style="font-weight:bold" title="#{messages.publisher_help}" />
         <p:inputText id="publisher" value="#{bookForm.publisher}" size="#{bookForm.textWidth}" />
@@ -148,7 +157,7 @@
             <p:ajax />
         </p:selectBooleanCheckbox>
         <p:message for="publisher" display="both" />
-               
+            
 		<!-- imageURL -->
 		<h:outputLabel for="imageURL" value="#{messages.imageURL}:"
 			style="font-weight:bold" title="#{messages.imageURL_help}" />
@@ -158,25 +167,7 @@
         </p:selectBooleanCheckbox>
 		<p:message for="imageURL" display="both" />
 		
-		<!-- media -->
-		<h:outputLabel for="media" value="#{messages.media}:"
-			style="font-weight:bold" title="#{messages.media_help}" />
-		<p:inputText id="media" value="#{bookForm.media}" size="#{bookForm.textWidth}" />
-		<p:selectBooleanCheckbox value="#{bookForm.mediaSelected}" rendered="#{bookForm.selectable}" >
-            <p:ajax />
-        </p:selectBooleanCheckbox>
-		<p:message for="media" display="both" />
-		
-		<!-- playtime -->
-		<h:outputLabel for="playTime" value="#{messages.playtime}:"
-			style="font-weight:bold" title="#{messages.playtime_help}" />
-		<p:inputText id="playtime" value="#{bookForm.playTime}" size="#{bookForm.textWidth}" />
-		<p:inputText id="playTime" value="#{bookForm.playTime}" size="#{bookForm.textWidth}" />
-		<p:selectBooleanCheckbox value="#{bookForm.playTimeSelected}" rendered="#{bookForm.selectable}" >
-            <p:ajax />
-        </p:selectBooleanCheckbox>
-		<p:message for="playTime" display="both" />
-		
+
 		
 		<!-- note -->
 		<h:outputLabel for="note" value="#{messages.note}:"
@@ -186,6 +177,97 @@
             <p:ajax />
         </p:selectBooleanCheckbox>
 		<p:message for="note" display="both" />
+		
+				<!-- playtime -->
+		<h:outputLabel for="playtime" value="#{messages.playtime}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="playtime" value="#{bookForm.playTime}" rows="1" cols="#{bookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{bookForm.playTimeSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="note" display="both" />
+		
+						<!-- media -->
+		<h:outputLabel for="media" value="#{messages.media}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="media" value="#{bookForm.media}" rows="1" cols="#{bookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{bookForm.mediaSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="note" display="both" />
+		
+						<!-- artistList -->
+		<h:outputLabel for="artistList" value="#{messages.artistlist}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="artistList" value="#{bookForm.artistList}" rows="1" cols="#{bookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{bookForm.artistListSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="artistList" display="both" />
+		
+								<!-- label -->
+		<h:outputLabel for="label" value="#{messages.label}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="label" value="#{bookForm.label}" rows="1" cols="#{bookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{bookForm.labelSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="label" display="both" />
+		
+								<!-- titleCount -->
+		<h:outputLabel for="titleCount" value="#{messages.titlecount}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="titleCount" value="#{bookForm.titleCount}" rows="1" cols="#{bookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{bookForm.titleCountSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="titleCount" display="both" />
+		
+								<!-- editorList -->
+		<h:outputLabel for="editorList" value="#{messages.editorlist}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="editorList" value="#{bookForm.editorList}" rows="1" cols="#{bookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{bookForm.editorListSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="editorList" display="both" />
+		
+								<!-- printType -->
+		<h:outputLabel for="printType" value="#{messages.printType}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="printType" value="#{bookForm.printType}" rows="1" cols="#{bookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{bookForm.printTypeSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="printType" display="both" />
+		
+								<!-- fsk -->
+		<h:outputLabel for="fsk" value="#{messages.fsk}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="fsk" value="#{bookForm.fsk}" rows="1" cols="#{bookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{bookForm.fskSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="fsk" display="both" />
+		
+								<!-- regisseur -->
+		<h:outputLabel for="regisseur" value="#{messages.regisseur}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="regisseur" value="#{bookForm.regisseur}" rows="1" cols="#{bookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{bookForm.regisseurSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="regisseur" display="both" />
+		
+								<!-- producer -->
+		<h:outputLabel for="producer" value="#{messages.producer}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="producer" value="#{bookForm.producer}" rows="1" cols="#{bookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{bookForm.producerSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="producer" display="both" />
+		
 		
 	</ui:composition>
 </body>

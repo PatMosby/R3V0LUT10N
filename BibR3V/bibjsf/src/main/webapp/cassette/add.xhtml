@@ -22,25 +22,25 @@
     	
         <h:panelGrid columns="4" cellpadding="5">  
 
-            <!-- ID (read-only)
+            <!-- ID (read-only) -->
             <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold" title="#{messages.bookid_help}"/>
             <h:outputText id="id" value="#{addBookForm.id}" />
             <p:selectBooleanCheckbox value="#{bookForm.isbnSelected}" rendered="#{bookForm.selectable}" /> 
-            <h:outputText value="" /> just a dummy to have a column 
+            <h:outputText value="" /> <!-- just a dummy to have a column  -->
             <p:message for="id"  display="both" />
             
-            <ui:include src="bookAttributes.xhtml">
+            <ui:include src="cassetteAttributes.xhtml">
                 <ui:param name="bookForm" value="#{addBookForm}"/>
-            </ui:include>  -->
+            </ui:include> 
 
             <!-- buttons in footer  -->
             <f:facet name="footer">
               <h:panelGroup>
-              <p:commandButton id="saveButton" value="#{messages.save}" action="#{addCassetteForm.save}" 
+              <p:commandButton id="saveButton" value="#{messages.save}" action="#{addBookForm.save}" 
                   ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
-              <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{addCassetteForm.reset}" title="#{messages.reset_help}" update="panel" />
+              <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{addBookForm.reset}" title="#{messages.reset_help}" update="panel" />
               <p:commandButton id="cancelButton" value="#{messages.cancel}"
-                  action="#{addCassetteForm.cancel}" immediate="true"  title="#{messages.cancel_help} "/>
+                  action="#{addBookForm.cancel}" immediate="true"  title="#{messages.cancel_help} "/>
               <p:commandButton id="lookupButton" value="#{messages.search}" update=":form2:foundBooksTable panel"
                   partialSubmit="true" process="isbn"
                   immediate="true"  title="#{messages.lookupButton_help} "/>
@@ -52,7 +52,7 @@
 
     <p:messages showDetail="true" autoUpdate="true"/>
     <p:defaultCommand target="lookupButton"/>
- <!-- </h:form>
+  </h:form>
  
  <h:form id="form2">
     <p:dataTable id="foundBooksTable" var="book" value="#{addBookForm.foundBooks}"   
@@ -75,17 +75,17 @@
         
         <p:column headerText="#{messages.price}" style="width:25%">  
             #{book.price}
-        </p:column> 
+        </p:column>
 
         <f:facet name="footer">  
             <p:commandButton id="viewButton" value="#{messages.view}" icon="ui-icon-zoomin" 
                              update=":form2:displaySingle" oncomplete="singleBookDialog.show()"/>  
             <p:commandButton id="selectButton" value="#{messages.copy}" icon="ui-icon-copy" 
-            	update=":form1" action="#{addCassetteForm.copySelected}"/> 
+            	update=":form1" action="#{addAudiobookForm.copySelected}"/> 
         </f:facet>  
-    </p:dataTable>  -->
+    </p:dataTable>  
     
-    <!-- <p:dialog id="dialog" header="#{messages.bookDetails}" widgetVar="singleBookDialog" resizable="false"  
+     <p:dialog id="dialog" header="#{messages.bookDetails}" widgetVar="singleBookDialog" resizable="false"  
               showEffect="fade" hideEffect="explode" modal="true" >  
   
         <h:panelGrid id="displaySingle" columns="2" cellpadding="4">  
@@ -137,11 +137,20 @@
             <h:outputLabel for="foundprintType" value="#{messages.printType}" />  
             <h:outputText id="foundprintType" value="#{addBookForm.selectedBook.printType}" style="font-weight:bold"/> 
 
+			<h:outputLabel for="foundTyp" value="#{messages.typ}" />  
+            <h:outputText id="foundTyp" value="#{addBookForm.selectedBook.typ}" style="font-weight:bold"/> 
+            
+            <h:outputLabel for="foundPlayTime" value="#{messages.playTime}" />  
+            <h:outputText id="foundPlayTime" value="#{addBookForm.selectedBook.playTime}" style="font-weight:bold"/>
+            
+            <h:outputLabel for="foundMedia" value="#{messages.media}" />  
+            <h:outputText id="foundMedia" value="#{addBookForm.selectedBook.media}" style="font-weight:bold"/>
+
             <h:outputLabel for="foundpublisher" value="#{messages.publisher}" />  
             <h:outputText id="foundpublisher" value="#{addBookForm.selectedBook.publisher}" style="font-weight:bold"/> 
              
         </h:panelGrid>
-    </p:dialog>  -->
+    </p:dialog> 
 </h:form>
 
 </f:view>
