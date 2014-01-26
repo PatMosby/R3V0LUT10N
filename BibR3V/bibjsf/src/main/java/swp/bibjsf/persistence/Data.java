@@ -126,6 +126,7 @@ public class Data implements Persistence {
 	 * The column name that stores the user name.
 	 */
 	private static final String UsernameField = "username";
+	//private final static String ReaderIDField = "readerID";
 	/**
 	 * The name of the tables in the database where the mediums are stored.
 	 */
@@ -446,6 +447,19 @@ public class Data implements Persistence {
 					+ UsernameField + ") ON DELETE CASCADE ON UPDATE RESTRICT)");
 		}
 		
+<<<<<<< HEAD
+		 if (!tableExists(tableNames, borrowTableName)) {
+				logger.debug("database table " + borrowTableName
+						+ " does not exist, creating new one");
+				// The table of all books in the library.
+				run.update("CREATE TABLE " + borrowTableName
+						+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
+						+ "<= ID AND ID < " + bookMinID + "), "
+						+ "BOOK_ID INT NOT NULL," + " CONSTRAINT BOOK_ID_FK FOREIGN KEY (BOOK_ID) REFERENCES BOOK (ID), "
+						+ UsernameField + " VARCHAR(128) NOT NULL UNIQUE, "
+						+ "date DATE, " 
+						+ "charges DECIMAL(10,2))");					
+=======
 		if (!tableExists(tableNames, borrowTableName)) {
 			logger.debug("database table " + borrowTableName
 					+ " does not exist, creating new one");
@@ -463,6 +477,7 @@ public class Data implements Persistence {
 					+ "charges DOUBLE" );
 
 					
+>>>>>>> b00fb14432e8e3357772dae258082afdb130d526
 					
 					
 		}
@@ -1190,14 +1205,60 @@ public class Data implements Persistence {
 	 * @param readerID die ID des Ausleihers
 	 * @param date das Rückgabedatum der Ausleihe
 	 * @throws DataSourceException
+	 * @throws SQLException 
 	 */
+<<<<<<< HEAD
+	public final void addLending(int bookID, int readerID, Date date, double charges) throws DataSourceException, SQLException {
+		logger.debug("inserting user to LENDING");
+		run.update("insert into " + borrowTableName + "(" + UsernameField
+		+ ",groupid) values ('" + bookID + "', '" + readerID + "', '" + date + "', '" + charges + "')");
+=======
 	public final void addLending( Borrower borrower, Date date) 
 			throws DataSourceException, BusinessElementAlreadyExistsException{
         		
 		 
+<<<<<<< HEAD
 	
      }
 	
+=======
+	logger.debug("add reader " + borrower);
+	try {
+		if (getReader(reader.getId()) != null) {
+			// ID must be unique
+			throw new BusinessElementAlreadyExistsException(
+					Messages.get("readerexists") + " " + Messages.get("id")
+							+ " = " + reader.getId());
+		} else if (!reader.getUsername().isEmpty()
+				&& getReaderByUsername(reader.getUsername()) != null) {
+			// user name must be unique if defined
+			throw new BusinessElementAlreadyExistsException(
+					Messages.get("readerexists") + Messages.get("username")
+							+ " = " + reader.getUsername());
+		} else {
+			logger.debug("reader " + reader
+					+ " does not yet exist; has ID: " + reader.hasId());
+			try {
+				final String password = hashPassword(reader);
+				Set<String> toIgnore = new HashSet<String>();
+				HashMap<String, Object> replace = new HashMap<String, Object>();
+				replace.put("password", password);
+				int result = insertByID(reader, readerTableName, readerMinID, toIgnore, replace);
+				insertUser(reader.getUsername());
+				return result;
+			} catch (NoSuchAlgorithmException e) {
+				logger.error("MD5 problem");
+				throw new DataSourceException(e.getMessage());
+			}
+		}
+	} catch (SQLException e) {
+		logger.error("add reader failure");
+		throw new DataSourceException(e.getMessage());
+	}
+}
+>>>>>>> b00fb14432e8e3357772dae258082afdb130d526
+	}
+>>>>>>> 02e2f232b6b7020c6f2cb149aa38eb42ef5d88ac
 	/**
 	 * Macht Einträge für mehrere Medien eines Ausleihers.
 	 * @param bookIDs die ID's der auszuleihenden Medien
@@ -1206,7 +1267,7 @@ public class Data implements Persistence {
 	 * @throws DataSourceException
 	 */
 	public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException {
-		
+
 	}
 	
 	/**
