@@ -61,9 +61,9 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.log4j.Logger;
 
 import android.util.Log;
-
 import swp.bibcommon.Book;
 import swp.bibcommon.BusinessObject;
+import swp.bibcommon.Charges;
 import swp.bibcommon.Reader;
 import swp.bibcommon.Borrower;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
@@ -162,6 +162,12 @@ public class Data implements Persistence {
 	 * Name of the database table for readers.
 	 */
 	private final static String readerTableName = "READER";
+	/**
+	 * Name of the database for charges.
+	 */
+	private final static String chargesTableName = "CHARGES";
+	
+	private final static String typesField = "type";
 	/**
 	 * The minimal ID a reader can have. Default admin has ID 0. See comment for
 	 * bookMinID.
@@ -454,6 +460,7 @@ public class Data implements Persistence {
 		}
 		
 		 if (!tableExists(tableNames, borrowTableName)) {
+<<<<<<< HEAD
 			    logger.debug("database table " + borrowTableName
 			      + " does not exist, creating new one");
 			    // The table of all books in the library.
@@ -464,7 +471,28 @@ public class Data implements Persistence {
 			      + "USER_ID INT NOT NULL," 
 			      + "date DATE, " 
 			      + "charges DECIMAL(10,2))");
+=======
+				logger.debug("database table " + borrowTableName
+						+ " does not exist, creating new one");
+				// The table of all Lending in the library.
+				run.update("CREATE TABLE " + borrowTableName
+						+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
+						+ "<= ID AND ID < " + bookMinID + "), "
+						+ "BOOK_ID INT NOT NULL," + " CONSTRAINT BOOK_ID_FK FOREIGN KEY (BOOK_ID) REFERENCES BOOK (ID), "
+						+ UsernameField + " VARCHAR(128) NOT NULL UNIQUE, "
+						+ "date DATE, " 
+						+ "charges DECIMAL(10,2))");
+>>>>>>> b4ad336b9e0b65c52aeb38507158cef74214d8d1
 		}
+		 
+		 if (!tableExists(tableNames, chargesTableName)) {
+			 	logger.debug("database table " + chargesTableName
+			 			+ " does not exist, creating new one");
+			 	// The table of all types and their charges.
+			 	run.update("CREATE TABLE " + chargesTableName
+			 			+ " (type varchar(128) NOT NULL UNIQUE, "
+			 			+ "CHARGE DOUBLE PRECISION)");
+		 }
 		
 		if (createAdmin) {
 			insertAdmin();
@@ -2593,5 +2621,23 @@ logger.debug("add reader " + borrower);
 		File f = new File(filename);
 		return f.exists();
 	}
+
+	@Override
+	public int addCharges(Charges charges) throws DataSourceException {
+		logger.debug("add charges " + charges);
+		try {
+			int result = 1;
+			Set<String> toIgnore = new HashSet<String>();
+			HashMap<String, Object> replace = new HashMap<String, Object>();
+			insert(chargesTableName, charges, toIgnore, replace);
+			return result;
+		} catch (SQLException e) {
+			logger.error("add book failure");
+			throw new DataSourceException(e.getMessage());
+		}
+		
+	}
+	
+
 
 }

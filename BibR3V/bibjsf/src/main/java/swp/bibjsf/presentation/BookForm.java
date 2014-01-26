@@ -733,6 +733,14 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     public void setLanguage(String language) {
         element.setLanguage(language);
     }
+    
+    public String getType() {
+        return element.getTyp();
+    }
+
+    public void setType(String type) {
+        element.setTyp(type);
+    }
 
     /**
      *  Language of a book. A two-letter ISO 639-1 code such as 'fr', 'en', etc.
@@ -745,6 +753,16 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 
     public void setLanguages(String[] languages) {
     	this.languages = languages.clone();
+    }
+    
+    private String[] types = {"Buch", "Zeitschrift", "Cd", "Film", "Software", "Andere", "Hörbuch", "Kassette"};
+
+    public String[] getTypes() {
+    	return types.clone();
+    }
+
+    public void setTypes(String[] types) {
+    	this.types = types.clone();
     }
 
     public String getLocation() {
