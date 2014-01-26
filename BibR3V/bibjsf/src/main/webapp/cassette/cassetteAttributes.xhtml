@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
 <h:head />
 <body>
-<!-- attribute input fields for book attributes shared by book/add.xhtml and book/change.xhtml -->
+<!-- attribute input fields for cassette attributes shared by book/add.xhtml and book/change.xhtml -->
 <ui:composition>
 
 		<!-- isbn/issn -->
@@ -159,22 +159,18 @@
 		<p:message for="imageURL" display="both" />
 		
 		<!-- media -->
-		<h:outputLabel for="media" value="#{messages.media}:"
+		<!-- <h:outputLabel for="media" value="#{messages.media}:"
 			style="font-weight:bold" title="#{messages.media_help}" />
 		<p:inputText id="media" value="#{bookForm.media}" size="#{bookForm.textWidth}" />
 		<p:selectBooleanCheckbox value="#{bookForm.mediaSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
-		<p:message for="media" display="both" />
+		<p:message for="media" display="both" /> -->
 		
 		<!-- playtime -->
 		<h:outputLabel for="playTime" value="#{messages.playtime}:"
 			style="font-weight:bold" title="#{messages.playtime_help}" />
-<<<<<<< HEAD
-		<p:inputText id="playtime" value="#{bookForm.playTime}" size="#{bookForm.textWidth}" />
-=======
 		<p:inputText id="playTime" value="#{bookForm.playTime}" size="#{bookForm.textWidth}" />
->>>>>>> 3526ba7ef1a06a9bcbb74ec7db8edbb8ea1206e2
 		<p:selectBooleanCheckbox value="#{bookForm.playTimeSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>

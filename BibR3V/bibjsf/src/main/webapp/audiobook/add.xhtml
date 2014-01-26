@@ -38,9 +38,9 @@
               <h:panelGroup>
               <p:commandButton id="saveButton" value="#{messages.save}" action="#{addBookForm.save}" 
                   ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
-              <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{addAudiobookForm.reset}" title="#{messages.reset_help}" update="panel" />
+              <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{addBookForm.reset}" title="#{messages.reset_help}" update="panel" />
               <p:commandButton id="cancelButton" value="#{messages.cancel}"
-                  action="#{addAudioBookForm.cancel}" immediate="true"  title="#{messages.cancel_help} "/>
+                  action="#{addBookForm.cancel}" immediate="true"  title="#{messages.cancel_help} "/>
               <p:commandButton id="lookupButton" value="#{messages.search}" update=":form2:foundBooksTable panel"
                   partialSubmit="true" process="isbn"
                   immediate="true"  title="#{messages.lookupButton_help} "/>
@@ -140,12 +140,11 @@
 			<h:outputLabel for="foundTyp" value="#{messages.typ}" />  
             <h:outputText id="foundTyp" value="#{addBookForm.selectedBook.typ}" style="font-weight:bold"/> 
             
-            <h:outputLabel for="foundPlayTime" value="#{messages.playtime}" />  
+            <h:outputLabel for="foundPlayTime" value="#{messages.playTime}" />  
             <h:outputText id="foundPlayTime" value="#{addBookForm.selectedBook.playTime}" style="font-weight:bold"/>
             
             <h:outputLabel for="foundMedia" value="#{messages.media}" />  
             <h:outputText id="foundMedia" value="#{addBookForm.selectedBook.media}" style="font-weight:bold"/>
-	
 
             <h:outputLabel for="foundpublisher" value="#{messages.publisher}" />  
             <h:outputText id="foundpublisher" value="#{addBookForm.selectedBook.publisher}" style="font-weight:bold"/> 
