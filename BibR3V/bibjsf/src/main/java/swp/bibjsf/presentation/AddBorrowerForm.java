@@ -1,8 +1,13 @@
 package swp.bibjsf.presentation;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
 import swp.bibjsf.businesslogic.BorrowHandler;
 import swp.bibjsf.utils.Messages;
 
+@ManagedBean(name= "myBean")
+@SessionScoped
 public class AddBorrowerForm extends BorrowerForm{
 
 	
