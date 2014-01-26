@@ -60,7 +60,7 @@ public class AddBookForm extends BookForm {
      */
     @Override
     public String save() {
-    	logger.debug("tablename" + tablename + "request to save new book " + ((element == null) ? "NULL" : element.toString()));
+    	logger.debug("request to save new book " + ((element == null) ? "NULL" : element.toString()));
     	if (element != null) {
     		System.out.println(tablename);
     		try {

@@ -206,14 +206,14 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 		return previewLinkSelected;
 	}
 
-	public void isPreviewLinkSelected(boolean previewLinkSelected) {
+	public void setPreviewLinkSelected(boolean previewLinkSelected) {
 		this.previewLinkSelected = previewLinkSelected;
 	}
     public boolean isPrintTypeSelected() {
 		return printTypeSelected;
 	}
 
-	public void isPrintTypeSelected(boolean printTypeSelected) {
+	public void setPrintTypeSelected(boolean printTypeSelected) {
 		this.printTypeSelected = printTypeSelected;
 	}
 	
@@ -221,8 +221,16 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 		return publisherSelected;
 	}
 
-	public void isPublisherSelected(boolean publisherSelected) {
+	public void setPublisherSelected(boolean publisherSelected) {
 		this.publisherSelected = publisherSelected;
+	}
+	
+    public boolean isTypSelected() {
+		return typSelected;
+	}
+
+	public void setTypSelected(boolean typSelected) {
+		this.typSelected = typSelected;
 	}
 	
 	
@@ -417,10 +425,10 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         if (isImageURLSelected()) {
             toBook.setImageURL(fromBook.getImageURL());
         }
-/*        if (isVotesSelected()) {
-            toBook.setVotes(fromBook.getVotes());
+        if (isTypSelected()) {
+            toBook.setTyp(fromBook.getTyp());
         }
-*/        if (isNoteSelected()) {
+        if (isNoteSelected()) {
             toBook.setNote(fromBook.getNote());
         }
 /*        if (isAvgRatingSelected()) {
@@ -713,135 +721,5 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 
     
     
-    
-    /* ***********************
-     * Getter und setter
-     ************************** */
-/*	public boolean isAuthors() {
-		return authors;
-	}
-
-	public void setAuthors(boolean authors) {
-		this.authors = authors;
-	}
-
-	public boolean isIsbn() {
-		return isbn;
-	}
-
-	public void setIndustrialIdentifier(boolean isbn) {
-		this.isbn = isbn;
-	}*/
-
-	public boolean isPageCount() {
-		return pageCountSelected;
-	}
-
-	public void setPageCount(boolean pageCount) {
-		this.pageCountSelected = pageCount;
-	}
-
-	public boolean isPreviewLink() {
-		return previewLinkSelected;
-	}
-
-	public void setPreviewLink(boolean previewLink) {
-		this.previewLinkSelected = previewLink;
-	}
-
-	public boolean isPublisher() {
-		return publisherSelected;
-	}
-
-	public void setPublisher(boolean publisher) {
-		this.publisherSelected = publisher;
-	}
-
-	public boolean isPlayTime() {
-		return playTimeSelected;
-	}
-
-	public void setPlayTime(boolean playTime) {
-		this.playTimeSelected = playTime;
-	}
-
-	public boolean isMedia() {
-		return mediaSelected;
-	}
-
-	public void setMedia(boolean media) {
-		this.mediaSelected = media;
-	}
-
-	public boolean isArtistList() {
-		return artistListSelected;
-	}
-
-	public void setArtistList(boolean artistList) {
-		this.artistListSelected = artistList;
-	}
-
-	public boolean isLabel() {
-		return labelSelected;
-	}
-
-	public void setLabel(boolean label) {
-		this.labelSelected = label;
-	}
-
-	public boolean isTitleCount() {
-		return titleCountSelected;
-	}
-
-	public void setTitleCount(boolean titleCount) {
-		this.titleCountSelected = titleCount;
-	}
-
-	public boolean isEditorList() {
-		return editorListSelected;
-	}
-
-	public void setEditorList(boolean editorList) {
-		this.editorListSelected = editorList;
-	}
-
-	public boolean isPrintType() {
-		return printTypeSelected;
-	}
-
-	public void setPrintType(boolean printType) {
-		this.printTypeSelected = printType;
-	}
-
-	public boolean isFsk() {
-		return fskSelected;
-	}
-
-	public void setFsk(boolean fsk) {
-		this.fskSelected = fskSelected;
-	}
-
-	public boolean isRegisseur() {
-		return regisseurSelected;
-	}
-
-	public void setRegisseur(boolean regisseur) {
-		this.regisseurSelected = regisseur;
-	}
-
-	public boolean isProducer() {
-		return producerSelected;
-	}
-
-	public void setProducer(boolean producer) {
-		this.producerSelected = producer;
-	}
-
-	public boolean isTyp() {
-		return typSelected;
-	}
-
-	public void setTyp(boolean typ) {
-		this.typSelected = typ;
-	}
+  
 }

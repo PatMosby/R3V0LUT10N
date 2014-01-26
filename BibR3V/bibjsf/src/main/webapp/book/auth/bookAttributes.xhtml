@@ -140,16 +140,14 @@
         </p:selectBooleanCheckbox>
         <p:message for="price" display="both" />
                         
-         <!-- Typ -->
+<!--         Typ
         <h:outputLabel for="typ" value="#{messages.typ}:"
-            style="font-weight:bold" title="#{messages.location_help}" />
-        <p:inputText id="typ" value="#{bookform.typ}" size="#{bookForm.textWidth}" />
-    <p:selectBooleanCheckbox value="#{bookForm.typSelected}" rendered="#{bookForm.selectable}" >
-            <p:ajax />
-        </p:selectBooleanCheckbox>
-        <p:message for="typ" display="both" />
+            style="font-weight:bold" title="#{messages.catetories_help}" />
+        <p:inputText id="typ" value="#{bookForm.typ}" size="#{bookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{bookForm.typSelected}" rendered="#{bookForm.selectable}"/>
+        <p:message for="categories" display="both" /> -->
        
-        <!-- publisher 
+        <!-- publisher -->
         <h:outputLabel for="publisher" value="#{messages.publisher}:"
             style="font-weight:bold" title="#{messages.publisher_help}" />
         <p:inputText id="publisher" value="#{bookForm.publisher}" size="#{bookForm.textWidth}" />
@@ -157,7 +155,7 @@
             <p:ajax />
         </p:selectBooleanCheckbox>
         <p:message for="publisher" display="both" />
-   -->             
+              
 		<!-- imageURL -->
 		<h:outputLabel for="imageURL" value="#{messages.imageURL}:"
 			style="font-weight:bold" title="#{messages.imageURL_help}" />
