@@ -120,29 +120,6 @@
 			</p:column>
 		</p:row>
 
-		<!-- votes -->
-		<p:row>
-			<p:column styleClass="label">
-				<h:outputText value="#{messages.votes}" />
-			</p:column>
-			<p:column>
-				<h:outputText id="votes" value="#{book.votes}"
-					styleClass="content" />
-			</p:column>
-		</p:row>
-
-		<!-- avgRating -->
-		<p:row>
-			<p:column styleClass="label">
-				<h:outputLabel for="avgRating" value="#{messages.avgRating}" />
-			</p:column>
-			<p:column styleClass="content">
-				<p:rating id="avgRating" value="#{book.avgRating}"
-					readonly="true">
-					<f:convertNumber minFractionDigits="0" type="number" />
-				</p:rating>
-			</p:column>
-		</p:row>
 
 		<!-- subtitle -->
 		<p:row>
@@ -155,13 +132,13 @@
 			</p:column>
 		</p:row>
 
-		<!-- categories -->
+		<!-- subcategories -->
 		<p:row>
 			<p:column styleClass="label">
-				<h:outputLabel for="categories" value="#{messages.categories}" />
+				<h:outputLabel for="subcategories" value="#{messages.subcategories}" />
 			</p:column>
 			<p:column>
-				<h:outputText id="categories" value="#{book.categories}"
+				<h:outputText id="subcategories" value="#{book.subcategories}"
 					styleClass="content" />
 			</p:column>
 		</p:row>
@@ -283,6 +260,39 @@
 			</p:column>
 			<p:column>
 				<h:outputText id="publisher" value="#{book.publisher}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+	    <!-- playtime -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="playtime" value="#{messages.playtime}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="playtime" value="#{book.playTime}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+		<!-- media -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="media" value="#{messages.media}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="media" value="#{book.media}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+		<!-- Editorenliste -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="editors" value="#{messages.editors}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="editors" value="#{book.publisher}"
 					styleClass="content" />
 			</p:column>
 		</p:row>
