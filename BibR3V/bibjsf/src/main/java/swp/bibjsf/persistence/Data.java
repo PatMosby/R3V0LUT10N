@@ -449,14 +449,19 @@ public class Data implements Persistence {
 		if (!tableExists(tableNames, borrowTableName)) {
 			logger.debug("database table " + borrowTableName
 					+ " does not exist, creating new one");
-			// The table of all books in the library.
+			// table for lending
 			run.update("CREATE TABLE " + borrowTableName
 					+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
 					+ " <= ID AND ID < " + bookMinID + "), " + UsernameField
 					+ " VARCHAR(128) NOT NULL UNIQUE, "
 					+ "firstname VARCHAR(256) NOT NULL, "
+
 					+ "lastname VARCHAR(256) NOT NULL, "
-					+ "date DATE, " + "charges DECIMAL(10,2))");
+					+ "date DATE, " + "charges DECIMAL(10,2))"
+					+ "lastname VARCHAR(256) NOT NULL, "					
+					+ "date DATE, "
+					+ "charges DOUBLE" );
+
 					
 					
 					

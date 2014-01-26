@@ -67,13 +67,12 @@ public class AddReaderForm extends ReaderForm {
      *         navigation. See faces-config.xml.
      */
     @Override
-    public String save(String tabelname) {
+    public String save(String tablename) {
     	logger.debug("request to save reader " + ((element == null) ? "NULL" : element.toString()));
     	if (element != null) {
-    		String str = element.getFirstName();
     		try {
     			ReaderHandler bh = ReaderHandler.getInstance();
-    			return success(bh.add(element, tabelname));
+    			return success(bh.add(element, tablename));
     		} catch (Exception e) {
     			return failure(e);
     		}

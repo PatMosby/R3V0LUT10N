@@ -34,26 +34,22 @@ public class BorrowerForm extends BusinessObjectForm<Borrower>{
 	    	}
 	    }
 	
-	public String wawa(){
-		return null;
-	}
-	
 	public String getReaderID() {
-        return element.getReaderID();
+        return null;
     }
 
     /**
-     * Sets last name.
+     * Sets first name.
      *
-     * @param lastName
-     *            new last name
+     * @param firstName
+     *            new first name
      */
-    public void setLReaderID(final String readerID) {
-        element.setReaderID(readerID);
-    } 
+    public void setReaderID(final String readerID) {
+    	element.setReaderID(trim(readerID));
+    }
     
     public String getMediumID() {
-        return element.getReaderID();
+        return null;
     }
 
     /**
@@ -63,6 +59,7 @@ public class BorrowerForm extends BusinessObjectForm<Borrower>{
      *            new last name
      */
     public void setMediumID(final String mediumID) {
-        element.setMediumID(mediumID);
-    } 
+        element.setMediumID(trim(mediumID));
+    }
+
 }

@@ -13,16 +13,17 @@
             
             <!-- first name -->
             <h:outputLabel for="firstname" value="#{messages.firstname}: *" style="font-weight:bold"/>
-            <p:inputText id="firstname" value="#{readerForm.firstName}"
-               required="true" requiredMessage="#{messages.firstnamereq}"  />
-            <p:message for="firstname"  display="both" />    <!-- size="#{borrowerForm.textWidth}" -->
+            <p:inputText id="firstname" value="#{borrowerForm.readerID}"
+               required="true" requiredMessage="#{messages.firstnamereq}"  size="#{readerForm.textWidth}"/>
+            <p:message for="firstname"  display="both" />
             
             <!--  last name -->
             <h:outputLabel for="lastname" value="#{messages.lastname}: *" style="font-weight:bold" />
-            <p:inputText id="lastname" value="#{readerForm.lastName}"
-               required="true" requiredMessage="#{messages.lastnamereq}"   />
-            <p:message for="lastname"  display="both" />                      
+            <p:inputText id="lastname" value="#{borrowerForm.mediumID}"
+               required="true" requiredMessage="#{messages.lastnamereq}"  size="#{readerForm.textWidth}" />
+            <p:message for="lastname"  display="both" />
+                        
 		            
 </ui:composition>
 </body>
-</html> 
+</html>     

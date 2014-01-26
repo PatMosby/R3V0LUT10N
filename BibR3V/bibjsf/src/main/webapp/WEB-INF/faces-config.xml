@@ -47,19 +47,7 @@
     	</navigation-case>
     </navigation-rule>  
     
-    <!-- reader list form -->        
-    <navigation-rule>
-        <display-name>librarian/borrow.xhtml</display-name>
-        <from-view-id>/librarian/borrow.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/librarian/borrow.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
+   
 
     <!-- reader list form -->        
     <navigation-rule>
