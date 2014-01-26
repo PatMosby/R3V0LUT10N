@@ -24,13 +24,13 @@
 		<p:message for="isbn" display="both" />
 				
 		<!-- resgisseur required="true"	requiredMessage="#{messages.authorreq}" -->
-		<h:outputLabel for="regissseur" value="#{messages.regissseur}:"
-			style="font-weight:bold" title="#{messages.regissseur_help}" />
-		<p:inputText id="regissseur" value="#{bookForm.regissseur}"  size="#{bookForm.textWidth}" />
-		<p:selectBooleanCheckbox value="#{bookForm.regissseurSelected}" rendered="#{bookForm.selectable}" >
+		<h:outputLabel for="regisseur" value="#{messages.regisseur}:"
+			style="font-weight:bold" title="#{messages.regisseur_help}" />
+		<p:inputText id="regisseur" value="#{bookForm.regisseur}"  size="#{bookForm.textWidth}" />
+		<p:selectBooleanCheckbox value="#{bookForm.regisseurSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
-		<p:message for="regissseur" display="both" />
+		<p:message for="regisseur" display="both" />
 
 		<!-- title required="true" requiredMessage="#{messages.titlereq}" -->
 		<h:outputLabel for="title" value="#{messages.title}:"

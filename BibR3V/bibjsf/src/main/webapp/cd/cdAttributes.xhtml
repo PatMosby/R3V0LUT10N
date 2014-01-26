@@ -26,11 +26,11 @@
 		<!-- authors required="true"	requiredMessage="#{messages.authorreq}" -->
 		<h:outputLabel for="artistList" value="#{messages.artist}:"
 			style="font-weight:bold" title="#{messages.artist_help}" />
-		<p:inputText id="artistsList" value="#{bookForm.artistsList}"  size="#{bookForm.textWidth}" />
-		<p:selectBooleanCheckbox value="#{bookForm.artistsListSelected}" rendered="#{bookForm.selectable}" >
+		<p:inputText id="artistList" value="#{bookForm.artistList}"  size="#{bookForm.textWidth}" />
+		<p:selectBooleanCheckbox value="#{bookForm.artistListSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
-		<p:message for="authors" display="both" />
+		<p:message for="artistList" display="both" />
 
 		<!-- title required="true" requiredMessage="#{messages.titlereq}" -->
 		<h:outputLabel for="title" value="#{messages.title}:"
