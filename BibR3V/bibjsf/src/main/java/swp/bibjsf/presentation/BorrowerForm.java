@@ -30,12 +30,12 @@ public abstract class BorrowerForm extends BusinessObjectForm<Borrower>{
     
     
     public String getMediumID() {
-        return element.getMediumID();
+        return element.getBookID();
     }
 
     
     public void setMediumID(final String mediumID) {
-        element.setMediumID(trim(mediumID));
+        element.setBookID(trim(mediumID));
     }
 
 }
