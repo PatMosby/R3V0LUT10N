@@ -17,13 +17,10 @@
 
 package swp.bibjsf.presentation;
 
-import java.util.Date;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import swp.bibcommon.Charges;
-import swp.bibjsf.businesslogic.BookHandler;
 import swp.bibjsf.businesslogic.ChargesHandler;
 import swp.bibjsf.utils.Messages;
 
@@ -50,7 +47,7 @@ public class changeChargesForm extends ChargesForm {
     public changeChargesForm() {
         element = new Charges();
     	// set default date of addition (today)
-        //element.setDateOfAddition(new Date());
+        element.setCharges(0.0);
     }
 
     /**
