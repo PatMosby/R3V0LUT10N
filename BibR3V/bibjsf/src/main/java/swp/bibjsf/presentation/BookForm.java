@@ -233,6 +233,78 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 		this.typSelected = typSelected;
 	}
 	
+    public boolean isPlayTimeSelected() {
+		return playTimeSelected;
+	}
+
+	public void setPlayTimeSelected(boolean playTimeSelected) {
+		this.playTimeSelected = playTimeSelected;
+	}
+	
+    public boolean isMediaSelected() {
+		return mediaSelected;
+	}
+
+	public void setMediaSelected(boolean mediaSelected) {
+		this.mediaSelected = mediaSelected;
+	}
+	
+    public boolean isArtistListSelected() {
+		return artistListSelected;
+	}
+
+	public void setArtistListSelected(boolean artistListSelected) {
+		this.artistListSelected = artistListSelected;
+	}
+	
+    public boolean isLabelSelected() {
+		return labelSelected;
+	}
+
+	public void setLabelSelected(boolean labelSelected) {
+		this.labelSelected = labelSelected;
+	}
+	
+    public boolean isTitleCountSelected() {
+		return titleCountSelected;
+	}
+
+	public void setTitleCountSelected(boolean titleCountSelected) {
+		this.titleCountSelected = titleCountSelected;
+	}
+	
+    public boolean isEditorListSelected() {
+		return editorListSelected;
+	}
+
+	public void setEditorListSelected(boolean editorListSelected) {
+		this.editorListSelected = editorListSelected;
+	}
+	
+    public boolean isFskSelected() {
+		return fskSelected;
+	}
+
+	public void setFskSelected(boolean fskSelected) {
+		this.fskSelected = fskSelected;
+	}
+	
+    public boolean isRegisseurSelected() {
+		return regisseurSelected;
+	}
+
+	public void setRegisseurSelected(boolean regisseurSelected) {
+		this.regisseurSelected = regisseurSelected;
+	}
+	
+    public boolean isProducerSelected() {
+		return producerSelected;
+	}
+
+	public void setProducerSelected(boolean producerSelected) {
+		this.producerSelected = producerSelected;
+	}
+	
 	
 	/**
      * @return the isbnSelected
@@ -431,14 +503,35 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         if (isNoteSelected()) {
             toBook.setNote(fromBook.getNote());
         }
-/*        if (isAvgRatingSelected()) {
-            try {
-				toBook.setAvgRating(fromBook.getAvgRating());
-			} catch (IllegalRating e) {
-				// cannot happen
-			}
+        if (isPlayTimeSelected()) {
+            toBook.setPlayTime(fromBook.getPlayTime());
         }
-*/	}
+        if (isMediaSelected()) {
+            toBook.setMedia(fromBook.getMedia());
+        }
+        if (isArtistListSelected()) {
+            toBook.setArtistList(fromBook.getArtistList());
+        }
+        if (isNoteSelected()) {
+            toBook.setLabel(fromBook.getLabel());
+        }
+        if (isNoteSelected()) {
+            toBook.setTitleCount(fromBook.getTitleCount());
+        }
+        if (isNoteSelected()) {
+            toBook.setEditorList(fromBook.getEditorList());
+        }
+        if (isFskSelected()) {
+            toBook.setFsk(fromBook.getFsk());
+        }
+        if (isNoteSelected()) {
+            toBook.setRegisseur(fromBook.getRegisseur());
+        }
+        if (isProducerSelected()) {
+            toBook.setProducer(fromBook.getProducer());
+        }
+        
+	}
 
     /**
      * Returns the list of books matching given identifier asking Google.
@@ -717,8 +810,71 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         element.setTyp(typ);
     }
     
-    //TODO:
+    public int getPlayTime() {
+        return element.getPlayTime();
+    }
 
+    public void setPlayTime(int playTime) {
+        element.setPlayTime(playTime);
+    }
+    public int getMedia() {
+        return element.getMedia();
+    }
+
+    public void setMedia(int media) {
+        element.setMedia(media);
+    }
+    public String getArtistList() {
+        return element.getArtistList();
+    }
+
+    public void setArtistList(String artistList) {
+        element.setArtistList(artistList);
+    }
+    public String getLabel() {
+        return element.getLabel();
+    }
+
+    public void setLabel(String label) {
+        element.setLabel(label);
+    }
+    public int getTitleCount() {
+        return element.getTitleCount();
+    }
+
+    public void setTitleCount(int titleCount) {
+        element.setTitleCount(titleCount);
+    }
+    public String getEditorList() {
+        return element.getEditorList();
+    }
+
+    public void setEditorList(String editorList) {
+        element.setEditorList(editorList);
+    }
+    public int getFsk() {
+        return element.getFsk();
+    }
+
+    public void setFsk(int fsk) {
+        element.setFsk(fsk);
+    }
+    public String getRegisseur() {
+        return element.getRegisseur();
+    }
+
+    public void setRegisseur(String regisseur) {
+        element.setRegisseur(regisseur);
+    }
+    public String getProducer() {
+        return element.getProducer();
+    }
+
+    public void setProducer(String producer) {
+        element.setTyp(producer);
+    }
+    
+    
     
     
   
