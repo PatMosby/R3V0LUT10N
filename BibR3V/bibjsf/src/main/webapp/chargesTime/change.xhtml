@@ -6,30 +6,36 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
-    
     <!-- Ändern der medienspezifischen Mahngebühren und Ausleifristen -->
-    
 <h:head>
     <title>#{messages.changeChargesTime}</title>
 </h:head>
 <h:body>
 	<h:outputStylesheet name="css/bib.css" />
 	<f:view>
-	<h:form id="form1"/>
+	<h:form id="form1">
     <ui:include src="/mainmenu.xhtml" />
 	<p:panel id="panel" header="#{messages.changeChargesTime}" />	
 		<p:focus context="panel"/>
         <h:panelGrid columns="4" cellpadding="5" />
-        
 	
-	</f:view>
 	<!-- Mahngebühr -->
-	<h:outputLabel for="language" value="#{messages.language}:" title="#{messages.language_help}"
+	<h:outputLabel for="type" value="#{messages.typ}:" title="#{messages.typ_help}"
     	style="font-weight:bold" />
-    <p:selectOneMenu id="language" value="#{bookForm.language}" editable="true">  
-    	<f:selectItems value="#{bookForm.languages}" />  
-    </p:selectOneMenu>
-
-
+    <p:inputText id="type" value="#{bookForm.type}" size="#{bookForm.textWidth}"/>  
+    <p:message for="type" display="both"/>
+    
+    <h:outputLabel for="charges" value="#{messages.charges}:" title="#{messages.charges_help}"
+    	style="font-weight:bold" />
+    <p:inputText id="charges" value="#{bookForm.charges}" size="#{bookForm.textWidth}"/>  
+    <p:message for="charges" display="both"/>
+    
+    <!--  
+	<h:outputLabel for="foundtype" value="#{messages.typ}" />  
+	<h:outputText id="foundtype" value="#{addBookForm.selectedBook.type}" style="font-weight:bold"/> 
+    -->
+    
+	</h:form>
+	</f:view>
 </h:body>
 </html>

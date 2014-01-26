@@ -170,6 +170,8 @@ public class Book extends BusinessObject implements Serializable{
 	private String producer;
 
 	private String typ;
+	
+	public Double charges;
 	/**
 	 * Constructor required for DBUtils.
 	 */
@@ -201,6 +203,7 @@ public class Book extends BusinessObject implements Serializable{
 		this.subtitle             = copyString(book.subtitle);
 		this.title                = copyString(book.title);
 		this.categories           = copyString(book.categories);
+		this.charges			  = book.charges;
 		this.subcategories        = copyString(book.subcategories);
 		this.authors              = copyString(book.authors);
 		this.industrialIdentifier = copyString(book.industrialIdentifier);
@@ -656,6 +659,22 @@ public class Book extends BusinessObject implements Serializable{
 		this.available = available;
 	}*/
 	
-
+	/**
+	 * Gibt die Mahngebühr eines Mediums zurück.
+	 * @return charges
+	 */
+	
+	public double getCharges() {
+		return charges;
+	}
+	
+	/**
+	 * Setzt die Mahngebühr eines Mediums.
+	 * @param charges
+	 * 			Mahngebühr eines Mediums.
+	 */
+	public void setCharges(double charges) {
+		this.charges = charges;
+	}
 	
 }
