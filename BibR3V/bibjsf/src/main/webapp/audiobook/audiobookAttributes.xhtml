@@ -165,12 +165,12 @@
 		<p:selectBooleanCheckbox value="#{bookForm.mediaSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
-		<p:message for="playtime" display="both" />
+		<p:message for="media" display="both" />
 		
 		<!-- playtime -->
 		<h:outputLabel for="playtime" value="#{messages.playtime}:"
 			style="font-weight:bold" title="#{messages.playtime_help}" />
-		<p:inputText id="playtime" value="#{bookForm.playtime}" size="#{bookForm.textWidth}" />
+		<p:inputText id="playtime" value="#{bookForm.playTime}" size="#{bookForm.textWidth}" />
 		<p:selectBooleanCheckbox value="#{bookForm.playTimeSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
