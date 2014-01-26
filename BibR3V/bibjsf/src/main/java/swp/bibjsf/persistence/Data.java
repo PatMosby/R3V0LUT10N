@@ -161,6 +161,12 @@ public class Data implements Persistence {
 	 */
 	private final static String readerTableName = "READER";
 	/**
+	 * Name of the database for charges.
+	 */
+	private final static String chargesTableName = "CHARGES";
+	
+	private final static String typesField = "type";
+	/**
 	 * The minimal ID a reader can have. Default admin has ID 0. See comment for
 	 * bookMinID.
 	 */
@@ -452,7 +458,7 @@ public class Data implements Persistence {
 		 if (!tableExists(tableNames, borrowTableName)) {
 				logger.debug("database table " + borrowTableName
 						+ " does not exist, creating new one");
-				// The table of all books in the library.
+				// The table of all Lending in the library.
 				run.update("CREATE TABLE " + borrowTableName
 						+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
 						+ "<= ID AND ID < " + bookMinID + "), "
@@ -461,6 +467,15 @@ public class Data implements Persistence {
 						+ "date DATE, " 
 						+ "charges DECIMAL(10,2))");
 		}
+		 
+		 if (!tableExists(tableNames, chargesTableName)) {
+			 	logger.debug("database table " + chargesTableName
+			 			+ " does not exist, creating new one");
+			 	// The table of all types and their charges.
+			 	run.update("CREATE TABLE " + chargesTableName
+			 			+ " (type varchar(128) NOT NULL UNIQUE, "
+			 			+ "CHARGE DOUBLE PRECISION)");
+		 }
 		
 		if (createAdmin) {
 			insertAdmin();
