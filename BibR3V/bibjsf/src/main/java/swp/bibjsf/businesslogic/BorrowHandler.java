@@ -38,7 +38,7 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower>{
    * Berücksichtigt Öffnungszeiten der Bibliothek.
    * @return date das Rückgabedatum
    */
-  public Date calculateDate(Medium medium){
+  public Date calculateDate(){
     return date;
   }
   
@@ -131,9 +131,12 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower>{
   @Override
   public synchronized int add(Borrower borrower) throws DataSourceException,
       BusinessElementAlreadyExistsException {
-      
-	  persistence.addLending( borrower, date);
-      return 2;
+      try{
+	  persistence.addLending( Integer.parseInt(borrower.getBookID()), Integer.parseInt(borrower.getReaderID()),
+			  calculateDate(), calculateFines(2));
+      return 2;}
+      catch(Exception e)  { }
+	  return 0;
   }
   
   /**

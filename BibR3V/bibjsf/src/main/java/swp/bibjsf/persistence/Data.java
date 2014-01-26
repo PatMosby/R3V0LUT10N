@@ -47,6 +47,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -1186,10 +1188,19 @@ public class Data implements Persistence {
 	 * @throws SQLException 
 	 */
 	public final void addLending(int bookID, int readerID, Date date, double charges) throws DataSourceException, SQLException {
-		logger.debug("inserting user to LENDING");
+		logger.debug("inserting user to LENDING..." + bookID +""+ readerID + "");
+		String str = failure();
 		run.update("insert into " + borrowTableName + "(" + UsernameField
 		+ ",groupid) values ('" + bookID + "', '" + readerID + "', '" + date + "', '" + charges + "')");
+		failure();
 	}
+	
+	 public String failure() {
+	        logger.debug("Daaaattaaaa: " + "element" + ": ");
+	        
+	       // FacesContext.getCurrentInstance().addMessage(null, msg);
+	        return "error";
+	    }
 	
 	public final void addLending( Borrower borrower, Date date) 
 			throws DataSourceException, BusinessElementAlreadyExistsException{

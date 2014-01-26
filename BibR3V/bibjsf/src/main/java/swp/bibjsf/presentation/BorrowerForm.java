@@ -19,23 +19,12 @@ public abstract class BorrowerForm extends BusinessObjectForm<Borrower>{
 
 	
 	
-	public String getReaderID() {
-        return element.getReaderID();
-    }
+	public abstract String getReaderID();
 
-
-    public void setReaderID(final String readerID) {
-    	element.setReaderID(trim(readerID));
-    }
-    
-    
-    public String getMediumID() {
-        return element.getBookID();
-    }
-
-    
-    public void setMediumID(final String mediumID) {
-        element.setBookID(trim(mediumID));
-    }
+    public abstract void  setReaderID(final String readerID);
+        
+    public abstract String getMediumID();
+          
+    public abstract void setMediumID(final String mediumID);   	
 
 }

@@ -25,11 +25,11 @@ public class Borrower extends BusinessObject implements Serializable, Cloneable 
 	 this.readerID = readerID;
  }
  
- public String getMediumID(){
+ public String getBookID(){
 	 return mediumID;
  }
  
- public void setMediumID(String mediumID){
+ public void setBookID(String mediumID){
 	 this.mediumID = mediumID;
  }
 

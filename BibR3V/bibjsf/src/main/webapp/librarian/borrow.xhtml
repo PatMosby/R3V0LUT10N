@@ -42,8 +42,20 @@
             <!-- buttons in footer  -->
 			<f:facet name="footer">
 			  <h:panelGroup>
+			  
+			  <!-- first name -->
+            <h:outputLabel for="firstname" value="#{messages.firstname}: *" style="font-weight:bold"/>
+            <p:inputText id="firstname" value="#{myBean.readerID}"
+               required="true" requiredMessage="#{messages.firstnamereq}"  />
+            <p:message for="firstname"  display="both" />
+            
+            <!--  last name -->
+            <h:outputLabel for="lastname" value="#{messages.lastname}: *" style="font-weight:bold" />
+            <p:inputText id="lastname" value="#{myBean.mediumID}"
+               required="true" requiredMessage="#{messages.lastnamereq}"   />
+            <p:message for="lastname"  display="both" />
 
-			  <p:commandButton id="borrowButton" value="#{messages.borrow2}" action="#{myBean.save(borrowTableName)}" 
+			  <p:commandButton id="borrowButton" value="#{messages.borrow2}" action="#{myBean.save()}" 
 			      ajax="false" icon="ui-icon-check" validateClient="true"/>
 
               </h:panelGroup>
