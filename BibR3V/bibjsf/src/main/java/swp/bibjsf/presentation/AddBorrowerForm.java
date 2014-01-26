@@ -20,7 +20,7 @@ public class AddBorrowerForm extends BorrowerForm{
 	    	logger.debug("request to save reader " + ((element == null) ? "NULL" : element.toString()));
 	    //	if (element != null) {
 	    		try {
-	    			Borrower borrower = new Borrower();
+	    		    borrower = new Borrower();
 	    			BorrowHandler bh = BorrowHandler.getInstance();	    			
 	    			return success(bh.add(borrower));
 	    		} catch (Exception e) {
@@ -30,6 +30,21 @@ public class AddBorrowerForm extends BorrowerForm{
 	    		//return failure(Messages.get("elementNotSet"));
 	    	//}
 	    }
+	
+	public String returnMedium() {
+    	logger.debug("request to save reader " + ((element == null) ? "NULL" : element.toString()));
+    //	if (element != null) {
+    		try {
+    		    borrower = new Borrower();
+    			BorrowHandler bh = BorrowHandler.getInstance();	    			
+    			return success(bh.add(borrower));
+    		} catch (Exception e) {
+    			return failure(e);
+    	//	}
+    	} //else {
+    		//return failure(Messages.get("elementNotSet"));
+    	//}
+    }
 	
 	public String getReaderID() {
 		System.out.println("getreader");
