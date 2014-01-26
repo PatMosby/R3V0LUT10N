@@ -447,6 +447,7 @@ public class Data implements Persistence {
 					+ UsernameField + ") ON DELETE CASCADE ON UPDATE RESTRICT)");
 		}
 		
+<<<<<<< HEAD
 		 if (!tableExists(tableNames, borrowTableName)) {
 				logger.debug("database table " + borrowTableName
 						+ " does not exist, creating new one");
@@ -458,6 +459,25 @@ public class Data implements Persistence {
 						+ UsernameField + " VARCHAR(128) NOT NULL UNIQUE, "
 						+ "date DATE, " 
 						+ "charges DECIMAL(10,2))");					
+=======
+		if (!tableExists(tableNames, borrowTableName)) {
+			logger.debug("database table " + borrowTableName
+					+ " does not exist, creating new one");
+			// table for lending
+			run.update("CREATE TABLE " + borrowTableName
+					+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
+					+ " <= ID AND ID < " + bookMinID + "), " + UsernameField
+					+ " VARCHAR(128) NOT NULL UNIQUE, "
+					+ "firstname VARCHAR(256) NOT NULL, "
+
+					+ "lastname VARCHAR(256) NOT NULL, "
+					+ "date DATE, " + "charges DECIMAL(10,2))"
+					+ "lastname VARCHAR(256) NOT NULL, "					
+					+ "date DATE, "
+					+ "charges DOUBLE" );
+
+					
+>>>>>>> b00fb14432e8e3357772dae258082afdb130d526
 					
 					
 		}
@@ -1187,10 +1207,51 @@ public class Data implements Persistence {
 	 * @throws DataSourceException
 	 * @throws SQLException 
 	 */
+<<<<<<< HEAD
 	public final void addLending(int bookID, int readerID, Date date, double charges) throws DataSourceException, SQLException {
 		logger.debug("inserting user to LENDING");
 		run.update("insert into " + borrowTableName + "(" + UsernameField
 		+ ",groupid) values ('" + bookID + "', '" + readerID + "', '" + date + "', '" + charges + "')");
+=======
+	public final void addLending( Borrower borrower, Date date) 
+			throws DataSourceException, BusinessElementAlreadyExistsException{
+        		
+		 
+	logger.debug("add reader " + borrower);
+	try {
+		if (getReader(reader.getId()) != null) {
+			// ID must be unique
+			throw new BusinessElementAlreadyExistsException(
+					Messages.get("readerexists") + " " + Messages.get("id")
+							+ " = " + reader.getId());
+		} else if (!reader.getUsername().isEmpty()
+				&& getReaderByUsername(reader.getUsername()) != null) {
+			// user name must be unique if defined
+			throw new BusinessElementAlreadyExistsException(
+					Messages.get("readerexists") + Messages.get("username")
+							+ " = " + reader.getUsername());
+		} else {
+			logger.debug("reader " + reader
+					+ " does not yet exist; has ID: " + reader.hasId());
+			try {
+				final String password = hashPassword(reader);
+				Set<String> toIgnore = new HashSet<String>();
+				HashMap<String, Object> replace = new HashMap<String, Object>();
+				replace.put("password", password);
+				int result = insertByID(reader, readerTableName, readerMinID, toIgnore, replace);
+				insertUser(reader.getUsername());
+				return result;
+			} catch (NoSuchAlgorithmException e) {
+				logger.error("MD5 problem");
+				throw new DataSourceException(e.getMessage());
+			}
+		}
+	} catch (SQLException e) {
+		logger.error("add reader failure");
+		throw new DataSourceException(e.getMessage());
+	}
+}
+>>>>>>> b00fb14432e8e3357772dae258082afdb130d526
 	}
 	/**
 	 * Macht Einträge für mehrere Medien eines Ausleihers.

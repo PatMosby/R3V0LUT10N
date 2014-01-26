@@ -81,7 +81,7 @@ public abstract class ReaderForm extends BusinessObjectForm<Reader> {
      *            new first name
      */
     public void setFirstName(final String firstName) {
-        element.setFirstName(trim(firstName));
+    	element.setFirstName(trim(firstName));
     }
 
     /**

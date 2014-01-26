@@ -6,9 +6,9 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
-<!-- Addition of a reader -->
+<!-- Changing a book -->
 <h:head>
-    <title>#{messages.addreader}</title>
+    <title>#{messages.changeaudiobook}</title>
 </h:head>
 <h:body>
     <h:outputStylesheet name="css/bib.css" />
@@ -16,28 +16,27 @@
     <h:form id="form" >
     <ui:include src="/mainmenu.xhtml" />
     
-    <p:panel id="panel" header="#{messages.addreader}">  
+    <p:panel id="panel" header="#{messages.changeaudiobook}">  
         <h:panelGrid columns="3" cellpadding="5">  
             
-            <!-- ID (read-only) -->
-            <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold"/>
-            <h:outputText id="id" value="#{addReaderForm.id}"  size="#{addReaderForm.textWidth}"/>
+            <!-- ID -->
+            <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold" title="#{messages.bookid_help}" />
+            <p:inputText id="id" value="#{changeAudiobookForm.id}" size="#{audiobookForm.textWidth}"
+               required="true" requiredMessage="#{messages.idreq}" />               
             <p:message for="id"  display="both" />
 
-            <ui:include src="readerAttributes.xhtml">
-                <ui:param name="readerForm" value="#{addReaderForm}"/>
+            <ui:include src="audiobookAttributes.xhtml">
+                <ui:param name="audiobookForm" value="#{changeAudiobookForm}"/>
             </ui:include>
             
             <!-- buttons in footer  -->
-			<f:facet name="footer">
-			  <h:panelGroup>
-
-                  
-                  <p:commandButton id="saveButton" value="#{messages.save}" action="#{addReaderForm.save(readertable)}" 
+            <f:facet name="footer">
+              <h:panelGroup>
+              <p:commandButton id="saveButton" value="#{messages.save}" action="#{changeAudiobookForm.save}" 
                   ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
-              <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{addReaderForm.reset}" title="#{messages.reset_help}" update="panel" />
+              <p:commandButton id="resetButton" value="#{messages.reset}" immediate="true" action="#{changeAudiobookForm.reset}" title="#{messages.reset_help}" update="panel" />
               <p:commandButton id="cancelButton" value="#{messages.cancel}"
-                  action="#{addReaderForm.cancel}" immediate="true"  title="#{messages.cancel_help} "/>
+                  action="#{changeAudiobookForm.cancel}" immediate="true"  title="#{messages.cancel_help} "/>
               </h:panelGroup>
              </f:facet>                
         </h:panelGrid>  
@@ -49,5 +48,3 @@
 </f:view>
 </h:body>
 </html>
-
-  

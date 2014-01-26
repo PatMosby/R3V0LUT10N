@@ -133,7 +133,7 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower>{
       BusinessElementAlreadyExistsException {
       
       
-      persistence.getLendings(borrower);
+      persistence.addLending(bookID, readerID, date)(borrower);
       
       return 2;
   }
