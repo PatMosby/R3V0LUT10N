@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head />
+<body>
+<!-- attribute input fields for book attributes shared by book/add.xhtml and book/change.xhtml -->
+<ui:composition>
+
+		<!-- isbn/issn -->
+		<!-- isbn/issn first so mass-addition of books is fostered -->
+		<h:outputLabel for="isbn" value="#{messages.isbn}:"	style="font-weight:bold" title="#{messages.isbnFormat}" />
+		<p:inputText id="isbn" value="#{audioaudiobookForm.industrialIdentifier}"
+			title="#{messages.isbnFormat}"  size="#{audioaudiobookForm.textWidth}"
+			validatorMessage="#{messages.isbnInvalid}" >
+			<f:validateRegex pattern="((\d{9}[\d|X|x])|(\d{13})|(\d{7}[\d|X|x]))" />
+		</p:inputText>
+        <p:selectBooleanCheckbox value="#{audioaudiobookForm.isbnSelected}" rendered="#{audioaudiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="isbn" display="both" />
+				
+		<!-- editors required="true"	requiredMessage="#{messages.authorreq}" -->
+		<h:outputLabel for="editors" value="#{messages.editors}:"
+			style="font-weight:bold" title="#{messages.editors_help}" />
+		<p:inputText id="editors" value="#{audioaudiobookForm.authors}"  size="#{audioaudiobookForm.textWidth}" />
+		<p:selectBooleanCheckbox value="#{audioaudiobookForm.authorsSelected}" rendered="#{audioaudiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="editors" display="both" />
+
+		<!-- title required="true" requiredMessage="#{messages.titlereq}" -->
+		<h:outputLabel for="title" value="#{messages.title}:"
+			style="font-weight:bold" title="#{messages.title_help}" />
+		<p:inputText id="title" value="#{audioaudiobookForm.title}" size="#{audioaudiobookForm.textWidth}" title="#{messages.title_help}"/>
+		<p:selectBooleanCheckbox value="#{audioaudiobookForm.titleSelected}" rendered="#{audioaudiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="title" display="both" />
+
+        <!-- subtitle -->
+        <h:outputLabel for="subtitle" value="#{messages.subtitle}:"
+            style="font-weight:bold" title="#{messages.subtitle_help}" />
+        <p:inputText id="subtitle" value="#{audiobookForm.subtitle}" size="#{audiobookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{audiobookForm.subtitleSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="subtitle" display="both" />
+        
+        <!-- categories -->
+        <h:outputLabel for="categories" value="#{messages.categories}:"
+            style="font-weight:bold" title="#{messages.catetories_help}" />
+        <p:inputText id="categories" value="#{audiobookForm.categories}" size="#{audiobookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{audiobookForm.categoriesSelected}" rendered="#{audiobookForm.selectable}"/>
+        <p:message for="categories" display="both" />
+
+		<!--  dateOfPublication -->
+		<h:outputLabel for="dateOfPublication" value="#{messages.dateOfPublication}:"
+			style="font-weight:bold" title="#{messages.dateOfPublication_help}" />
+		<p:inputMask id="dateOfPublication" value="#{audiobookForm.dateOfPublication}"
+			mask="99.99.9999" size="#{audiobookForm.textWidth}" >
+			<f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET" />
+		</p:inputMask>
+		<p:selectBooleanCheckbox value="#{audiobookForm.dateOfPublicationSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="dateOfPublication" display="both" />
+
+        <!--  dateOfAddition -->
+        <h:outputLabel for="dateOfAddition" value="#{messages.dateOfAddition}:"
+            style="font-weight:bold" title="#{messages.dateOfAddition_help}" />
+        <p:inputMask id="dateOfAddition" value="#{audiobookForm.dateOfAddition}"
+            mask="99.99.9999" size="#{audiobookForm.textWidth}" >
+            <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET" />
+        </p:inputMask>
+        <p:selectBooleanCheckbox value="#{audiobookForm.dateOfAdditionSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="dateOfAddition" display="both" />
+        
+		<!-- description -->
+        <h:outputLabel for="description" value="#{messages.description}:"
+            style="font-weight:bold" title="#{messages.description_help}" />
+        <p:inputTextarea id="description" value="#{audiobookForm.description}" rows="3" cols="#{audiobookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{audiobookForm.descriptionSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="description" display="both" />
+                
+        <!-- language -->
+        <h:outputLabel for="language" value="#{messages.language}:" title="#{messages.language_help}"
+            style="font-weight:bold" />
+        <p:selectOneMenu id="language" value="#{audiobookForm.language}" editable="true">  
+            <f:selectItems value="#{audiobookForm.languages}" />  
+        </p:selectOneMenu>
+        <p:selectBooleanCheckbox value="#{audiobookForm.languageSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="language" display="both" />
+
+        <!-- location -->
+        <h:outputLabel for="location" value="#{messages.location}:"
+            style="font-weight:bold" title="#{messages.location_help}" />
+        <p:inputText id="location" value="#{audiobookForm.location}" size="#{audiobookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{audiobookForm.locationSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="location" display="both" />
+      
+        <!-- pageCount -->
+        <h:outputLabel for="pageCount" value="#{messages.pageCount}:"
+            style="font-weight:bold" title="#{messages.pageCount_help}" />
+        <p:inputText id="pageCount" value="#{audiobookForm.pageCount}" size="#{audiobookForm.textWidth}"  validatorMessage="#{messages.nonnegative}">
+			<f:validateLongRange minimum="0" />
+        </p:inputText>
+        <p:selectBooleanCheckbox value="#{audiobookForm.pageCountSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="pageCount" display="both" />
+        
+        <!-- previewLink -->
+        <h:outputLabel for="previewLink" value="#{messages.previewLink}:"
+            style="font-weight:bold" title="#{messages.previewLink_help}" />
+        <p:inputText id="previewLink" value="#{audioaudiobookForm.previewLink}" size="#{audioaudiobookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{audioaudiobookForm.previewLinkSelected}" rendered="#{audioaudiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="previewLink" display="both" />
+                
+        <!-- price -->
+        <h:outputLabel for="price" value="#{messages.price}:"
+            style="font-weight:bold" title="#{messages.price_help}" />
+        <p:inputText id="price" value="#{audiobookForm.price}" size="#{audiobookForm.textWidth}" >
+        	<f:convertNumber type="number" maxFractionDigits="2" locale="de" />
+        </p:inputText>
+        <p:selectBooleanCheckbox value="#{audiobookForm.priceSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="price" display="both" />
+                        
+        <!-- printType -->
+        <h:outputLabel for="printType" value="#{messages.printType}:"
+            style="font-weight:bold" title="#{messages.printType_help}" />
+ 		<p:selectOneRadio id="printType" value="#{audiobookForm.printType}">  
+ 			<!-- the following itemValues are our internal names -->
+            <f:selectItem itemLabel="#{messages.book}"     itemValue="BOOK" />   
+            <f:selectItem itemLabel="#{messages.magazine}" itemValue="MAGAZINE" />
+            <f:selectItem itemLabel="#{messages.audiobook}" itemValue="MAGAZINE" />
+            <f:selectItem itemLabel="#{messages.cassette}" itemValue="MAGAZINE" />
+            <f:selectItem itemLabel="#{messages.cd}" itemValue="MAGAZINE" />
+            <f:selectItem itemLabel="#{messages.magazine}" itemValue="MAGAZINE" />
+            <f:selectItem itemLabel="#{messages.magazine}" itemValue="MAGAZINE" />
+            <f:selectItem itemLabel="#{messages.other}"    itemValue="OTHER" />  
+        </p:selectOneRadio>
+        <p:selectBooleanCheckbox value="#{audiobookForm.printTypeSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="printType" display="both" />
+        
+        <!-- publisher -->
+        <h:outputLabel for="publisher" value="#{messages.publisher}:"
+            style="font-weight:bold" title="#{messages.publisher_help}" />
+        <p:inputText id="publisher" value="#{audiobookForm.publisher}" size="#{audiobookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{audiobookForm.publisherSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="publisher" display="both" />
+                
+		<!-- imageURL -->
+		<h:outputLabel for="imageURL" value="#{messages.imageURL}:"
+			style="font-weight:bold" title="#{messages.imageURL_help}" />
+		<p:inputText id="imageURL" value="#{audiobookForm.imageURL}" size="#{audiobookForm.textWidth}" />
+		<p:selectBooleanCheckbox value="#{audiobookForm.imageURLSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="imageURL" display="both" />
+
+		<!-- votes -->
+		<h:outputLabel for="votes" value="#{messages.votes}:"
+			style="font-weight:bold" title="#{messages.votes_help}" />
+		<p:inputText id="votes" value="#{audiobookForm.votes}" size="#{audiobookForm.textWidth}" validatorMessage="#{messages.nonnegative}">
+			<f:validateLongRange minimum="0" />
+		</p:inputText>
+		<p:selectBooleanCheckbox value="#{audiobookForm.votesSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="votes" display="both" />
+		
+		<!-- avgRating -->
+		<h:outputLabel for="avgRating" value="#{messages.avgRating}:"
+			style="font-weight:bold" title="#{messages.avgRating_help}" />
+		<p:inputText id="avgRating" value="#{audiobookForm.avgRating}" size="#{audiobookForm.textWidth}" validatorMessage="#{messages.invalidRating}">
+			<f:validateLongRange minimum="0" maximum="5" />
+			<f:convertNumber type="number" maxFractionDigits="2" locale="de" />
+		</p:inputText>
+		<p:selectBooleanCheckbox value="#{audiobookForm.avgRatingSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="avgRating" display="both" />
+		
+		<!-- note -->
+		<h:outputLabel for="note" value="#{messages.note}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="note" value="#{audiobookForm.note}" rows="1" cols="#{audiobookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{audiobookForm.noteSelected}" rendered="#{audiobookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="note" display="both" />
+		
+	</ui:composition>
+</body>
+</html>            
