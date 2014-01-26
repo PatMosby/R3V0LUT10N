@@ -26,7 +26,7 @@
             <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold" title="#{messages.bookid_help}"/>
             <h:outputText id="id" value="#{addBookForm.id}" />
             <p:selectBooleanCheckbox value="#{bookForm.isbnSelected}" rendered="#{bookForm.selectable}" /> 
-            <h:outputText value="" /> just a dummy to have a column 
+            <h:outputText value="" /> <!-- just a dummy to have a column  -->
             <p:message for="id"  display="both" />
             
             <ui:include src="audiobookAttributes.xhtml">
@@ -136,6 +136,16 @@
             
             <h:outputLabel for="foundprintType" value="#{messages.printType}" />  
             <h:outputText id="foundprintType" value="#{addBookForm.selectedBook.printType}" style="font-weight:bold"/> 
+
+			<h:outputLabel for="foundTyp" value="#{messages.typ}" />  
+            <h:outputText id="foundTyp" value="#{addBookForm.selectedBook.typ}" style="font-weight:bold"/> 
+            
+            <h:outputLabel for="foundPlayTime" value="#{messages.playtime}" />  
+            <h:outputText id="foundPlayTime" value="#{addBookForm.selectedBook.playTime}" style="font-weight:bold"/>
+            
+            <h:outputLabel for="foundMedia" value="#{messages.media}" />  
+            <h:outputText id="foundMedia" value="#{addBookForm.selectedBook.media}" style="font-weight:bold"/>
+	
 
             <h:outputLabel for="foundpublisher" value="#{messages.publisher}" />  
             <h:outputText id="foundpublisher" value="#{addBookForm.selectedBook.publisher}" style="font-weight:bold"/> 
