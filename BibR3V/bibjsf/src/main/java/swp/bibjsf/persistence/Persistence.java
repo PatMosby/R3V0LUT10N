@@ -19,6 +19,7 @@ package swp.bibjsf.persistence;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
@@ -381,7 +382,7 @@ public interface Persistence {
 	 */
 	public void restore() throws DataSourceException;
 	
-	public void addLending(int bookID, int readerID, Date date) throws DataSourceException;
+	public void addLending(int bookID, int readerID, Date date, double charges) throws DataSourceException, SQLException;
 	
 	public void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException;
 	

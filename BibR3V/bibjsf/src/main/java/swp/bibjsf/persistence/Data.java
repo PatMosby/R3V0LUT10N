@@ -126,6 +126,7 @@ public class Data implements Persistence {
 	 * The column name that stores the user name.
 	 */
 	private static final String UsernameField = "username";
+	//private final static String ReaderIDField = "readerID";
 	/**
 	 * The name of the tables in the database where the mediums are stored.
 	 */
@@ -446,18 +447,17 @@ public class Data implements Persistence {
 					+ UsernameField + ") ON DELETE CASCADE ON UPDATE RESTRICT)");
 		}
 		
-		if (!tableExists(tableNames, borrowTableName)) {
-			logger.debug("database table " + borrowTableName
-					+ " does not exist, creating new one");
-			// The table of all books in the library.
-			run.update("CREATE TABLE " + borrowTableName
-					+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
-					+ " <= ID AND ID < " + bookMinID + "), " + UsernameField
-					+ " VARCHAR(128) NOT NULL UNIQUE, "
-					+ "firstname VARCHAR(256) NOT NULL, "
-					+ "lastname VARCHAR(256) NOT NULL, "
-					+ "date DATE, " + "charges DECIMAL(10,2))");
-					
+		 if (!tableExists(tableNames, borrowTableName)) {
+				logger.debug("database table " + borrowTableName
+						+ " does not exist, creating new one");
+				// The table of all books in the library.
+				run.update("CREATE TABLE " + borrowTableName
+						+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
+						+ "<= ID AND ID < " + bookMinID + "), "
+						+ "BOOK_ID INT NOT NULL," + " CONSTRAINT BOOK_ID_FK FOREIGN KEY (BOOK_ID) REFERENCES BOOK (ID), "
+						+ UsernameField + " VARCHAR(128) NOT NULL UNIQUE, "
+						+ "date DATE, " 
+						+ "charges DECIMAL(10,2))");					
 					
 					
 		}
@@ -1185,9 +1185,12 @@ public class Data implements Persistence {
 	 * @param readerID die ID des Ausleihers
 	 * @param date das Rückgabedatum der Ausleihe
 	 * @throws DataSourceException
+	 * @throws SQLException 
 	 */
-	public final void addLending(int bookID, int readerID, Date date) throws DataSourceException {
-
+	public final void addLending(int bookID, int readerID, Date date, double charges) throws DataSourceException, SQLException {
+		logger.debug("inserting user to LENDING");
+		run.update("insert into " + borrowTableName + "(" + UsernameField
+		+ ",groupid) values ('" + bookID + "', '" + readerID + "', '" + date + "', '" + charges + "')");
 	}
 	/**
 	 * Macht Einträge für mehrere Medien eines Ausleihers.
@@ -1197,7 +1200,7 @@ public class Data implements Persistence {
 	 * @throws DataSourceException
 	 */
 	public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException {
-		
+
 	}
 	
 	/**
