@@ -140,16 +140,16 @@
         </p:selectBooleanCheckbox>
         <p:message for="price" display="both" />
                         
-<!--      Typ
+        <!--     Typ -->
         <h:outputLabel for="typ" value="#{messages.typ}:" title="#{messages.language_help}"
             style="font-weight:bold" />
         <p:selectOneMenu id="typ" value="#{bookForm.typ}" editable="true">  
-            <f:selectItems value="#{bookForm.typs}" />  
+            <f:selectItems value="#{bookForm.typ}" />  
         </p:selectOneMenu>
         <p:selectBooleanCheckbox value="#{bookForm.typSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
-        <p:message for="typ" display="both" /> -->
+        <p:message for="typ" display="both" />
         
         <!-- publisher -->
         <h:outputLabel for="publisher" value="#{messages.publisher}:"
@@ -180,6 +180,14 @@
         </p:selectBooleanCheckbox>
 		<p:message for="note" display="both" />
 		
+				<!-- platime -->
+		<h:outputLabel for="playtime" value="#{messages.playtime}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="playtime" value="#{bookForm.playTime}" rows="1" cols="#{bookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{bookForm.playTimeSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="note" display="both" />
 	</ui:composition>
 </body>
 </html>            
