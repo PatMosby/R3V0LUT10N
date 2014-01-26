@@ -37,4 +37,32 @@ public class BorrowerForm extends BusinessObjectForm<Borrower>{
 	public String wawa(){
 		return null;
 	}
+	
+	public String getReaderID() {
+        return element.getReaderID();
+    }
+
+    /**
+     * Sets last name.
+     *
+     * @param lastName
+     *            new last name
+     */
+    public void setLReaderID(final String readerID) {
+        element.setReaderID(readerID);
+    } 
+    
+    public String getMediumID() {
+        return element.getReaderID();
+    }
+
+    /**
+     * Sets last name.
+     *
+     * @param lastName
+     *            new last name
+     */
+    public void setMediumID(final String mediumID) {
+        element.setMediumID(mediumID);
+    } 
 }

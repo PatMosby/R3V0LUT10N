@@ -10,7 +10,7 @@
 <!-- attribute input fields for borrow attributes shared by librarian/borrow.xhtml -->
 <ui:composition>          
             
-<<<<<<< HEAD
+
             <!-- first name -->
             <h:outputLabel for="firstname" value="#{messages.firstname}: *" style="font-weight:bold"/>
             <p:inputText id="firstname" value="#{readerForm.lastName}"
@@ -22,7 +22,7 @@
             <p:inputText id="lastname" value="#{readerForm.firstName}"
                required="true" requiredMessage="#{messages.lastnamereq}"  size="#{readerForm.textWidth}" />
             <p:message for="lastname"  display="both" />
-=======
+
             <!-- cardID -->
             <h:outputLabel for="id" value="#{messages.cardID}: *" style="font-weight:bold"/>
             <p:inputText id="id" value="#{borrowHandler.id}"
@@ -34,7 +34,7 @@
             <p:inputText id="list" value="#{borrowHandler.list}"
                required="true" requiredMessage="#{messages.mediumIDreq}"  size="#{librarianForm.textWidth}"/>
             <p:message for="list"  display="both" />
->>>>>>> a7ae9d661fc0844b8dc0aec06fbe0ddfea56b0fd
+
                         
 </ui:composition>
 </body>
