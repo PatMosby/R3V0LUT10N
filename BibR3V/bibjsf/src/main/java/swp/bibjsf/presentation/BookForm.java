@@ -701,6 +701,14 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     public void setNote(String note) {
         element.setNote(note);
     }
+    public String getTyp() {
+        return element.getTyp();
+    }
+
+    public void setTyp(String typ) {
+        element.setTyp(typ);
+    }
+    
     //TODO:
 
     
