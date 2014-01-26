@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head />
+<body>
+<!-- attribute input fields for book attributes shared by book/add.xhtml and book/change.xhtml -->
+<ui:composition>
+
+		<!-- isbn/issn -->
+		<!-- isbn/issn first so mass-addition of books is fostered -->
+		<h:outputLabel for="isbn" value="#{messages.isbn}:"	style="font-weight:bold" title="#{messages.isbnFormat}" />
+		<p:inputText id="isbn" value="#{bookForm.industrialIdentifier}"
+			title="#{messages.isbnFormat}"  size="#{bookForm.textWidth}"
+			validatorMessage="#{messages.isbnInvalid}" >
+			<f:validateRegex pattern="((\d{9}[\d|X|x])|(\d{13})|(\d{7}[\d|X|x]))" />
+		</p:inputText>
+        <p:selectBooleanCheckbox value="#{bookForm.isbnSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="isbn" display="both" />
+				
+		<!-- resgisseur required="true"	requiredMessage="#{messages.authorreq}" -->
+		<h:outputLabel for="regissseur" value="#{messages.regissseur}:"
+			style="font-weight:bold" title="#{messages.regissseur_help}" />
+		<p:inputText id="regissseur" value="#{bookForm.regissseur}"  size="#{bookForm.textWidth}" />
+		<p:selectBooleanCheckbox value="#{bookForm.regissseurSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="regissseur" display="both" />
+
+		<!-- title required="true" requiredMessage="#{messages.titlereq}" -->
+		<h:outputLabel for="title" value="#{messages.title}:"
+			style="font-weight:bold" title="#{messages.title_help}" />
+		<p:inputText id="title" value="#{bookForm.title}" size="#{bookForm.textWidth}" title="#{messages.title_help}"/>
+		<p:selectBooleanCheckbox value="#{bookForm.titleSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="title" display="both" />
+
+        <!-- subtitle -->
+        <h:outputLabel for="subtitle" value="#{messages.subtitle}:"
+            style="font-weight:bold" title="#{messages.subtitle_help}" />
+        <p:inputText id="subtitle" value="#{bookForm.subtitle}" size="#{bookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{bookForm.subtitleSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="subtitle" display="both" />
+        
+        <!-- categories -->
+        <h:outputLabel for="categories" value="#{messages.categories}:"
+            style="font-weight:bold" title="#{messages.catetories_help}" />
+        <p:inputText id="categories" value="#{bookForm.categories}" size="#{bookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{bookForm.categoriesSelected}" rendered="#{bookForm.selectable}"/>
+        <p:message for="categories" display="both" />
+
+		<!--  dateOfPublication -->
+		<h:outputLabel for="dateOfPublication" value="#{messages.dateOfPublication}:"
+			style="font-weight:bold" title="#{messages.dateOfPublication_help}" />
+		<p:inputMask id="dateOfPublication" value="#{bookForm.dateOfPublication}"
+			mask="99.99.9999" size="#{bookForm.textWidth}" >
+			<f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET" />
+		</p:inputMask>
+		<p:selectBooleanCheckbox value="#{bookForm.dateOfPublicationSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="dateOfPublication" display="both" />
+
+        <!--  dateOfAddition -->
+        <h:outputLabel for="dateOfAddition" value="#{messages.dateOfAddition}:"
+            style="font-weight:bold" title="#{messages.dateOfAddition_help}" />
+        <p:inputMask id="dateOfAddition" value="#{bookForm.dateOfAddition}"
+            mask="99.99.9999" size="#{bookForm.textWidth}" >
+            <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET" />
+        </p:inputMask>
+        <p:selectBooleanCheckbox value="#{bookForm.dateOfAdditionSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="dateOfAddition" display="both" />
+        
+		<!-- description -->
+        <h:outputLabel for="description" value="#{messages.description}:"
+            style="font-weight:bold" title="#{messages.description_help}" />
+        <p:inputTextarea id="description" value="#{bookForm.description}" rows="3" cols="#{bookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{bookForm.descriptionSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="description" display="both" />
+                
+        <!-- language -->
+        <h:outputLabel for="language" value="#{messages.language}:" title="#{messages.language_help}"
+            style="font-weight:bold" />
+        <p:selectOneMenu id="language" value="#{bookForm.language}" editable="true">  
+            <f:selectItems value="#{bookForm.languages}" />  
+        </p:selectOneMenu>
+        <p:selectBooleanCheckbox value="#{bookForm.languageSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="language" display="both" />
+
+        <!-- location -->
+        <h:outputLabel for="location" value="#{messages.location}:"
+            style="font-weight:bold" title="#{messages.location_help}" />
+        <p:inputText id="location" value="#{bookForm.location}" size="#{bookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{bookForm.locationSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="location" display="both" />
+      
+        <!-- producer -->
+        <h:outputLabel for="producer" value="#{messages.producer}:"
+            style="font-weight:bold" title="#{messages.producer_help}" />
+        <p:inputText id="producer" value="#{bookForm.producer}" size="#{bookForm.textWidth}"  validatorMessage="#{messages.nonnegative}">
+        </p:inputText>
+        <p:selectBooleanCheckbox value="#{bookForm.producerSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="producer" display="both" />
+        
+         <!-- previewLink -->
+        <h:outputLabel for="previewLink" value="#{messages.previewLink}:"
+            style="font-weight:bold" title="#{messages.previewLink_help}" />
+        <p:inputText id="previewLink" value="#{bookForm.previewLink}" size="#{bookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{bookForm.previewLinkSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="previewLink" display="both" />
+               
+        <!-- price -->
+        <h:outputLabel for="price" value="#{messages.price}:"
+            style="font-weight:bold" title="#{messages.price_help}" />
+        <p:inputText id="price" value="#{bookForm.price}" size="#{bookForm.textWidth}" >
+        	<f:convertNumber type="number" maxFractionDigits="2" locale="de" />
+        </p:inputText>
+        <p:selectBooleanCheckbox value="#{bookForm.priceSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="price" display="both" />
+                        
+<!--         Typ
+        <h:outputLabel for="typ" value="#{messages.typ}:"
+            style="font-weight:bold" title="#{messages.catetories_help}" />
+        <p:inputText id="typ" value="#{bookForm.typ}" size="#{bookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{bookForm.typSelected}" rendered="#{bookForm.selectable}"/>
+        <p:message for="categories" display="both" /> -->
+       
+        <!-- fsk -->
+        <h:outputLabel for="fsk" value="#{messages.fsk}:"
+            style="font-weight:bold" title="#{messages.fsk_help}" />
+        <p:inputText id="fsk" value="#{bookForm.fsk}" size="#{bookForm.textWidth}" />
+        <p:selectBooleanCheckbox value="#{bookForm.fskSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+        <p:message for="fsk" display="both" />
+              
+		<!-- playTime -->
+		<h:outputLabel for="playTime" value="#{messages.playTime}:"
+			style="font-weight:bold" title="#{messages.playTime_help}" />
+		<p:inputText id="playTime" value="#{bookForm.playTime}" size="#{bookForm.textWidth}" />
+		<p:selectBooleanCheckbox value="#{bookForm.playTimeSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="playTime" display="both" />
+		
+		<!-- imageURL -->
+		<h:outputLabel for="imageURL" value="#{messages.imageURL}:"
+			style="font-weight:bold" title="#{messages.imageURL_help}" />
+		<p:inputText id="imageURL" value="#{bookForm.imageURL}" size="#{bookForm.textWidth}" />
+		<p:selectBooleanCheckbox value="#{bookForm.imageURLSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="imageURL" display="both" />
+		
+		<!-- note -->
+		<h:outputLabel for="note" value="#{messages.note}:"
+			style="font-weight:bold" title="#{messages.note_help}" />
+		<p:inputTextarea id="note" value="#{bookForm.note}" rows="1" cols="#{bookForm.textWidth}"/> 
+		<p:selectBooleanCheckbox value="#{bookForm.noteSelected}" rendered="#{bookForm.selectable}" >
+            <p:ajax />
+        </p:selectBooleanCheckbox>
+		<p:message for="note" display="both" />
+		
+	</ui:composition>
+</body>
+</html>            
