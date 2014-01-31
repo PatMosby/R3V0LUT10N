@@ -7,6 +7,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
+import java.util.Calendar;
+import java.text.DateFormat;
+
+import java.lang.Object;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+
 
 import swp.bibcommon.Borrower;
 import swp.bibcommon.Reader;
@@ -38,8 +45,18 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower>{
    * Berücksichtigt Öffnungszeiten der Bibliothek.
    * @return date das Rückgabedatum
    */
-  public Date calculateDate(){
-    return date;
+  public String calculateDate(){
+   
+   // Create an instance of SimpleDateFormat used for formatting 
+   // the string representation of date (month/day/year)
+    DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+
+ // Get the date today using Calendar object.
+ Date today = Calendar.getInstance().getTime();        
+ // Using DateFormat format method we can create a string 
+ // representation of a date with the defined format.
+ String reportDate = df.format(today);
+  return reportDate;
   }
   
   /**
@@ -75,8 +92,10 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower>{
    * @param readerId die eindeutige ID des Reader
    * @return Mahngebühren des Reader
    */
-  public double calculateFines(int readerId){
-    return 0;
+  public String calculateFines(){
+	  double dfines = 0.00;
+	  String fines = Double.toString(dfines);
+	  return fines;
   }
   
   /**
@@ -131,23 +150,24 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower>{
   @Override
   public synchronized int add(Borrower borrower) throws DataSourceException,
       BusinessElementAlreadyExistsException {
+	  logger.debug("BorrowHandler reached");
       try{
-	  persistence.addLending( Integer.parseInt(borrower.getBookID()), Integer.parseInt(borrower.getReaderID()),
-			  calculateDate(), calculateFines(2));
+     // persistence.addLendings("blo",2,"bleh");
+	  persistence.addLending( borrower.getBookID(), borrower.getReaderID(),
+		  calculateDate(), calculateFines());
+      logger.debug("BorrowHandler reached_2");
       return 2;}
       catch(Exception e)  { }
 	  return 0;
   }
   
-  public void getBack(Borrower borrower) throws DataSourceException,
-  BusinessElementAlreadyExistsException {
-	  logger.debug("request BorrowHandler" );
-  try{
-             persistence.deleteLending( Integer.parseInt(borrower.getBookID()));
-     }
-  catch(Exception e){ }
-  
+  public void returnLending(String bookID){
+	  logger.debug("Rückgabe_Handler");
+	 try{ 
+     persistence.deleteLending(bookID);}
+	 catch(Exception e){}
   }
+  
 
   /**
    * Adds Librarian to database. Librarian must not yet exist.

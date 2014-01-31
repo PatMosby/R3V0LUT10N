@@ -383,16 +383,16 @@ public interface Persistence {
 	 */
 	public void restore() throws DataSourceException;
 	
-	public void addLending(int bookID, int readerID, Date date, double charges) throws DataSourceException, SQLException;
+	public void addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException;
 
-	public void addLending(Borrower borrower, Date date) throws DataSourceException,
-	BusinessElementAlreadyExistsException ;
+	//public void addLending(Borrower borrower, Date date) throws DataSourceException,
+//	BusinessElementAlreadyExistsException ;
 	
-	public void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException;
+	public void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException;
 	
 	public void updateLending(Date date)throws DataSourceException;
 	
-	public void deleteLending(int bookID) throws DataSourceException;
+	public void deleteLending(String bookID) throws DataSourceException;
 	
 	public List<Book> getLendings(Borrower borrower) throws DataSourceException;
 	

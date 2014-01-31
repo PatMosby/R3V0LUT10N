@@ -8,7 +8,7 @@
     xmlns:p="http://primefaces.org/ui">
 <!-- Addition of a reader -->
 <h:head>
-    <title>#{messages.returntitle}</title>
+    <title>#{messages.borrowMedium}</title>
 </h:head>
 <h:body>
     <h:outputStylesheet name="css/bib.css" />
@@ -16,33 +16,50 @@
     <h:form id="form" >
     <ui:include src="/mainmenu.xhtml" />
     
-    <p:panel id="panel" header="#{messages.returntitle}">  
+    <p:panel id="panel" header="#{messages.borrowMedium}">  
         <h:panelGrid columns="3" cellpadding="5">  
             
-           
-            <!--  mediumID -->
-            <h:outputLabel for="mediumID" value="#{messages.mediumID}: *" style="font-weight:bold" />
-            <p:inputText id="mediumID" value="#{myBean.mediumID}"
-               required="true" requiredMessage="#{messages.mediumIDreq}"   />
-            <p:message for="mediumID"  display="both" /> 
+             <!-- ID (read-only) -->
+          <!--   <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold"/>
+            <h:outputText id="id" value="#{borrowerForm.id}"  size="#{borrowerForm.textWidth}"/>
+            <p:message for="id"  display="both" />
+
+            <ui:include src="borrowAttributes.xhtml">
+
+             <ui:param name="readerForm" value="#{addReaderForm}"/>
+            </ui:include>  -->
+            
+            <!-- ID (read-only) -->
+      <!--        <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold"/>
+            <h:outputText id="id" value="#{addBorrowerForm.id}"  />
+            <p:message for="id"  display="both" />
+
+            <ui:include src="/borrower/borrowAttributes.xhtml">
+                <ui:param name="readerForm" value="#{borrowerForm}"/>
+            </ui:include> -->
+
             
             <!-- buttons in footer  -->
 			<f:facet name="footer">
 			  <h:panelGroup>
+            
+            <!--  last name -->
+            <h:outputLabel for="lastname" value="#{messages.mediumID}: *" style="font-weight:bold" />
+            <p:inputText id="lastname" value="#{myBean.mediumID}"
+               required="true" requiredMessage="#{messages.lastnamereq}"   />
+            <p:message for="lastname"  display="both" />
 
-                  
-                  <p:commandButton id="returnButton" value="#{messages.returnbutton}" action="#{MyBean.returnMedium}" 
-                  ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
+			  <p:commandButton id="borrowButton" value="Rückgabe" action="#{myBean.returnMedium()}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
+
               </h:panelGroup>
-             </f:facet>                
+             </f:facet>    
+                     
         </h:panelGrid>  
     </p:panel>  
-
     <p:messages showDetail="true" autoUpdate="true"/>
-    <p:defaultCommand target="returnButton"/>
+
  </h:form>
 </f:view>
 </h:body>
-</html>
-
-  
+</html>  

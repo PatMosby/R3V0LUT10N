@@ -48,6 +48,8 @@ import java.util.List;
 import java.util.Set;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -83,6 +85,7 @@ import swp.bibjsf.utils.Reflection;
  * @author K. Hölscher, D. Lüdemann, R. Koschke
  *
  */
+
 public class Data implements Persistence {
 
 	/*
@@ -129,8 +132,11 @@ public class Data implements Persistence {
 	 */
 	private static final String UsernameField = "username";
 	//private final static String ReaderIDField = "readerID";
-	private static final String UserID = "USER_ID";
-	private static final String BookID = "BOOK_ID";
+	private static final String UserID = "user_id";
+	private static final String BookID = "book_id";
+	private static final String TEST = "admin";
+	private static final String DATE = "date";
+	private static final String CHARGES = "charges";
 	/**
 	 * The name of the tables in the database where the mediums are stored.
 	 */
@@ -144,6 +150,7 @@ public class Data implements Persistence {
 	private final static String cassetteTableName = "CASSETTE";
 	private final static String otherTableName = "OTHER";
 	private final static String borrowTableName = "LENDING";
+	private final static String testTableName = "TEST";
 	
 	
 	/*
@@ -460,7 +467,7 @@ public class Data implements Persistence {
 		}
 		
 		 if (!tableExists(tableNames, borrowTableName)) {
-<<<<<<< HEAD
+         /**
 			    logger.debug("database table " + borrowTableName
 			      + " does not exist, creating new one");
 			    // The table of all books in the library.
@@ -471,19 +478,67 @@ public class Data implements Persistence {
 			      + "USER_ID INT NOT NULL," 
 			      + "date DATE, " 
 			      + "charges DECIMAL(10,2))");
-=======
+
 				logger.debug("database table " + borrowTableName
 						+ " does not exist, creating new one");
 				// The table of all Lending in the library.
 				run.update("CREATE TABLE " + borrowTableName
 						+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
 						+ "<= ID AND ID < " + bookMinID + "), "
-						+ "BOOK_ID INT NOT NULL," + " CONSTRAINT BOOK_ID_FK FOREIGN KEY (BOOK_ID) REFERENCES BOOK (ID), "
-						+ UsernameField + " VARCHAR(128) NOT NULL UNIQUE, "
+						+ "book_id INT NOT NULL," + " CONSTRAINT BOOK_ID_FK FOREIGN KEY (BOOK_ID) REFERENCES BOOK (ID), "
+						+ "user_id INT NOT NULL, "
 						+ "date DATE, " 
 						+ "charges DECIMAL(10,2))");
->>>>>>> b4ad336b9e0b65c52aeb38507158cef74214d8d1
+			
+			 logger.debug("database table " + borrowTableName
+						+ " does not exist, creating new one");
+				// The table of all Lending in the library.
+				run.update("CREATE TABLE " + borrowTableName
+						+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
+						+ "<= ID AND ID < " + bookMinID + "), "
+						+ "book_id INT NOT NULL," + " CONSTRAINT BOOK_ID_FK FOREIGN KEY (BOOK_ID) REFERENCES BOOK (ID), "
+						+ "user_id INT NOT NULL, "
+						+ "date INT NOT NULL, " 
+						+ "charges INT NOT NULL)");
+		
+				
+				run.update("CREATE TABLE " + borrowTableName
+						+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
+						+ " <= ID AND ID < " + bookMinID + "), " + UsernameField
+						+ " VARCHAR(128) NOT NULL UNIQUE, "
+						+ "password varchar(128), "
+						+ "firstname VARCHAR(256) NOT NULL, "
+						+ "lastname VARCHAR(256) NOT NULL)");
+			*/
+			 
+			 run.update("CREATE TABLE " + borrowTableName
+						+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
+						+ " <= ID AND ID < " + bookMinID + "), " + BookID
+						+ " VARCHAR(128) NOT NULL UNIQUE, "
+						+ UserID + " varchar(128), "
+						+ DATE + " varchar(128), "
+						+ CHARGES + " varchar(128))");
+			 
+
 		}
+		 
+		 if (!tableExists(tableNames, testTableName)) {
+				logger.debug("database table " + testTableName
+						+ " does not exist, creating new one");
+				// the table of all readers of the library; includes special user
+				// 'admin'
+				run.update("CREATE TABLE " + testTableName
+						+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
+						+ " <= ID AND ID < " + bookMinID + "), " + UsernameField
+						+ " VARCHAR(128) NOT NULL UNIQUE, "
+						+ "password varchar(128), "
+						+ "firstname VARCHAR(256) NOT NULL, "
+						+ "lastname VARCHAR(256) NOT NULL, " + "birthday DATE, "
+						+ "street VARCHAR(128), " + "zipcode VARCHAR(12), "
+						+ "city VARCHAR(50), " + "phone VARCHAR(30), "
+						+ "email VARCHAR(128), " + "entrydate DATE, "
+						+ "lastuse DATE, " + "note LONG VARCHAR)");
+			}
 		 
 		 if (!tableExists(tableNames, chargesTableName)) {
 			 	logger.debug("database table " + chargesTableName
@@ -633,6 +688,7 @@ public class Data implements Persistence {
 		// number
 		// corresponding to java.lang.Integer whereas max is a long integer
 		if (max >= java.lang.Integer.MAX_VALUE) {
+			logger.debug(max);
 			// reached upper bound; try minimum instead
 			final long min = singleResultQuery("select MIN(id) from " + table
 					+ " where ID >= " + minID);
@@ -1219,13 +1275,46 @@ public class Data implements Persistence {
 	 * @throws DataSourceException
 	 * @throws SQLException 
 	 */
-	public final void addLending(int bookID, int readerID, Date date, double charges) throws DataSourceException, SQLException {
+	@Override
+	public final void addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException {
 		logger.debug("inserting user to LENDING..." + bookID +"   "+ readerID + "");
-		String str = failure();
-		run.update("insert into " + borrowTableName + "(id", "book_id" , "user_d" , "date" , "charges)" values ( "book_id , user_d + date , charges") ;
+	    failure();
+	    /**
+		run.update("insert into " + borrowTableName + "(id, book_id, user_id, date, charges) values ('" 
+				+ bookID + "', '" + readerID+ "', '" + date + "', '" + charges +"')");
+		*/
+	/**
+		run.update("insert into " + borrowTableName + "(id, "
+				+ BookID
+				+ ", " + UserID + ") values (5, '" + bookID + "', '" + readerID
+				+ "')");
+    */
+		
+		run.update("insert into " + borrowTableName + "(id, "
+				+ BookID
+				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (6, '" + bookID + "', '" + readerID
+				+ "', '" + date + "', '" + charges + "')");
+	   
 				
-			
 		failure();
+	}
+	
+	/**
+	 * Macht Einträge für mehrere Medien eines Ausleihers.
+	 * @param bookIDs die ID's der auszuleihenden Medien
+	 * @param readerID die ID des Ausleihenden
+	 * @param dates die individuellen Rückgabedaten der Medien 
+	 * @throws DataSourceException
+	 */
+	public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException {
+		logger.debug("TestLending");
+		run.update("insert into " + testTableName + "(id, "
+				+ UsernameField
+				+ ", password, firstname, lastname, birthday) values (3, '" + ADMIN
+				+ "', '21232f297a57a5a743894a0e4a801fc3', '" + ADMIN
+				+ "','" + ADMIN + "','"
+				+ new java.sql.Date(System.currentTimeMillis()) + "')");
+				
 	}
 	
 	
@@ -1274,17 +1363,6 @@ logger.debug("add reader " + borrower);
 		throw new DataSourceException(e.getMessage());
 	}
 }
-
-	/**
-	 * Macht Einträge für mehrere Medien eines Ausleihers.
-	 * @param bookIDs die ID's der auszuleihenden Medien
-	 * @param readerID die ID des Ausleihenden
-	 * @param dates die individuellen Rückgabedaten der Medien 
-	 * @throws DataSourceException
-	 */
-	public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException {
-
-	}
 	
 	/**
 	 * Verändert Rückgabedatum der Ausleihe.
@@ -1300,11 +1378,11 @@ logger.debug("add reader " + borrower);
 	 * @param bookID die ID des zu löschenden Mediums
 	 * @throws DataSourceException
 	 */
-	public final void deleteLending(int bookID) throws DataSourceException {
+	public final void deleteLending(String bookID) throws DataSourceException {
 		
-		logger.info("!!!!!!!!!deleting lending !!!!!!!!!" + "");
+		logger.info("Rückgabe_Data");
 		try {
-			run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+			run.update("DELETE FROM " + borrowTableName + " WHERE BOOK_ID = ?",
 					bookID);
 		} catch (SQLException e) {
 			logger.error("failure in deleting lending- " + e.getErrorCode());
