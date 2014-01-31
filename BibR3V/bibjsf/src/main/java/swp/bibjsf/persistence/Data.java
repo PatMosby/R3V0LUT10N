@@ -2727,7 +2727,7 @@ logger.debug("add reader " + borrower);
 		logger.debug("GOGOGOGOGOGO");
 			
       run.update("insert into " + chargesTableName + "(type, " + CHARGES + ") values ('" 
-      + charges.getTyp() + ", '" + charges.getCharges() + "')");
+      + charges.getTyp() + "', '" + charges.getCharges() + "')");
 		       
 	  
 	/**
