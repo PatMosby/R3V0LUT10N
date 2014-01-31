@@ -29,7 +29,7 @@ public class ChargesHandler extends BusinessObjectHandler<Charges>{
   private static final long serialVersionUID = -5653849921779676752L;
   
   private static volatile ChargesHandler instance;
-  private Persistence persistence;
+  //private Persistence persistence;
   
   protected ChargesHandler() throws DataSourceException, NamingException {
       super();
@@ -133,10 +133,15 @@ public class ChargesHandler extends BusinessObjectHandler<Charges>{
   @Override
   public synchronized int add(Charges charges) throws DataSourceException,
       BusinessElementAlreadyExistsException {
+	  logger.debug("CHARGEHANDLER");
+	  logger.debug(charges.getTyp()+ "," + charges.getCharges());
       try{
-    	  int retrn = persistence.addCharges(charges);
-    	  return retrn;}
+    	 // int retrn = persistence.addCharges(charges);
+    	 // persistence.updateLending();
+    	  persistence.addCharges(charges);
+    	  return 1;}
       catch(Exception e)  { 
+    	  logger.debug("FAIL!");
     	  return -1;
       }
   }

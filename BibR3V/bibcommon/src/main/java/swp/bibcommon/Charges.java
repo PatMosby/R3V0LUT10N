@@ -8,7 +8,7 @@ public class Charges extends BusinessObject implements Serializable, Cloneable {
 	private static final long serialVersionUID = -2835684051415448375L; 
 
 	public String typ;
-	public Double charges;
+	public String charges;
  
 	public String getTyp() {
 		return typ;
@@ -17,10 +17,10 @@ public class Charges extends BusinessObject implements Serializable, Cloneable {
 		this.typ = typ;
 	}
 	
-	public Double getCharges(){
+	public String getCharges(){
 		return charges;
 	}
-	public void setCharges(Double charges) {
+	public void setCharges(String charges) {
 		this.charges = charges;
 	}
  }

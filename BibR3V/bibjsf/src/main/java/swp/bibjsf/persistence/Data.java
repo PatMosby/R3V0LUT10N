@@ -468,10 +468,8 @@ public class Data implements Persistence {
 		}
 		
 		 if (!tableExists(tableNames, borrowTableName)) {
-<<<<<<< HEAD
+
          /**
-=======
->>>>>>> fac442a9f777e42f81e201e86cded066bcaf4ba5
 			    logger.debug("database table " + borrowTableName
 			      + " does not exist, creating new one");
 			    // The table of all books in the library.
@@ -482,10 +480,10 @@ public class Data implements Persistence {
 			      + "USER_ID INT NOT NULL," 
 			      + "date DATE, " 
 			      + "charges DECIMAL(10,2))");
-<<<<<<< HEAD
 
-=======
->>>>>>> fac442a9f777e42f81e201e86cded066bcaf4ba5
+
+
+
 				logger.debug("database table " + borrowTableName
 						+ " does not exist, creating new one");
 				// The table of all Lending in the library.
@@ -496,7 +494,7 @@ public class Data implements Persistence {
 						+ "user_id INT NOT NULL, "
 						+ "date DATE, " 
 						+ "charges DECIMAL(10,2))");
-<<<<<<< HEAD
+
 			
 			 logger.debug("database table " + borrowTableName
 						+ " does not exist, creating new one");
@@ -527,8 +525,7 @@ public class Data implements Persistence {
 						+ DATE + " varchar(128), "
 						+ CHARGES + " varchar(128))");
 			 
-=======
->>>>>>> fac442a9f777e42f81e201e86cded066bcaf4ba5
+
 
 		}
 		 
@@ -554,9 +551,23 @@ public class Data implements Persistence {
 			 	logger.debug("database table " + chargesTableName
 			 			+ " does not exist, creating new one");
 			 	// The table of all types and their charges.
+			 	/**
 			 	run.update("CREATE TABLE " + chargesTableName
 			 			+ " (type varchar(128) NOT NULL UNIQUE, "
 			 			+ "CHARGE DOUBLE PRECISION)");
+			 	*/
+			 	run.update("CREATE TABLE " + chargesTableName
+			 			+ " (type varchar(128) NOT NULL UNIQUE, "
+			 			+ CHARGES + " varchar(128))");
+			 	/**
+			 	run.update("CREATE TABLE " + borrowTableName
+						+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
+						+ " <= ID AND ID < " + bookMinID + "), " + BookID
+						+ " VARCHAR(128) NOT NULL UNIQUE, "
+						+ UserID + " varchar(128), "
+						+ DATE + " varchar(128), "
+						+ CHARGES + " varchar(128))");
+			*/
 		 }
 		
 		if (createAdmin) {
@@ -1379,8 +1390,8 @@ logger.debug("add reader " + borrower);
 	 * @param date das Rückgabedatum
 	 * @throws DataSourceException
 	 */
-	public final void updateLending(Date date)throws DataSourceException {
-		
+	public final void updateLending()throws DataSourceException {
+		logger.debug("UPDATELENDING");
 	}
 	
 	/**
@@ -2711,21 +2722,37 @@ logger.debug("add reader " + borrower);
 	}
 
 	@Override
-	public int addCharges(Charges charges) throws DataSourceException {
+	public void addCharges(Charges charges) throws DataSourceException, SQLException {
 		logger.debug("add charges " + charges);
-		try {
+		logger.debug("GOGOGOGOGOGO");
+			
+      run.update("insert into " + chargesTableName + "(type, " + CHARGES + ") values ('" 
+      + charges.getTyp() + ", '" + charges.getCharges() + "')");
+		       
+	  
+	/**
+	 try {
 			int result = 1;
 			Set<String> toIgnore = new HashSet<String>();
 			HashMap<String, Object> replace = new HashMap<String, Object>();
 			insert(chargesTableName, charges, toIgnore, replace);
-			return result;
+		//	return result;
 		} catch (SQLException e) {
 			logger.error("add book failure");
 			throw new DataSourceException(e.getMessage());
+		//	return -1;
 		}
+		*/
 		
+		/**
+		run.update("insert into " + borrowTableName + "(id, "
+				+ BookID
+				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (6, '" + bookID + "', '" + readerID
+				+ "', '" + date + "', '" + charges + "')");
+       */
+		 
 	}
 	
-
+   
 
 }

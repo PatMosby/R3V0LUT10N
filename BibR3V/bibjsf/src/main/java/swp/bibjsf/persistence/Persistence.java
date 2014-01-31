@@ -390,7 +390,7 @@ public interface Persistence {
 	
 	public void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException;
 	
-	public void updateLending(Date date)throws DataSourceException;
+	public void updateLending()throws DataSourceException;
 	
 	public void deleteLending(String bookID) throws DataSourceException;
 	
@@ -400,7 +400,7 @@ public interface Persistence {
 	
 	public Reader getLendingReader(int bookID) throws DataSourceException;
 	
-	public int addCharges(final Charges charges)throws DataSourceException;
+	public void addCharges(Charges charges)throws DataSourceException, SQLException;
 	
 
 }

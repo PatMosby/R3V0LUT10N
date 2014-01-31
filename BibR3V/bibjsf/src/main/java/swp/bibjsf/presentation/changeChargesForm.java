@@ -47,7 +47,9 @@ public class changeChargesForm extends ChargesForm {
     public changeChargesForm() {
         element = new Charges();
     	// set default date of addition (today)
-        element.setCharges(0.0);
+        double dfines = 0.0;
+  	    String fines = Double.toString(dfines);
+        element.setCharges(fines);
     }
 
     /**
@@ -101,12 +103,12 @@ public class changeChargesForm extends ChargesForm {
 	}
 
 	@Override
-	public Double getCharges() {
+	public String getCharges() {
 		return element.getCharges();
 	}
 
 	@Override
-	public void setCharges(Double charges) {
+	public void setCharges(String charges) {
 		element.setCharges(charges);
 	}
 

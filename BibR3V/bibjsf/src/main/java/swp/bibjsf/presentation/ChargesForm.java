@@ -23,8 +23,8 @@ public abstract class ChargesForm extends BusinessObjectForm<Charges>{
 
     public abstract void  setTyp(final String typ);
         
-    public abstract Double getCharges();
+    public abstract String getCharges();
           
-    public abstract void setCharges(final Double charges);   	
+    public abstract void setCharges(final String charges);   	
 
 }
