@@ -313,6 +313,7 @@ public class Data implements Persistence {
 					+ "playTime INT, " + "titleCount INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
 					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
+					+ "charges DECIMAL(10,2), "
 					+ "title VARCHAR(256)" + ")");
 		}
 		if (!tableExists(tableNames, magazineTableName)) {
@@ -460,7 +461,6 @@ public class Data implements Persistence {
 		}
 		
 		 if (!tableExists(tableNames, borrowTableName)) {
-<<<<<<< HEAD
 			    logger.debug("database table " + borrowTableName
 			      + " does not exist, creating new one");
 			    // The table of all books in the library.
@@ -471,7 +471,6 @@ public class Data implements Persistence {
 			      + "USER_ID INT NOT NULL," 
 			      + "date DATE, " 
 			      + "charges DECIMAL(10,2))");
-=======
 				logger.debug("database table " + borrowTableName
 						+ " does not exist, creating new one");
 				// The table of all Lending in the library.
@@ -482,7 +481,7 @@ public class Data implements Persistence {
 						+ UsernameField + " VARCHAR(128) NOT NULL UNIQUE, "
 						+ "date DATE, " 
 						+ "charges DECIMAL(10,2))");
->>>>>>> b4ad336b9e0b65c52aeb38507158cef74214d8d1
+
 		}
 		 
 		 if (!tableExists(tableNames, chargesTableName)) {
