@@ -1310,10 +1310,11 @@ public class Data implements Persistence {
 				+ ", " + UserID + ") values (5, '" + bookID + "', '" + readerID
 				+ "')");
     */
-		
+	    
+	    logger.debug(getNewId(borrowTableName, 1));
 		run.update("insert into " + borrowTableName + "(id, "
 				+ BookID
-				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (6, '" + bookID + "', '" + readerID
+				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (" + getNewId(borrowTableName, 1) + ", '" + bookID + "', '" + readerID
 				+ "', '" + date + "', '" + charges + "')");
 	   
 				
@@ -1331,7 +1332,7 @@ public class Data implements Persistence {
 		logger.debug("TestLending");
 		run.update("insert into " + testTableName + "(id, "
 				+ UsernameField
-				+ ", password, firstname, lastname, birthday) values (3, '" + ADMIN
+				+ ", password, firstname, lastname, birthday) values (3, '" + bookIDs
 				+ "', '21232f297a57a5a743894a0e4a801fc3', '" + ADMIN
 				+ "','" + ADMIN + "','"
 				+ new java.sql.Date(System.currentTimeMillis()) + "')");
