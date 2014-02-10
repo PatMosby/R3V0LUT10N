@@ -66,6 +66,7 @@ import android.util.Log;
 import swp.bibcommon.Book;
 import swp.bibcommon.BusinessObject;
 import swp.bibcommon.Charges;
+import swp.bibcommon.News;
 import swp.bibcommon.Reader;
 import swp.bibcommon.Borrower;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
@@ -134,7 +135,6 @@ public class Data implements Persistence {
 	//private final static String ReaderIDField = "readerID";
 	private static final String UserID = "user_id";
 	private static final String BookID = "book_id";
-	private static final String TEST = "admin";
 	private static final String DATE = "date";
 	private static final String CHARGES = "charges";
 	/**
@@ -152,6 +152,10 @@ public class Data implements Persistence {
 	private final static String borrowTableName = "LENDING";
 	private final static String testTableName = "TEST";
 	
+	
+	private final static String newsTableName = "NEWS";
+	private static final String NewsField = "news";
+	private static final String DateField = "newsDate";
 	
 	/*
 	 * The minimal ID a book can have. We are using different ranges for book
@@ -174,7 +178,6 @@ public class Data implements Persistence {
 	 */
 	private final static String chargesTableName = "CHARGES";
 	
-	private final static String typesField = "type";
 	/**
 	 * The minimal ID a reader can have. Default admin has ID 0. See comment for
 	 * bookMinID.
@@ -569,6 +572,10 @@ public class Data implements Persistence {
 						+ CHARGES + " varchar(128))");
 			*/
 		 }
+		 
+		 if (!tableExists(tableNames, "NEWS")) {
+			 run.update("CREATE TABLE NEWS (newsDate varchar(128), " + NewsField + " varchar(7999))");
+			}
 		
 		if (createAdmin) {
 			insertAdmin();
@@ -2752,6 +2759,46 @@ logger.debug("add reader " + borrower);
 				+ "', '" + date + "', '" + charges + "')");
        */
 		 
+	}
+
+	public String date = "etsteditor";
+	public String charges = "hfjsdfhasldkj";
+	public String bookID = "hbgz";
+	public String readerID ="jkjkkl";
+	
+	@Override
+	public void addNews(News news) throws DataSourceException, SQLException {
+		//run.update("insert into NEWS(newsDate, news) values (test1, newstest)");
+		run.update("insert into " + borrowTableName + "(id, "
+				+ BookID
+				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (" + getNewId(borrowTableName, 1) + ", '" + bookID + "', '" + readerID
+				+ "', '" + date + "', '" + charges + "')");
+		
+	}
+	
+	@Override
+	public String getDateTime() {
+		return new SimpleDateFormat("MM/dd/yyyy H:mm:ss").format(new Date());
+	}
+
+	@Override
+	public News getNews(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<News> getNews(List<Constraint> constraints, int from, int to,
+			List<OrderBy> order) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getNumberOfNews(List<Constraint> constraints)
+			throws DataSourceException {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
    

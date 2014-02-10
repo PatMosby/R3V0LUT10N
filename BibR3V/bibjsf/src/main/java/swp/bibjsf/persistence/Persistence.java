@@ -26,6 +26,7 @@ import java.util.List;
 import swp.bibcommon.Book;
 import swp.bibcommon.BusinessObject;
 import swp.bibcommon.Charges;
+import swp.bibcommon.News;
 import swp.bibcommon.Reader;
 import swp.bibcommon.Borrower;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
@@ -401,6 +402,28 @@ public interface Persistence {
 	public Reader getLendingReader(int bookID) throws DataSourceException;
 	
 	public void addCharges(Charges charges)throws DataSourceException, SQLException;
+
+	public void addNews(News news) throws DataSourceException, SQLException;
+
+	public String getDateTime();
+
+	public News getNews(int id);
+
+	public List<News> getNews(List<Constraint> constraints, int from, int to,
+			List<OrderBy> order);
+	
+	/**
+	 * Returns the number of readers fulfilling the given constraints.
+	 *
+	 * @param constraints
+	 *            constraints to be fulfilled by a reader; if null, all readers
+	 *            are counted
+	 * @return number of readers fulfilling the given constraints
+	 * @throws DataSourceException
+	 *             thrown in case of problems with the data source
+	 */
+	public int getNumberOfNews(List<Constraint> constraints)
+			throws DataSourceException;
 	
 
 }
