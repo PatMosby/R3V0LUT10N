@@ -54,16 +54,26 @@
             <p:inputText id="lastname" value="#{myBean.mediumID}"
                required="true" requiredMessage="#{messages.lastnamereq}"   />
             <p:message for="lastname"  display="both" />
+            
+      
 
 			  <p:commandButton id="borrowButton" value="#{messages.borrow2}" action="#{myBean.save()}" 
 			      ajax="false" icon="ui-icon-check" validateClient="true"/>
+		
 
               </h:panelGroup>
              </f:facet>    
                      
         </h:panelGrid>  
     </p:panel>  
+    
     <p:messages showDetail="true" autoUpdate="true"/>
+    
+                
+         <h3>Number</h3>  
+         <p:dataList value="#{myBean.mediumIDs}" var="car" type="ordered">  
+           #{myBean.readerID}, #{myBean.mediumID}
+         </p:dataList>  
 
  </h:form>
 </f:view>
