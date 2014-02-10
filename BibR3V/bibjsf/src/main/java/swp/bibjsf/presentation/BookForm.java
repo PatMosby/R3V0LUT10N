@@ -512,19 +512,19 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         if (isArtistListSelected()) {
             toBook.setArtistList(fromBook.getArtistList());
         }
-        if (isNoteSelected()) {
+        if (isLabelSelected()) {
             toBook.setLabel(fromBook.getLabel());
         }
-        if (isNoteSelected()) {
+        if (isTitleCountSelected()) {
             toBook.setTitleCount(fromBook.getTitleCount());
         }
-        if (isNoteSelected()) {
+        if (isEditorListSelected()) {
             toBook.setEditorList(fromBook.getEditorList());
         }
         if (isFskSelected()) {
             toBook.setFsk(fromBook.getFsk());
         }
-        if (isNoteSelected()) {
+        if (isRegisseurSelected()) {
             toBook.setRegisseur(fromBook.getRegisseur());
         }
         if (isProducerSelected()) {
@@ -734,12 +734,12 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         element.setLanguage(language);
     }
     
-    public String getType() {
+    public String getTyp() {
         return element.getTyp();
     }
 
-    public void setType(String type) {
-        element.setTyp(type);
+    public void setTyp(String typ) {
+        element.setTyp(typ);
     }
 
     /**
@@ -755,14 +755,14 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     	this.languages = languages.clone();
     }
     
-    private String[] types = {"Buch", "Zeitschrift", "Cd", "Film", "Software", "Andere", "Hörbuch", "Kassette"};
+    private String[] typs = {"Buch", "Zeitschrift", "Cd", "Film", "Software", "Andere", "Hörbuch", "Kassette"};
 
-    public String[] getTypes() {
-    	return types.clone();
+    public String[] getTyps() {
+    	return typs.clone();
     }
 
-    public void setTypes(String[] types) {
-    	this.types = types.clone();
+    public void setTyps(String[] typs) {
+    	this.typs = typs.clone();
     }
 
     public String getLocation() {
@@ -819,13 +819,6 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 
     public void setNote(String note) {
         element.setNote(note);
-    }
-    public String getTyp() {
-        return element.getTyp();
-    }
-
-    public void setTyp(String typ) {
-        element.setTyp(typ);
     }
     
     public int getPlayTime() {
@@ -889,7 +882,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     }
 
     public void setProducer(String producer) {
-        element.setTyp(producer);
+        element.setProducer(producer);
     }
     
     
