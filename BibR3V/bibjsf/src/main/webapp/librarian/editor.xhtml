@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+<!-- Addition of a reader -->
+<h:head>
+    <title>#{messages.editNews}</title>
+</h:head>
+<h:body>
+    <h:outputStylesheet name="css/bib.css" />
+    <f:view>
+    <h:form id="form" >
+    <ui:include src="/mainmenu.xhtml" />
+    
+    <h:form id="form">  
+  
+    <p:inputTextarea rows="5" cols="30" counter="counter" maxlength="7999"       
+    counterTemplate="{0} characters remaining." autoResize="false"/>  
+  
+	<h:outputText id="counter" />   
+  
+    <h:panelGrid columns="2" style="margin-top:10px">  
+        <p:commandButton id="submitButton" value="#{messages.save}" action="#{addNewsForm.save}" 
+                  ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
+        </h:panelGrid>
+  
+</h:form>  
+    <p:messages showDetail="true" autoUpdate="true"/>
+
+ </h:form>
+</f:view>
+</h:body>
+</html>
+
+  
