@@ -6,6 +6,7 @@ import javax.faces.bean.SessionScoped;
 import swp.bibjsf.businesslogic.BorrowHandler;
 import swp.bibcommon.Borrower;
 import swp.bibjsf.utils.Messages;
+import java.util.List;
 
 @ManagedBean(name= "myBean")
 @SessionScoped
@@ -64,5 +65,15 @@ public class AddBorrowerForm extends BorrowerForm{
     public void setMediumID(final String mediumID) {
     	System.out.println("setmedium");
         borrower.setBookID(trim(mediumID));
+    }
+    
+    public List<String> getMediumIDs() {
+        return borrower.getBookIDs();
+    }
+
+    
+    public void setMediumIDs(final List<String> mediumIDs) {
+    	System.out.println("setmedium");
+        borrower.setBookIDs(mediumIDs);
     }
 }

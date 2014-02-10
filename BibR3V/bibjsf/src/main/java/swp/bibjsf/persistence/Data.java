@@ -1357,7 +1357,7 @@ public class Data implements Persistence {
 	public final void addLending( Borrower borrower, Date date) 
 			throws DataSourceException, BusinessElementAlreadyExistsException{
         		
-logger.debug("add reader " + borrower);
+             logger.debug("add reader " + borrower);
 	try {
 		if (getReader(borrower.getId()) != null) {
 			// ID must be unique
@@ -1369,7 +1369,7 @@ logger.debug("add reader " + borrower);
 			// user name must be unique if defined
 			throw new BusinessElementAlreadyExistsException(
 					Messages.get("readerexists") + Messages.get("username")
-							+ " = " + reader.getUsername());
+			 				+ " = " + reader.getUsername());
 		} else {
 			logger.debug("reader " + reader
 					+ " does not yet exist; has ID: " + reader.hasId());

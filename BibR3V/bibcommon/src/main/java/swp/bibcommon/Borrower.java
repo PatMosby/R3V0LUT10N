@@ -1,6 +1,6 @@
 package swp.bibcommon;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
 
 public class Borrower extends BusinessObject implements Serializable, Cloneable {
@@ -16,6 +16,7 @@ public class Borrower extends BusinessObject implements Serializable, Cloneable 
      * ID of a medium.
      */
  private String mediumID;
+ private List<String> mediumIDs;
  
  public String getReaderID(){
 	 return readerID;
@@ -31,6 +32,14 @@ public class Borrower extends BusinessObject implements Serializable, Cloneable 
  
  public void setBookID(String mediumID){
 	 this.mediumID = mediumID;
+ }
+ 
+ public List<String> getBookIDs(){
+	 return mediumIDs;
+ }
+ 
+ public void setBookIDs(List<String> mediumID){
+	 this.mediumIDs = mediumID;
  }
 
 }
