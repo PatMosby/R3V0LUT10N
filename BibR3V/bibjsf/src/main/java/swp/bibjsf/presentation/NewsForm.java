@@ -13,6 +13,7 @@ public abstract class NewsForm extends BusinessObjectForm<News>{
     }  
   
     public void setNews(String news) {  
+    	logger.debug("Treffer, bro!");
         element.setNews(news);  
     }
     

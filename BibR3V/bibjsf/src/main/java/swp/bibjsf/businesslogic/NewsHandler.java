@@ -21,7 +21,6 @@ public class NewsHandler extends BusinessObjectHandler<News>{
 
 private static volatile NewsHandler instance;
   
-  private Persistence persistence;
   
   protected NewsHandler() throws DataSourceException, NamingException {
       super();

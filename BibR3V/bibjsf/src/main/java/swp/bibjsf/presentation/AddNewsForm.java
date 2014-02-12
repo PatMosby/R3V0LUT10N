@@ -32,7 +32,7 @@ public class AddNewsForm extends NewsForm{
      */
     @Override
     public String save() {
-    	logger.debug("request to save new post " + ((element == null) ? "NULL" : element.toString()));
+    	logger.debug("AddNewsForm    " + element.getNews()+ "");
     	if (element != null) {
     		try {
     			NewsHandler nh = NewsHandler.getInstance();

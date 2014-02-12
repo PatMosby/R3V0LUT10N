@@ -2769,6 +2769,7 @@ public class Data implements Persistence {
 	@Override
 	public void addNews(News news) throws DataSourceException, SQLException {
 		//run.update("insert into NEWS(newsDate, news) values (test1, newstest)");
+		logger.debug("News in Dataaaahhh");
 		run.update("insert into " + borrowTableName + "(id, "
 				+ BookID
 				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (" + getNewId(borrowTableName, 1) + ", '" + bookID + "', '" + readerID
