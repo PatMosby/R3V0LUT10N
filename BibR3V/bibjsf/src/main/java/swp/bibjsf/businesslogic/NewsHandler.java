@@ -77,8 +77,8 @@ private static volatile NewsHandler instance;
           		+ Messages.get("id") + " = " + news.getId());
       }
 	  try{
-    	  int newID = persistence.addNews(news);
-    	  return newID;
+    	  persistence.addNews(news);
+    	  return 1;
     	  }
       catch(Exception e)  { 
     	  logger.debug("NEWSHANDLER add(News news) FAIL!");

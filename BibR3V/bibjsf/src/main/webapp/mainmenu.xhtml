@@ -13,18 +13,8 @@
 			<p:menuitem value="#{messages.home}" icon="ui-icon-home"
 				url="/index.xhtml" />
 
-			<p:submenu label="#{messages.books}" icon="ui-icon-document">
-				<p:menuitem value="#{messages.listall}" url="/all/list.xhtml" />
-				<p:menuitem value="#{messages.audiobooks}" url="/audiobook/list.xhtml" />
-				<p:menuitem value="#{messages.books}" url="/book/list.xhtml" />
-				<p:menuitem value="#{messages.cassettes}" url="/cassette/list.xhtml" />
-				<p:menuitem value="#{messages.cds}" url="/cd/list.xhtml" />
-				<p:menuitem value="#{messages.magazines}" url="/magazine/list.xhtml" />
-				<p:menuitem value="#{messages.movies}" url="/movie/list.xhtml" />
-				<p:menuitem value="#{messages.software}" url="/software/list.xhtml" />
-				<p:menuitem value="#{messages.other}" url="/other/list.xhtml" />
-			</p:submenu>
-
+			<p:menuitem value="#{messages.listall}" url="/book/list.xhtml" icon="ui-icon-document" />
+			
 			<p:submenu label="#{messages.readers}" icon="ui-icon-arrowreturnthick-1-e" rendered="#{request.isUserInRole('LIBRARIAN')}">
 				<p:menuitem value="#{messages.search}" url="/reader/list.xhtml" />
 				<p:menuitem value="#{messages.add}" url="/reader/add.xhtml" />
@@ -51,7 +41,7 @@
 				<p:menuitem value="#{messages.statistic}" url="#"/>
 				
 				<p:submenu label="#{messages.settings}" icon="ui-icon-gear">
-					<p:menuitem value="#{messages.editIndex}" url="#"/>
+					<p:menuitem value="#{messages.editIndex}" url="/librarian/editor.xhtml"/>
 					<p:menuitem value="#{messages.editOpening}" url="#"/>
 
 					<p:menuitem value="#{messages.fines}" url="/chargesTime/change.xhtml"/>

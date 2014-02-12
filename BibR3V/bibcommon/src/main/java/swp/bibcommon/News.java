@@ -144,6 +144,17 @@ public class News extends BusinessObject implements Serializable{
 			return toDate(dateOfAddition);
 		}
 	}
+	
+	/**
+	 * @return the dateOfAddition
+	 */
+	public String getStringDateOfAddition() {
+		if (dateOfAddition == null) {
+			return null;
+		} else {
+			return dateOfAddition;
+		}
+	}
 
 	/**
 	 * @param dateOfAddition
