@@ -13,16 +13,25 @@ public abstract class NewsForm extends BusinessObjectForm<News>{
     }  
   
     public void setNews(String news) {  
+    	logger.debug("Treffer, bro!");
         element.setNews(news);  
     }
     
-//    public String getDateTime(){
-//    	return date;
-//    }
-//    
-//    public void setDateTime(){
-//    	this.date = new SimpleDateFormat("dd/MM/yyyy H:mm:ss").format(new Date());
-//    }
+    private boolean dateOfAdditionSelected                = false;
+    
+    public boolean isDateOfAdditionSelected() {
+		return dateOfAdditionSelected;
+	}
+
+	public void setDateOfAdditionSelected(boolean dateOfAdditionSelected) {
+		this.dateOfAdditionSelected = dateOfAdditionSelected;
+	}
+    
+    protected void mergeSelectedAttributes(News toNews, News fromNews) {
+		if (isDateOfAdditionSelected()) {
+            toNews.setDateOfAddition(fromNews.getDateOfAddition());
+        }
+    }
     
     public Date getDateOfAddition() {
         return element.getDateOfAddition();

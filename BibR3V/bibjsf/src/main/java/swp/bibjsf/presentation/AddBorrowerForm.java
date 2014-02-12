@@ -6,6 +6,8 @@ import javax.faces.bean.SessionScoped;
 import swp.bibjsf.businesslogic.BorrowHandler;
 import swp.bibcommon.Borrower;
 import swp.bibjsf.utils.Messages;
+
+import java.sql.SQLException;
 import java.util.List;
 
 @ManagedBean(name= "myBean")
@@ -44,6 +46,8 @@ public class AddBorrowerForm extends BorrowerForm{
     		//return failure(Messages.get("elementNotSet"));
     	//}
     }
+	
+	
 	
 	public String getReaderID() {
 		System.out.println("getreader");

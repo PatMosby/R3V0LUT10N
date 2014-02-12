@@ -21,7 +21,6 @@ public class AddNewsForm extends NewsForm{
      */
     public AddNewsForm() {
         element = new News();
-        element.setDateOfAddition(new Date());
     }
     
     /**
@@ -32,12 +31,14 @@ public class AddNewsForm extends NewsForm{
      */
     @Override
     public String save() {
-    	logger.debug("request to save new post " + ((element == null) ? "NULL" : element.toString()));
+    	logger.debug("AddNewsForm    " + element.getNews()+ "");
     	if (element != null) {
     		try {
     			NewsHandler nh = NewsHandler.getInstance();
-    			nh.add(element);
-    			return success(1);
+    			element.setDateOfAddition(new Date());
+    			int newID = nh.add(element);
+    			reset();
+    			return success(newID);
 
     		} catch (Exception e) {
     			return failure(e);
@@ -45,5 +46,18 @@ public class AddNewsForm extends NewsForm{
     	} else {
     		return failure(Messages.get("elementNotSet"));
     	}
+    }
+    
+    /* (non-Javadoc)
+     * @see swp.bibjsf.presentation.BusinessObjectForm#reset()
+     */
+    @Override
+    public String reset() {
+        News newElement = new News();
+    	// set default date of addition (today)
+        newElement.setDateOfAddition(new Date());
+        mergeSelectedAttributes(newElement, element);
+        element = newElement;
+        return super.reset();
     }
 } 
