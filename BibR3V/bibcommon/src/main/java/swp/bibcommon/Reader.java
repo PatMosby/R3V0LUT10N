@@ -21,6 +21,8 @@
 package swp.bibcommon;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -47,6 +49,18 @@ public class Reader extends BusinessObject implements Serializable, Cloneable {
      */
     private static final long serialVersionUID = -2835684051415448369L;
 
+    
+	/**
+	 * The format to store dates as string.
+	 */
+	private static final String DateFormat = "yyyy-MM-dd";
+	/**
+	 * Used to convert strings to java.util.Date and vice versa.
+	 */
+	private static final SimpleDateFormat DateFormatter = new SimpleDateFormat(DateFormat);
+	
+	
+    
     /* ************************************
      * Name and birthday (mandatory data)
      * ***********************************/
@@ -128,7 +142,7 @@ public class Reader extends BusinessObject implements Serializable, Cloneable {
      * when to delete the reader. All readers with inactivity for
      * a certain amount of time must be deleted.
      */
-    private Date lastUse;
+    private String lastUse;
 
     /* ************************************
      * Notes
@@ -143,6 +157,63 @@ public class Reader extends BusinessObject implements Serializable, Cloneable {
      */
    // private boolean saveHistory = false;
 
+    
+	/* ****************************************************************
+	 * Utilities.
+	 * ***************************************************************/
+
+	
+	/**
+	 * Returns a copy of value.
+	 *
+	 * @param value string to be copied; may be null
+	 * @return a new copy of value if value != null; null otherwise
+	 */
+	public static String copyString(String value) {
+		if (value == null) {
+			return null;
+		} else {
+			return new String (value);
+		}
+	}
+	
+	/**
+	 * Converts date given as java.util.Date to a string formatted
+	 * according to DateFormat.
+	 *
+	 * @param date date
+	 * @return the date formatted as described by DateFormat
+	 *   or null if given date is null.
+	 */
+	private String toString(Date date) {
+		if (date == null) {
+			return null;
+		} else {
+			return DateFormatter.format(date);
+		}
+	}
+	
+	
+	/**
+	 * Converts date string to java.util.Date.
+	 *
+	 * @param date date formatted as described by DateFormat
+	 * @return the date or null if given date is null, empty, or malformed
+	 */
+	private static Date toDate(String date) {
+		if (date == null || date.isEmpty()) {
+			return null;
+		} else {
+			try {
+				return DateFormatter.parse(date);
+			} catch (ParseException e) {
+				return null;
+			}
+		}
+	}
+    
+    
+    
     /* ************************************
      * Constructors
      * ***********************************/
@@ -397,19 +468,28 @@ public class Reader extends BusinessObject implements Serializable, Cloneable {
         this.entryDate = entry;
     }
 
-    /**
-     * @return the lastUse
-     */
-    public final Date getLastUse() {
-        return lastUse;
-    }
+	/**
+	 * @return the dateOfAddition
+	 */
+	public Date getLastUse() {
+		if (lastUse == null) {
+			return null;
+		} else {
+			return toDate(lastUse);
+		}
+	}
 
-    /**
-     * @param lastUse the lastUse to set
-     */
-    public final void setLastUse(final Date lastUse) {
-        this.lastUse = lastUse;
-    }
+	/**
+	 * @param dateOfAddition
+	 *            the dateOfAddition to set
+	 */
+	public void setLastUse(Date lastUse) {
+		if (lastUse == null) {
+			this.lastUse = null;
+		} else {
+			this.lastUse = toString(lastUse);
+		}
+	}
     
     /**
      * @return the lastUse
