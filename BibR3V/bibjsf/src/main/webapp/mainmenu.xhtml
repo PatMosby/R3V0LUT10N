@@ -22,7 +22,7 @@
 			</p:submenu>
 			
 			<p:submenu label="#{messages.profile}" icon="ui-icon-person" rendered="#{request.isUserInRole('USER')}">
-				<p:menuitem value="#{messages.myData}" url="#" />
+				<p:menuitem value="#{messages.myData}" url="/users/userProfile.xhtml" />
 				<p:menuitem value="#{messages.myBooks}" url="#" />
 				<p:menuitem value="#{messages.history}" url="#" />
 				<p:menuitem value="#{messages.settings}" icon="ui-icon-gear" url="#" />

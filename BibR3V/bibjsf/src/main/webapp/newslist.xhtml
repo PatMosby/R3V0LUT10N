@@ -17,7 +17,7 @@
 
 <!-- <h:form id="form">  --> 
   
-<!-- <h3>Disc</h3>  
+<h3>Disc</h3>  
 <p:dataList value="#{newsTable.model}" var="news" itemType="disc">  
     #{news.dateOfAddition}, #{news.news}  
 </p:dataList>  
@@ -30,7 +30,7 @@
 <h3>Square</h3>  
 <p:dataList value="#{newsTable.model}" var="news" itemType="square">  
     #{news.dateOfAddition}, #{news.news}  
-</p:dataList> -->
+</p:dataList>
 
 <h:form>  
     <p:dataTable var="news" value="#{newsTable.model}">  
@@ -41,11 +41,6 @@
         <p:column headerText="Nachricht">  
             <h:outputText value="#{news.news}" />  
         </p:column>
-        
-    </p:dataTable>  
-</h:form>  
-  
-<!-- </h:form>   -->
 
 </f:view>
 
