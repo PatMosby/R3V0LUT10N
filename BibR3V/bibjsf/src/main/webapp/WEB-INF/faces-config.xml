@@ -63,6 +63,20 @@
     
     <!-- reader list form -->        
     <navigation-rule>
+        <display-name>librarian/editor.xhtml</display-name>
+        <from-view-id>/librarian/editor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/librarian/editor.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- reader list form -->        
+    <navigation-rule>
         <display-name>chargesTime/change.xhtml</display-name>
         <from-view-id>chargesTime/change.xhtml</from-view-id>
         <navigation-case>

@@ -36,9 +36,10 @@ public class AddNewsForm extends NewsForm{
     		try {
     			NewsHandler nh = NewsHandler.getInstance();
     			element.setDateOfAddition(new Date());
-    			int newID = nh.add(element);
+    			//int date1 = nh.add(element);
+    			int result = nh.add(element);
     			reset();
-    			return success(newID);
+    			return success(result);
 
     		} catch (Exception e) {
     			return failure(e);
