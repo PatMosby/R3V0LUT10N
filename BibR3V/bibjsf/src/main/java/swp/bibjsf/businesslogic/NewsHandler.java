@@ -108,7 +108,7 @@ public void delete(List<News> elements) throws DataSourceException {
 
 @Override
 public int getNumber(List<Constraint> constraints) throws DataSourceException {
-	return -1;//persistence.getNumberOfNews(constraints);
+	return -1; //persistence.getNumberOfNews(constraints);
 	//TODO: divide by zero error wenn persistence einkommentiert wird
 }
 
