@@ -360,8 +360,7 @@ public class Data implements Persistence {
 		 
 		 if (!tableExists(tableNames, "NEWS")) {
 			 run.update("CREATE TABLE NEWS ("
-					 + "ID INT PRIMARY KEY CHECK (ID >= " + newsMinID + " ), "
-					 + "newsDate varchar(128), " + NewsField + " varchar(7999))");
+					+ "newsDate varchar(128), " + NewsField + " varchar(7999))");
 			}
 		
 		if (createAdmin) {
@@ -2563,6 +2562,7 @@ public class Data implements Persistence {
 	 */
 	//TODO HÄ?
 	private String testTableName = "testTable";
+	private String NewsDate = "NEWSDATE";
 	public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException {
 		logger.debug("TestLending");
 		run.update("insert into " + testTableName + "(id, "
@@ -2661,24 +2661,15 @@ public class Data implements Persistence {
 	}
 
 	@Override
-	public int addNews(final News news) throws DataSourceException, SQLException {
+	public void addNews(final News news) throws DataSourceException, SQLException {
 		logger.debug("addNews bla in data");
-//		run.update("insert into NEWS(" + NewsID + ", " + DateField + ", " + NewsField + ") values ('" 
-//				+ 
-//				+ news.getDateOfAddition() 
-//				+ "', '" + news.getNews() 
-//				+ "')");
+		run.update("insert into NEWS(" + NewsDate  + ", " + NewsField + ") values ('" 
+				+ news.getDateOfAddition() 
+				+ "', '" + news.getNews() 
+				+ "')");
 		//TODO: alter code ohne ID, funktionierte aber
 		
-		try {
-				Set<String> toIgnore = new HashSet<String>();
-				HashMap<String, Object> replace = new HashMap<String, Object>();
-				return insertByID(news, newsTableName, newsMinID, toIgnore, replace);
-			} catch (SQLException e) {
-				logger.error("add news failure");
-				throw new DataSourceException(e.getMessage());
-			}
-		}
+	}
 	
 	@Override
 	public News getNews(int id) {
