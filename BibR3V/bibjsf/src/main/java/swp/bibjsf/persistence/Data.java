@@ -2358,7 +2358,7 @@ public class Data implements Persistence {
 	 * Filename for backup of book table.
 	 */
 	private static final String BOOK_BACKUP = "bookBackup.csv";
-	private static final String DateField = "date";
+	private static final String DateField = "NEWSDATE";
 
 	/*
 	 * (non-Javadoc)
@@ -2648,7 +2648,7 @@ public class Data implements Persistence {
 	public void addNews(final News news) throws DataSourceException, SQLException {
 		logger.debug("addNews bla in data");
 		run.update("insert into NEWS("+ DateField + ", " + NewsField + ") values ('" 
-				+ news.getDateOfAddition() 
+				+ news.getStringDateOfAddition() 
 				+ "', '" + news.getNews() 
 				+ "')");
 //		Date date1 = news.getDateOfAddition();
