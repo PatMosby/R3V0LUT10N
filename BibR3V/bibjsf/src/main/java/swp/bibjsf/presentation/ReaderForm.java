@@ -193,4 +193,12 @@ public abstract class ReaderForm extends BusinessObjectForm<Reader> {
     public void setNote(String note) {
     	element.setNote(note);
     }
+    
+    public Date getLastUse() {
+        return element.getLastUse();
+    }
+
+    public void setLastUse(Date lastUse) {
+        element.setLastUse(lastUse);
+    }
 }
