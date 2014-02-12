@@ -47,6 +47,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -1238,9 +1240,20 @@ public class Data implements Persistence {
 //	}
 	
 	public void idTester(String mediumID)throws SQLException{
+		
+		//FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,  Messages.get("success"), Messages.get("id") + " = 13");
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, Messages.get("savefailed") + " ",
+				Messages.get("id") + " = 13");		
+		FacesContext.getCurrentInstance().addMessage(null, msg);
 	     
-		String table = "LENDING";
+		String table = "BOOK";
 		final long max = singleResultQuery("select MAX(id) from " + table);
+		logger.debug((int)max);
+		
+		StringBuilder sb = new StringBuilder();
+		logger.debug(sb.length());
+		sb.append(" ORDER BY ");
+		logger.debug(sb.length());
 		      
 	}
 	
@@ -2531,6 +2544,7 @@ public class Data implements Persistence {
 	public final void addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException {
 		logger.debug("inserting user to LENDING..." + bookID +"   "+ readerID + "");
 	    logger.debug(getNewId(borrowTableName, 1));
+        idTester(bookID);
 		run.update("insert into " + borrowTableName + "(id, "
 				+ BookID
 				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (" + getNewId(borrowTableName, 1) + ", '" + bookID + "', '" + readerID

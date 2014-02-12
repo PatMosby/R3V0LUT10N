@@ -30,7 +30,7 @@ public class AddBorrowerForm extends BorrowerForm{
 	    	//	}
 	    	} //else {
 	    		//return failure(Messages.get("elementNotSet"));
-	    	//}
+	    	//} 
 	    }
 	
 	public void returnMedium() {
