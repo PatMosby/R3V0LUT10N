@@ -361,7 +361,7 @@ public class Data implements Persistence {
 		 
 		 if (!tableExists(tableNames, "NEWS")) {
 			 run.update("CREATE TABLE NEWS ("
-					 + "ID INT PRIMARY KEY CHECK (ID >= " + newsMinID + " ), "
+					 //+ "ID INT PRIMARY KEY CHECK (ID >= " + newsMinID + " ), "
 					 + "newsDate varchar(128), " + NewsField + " varchar(7999))");
 			}
 		
@@ -2371,6 +2371,7 @@ public class Data implements Persistence {
 	 * Filename for backup of book table.
 	 */
 	private static final String BOOK_BACKUP = "bookBackup.csv";
+	private static final String DateField = "date";
 
 	/*
 	 * (non-Javadoc)
@@ -2656,25 +2657,30 @@ public class Data implements Persistence {
 				+ charges.getTyp() + "', '" + charges.getCharges() + "')");
 	}
 
+
 	@Override
-	public int addNews(final News news) throws DataSourceException, SQLException {
+	public void addNews(final News news) throws DataSourceException, SQLException {
 		logger.debug("addNews bla in data");
-//		run.update("insert into NEWS(" + NewsID + ", " + DateField + ", " + NewsField + ") values ('" 
-//				+ 
-//				+ news.getDateOfAddition() 
-//				+ "', '" + news.getNews() 
-//				+ "')");
+		run.update("insert into NEWS("+ DateField + ", " + NewsField + ") values ('" 
+				+ news.getDateOfAddition() 
+				+ "', '" + news.getNews() 
+				+ "')");
+//		Date date1 = news.getDateOfAddition();
+//		String date2 = date1.toString();
+//		int date3 = Integer.parseInt(date2);
+//		return date3;
+	}
 		//TODO: alter code ohne ID, funktionierte aber
 		
-		try {
-				Set<String> toIgnore = new HashSet<String>();
-				HashMap<String, Object> replace = new HashMap<String, Object>();
-				return insertByID(news, newsTableName, newsMinID, toIgnore, replace);
-			} catch (SQLException e) {
-				logger.error("add news failure");
-				throw new DataSourceException(e.getMessage());
-			}
-		}
+//		try {
+//				Set<String> toIgnore = new HashSet<String>();
+//				HashMap<String, Object> replace = new HashMap<String, Object>();
+//				return insertByID(news, newsTableName, newsMinID, toIgnore, replace);
+//			} catch (SQLException e) {
+//				logger.error("add news failure");
+//				throw new DataSourceException(e.getMessage());
+//			}
+//		}
 	
 	@Override
 	public News getNews(int id) {
