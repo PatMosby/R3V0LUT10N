@@ -4,17 +4,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
-
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<!-- Profile of a reader -->
 <h:head>
 	<title>#{messages.bib}</title>
-	<link rel="stylesheet" media="screen,projection"
-		title="Standardstylesheet" href="bib.css" type="text/css" />
 </h:head>
 <h:body>
-  <p>Welcome to user pages</p>
-  <h:form>
-    <h:commandButton action="#{authBackingBean.logout}" value="Logout" />
-  </h:form>
+	<h:outputStylesheet name="css/bib.css" />
+	<p>Welcome to user pages</p>
+	<h:form>
+	<ui:include src="/mainmenu.xhtml" />
+	<ui:include src="readerAttributes.xhtml">
+		<ui:param name="readerForm" value="#{addReaderForm}" />
+	</ui:include>	
+		<h:commandButton action="#{authBackingBean.logout}" value="Logout" />
+	</h:form>
 </h:body>
 </html>
