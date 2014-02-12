@@ -6,8 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 /**
- * Die Klasse Sonstiges repräsentiert alle medien die sich sonst noch in
- * der Bibliothek befinden
+ * Die Klasse News repräsentiert die Nachrichten und Informationen
  * @author Bredehöft
  *
  */
@@ -17,12 +16,15 @@ public class News extends BusinessObject implements Serializable{
 	/**
 	 * The format to store dates as string.
 	 */
-	private static final String DateFormat = "dd/MM/yyyy H:mm:ss";
+	private static final String DateFormat = "d/MM/yyyy H:mm:ss";
+	
+	private static final String DateFormat2 = "ddMMHmmss";
 	/**
 	 * Used to convert strings to java.util.Date and vice versa.
 	 */
 	private static final SimpleDateFormat DateFormatter = new SimpleDateFormat(DateFormat);
 
+	private static final SimpleDateFormat DateFormatter2 = new SimpleDateFormat(DateFormat2);
 	
 	private String dateOfAddition;
 	
@@ -43,7 +45,8 @@ public class News extends BusinessObject implements Serializable{
 	 *            the News whose values are to be copied
 	 */
 	public News(News news){
-		this.dateOfAddition         = copyString(news.dateOfAddition);
+		this.id 		= news.id;
+		this.dateOfAddition         = news.toString(news.getDateOfAddition());
 		this.news       = copyString(news.news);
 	}
 	
@@ -70,11 +73,19 @@ public class News extends BusinessObject implements Serializable{
 	 * @return the date formatted as described by DateFormat
 	 *   or null if given date is null.
 	 */
-	private String toString(Date date) {
+	public String toString(Date date) {
 		if (date == null) {
 			return null;
 		} else {
 			return DateFormatter.format(date);
+		}
+	}
+	
+	public String toStringForInt(Date date) {
+		if (date == null) {
+			return null;
+		} else {
+			return DateFormatter2.format(date);
 		}
 	}
 	
@@ -105,19 +116,19 @@ public class News extends BusinessObject implements Serializable{
 	 *********************/
 	
 	/**
-	 * Gibt die Autorenliste zurück.
+	 * Gibt die Nachrichten zurück.
 	 *
-	 * @return Autorenliste
+	 * @return Nachrichten
 	 */
 	public String getNews() {
 		return news;
 	}
 	
 	/**
-	 * Setzt die Autorenlist.
+	 * Setzt die Nachricht.
 	 *
-	 * @param author
-	 *              Autorenliste
+	 * @param news
+	 *              Nachricht
 	 */
 	public void setNews(String news) {
 		this.news = news;

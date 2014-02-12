@@ -17,6 +17,11 @@
     <ui:include src="/mainmenu.xhtml" />
     
     <h:form id="form">  
+    
+    <!-- ID (read-only) -->
+            <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold" title="#{messages.bookid_help}"/>
+            <h:outputText id="id" value="#{addNewsForm.id}" />
+            <p:message for="id"  display="both" />
   
     <p:inputTextarea rows="5" cols="30" value="#{addNewsForm.news}" counter="counter" maxlength="7999"       
     counterTemplate="{0} characters remaining." autoResize="false"/>  

@@ -9,8 +9,8 @@ import java.util.List;
 import swp.bibcommon.News;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
 import swp.bibjsf.exception.DataSourceException;
-import swp.bibjsf.persistence.Persistence;
 import swp.bibjsf.utils.Constraint;
+import swp.bibjsf.utils.Messages;
 import swp.bibjsf.utils.OrderBy;
 
 
@@ -21,12 +21,11 @@ public class NewsHandler extends BusinessObjectHandler<News>{
 
 private static volatile NewsHandler instance;
   
+	protected NewsHandler() throws DataSourceException, NamingException {
+		super();
+	}
   
-  protected NewsHandler() throws DataSourceException, NamingException {
-      super();
-  }
-  
-  public static synchronized NewsHandler getInstance()
+	public static synchronized NewsHandler getInstance()
           throws DataSourceException {
 
       if (instance == null) {
@@ -45,6 +44,18 @@ private static volatile NewsHandler instance;
   }
   
   /**
+   * Returns the list of all news in the system.
+   *
+   * @return list of all news in the system.
+   * @throws DataSourceException
+   *             is thrown if there are issues with the persistence component.
+   */
+  public synchronized List<News> getAllNews() throws DataSourceException {
+      List<News> news = persistence.getAllNews();
+      return news;
+  }
+  
+  /**
    * Adds reader to database. Reader must not yet exist.
    *
    * @param reader
@@ -59,9 +70,16 @@ private static volatile NewsHandler instance;
   public synchronized int add(News news) throws DataSourceException,
       BusinessElementAlreadyExistsException {
 	  logger.debug("NEWSHANDLER add(News news)");
+	  if (news.hasId() && persistence.getNews(news.getId()) != null) {
+          logger.info("news already exists and could not be added: "
+                  + news);
+          throw new BusinessElementAlreadyExistsException(Messages.get("newsexists") + " "
+          		+ Messages.get("id") + " = " + news.getId());
+      }
 	  try{
-    	  persistence.addNews(news);
-    	  return 1;}
+    	  int newID = persistence.addNews(news);
+    	  return newID;
+    	  }
       catch(Exception e)  { 
     	  logger.debug("NEWSHANDLER add(News news) FAIL!");
     	  return -1;
@@ -90,13 +108,14 @@ public void delete(List<News> elements) throws DataSourceException {
 
 @Override
 public int getNumber(List<Constraint> constraints) throws DataSourceException {
-	return persistence.getNumberOfNews(constraints);
+	return -1;//persistence.getNumberOfNews(constraints);
+	//TODO: divide by zero error wenn persistence einkommentiert wird
 }
 
 @Override
 public int update(int ID, News newValue) throws DataSourceException {
 	// TODO Auto-generated method stub
-	return 0;
+	return -1;
 }
 
 @Override
@@ -108,6 +127,6 @@ public void exportCSV(OutputStream outStream) throws DataSourceException {
 @Override
 public int importCSV(InputStream inputstream) throws DataSourceException {
 	// TODO Auto-generated method stub
-	return 0;
+	return -1;
 } 
 }
