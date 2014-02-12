@@ -754,6 +754,85 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     public void setLanguages(String[] languages) {
     	this.languages = languages.clone();
     }
+    private String[] booktyp = {"Buch"};
+    
+    public String[] getBooktyp() {
+    	return booktyp.clone();
+    }
+
+    public void setBooktyp(String[] booktyp) {
+    	this.booktyp = booktyp.clone();
+    }
+    
+    private String[] audiobooktyp = {"Hörbuch"};
+    
+    public String[] getAudiobooktyp() {
+    	return audiobooktyp.clone();
+    }
+
+    public void setAudiobooktyp(String[] audiobooktyp) {
+    	this.audiobooktyp = audiobooktyp.clone();
+    }
+    
+    private String[] cassettetyp = {"Kassette"};
+    
+    public String[] getCassettetyp() {
+    	return cassettetyp.clone();
+    }
+
+    public void setCassettetyp(String[] cassettetyp) {
+    	this.cassettetyp = cassettetyp.clone();
+    }
+    
+    private String[] cdtyp = {"CD"};
+    
+    public String[] getCdtyp() {
+    	return cdtyp.clone();
+    }
+
+    public void setCdtyp(String[] cdtyp) {
+    	this.cdtyp = cdtyp.clone();
+    }
+    
+    private String[] movietyp = {"Film"};
+    
+    public String[] getMovietyp() {
+    	return movietyp.clone();
+    }
+
+    public void setMovietyp(String[] movietyp) {
+    	this.movietyp = movietyp.clone();
+    }
+    
+    private String[] othertyp = {"Andere"};
+    
+    public String[] getOthertyp() {
+    	return othertyp.clone();
+    }
+
+    public void setOthertyp(String[] othertyp) {
+    	this.othertyp = othertyp.clone();
+    }
+    
+    private String[] softwaretyp = {"Software"};
+    
+    public String[] getsoftwaretyp() {
+    	return softwaretyp.clone();
+    }
+
+    public void setSoftwaretyp(String[] softwaretyp) {
+    	this.softwaretyp = softwaretyp.clone();
+    }
+    
+    private String[] magazinetyp = {"Magazin"};
+    
+    public String[] getMagazinetyp() {
+    	return magazinetyp.clone();
+    }
+
+    public void setMagazinetyp(String[] magazinetyp) {
+    	this.magazinetyp = magazinetyp.clone();
+    }
     
     private String[] typs = {"Buch", "Zeitschrift", "Cd", "Film", "Software", "Andere", "Hörbuch", "Kassette"};
 
