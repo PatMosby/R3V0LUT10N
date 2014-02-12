@@ -131,10 +131,12 @@
         </p:selectBooleanCheckbox>
         <p:message for="price" display="both" />
                         
-     	<!-- typ --> 
-        <h:outputLabel for="typ" value="#{messages.typ}:"
-            style="font-weight:bold" title="#{messages.typ_help}" />
-        <p:inputText id="typ" value="#{bookForm.typ}" size="#{bookForm.textWidth}" />
+       <!-- typ -->
+        <h:outputLabel for="typ" value="#{messages.typ}:" title="#{messages.language_help}"
+            style="font-weight:bold" />
+        <p:selectOneMenu id="typ" value="#{bookForm.typ}" editable="true">  
+            <f:selectItems value="#{bookForm.cassettetyp}" />  
+        </p:selectOneMenu>
         <p:selectBooleanCheckbox value="#{bookForm.typSelected}" rendered="#{bookForm.selectable}" >
             <p:ajax />
         </p:selectBooleanCheckbox>
