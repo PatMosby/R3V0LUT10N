@@ -1451,6 +1451,13 @@ public class Data implements Persistence {
 		return null;
 	}
 	
+	public void idTester(String mediumID)throws SQLException{
+	     
+		String table = "LENDING";
+		final long max = singleResultQuery("select MAX(id) from " + table);
+		      
+	}
+	
 
 	/*
 	 * (non-Javadoc)
@@ -1681,14 +1688,14 @@ public class Data implements Persistence {
 				numberOfFields++;
 			}
 		}
-
+		
 		// fields =
 		// "UPDATE <table> SET field1 = ?, field2 = ?, ..., fieldN = ?,"
 		if (numberOfFields > 0) {
 			// remove last comma
 			stmt.deleteCharAt(stmt.length() - 1);
 
-			// append where clause
+			// append where clause 
 			stmt.append(" WHERE " + key + " = ?");
 
 			try {
