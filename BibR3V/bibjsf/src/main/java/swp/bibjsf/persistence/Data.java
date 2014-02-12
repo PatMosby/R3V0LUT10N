@@ -172,7 +172,6 @@ public class Data implements Persistence {
 	 */
 	private final static int readerMinID = 0;
 	
-	private final static int newsMinID = 0;
 	/**
 	 * User groups.
 	 */
