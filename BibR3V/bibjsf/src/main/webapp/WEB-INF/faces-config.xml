@@ -344,10 +344,10 @@
     </navigation-rule>
     
     <!-- user profile -->
-    <navigation-rule>
-        <display-name>users/userProfil.xhtml</display-name>
-        <from-view-id>/users/userProfil.xhtml</from-view-id>
-    </navigation-rule>
+<!--     <navigation-rule> -->
+<!--         <display-name>users/userProfil.xhtml</display-name> -->
+<!--         <from-view-id>/users/userProfil.xhtml</from-view-id> -->
+<!--     </navigation-rule> -->
             	
 	<!-- localization -->
   	<application>

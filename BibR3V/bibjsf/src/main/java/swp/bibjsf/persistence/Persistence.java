@@ -400,7 +400,7 @@ public interface Persistence {
 	
 	public void addCharges(Charges charges)throws DataSourceException, SQLException;
 
-	public void addNews(News news) throws DataSourceException, SQLException;
+	public int addNews(News news) throws DataSourceException, SQLException;
 
 	public News getNews(int id);
 
