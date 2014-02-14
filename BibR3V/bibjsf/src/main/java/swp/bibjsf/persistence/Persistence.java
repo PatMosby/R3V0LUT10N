@@ -297,6 +297,8 @@ public interface Persistence {
 	 *             in case of problems with data source
 	 */
 	public Reader getReader(int id) throws DataSourceException;
+	
+	public Reader getReader(String username) throws DataSourceException;
 
 	/**
 	 * Returns a reader with given username.
