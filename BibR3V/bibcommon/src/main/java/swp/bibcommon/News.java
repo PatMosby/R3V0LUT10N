@@ -46,7 +46,7 @@ public class News extends BusinessObject implements Serializable{
 	 */
 	public News(News news){
 		this.id 		= news.id;
-		this.dateOfAddition         = news.getStringDateOfAddition();
+		this.dateOfAddition         = news.toString(news.getDateOfAddition());
 		this.news       = copyString(news.news);
 	}
 	

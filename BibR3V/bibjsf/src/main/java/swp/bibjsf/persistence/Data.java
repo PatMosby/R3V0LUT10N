@@ -2672,9 +2672,28 @@ public class Data implements Persistence {
 	}
 	
 	@Override
-	public News getNews(int id) {
-		// TODO fehlt ...
-		return null;
+	public News getNews(int id) throws DataSourceException {
+		logger.debug("get news");
+
+		try {
+			if (id < 0) {
+				throw new IllegalArgumentException(Messages.get("idnegative"));
+			}
+			ResultSetHandler<List<News>> resultSetHandler = new BeanListHandler<News>(
+					News.class);
+			String sqlQuery = String.format("SELECT * FROM %s WHERE id=%d",
+					newsTableName, id);
+			List<News> news;
+			news = run.query(sqlQuery, resultSetHandler);
+			if (news == null || news.size() == 0) {
+				throw new DataSourceException(Messages.get("noNewsForId") + " "
+						+ id);
+			} else {
+				return news.get(0);
+			}
+		} catch (SQLException e) {
+			throw new DataSourceException(e.getMessage());
+		}
 	}
 
 	@Override

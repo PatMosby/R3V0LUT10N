@@ -68,5 +68,6 @@ public class NewsTable extends TableForm<News> {
 	protected List<Content> getContent() {
 		return null;
 	}
+	
 }
 

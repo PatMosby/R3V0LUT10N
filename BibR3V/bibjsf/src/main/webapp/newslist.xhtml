@@ -15,16 +15,14 @@
 <h:body>
 <f:view>
 
-<!-- <h:form id="form">  --> 
-  
-<h3>Disc</h3>  
-<p:dataList value="#{newsTable.model}" var="news" itemType="disc">  
-    #{news.dateOfAddition}, #{news.news}  
-</p:dataList>  
+<!-- <h3>Disc</h3>  
+<p:dataList value="#{bookTable.model}" var="books" itemType="disc">  
+    #{book.title}, #{book.title}  
+</p:dataList>   -->
 
 <h3>Circle</h3>  
-<p:dataList value="#{newsTable.model}" var="news" itemType="circle">  
-    #{news.dateOfAddition}, #{news.news}  
+<p:dataList value="#{newsHandler.newsList}" var="news" itemType="circle">  
+    #{news.news}  
 </p:dataList>  
 
 <h3>Square</h3>  
@@ -41,6 +39,54 @@
         <p:column headerText="Nachricht">  
             <h:outputText value="#{news.news}" />  
         </p:column>
+     </p:dataTable>
+</h:form>
+
+
+<p:dataTable id="bookTable" 
+     value="#{newsTable.model}" 
+     var="news"
+     lazy="true"
+     sortMode="multiple"
+     editable="#{bookTable.modifiable}"
+     filteredValue="#{bookTable.filteredElements}"
+     emptyMessage="#{messages.noBooksFound}" 
+     selection="#{bookTable.selectedElements}"
+     resizableColumns="true" liveResize="true"
+     paginator="true"
+     rows="25"
+     rowsPerPageTemplate="10,25,50,100,200,500,1000"
+     >  
+  
+      <f:facet name="header" value="#{messages.newslisttitle}" />  
+                  
+      <p:column selectionMode="multiple" style="width:2%" />
+
+      <p:column style="width:5%">  
+          <p:rowToggler />  
+      </p:column>  
+        
+     <!--  
+      <p:column id="IDColumn" sortBy="#{news.id}" filterBy="#{news.id}"   
+                headerText="#{messages.id}" style="width:8%"
+                filterMatchMode="startsWith">  
+        <h:outputText value="#{news.id}" />   
+      </p:column>   -->
+                  
+      <!-- Title -->
+      <p:column id="dateColumn" sortBy="#{books.dateOfAddition}" filterBy="#{books.dateOfAddition}"  
+              headerText="#{messages.dateOfAddition}" filterMatchMode="contains" style="width:10%"> 
+        <h:outputText value="#{books.dateOfAddition}" />   
+      </p:column>  
+  
+      <!-- Categories -->
+      <p:column id="newsColumn" sortBy="#{books.news}" filterBy="#{books.news}"  
+              headerText="#{messages.news}" filterMatchMode="contains" style="width:10%">
+        <h:outputText value="#{books.news}" />  
+      </p:column>
+      
+    </p:dataTable>
+
 
 </f:view>
 

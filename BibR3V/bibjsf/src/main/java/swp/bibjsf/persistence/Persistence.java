@@ -402,7 +402,7 @@ public interface Persistence {
 
 	public void addNews(News news) throws DataSourceException, SQLException;
 
-	public News getNews(int id);
+	public News getNews(int id) throws DataSourceException;
 
 	public List<News> getNews(List<Constraint> constraints, int from, int to,
 			List<OrderBy> order) throws DataSourceException;
