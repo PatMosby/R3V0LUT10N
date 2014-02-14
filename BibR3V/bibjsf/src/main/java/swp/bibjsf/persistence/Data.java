@@ -519,7 +519,7 @@ public class Data implements Persistence {
 							+ table + " where id = " + i);
 					logger.debug("getNewId value = " + value);
 					if (value == 0) {
-						logger.debug("getNewId = " + i);
+						logger.debug("Data getNewId = " + i);
 						return i;
 					}
 				}
@@ -533,6 +533,8 @@ public class Data implements Persistence {
 		} else {
 			// fits in the int range
 			result = (int) max + 1;
+			logger.debug("ZWeite Else Block Data Klasse " + result);
+			
 		}
 		logger.debug("getNewId = " + result);
 		return result;
@@ -2543,14 +2545,32 @@ public class Data implements Persistence {
 	  //TODO: fehlt...
 	 }
 	 
-	public final void addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException {
+	public final int addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException {
 		logger.debug("inserting user to LENDING..." + bookID +"   "+ readerID + "");
-	    logger.debug(getNewId(borrowTableName, 1));
-        idTester(bookID);
-		run.update("insert into " + borrowTableName + "(id, "
-				+ BookID
-				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (" + getNewId(borrowTableName, 1) + ", '" + bookID + "', '" + readerID
+		int idValue = getNewId(borrowTableName, 1);
+	    logger.debug(idValue);
+      //  idTester(bookID);
+	    logger.debug("SQL Befehl: "+"insert into " + borrowTableName + "(id, "+ BookID
+				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (" + idValue+ ", '" + bookID + "', '" + readerID
 				+ "', '" + date + "', '" + charges + "')");
+	    
+		run.update("insert into " + borrowTableName + "(id, "+ BookID
+				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (" + idValue+ ", '" + bookID + "', '" + readerID
+				+ "', '" + date + "', '" + charges + "')");
+		
+		return idValue;
+		
+//		Borrower b = new Borrower();
+//		b.setBookID(bookID);
+//		b.setReaderID(readerID);
+//		
+//		Set<String> toIgnore = new HashSet<String>();
+//		HashMap<String, Object> replace = new HashMap<String, Object>();
+//		
+//		int result = insertByID(b, borrowTableName, 0	, toIgnore, replace);
+//		return result;
+		
+		
 	}
 	
 	/**
@@ -2725,6 +2745,12 @@ public class Data implements Persistence {
 			logger.error("list news failure");
 			throw new DataSourceException(e.getLocalizedMessage());
 		}
+	}
+
+	@Override
+	public Reader getReader(String username) throws DataSourceException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

@@ -23,6 +23,8 @@ public abstract class BorrowerForm extends BusinessObjectForm<Borrower>{
         
     public abstract String getMediumID();
           
-    public abstract void setMediumID(final String mediumID);   	
+    public abstract void setMediumID(final String mediumID);
+
+	public abstract boolean getSelectable();	
 
 }

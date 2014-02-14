@@ -386,7 +386,7 @@ public interface Persistence {
 	 */
 	public void restore() throws DataSourceException;
 	
-	public void addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException;
+	public int addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException;
 
 	public void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException;
 	

@@ -23,10 +23,12 @@ public class AddBorrowerForm extends BorrowerForm{
 	    	logger.debug("request to save borrower " + ((element == null) ? "NULL" : element.toString()));
 	    //	if (element != null) {
 	    		try {
-	    			BorrowHandler bh = BorrowHandler.getInstance();	    			
-	    			return success(bh.add(borrower));
+	    			BorrowHandler bh = BorrowHandler.getInstance(); // Singelton
+	    		
+	    		return success(bh.add(borrower));
+	    		//	return "success";
 	    		} catch (Exception e) {
-	    			return failure(e);
+	    			return "save Methode Fehlgeschlagen : " +failure(e);
 	    	//	}
 	    	} //else {
 	    		//return failure(Messages.get("elementNotSet"));
@@ -80,4 +82,10 @@ public class AddBorrowerForm extends BorrowerForm{
     	System.out.println("setmedium");
         borrower.setBookIDs(mediumIDs);
     }
+
+	@Override
+	public boolean getSelectable() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
