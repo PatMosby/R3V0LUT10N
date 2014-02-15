@@ -262,8 +262,7 @@ public class Data implements Persistence {
 	}
 
 	/**
-	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank gelesen wird.
-	 * @return Liefert die Liste zurück.
+	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank gelesen wird. 
 	 */
 	public List<Borrower> getBorrower() {
 		List<Borrower> borrowerList = new ArrayList<>();
