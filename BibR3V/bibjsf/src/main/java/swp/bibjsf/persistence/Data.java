@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -47,6 +48,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.naming.Context;
@@ -59,6 +62,7 @@ import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.log4j.Logger;
+import org.primefaces.event.CellEditEvent;
 
 import android.util.Log;
 import swp.bibcommon.Book;
@@ -80,26 +84,28 @@ import swp.bibjsf.utils.Reflection;
 
 /**
  * Data is used to communicate with the database.
- *
+ * 
  * @author K. Hölscher, D. Lüdemann, R. Koschke
- *
+ * 
  */
-
+@ManagedBean(name = "data")
+@SessionScoped
 public class Data implements Persistence {
 
 	/*
 	 * GENERAL ADVICE:
-	 *
+	 * 
 	 * Use prepared statements whenever parts of the SQL statement are derived
 	 * from user input in order to avoid SQL injections.
-	 *
+	 * 
 	 * IMPORTANT NOTES ON RESOURCES: Connections, statements, and result sets
 	 * must be closed after use. To make sure they are closed under all
 	 * circumstances (exceptions) follow the advice given here:
-	 * http://blog.shinetech.com/2007/08/04/how-to-close-jdbc-resources-properly-every-time/
-	 *
+	 * http://blog.shinetech
+	 * .com/2007/08/04/how-to-close-jdbc-resources-properly-every-time/
+	 * 
 	 * Here is the summary in a nutshell:
-	 *
+	 * 
 	 * 1) Do not initialize the connection variable to null -- always assign the
 	 * real connection object to it immediately. 2) On the very next line of
 	 * code, start a try/finally block that will use that connection and then
@@ -108,17 +114,17 @@ public class Data implements Persistence {
 	 * this time apply them to the statement instead of the connection. In other
 	 * words, initialize the statement immediately and start a new, nested
 	 * try/finally block on the next line of code.
-	 *
+	 * 
 	 * Example:
-	 *
+	 * 
 	 * Connection connection = dataSource.getConnection(); try { Statement
 	 * statement = connection.createStatement(); try { // Do stuff with the
 	 * statement } finally { statement.close(); } } finally {
 	 * connection.close(); }
-	 *
+	 * 
 	 * Unfortunately, it is not that simple because getConnection() as well as
 	 * createStatement() may throw SQL exceptions, too.
-	 *
+	 * 
 	 * If a connection is closed, all its associated statements and result sets
 	 * are implicitly closed, too. So we do not need to close them explicitly
 	 * ourselves unless a connection is opened for many statements and result
@@ -135,16 +141,16 @@ public class Data implements Persistence {
 	private static final String DATE = "date";
 	private static final String CHARGES = "charges";
 	private static final String NewsField = "news";
-	
+
 	/**
 	 * The name of the tables in the database where the mediums are stored.
 	 */
 	private final static String bookTableName = "BOOK";
-	
+
 	private final static String borrowTableName = "LENDING";
-		
-	private final static String newsTableName = "NEWS";	
-	
+
+	private final static String newsTableName = "NEWS";
+
 	/*
 	 * The minimal ID a book can have. We are using different ranges for book
 	 * and reader IDs to avoid user input mistakes. By making sure the ID ranges
@@ -165,13 +171,13 @@ public class Data implements Persistence {
 	 * Name of the database for charges.
 	 */
 	private final static String chargesTableName = "CHARGES";
-	
+
 	/**
 	 * The minimal ID a reader can have. Default admin has ID 0. See comment for
 	 * bookMinID.
 	 */
 	private final static int readerMinID = 0;
-	
+
 	/**
 	 * User groups.
 	 */
@@ -212,30 +218,29 @@ public class Data implements Persistence {
 	 * Der Query Runner. Vereinfacht den Umgang mit der Datenbank.
 	 */
 	private final QueryRunner run;
-	
+
 	/**
 	 * Logger für Log-Ausgaben.
 	 */
 	private static final Logger logger = Logger.getLogger(Data.class);
-	
-	
 
 	/************************************************************************
 	 * Database structure.
 	 ************************************************************************/
 
 	/**
-	 *
+	 * 
 	 * Creates a new instance of this class. It is checked, whether the
 	 * datasource can be provided by the application container and whether the
 	 * database has the right structure.
-	 *
+	 * 
 	 * @throws DataSourceException
 	 *             is thrown if there is no datasource found with this name.
-	 *
+	 * 
 	 *             * @throws NamingException is thrown if there are problems
 	 *             during the JNDI-name look-up.
 	 */
+
 	public Data() throws DataSourceException, NamingException {
 		logger.debug("create new Data object");
 		Context envCtx;
@@ -243,7 +248,10 @@ public class Data implements Persistence {
 		logger.debug("lookup database: " + databaselookup + ", " + databasename);
 
 		envCtx = (Context) initCtx.lookup(databaselookup);
-		dataSource = (DataSource) envCtx.lookup(databasename);
+		dataSource = (DataSource) envCtx.lookup(databasename); // Datasource
+
+		getBorrower();
+
 		run = new QueryRunner(dataSource);
 		try {
 			checkDatabaseStructure(true);
@@ -253,13 +261,63 @@ public class Data implements Persistence {
 		}
 	}
 
+	public List<Borrower> getBorrower() {
+		List<Borrower> borrowerList = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection=null;
+		try {
+			logger.debug("Starte getBorrower");
+		 dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT ID, BOOK_ID, USER_ID, DATE, CHARGES From LENDING");
+			 resultLending = ps.executeQuery();
+
+			while (resultLending.next()) {
+				Borrower newBorrower = new Borrower();
+
+				newBorrower.setId(resultLending.getInt(1));
+				newBorrower.setBookID(resultLending.getString(2)); // Book id
+				newBorrower.setReaderID(resultLending.getString(3)); // User id
+				newBorrower.calculateDate();// date
+				newBorrower.calculateFines(); // charges
+
+				borrowerList.add(newBorrower);
+			}
+			logger.debug("Zeige alle Borrower");
+			for (Borrower element : borrowerList) {
+				logger.debug("Elemente: " + element.getBookID());
+			}
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return borrowerList;
+
+	}
+
 	/**
 	 * Checks whether database has expected tables. If not, such tables are
 	 * created. Checks whether admin is contained in the table. If not, such a
 	 * user is added.
-	 *
-	 * @throws SQLException in case of an SQL problem
-	 * @throws DataSourceException problem with the data source
+	 * 
+	 * @throws SQLException
+	 *             in case of an SQL problem
+	 * @throws DataSourceException
+	 *             problem with the data source
 	 */
 	private synchronized void checkDatabaseStructure(boolean createAdmin)
 			throws SQLException, DataSourceException {
@@ -291,17 +349,16 @@ public class Data implements Persistence {
 					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
 					+ "language VARCHAR(2), " + "subcategories VARCHAR(128), "
 					+ "price DECIMAL(10,2), " + "subtitle VARCHAR(128), "
-					+ "location VARCHAR(128), " + "pageCount INT, " 
-					+ "previewLink VARCHAR(128), "	+ "printType VARCHAR(64), "
+					+ "location VARCHAR(128), " + "pageCount INT, "
+					+ "previewLink VARCHAR(128), " + "printType VARCHAR(64), "
 					+ "publisher VARCHAR(64), " + "editorList VARCHAR(256), "
 					+ industrialIdentifier + " VARCHAR(29), "
 					+ "authors VARCHAR(256), " + "label VARCHAR(128), "
-					+ "media INT, "  + "artistList VARCHAR(256), "
+					+ "media INT, " + "artistList VARCHAR(256), "
 					+ "playTime INT, " + "titleCount INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
 					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
-					+ "charges DECIMAL(10,2), "
-					+ "title VARCHAR(256)" + ")");
+					+ "charges DECIMAL(10,2), " + "title VARCHAR(256)" + ")");
 		}
 		if (!tableExists(tableNames, readerTableName)) {
 			logger.debug("database table " + readerTableName
@@ -339,30 +396,29 @@ public class Data implements Persistence {
 					+ UsernameField + ") REFERENCES " + readerTableName + "("
 					+ UsernameField + ") ON DELETE CASCADE ON UPDATE RESTRICT)");
 		}
-		
-		 if (!tableExists(tableNames, borrowTableName)) {
-			 run.update("CREATE TABLE " + borrowTableName
-						+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
-						+ " <= ID AND ID < " + bookMinID + "), " + BookID
-						+ " VARCHAR(128) NOT NULL UNIQUE, "
-						+ UserID + " varchar(128), "
-						+ DATE + " varchar(128), "
-						+ CHARGES + " varchar(128))");
+
+		if (!tableExists(tableNames, borrowTableName)) {
+			run.update("CREATE TABLE " + borrowTableName
+					+ " (ID INT PRIMARY KEY CHECK (" + readerMinID
+					+ " <= ID AND ID < " + bookMinID + "), " + BookID
+					+ " VARCHAR(128) NOT NULL UNIQUE, " + UserID
+					+ " varchar(128), " + DATE + " varchar(128), " + CHARGES
+					+ " varchar(128))");
 		}
-		 if (!tableExists(tableNames, chargesTableName)) {
-			 	logger.debug("database table " + chargesTableName
-			 			+ " does not exist, creating new one");
-			 	// The table of all types and their charges.
-			 	run.update("CREATE TABLE " + chargesTableName
-			 			+ " (type varchar(128) NOT NULL UNIQUE, "
-			 			+ CHARGES + " varchar(128))");
-		 }
-		 
-		 if (!tableExists(tableNames, "NEWS")) {
-			 run.update("CREATE TABLE NEWS ("
-					+ "newsDate varchar(128), " + NewsField + " varchar(7999))");
-			}
-		
+		if (!tableExists(tableNames, chargesTableName)) {
+			logger.debug("database table " + chargesTableName
+					+ " does not exist, creating new one");
+			// The table of all types and their charges.
+			run.update("CREATE TABLE " + chargesTableName
+					+ " (type varchar(128) NOT NULL UNIQUE, " + CHARGES
+					+ " varchar(128))");
+		}
+
+		if (!tableExists(tableNames, "NEWS")) {
+			run.update("CREATE TABLE NEWS (" + "newsDate varchar(128), "
+					+ NewsField + " varchar(7999))");
+		}
+
 		if (createAdmin) {
 			insertAdmin();
 		}
@@ -370,7 +426,7 @@ public class Data implements Persistence {
 
 	/**
 	 * True if tableName is contained in tableNames (both in lowercase).
-	 *
+	 * 
 	 * @param tableNames
 	 *            list of table names
 	 * @param tableName
@@ -384,7 +440,7 @@ public class Data implements Persistence {
 	/**
 	 * Adds admin to reader table and user and admin group tables if it does not
 	 * exist yet.
-	 *
+	 * 
 	 * @throws DataSourceException
 	 * @throws SQLException
 	 */
@@ -403,46 +459,52 @@ public class Data implements Persistence {
 					+ "')");
 		}
 	}
-	
+
 	/**
-	 * Fügt einen Leser mit Benutzerrolle eines Lesers
-	 * in die Benutzerrollentabelle ein.
+	 * Fügt einen Leser mit Benutzerrolle eines Lesers in die
+	 * Benutzerrollentabelle ein.
+	 * 
 	 * @param username
 	 * @throws DataSourceException
 	 * @throws SQLException
 	 */
-	private void insertUser(String username) throws DataSourceException, SQLException {
-			logger.debug("inserting user to USER");
-			run.update("insert into " + groupTableName + "(" + UsernameField
-					+ ",groupid) values ('" + username + "', '" + USERGROUP + "')");
-	}
-	
-	/**
-	 * Fügt einen Bibliothekar mit Benutzerrolle eines Bibliothekaren
-	 * in die Benutzerollentabelle ein.
-	 * @param username
-	 * @throws DataSourceException
-	 * @throws SQLException
-	 */
-	private void insertLibrarian(String username) throws DataSourceException, SQLException {
-		logger.debug("inserting user to LIBRARIAN");
+	private void insertUser(String username) throws DataSourceException,
+			SQLException {
+		logger.debug("inserting user to USER");
 		run.update("insert into " + groupTableName + "(" + UsernameField
-				+ ",groupid) values ('" + username + "', '" + LIBRARIANGROUP + "')");
+				+ ",groupid) values ('" + username + "', '" + USERGROUP + "')");
 	}
 
+	/**
+	 * Fügt einen Bibliothekar mit Benutzerrolle eines Bibliothekaren in die
+	 * Benutzerollentabelle ein.
+	 * 
+	 * @param username
+	 * @throws DataSourceException
+	 * @throws SQLException
+	 */
+	private void insertLibrarian(String username) throws DataSourceException,
+			SQLException {
+		logger.debug("inserting user to LIBRARIAN");
+		run.update("insert into " + groupTableName + "(" + UsernameField
+				+ ",groupid) values ('" + username + "', '" + LIBRARIANGROUP
+				+ "')");
+	}
 
 	/**
 	 * Returns the lower-case names of all tables in the database.
-	 *
+	 * 
 	 * @return list of lower-case names of all tables in the database
 	 * @throws SQLException
 	 *             falls ein Fehler beim Zugriff auf die Datenbank auftritt
 	 */
 	private List<String> getTableNames() throws SQLException {
 		logger.debug("get table names");
+
 		DatabaseMetaData dbMeta;
 		List<String> result = new ArrayList<String>();
 		Connection dbConnection = dataSource.getConnection();
+
 		try {
 			dbMeta = dbConnection.getMetaData();
 			logger.debug("URL of database " + dbMeta.getURL());
@@ -457,15 +519,19 @@ public class Data implements Persistence {
 			try {
 				while (rs.next()) {
 					String theTableName = rs.getString("TABLE_NAME");
+
 					result.add(theTableName.toLowerCase());
 				}
 			} finally {
 				rs.close();
 			}
+
 			return result;
 		} finally {
 			try {
+
 				dbConnection.close();
+
 			} catch (SQLException e) {
 				logger.debug("error while trying to close the database connection.");
 				// ignore, nothing to be done here anyway
@@ -484,7 +550,7 @@ public class Data implements Persistence {
 	 * primary key. (2) The primary key is not reserved in any way, that is, the
 	 * returned key may already be taken upon completion of this method (or
 	 * thereafter).
-	 *
+	 * 
 	 * @param table
 	 *            table for which primary key is needed; expected to have column
 	 *            'id'
@@ -534,7 +600,7 @@ public class Data implements Persistence {
 			// fits in the int range
 			result = (int) max + 1;
 			logger.debug("ZWeite Else Block Data Klasse " + result);
-			
+
 		}
 		logger.debug("getNewId = " + result);
 		return result;
@@ -543,7 +609,7 @@ public class Data implements Persistence {
 	/**
 	 * Executes a simple query that results only a single result. Useful to
 	 * query for COUNT, MAX, MIN, and the like.
-	 *
+	 * 
 	 * @param query
 	 *            SQL statement
 	 * @return result of the query
@@ -577,7 +643,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Returns the number of elements fulfilling constraints in given table.
-	 *
+	 * 
 	 * @param table
 	 * @param constraints
 	 * @return
@@ -624,7 +690,7 @@ public class Data implements Persistence {
 	 * Generic retrieval of elements from a given table fulfilling given
 	 * constraints and sorted by given order. Only the elements from...to in
 	 * that order are returned.
-	 *
+	 * 
 	 * @param constraints
 	 *            constraints to be fulfilled
 	 * @param from
@@ -746,7 +812,7 @@ public class Data implements Persistence {
 	/**
 	 * Fills in the arguments (properties) given in <code>constraints</code>
 	 * into <code>stmt</code> positionally.
-	 *
+	 * 
 	 * @param constraints
 	 *            the properties from which arguments are to be filled in
 	 * @param stmt
@@ -770,17 +836,17 @@ public class Data implements Persistence {
 	/**
 	 * Returns an ORDER BY clause for an sql select statement for the given
 	 * <code>order</code>.
-	 *
+	 * 
 	 * Note: The fields in <code>order</code> are data that are derived from
 	 * field names in the facelets and, hence, cannot be influenced by the user,
 	 * can it? For this reason, they need to be sanitized for potential SQL
 	 * injections, do they?
-	 *
+	 * 
 	 * @param order
 	 *            the order specification
 	 * @return ORDER BY clause if <code>order</code> specifies an order or empty
 	 *         string if <code>order</code> is null or empty.
-	 *
+	 * 
 	 */
 	private String toOrderByClause(List<OrderBy> order) {
 		if (order == null || order.isEmpty()) {
@@ -804,15 +870,16 @@ public class Data implements Persistence {
 	 * value. The real attribute values will later be added by the caller by
 	 * filling the prepared statement for which this method returns the WHERE
 	 * clause. If constraints is null or empty, the empty string is returned.
-	 *
+	 * 
 	 * Note: The properties in <code>constraints</code> are data that is input
 	 * by a user and, hence, a potential source of SQL injections. For this
 	 * reason, they are sanitized here by way of prepared statements. The
 	 * attribute names in <code>constraints</code>, on the other hand, are
 	 * derived from field names in the facelets and, hence, cannot be influenced
 	 * by the user, can it?
-	 *
-	 * @param constraints constraints that should be transformed into SQL syntax
+	 * 
+	 * @param constraints
+	 *            constraints that should be transformed into SQL syntax
 	 * @return where clause
 	 */
 	private String toQuery(List<Constraint> constraints) {
@@ -836,11 +903,12 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see swp.bibjsf.persistence.Persistence#deleteAll(swp.bibcommon.Reader[])
 	 */
 	@Override
-	public void deleteAll(List<? extends BusinessObject> elements) throws DataSourceException {
+	public void deleteAll(List<? extends BusinessObject> elements)
+			throws DataSourceException {
 		logger.debug("delete all given elements");
 
 		Connection con;
@@ -878,8 +946,9 @@ public class Data implements Persistence {
 
 	/**
 	 * Disables auto-commit and closes {@code con}.
-	 *
-	 * @param con connection to be closed
+	 * 
+	 * @param con
+	 *            connection to be closed
 	 * @throws DataSourceException
 	 */
 	protected void closeConnection(Connection con) throws DataSourceException {
@@ -904,13 +973,13 @@ public class Data implements Persistence {
 
 	/**
 	 * Returns all books that are stored in the database.
-	 *
+	 * 
 	 * @return list of books
 	 * @throws DataSourceException
 	 *             if there is a problem with the database.
 	 */
 	@Override
-    public final List<Book> getAllBooks() throws DataSourceException {
+	public final List<Book> getAllBooks() throws DataSourceException {
 		logger.debug("get all books");
 		try {
 			ResultSetHandler<List<Book>> resultSetHandler = new BeanListHandler<Book>(
@@ -927,7 +996,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Adds a new book to the database.
-	 *
+	 * 
 	 * @param book
 	 *            the book to be added.
 	 * @return the ID of the book (either the original one or an auto-generated
@@ -936,7 +1005,7 @@ public class Data implements Persistence {
 	 *             if there is a problem with the database.
 	 */
 	@Override
-    public final int addBook(final Book book) throws DataSourceException {
+	public final int addBook(final Book book) throws DataSourceException {
 		logger.debug("add book " + book);
 		try {
 			Set<String> toIgnore = new HashSet<String>();
@@ -952,7 +1021,7 @@ public class Data implements Persistence {
 	 * Inserts element into table. If element has no unique ID, this method will
 	 * assign it a new one if possible. If that is not possible, an exception is
 	 * thrown.
-	 *
+	 * 
 	 * @param element
 	 *            element to be added
 	 * @param table
@@ -1000,7 +1069,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Creates a book with the transmitted Book-ID.
-	 *
+	 * 
 	 * @param id
 	 *            the id of the book to be created.
 	 * @return das neu erzeugte Buch
@@ -1008,7 +1077,7 @@ public class Data implements Persistence {
 	 *             if there is a problem with the database.
 	 */
 	@Override
-    public final Book getBook(final Integer id) throws DataSourceException {
+	public final Book getBook(final Integer id) throws DataSourceException {
 		logger.debug("get book");
 
 		try {
@@ -1034,7 +1103,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * swp.bibjsf.persistence.Persistence#getBookByIndustrialIdentifier(java
 	 * .lang.String)
@@ -1054,21 +1123,20 @@ public class Data implements Persistence {
 	}
 
 	/**
-	 * Update the book in the database in such way that the books
-	 * gets all the values of the book provided as parameter. A Book with the
-	 * same ID as the provided book must already exist. If the parameter is
-	 * {@code null}, a new {@code IllegalArgumentException} is thrown.
-	 *
+	 * Update the book in the database in such way that the books gets all the
+	 * values of the book provided as parameter. A Book with the same ID as the
+	 * provided book must already exist. If the parameter is {@code null}, a new
+	 * {@code IllegalArgumentException} is thrown.
+	 * 
 	 * @param book
-	 * 			the book with the updated values.
-	 *
-	 * @return {@code true}, if the update was successful,
-	 *         {@code false} otherwise.
-	 *         	 * @throws DataSourceException
-	 *             if there a problems with the database.
+	 *            the book with the updated values.
+	 * 
+	 * @return {@code true}, if the update was successful, {@code false}
+	 *         otherwise. * @throws DataSourceException if there a problems with
+	 *         the database.
 	 */
 	@Override
-    public final int updateBook(final Book book) throws DataSourceException {
+	public final int updateBook(final Book book) throws DataSourceException {
 		logger.debug("update book");
 		try {
 			if (book == null) {
@@ -1081,193 +1149,208 @@ public class Data implements Persistence {
 			throw new DataSourceException(e.getLocalizedMessage());
 		}
 	}
-	
-	
+
 	/**
 	 * Macht neuen Eintrag in LENDING.
-	 * @param bookID ID des ausgeliehenen Mediums.
-	 * @param readerID die ID des Ausleihers
-	 * @param date das Rückgabedatum der Ausleihe
+	 * 
+	 * @param bookID
+	 *            ID des ausgeliehenen Mediums.
+	 * @param readerID
+	 *            die ID des Ausleihers
+	 * @param date
+	 *            das Rückgabedatum der Ausleihe
 	 * @throws DataSourceException
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
-//	@Override
-//	public final void addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException {
-//		logger.debug("inserting user to LENDING..." + bookID +"   "+ readerID + "");
-//	    failure();
-	    /**
-		run.update("insert into " + borrowTableName + "(id, book_id, user_id, date, charges) values ('" 
-				+ bookID + "', '" + readerID+ "', '" + date + "', '" + charges +"')");
-		*/
+	// @Override
+	// public final void addLending(String bookID, String readerID, String date,
+	// String charges) throws DataSourceException, SQLException {
+	// logger.debug("inserting user to LENDING..." + bookID +"   "+ readerID +
+	// "");
+	// failure();
 	/**
-		run.update("insert into " + borrowTableName + "(id, "
-				+ BookID
-				+ ", " + UserID + ") values (5, '" + bookID + "', '" + readerID
-				+ "')");
-    */
-	    
-//	    logger.debug(getNewId(borrowTableName, 1));
-//		run.update("insert into " + borrowTableName + "(id, "
-//				+ BookID
-//				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (" + getNewId(borrowTableName, 1) + ", '" + bookID + "', '" + readerID
-//				+ "', '" + date + "', '" + charges + "')");
-//	   
-//				
-//		failure();
-//	}
-	
+	 * run.update("insert into " + borrowTableName +
+	 * "(id, book_id, user_id, date, charges) values ('" + bookID + "', '" +
+	 * readerID+ "', '" + date + "', '" + charges +"')");
+	 */
+	/**
+	 * run.update("insert into " + borrowTableName + "(id, " + BookID + ", " +
+	 * UserID + ") values (5, '" + bookID + "', '" + readerID + "')");
+	 */
+
+	// logger.debug(getNewId(borrowTableName, 1));
+	// run.update("insert into " + borrowTableName + "(id, "
+	// + BookID
+	// + ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (" +
+	// getNewId(borrowTableName, 1) + ", '" + bookID + "', '" + readerID
+	// + "', '" + date + "', '" + charges + "')");
+	//
+	//
+	// failure();
+	// }
+
 	/**
 	 * Macht Einträge für mehrere Medien eines Ausleihers.
-	 * @param bookIDs die ID's der auszuleihenden Medien
-	 * @param readerID die ID des Ausleihenden
-	 * @param dates die individuellen Rückgabedaten der Medien 
+	 * 
+	 * @param bookIDs
+	 *            die ID's der auszuleihenden Medien
+	 * @param readerID
+	 *            die ID des Ausleihenden
+	 * @param dates
+	 *            die individuellen Rückgabedaten der Medien
 	 * @throws DataSourceException
 	 */
-//	public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException {
-//		logger.debug("TestLending");
-//		run.update("insert into " + testTableName + "(id, "
-//				+ UsernameField
-//				+ ", password, firstname, lastname, birthday) values (3, '" + bookIDs
-//				+ "', '21232f297a57a5a743894a0e4a801fc3', '" + ADMIN
-//				+ "','" + ADMIN + "','"
-//				+ new java.sql.Date(System.currentTimeMillis()) + "')");
-//				
-//	}
-	
-	
-	 public String failure() {
-	        logger.debug("Daaaattaaaa: " + "element" + ": ");
-	        
-	       // FacesContext.getCurrentInstance().addMessage(null, msg);
-	        return "error";
-	    }
-	
-//	public final void addLending( Borrower borrower, Date date) 
-//			throws DataSourceException, BusinessElementAlreadyExistsException{
-//        		
-//             logger.debug("add reader " + borrower);
-//	try {
-//		if (getReader(borrower.getId()) != null) {
-//			// ID must be unique
-//			throw new BusinessElementAlreadyExistsException(
-//					Messages.get("readerexists") + " " + Messages.get("id"));
-//							+ " = " + reader.getId());
-/*		} else if (!reader.getUsername().isEmpty()
-				&& getReaderByUsername(reader.getUsername()) != null) {
-			// user name must be unique if defined
-			throw new BusinessElementAlreadyExistsException(
-					Messages.get("readerexists") + Messages.get("username")
-			 				+ " = " + reader.getUsername());
-		} else {
-			logger.debug("reader " + reader
-					+ " does not yet exist; has ID: " + reader.hasId());
-			try {
-				final String password = hashPassword(reader);
-				Set<String> toIgnore = new HashSet<String>();
-				HashMap<String, Object> replace = new HashMap<String, Object>();
-				replace.put("password", password);
-				int result = insertByID(reader, readerTableName, readerMinID, toIgnore, replace);
-				insertUser(reader.getUsername());
-				return result;
-			} catch (NoSuchAlgorithmException e) {
-				logger.error("MD5 problem");
-				throw new DataSourceException(e.getMessage());
-			}
-*///		}
-//	} catch (SQLException e) {
-//	} catch (BusinessElementAlreadyExistsException e) {
-// 		logger.error("add reader failure");
-//		throw new DataSourceException(e.getMessage());
-//	}
-//}
-	
+	// public final void addLendings(String bookIDs, int readerID, String dates)
+	// throws DataSourceException, SQLException {
+	// logger.debug("TestLending");
+	// run.update("insert into " + testTableName + "(id, "
+	// + UsernameField
+	// + ", password, firstname, lastname, birthday) values (3, '" + bookIDs
+	// + "', '21232f297a57a5a743894a0e4a801fc3', '" + ADMIN
+	// + "','" + ADMIN + "','"
+	// + new java.sql.Date(System.currentTimeMillis()) + "')");
+	//
+	// }
+
+	public String failure() {
+		logger.debug("Daaaattaaaa: " + "element" + ": ");
+
+		// FacesContext.getCurrentInstance().addMessage(null, msg);
+		return "error";
+	}
+
+	// public final void addLending( Borrower borrower, Date date)
+	// throws DataSourceException, BusinessElementAlreadyExistsException{
+	//
+	// logger.debug("add reader " + borrower);
+	// try {
+	// if (getReader(borrower.getId()) != null) {
+	// // ID must be unique
+	// throw new BusinessElementAlreadyExistsException(
+	// Messages.get("readerexists") + " " + Messages.get("id"));
+	// + " = " + reader.getId());
+	/*
+	 * } else if (!reader.getUsername().isEmpty() &&
+	 * getReaderByUsername(reader.getUsername()) != null) { // user name must be
+	 * unique if defined throw new BusinessElementAlreadyExistsException(
+	 * Messages.get("readerexists") + Messages.get("username") + " = " +
+	 * reader.getUsername()); } else { logger.debug("reader " + reader +
+	 * " does not yet exist; has ID: " + reader.hasId()); try { final String
+	 * password = hashPassword(reader); Set<String> toIgnore = new
+	 * HashSet<String>(); HashMap<String, Object> replace = new HashMap<String,
+	 * Object>(); replace.put("password", password); int result =
+	 * insertByID(reader, readerTableName, readerMinID, toIgnore, replace);
+	 * insertUser(reader.getUsername()); return result; } catch
+	 * (NoSuchAlgorithmException e) { logger.error("MD5 problem"); throw new
+	 * DataSourceException(e.getMessage()); }
+	 */// }
+		// } catch (SQLException e) {
+		// } catch (BusinessElementAlreadyExistsException e) {
+		// logger.error("add reader failure");
+		// throw new DataSourceException(e.getMessage());
+		// }
+		// }
+
 	/**
 	 * Verändert Rückgabedatum der Ausleihe.
-	 * @param date das Rückgabedatum
+	 * 
+	 * @param date
+	 *            das Rückgabedatum
 	 * @throws DataSourceException
 	 */
-//	public final void updateLending()throws DataSourceException {
-//		logger.debug("UPDATELENDING");
-//	}
-	
+	// public final void updateLending()throws DataSourceException {
+	// logger.debug("UPDATELENDING");
+	// }
+
 	/**
 	 * Löscht Eintrag in LENDING.
-	 * @param bookID die ID des zu löschenden Mediums
+	 * 
+	 * @param bookID
+	 *            die ID des zu löschenden Mediums
 	 * @throws DataSourceException
 	 */
-//	public final void deleteLending(String bookID) throws DataSourceException {
-//		
-//		logger.info("Rückgabe_Data");
-//		try {
-//			run.update("DELETE FROM " + borrowTableName + " WHERE BOOK_ID = ?",
-//					bookID);
-//		} catch (SQLException e) {
-//			logger.error("failure in deleting lending- " + e.getErrorCode());
-//			throw new DataSourceException(e.getLocalizedMessage());
-//		}
-//	}
-	
+	// public final void deleteLending(String bookID) throws DataSourceException
+	// {
+	//
+	// logger.info("Rückgabe_Data");
+	// try {
+	// run.update("DELETE FROM " + borrowTableName + " WHERE BOOK_ID = ?",
+	// bookID);
+	// } catch (SQLException e) {
+	// logger.error("failure in deleting lending- " + e.getErrorCode());
+	// throw new DataSourceException(e.getLocalizedMessage());
+	// }
+	// }
+
 	/**
 	 * Gibt alle verliehenen Medien eines Ausleihers zurück.
-	 * @param readerID die ID des Ausleihers
+	 * 
+	 * @param readerID
+	 *            die ID des Ausleihers
 	 * @return eine Liste mit Medien
 	 * @throws DataSourceException
 	 */
-//	public final List<Book> getLendings(Borrower borrower) throws DataSourceException {
-//		System.out.print(borrower.getReaderID());
-//		Log.i("diesdas", borrower.getReaderID());
-//		return null;
-//	}
-	
+	// public final List<Book> getLendings(Borrower borrower) throws
+	// DataSourceException {
+	// System.out.print(borrower.getReaderID());
+	// Log.i("diesdas", borrower.getReaderID());
+	// return null;
+	// }
+
 	/**
 	 * Gibt alle überfälligen Medien in Form einer List zurück.
-	 * @param date aktuelles Tagesdatum
+	 * 
+	 * @param date
+	 *            aktuelles Tagesdatum
 	 * @return Liste mit Medien
 	 * @throws DataSourceException
 	 */
-//	public final List<Book> getOverdueLendings(Date date) throws DataSourceException {
-//		return null;
-//	}
-	
+	// public final List<Book> getOverdueLendings(Date date) throws
+	// DataSourceException {
+	// return null;
+	// }
+
 	/**
 	 * Gibt den Ausleiher eines verliehen Mediums zurück.
-	 * @param bookID 
+	 * 
+	 * @param bookID
 	 * @return Reader. der Ausleiher des Mediums
 	 * @throws DataSourceException
 	 */
-//	public final Reader getLendingReader(int bookID) throws DataSourceException {
-//		return null;
-//	}
-	
-	public void idTester(String mediumID)throws SQLException{
-		
-		//FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,  Messages.get("success"), Messages.get("id") + " = 13");
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, Messages.get("savefailed") + " ",
-				Messages.get("id") + " = 13");		
+	// public final Reader getLendingReader(int bookID) throws
+	// DataSourceException {
+	// return null;
+	// }
+
+	public void idTester(String mediumID) throws SQLException {
+
+		// FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+		// Messages.get("success"), Messages.get("id") + " = 13");
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+				Messages.get("savefailed") + " ", Messages.get("id") + " = 13");
 		FacesContext.getCurrentInstance().addMessage(null, msg);
-	     
+
 		String table = "BOOK";
 		final long max = singleResultQuery("select MAX(id) from " + table);
-		logger.debug((int)max);
-		
+		logger.debug((int) max);
+
 		StringBuilder sb = new StringBuilder();
 		logger.debug(sb.length());
 		sb.append(" ORDER BY ");
 		logger.debug(sb.length());
-		
-		double count = mediumID.length()/10;
-		for(int i = 0; i < (int)count; i++){
-			
-		}
-		      
-	}
-	
 
-	//}	
+		double count = mediumID.length() / 10;
+		for (int i = 0; i < (int) count; i++) {
+
+		}
+
+	}
+
+	// }
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see swp.bibjsf.persistence.Persistence#getBooks(java.util.List, int,
 	 * int, java.util.List)
 	 */
@@ -1281,7 +1364,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see swp.bibjsf.persistence.Persistence#getNumberOfBooks(java.util.List)
 	 */
 	@Override
@@ -1293,7 +1376,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see swp.bibjsf.persistence.Persistence#updateBook(int,
 	 * swp.bibcommon.Book)
 	 */
@@ -1307,12 +1390,10 @@ public class Data implements Persistence {
 			throw new DataSourceException(e.getLocalizedMessage());
 		}
 	}
-	
-
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see swp.bibjsf.persistence.Persistence#deleteBook(swp.bibcommon.Book)
 	 */
 	@Override
@@ -1329,7 +1410,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * swp.bibjsf.persistence.Persistence#exportReaders(java.io.OutputStream)
 	 */
@@ -1351,7 +1432,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see swp.bibjsf.persistence.Persistence#getReaders(java.util.List)
 	 */
 	@Override
@@ -1362,10 +1443,10 @@ public class Data implements Persistence {
 		return getElements(constraints, from, to, order, readerTableName,
 				Reader.class);
 	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see swp.bibjsf.persistence.Persistence#addReader(swp.bibcommon.Reader)
 	 */
 	@Override
@@ -1392,7 +1473,8 @@ public class Data implements Persistence {
 					Set<String> toIgnore = new HashSet<String>();
 					HashMap<String, Object> replace = new HashMap<String, Object>();
 					replace.put("password", password);
-					int result = insertByID(reader, readerTableName, readerMinID, toIgnore, replace);
+					int result = insertByID(reader, readerTableName,
+							readerMinID, toIgnore, replace);
 					insertUser(reader.getUsername());
 					return result;
 				} catch (NoSuchAlgorithmException e) {
@@ -1405,11 +1487,12 @@ public class Data implements Persistence {
 			throw new DataSourceException(e.getMessage());
 		}
 	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 *
-	 * @see swp.bibjsf.persistence.Persistence#addLibrarian(swp.bibcommon.Reader)
+	 * 
+	 * @see
+	 * swp.bibjsf.persistence.Persistence#addLibrarian(swp.bibcommon.Reader)
 	 */
 	@Override
 	public int addLibrarian(Reader reader) throws DataSourceException,
@@ -1435,7 +1518,8 @@ public class Data implements Persistence {
 					Set<String> toIgnore = new HashSet<String>();
 					HashMap<String, Object> replace = new HashMap<String, Object>();
 					replace.put("password", password);
-					int result = insertByID(reader, readerTableName, readerMinID, toIgnore, replace);
+					int result = insertByID(reader, readerTableName,
+							readerMinID, toIgnore, replace);
 					insertLibrarian(reader.getUsername());
 					return result;
 				} catch (NoSuchAlgorithmException e) {
@@ -1454,11 +1538,11 @@ public class Data implements Persistence {
 	 * the values given in <code>object</code> excluding those listed in
 	 * <code>toIgnore</code>. The row is identified by looking up all rows whose
 	 * value of column <code>key</code> equals <code>keyValue</code>.
-	 *
+	 * 
 	 * If a field of <code>object</code> is found in <code>replace</code>, the
 	 * corresponding replacement value in <code>replace</code> is used instead
 	 * of the actual value of the field. Otherwise the field's value is stored.
-	 *
+	 * 
 	 * @param table
 	 *            name of the table in which <code>object</code> is inserted
 	 * @param object
@@ -1494,14 +1578,14 @@ public class Data implements Persistence {
 				numberOfFields++;
 			}
 		}
-		
+
 		// fields =
 		// "UPDATE <table> SET field1 = ?, field2 = ?, ..., fieldN = ?,"
 		if (numberOfFields > 0) {
 			// remove last comma
 			stmt.deleteCharAt(stmt.length() - 1);
 
-			// append where clause 
+			// append where clause
 			stmt.append(" WHERE " + key + " = ?");
 
 			try {
@@ -1540,7 +1624,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Returns values as string. Useful for debugging.
-	 *
+	 * 
 	 * @param values
 	 * @return values as a string
 	 */
@@ -1560,7 +1644,7 @@ public class Data implements Persistence {
 	 * the corresponding replacement value in <code>replace</code> is used
 	 * instead of the actual value of the field. Otherwise the field's value is
 	 * stored.
-	 *
+	 * 
 	 * @param table
 	 *            name of the table in which <code>object</code> is inserted
 	 * @param object
@@ -1610,10 +1694,11 @@ public class Data implements Persistence {
 			// placeholders = "VALUES (?, ?, ..., ?)"
 			String sqlInsert = fields.toString() + placeholders.toString();
 			// sqlInsert = "INSERT INTO <table> (field1, field2, ..., fieldN)
-			//                 VALUES (?, ?, ..., ?)"
+			// VALUES (?, ?, ..., ?)"
 
 			// now collect the values of object's fields
-			Object[] values = getValues(object, toIgnore, replace, numberOfFields);
+			Object[] values = getValues(object, toIgnore, replace,
+					numberOfFields);
 			// sqlInsert is built from fields collected from object, hence,
 			// cannot be tainted and sqlInsert is safe.
 			Connection connection = dataSource.getConnection();
@@ -1628,12 +1713,12 @@ public class Data implements Persistence {
 						 * We are currently not using enums. They would need to
 						 * be mapped onto int or strings. Here is the code for
 						 * the int mapping:
-						 *
+						 * 
 						 * else if (values[i] instanceof Enum) { // enums are
 						 * mapped onto integer Enum e = (Enum)values[i];
 						 * //stmt.setInt(i + 1, e.ordinal()); stmt.setString(i +
 						 * 1, values[i].toString());
-						 *
+						 * 
 						 * Yet, the conversion back from the database to the
 						 * bean is more complicated. We would need to provide
 						 * our own BeanHandler for this conversion. }
@@ -1668,7 +1753,7 @@ public class Data implements Persistence {
 	 * <code>replace</code>, the corresponding replacement value in
 	 * <code>replace</code> is used instead of the actual value of the field.
 	 * Otherwise the field's value is used.
-	 *
+	 * 
 	 * @param object
 	 *            the object whose fields are to be returned
 	 * @param toIgnore
@@ -1727,7 +1812,7 @@ public class Data implements Persistence {
 
 	/**
 	 * True if <code>field</code> should be ignored.
-	 *
+	 * 
 	 * @param toIgnore
 	 *            field names that should not be stored (may be null)
 	 * @param field
@@ -1741,7 +1826,7 @@ public class Data implements Persistence {
 	/**
 	 * True if <code>field</code> is relevant for update or insert: neither a
 	 * static field nor a field to be ignored.
-	 *
+	 * 
 	 * @param toIgnore
 	 *            field names that should not be stored (may be null)
 	 * @param field
@@ -1754,7 +1839,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Returns an MD5 hash of reader's password.
-	 *
+	 * 
 	 * @param reader
 	 *            reader whose password is to be hashed
 	 * @return MD5 hash of reader's password
@@ -1772,18 +1857,20 @@ public class Data implements Persistence {
 		try {
 			bpassword = md.digest(readerPassword.getBytes("UTF-8"));
 		} catch (UnsupportedEncodingException e) {
-			throw new NoSuchAlgorithmException("no UTF-8 encoding possible: " + e.getLocalizedMessage());
+			throw new NoSuchAlgorithmException("no UTF-8 encoding possible: "
+					+ e.getLocalizedMessage());
 		}
 		StringBuffer password = new StringBuffer();
 		for (int i = 0; i < bpassword.length; i++) {
-			password.append(Integer.toString((bpassword[i] & 0xff) + 0x100, 16).substring(1));
+			password.append(Integer.toString((bpassword[i] & 0xff) + 0x100, 16)
+					.substring(1));
 		}
 		return password.toString();
 	}
 
 	/**
 	 * Returns a date in the SQL date format.
-	 *
+	 * 
 	 * @param date
 	 * @return date in SQL date format
 	 */
@@ -1794,7 +1881,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see swp.bibjsf.persistence.Persistence#addReaders(java.util.List)
 	 */
 	@Override
@@ -1824,7 +1911,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see swp.bibjsf.persistence.Persistence#getReader(int)
 	 */
 	@Override
@@ -1832,11 +1919,11 @@ public class Data implements Persistence {
 		logger.debug("get reader with ID=" + id);
 		return getReaderWhere("ID", id);
 	}
-	
+
 	/**
 	 * Returns a single reader whose attribute <code>fieldName</code> has the
 	 * value <code>fieldValue</code>.
-	 *
+	 * 
 	 * @param fieldName
 	 *            column name for the query
 	 * @param fieldValue
@@ -1881,7 +1968,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * swp.bibjsf.persistence.Persistence#getReaderByUsername(java.lang.String)
 	 */
@@ -1894,7 +1981,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * swp.bibjsf.persistence.Persistence#updateReader(swp.bibcommon.Reader,
 	 * swp.bibcommon.Reader)
@@ -1917,7 +2004,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * swp.bibjsf.persistence.Persistence#getNumberOfReaders(java.util.List)
 	 */
@@ -1930,12 +2017,12 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * swp.bibjsf.persistence.Persistence#deleteReader(swp.bibcommon.Reader)
 	 */
 	@Override
-    public void deleteReader(Reader reader) throws DataSourceException {
+	public void deleteReader(Reader reader) throws DataSourceException {
 		logger.debug("delete reader " + reader);
 		if (reader.getId() == AdminID) {
 			logger.info("attempt to delete admin " + reader + ": ignored");
@@ -1954,7 +2041,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * swp.bibjsf.persistence.Persistence#exportReaders(java.io.OutputStream)
 	 */
@@ -1966,7 +2053,7 @@ public class Data implements Persistence {
 	}
 
 	@Override
-    public int importReaders(InputStream input) throws DataSourceException {
+	public int importReaders(InputStream input) throws DataSourceException {
 		logger.info("import readers");
 		return importTable(input, readerTableName);
 	}
@@ -1992,7 +2079,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Exports all rows in <code>table</code> to <code>out</code> in CSV format.
-	 *
+	 * 
 	 * @param out
 	 *            the output stream
 	 * @param table
@@ -2012,7 +2099,8 @@ public class Data implements Persistence {
 					ResultSet set = stmt.executeQuery(query);
 					try {
 						final PrintStream printer = newPrintStream(out);
-						final SimpleDateFormat df = new SimpleDateFormat(DATEFORMAT);
+						final SimpleDateFormat df = new SimpleDateFormat(
+								DATEFORMAT);
 						final int numberOfColumns = set.getMetaData()
 								.getColumnCount();
 						{ // print header row
@@ -2061,10 +2149,11 @@ public class Data implements Persistence {
 
 	/**
 	 * Returns a new print stream for out.
-	 *
-	 * @param out output stream for which to create the print stream
+	 * 
+	 * @param out
+	 *            output stream for which to create the print stream
 	 * @return new print stream or null if there is no UTF-8 or ISO-8859-1
-	 * encoding.
+	 *         encoding.
 	 */
 	protected PrintStream newPrintStream(OutputStream out) {
 		try {
@@ -2081,7 +2170,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Quotes every quote in string and surrounds the whole string by quotes.
-	 *
+	 * 
 	 * @param string
 	 *            input string
 	 * @return "string"
@@ -2091,19 +2180,19 @@ public class Data implements Persistence {
 				+ string.replace(DEFAULT_QUOTE, DEFAULT_QUOTE + DEFAULT_QUOTE)
 				+ DEFAULT_QUOTE;
 	}
-	
+
 	/**
 	 * A descriptor of a table column.
-	 *
+	 * 
 	 */
 	private static class ColumnDescriptor {
 		public String label; // label of a column
-		public int type;     // one of java.sql.Types
+		public int type; // one of java.sql.Types
 	}
 
 	/**
 	 * Retrieves the column information from <code>table</code>.
-	 *
+	 * 
 	 * @param table
 	 *            the name of the table whose columns need to be known
 	 * @return descriptors for each table column
@@ -2151,7 +2240,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Reduces <code>columns</code> to the list of table contained therein.
-	 *
+	 * 
 	 * @param columns
 	 *            columns whose labels are to be gathered
 	 * @return only the labels in columns
@@ -2167,7 +2256,7 @@ public class Data implements Persistence {
 	/**
 	 * Reads CSV data from <code>input</code> and inserts them into
 	 * <code>table</code>.
-	 *
+	 * 
 	 * @param input
 	 *            input stream with CSV data to be imported
 	 * @param table
@@ -2239,13 +2328,20 @@ public class Data implements Persistence {
 				// create prepared statement
 				final String query = fields.toString()
 						+ placeholders.toString();
-				// query = "INSERT INTO <table> (field1, field2, ..., fieldN) VALUES (?, ?, ..., ?)"
-				// The field names are read from an input file and, hence, represented
-				// potentially tainted values. Yet, the fields must correspond to the
-				// field names of <table>. Otherwise the SQL statement is invalid. Hence,
-				// if any of the fields were tainted, the query would fail. Furthermore,
-				// the values read from the input file are added via setX statements to this
-				// prepared statement with place holders. Consequently, the query is save.
+				// query =
+				// "INSERT INTO <table> (field1, field2, ..., fieldN) VALUES (?, ?, ..., ?)"
+				// The field names are read from an input file and, hence,
+				// represented
+				// potentially tainted values. Yet, the fields must correspond
+				// to the
+				// field names of <table>. Otherwise the SQL statement is
+				// invalid. Hence,
+				// if any of the fields were tainted, the query would fail.
+				// Furthermore,
+				// the values read from the input file are added via setX
+				// statements to this
+				// prepared statement with place holders. Consequently, the
+				// query is save.
 				PreparedStatement stmt = con.prepareStatement(query);
 				try {
 					for (int row = 0; row < csvReader.numberOfRows(); row++) {
@@ -2254,7 +2350,8 @@ public class Data implements Persistence {
 						for (int col = 0; col < expectedColumns.length; col++) {
 							String value;
 							try {
-								value = csvReader.get(expectedColumns[col], row);
+								value = csvReader
+										.get(expectedColumns[col], row);
 							} catch (UnknownColumn e) {
 								throw new DataSourceException(
 										Messages.get("unexpectedColumn") + " '"
@@ -2308,11 +2405,12 @@ public class Data implements Persistence {
 				con.commit();
 				logger.debug("inserts are committed");
 			} catch (RuntimeException e) {
-				// This exception handler is subsumed by the following on Exception.
+				// This exception handler is subsumed by the following on
+				// Exception.
 				// It is there to please findbugs, which otherwise complains.
 				logger.debug("inserts are rolled back");
 				con.rollback();
-			    throw e;
+				throw e;
 			} catch (Exception e) {
 				logger.debug("inserts are rolled back");
 				con.rollback();
@@ -2333,7 +2431,7 @@ public class Data implements Persistence {
 	/**
 	 * Returns a concatenation of the strings in columns separated by
 	 * DEFAULT_SEPARATOR.
-	 *
+	 * 
 	 * @param columns
 	 *            the strings to be concatenated
 	 * @return concatenation of the strings in columns separated by
@@ -2350,14 +2448,14 @@ public class Data implements Persistence {
 
 	/*************************************************************************
 	 * Reset, backup, restore.
-	 *
+	 * 
 	 * IMPORTANT NOTE:
-	 *
+	 * 
 	 * In the following, a very simple approach is used to backup and restore
 	 * our database. It will not work in a true online operation where user
 	 * accesses occur while the database is backed up or restored. Let alone the
 	 * case where multiple users restore and backup at the same time.
-	 *
+	 * 
 	 * We must use the backup/restore mechanisms provided by the database
 	 * itself. See
 	 * http://db.apache.org/derby/docs/10.0/manuals/admin/hubprnt43.html for
@@ -2379,7 +2477,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see swp.bibjsf.persistence.Persistence#reset()
 	 */
 	@Override
@@ -2390,7 +2488,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Resets database. If createAdmin, the admin role is created.
-	 *
+	 * 
 	 * @throws DataSourceException
 	 */
 	private void reset(boolean createAdmin) throws DataSourceException {
@@ -2422,7 +2520,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Saves content of <code>table</code> in <code>filename</code> as CSV.
-	 *
+	 * 
 	 * @param table
 	 *            name of the table to be saved
 	 * @param filename
@@ -2452,7 +2550,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Reads content of <code>table</code> from <code>filename</code> as CSV.
-	 *
+	 * 
 	 * @param table
 	 *            name of the table to be restored
 	 * @param filename
@@ -2481,7 +2579,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see swp.bibjsf.persistence.Persistence#backup()
 	 */
 	@Override
@@ -2496,7 +2594,7 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see swp.bibjsf.persistence.Persistence#restore()
 	 */
 	@Override
@@ -2520,7 +2618,7 @@ public class Data implements Persistence {
 
 	/**
 	 * True if file with <code>filename</code> exists.
-	 *
+	 * 
 	 * @param filename
 	 *            file to be checked for existence
 	 * @return true if file with <code>filename</code> exists
@@ -2529,105 +2627,118 @@ public class Data implements Persistence {
 		File f = new File(filename);
 		return f.exists();
 	}
-	
+
 	/*******************************************************
 	 * Unsere Sachen
 	 *******************************************************/
-	
+
 	/**
-	  * Gibt alle verliehenen Medien eines Ausleihers zurück.
-	  * @param readerID die ID des Ausleihers
-	  * @return eine Liste mit Medien
-	  * @throws DataSourceException
-	  */
-	 public final List<Book> getLendings(int readerID) throws DataSourceException {
-	  return null;
-	  //TODO: fehlt...
-	 }
-	 
-	public final int addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException {
-		logger.debug("inserting user to LENDING..." + bookID +"   "+ readerID + "");
-		int idValue = getNewId(borrowTableName, 1);
-	    logger.debug(idValue);
-      //  idTester(bookID);
-	    logger.debug("SQL Befehl: "+"insert into " + borrowTableName + "(id, "+ BookID
-				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (" + idValue+ ", '" + bookID + "', '" + readerID
-				+ "', '" + date + "', '" + charges + "')");
-	    
-		run.update("insert into " + borrowTableName + "(id, "+ BookID
-				+ ", " + UserID + ", " + DATE + ", " + CHARGES + ") values (" + idValue+ ", '" + bookID + "', '" + readerID
-				+ "', '" + date + "', '" + charges + "')");
-		
-		return idValue;
-		
-//		Borrower b = new Borrower();
-//		b.setBookID(bookID);
-//		b.setReaderID(readerID);
-//		
-//		Set<String> toIgnore = new HashSet<String>();
-//		HashMap<String, Object> replace = new HashMap<String, Object>();
-//		
-//		int result = insertByID(b, borrowTableName, 0	, toIgnore, replace);
-//		return result;
-		
-		
-	}
-	
-	/**
-	 * Macht Einträge für mehrere Medien eines Ausleihers.
-	 * @param bookIDs die ID's der auszuleihenden Medien
-	 * @param readerID die ID des Ausleihenden
-	 * @param dates die individuellen Rückgabedaten der Medien 
+	 * Gibt alle verliehenen Medien eines Ausleihers zurück.
+	 * 
+	 * @param readerID
+	 *            die ID des Ausleihers
+	 * @return eine Liste mit Medien
 	 * @throws DataSourceException
 	 */
-	//TODO HÄ?
+	public final List<Book> getLendings(int readerID)
+			throws DataSourceException {
+		return null;
+		// TODO: fehlt...
+	}
+
+	public final int addLending(String bookID, String readerID, String date,
+			String charges) throws DataSourceException, SQLException {
+		logger.debug("inserting user to LENDING..." + bookID + "   " + readerID
+				+ "");
+		int idValue = getNewId(borrowTableName, 1);
+		logger.debug(idValue);
+		// idTester(bookID);
+		logger.debug("SQL Befehl: " + "insert into " + borrowTableName
+				+ "(id, " + BookID + ", " + UserID + ", " + DATE + ", "
+				+ CHARGES + ") values (" + idValue + ", '" + bookID + "', '"
+				+ readerID + "', '" + date + "', '" + charges + "')");
+
+		run.update("insert into " + borrowTableName + "(id, " + BookID + ", "
+				+ UserID + ", " + DATE + ", " + CHARGES + ") values ("
+				+ idValue + ", '" + bookID + "', '" + readerID + "', '" + date
+				+ "', '" + charges + "')");
+
+		return idValue;
+
+		// Borrower b = new Borrower();
+		// b.setBookID(bookID);
+		// b.setReaderID(readerID);
+		//
+		// Set<String> toIgnore = new HashSet<String>();
+		// HashMap<String, Object> replace = new HashMap<String, Object>();
+		//
+		// int result = insertByID(b, borrowTableName, 0 , toIgnore, replace);
+		// return result;
+
+	}
+
+	/**
+	 * Macht Einträge für mehrere Medien eines Ausleihers.
+	 * 
+	 * @param bookIDs
+	 *            die ID's der auszuleihenden Medien
+	 * @param readerID
+	 *            die ID des Ausleihenden
+	 * @param dates
+	 *            die individuellen Rückgabedaten der Medien
+	 * @throws DataSourceException
+	 */
+	// TODO HÄ?
 	private String testTableName = "testTable";
 	private String NewsDate = "NEWSDATE";
-	public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException {
+
+	public final void addLendings(String bookIDs, int readerID, String dates)
+			throws DataSourceException, SQLException {
 		logger.debug("TestLending");
-		run.update("insert into " + testTableName + "(id, "
-				+ UsernameField
-				+ ", password, firstname, lastname, birthday) values (3, '" + bookIDs
-				+ "', '21232f297a57a5a743894a0e4a801fc3', '" + ADMIN
+		run.update("insert into " + testTableName + "(id, " + UsernameField
+				+ ", password, firstname, lastname, birthday) values (3, '"
+				+ bookIDs + "', '21232f297a57a5a743894a0e4a801fc3', '" + ADMIN
 				+ "','" + ADMIN + "','"
 				+ new java.sql.Date(System.currentTimeMillis()) + "')");
-				
+
 	}
-	
-	
-	public final void addLending( Borrower borrower, Date date) 
-			throws DataSourceException, BusinessElementAlreadyExistsException{
-        		
+
+	public final void addLending(Borrower borrower, Date date)
+			throws DataSourceException, BusinessElementAlreadyExistsException {
+
 		logger.debug("add reader " + borrower);
 		try {
 			if (getReader(borrower.getId()) != null) {
-			// ID must be unique
-			throw new BusinessElementAlreadyExistsException(
-					Messages.get("readerexists") + " " + Messages.get("id"));
+				// ID must be unique
+				throw new BusinessElementAlreadyExistsException(
+						Messages.get("readerexists") + " " + Messages.get("id"));
 			}
+		} catch (BusinessElementAlreadyExistsException e) {
+			logger.error("add reader failure");
+			throw new DataSourceException(e.getMessage());
 		}
-		catch (BusinessElementAlreadyExistsException e) {
- 		logger.error("add reader failure");
-		throw new DataSourceException(e.getMessage());
 	}
-}
-	
+
 	/**
 	 * Verändert Rückgabedatum der Ausleihe.
-	 * @param date das Rückgabedatum
+	 * 
+	 * @param date
+	 *            das Rückgabedatum
 	 * @throws DataSourceException
 	 */
-	public final void updateLending()throws DataSourceException {
+	public final void updateLending() throws DataSourceException {
 		logger.debug("UPDATELENDING");
-		//TODO: hier fehlt was
+		// TODO: hier fehlt was
 	}
-	
+
 	/**
 	 * Löscht Eintrag in LENDING.
-	 * @param bookID die ID des zu löschenden Mediums
+	 * 
+	 * @param bookID
+	 *            die ID des zu löschenden Mediums
 	 * @throws DataSourceException
 	 */
-	public final void deleteLending(String bookID) throws DataSourceException {		
+	public final void deleteLending(String bookID) throws DataSourceException {
 		logger.info("Rückgabe_Data");
 		try {
 			run.update("DELETE FROM " + borrowTableName + " WHERE BOOK_ID = ?",
@@ -2637,60 +2748,69 @@ public class Data implements Persistence {
 			throw new DataSourceException(e.getLocalizedMessage());
 		}
 	}
-	
+
 	/**
 	 * Gibt alle verliehenen Medien eines Ausleihers zurück.
-	 * @param readerID die ID des Ausleihers
+	 * 
+	 * @param readerID
+	 *            die ID des Ausleihers
 	 * @return eine Liste mit Medien
 	 * @throws DataSourceException
 	 */
-	public final List<Book> getLendings(Borrower borrower) throws DataSourceException {
+	public final List<Book> getLendings(Borrower borrower)
+			throws DataSourceException {
 		System.out.print(borrower.getReaderID());
 		Log.i("diesdas", borrower.getReaderID());
 		return null;
-		//TODO: jaja hier fehlt auch was
+		// TODO: jaja hier fehlt auch was
 	}
-	
+
 	/**
 	 * Gibt alle überfälligen Medien in Form einer List zurück.
-	 * @param date aktuelles Tagesdatum
+	 * 
+	 * @param date
+	 *            aktuelles Tagesdatum
 	 * @return Liste mit Medien
 	 * @throws DataSourceException
 	 */
-	public final List<Book> getOverdueLendings(Date date) throws DataSourceException {
+	public final List<Book> getOverdueLendings(Date date)
+			throws DataSourceException {
 		return null;
-		//TODO: fehlt...
+		// TODO: fehlt...
 	}
-	
+
 	/**
 	 * Gibt den Ausleiher eines verliehen Mediums zurück.
-	 * @param bookID 
+	 * 
+	 * @param bookID
 	 * @return Reader. der Ausleiher des Mediums
 	 * @throws DataSourceException
 	 */
 	public final Reader getLendingReader(int bookID) throws DataSourceException {
 		return null;
-		//TODO: fehlt...
+		// TODO: fehlt...
 	}
 
 	@Override
-	public void addCharges(Charges charges) throws DataSourceException, SQLException {
-		logger.debug("add charges " + charges);			
-		run.update("insert into " + chargesTableName + "(type, " + CHARGES + ") values ('" 
-				+ charges.getTyp() + "', '" + charges.getCharges() + "')");
+	public void addCharges(Charges charges) throws DataSourceException,
+			SQLException {
+		logger.debug("add charges " + charges);
+		run.update("insert into " + chargesTableName + "(type, " + CHARGES
+				+ ") values ('" + charges.getTyp() + "', '"
+				+ charges.getCharges() + "')");
 	}
 
 	@Override
-	public void addNews(final News news) throws DataSourceException, SQLException {
+	public void addNews(final News news) throws DataSourceException,
+			SQLException {
 		logger.debug("addNews bla in data");
-		run.update("insert into NEWS(" + NewsDate  + ", " + NewsField + ") values ('" 
-				+ news.getDateOfAddition() 
-				+ "', '" + news.getNews() 
-				+ "')");
-		//TODO: alter code ohne ID, funktionierte aber
-		
+		run.update("insert into NEWS(" + NewsDate + ", " + NewsField
+				+ ") values ('" + news.getDateOfAddition() + "', '"
+				+ news.getNews() + "')");
+		// TODO: alter code ohne ID, funktionierte aber
+
 	}
-	
+
 	@Override
 	public News getNews(int id) throws DataSourceException {
 		logger.debug("get news");
@@ -2752,8 +2872,121 @@ public class Data implements Persistence {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public static boolean checkUserId(String readerID) {
+		ResultSet resultLending=null;
+		
+		Connection dbConnection = null;
+		try {
+			Context envCtx;
+			Context initCtx = new InitialContext();
+
+			String databaselookup = "java:comp/env";
+
+			String databasename = "jdbc/libraryDB";
+
+			envCtx = (Context) initCtx.lookup(databaselookup);
+
+			DataSource dataSource = (DataSource) envCtx.lookup(databasename);
+
+			
+
+
+			 dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT * From Reader Where id="+readerID);
+			 resultLending = ps.executeQuery();
+			logger.debug("Anfrage durchgefuehrt");
+			while(resultLending.next()){
+				logger.debug("Nutzer  Vorhanden");
+				return true;
+				
+			}
 	
+			
+
+		
+		
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		logger.debug("Nutzer nicht Vorhanden");
+		return false;
+	}
 	
-   
+	public static boolean checkMediumID(String mediumID) {
+		try {
+			Context envCtx;
+			Context initCtx = new InitialContext();
+
+			String databaselookup = "java:comp/env";
+
+			String databasename = "jdbc/libraryDB";
+
+			envCtx = (Context) initCtx.lookup(databaselookup);
+
+			DataSource dataSource = (DataSource) envCtx.lookup(databasename);
+
+			
+
+
+			Connection dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT * From Medium Where id="+mediumID);
+			ResultSet resultLending = ps.executeQuery();
+			logger.debug("Anfrage durchgefuehrt");
+			while(resultLending.next()){
+				logger.debug("Medium  Vorhanden");
+				return true;
+				
+			}
+	
+			
+
+		
+		
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}
+		logger.debug("Medium  nicht Vorhanden");
+		return false;
+	}
+	
+	/**
+	 * OnEdit Event aus der Primeface Bibliothek
+	 * @param event
+	 */
+	public void onCellEdit(CellEditEvent event){
+		 Object oldValue = event.getOldValue();
+		 Object newValue = event.getNewValue();
+		 
+		 String newData = newValue.toString();
+		 logger.debug("NewData: "+  newData);
+		 logger.debug("OldValue: "+ oldValue);
+		 
+	      if(newValue != null && !newValue.equals(oldValue)) {  
+	            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);  
+	            FacesContext.getCurrentInstance().addMessage(null, msg);  
+	        } 
+		
+		
+	}
 
 }

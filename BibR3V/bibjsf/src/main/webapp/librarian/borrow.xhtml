@@ -28,16 +28,16 @@
 			<f:facet name="footer">
 			  <h:panelGroup>
 			  
-			  <!-- first name -->
+			  <!-- readerID -->
             <h:outputLabel for="firstname" value="#{messages.cardID}: *" style="font-weight:bold"/>
             <p:inputText id="firstname" value="#{myBean.readerID}"
-               required="true" requiredMessage="#{messages.firstnamereq}"  />
+               required="true" requiredMessage="#{messages.readerIDreq}"  />
             <p:message for="firstname"  display="both" />
             
-            <!--  last name -->
+            <!--  mediumID -->
             <h:outputLabel for="lastname" value="#{messages.mediumID}: *" style="font-weight:bold" />
             <p:inputText id="lastname" value="#{myBean.mediumID}"
-               required="true" requiredMessage="#{messages.lastnamereq}"   />
+               required="true" requiredMessage="#{messages.mediumIDreq}"   />
             <p:message for="lastname"  display="both" /> 
             
             
