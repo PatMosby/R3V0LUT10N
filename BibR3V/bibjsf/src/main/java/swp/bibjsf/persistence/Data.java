@@ -261,6 +261,10 @@ public class Data implements Persistence {
 		}
 	}
 
+	/**
+	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank gelesen wird.
+	 * @return Liefert die Liste zurück.
+	 */
 	public List<Borrower> getBorrower() {
 		List<Borrower> borrowerList = new ArrayList<>();
 		ResultSet resultLending = null;
@@ -275,7 +279,7 @@ public class Data implements Persistence {
 
 			while (resultLending.next()) {
 				Borrower newBorrower = new Borrower();
-
+				//Spalte für Spalte
 				newBorrower.setId(resultLending.getInt(1));
 				newBorrower.setBookID(resultLending.getString(2)); // Book id
 				newBorrower.setReaderID(resultLending.getString(3)); // User id
@@ -286,7 +290,7 @@ public class Data implements Persistence {
 			}
 			logger.debug("Zeige alle Borrower");
 			for (Borrower element : borrowerList) {
-				logger.debug("Elemente: " + element.getBookID());
+				logger.debug("Elemente: " + element.getBookID()); //für Ausgabe auf Konsole
 			}
 
 		} catch (Exception e) {
@@ -2646,6 +2650,11 @@ public class Data implements Persistence {
 		// TODO: fehlt...
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see swp.bibjsf.persistence.Persistence#addLending(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+	 */
+	//Überarbeitete add Lending mit int statt void
 	public final int addLending(String bookID, String readerID, String date,
 			String charges) throws DataSourceException, SQLException {
 		logger.debug("inserting user to LENDING..." + bookID + "   " + readerID
@@ -2873,6 +2882,11 @@ public class Data implements Persistence {
 		return null;
 	}
 
+	/**
+	 * Prüft, ob es eine eingebebene ReaderID überhaupt gibt.
+	 * @param readerID Die ID des Lesers
+	 * @return Gibt true zurück, wenn Reader ID schon vorhanden ist und false, wenn sie noch nicht existiert.
+	 */
 	public static boolean checkUserId(String readerID) {
 		ResultSet resultLending=null;
 		
@@ -2898,17 +2912,13 @@ public class Data implements Persistence {
 					.prepareStatement("SELECT * From Reader Where id="+readerID);
 			 resultLending = ps.executeQuery();
 			logger.debug("Anfrage durchgefuehrt");
+			//Leser vorhanden
 			while(resultLending.next()){
 				logger.debug("Nutzer  Vorhanden");
 				return true;
 				
 			}
 	
-			
-
-		
-		
-
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
 		}finally{
@@ -2929,6 +2939,12 @@ public class Data implements Persistence {
 		return false;
 	}
 	
+	
+	/**
+	 * Prüft, ob es eine eingebebene MediumID überhaupt gibt.
+	 * @param mediumID Die ID des Mediums
+	 * @return Gibt true zurück, wenn Medium ID schon vorhanden ist und false, wenn sie noch nicht existiert.
+	 */
 	public static boolean checkMediumID(String mediumID) {
 		try {
 			Context envCtx;
@@ -2970,7 +2986,7 @@ public class Data implements Persistence {
 	}
 	
 	/**
-	 * OnEdit Event aus der Primeface Bibliothek
+	 * OnEdit Event aus der Primeface Bibliothek. Hiermit kann man eine Zelle in der Tabelle ändern und der neue Wert wird in der Datenbank geupdatet
 	 * @param event
 	 */
 	public void onCellEdit(CellEditEvent event){

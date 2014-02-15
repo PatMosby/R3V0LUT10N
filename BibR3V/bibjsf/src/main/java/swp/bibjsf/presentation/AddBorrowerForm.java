@@ -77,7 +77,7 @@ public class AddBorrowerForm extends BorrowerForm{
 
 
     public void setReaderID(final String readerID) {
-    	if (Data.checkUserId(readerID)) {
+    	if (Data.checkUserId(readerID)) { //Check, ob es die ReaderID gibt
 			logger.debug("Id geprueft");
 		   	System.out.println("setreader");
 	    	borrower.setReaderID(trim(readerID));
@@ -94,7 +94,7 @@ public class AddBorrowerForm extends BorrowerForm{
 
     
     public void setMediumID(final String mediumID) {
-//if (Data.checkMediumID(mediumID)) {
+//if (Data.checkMediumID(mediumID)) { //noch auskommentiert, solange keine Medien in der Datenbank sind.
 	System.out.println("setmedium");
     borrower.setBookID(trim(mediumID));
 	
