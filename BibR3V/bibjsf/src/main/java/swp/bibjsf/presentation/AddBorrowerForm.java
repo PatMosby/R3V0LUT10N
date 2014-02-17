@@ -32,11 +32,11 @@ public class AddBorrowerForm extends BorrowerForm{
 	    				return "save Methode Fehlgeschlagen : " +failure("UserID nicht vorhanden");
 	    				
 					}
-//	    			if (borrower.getBookID() == null ) {
-//	    				return "save Methode Fehlgeschlagen : " +failure("MediumID nicht vorhanden");
-//					}else{
-//						logger.debug("Anomalie MediumID: "+borrower.getBookID() );
-//					}
+	    			if (borrower.getBookID() == null ) {
+	    				return "save Methode Fehlgeschlagen : " +failure("MediumID nicht vorhanden");
+					}else{
+						logger.debug("Anomalie MediumID: "+borrower.getBookID() );
+					}
 	    			
 	    			
 	    			
@@ -94,11 +94,11 @@ public class AddBorrowerForm extends BorrowerForm{
 
     
     public void setMediumID(final String mediumID) {
-//if (Data.checkMediumID(mediumID)) { //noch auskommentiert, solange keine Medien in der Datenbank sind.
+    	if (Data.checkMediumID(mediumID)) { //Check, ob es die MediumID gibt
 	System.out.println("setmedium");
     borrower.setBookID(trim(mediumID));
 	
-//}
+}
     }
     
     public List<String> getMediumIDs() {

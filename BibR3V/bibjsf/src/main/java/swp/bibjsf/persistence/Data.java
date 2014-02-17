@@ -2980,7 +2980,7 @@ public class Data implements Persistence {
 			Connection dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT * From Medium Where id="+mediumID);
+					.prepareStatement("SELECT * From Book Where id="+mediumID);
 			ResultSet resultLending = ps.executeQuery();
 			logger.debug("Anfrage durchgefuehrt");
 			while(resultLending.next()){
