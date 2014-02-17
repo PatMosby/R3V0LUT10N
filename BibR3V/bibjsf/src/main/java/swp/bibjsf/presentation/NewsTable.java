@@ -52,9 +52,11 @@ public class NewsTable extends TableForm<News> {
         super(NewsHandler.getInstance());
         try {
             model = new TableDataModel<News>(handler);
+            logger.debug("newsTable TRY ");
         } catch (DataSourceException e) {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_FATAL,
                     Messages.get("noNewsFound"), e.getLocalizedMessage());
+            logger.debug("newsTable CATCH ");
             FacesContext.getCurrentInstance().addMessage(null, msg);
         }
     }

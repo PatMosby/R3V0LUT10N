@@ -43,6 +43,41 @@
         </p:column>
         
     </p:dataTable>  
+    
+    
+    
+    <p:dataTable id="bookTable" 
+     value="#{bookTable.model}" 
+     var="book"
+     lazy="true"
+     sortMode="multiple"
+     editable="#{bookTable.modifiable}"
+     filteredValue="#{bookTable.filteredElements}"
+     emptyMessage="#{messages.noBooksFound}" 
+     selection="#{bookTable.selectedElements}"
+     resizableColumns="true" liveResize="true"
+     paginator="true"
+     rows="25"
+     rowsPerPageTemplate="10,25,50,100,200,500,1000"
+     >  
+  
+      <f:facet name="header" value="#{messages.booklisttitle}" />  
+        
+      <!-- ID -->
+      <p:column id="IDColumn" sortBy="#{book.id}" filterBy="#{book.id}"   
+                headerText="Model" style="width:8%"
+                filterMatchMode="startsWith">  
+        <h:outputText value="#{addNewsForm.news}" />   
+      </p:column>  
+                  
+      <!-- Title -->
+      <p:column id="titleColumn" sortBy="#{book.title}" filterBy="#{book.title}"  
+              headerText="Year" filterMatchMode="contains" style="width:10%"> 
+        <h:outputText value="#{addNewsForm.news}" />   
+      </p:column>  
+
+        
+    </p:dataTable>
 </h:form>  
   
 <!-- </h:form>   -->

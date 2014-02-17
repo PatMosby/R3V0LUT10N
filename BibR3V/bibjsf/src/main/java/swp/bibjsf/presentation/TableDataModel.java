@@ -81,6 +81,7 @@ public class TableDataModel<Element extends BusinessObject> extends LazyDataMode
     public TableDataModel(BusinessObjectHandler<Element> newHandler) throws DataSourceException {
         this.handler = newHandler;
         // we must count all elements
+        logger.debug("TableDataModel constructor ");
         setRowCount(handler.getNumber(null));
     }
 

@@ -70,6 +70,7 @@ private static volatile NewsHandler instance;
   public synchronized int add(News news) throws DataSourceException,
       BusinessElementAlreadyExistsException {
 	  logger.debug("NEWSHANDLER add(News news)");
+	  logger.debug("NewsHandler::::::"+ news.getDateOfAddition());
 	  if (news.hasId() && persistence.getNews(news.getId()) != null) {
           logger.info("news already exists and could not be added: "
                   + news);
@@ -78,10 +79,12 @@ private static volatile NewsHandler instance;
       }
 	  try{
     	  persistence.addNews(news);
+    	  logger.debug("NewsHandler:::::: TRYYYYY"+ news.getDateOfAddition());
     	  return 1;
     	  }
       catch(Exception e)  { 
     	  logger.debug("NEWSHANDLER add(News news) FAIL!");
+    	  logger.debug("NewsHandler:::::: CATCH"+ news.getDateOfAddition());
     	  return -1;
       }
   }

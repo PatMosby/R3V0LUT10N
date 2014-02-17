@@ -2564,6 +2564,7 @@ public class Data implements Persistence {
 	 */
 	//TODO HÄ?
 	private String testTableName = "testTable";
+	private String NewsDate= "NEWSDATE";
 	public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException {
 		logger.debug("TestLending");
 		run.update("insert into " + testTableName + "(id, "
@@ -2662,23 +2663,17 @@ public class Data implements Persistence {
 	}
 
 	@Override
-	public int addNews(final News news) throws DataSourceException, SQLException {
+	public void addNews(final News news) throws DataSourceException, SQLException {
 		logger.debug("addNews bla in data");
-//		run.update("insert into NEWS(" + NewsID + ", " + DateField + ", " + NewsField + ") values ('" 
-//				+ 
-//				+ news.getDateOfAddition() 
-//				+ "', '" + news.getNews() 
-//				+ "')");
+		logger.debug("DATAAAAA::::::"+ news.getDateOfAddition());
+		run.update("insert into NEWS(" + NewsDate + ", " + NewsField + ") values ('" 
+				
+				+ news.getDateOfAddition() 
+				+ "', '" + news.getNews() 
+   			+ "')");
+		logger.debug("DATAA222222::::::"+ news.getDateOfAddition());
 		//TODO: alter code ohne ID, funktionierte aber
 		
-		try {
-				Set<String> toIgnore = new HashSet<String>();
-				HashMap<String, Object> replace = new HashMap<String, Object>();
-				return insertByID(news, newsTableName, newsMinID, toIgnore, replace);
-			} catch (SQLException e) {
-				logger.error("add news failure");
-				throw new DataSourceException(e.getMessage());
-			}
 		}
 	
 	@Override

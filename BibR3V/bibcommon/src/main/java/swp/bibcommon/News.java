@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
  * @author Bredehöft
  *
  */
+
 public class News extends BusinessObject implements Serializable{
 	
 	private static final long serialVersionUID = 4142218730909517278L;
@@ -28,7 +29,7 @@ public class News extends BusinessObject implements Serializable{
 	
 	private String dateOfAddition;
 	
-	private String news;
+	private String news="Gahhhhhhhhhhh!!!!!!";
 
 	/**
 	 * Constructor required for DBUtils.
@@ -165,6 +166,8 @@ public class News extends BusinessObject implements Serializable{
 			this.dateOfAddition = null;
 		} else {
 			this.dateOfAddition = toString(dateOfAddition);
+			System.out.println("set date bla" + this.dateOfAddition);
+			System.out.println();
 		}
 	}
 }
