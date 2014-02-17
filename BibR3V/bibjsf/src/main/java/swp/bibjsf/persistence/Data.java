@@ -250,7 +250,7 @@ public class Data implements Persistence {
 		envCtx = (Context) initCtx.lookup(databaselookup);
 		dataSource = (DataSource) envCtx.lookup(databasename); // Datasource
 
-		getBorrower();
+		
 
 		run = new QueryRunner(dataSource);
 		try {

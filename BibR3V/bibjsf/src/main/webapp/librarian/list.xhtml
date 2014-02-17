@@ -33,20 +33,20 @@ Ausleihliste
 
 
 				<p:column>
-					<f:facet name="header"> Id</f:facet>
+					<f:facet name="header"> ID</f:facet>
 	#{borrowList.id}
 	</p:column>
 
 				<p:column>
-					<f:facet name="header"> Book Id</f:facet>
+					<f:facet name="header"> Medium ID</f:facet>
 	#{borrowList.getBookID()}
 	</p:column>
 				<p:column>
-					<f:facet name="header"> User ID</f:facet>
+					<f:facet name="header"> Leser ID</f:facet>
 	#{borrowList.readerID}
 	</p:column>
 
-				<p:column headerText="Date">
+				<p:column headerText="Rückgabedatum">
 
 
 					<p:cellEditor>
@@ -62,7 +62,7 @@ Ausleihliste
 
 				</p:column>
 				<p:column>
-					<f:facet name="header"> Charge</f:facet>
+					<f:facet name="header"> Mahngebühren</f:facet>
 	#{borrowList.fines}
 	</p:column>
 				
