@@ -252,6 +252,10 @@ public class ReaderHandler extends BusinessObjectHandler<Reader> {
     public synchronized Reader get(int id) throws DataSourceException {
     	return persistence.getReader(id);
     }
+    
+    public synchronized Reader getReaderByUsername(String username) throws DataSourceException {
+    	return persistence.getReaderByUsername(username);
+    }
 
     /**
      * An instance of Reader acting as the prototype of objects handled by this handler.

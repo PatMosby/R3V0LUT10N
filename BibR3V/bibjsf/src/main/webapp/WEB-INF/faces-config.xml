@@ -34,7 +34,7 @@
         <navigation-case>
             <from-outcome>addlibrarian</from-outcome>
             <to-view-id>/admin/addlibrarian.xhtml</to-view-id>
-        </navigation-case>          
+        </navigation-case>       
     </navigation-rule>
       
 	<!-- login form -->
@@ -342,7 +342,13 @@
             <to-view-id>/admin/manlib.xhtml</to-view-id>
         </navigation-case>      
     </navigation-rule>
-    	
+    
+    <!-- user profile -->
+<!--     <navigation-rule> -->
+<!--         <display-name>users/userProfil.xhtml</display-name> -->
+<!--         <from-view-id>/users/userProfil.xhtml</from-view-id> -->
+<!--     </navigation-rule> -->
+            	
 	<!-- localization -->
   	<application>
 		<resource-bundle>

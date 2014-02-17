@@ -8,16 +8,21 @@
 	xmlns:p="http://primefaces.org/ui">
 <!-- Profile of a reader -->
 <h:head>
-	<title>#{messages.bib}</title>
+	<title>#{messages.userprofil}</title>
 </h:head>
 <h:body>
 	<h:outputStylesheet name="css/bib.css" />
 	<p>Welcome to user pages</p>
 	<h:form>
-	<ui:include src="/mainmenu.xhtml" />
-	<ui:include src="readerAttributes.xhtml">
-		<ui:param name="readerForm" value="#{addReaderForm}" />
-	</ui:include>	
+		<ui:include src="/mainmenu.xhtml" />
+		<h:form>
+			<ui:include src="/users/userProfile.xhtml" />
+			<p:messages id="messages" closable="true" showSummary="true"
+				showDetail="true" autoUpdate="true" />
+		</h:form>
+		<h:commandButton id="saveButton" value="#{messages.save}"
+			action="#{addReaderForm.save}" ajax="false" icon="ui-icon-check"
+			validateClient="true" title="#{messages.save_help}" />
 		<h:commandButton action="#{authBackingBean.logout}" value="Logout" />
 	</h:form>
 </h:body>

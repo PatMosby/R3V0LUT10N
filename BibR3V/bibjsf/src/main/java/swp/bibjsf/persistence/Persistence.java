@@ -297,6 +297,8 @@ public interface Persistence {
 	 *             in case of problems with data source
 	 */
 	public Reader getReader(int id) throws DataSourceException;
+	
+	public Reader getReader(String username) throws DataSourceException;
 
 	/**
 	 * Returns a reader with given username.
@@ -384,7 +386,7 @@ public interface Persistence {
 	 */
 	public void restore() throws DataSourceException;
 	
-	public void addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException;
+	public int addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException;
 
 	public void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException;
 	
@@ -402,7 +404,7 @@ public interface Persistence {
 
 	public void addNews(News news) throws DataSourceException, SQLException;
 
-	public News getNews(int id);
+	public News getNews(int id) throws DataSourceException;
 
 	public List<News> getNews(List<Constraint> constraints, int from, int to,
 			List<OrderBy> order) throws DataSourceException;

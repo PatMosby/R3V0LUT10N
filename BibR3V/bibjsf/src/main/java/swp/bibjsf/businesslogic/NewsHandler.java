@@ -20,11 +20,18 @@ public class NewsHandler extends BusinessObjectHandler<News>{
 	private static final long serialVersionUID = -5829638462555290041L;
 
 private static volatile NewsHandler instance;
+
+private List<News> newsList;
   
 	protected NewsHandler() throws DataSourceException, NamingException {
 		super();
+		newsList = getAllNews();
 	}
   
+	public List<News> getNewsList() {
+		return newsList;
+	}
+	
 	public static synchronized NewsHandler getInstance()
           throws DataSourceException {
 
@@ -111,7 +118,7 @@ public void delete(List<News> elements) throws DataSourceException {
 
 @Override
 public int getNumber(List<Constraint> constraints) throws DataSourceException {
-	return -1;//persistence.getNumberOfNews(constraints);
+	return -1; //persistence.getNumberOfNews(constraints);
 	//TODO: divide by zero error wenn persistence einkommentiert wird
 }
 

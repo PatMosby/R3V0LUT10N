@@ -101,7 +101,7 @@ public abstract class BusinessObjectForm<Element extends BusinessObject> impleme
     protected String success(int result) {
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,  Messages.get("success"), Messages.get("id") + " = " + result);
         FacesContext.getCurrentInstance().addMessage(null, msg);
-        logger.debug("saved " + element);
+      //  logger.debug("saved " + element); 
         return "success";
     }
 

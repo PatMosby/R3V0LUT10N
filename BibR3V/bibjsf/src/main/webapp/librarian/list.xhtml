@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<!-- Form for file upload -->
+<!-- http://www.primefaces.org/showcase/ui/datatableCellEditing.jsf -->
+<h:head>
+	<title>#{messages.lendinglist}</title>
+</h:head>
+<h:body>
+	<h:outputStylesheet name="css/bib.css" />
+	<f:view>
+		<h:form id="form" onkeypress="return event.keyCode != 13">
+		<p:outputPanel id="container">
+			<ui:include src="/mainmenu.xhtml" />
+
+
+<!--  http://www.primefaces.org/showcase/ui/datatableRowEditing.jsf-->
+  
+			<p:dataTable id="lending" widgetVar="varLending"
+				value="#{data.getBorrower()}" var="borrowList" editable="true"
+				editMode="cell">
+				
+			
+				<p:ajax event="cellEdit" listener="#{data.onCellEdit}"  update=":form:container" />
+				<f:facet name="header">
+Ausleihliste
+</f:facet>
+
+
+				<p:column>
+					<f:facet name="header"> Id</f:facet>
+	#{borrowList.id}
+	</p:column>
+
+				<p:column>
+					<f:facet name="header"> Book Id</f:facet>
+	#{borrowList.getBookID()}
+	</p:column>
+				<p:column>
+					<f:facet name="header"> User ID</f:facet>
+	#{borrowList.readerID}
+	</p:column>
+
+				<p:column headerText="Date">
+
+
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{borrowList.date}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText id="date" value="#{borrowList.date}"></p:inputText>
+						</f:facet>
+					</p:cellEditor>
+
+
+
+				</p:column>
+				<p:column>
+					<f:facet name="header"> Charge</f:facet>
+	#{borrowList.fines}
+	</p:column>
+				
+
+			
+			</p:dataTable>
+</p:outputPanel>
+		</h:form>
+	</f:view>
+</h:body>
+</html>

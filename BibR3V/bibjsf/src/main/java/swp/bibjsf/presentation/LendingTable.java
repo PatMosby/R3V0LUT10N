@@ -17,6 +17,7 @@
 
 package swp.bibjsf.presentation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -24,19 +25,20 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-
-import swp.bibcommon.News;
-
-import swp.bibjsf.businesslogic.NewsHandler;
+import swp.bibcommon.Borrower;
+import swp.bibcommon.Reader;
+import swp.bibjsf.businesslogic.BorrowHandler;
+import swp.bibjsf.businesslogic.ReaderHandler;
 import swp.bibjsf.exception.DataSourceException;
-
 import swp.bibjsf.renderer.Content;
+import swp.bibjsf.renderer.IDCardPrinter;
+import swp.bibjsf.renderer.IDContent;
 import swp.bibjsf.renderer.Printer;
 import swp.bibjsf.utils.Messages;
 
 /**
- * A table form for books. Supports selection, sorting, filtering,
- * CSV import and export, and lazy loading. Editing is not supported.
+ * A table form for readers. Supports selection, sorting, filtering,
+ * file upload, CSV export, and lazy loading. Editing is not supported.
  * There will be extra forms for that.
  *
  * @author koschke
@@ -44,32 +46,34 @@ import swp.bibjsf.utils.Messages;
  */
 @ManagedBean
 @SessionScoped
-public class NewsTable extends TableForm<News> {
+public class LendingTable extends TableForm<Borrower> {
 
-    private static final long serialVersionUID = 3218901191825906316L;
+    private static final long serialVersionUID = -4323158046564482542L;
 
-	public NewsTable() throws DataSourceException {
-        super(NewsHandler.getInstance());
+    public LendingTable() throws DataSourceException {
+        super(BorrowHandler.getInstance());
         try {
-            model = new TableDataModel<News>(handler);
-            logger.debug("newsTable TRY ");
+            model = new TableDataModel<Borrower>(handler);
         } catch (DataSourceException e) {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_FATAL,
-                    Messages.get("noNewsFound"), e.getLocalizedMessage());
-            logger.debug("newsTable CATCH ");
+                    Messages.get("noLendingFound"), e.getLocalizedMessage());
             FacesContext.getCurrentInstance().addMessage(null, msg);
         }
     }
 
-    @Override
+	@Override
 	protected Printer getPrinter() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	protected List<Content> getContent() {
+		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+    
+
 }
 

@@ -20,9 +20,10 @@
         <h:panelGrid columns="3" cellpadding="5">  
             
              <!-- ID (read-only) -->
-          <!--   <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold"/>
+             <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold"/>
             <h:outputText id="id" value="#{borrowerForm.id}"  size="#{borrowerForm.textWidth}"/>
             <p:message for="id"  display="both" />
+<<<<<<< HEAD
 
             <ui:include src="borrowAttributes.xhtml">
 
@@ -39,21 +40,24 @@
             </ui:include> -->
 
             
+=======
+ 
+>>>>>>> d117d7f1e469f31abc2e0cbc3645ff77354eed81
             <!-- buttons in footer  -->
 			<f:facet name="footer">
 			  <h:panelGroup>
 			  
-			  <!-- first name -->
+			  <!-- readerID -->
             <h:outputLabel for="firstname" value="#{messages.cardID}: *" style="font-weight:bold"/>
             <p:inputText id="firstname" value="#{myBean.readerID}"
-               required="true" requiredMessage="#{messages.firstnamereq}"  />
+               required="true" requiredMessage="#{messages.readerIDreq}"  />
             <p:message for="firstname"  display="both" />
             
-            <!--  last name 
+            <!--  mediumID -->
             <h:outputLabel for="lastname" value="#{messages.mediumID}: *" style="font-weight:bold" />
             <p:inputText id="lastname" value="#{myBean.mediumID}"
-               required="true" requiredMessage="#{messages.lastnamereq}"   />
-            <p:message for="lastname"  display="both" /> -->
+               required="true" requiredMessage="#{messages.mediumIDreq}"   />
+            <p:message for="lastname"  display="both" /> 
             
             
             
@@ -65,8 +69,7 @@
               </h:panelGroup>
              </f:facet> 
               
-             <p:inputTextarea rows="5" cols="30" value="#{myBean.mediumID}" counter="counter" maxlength="7999"       
-            counterTemplate="{0} characters remaining." autoResize="false"/>  
+     
   
 	       <h:outputText id="counter" />  
 	
