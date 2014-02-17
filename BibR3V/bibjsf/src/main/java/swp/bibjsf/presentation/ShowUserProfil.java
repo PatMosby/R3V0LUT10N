@@ -30,6 +30,7 @@ public class ShowUserProfil {
 		return request.getRemoteUser();
 	}
 	
+	
 	public Reader getReaderByUsername(){		
 		try {
 			ReaderHandler rh = ReaderHandler.getInstance();
