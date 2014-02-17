@@ -36,6 +36,7 @@ public class AddNewsForm extends NewsForm{
     		try {
     			NewsHandler nh = NewsHandler.getInstance();
     			element.setDateOfAddition(new Date());
+    			logger.debug("addNewsForm:::::" + element.getDateOfAddition());
     			//int date1 = nh.add(element);
     			int result = nh.add(element);
     			reset();
@@ -61,4 +62,18 @@ public class AddNewsForm extends NewsForm{
         element = newElement;
         return super.reset();
     }
+    
+    public String getNews() {
+		return element.getNews();
+	}
+	
+	/**
+	 * Setzt die Nachricht.
+	 *
+	 * @param news
+	 *              Nachricht
+	 */
+	public void setNews(String news) {
+		element.setNews(news);
+	}
 } 
