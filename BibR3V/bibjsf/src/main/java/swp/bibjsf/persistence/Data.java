@@ -2698,15 +2698,12 @@ public class Data implements Persistence {
 	 */
 	// TODO HÄ?
 	private String testTableName = "testTable";
-<<<<<<< HEAD
+
 	private String NewsDate= "NEWSDATE";
-	public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException {
-=======
-	private String NewsDate = "NEWSDATE";
 
 	public final void addLendings(String bookIDs, int readerID, String dates)
 			throws DataSourceException, SQLException {
->>>>>>> d117d7f1e469f31abc2e0cbc3645ff77354eed81
+
 		logger.debug("TestLending");
 		run.update("insert into " + testTableName + "(id, " + UsernameField
 				+ ", password, firstname, lastname, birthday) values (3, '"
@@ -2813,8 +2810,8 @@ public class Data implements Persistence {
 				+ charges.getCharges() + "')");
 	}
 
+/**
 	@Override
-<<<<<<< HEAD
 	public void addNews(final News news) throws DataSourceException, SQLException {
 		logger.debug("addNews bla in data");
 		logger.debug("DATAAAAA::::::"+ news.getDateOfAddition());
@@ -2825,8 +2822,9 @@ public class Data implements Persistence {
    			+ "')");
 		logger.debug("DATAA222222::::::"+ news.getDateOfAddition());
 		//TODO: alter code ohne ID, funktionierte aber
-		
-=======
+		}
+*/
+
 	public void addNews(final News news) throws DataSourceException,
 			SQLException {
 		logger.debug("addNews bla in data");
@@ -2859,7 +2857,7 @@ public class Data implements Persistence {
 			}
 		} catch (SQLException e) {
 			throw new DataSourceException(e.getMessage());
->>>>>>> d117d7f1e469f31abc2e0cbc3645ff77354eed81
+
 		}
 	}
 

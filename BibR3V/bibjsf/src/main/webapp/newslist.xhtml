@@ -10,67 +10,19 @@
 <!-- Form for file upload -->
 <!-- http://www.primefaces.org/showcase/ui/datatableCellEditing.jsf -->
 <h:head>
-    <title>#{messages.newslisttitle}</title>
+    <title>#{messages.booklisttitle}</title>
 </h:head>
 <h:body>
+<h:outputStylesheet name="css/bib.css" />
 <f:view>
-
-<!-- <h3>Disc</h3>  
-<p:dataList value="#{bookTable.model}" var="books" itemType="disc">  
-    #{book.title}, #{book.title}  
-</p:dataList>   -->
-
-<h3>Circle</h3>  
-<p:dataList value="#{newsHandler.newsList}" var="news" itemType="circle">  
-    #{news.news}  
-</p:dataList>  
-
-<h3>Square</h3>  
-<p:dataList value="#{newsTable.model}" var="news" itemType="square">  
-    #{news.dateOfAddition}, #{news.news}  
-</p:dataList>
-
-<h:form>  
-    <p:dataTable var="news" value="#{newsTable.model}">  
-        <p:column headerText="Datum">  
-            <h:outputText value="#{news.dateOfAddition}" />  
-        </p:column>  
-  
-        <p:column headerText="Nachricht">  
-            <h:outputText value="#{news.news}" />  
-        </p:column>
-     </p:dataTable>
-</h:form>
-
-
-<p:dataTable id="bookTable" 
-     value="#{newsTable.model}" 
-     var="news"
-     lazy="true"
-     sortMode="multiple"
-     editable="#{bookTable.modifiable}"
-     filteredValue="#{bookTable.filteredElements}"
-     emptyMessage="#{messages.noBooksFound}" 
-     selection="#{bookTable.selectedElements}"
-     resizableColumns="true" liveResize="true"
-     paginator="true"
-     rows="25"
-     rowsPerPageTemplate="10,25,50,100,200,500,1000"
-     >  
-  
-      <f:facet name="header" value="#{messages.newslisttitle}" />  
-                  
-      <p:column selectionMode="multiple" style="width:2%" />
-
-      <p:column style="width:5%">  
-          <p:rowToggler />  
-      </p:column>  
-        
-<<<<<<< HEAD
-    </p:dataTable>  
+    <!-- we can ignore the enter key event altogether in this form by 
+       setting the form attribute as follows: onkeypress="return event.keyCode != 13";
+       an alternative is to use p:defaultCommand -->
+    <h:form id="form" onkeypress="return event.keyCode != 13">
+    <ui:include src="/mainmenu.xhtml" />
     
-    
-    
+    <!--  draggableColumns="true" does not work in Primefaces 3.5. It will hinder editing filter fields -->
+    <!--  it is claimed, this bug was fixed in 3.5.1, but that version is not available -->
     <p:dataTable id="bookTable" 
      value="#{bookTable.model}" 
      var="book"
@@ -87,48 +39,376 @@
      >  
   
       <f:facet name="header" value="#{messages.booklisttitle}" />  
+                  
+      <p:column selectionMode="multiple" style="width:2%" />
+
+      <p:column style="width:5%">  
+          <p:rowToggler />  
+      </p:column>  
         
       <!-- ID -->
       <p:column id="IDColumn" sortBy="#{book.id}" filterBy="#{book.id}"   
-                headerText="Model" style="width:8%"
+                headerText="#{messages.id}" style="width:8%"
                 filterMatchMode="startsWith">  
-        <h:outputText value="#{addNewsForm.news}" />   
+        <h:outputText value="#{book.id}" />   
       </p:column>  
                   
       <!-- Title -->
       <p:column id="titleColumn" sortBy="#{book.title}" filterBy="#{book.title}"  
-              headerText="Year" filterMatchMode="contains" style="width:10%"> 
-        <h:outputText value="#{addNewsForm.news}" />   
+              headerText="#{messages.title}" filterMatchMode="contains" style="width:10%"> 
+        <h:outputText value="#{book.title}" />   
       </p:column>  
-
-        
-    </p:dataTable>
-</h:form>  
-=======
-     <!--  
-      <p:column id="IDColumn" sortBy="#{news.id}" filterBy="#{news.id}"   
-                headerText="#{messages.id}" style="width:8%"
-                filterMatchMode="startsWith">  
-        <h:outputText value="#{news.id}" />   
-      </p:column>   -->
-                  
-      <!-- Title -->
-      <p:column id="dateColumn" sortBy="#{books.dateOfAddition}" filterBy="#{books.dateOfAddition}"  
-              headerText="#{messages.dateOfAddition}" filterMatchMode="contains" style="width:10%"> 
-        <h:outputText value="#{books.dateOfAddition}" />   
-      </p:column>  
->>>>>>> d117d7f1e469f31abc2e0cbc3645ff77354eed81
   
       <!-- Categories -->
-      <p:column id="newsColumn" sortBy="#{books.news}" filterBy="#{books.news}"  
-              headerText="#{messages.news}" filterMatchMode="contains" style="width:10%">
-        <h:outputText value="#{books.news}" />  
+      <p:column id="categoriesColumn" sortBy="#{book.categories}" filterBy="#{book.categories}"  
+              headerText="#{messages.categories}" filterMatchMode="contains" style="width:10%">
+        <h:outputText value="#{book.categories}" />  
       </p:column>
-      
+  
+  	  <!-- isbn/issn -->
+  	  <p:column id="isbnColumn" sortBy="#{book.industrialIdentifier}" filterBy="#{book.industrialIdentifier}"  
+              headerText="#{messages.isbn}" filterMatchMode="contains" style="width:10%">
+        <h:outputText id="isbn" value="#{book.industrialIdentifier}" />
+  	  </p:column>
+  	  
+  	  <!-- Typ -->
+      <p:column id="typColumn" sortBy="#{book.typ}" filterBy="#{book.typ}"  
+              headerText="#{messages.typ}" filterMatchMode="contains" style="width:10%">
+        <h:outputText value="#{book.typ}" />  
+      </p:column>
+  	  
+      <!-- trigger for editing row -->
+      <p:column id="rowEditorColumn" style="width:5%">  
+        <p:commandButton icon="ui-icon-pencil" style="width: auto; height: 20px" action="#{changeBookForm.edit(book)}" 
+        		rendered="#{request.isUserInRole('LIBRARIAN')}" />
+      </p:column> 
+        
+      <f:facet name="footer">
+        <p:commandButton id="newBook" value="#{messages.newBook}" icon="ui-icon-circle-plus" action="add" rendered="#{request.isUserInRole('LIBRARIAN')}"></p:commandButton>
+        <p:commandButton id="printButton" value="#{messages.print}"  title="#{messages.printBookTag_help}" update="@parent" ajax="false"
+          icon="ui-icon-print" rendered="#{request.isUserInRole('LIBRARIAN')}">
+          <p:fileDownload value="#{bookTable.pDF}" />
+        </p:commandButton>        
+        <p:commandButton id="csvButton" value="#{messages.csvexport}"  title="#{messages.csvexport_help}" update="@parent" ajax="false"
+          icon="ui-icon-folder-open" rendered="#{request.isUserInRole('LIBRARIAN')}">
+          <p:fileDownload value="#{bookTable.cSV}" />
+        </p:commandButton>
+        <p:commandButton type="button" onclick="confirmDialog.show()" value="#{messages.delete}"  title="#{messages.delete_help}" update="@parent"
+            icon="ui-icon-trash" rendered="#{request.isUserInRole('LIBRARIAN')}"/>
+      </f:facet>
+
+      <p:rowExpansion> 
+			    
+       <p:panelGrid id="displayDetails" >
+
+		<f:facet name="header">
+			<p:row>
+				<p:column styleClass="label">
+					<p:graphicImage id="image" value="#{book.imageURL}" />
+				</p:column>
+			</p:row>
+		</f:facet>
+
+		<!-- description -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputText value="#{messages.description}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="description" value="#{book.description}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+				<!-- author -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="authors" value="#{messages.authors}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="authors" value="#{book.authors}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+
+
+		<!-- subtitle -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="subtitle" value="#{messages.subtitle}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="subtitle" value="#{book.subtitle}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+
+		<!-- subcategories -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="subcategories" value="#{messages.subcategorie}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="subcategories" value="#{book.subcategories}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+
+		<!--  dateOfPublication -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="dateOfPublication"
+					value="#{messages.dateOfPublication}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="dateOfPublication"
+					value="#{book.dateOfPublication}" styleClass="content">
+					<f:convertDateTime type="date" pattern="dd.MM.yyyy"
+						timeZone="CET" />
+				</h:outputText>
+			</p:column>
+		</p:row>
+
+		<!--  dateOfAddition -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="dateOfAddition"
+					value="#{messages.dateOfAddition}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="dateOfAddition" value="#{book.dateOfAddition}"
+					styleClass="content">
+					<f:convertDateTime pattern="dd.MM.yyyy" timeZone="CET" />
+				</h:outputText>
+			</p:column>
+		</p:row>
+
+		<!-- note -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="note" value="#{messages.note}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="note" value="#{book.note}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+
+		<!-- language -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="language" value="#{messages.language}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="language" value="#{book.language}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+
+		<!-- location -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="location" value="#{messages.location}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="location" value="#{book.location}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+
+		<!-- pageCount -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="pageCount" value="#{messages.pageCount}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="pageCount" value="#{book.pageCount}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+
+		<!-- previewLink -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="previewLink" value="#{messages.previewLink}" />
+			</p:column>
+			<p:column>
+			
+			<h:outputLink value="#{book.previewLink}" >
+				<h:outputText id="previewLink" value="#{book.previewLink}"
+					styleClass="content" />
+			</h:outputLink>
+					
+			</p:column>
+		</p:row>
+
+		<!-- price -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="price" value="#{messages.price}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="price" value="#{book.price}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+
+		<!-- printType -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="printType" value="#{messages.printType}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="printType" value="#{book.printType}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+
+		<!-- publisher -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="publisher" value="#{messages.publisher}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="publisher" value="#{book.publisher}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+	    <!-- playtime -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="playtime" value="#{messages.playtime}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="playtime" value="#{book.playTime}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+		<!-- media -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="media" value="#{messages.media}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="media" value="#{book.media}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+								<!-- titleCount -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="titlecount" value="#{messages.titlecount}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="titlecount" value="#{book.titleCount}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+		<!-- Editorenliste -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="editorList" value="#{messages.editorlist}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="editorList" value="#{book.editorList}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+
+		
+				<!-- artistList -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="artistList" value="#{messages.artistlist}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="artistList" value="#{book.artistList}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+		
+				<!-- label -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="labela" value="#{messages.label}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="labela" value="#{book.label}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+						<!-- regisseur -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="regisseur" value="#{messages.regisseur}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="regisseur" value="#{book.regisseur}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+						<!-- producer -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="producer" value="#{messages.producer}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="producer" value="#{book.producer}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+
+
+				<!-- fsk -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="fsk" value="#{messages.fsk}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="fsk" value="#{book.fsk}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+	  </p:panelGrid>
+    </p:rowExpansion>  
+        
     </p:dataTable>
+        
+     <p:fileUpload fileUploadListener="#{bookTable.handleFileUpload}" 
+                  mode="advanced"
+                  label="#{messages.fileselect}"
+                  uploadLabel="#{messages.upload}" 
+                  cancelLabel="#{messages.cancel}"
+                  invalidSizeMessage="#{messages.invalidSizeMessage}"
+                  invalidFileMessage="#{messages.invalidFileMessage}"
+                  fileLimitMessage="#{messages.fileLimitMessage}"
+                  update="messages, bookTable" 
+                  sizeLimit="1000000" fileLimit="3" 
+                  allowTypes="/(\.|\/)csv$/" 
+                  rendered="#{request.isUserInRole('LIBRARIAN')}">
+    </p:fileUpload>
 
+    <p:confirmDialog message="#{messages.deleteSelectedQuestion}"
+            header="#{messages.delete}" severity="alert" widgetVar="confirmDialog">
+      <p:commandButton value="#{messages.yes}" actionListener="#{bookTable.deleteSelected}"
+           styleClass="ui-confirmdialog-yes" icon="ui-icon-check"
+           update="messages, bookTable" oncomplete="confirmDialog.hide()" />
+      <p:commandButton value="#{messages.no}" onclick="confirmDialog.hide();" type="button"
+           styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+    </p:confirmDialog>
 
+    <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+</h:form>
 </f:view>
-
 </h:body>
 </html>
