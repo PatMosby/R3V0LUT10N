@@ -23,23 +23,7 @@
              <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold"/>
             <h:outputText id="id" value="#{borrowerForm.id}"  size="#{borrowerForm.textWidth}"/>
             <p:message for="id"  display="both" />
-
-            <ui:include src="borrowAttributes.xhtml">
-
-             <ui:param name="readerForm" value="#{addReaderForm}"/>
-            </ui:include>  -->
-            
-            <!-- ID (read-only) -->            
-             <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold"/>
-            <h:outputText id="id" value="blblbblblbaaaaaa"  />
-            <p:message for="id"  display="both" />
-
-         <!--   <ui:include src="/borrower/borrowAttributes.xhtml">
-                <ui:param name="readerForm" value="#{borrowerForm}"/>
-            </ui:include> -->
-
-            
-
+ 
             <!-- buttons in footer  -->
 			<f:facet name="footer">
 			  <h:panelGroup>
@@ -65,14 +49,20 @@
 
               </h:panelGroup>
              </f:facet> 
-                                  
+              
+     
+  
+	<h:outputText id="counter" />  
+                     
         </h:panelGrid>  
         
     </p:panel>  
     
     
     <p:messages showDetail="true" autoUpdate="true"/>
-       
+    
+    
+    
 
  </h:form>
  
