@@ -29,11 +29,11 @@ public class AddBorrowerForm extends BorrowerForm{
 	    		
 	    			BorrowHandler bh = BorrowHandler.getInstance(); // Singelton
 	    			if (( (borrower.getReaderID() == null))) {
-	    				return "save Methode Fehlgeschlagen : " +failure("UserID nicht vorhanden");
+	    				return "save Methode Fehlgeschlagen : " +failure("Reader ID nicht vorhanden");
 	    				
 					}
 	    			if (borrower.getBookID() == null ) {
-	    				return "save Methode Fehlgeschlagen : " +failure("MediumID nicht vorhanden");
+	    				return "save Methode Fehlgeschlagen : " +failure("Medium ID nicht vorhanden");
 					}else{
 						logger.debug("Anomalie MediumID: "+borrower.getBookID() );
 					}
