@@ -12,18 +12,18 @@
 </h:head>
 <h:body>
 	<h:outputStylesheet name="css/bib.css" />
-	<p>Welcome to user pages</p>
 	<h:form>
 		<ui:include src="/mainmenu.xhtml" />
 		<h:form>
 			<ui:include src="/users/userProfile.xhtml" />
 			<p:messages id="messages" closable="true" showSummary="true"
 				showDetail="true" autoUpdate="true" />
+			<h:panelGroup>
+				<p:commandButton id="logoutButton" value="#{message.logout}"
+					action="#{authBackingBean.logout}" immediate="true"
+					title="#{messages.logout}" />
+			</h:panelGroup>
 		</h:form>
-		<h:commandButton id="saveButton" value="#{messages.save}"
-			action="#{addReaderForm.save}" ajax="false" icon="ui-icon-check"
-			validateClient="true" title="#{messages.save_help}" />
-		<h:commandButton action="#{authBackingBean.logout}" value="Logout" />
 	</h:form>
 </h:body>
 </html>

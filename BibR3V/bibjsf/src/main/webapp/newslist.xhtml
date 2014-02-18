@@ -1,73 +1,71 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:f="http://java.sun.com/jsf/core"
+<html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui"
->
-<!-- Form for file upload -->
-<!-- http://www.primefaces.org/showcase/ui/datatableCellEditing.jsf -->
+    xmlns:p="http://primefaces.org/ui">
+<!-- Addition of a reader -->
 <h:head>
-    <title>#{messages.newslisttitle}</title>
+    <title>#{messages.borrowMedium}</title>
 </h:head>
 <h:body>
-<f:view>
+    <h:outputStylesheet name="css/bib.css" />
+    <f:view>
+    <h:form id="form" >
+   
+    
+    <p:panel id="panel" header="#{messages.borrowMedium}">  
+        <h:panelGrid columns="3" cellpadding="5">  
+            
+             <!-- ID (read-only) -->
+             <h:outputLabel for="id" value="#{messages.id}: *" style="font-weight:bold"/>
+            <h:outputText id="id" value="#{borrowerForm.id}"  size="#{borrowerForm.textWidth}"/>
+            <p:message for="id"  display="both" />
+ 
+            <!-- buttons in footer  -->
+			<f:facet name="footer">
+			  <h:panelGroup>
+			  
+			  <!-- readerID -->
+            <h:outputLabel for="firstname" value="#{messages.cardID}: *" style="font-weight:bold"/>
+            <p:inputText id="firstname" value="#{myBean.readerID}"
+               required="true" requiredMessage="#{messages.readerIDreq}"  />
+            <p:message for="firstname"  display="both" />
+            
+            <!--  mediumID -->
+            <h:outputLabel for="lastname" value="#{messages.mediumID}: *" style="font-weight:bold" />
+            <p:inputText id="lastname" value="#{myBean.mediumID}"
+               required="true" requiredMessage="#{messages.mediumIDreq}"   />
+            <p:message for="lastname"  display="both" /> 
+            
+            
+            
+            
+			  <p:commandButton id="borrowButton" value="#{messages.borrow2}" action="#{myBean.save()}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
+		
 
-<!-- <h3>Disc</h3>  
-<p:dataList value="#{bookTable.model}" var="books" itemType="disc">  
-    #{book.title}, #{book.title}  
-</p:dataList>   -->
-
-<h3>Circle</h3>  
-<p:dataList value="#{newsHandler.newsList}" var="news" itemType="circle">  
-    #{news}  
-</p:dataList>  
-
-<h3>Square</h3>  
-<p:dataList value="#{newsHandler.allNews}" var="news" itemType="square">  
-    #{news}, #{news.news}  
-</p:dataList>
-
-<h:form>  
-    <p:dataTable var="news" value="#{newsHandler.getAllNews()}">  
-        <p:column headerText="Datum">  
-            <h:outputText value="#{news}" />  
-        </p:column>  
-  
-        <p:column headerText="Nachricht">  
-            <h:outputText value="#{news}" />  
-        </p:column>
-     </p:dataTable>
-</h:form>
-
-
-<p:dataTable id="newsTable" 
-     value="#{newsHandler.getNewsList()}" 
-     var="news"
-     lazy="true"
-     sortMode="multiple"
-     editable="#{bookTable.modifiable}"
-     filteredValue="#{bookTable.filteredElements}"
-     emptyMessage="#{messages.noBooksFound}" 
-     selection="#{bookTable.selectedElements}"
-     resizableColumns="true" liveResize="true"
-     paginator="true"
-     rows="25"
-     rowsPerPageTemplate="10,25,50,100,200,500,1000"
-     >  
-  
-      <f:facet name="header" value="#{messages.newslisttitle}" />  
-                  
-      <p:column selectionMode="multiple" style="width:2%" />
-
-      <p:column style="width:5%">  
-          <p:rowToggler />  
-      </p:column>  
+              </h:panelGroup>
+             </f:facet> 
+                
+	<h:outputText id="counter" />  
+                     
+    </h:panelGrid>  
         
-</p:dataTable>
-</f:view>
+    </p:panel>  
+    
+    
+    <p:messages showDetail="true" autoUpdate="true"/>
+    
+    
+    
 
+ </h:form>
+ 
+ 
+>>>>>>> c9089f12fb03160374fc22eaecdc909d360decaf
+</f:view>
 </h:body>
 </html>

@@ -258,8 +258,6 @@ public class Data implements Persistence {
 		envCtx = (Context) initCtx.lookup(databaselookup);
 		dataSource = (DataSource) envCtx.lookup(databasename); // Datasource
 
-		//getBorrower();
-
 		run = new QueryRunner(dataSource);
 		try {
 			checkDatabaseStructure(true);
@@ -2719,8 +2717,12 @@ public class Data implements Persistence {
 	 */
 	// TODO HÄ?
 	private String testTableName = "testTable";
+
 	private String NewsDate= "NEWSDATE";
-	public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException {
+
+	public final void addLendings(String bookIDs, int readerID, String dates)
+			throws DataSourceException, SQLException {
+
 		logger.debug("TestLending");
 		run.update("insert into " + testTableName + "(id, " + UsernameField
 				+ ", password, firstname, lastname, birthday) values (3, '"
@@ -2827,6 +2829,7 @@ public class Data implements Persistence {
 				+ charges.getCharges() + "')");
 	}
 
+/**
 	@Override
 	public void addNews(final News news) throws DataSourceException, SQLException {
 		logger.debug("addNews bla in data");
@@ -2837,7 +2840,47 @@ public class Data implements Persistence {
 				+ "', '" + news.getNews() 
    			+ "')");
 		logger.debug("DATAA222222::::::"+ news.getDateOfAddition());
+<<<<<<< HEAD
 		//TODO: alter code ohne ID, funktionierte aber		
+=======
+		//TODO: alter code ohne ID, funktionierte aber
+		}
+*/
+
+	public void addNews(final News news) throws DataSourceException,
+			SQLException {
+		logger.debug("addNews bla in data");
+		run.update("insert into NEWS(" + NewsDate + ", " + NewsField
+				+ ") values ('" + news.getDateOfAddition() + "', '"
+				+ news.getNews() + "')");
+		// TODO: alter code ohne ID, funktionierte aber
+
+	}
+
+	@Override
+	public News getNews(int id) throws DataSourceException {
+		logger.debug("get news");
+
+		try {
+			if (id < 0) {
+				throw new IllegalArgumentException(Messages.get("idnegative"));
+			}
+			ResultSetHandler<List<News>> resultSetHandler = new BeanListHandler<News>(
+					News.class);
+			String sqlQuery = String.format("SELECT * FROM %s WHERE id=%d",
+					newsTableName, id);
+			List<News> news;
+			news = run.query(sqlQuery, resultSetHandler);
+			if (news == null || news.size() == 0) {
+				throw new DataSourceException(Messages.get("noNewsForId") + " "
+						+ id);
+			} else {
+				return news.get(0);
+			}
+		} catch (SQLException e) {
+			throw new DataSourceException(e.getMessage());
+		}
+
 		}
 	
 
@@ -2989,7 +3032,7 @@ public class Data implements Persistence {
 			Connection dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT * From Medium Where id="+mediumID);
+					.prepareStatement("SELECT * From Book Where id="+mediumID);
 			ResultSet resultLending = ps.executeQuery();
 			logger.debug("Anfrage durchgefuehrt");
 			while(resultLending.next()){
@@ -3028,12 +3071,6 @@ public class Data implements Persistence {
 	        } 
 		
 		
-	}
-
-	@Override
-	public News getNews(int id) throws DataSourceException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

@@ -7,11 +7,11 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head />
 <body>
-	<p:panel id="panel" header="#{messages.addreader}">
+	<p:panel id="panel" header="#{messages.profile}">
 		<h:panelGrid columns="2" cellpadding="5">
 				<!-- username -->
 			<h:outputLabel for="username" value="#{messages.username}" />
-            <h:outputText id="username" value="#{showUserProfil.getUser()}" />
+            <p:inputText id="username" value="#{showUserProfil.getUser()}" />
 
             <!-- email -->
             <h:outputLabel for="email" value="#{messages.email}" />
@@ -45,29 +45,6 @@
                <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET"/>
             </h:outputText>
 
-
-
-
-<!-- 			ID (read-only) --> 
-<!-- 			<h:outputLabel for="id" value="#{messages.id}: *" -->
-<!-- 				style="font-weight:bold" /> -->
-<!-- 			<h:outputText id="id" value="#{addReaderForm.id}" -->
-<!-- 				size="#{addReaderForm.textWidth}" /> -->
-<!-- 			<p:message for="id" display="both" /> -->
-
-<!-- 			first name --> 
-<!-- 			<h:outputLabel for="firstname" value="#{messages.firstname}: *" -->
-<!-- 				style="font-weight:bold" /> -->
-<!-- 			<h:outputText id="firstname" value="#{readerForm.getFirstName}" -->
-<!-- 				size="#{readerForm.textWidth}" /> -->
-<!-- 			<p:message for="firstname" display="both" /> -->
-
-<!-- 			last name --> 
-<!-- 			<h:outputLabel for="lastname" value="#{messages.lastname}: *" -->
-<!-- 				style="font-weight:bold" /> -->
-<!-- 			<h:outputText id="lastname" value="#{readerForm.getLastName}" -->
-<!-- 				size="#{readerForm.textWidth}" /> -->
-<!-- 			<p:message for="lastname" display="both" /> -->
 		</h:panelGrid>
 	</p:panel>
 

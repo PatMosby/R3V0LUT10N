@@ -27,6 +27,10 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
+import swp.bibjsf.businesslogic.BusinessHandler;
+import swp.bibjsf.businesslogic.ReaderHandler;
+
+
 /**
  * Bean to handle authentication.
  *
@@ -40,6 +44,9 @@ public class AuthBackingBean {
 
   private static Logger log = Logger.getLogger(AuthBackingBean.class.getName());
 
+  protected final Logger logger = Logger.getLogger(BusinessHandler.class);
+
+  
   public String logout() {
 	  String result="/index?faces-redirect=true";
 	  //    String result="index";
@@ -48,9 +55,12 @@ public class AuthBackingBean {
 	  HttpSession session = (HttpSession)context.getExternalContext().getSession(false);
 
 	  try {
+	      logger.info("login log: authbackingbean");
+          ReaderHandler bh = ReaderHandler.getInstance();
+		  bh.changeLastUse(request.getRemoteUser());
 		  request.logout();
 		  session.invalidate();
-	  } catch (ServletException e) {
+	  } catch (Exception e) {
 		  log.error("ERROR in logout: " + e.getLocalizedMessage());
 		  result = "/loginError?faces-redirect=true";
 	  }

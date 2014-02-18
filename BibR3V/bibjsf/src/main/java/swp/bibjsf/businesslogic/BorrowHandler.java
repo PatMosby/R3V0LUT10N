@@ -162,7 +162,7 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 			logger.debug("BorrowHandler add Methode catch " + e.getMessage());
 			
 		}
-		logger.debug("Return 0  evt. Fehler");
+		logger.debug("Fehler: Keine Doppelte Ausleihe möglich! Medium ist bereits verliehen.");
 		return 0;
 	}
 
