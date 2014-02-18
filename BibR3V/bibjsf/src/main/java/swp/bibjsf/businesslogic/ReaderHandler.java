@@ -273,11 +273,13 @@ public class ReaderHandler extends BusinessObjectHandler<Reader> {
     }
     
     public void changeLastUse(String username) throws DataSourceException {
-        logger.info("lastUse ");
+        logger.info("lastUse " + username);
     	Reader reader = persistence.getReaderByUsername(username);
+    	if(reader.getId() != 0){
     	Date date = new Date();
     	reader.setLastUse(date);
         persistence.updateReader(reader.getId(), reader);
+    	}
     }
 
 }
