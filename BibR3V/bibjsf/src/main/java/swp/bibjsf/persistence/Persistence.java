@@ -29,6 +29,7 @@ import swp.bibcommon.Charges;
 import swp.bibcommon.News;
 import swp.bibcommon.Reader;
 import swp.bibcommon.Borrower;
+import swp.bibcommon.Times;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
 import swp.bibjsf.exception.DataSourceException;
 import swp.bibjsf.utils.Constraint;
@@ -413,6 +414,16 @@ public interface Persistence {
 			throws DataSourceException;
 
 	public List<News> getAllNews() throws DataSourceException;
+
+	public List<String> getTheNews();
+
+	public int addTimes(Times times);
+
+	public int updateTime(Times times);
+
+	public List<Times> getTimesList() throws DataSourceException;
+
+	List<String> getMonday() throws DataSourceException;
 	
 
 }

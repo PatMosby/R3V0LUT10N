@@ -25,7 +25,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -71,6 +70,7 @@ import swp.bibcommon.Charges;
 import swp.bibcommon.News;
 import swp.bibcommon.Reader;
 import swp.bibcommon.Borrower;
+import swp.bibcommon.Times;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
 import swp.bibjsf.exception.DataSourceException;
 import swp.bibjsf.utils.CSVReader;
@@ -150,6 +150,14 @@ public class Data implements Persistence {
 	private final static String borrowTableName = "LENDING";
 
 	private final static String newsTableName = "NEWS";
+	
+	private final static String timeTableName = "TIMES";
+	
+	private final static String day = "TAG";
+	
+	private final static String open = "OFFEN";
+	
+	private final static String close = "GESCHLOSSEN";
 
 	/*
 	 * The minimal ID a book can have. We are using different ranges for book
@@ -250,7 +258,7 @@ public class Data implements Persistence {
 		envCtx = (Context) initCtx.lookup(databaselookup);
 		dataSource = (DataSource) envCtx.lookup(databasename); // Datasource
 
-		getBorrower();
+		//getBorrower();
 
 		run = new QueryRunner(dataSource);
 		try {
@@ -421,6 +429,19 @@ public class Data implements Persistence {
 			run.update("CREATE TABLE NEWS (" + "newsDate varchar(128), "
 					+ NewsField + " varchar(7999))");
 		}
+				
+		if (!tableExists(tableNames, timeTableName)) {
+			run.update("CREATE TABLE "
+					+ timeTableName
+					+ "( "
+					+ day 
+					+ " varchar(11) UNIQUE, "
+					+ open 
+					+ " varchar(11), "
+					+ close
+					+ " varchar(11))");
+		}
+		
 
 		if (createAdmin) {
 			insertAdmin();
@@ -2698,15 +2719,8 @@ public class Data implements Persistence {
 	 */
 	// TODO HÄ?
 	private String testTableName = "testTable";
-<<<<<<< HEAD
 	private String NewsDate= "NEWSDATE";
 	public final void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException {
-=======
-	private String NewsDate = "NEWSDATE";
-
-	public final void addLendings(String bookIDs, int readerID, String dates)
-			throws DataSourceException, SQLException {
->>>>>>> d117d7f1e469f31abc2e0cbc3645ff77354eed81
 		logger.debug("TestLending");
 		run.update("insert into " + testTableName + "(id, " + UsernameField
 				+ ", password, firstname, lastname, birthday) values (3, '"
@@ -2814,7 +2828,6 @@ public class Data implements Persistence {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public void addNews(final News news) throws DataSourceException, SQLException {
 		logger.debug("addNews bla in data");
 		logger.debug("DATAAAAA::::::"+ news.getDateOfAddition());
@@ -2824,44 +2837,9 @@ public class Data implements Persistence {
 				+ "', '" + news.getNews() 
    			+ "')");
 		logger.debug("DATAA222222::::::"+ news.getDateOfAddition());
-		//TODO: alter code ohne ID, funktionierte aber
-		
-=======
-	public void addNews(final News news) throws DataSourceException,
-			SQLException {
-		logger.debug("addNews bla in data");
-		run.update("insert into NEWS(" + NewsDate + ", " + NewsField
-				+ ") values ('" + news.getDateOfAddition() + "', '"
-				+ news.getNews() + "')");
-		// TODO: alter code ohne ID, funktionierte aber
-
-	}
-
-	@Override
-	public News getNews(int id) throws DataSourceException {
-		logger.debug("get news");
-
-		try {
-			if (id < 0) {
-				throw new IllegalArgumentException(Messages.get("idnegative"));
-			}
-			ResultSetHandler<List<News>> resultSetHandler = new BeanListHandler<News>(
-					News.class);
-			String sqlQuery = String.format("SELECT * FROM %s WHERE id=%d",
-					newsTableName, id);
-			List<News> news;
-			news = run.query(sqlQuery, resultSetHandler);
-			if (news == null || news.size() == 0) {
-				throw new DataSourceException(Messages.get("noNewsForId") + " "
-						+ id);
-			} else {
-				return news.get(0);
-			}
-		} catch (SQLException e) {
-			throw new DataSourceException(e.getMessage());
->>>>>>> d117d7f1e469f31abc2e0cbc3645ff77354eed81
+		//TODO: alter code ohne ID, funktionierte aber		
 		}
-	}
+	
 
 	@Override
 	public List<News> getNews(List<Constraint> constraints, int from, int to,
@@ -2880,18 +2858,47 @@ public class Data implements Persistence {
 
 	@Override
 	public List<News> getAllNews() throws DataSourceException {
-		logger.debug("get all news");
+		List<News> newsList = new ArrayList<>();
+		ResultSet rs = null;
+		Connection con=null;
 		try {
-			ResultSetHandler<List<News>> resultSetHandler = new BeanListHandler<News>(
-					News.class);
+			logger.debug("getAllNews in data");
+		 con = dataSource.getConnection();
 
-			List<News> news = run.query("SELECT * FROM " + newsTableName,
-					resultSetHandler);
-			return news;
-		} catch (SQLException e) {
-			logger.error("list news failure");
-			throw new DataSourceException(e.getLocalizedMessage());
+			PreparedStatement ps = con.prepareStatement("SELECT * From NEWS");
+			 rs = ps.executeQuery();
+
+			while (rs.next()) {
+				News news = new News();
+				//Spalte für Spalte
+				news.setDateOfAddition(News.toDate(rs.getString(1)));
+				news.setNews(rs.getString(2)); // Book id
+				
+				newsList.add(news);
+			}
+			logger.debug("Zeige alle News");
+			for (News element : newsList) {
+				logger.debug("Elemente: " + element.getDateOfAddition()); //für Ausgabe auf Konsole
+			}
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		return newsList;
+
 	}
 
 	@Override
@@ -3021,6 +3028,137 @@ public class Data implements Persistence {
 	        } 
 		
 		
+	}
+
+	@Override
+	public News getNews(int id) throws DataSourceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> getTheNews() {
+		List<String> newsList = new ArrayList<>();
+		ResultSet rs = null;
+		Connection con=null;
+		try {
+			logger.debug("getTheNews in data");
+		 con = dataSource.getConnection();
+
+			PreparedStatement ps = con.prepareStatement("SELECT news From NEWS");
+			 rs = ps.executeQuery();
+
+			while (rs.next()) {
+				String news = rs.getString(1);
+				newsList.add(news);
+			}
+			logger.debug("Zeige alle News");
+			for (String element : newsList) {
+				logger.debug("Elemente: " + element); //für Ausgabe auf Konsole
+			}
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return newsList;
+
+	}
+
+	@Override
+	public int addTimes(Times times) {
+		logger.debug("addTimes in data");
+		try{
+			run.update("insert into TIMES(" + day + ", " + open + ", " + close + ") values ('" 
+				+ times.getDay()
+				+ "', '" 
+				+ times.getOpen()
+				+ "', '"
+				+ times.getClose()
+				+ "')");
+			return 1;
+		} catch (Exception e){
+			return -1;
+		}
+	}
+	
+
+	@Override
+	public int updateTime(Times times) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<Times> getTimesList() throws DataSourceException {
+		try {
+			ResultSetHandler<List<Times>> resultSetHandler = new BeanListHandler<Times>(
+					Times.class);
+
+			List<Times> times = run.query("SELECT * FROM " + timeTableName,
+					resultSetHandler);
+			return times;
+		} catch (SQLException e) {
+			logger.error("list times failure");
+			throw new DataSourceException(e.getLocalizedMessage());
+		}
+	}
+	
+	@Override
+	public List<String> getMonday() throws DataSourceException {
+		List<String> lst = new ArrayList<>();
+		ResultSet rs = null;
+		Connection con=null;
+		try {
+			logger.debug("getMonday in data");
+			con = dataSource.getConnection();
+
+			PreparedStatement ps = con.prepareStatement("SELECT * From TIMES WHERE " + day + "='Montag';");
+			 rs = ps.executeQuery();
+
+			while (rs.next()) {
+				String days = rs.getString(1);
+				String open = rs.getString(2);
+				String close = rs.getString(3);
+				lst.add(days);
+				lst.add(open);
+				lst.add(close);
+			}
+			logger.debug("Zeige alle Times");
+			for (String element : lst) {
+				logger.debug("Elemente: " + element); //für Ausgabe auf Konsole
+			}
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return lst;
+
 	}
 
 }

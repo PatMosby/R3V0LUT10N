@@ -61,6 +61,19 @@
         </navigation-case>
     </navigation-rule>
     
+    <navigation-rule>
+        <display-name>librarian/setTimes.xhtml</display-name>
+        <from-view-id>/librarian/setTimes.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/librarian/setTimes.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/librarian/setTimes.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
     <!-- reader list form -->        
     <navigation-rule>
         <display-name>librarian/editor.xhtml</display-name>

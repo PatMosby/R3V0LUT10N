@@ -20,8 +20,8 @@ package swp.bibjsf.presentation;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import swp.bibcommon.Charges;
-import swp.bibjsf.businesslogic.ChargesHandler;
+import swp.bibcommon.Times;
+import swp.bibjsf.businesslogic.TimeHandler;
 import swp.bibjsf.utils.Messages;
 
 /**
@@ -32,22 +32,16 @@ import swp.bibjsf.utils.Messages;
  */
 @ManagedBean
 @SessionScoped
-public class changeChargesForm extends ChargesForm {
+public class SetTimesForm extends TimesForm {
 	
-    /**
-     * Unique serial number.
-     */
-    private static final long serialVersionUID = 8483587892305412383L;
+    private static final long serialVersionUID = 5407579582351710994L;
 
-    /**
+	/**
      * Constructor.
      */
-    public changeChargesForm() {
-        element = new Charges();
-    	// set default date of addition (today)
-        double dfines = 0.0;
-  	    String fines = Double.toString(dfines);
-        element.setCharges(fines);
+    public SetTimesForm() {
+        element = new Times();
+    	
     }
 
     /**
@@ -58,13 +52,13 @@ public class changeChargesForm extends ChargesForm {
      */
     @Override
     public String save() {
-    	logger.debug("request to save new book " + ((element == null) ? "NULL" : element.toString()));
+    	logger.debug("request to save new time " + ((element == null) ? "NULL" : element.toString()));
     	if (element != null) {
     		try {
-    			ChargesHandler ch = ChargesHandler.getInstance();
-    			int newID = ch.add(element);
+    			TimeHandler th = TimeHandler.getInstance();
+    			int newID = th.add(element);
     			// reset so that the next book can be added without need to press a button
-    			reset();
+    			//reset();
     			return success(newID);
 
     		} catch (Exception e) {
@@ -80,33 +74,8 @@ public class changeChargesForm extends ChargesForm {
      */
     @Override
     public String reset() {
-        Charges newElement = new Charges();
-    	// set default date of addition (today)
-        //newElement.setDateOfAddition(new Date());
-        //mergeSelectedAttributes(newElement, element);
-        element = newElement;
+        Times newElement = new Times();
+    	element = newElement;
         return super.reset();
     }
-
-	@Override
-	public String getTyp() {
-		return element.getTyp();
- 	}
-
-	@Override
-	public void setTyp(String typ) {
-		element.setTyp(typ);
-		
-	}
-
-	@Override
-	public String getCharges() {
-		return element.getCharges();
-	}
-
-	@Override
-	public void setCharges(String charges) {
-		element.setCharges(charges);
-	}
-
 }
