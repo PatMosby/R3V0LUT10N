@@ -17,7 +17,7 @@ public abstract class NewsForm extends BusinessObjectForm<News>{
         element.setNews(news);  
     }
     
-    private boolean dateOfAdditionSelected                = false;
+    private boolean dateOfAdditionSelected = false;
     
     public boolean isDateOfAdditionSelected() {
 		return dateOfAdditionSelected;

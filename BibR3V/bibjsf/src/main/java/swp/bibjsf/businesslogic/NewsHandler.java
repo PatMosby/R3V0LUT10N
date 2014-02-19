@@ -26,11 +26,18 @@ private List<News> newsList;
 	protected NewsHandler() throws DataSourceException, NamingException {
 		super();
 		newsList = getAllNews();
+		
 	}
   
 	public List<News> getNewsList() {
 		return newsList;
 	}
+	
+	public void setNewsList(List<News> nList) {
+		this.newsList = nList;
+	}
+	
+	
 	
 	public static synchronized NewsHandler getInstance()
           throws DataSourceException {
@@ -60,6 +67,10 @@ private List<News> newsList;
   public synchronized List<News> getAllNews() throws DataSourceException {
       List<News> news = persistence.getAllNews();
       return news;
+  }
+  
+  public synchronized void setAllNews(List<News> nList) throws DataSourceException {
+      this.newsList = nList;
   }
   
   /**

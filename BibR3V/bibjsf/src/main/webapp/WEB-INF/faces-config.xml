@@ -38,6 +38,7 @@
 	</navigation-rule>
 
 	<!-- login form -->
+<<<<<<< HEAD
 	<navigation-rule>
 		<display-name>faces/login.xhtml</display-name>
 		<from-view-id>/faces/login.xhtml</from-view-id>
@@ -125,6 +126,71 @@
 		</navigation-case>
 	</navigation-rule>
 
+=======
+    <navigation-rule>
+    	<display-name>faces/login.xhtml</display-name>
+    	<from-view-id>/faces/login.xhtml</from-view-id>
+    	<navigation-case>
+    	    <from-outcome>index</from-outcome>
+    	    <to-view-id>/index.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>  
+    
+    <!-- reader list form -->        
+    <navigation-rule>
+        <display-name>librarian/borrow.xhtml</display-name>
+        <from-view-id>/librarian/borrow.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/librarian/borrow.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/librarian/borrow.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <display-name>librarian/setTimes.xhtml</display-name>
+        <from-view-id>/librarian/setTimes.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/librarian/setTimes.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/librarian/setTimes.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- reader list form -->        
+    <navigation-rule>
+        <display-name>librarian/editor.xhtml</display-name>
+        <from-view-id>/librarian/editor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/librarian/editor.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- reader list form -->        
+    <navigation-rule>
+        <display-name>chargesTime/change.xhtml</display-name>
+        <from-view-id>chargesTime/change.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>chargesTime/change.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>chargesTime/change.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+>>>>>>> f6ade9899723225f33ea4f385e7d3cce892a774d
 
 	<navigation-rule>
 		<display-name>admin/manlib.xhtml</display-name>

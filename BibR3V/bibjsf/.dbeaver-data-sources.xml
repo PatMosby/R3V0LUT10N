@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="derby_server-1392638891291-515252410" provider="generic" driver="derby_server" name="Derby - sun-appserv-samples" create-date="1392638891291" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="localhost" port="1527" server="" database="sun-appserv-samples" url="jdbc:derby://localhost:1527/sun-appserv-samples;create=false" user="admin" password="EgALKU8jpQ==" type="dev"/>
+	</data-source>
+</data-sources>
