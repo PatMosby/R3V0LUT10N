@@ -49,13 +49,22 @@
 		requests -->
 	<!-- which is required to be able to send files over HTTP. -->
 	<filter>
+	<filter-name>MobileFilter</filter-name>
+  <filter-class>presentation.MobileFilter</filter-class>
+ </filter>
+ <filter-mapping>
+  <filter-name>MobileFilter</filter-name>
+  <url-pattern>/index.xhtml</url-pattern>
+ </filter-mapping>
+	
+	<!-- <filter>
     <filter-name>FilterViewHandler</filter-name>
     <filter-class>filter.FilterViewHandler</filter-class>
 </filter>
 <filter-mapping>
     <filter-name>FilterViewHandler</filter-name>
     <servlet-name>Faces Servlet</servlet-name>
-</filter-mapping>
+</filter-mapping> -->
 
 	<filter>
 		<filter-name>PrimeFaces FileUpload Filter</filter-name>
