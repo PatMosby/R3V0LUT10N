@@ -26,6 +26,7 @@
 			<p:submenu label="#{messages.profile}" icon="ui-icon-person" rendered="#{request.isUserInRole('USER')}">
 				<p:menuitem value="#{messages.myData}" url="/users/user.xhtml" />
 				<p:menuitem value="#{messages.myBooks}" url="#" />
+				<p:menuitem value="#{messages.myReservations}" url="#" />
 				<p:menuitem value="#{messages.history}" url="#" />
 				<p:menuitem value="#{messages.settings}" icon="ui-icon-gear" url="#" />
 			
@@ -45,7 +46,7 @@
 				
 				<p:submenu label="#{messages.settings}" icon="ui-icon-gear">
 					<p:menuitem value="#{messages.editIndex}" url="/librarian/editor.xhtml"/>
-					<p:menuitem value="#{messages.editOpening}" url="#"/>
+					<p:menuitem value="#{messages.editOpening}" url="/librarian/setTimes.xhtml"/>
 
 					<p:menuitem value="#{messages.fines}" url="/chargesTime/change.xhtml"/>
 

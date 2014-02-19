@@ -480,8 +480,8 @@ public class Reader extends BusinessObject implements Serializable, Cloneable {
 	}
 
 	/**
-	 * @param dateOfAddition
-	 *            the dateOfAddition to set
+	 * @param lastUse
+	 *            the date of the lastuse to set
 	 */
 	public void setLastUse(Date lastUse) {
 		if (lastUse == null) {

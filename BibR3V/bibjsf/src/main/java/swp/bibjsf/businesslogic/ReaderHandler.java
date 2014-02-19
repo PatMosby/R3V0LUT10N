@@ -20,8 +20,10 @@ package swp.bibjsf.businesslogic;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
+import java.util.Date;
 
 import javax.naming.NamingException;
+
 
 import swp.bibcommon.Reader;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
@@ -268,6 +270,16 @@ public class ReaderHandler extends BusinessObjectHandler<Reader> {
     @Override
     public synchronized Reader getPrototype() {
         return prototype;
+    }
+    
+    public void changeLastUse(String username) throws DataSourceException {
+        logger.info("lastUse " + username);
+    	Reader reader = persistence.getReaderByUsername(username);
+    	if(reader.getId() != 0){
+    	Date date = new Date();
+    	reader.setLastUse(date);
+        persistence.updateReader(reader.getId(), reader);
+    	}
     }
 
 }

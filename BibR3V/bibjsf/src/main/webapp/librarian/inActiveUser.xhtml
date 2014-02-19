@@ -46,6 +46,16 @@
           <p:rowToggler />  
       </p:column>  
         
+        
+              <!-- lastUse -->
+      <p:column id="lastUseColumn" sortBy="#{reader.lastUse}"   
+              headerText="#{messages.lastUse}" >
+        <h:outputText value="#{reader.lastUse}" >
+          <f:convertDateTime pattern="dd.MM.yyyy" />
+        </h:outputText>   
+      </p:column>
+      
+      
       <!-- ID -->
       <p:column id="IDColumn" sortBy="#{reader.id}" filterBy="#{reader.id}"   
                 headerText="#{messages.id}"
@@ -70,14 +80,6 @@
         (e.g., timeZone="CET") in every date/time converter. Or, if you want to override the 
         default UTC timezone to be the operating platform default timezone, then you need 
         to add an appropriate context param to web.xml -->
-
-      <!-- lastUse -->
-      <p:column id="lastUseColumn" sortBy="#{reader.lastUse}"   
-              headerText="#{messages.lastUse}" >
-        <h:outputText value="#{reader.lastUse}" >
-          <f:convertDateTime pattern="dd.MM.yyyy" />
-        </h:outputText>   
-      </p:column>
   
         
       <f:facet name="footer">

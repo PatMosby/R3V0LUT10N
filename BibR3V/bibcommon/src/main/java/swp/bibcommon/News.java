@@ -29,7 +29,7 @@ public class News extends BusinessObject implements Serializable{
 	
 	private String dateOfAddition;
 	
-	private String news="Gahhhhhhhhhhh!!!!!!";
+	private String news="Hier die neue Nachricht eingeben.";
 
 	/**
 	 * Constructor required for DBUtils.
@@ -97,7 +97,7 @@ public class News extends BusinessObject implements Serializable{
 	 * @param date date formatted as described by DateFormat
 	 * @return the date or null if given date is null, empty, or malformed
 	 */
-	private static Date toDate(String date) {
+	public static Date toDate(String date) {
 		if (date == null || date.isEmpty()) {
 			return null;
 		} else {

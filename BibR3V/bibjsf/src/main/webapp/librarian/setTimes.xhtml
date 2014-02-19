@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    
+<h:head>
+    <title>#{messages.setTimes}</title>
+</h:head>
+<h:body>
+	<h:outputStylesheet name="css/bib.css" />
+	<f:view>
+	<h:form id="form1">
+    <ui:include src="/mainmenu.xhtml" />
+	<p:panel id="panel" header="#{messages.setTimes}" />	
+		<p:focus context="panel"/>
+        <h:panelGrid columns="4" cellpadding="5" />
+        
+<h3>Circle</h3>  
+<p:dataList value="#{timeHandler.list}" var="times" itemType="circle">  
+    #{times}  
+</p:dataList> 
+
+<h3>Circle</h3>  
+<p:dataList value="#{timeHandler.timesList}" var="times" itemType="circle">  
+    #{times}  
+</p:dataList>  
+
+<h3>Circle</h3>  
+<p:dataList value="#{timeHandler.getTimesList()}" var="times" itemType="circle">  
+    #{times}  
+</p:dataList>  
+	
+	<!-- Tag -->
+	<h:outputLabel for="days" value="#{messages.day}:" title="#{messages.day_help}"
+    	style="font-weight:bold" />
+    <p:inputText id="days" value="#{setTimesForm.day}" size="#{timesForm.textWidth}"/>  
+    <p:message for="days" display="both"/>
+    
+    <h:outputLabel for="open" value="#{messages.open}:" title="#{messages.open_help}"
+    	style="font-weight:bold" />
+    <p:inputText id="open" value="#{setTimesForm.open}" size="#{timesForm.textWidth}"/>  
+    <p:message for="open" display="both"/>
+    
+    <h:outputLabel for="close" value="#{messages.close}:" title="#{messages.close_help}"
+    	style="font-weight:bold" />
+    <p:inputText id="close" value="#{setTimesForm.close}" size="#{timesForm.textWidth}"/>  
+    <p:message for="close" display="both"/>
+    
+    <p:commandButton id="saveButton" value="#{messages.save}" action="#{setTimesForm.save}" 
+                  ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
+            
+    
+	</h:form>
+	</f:view>
+</h:body>
+</html>
