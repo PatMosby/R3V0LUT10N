@@ -257,10 +257,13 @@ public class Data implements Persistence {
 
 		envCtx = (Context) initCtx.lookup(databaselookup);
 		dataSource = (DataSource) envCtx.lookup(databasename); // Datasource
+		logger.debug("chaeckdata");
 
 		run = new QueryRunner(dataSource);
 		try {
+			logger.debug("chaeckdata");
 			checkDatabaseStructure(true);
+			logger.debug("danach");
 		} catch (SQLException e) {
 			logger.error("check database structure failure: " + e.getMessage());
 			throw new DataSourceException(e.getLocalizedMessage());
