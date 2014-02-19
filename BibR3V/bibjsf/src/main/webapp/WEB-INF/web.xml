@@ -49,6 +49,15 @@
 		requests -->
 	<!-- which is required to be able to send files over HTTP. -->
 	<filter>
+    <filter-name>FilterViewHandler</filter-name>
+    <filter-class>filter.FilterViewHandler</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>FilterViewHandler</filter-name>
+    <servlet-name>Faces Servlet</servlet-name>
+</filter-mapping>
+
+	<filter>
 		<filter-name>PrimeFaces FileUpload Filter</filter-name>
 		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
 	</filter>
