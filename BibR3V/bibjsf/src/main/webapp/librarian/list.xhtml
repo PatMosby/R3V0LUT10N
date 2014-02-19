@@ -22,7 +22,7 @@
 <!--  http://www.primefaces.org/showcase/ui/datatableRowEditing.jsf-->
   
 			<p:dataTable id="lending" widgetVar="varLending"
-				value="#{data.getBorrower()}" var="borrowList" editable="true"
+				value="#{data.getBorrower()}" rowIndexVar="rowIndex" var="borrowList" editable="true"
 				editMode="cell">
 				
 			
@@ -51,19 +51,26 @@ Ausleihliste
 
 					<p:cellEditor>
 						<f:facet name="output">
-							<h:outputText value="#{borrowList.date}" />
+							<h:outputText value="#{borrowList.date}" />  <!-- borrowList.date -->
 						</f:facet>
 						<f:facet name="input">
-							<p:inputText id="date" value="#{borrowList.date}"></p:inputText>
-						</f:facet>
+						<!-- <p:remoteCommand name="test" actionListener="#{data.tester}"/> -->
+                     <!--   <p:inputText id="commentInput" value="#{data.test}" -->
+                         <!--             onkeypress="if (event.keyCode == 13) { test(); return false; }"/> -->
+							 <p:inputText id="date" value= "#{data.date}"  ></p:inputText> 
+						</f:facet>						
+							
+					
 					</p:cellEditor>
-
-
-
 				</p:column>
+				
 				<p:column>
-					<f:facet name="header"> Mahngebühren</f:facet>
-	#{borrowList.fines}
+					 <f:facet name="header"> Mahngebühren</f:facet> 
+					
+					
+					
+					 
+	 #{borrowList.fines}
 	</p:column>
 				
 
