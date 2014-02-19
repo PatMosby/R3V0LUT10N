@@ -3,275 +3,275 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
 	version="2.0">
 
-    <!-- welcome page (index) -->	
-    <navigation-rule>
-        <display-name>index.xhtml</display-name>
-        <from-view-id>/index.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>addbook</from-outcome>
-            <to-view-id>/book/auth/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>addreader</from-outcome>
-            <to-view-id>/reader/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>login</from-outcome>
-            <to-view-id>/faces/login.xhtml</to-view-id>
-        </navigation-case>   
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>      
-        <navigation-case>
-            <from-outcome>profile</from-outcome>
-            <to-view-id>/users/user.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>addlibrarian</from-outcome>
-            <to-view-id>/admin/addlibrarian.xhtml</to-view-id>
-        </navigation-case>       
-    </navigation-rule>
-      
-	<!-- login form -->
-    <navigation-rule>
-    	<display-name>faces/login.xhtml</display-name>
-    	<from-view-id>/faces/login.xhtml</from-view-id>
-    	<navigation-case>
-    	    <from-outcome>index</from-outcome>
-    	    <to-view-id>/index.xhtml</to-view-id>
-    	</navigation-case>
-    </navigation-rule>  
-    
-    <!-- reader list form -->        
-    <navigation-rule>
-        <display-name>librarian/borrow.xhtml</display-name>
-        <from-view-id>/librarian/borrow.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/librarian/borrow.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/librarian/borrow.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    
-    <!-- reader list form -->        
-    <navigation-rule>
-        <display-name>librarian/editor.xhtml</display-name>
-        <from-view-id>/librarian/editor.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/librarian/editor.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    
-    <!-- reader list form -->        
-    <navigation-rule>
-        <display-name>chargesTime/change.xhtml</display-name>
-        <from-view-id>chargesTime/change.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>chargesTime/change.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>error</from-outcome>
-            <to-view-id>chargesTime/change.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
+	<!-- welcome page (index) -->
+	<navigation-rule>
+		<display-name>index.xhtml</display-name>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>addbook</from-outcome>
+			<to-view-id>/book/auth/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>addreader</from-outcome>
+			<to-view-id>/reader/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/faces/login.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>profile</from-outcome>
+			<to-view-id>/users/user.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>addlibrarian</from-outcome>
+			<to-view-id>/admin/addlibrarian.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
-    <!-- reader list form -->        
-    <navigation-rule>
-        <display-name>reader/list.xhtml</display-name>
-        <from-view-id>/reader/list.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>add</from-outcome>
-            <to-view-id>/reader/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>edit</from-outcome>
-            <to-view-id>/reader/change.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    
-    <!-- reader addition form -->   
-    <navigation-rule>
-        <display-name>reader/add.xhtml</display-name>
-        <from-view-id>/reader/add.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/reader/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cancel</from-outcome>
-            <to-view-id>/reader/list.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>reset</from-outcome>
-            <to-view-id>/reader/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/reader/add.xhtml</to-view-id>
-        </navigation-case> 
-    </navigation-rule>
-    
-    
-    <navigation-rule>
-        <display-name>admin/manlib.xhtml</display-name>
-        <from-view-id>admin/manlib.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>add</from-outcome>
-            <to-view-id>/admin/addlibrarian.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>edit</from-outcome>
-            <to-view-id>/admin/changelibrarian.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cancel</from-outcome>
-            <to-view-id>/admin/manlib.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>reset</from-outcome>
-            <to-view-id>/admin/changelibrarian.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/admin/changelibrarian.xhtml</to-view-id>
-        </navigation-case> 
-    </navigation-rule>
-    
-    
-    <!-- librarian addition form -->   
-    <navigation-rule>
-        <display-name>admin/addlibrarian.xhtml</display-name>
-        <from-view-id>/admin/addlibrarian.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/admin/addlibrarian.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cancel</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>reset</from-outcome>
-            <to-view-id>/admin/addlibrarian.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/admin/addlibrarian.xhtml</to-view-id>
-        </navigation-case> 
-    </navigation-rule>
-    
-    <!-- librarian change form -->   
-    <navigation-rule>
-        <display-name>/admin/changelibrarian.xhtml</display-name>
-        <from-view-id>/admin/changelibrarian.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/admin/manlib.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cancel</from-outcome>
-            <to-view-id>/admin/manlib.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>reset</from-outcome>
-            <to-view-id>/admin/changelibrarian.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/admin/changelibrarian.xhtml</to-view-id>
-        </navigation-case> 
-    </navigation-rule>
-    
-    <!-- reader change form -->   
-    <navigation-rule>
-        <display-name>reader/change.xhtml</display-name>
-        <from-view-id>/reader/change.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/reader/list.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cancel</from-outcome>
-            <to-view-id>/reader/list.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>reset</from-outcome>
-            <to-view-id>/reader/change.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/reader/change.xhtml</to-view-id>
-        </navigation-case> 
-    </navigation-rule>
-    
-    <!-- book list form -->        
-    <navigation-rule>
-        <display-name>book/list.xhtml</display-name>
-        <from-view-id>/book/list.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>add</from-outcome>
-            <to-view-id>/book/auth/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>edit</from-outcome>
-            <to-view-id>/book/auth/change.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-        
-    
-    <navigation-rule>
-        <display-name>librarian/addMedium.xhtml</display-name>
-        <from-view-id>/librarian/addMedium.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>addaudiobook</from-outcome>
-            <to-view-id>/audiobook/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>addbook</from-outcome>
-            <to-view-id>/book/auth/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>addcassette</from-outcome>
-            <to-view-id>/cassette/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>addcd</from-outcome>
-            <to-view-id>/cd/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>addmagazine</from-outcome>
-            <to-view-id>/magazine/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>addmovie</from-outcome>
-            <to-view-id>/movie/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>addsoftware</from-outcome>
-            <to-view-id>/software/add.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>addother</from-outcome>
-            <to-view-id>/other/add.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    
-    
-	<!-- book addition form -->        
+	<!-- login form -->
+	<navigation-rule>
+		<display-name>faces/login.xhtml</display-name>
+		<from-view-id>/faces/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- reader list form -->
+	<navigation-rule>
+		<display-name>librarian/borrow.xhtml</display-name>
+		<from-view-id>/librarian/borrow.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/librarian/borrow.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/librarian/borrow.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- reader list form -->
+	<navigation-rule>
+		<display-name>librarian/editor.xhtml</display-name>
+		<from-view-id>/librarian/editor.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/librarian/editor.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- reader list form -->
+	<navigation-rule>
+		<display-name>chargesTime/change.xhtml</display-name>
+		<from-view-id>chargesTime/change.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>chargesTime/change.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>chargesTime/change.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- reader list form -->
+	<navigation-rule>
+		<display-name>reader/list.xhtml</display-name>
+		<from-view-id>/reader/list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>add</from-outcome>
+			<to-view-id>/reader/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/reader/change.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- reader addition form -->
+	<navigation-rule>
+		<display-name>reader/add.xhtml</display-name>
+		<from-view-id>/reader/add.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/reader/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/reader/list.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>reset</from-outcome>
+			<to-view-id>/reader/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/reader/add.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<navigation-rule>
+		<display-name>admin/manlib.xhtml</display-name>
+		<from-view-id>admin/manlib.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>add</from-outcome>
+			<to-view-id>/admin/addlibrarian.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/admin/changelibrarian.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/admin/manlib.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>reset</from-outcome>
+			<to-view-id>/admin/changelibrarian.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/admin/changelibrarian.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<!-- librarian addition form -->
+	<navigation-rule>
+		<display-name>admin/addlibrarian.xhtml</display-name>
+		<from-view-id>/admin/addlibrarian.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/admin/addlibrarian.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>reset</from-outcome>
+			<to-view-id>/admin/addlibrarian.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/admin/addlibrarian.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- librarian change form -->
+	<navigation-rule>
+		<display-name>/admin/changelibrarian.xhtml</display-name>
+		<from-view-id>/admin/changelibrarian.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/admin/manlib.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/admin/manlib.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>reset</from-outcome>
+			<to-view-id>/admin/changelibrarian.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/admin/changelibrarian.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- reader change form -->
+	<navigation-rule>
+		<display-name>reader/change.xhtml</display-name>
+		<from-view-id>/reader/change.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/reader/list.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/reader/list.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>reset</from-outcome>
+			<to-view-id>/reader/change.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/reader/change.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- book list form -->
+	<navigation-rule>
+		<display-name>book/list.xhtml</display-name>
+		<from-view-id>/book/list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>add</from-outcome>
+			<to-view-id>/book/auth/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/book/auth/change.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<navigation-rule>
+		<display-name>librarian/addMedium.xhtml</display-name>
+		<from-view-id>/librarian/addMedium.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>addaudiobook</from-outcome>
+			<to-view-id>/audiobook/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>addbook</from-outcome>
+			<to-view-id>/book/auth/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>addcassette</from-outcome>
+			<to-view-id>/cassette/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>addcd</from-outcome>
+			<to-view-id>/cd/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>addmagazine</from-outcome>
+			<to-view-id>/magazine/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>addmovie</from-outcome>
+			<to-view-id>/movie/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>addsoftware</from-outcome>
+			<to-view-id>/software/add.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>addother</from-outcome>
+			<to-view-id>/other/add.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<!-- book addition form -->
 	<navigation-rule>
 		<display-name>book/add.xhtml</display-name>
 		<from-view-id>/book/auth/add.xhtml</from-view-id>
@@ -282,7 +282,7 @@
 		<navigation-case>
 			<from-outcome>error</from-outcome>
 			<to-view-id>/book/auth/add.xhtml</to-view-id>
-		</navigation-case>		
+		</navigation-case>
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
 			<to-view-id>/book/list.xhtml</to-view-id>
@@ -290,10 +290,10 @@
 		<navigation-case>
 			<from-outcome>reset</from-outcome>
 			<to-view-id>/book/auth/add.xhtml</to-view-id>
-		</navigation-case>					
+		</navigation-case>
 	</navigation-rule>
 
-	<!-- book lookup form -->        
+	<!-- book lookup form -->
 	<navigation-rule>
 		<display-name>book/lookup.xhtml</display-name>
 		<from-view-id>/book/lookup.xhtml</from-view-id>
@@ -304,60 +304,60 @@
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
 			<to-view-id>/book/list.xhtml</to-view-id>
-		</navigation-case>		
+		</navigation-case>
 	</navigation-rule>
 
-    <!-- book change form -->   
-    <navigation-rule>
-        <display-name>book/change.xhtml</display-name>
-        <from-view-id>/book/auth/change.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/book/list.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cancel</from-outcome>
-            <to-view-id>/book/list.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>reset</from-outcome>
-            <to-view-id>/book/auth/change.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/book/auth/change.xhtml</to-view-id>
-        </navigation-case> 
-    </navigation-rule>
+	<!-- book change form -->
+	<navigation-rule>
+		<display-name>book/change.xhtml</display-name>
+		<from-view-id>/book/auth/change.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/book/list.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/book/list.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>reset</from-outcome>
+			<to-view-id>/book/auth/change.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/book/auth/change.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
-    <!-- admin form -->        
-    <navigation-rule>
-        <display-name>admin/manlib.xhtml</display-name>
-        <from-view-id>/admin/manlib.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/admin/manlib.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cancel</from-outcome>
-            <to-view-id>/admin/manlib.xhtml</to-view-id>
-        </navigation-case>      
-    </navigation-rule>
-    
-    <!-- user profile -->
-<!--     <navigation-rule> -->
-<!--         <display-name>users/userProfil.xhtml</display-name> -->
-<!--         <from-view-id>/users/userProfil.xhtml</from-view-id> -->
-<!--     </navigation-rule> -->
-            	
+	<!-- admin form -->
+	<navigation-rule>
+		<display-name>admin/manlib.xhtml</display-name>
+		<from-view-id>/admin/manlib.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/admin/manlib.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/admin/manlib.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- user profile -->
+	<!-- <navigation-rule> -->
+	<!-- <display-name>users/userProfil.xhtml</display-name> -->
+	<!-- <from-view-id>/users/userProfil.xhtml</from-view-id> -->
+	<!-- </navigation-rule> -->
+
 	<!-- localization -->
-  	<application>
+	<application>
 		<resource-bundle>
 			<base-name>messages</base-name>
 			<var>messages</var>
 		</resource-bundle>
 		<locale-config>
-		    <default-locale>de</default-locale>
-		    <supported-locale>de</supported-locale>
+			<default-locale>de</default-locale>
+			<supported-locale>de</supported-locale>
 		</locale-config>
 	</application>
 

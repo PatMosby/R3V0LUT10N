@@ -234,7 +234,7 @@
     <dependency>  
       <groupId>org.primefaces</groupId>  
       <artifactId>primefaces</artifactId>  
-      <version>3.5</version>  
+      <version>4.0</version>  
     </dependency>
     
     <dependency> <!-- required for PDF rendering -->
@@ -258,11 +258,18 @@
       <artifactId>google-api-services-books</artifactId>
       <version>v1-rev21-1.14.1-beta</version>
     </dependency>
+    
     <dependency> <!-- required for Google lookup (Google Books API) -->
       <groupId>com.google.http-client</groupId>
       <artifactId>google-http-client-jackson2</artifactId>
       <version>${project.http.version}</version>
     </dependency>
+    
+    <dependency>  
+    <groupId>org.primefaces</groupId>  
+    <artifactId>primefaces-mobile</artifactId>  
+    <version>0.9.4</version>  
+	</dependency> 
     
   </dependencies>
   
