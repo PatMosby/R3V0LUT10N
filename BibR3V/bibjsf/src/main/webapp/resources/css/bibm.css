@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+.label
+{
+width: 25% !important;
+min-width: 20em !important;
+font-weight:bold;
+}
+
+.content
+{
+width: 75% !important;
+min-width: 60em !important;
+font-weight:normal;
+white-space:normal;
+}
