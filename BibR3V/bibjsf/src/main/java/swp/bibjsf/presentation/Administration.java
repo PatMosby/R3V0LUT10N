@@ -26,6 +26,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import swp.bibjsf.businesslogic.AdministrationHandler;
+import swp.bibjsf.presentation.Administration;
 import swp.bibjsf.exception.DataSourceException;
 import swp.bibjsf.utils.Messages;
 
@@ -45,6 +46,9 @@ public class Administration  implements Serializable {
      */
     private static final long serialVersionUID = -649625566653922056L;
 
+   // AutoAdministration auto = new AutoAdministration();
+
+    
     /**
      * Action to reset the database.
      *
@@ -100,6 +104,24 @@ public class Administration  implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, msg);
             return "error";
         }
+    }
+    
+    public void autoBackUp(){
+ //       auto.setAuto(true);
+        try{
+           AutoAdministration.getInstance().start();
+        } catch (DataSourceException e) {
+        	
+        }
+    }
+    
+    public void autoBackUpEnd(){
+//        auto.setAuto(true);
+        try{
+            AutoAdministration.getInstance().interrupt();
+         } catch (DataSourceException e) {
+         	
+         }
     }
     
    

@@ -17,7 +17,7 @@
 
 		<h1>#{messages.administration}</h1>
 
-		<h:panelGrid columns="3">
+		<h:panelGrid columns="4">
 			<p:commandButton value="#{messages.backupDB}" icon="ui-icon-disk"
 				onclick="confirmBackupDBDialog.show()" update="@parent" />
 			<p:commandButton value="#{messages.restoreDB}"
@@ -25,6 +25,8 @@
 				onclick="confirmRestoreDBDialog.show()" update="@parent" />
 			<p:commandButton value="#{messages.resetDB}" icon="ui-icon-trash"
 				onclick="confirmResetDBDialog.show()" update="@parent" />
+		    <p:commandButton value="#{messages.autobackup}" icon="ui-icon-trash"
+				onclick="confirmAutoBackupDBDialog.show()" update="@parent" />
 		</h:panelGrid>
 
 		<p:confirmDialog id="resetDBDialog"
@@ -62,6 +64,19 @@
 			<p:commandButton id="restoreDBDialogno" value="#{messages.no}"
 				onclick="confirmRestoreDBDialog.hide();" type="button"
 				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		</p:confirmDialog>
+		
+	    <p:confirmDialog id="autoBackupDBDialog"
+			message="#{messages.autobackupa}" header="#{messages.autobackup}"
+			severity="alert" widgetVar="confirmAutoBackupDBDialog">
+			<p:commandButton id="autobackupDialogyes" value="#{messages.activate}"
+				actionListener="#{administration.autoBackUp}"
+				styleClass="ui-confirmdialog-yes" icon="ui-icon-check"
+				update="messages" oncomplete="confirmAutoBackupDBDialog.hide()" />
+			<p:commandButton id="autobackupDialogno" value="#{messages.deactivate}"
+				actionListener="#{administration.autoBackUpEnd}"
+				styleClass="ui-confirmdialog-yes" icon="ui-icon-check"
+				update="messages" oncomplete="confirmAutoBackupDBDialog.hide()" />
 		</p:confirmDialog>
 
         <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
