@@ -254,4 +254,13 @@ public class BookHandler extends BusinessObjectHandler<Book> {
 		return persistence.getBookByIndustrialIdentifier(identifier);
 	}
 
+	public void updateStatistik(String bookID) throws DataSourceException{
+		int id = Integer.parseInt(bookID);
+		Book book = get(id);
+		int a = book.getLendings();
+		a++;
+		book.setLendings(a);
+		persistence.updateBook(id, book);
+	}
+	
 }

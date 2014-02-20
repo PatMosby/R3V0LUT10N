@@ -20,19 +20,16 @@ package swp.bibjsf.presentation;
 import java.io.Serializable;
 
 import javax.annotation.security.DeclareRoles;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.naming.NamingException;
 
 import swp.bibjsf.businesslogic.AdministrationHandler;
-import swp.bibjsf.presentation.Administration;
 import swp.bibjsf.exception.DataSourceException;
-import swp.bibjsf.utils.Messages;
 
 /**
- * Functions reserved for the administrator, that is, administrations of backups.
+ * Thread, welcher gestartet wird, wenn das automatische Backup aktiviert wurde. Sichert die Daten 
+ * täglich
  *
  * @author Pupat
  *
@@ -49,9 +46,6 @@ public class AutoAdministration extends Thread implements Serializable {
 
     private boolean auto=true;
     
-    public boolean isAuto() {
-		return auto;
-	}
     
 	protected AutoAdministration() throws DataSourceException,
     NamingException { }
@@ -61,8 +55,21 @@ public class AutoAdministration extends Thread implements Serializable {
   */
     private static volatile AutoAdministration instance;
 
+    /**
+     * beendet die instance, damit ein neuer thread gestartet werden kann
+     * 
+     * @throws DataSourceException
+     */
+    public static void endInstance()
+            throws DataSourceException {
+    		try {
+    			instance = null;
+    		} catch (Exception e) {
+    			throw new DataSourceException(e.getMessage());
+    		}
+    	}
   /**
-  * Returns the only instance of AdministrationHandler (singleton).
+  * Returns the only instance of AutoAdministration (singleton).
   *
   * @return the only instance of AdministrationHandler (singleton); may be null
   * @throws DataSourceException thrown in case of problems with the data source
@@ -79,26 +86,18 @@ public class AutoAdministration extends Thread implements Serializable {
          }
          return instance;
      }      
-
-
-	public void setAuto(boolean auto) {
-		this.auto = auto;
-	}
-
-
-	public Administration administration;
-   
+    
+    /**
+     * startet den thread, läuft solange bis er ein interupt bekommt
+     */
 
     public void run() {
     	while(auto){
-            System.out.println("Bleispiel");
           try {
-            sleep(10000);
+            sleep(86400000); //Ein Tag
             AdministrationHandler.getInstance().backupDB();
-            System.out.println("Bleispiel");
           }
           catch(InterruptedException e) {
-              System.out.println("interupt");
               Thread.currentThread().interrupt();
               if(Thread.currentThread().isInterrupted())
               {
@@ -111,20 +110,6 @@ public class AutoAdministration extends Thread implements Serializable {
         }
     }
     
-    public String backupDB() {
-    	System.out.println("backupdrin");
-        try {
-            AdministrationHandler.getInstance().backupDB();
-            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,  Messages.get("success"),  Messages.get("backupDBsuccess"));
-            FacesContext.getCurrentInstance().addMessage(null, msg);
-            return "success";
-        } catch (DataSourceException e) {
-            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, Messages.get("backupDBfailed"),
-                    e.getLocalizedMessage());
-            FacesContext.getCurrentInstance().addMessage(null, msg);
-            return "error";
-        }
-    }
     
     
 }

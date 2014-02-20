@@ -106,8 +106,11 @@ public class Administration  implements Serializable {
         }
     }
     
+    /**
+     * author: Pupat
+     * startet das autobackup
+     */
     public void autoBackUp(){
- //       auto.setAuto(true);
         try{
            AutoAdministration.getInstance().start();
         } catch (DataSourceException e) {
@@ -115,10 +118,14 @@ public class Administration  implements Serializable {
         }
     }
     
+    /**
+     * author: Pupat
+     * beendet das autobackup und die instance
+     */
     public void autoBackUpEnd(){
-//        auto.setAuto(true);
         try{
             AutoAdministration.getInstance().interrupt();
+            AutoAdministration.endInstance();
          } catch (DataSourceException e) {
          	
          }

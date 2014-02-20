@@ -156,6 +156,7 @@ public class News extends BusinessObject implements Serializable{
 			return dateOfAddition;
 		}
 	}
+	
 
 	/**
 	 * @param dateOfAddition
@@ -170,4 +171,9 @@ public class News extends BusinessObject implements Serializable{
 			System.out.println();
 		}
 	}
+
+	
+		
+
+	
 }

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+
+<h:body>
+
+	<f:view renderKitId="PRIMEFACES_MOBILE">
+<p:panel id="panel" header="#{messages.profile}">
+		<h:panelGrid columns="2" cellpadding="5">
+			<!-- username -->
+			<h:outputLabel for="username" value="#{messages.username}" />
+            <h:outputText id="username" value="#{showUserProfil.getUser()}" />
+
+            <!-- email -->
+            <h:outputLabel for="email" value="#{messages.email}" />
+            <h:outputText id="email" value="#{showUserProfil.getReaderByUsername().email}" /> 
+                        
+            <!-- street -->
+            <h:outputLabel for="street" value="#{messages.street}" />
+            <h:outputText id="street" value="#{showUserProfil.getReaderByUsername().street}" />                
+                    
+            <!-- zipcode -->
+            <h:outputLabel for="zipcode" value="#{messages.zipcode}" />
+            <h:outputText id="zipcode" value="#{showUserProfil.getReaderByUsername().zipcode}" />               
+            
+            <!-- city -->
+            <h:outputLabel for="city" value="#{messages.city}" />
+            <h:outputText id="city" value="#{showUserProfil.getReaderByUsername().city}" /> 
+
+            <!-- phone -->
+            <h:outputLabel for="phone" value="#{messages.phone}" />
+            <h:outputText id="phone" value="#{showUserProfil.getReaderByUsername().phone}" />      
+            
+            <!-- entryDate -->
+            <h:outputLabel for="entryDate" value="#{messages.entryDate}" />
+            <h:outputText id="entryDate" value="#{showUserProfil.getReaderByUsername().entryDate}" >
+               <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET"/>
+            </h:outputText> 
+                            
+            <!-- lastUse -->
+            <h:outputLabel for="lastUse" value="#{messages.lastUse}" />
+            <h:outputText id="lastUse" value="#{showUserProfil.getReaderByUsername().lastUse}"  >
+               <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET"/>
+            </h:outputText>
+
+		</h:panelGrid>
+	</p:panel>
+	</f:view>
+</h:body>

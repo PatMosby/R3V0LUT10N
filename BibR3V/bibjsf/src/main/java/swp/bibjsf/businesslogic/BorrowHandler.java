@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 
 import swp.bibcommon.Borrower;
 import swp.bibcommon.Reader;
-import swp.bibcommon.Medium;
+import swp.bibcommon.Book;
 import swp.bibjsf.businesslogic.BusinessHandler.InputException;
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
 import swp.bibjsf.exception.DataSourceException;
@@ -61,7 +61,7 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 	 * @param mediumList
 	 *            Liste der auszuleihenden Medien
 	 */
-	public void borrowMedium(Reader reader, List<Medium> mediumList) {
+	public void borrowMedium(Reader reader, List<Book> mediumList) {
 
 	}
 
@@ -71,7 +71,7 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 	 * @param mediumList
 	 *            die zu markierenden Medien
 	 */
-	public void setBorrowed(List<Medium> mediumList) {
+	public void setBorrowed(List<Book> mediumList) {
 
 	}
 
@@ -85,7 +85,7 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 	 *            die eindeutige ID des Reader
 	 * @return Liste der überfälligen Medien
 	 */
-	public List<Medium> overdueMediaList(int readerId) {
+	public List<Book> overdueMediaList(int readerId) {
 		return null;
 	}
 

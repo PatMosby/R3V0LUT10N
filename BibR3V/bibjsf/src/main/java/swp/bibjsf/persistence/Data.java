@@ -323,6 +323,59 @@ public class Data implements Persistence {
 		return borrowerList;
 
 	}
+	
+	
+	/**
+	 * Liefert eine ArrayList von News-Elementen, die aus der Datenbank gelesen wird. 
+	 */
+	private List<News> newsList = new ArrayList<>();
+	
+	public List<News> getNewsList() {
+		newsList = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection=null;
+		try {
+			logger.debug("Starte getNewsList");
+		 dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT NEWSDATE, NEWS From NEWS");
+			 resultLending = ps.executeQuery();
+
+			while (resultLending.next()) {
+				News newNews = new News();
+				//Spalte für Spalte
+				//newNews.setDateOfAddition(resultLending.getDate(1)); //Date of Addition
+				newNews.setNews(resultLending.getString(2)); // News
+
+				newsList.add(newNews);
+			}
+			logger.debug("Zeige alle News");
+			for (News element : newsList) {
+				logger.debug("Elemente: " + element.getNews()); //für Ausgabe auf Konsole
+			}
+			
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return newsList;
+
+	}
+	
 
 	/**
 	 * Checks whether database has expected tables. If not, such tables are
@@ -371,6 +424,7 @@ public class Data implements Persistence {
 					+ "authors VARCHAR(256), " + "label VARCHAR(128), "
 					+ "media INT, " + "artistList VARCHAR(256), "
 					+ "playTime INT, " + "titleCount INT, "
+					+ "lendings INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
 					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
 					+ "charges DECIMAL(10,2), " + "title VARCHAR(256)" + ")");
@@ -1946,6 +2000,12 @@ public class Data implements Persistence {
 	public Reader getReader(int id) throws DataSourceException {
 		logger.debug("get reader with ID=" + id);
 		return getReaderWhere("ID", id);
+	}
+	
+	@Override
+	public Reader getReaderUse(int lastUse) throws DataSourceException {
+		logger.debug("get reader with LastUse=" + lastUse);
+		return getReaderWhere("LastUse", lastUse);
 	}
 
 	/**

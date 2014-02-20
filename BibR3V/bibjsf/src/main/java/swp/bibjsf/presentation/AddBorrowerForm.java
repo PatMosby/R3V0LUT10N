@@ -4,6 +4,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import swp.bibjsf.businesslogic.BorrowHandler;
+import swp.bibjsf.businesslogic.ReaderHandler;
+import swp.bibjsf.businesslogic.BookHandler;
 import swp.bibcommon.Borrower;
 import swp.bibjsf.persistence.Data;
 import swp.bibjsf.utils.Messages;
@@ -37,10 +39,11 @@ public class AddBorrowerForm extends BorrowerForm{
 					}else{
 						logger.debug("Anomalie MediumID: "+borrower.getBookID() );
 					}
-	    			
-	    			
-	    			
-	    			return success(bh.add(borrower));
+	    			    	
+//	    	          BookHandler boh = BookHandler.getInstance();
+//	    			  boh.updateStatistik(borrower.getBookID());
+	    			  
+	    			  return success(bh.add(borrower));
 	    			
 	    	
 	    		//	return "success";

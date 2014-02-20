@@ -13,14 +13,15 @@
 </h:head>
 
 <h:body>
+
 	<f:view renderKitId="PRIMEFACES_MOBILE">
-		<pm:page title="PAGE1">
+		<pm:page title="UserProfile">
 			<pm:view id="navbar">
 				<pm:header title="Bibliothek Oberschule Rockwinkel">
 					<ui:include src="/m_mainmenu.xhtml"></ui:include>
 				</pm:header>
 				<pm:content>
-
+					<ui:include src="/users/userProfile.xhtml"></ui:include>
 				</pm:content>
 			</pm:view>
 		</pm:page>

@@ -13,18 +13,21 @@
 </h:head>
 
 <h:body>
-	<f:view renderKitId="PRIMEFACES_MOBILE">
-		<pm:page title="PAGE1">
-			<pm:view id="navbar">
-				<pm:header title="Bibliothek Oberschule Rockwinkel">
-					<ui:include src="/m_mainmenu.xhtml"></ui:include>
-				</pm:header>
-				<pm:content>
 
-				</pm:content>
-			</pm:view>
-		</pm:page>
-	</f:view>
+	<pm:navBar>
+
+		<p:button value="Home" icon="home" href="/m_index.xhtml"
+			styleClass="ui-btn-active" />
+
+		<p:button value="Medien" icon="ui-icon-bars" href="/book/m.list.xhtml?reverse=true" />
+
+		<p:button value="Profil" icon="ui-icon-user" href="/users/m_user.xhtml"
+			 />
+
+		<p:button value="Info" icon="info" href="#main?reverse=true" />
+
+		<p:button value="Login" icon="login" href="/faces/m.login.xhtml" />
+
+	</pm:navBar>
 </h:body>
-
 </html>
