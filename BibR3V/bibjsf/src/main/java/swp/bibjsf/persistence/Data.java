@@ -302,6 +302,7 @@ public class Data implements Persistence {
 			for (Borrower element : borrowerList) {
 				logger.debug("Elemente: " + element.getBookID()); //für Ausgabe auf Konsole
 			}
+			logger.debug(borrowerList.get(0).getDate());
 
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
@@ -3132,9 +3133,22 @@ public class Data implements Persistence {
 	
 	public void insertDate(String date, int index) throws DataSourceException, SQLException{
 		index = borrowerList.get(index).getId();
-		String lendingID = String.valueOf(index);
+		String s = String.valueOf(index);
 		logger.debug("UPDATE VERSUCH-.-");
-		run.update("UPDATE " + borrowTableName + " set date = '" + str_sy + "' where id = "+index);
+		run.update("UPDATE " + borrowTableName + " set date = '" + date + "' where id = "+index);
+		//run.update("UPDATE " + borrowTableName + " SET DATE ="+date+"WHERE ID = ?",
+		//		lendingID);
+	//	run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+		//		lendingID);
+		logger.debug("UPDATE VERSUCH-2-.-");
+		logger.debug(borrowerList.get(0).getDate() );
+	}
+	
+	public void insertFines(String fines, int index) throws DataSourceException, SQLException{
+		index = borrowerList.get(index).getId();
+		String s = String.valueOf(index);
+		logger.debug("UPDATE VERSUCH-.-");
+		run.update("UPDATE " + borrowTableName + " set charges = '" + fines + "' where id = "+index);
 		//run.update("UPDATE " + borrowTableName + " SET DATE ="+date+"WHERE ID = ?",
 		//		lendingID);
 	//	run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
@@ -3267,5 +3281,12 @@ public class Data implements Persistence {
 		return lst;
 
 	}
+	
+	@Override
+	public String calculateDate(String today, String bookID){
+		
+		
+		return today;
+    }
 
 }

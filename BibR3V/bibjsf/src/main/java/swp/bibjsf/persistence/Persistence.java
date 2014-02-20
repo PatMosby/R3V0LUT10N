@@ -425,5 +425,7 @@ public interface Persistence {
 
 	List<String> getMonday() throws DataSourceException;
 	
+	public String calculateDate(String today, String bookID);
+	
 
 }
