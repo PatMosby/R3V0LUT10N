@@ -41,44 +41,28 @@ Ausleihliste
 					<f:facet name="header"> Medium ID</f:facet>
 	#{borrowList.getBookID()}
 	</p:column>
-				<p:column>
-					<f:facet name="header"> Leser ID</f:facet>
-	#{borrowList.readerID}
+				
+	<p:column>
+	<f:facet name="header"> Leser ID</f:facet>
+	#{borrowList.date}
+	</p:column>
+	
+	<p:column>
+    <f:facet name="header"> Leser ID</f:facet>
+	#{borrowList.fines}
+	</p:column>
+	<p:column>
+	<f:facet name="input">
+	 <p:inputText id="date" value= "#{handler.date}"  ></p:inputText> 
+    </f:facet>
+    <f:facet name="input">
+	 <p:commandButton id="borrowButton" value="#{messages.borrow2}" action="#{myBean.save()}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/> 
+	 </f:facet>
 	</p:column>
 
-				<p:column headerText="Rückgabedatum">
-
-
-					<p:cellEditor>
-						<f:facet name="output">
-							<h:outputText value="#{borrowList.date}" />  <!-- borrowList.date -->
-						</f:facet>
-						<f:facet name="input">
-						
-							 <p:inputText id="date" value= "#{handler.date}"  ></p:inputText> 
-						</f:facet>						
-							
+				
 					
-					</p:cellEditor>
-				</p:column>
-					
-					<p:column headerText="Mahngebühren">
-
-
-					<p:cellEditor>
-						<f:facet name="output">
-							<h:outputText value="#{borrowList.fines}" />  <!-- borrowList.date -->
-						</f:facet>
-						<f:facet name="input">
-						<!-- <p:remoteCommand name="test" actionListener="#{data.tester}"/> -->
-                     <!--   <p:inputText id="commentInput" value="#{data.test}" -->
-                         <!--             onkeypress="if (event.keyCode == 13) { test(); return false; }"/> -->
-							 <p:inputText id="datum" value= "#{handler.fines}"  ></p:inputText> 
-						</f:facet>						
-							
-					
-					</p:cellEditor>
-				</p:column>
 		
 			</p:dataTable>
 </p:outputPanel>

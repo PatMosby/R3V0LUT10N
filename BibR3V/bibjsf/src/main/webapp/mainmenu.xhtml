@@ -25,7 +25,7 @@
 			
 			<p:submenu label="#{messages.profile}" icon="ui-icon-person" rendered="#{request.isUserInRole('USER')}">
 				<p:menuitem value="#{messages.myData}" url="/users/user.xhtml" />
-				<p:menuitem value="#{messages.myBooks}" url="#" />
+				<p:menuitem value="#{messages.myBooks}" url="/users/lendingList.xhtml" />
 				<p:menuitem value="#{messages.myReservations}" url="#" />
 				<p:menuitem value="#{messages.history}" url="#" />
 				<p:menuitem value="#{messages.settings}" icon="ui-icon-gear" url="#" />
