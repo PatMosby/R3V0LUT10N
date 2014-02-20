@@ -30,6 +30,7 @@ public class Borrower extends BusinessObject implements Serializable, Cloneable 
 }
 
 public void setFines(String fines) {
+	System.out.println("REACHED FINNNNNNNNNNNNEEEESSSSS");
 	this.fines = fines;
 }
 
@@ -38,6 +39,7 @@ public String getDate() {
 }
 
 public void setDate(String date) {
+    System.out.println("REACHED setDate!!!!!:::::");
 	this.date = date;
 }
 
@@ -49,6 +51,7 @@ public void setDate(String date) {
  }
  
  public void setReaderID(String readerID){
+	 System.out.println("REACHED rEADERidd1111111111");
 	 this.readerID = readerID;
  }
  
@@ -57,6 +60,7 @@ public void setDate(String date) {
  }
  
  public void setBookID(String mediumID){
+	 System.out.println("REACHED Bookidd1111111111");
 	 this.mediumID = mediumID;
  }
  
@@ -91,7 +95,7 @@ public void setDate(String date) {
 
 		// Create an instance of SimpleDateFormat used for formatting
 		// the string representation of date (month/day/year)
-		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
 		// Get the date today using Calendar object.
 		Date today = Calendar.getInstance().getTime();

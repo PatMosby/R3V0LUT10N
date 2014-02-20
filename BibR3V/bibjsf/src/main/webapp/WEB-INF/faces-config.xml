@@ -2,7 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
 	version="2.0">
-
+	
 	<!-- welcome page (index) -->
 	<navigation-rule>
 		<display-name>index.xhtml</display-name>
@@ -36,6 +36,7 @@
 			<to-view-id>/admin/addlibrarian.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+
 
 	<!-- login form -->
 	<navigation-rule>
@@ -405,6 +406,7 @@
 			<to-view-id>/admin/manlib.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
 
 	<!-- user profile -->
 	<!-- <navigation-rule> -->

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+
+<h:body>
+
+	<pm:navBar>
+
+		<p:button value="Home" icon="home" href="/m_index.xhtml"
+			styleClass="ui-btn-active" />
+
+		<p:button value="Medien" icon="ui-icon-bars" href="/book/m.list.xhtml?reverse=true" />
+
+		<p:button value="Profil" icon="ui-icon-user" href="/users/m_user.xhtml"
+			 />
+
+		<p:button value="Info" icon="info" href="#main?reverse=true" />
+
+		<p:button value="Login" icon="login" href="/faces/m.login.xhtml" />
+
+	</pm:navBar>
+</h:body>
+</html>

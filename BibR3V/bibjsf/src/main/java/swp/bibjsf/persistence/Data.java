@@ -273,8 +273,10 @@ public class Data implements Persistence {
 	/**
 	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank gelesen wird. 
 	 */
+	private List<Borrower> borrowerList = new ArrayList<>();
+	
 	public List<Borrower> getBorrower() {
-		List<Borrower> borrowerList = new ArrayList<>();
+	    borrowerList = new ArrayList<>();
 		ResultSet resultLending = null;
 		Connection dbConnection=null;
 		try {
@@ -291,8 +293,8 @@ public class Data implements Persistence {
 				newBorrower.setId(resultLending.getInt(1));
 				newBorrower.setBookID(resultLending.getString(2)); // Book id
 				newBorrower.setReaderID(resultLending.getString(3)); // User id
-				newBorrower.calculateDate();// date
-				newBorrower.calculateFines(); // charges
+				newBorrower.setDate(resultLending.getString(4));// date
+				newBorrower.setFines(resultLending.getString(5)); // charges
 
 				borrowerList.add(newBorrower);
 			}
@@ -300,6 +302,7 @@ public class Data implements Persistence {
 			for (Borrower element : borrowerList) {
 				logger.debug("Elemente: " + element.getBookID()); //für Ausgabe auf Konsole
 			}
+			logger.debug(borrowerList.get(0).getDate());
 
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
@@ -3067,11 +3070,20 @@ public class Data implements Persistence {
 	 * @param event
 	 */
 	public void onCellEdit(CellEditEvent event){
+		
+	logger.debug("CellEDIIIIITI!!!!!!!!!!!!!!!");
+	try{
+	//deleteLending(str);
+	}catch(Exception e){
+		
+	}
 		 Object oldValue = event.getOldValue();
 		 Object newValue = event.getNewValue();
 		 
+		 logger.debug(event.getRowIndex());
 		 String newData = newValue.toString();
 		 logger.debug("NewData: "+  newData);
+		 logger.debug(str_sy);
 		 logger.debug("OldValue: "+ oldValue);
 		 
 	      if(newValue != null && !newValue.equals(oldValue)) {  
@@ -3079,7 +3091,76 @@ public class Data implements Persistence {
 	            FacesContext.getCurrentInstance().addMessage(null, msg);  
 	        } 
 		
+		sendID(event.getRowIndex(),newData);
+	}
+	private String str_sy="";
+	private String str_fi="";
+
+	public String getDate(){
+		 logger.debug("got it");
+		return str_sy;
+	}
+	
+	public void setDate(String str){
+		logger.debug("TESTTESTEST !!!!!!!!!");
+	   str_sy = str;
+	}
+	
+	public String getFines(){
 		
+		return str_fi;
+		
+	}
+	
+	public void setFines(String fines){
+		logger.debug("SET----FINEEEEEEEESSSS" + str_fi);
+		
+		str_fi = fines;
+	}
+	
+	
+		
+	public void sendID(int lendingID, String date){
+		
+		logger.debug("REACHED Send-ID" + lendingID +"  ");
+		
+		///borrowerList.get(rowIndex).setDate(lendingID);
+		
+		testDate(str_sy);
+		try{
+		insertDate(date, lendingID);}
+		catch(Exception e){}
+	}
+	
+	public void testDate( String date){
+		
+		
+	}
+	
+	public void insertDate(String date, int index) throws DataSourceException, SQLException{
+		index = borrowerList.get(index).getId();
+		String s = String.valueOf(index);
+		logger.debug("UPDATE VERSUCH-.-");
+		run.update("UPDATE " + borrowTableName + " set date = '" + date + "' where id = "+index);
+		//run.update("UPDATE " + borrowTableName + " SET DATE ="+date+"WHERE ID = ?",
+		//		lendingID);
+	//	run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+		//		lendingID);
+		logger.debug("UPDATE VERSUCH-2-.-");
+		logger.debug(borrowerList.get(0).getDate() );
+	}
+	
+	public void insertFines(String fines, int index) throws DataSourceException, SQLException{
+		index = borrowerList.get(index).getId();
+		String s = String.valueOf(index);
+		logger.debug("UPDATE VERSUCH-.-");
+		run.update("UPDATE " + borrowTableName + " set charges = '" + fines + "' where id = "+index);
+		//run.update("UPDATE " + borrowTableName + " SET DATE ="+date+"WHERE ID = ?",
+		//		lendingID);
+	//	run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+		//		lendingID);
+		logger.debug("UPDATE VERSUCH-2-.-");
+		logger.debug(borrowerList.get(0).getDate() );
 	}
 
 	@Override
@@ -3206,5 +3287,12 @@ public class Data implements Persistence {
 		return lst;
 
 	}
+	
+	@Override
+	public String calculateDate(String today, String bookID){
+		
+		
+		return today;
+    }
 
 }
