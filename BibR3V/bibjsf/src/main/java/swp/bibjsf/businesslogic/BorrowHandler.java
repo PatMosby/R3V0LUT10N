@@ -155,7 +155,7 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 			// int result = persistence.addLending(borrower.getBookID(),
 			// borrower.getReaderID(), calculateDate(), calculateFines());
 			return persistence.addLending(borrower.getBookID(),
-					borrower.getReaderID(), borrower.calculateDate(), borrower.calculateFines());
+					borrower.getReaderID(),calculateDate(borrower.getBookID()), borrower.calculateFines());
 
 		} catch (Exception e) {
 
@@ -164,6 +164,13 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 		}
 		logger.debug("Fehler: Keine Doppelte Ausleihe möglich! Medium ist bereits verliehen.");
 		return 0;
+	}
+	
+	public String calculateDate(String bookID){
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		Date today = Calendar.getInstance().getTime();		
+		String todayString = formatter.format(today);
+		return persistence.calculateDate(todayString, bookID);		
 	}
 
 	public void returnLending(String bookID) {
