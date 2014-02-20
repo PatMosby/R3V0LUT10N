@@ -345,14 +345,14 @@ public class Data implements Persistence {
 			while (resultLending.next()) {
 				News newNews = new News();
 				//Spalte für Spalte
-				//newNews.setDateOfAddition(resultLending.getDate(1)); //Date of Addition
+				newNews.setDateOfAddition_2(resultLending.getString(1)); //Date of Addition
 				newNews.setNews(resultLending.getString(2)); // News
 
 				newsList.add(newNews);
 			}
 			logger.debug("Zeige alle News");
 			for (News element : newsList) {
-				logger.debug("Elemente: " + element.getNews()); //für Ausgabe auf Konsole
+				logger.debug("Elemente: " + element.getNews() + element.getStringDateOfAddition()); //für Ausgabe auf Konsole
 			}
 			
 

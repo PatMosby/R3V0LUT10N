@@ -25,13 +25,14 @@
 				
 				<p:column>
 					<f:facet name="header"> Zeitpunkt des Posts</f:facet>
-					#{newsList.dateOfAddition}
+					<!--#{newsList.dateOfAddition}-->
+					#{newsList.getStringDateOfAddition()}
 				</p:column>
 				
 				
 				<p:column>
 					<f:facet name="header"> Information / Ereignis / Ankündigung</f:facet>
-					#{newsList.news}
+				 #{newsList.news}
 				</p:column>
 
 			</p:dataTable>
