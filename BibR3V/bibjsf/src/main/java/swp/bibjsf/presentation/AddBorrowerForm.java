@@ -40,8 +40,8 @@ public class AddBorrowerForm extends BorrowerForm{
 						logger.debug("Anomalie MediumID: "+borrower.getBookID() );
 					}
 	    			    	
-	    	         // BookHandler boh = BookHandler.getInstance();
-	    			 // boh.updateStatistik(borrower.getBookID());
+	    	          BookHandler boh = BookHandler.getInstance();
+	    			  boh.updateStatistik(borrower.getBookID());
 	    			  
 	    			  return success(bh.add(borrower));
 	    			

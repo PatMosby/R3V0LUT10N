@@ -371,6 +371,7 @@ public class Data implements Persistence {
 					+ "authors VARCHAR(256), " + "label VARCHAR(128), "
 					+ "media INT, " + "artistList VARCHAR(256), "
 					+ "playTime INT, " + "titleCount INT, "
+					+ "lendings INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
 					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
 					+ "charges DECIMAL(10,2), " + "title VARCHAR(256)" + ")");
