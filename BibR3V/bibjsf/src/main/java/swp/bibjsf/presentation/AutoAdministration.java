@@ -32,7 +32,8 @@ import swp.bibjsf.exception.DataSourceException;
 import swp.bibjsf.utils.Messages;
 
 /**
- * Functions reserved for the administrator, that is, administrations of backups.
+ * Thread, welcher gestartet wird, wenn das automatische Backup aktiviert wurde. Sichert die Daten 
+ * täglich
  *
  * @author Pupat
  *
@@ -61,8 +62,17 @@ public class AutoAdministration extends Thread implements Serializable {
   */
     private static volatile AutoAdministration instance;
 
+    
+    public static void endInstance()
+            throws DataSourceException {
+    		try {
+    			instance = null;
+    		} catch (Exception e) {
+    			throw new DataSourceException(e.getMessage());
+    		}
+    	}
   /**
-  * Returns the only instance of AdministrationHandler (singleton).
+  * Returns the only instance of AutoAdministration (singleton).
   *
   * @return the only instance of AdministrationHandler (singleton); may be null
   * @throws DataSourceException thrown in case of problems with the data source
@@ -91,14 +101,11 @@ public class AutoAdministration extends Thread implements Serializable {
 
     public void run() {
     	while(auto){
-            System.out.println("Bleispiel");
           try {
-            sleep(10000);
+            sleep(86400000); //Ein Tag
             AdministrationHandler.getInstance().backupDB();
-            System.out.println("Bleispiel");
           }
           catch(InterruptedException e) {
-              System.out.println("interupt");
               Thread.currentThread().interrupt();
               if(Thread.currentThread().isInterrupted())
               {

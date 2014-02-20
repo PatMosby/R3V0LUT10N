@@ -169,9 +169,19 @@ public class Book extends BusinessObject implements Serializable{
 	 */
 	private String producer;
 
+	/**
+	 * Medientyp
+	 */
 	private String typ;
 	
 	public Double charges;
+	
+	/**
+	 * Anzahl, wie oft ein Buch ausgeliehen wurde für die Statistik
+	 *
+	private int lendings;
+	*/
+	 
 	/**
 	 * Constructor required for DBUtils.
 	 */
@@ -676,5 +686,13 @@ public class Book extends BusinessObject implements Serializable{
 	public void setCharges(double charges) {
 		this.charges = charges;
 	}
-	
+/**
+	public int getLendings() {
+		return lendings;
+	}
+
+	public void setLendings(int lendings) {
+		this.lendings = lendings;
+	}
+	*/
 }

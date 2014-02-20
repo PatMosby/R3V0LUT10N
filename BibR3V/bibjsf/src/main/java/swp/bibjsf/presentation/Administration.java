@@ -119,6 +119,7 @@ public class Administration  implements Serializable {
 //        auto.setAuto(true);
         try{
             AutoAdministration.getInstance().interrupt();
+            AutoAdministration.endInstance();
          } catch (DataSourceException e) {
          	
          }

@@ -301,6 +301,8 @@ public interface Persistence {
 	
 	public Reader getReader(String username) throws DataSourceException;
 
+	public Reader getReaderUse(int lastUse) throws DataSourceException ;
+
 	/**
 	 * Returns a reader with given username.
 	 *

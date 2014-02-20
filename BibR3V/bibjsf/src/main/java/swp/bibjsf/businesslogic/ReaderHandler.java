@@ -281,5 +281,17 @@ public class ReaderHandler extends BusinessObjectHandler<Reader> {
         persistence.updateReader(reader.getId(), reader);
     	}
     }
-
+    
+    /**
+     * Returns the element with the given id.
+     *
+     * @param id ID of the element to be retrieved
+     * @return element with the given id
+     * @throws DataSourceException
+     
+    
+    public synchronized List<Reader> getLastUse() throws DataSourceException {
+    	return persistence.getReaderUse(lastUse);
+    }
+*/
 }

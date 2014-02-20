@@ -1944,6 +1944,12 @@ public class Data implements Persistence {
 		logger.debug("get reader with ID=" + id);
 		return getReaderWhere("ID", id);
 	}
+	
+	@Override
+	public Reader getReaderUse(int lastUse) throws DataSourceException {
+		logger.debug("get reader with LastUse=" + lastUse);
+		return getReaderWhere("LastUse", lastUse);
+	}
 
 	/**
 	 * Returns a single reader whose attribute <code>fieldName</code> has the
