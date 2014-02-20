@@ -323,6 +323,59 @@ public class Data implements Persistence {
 		return borrowerList;
 
 	}
+	
+	
+	/**
+	 * Liefert eine ArrayList von News-Elementen, die aus der Datenbank gelesen wird. 
+	 */
+	private List<News> newsList = new ArrayList<>();
+	
+	public List<News> getNewsList() {
+		newsList = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection=null;
+		try {
+			logger.debug("Starte getNewsList");
+		 dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT NEWSDATE, NEWS From NEWS");
+			 resultLending = ps.executeQuery();
+
+			while (resultLending.next()) {
+				News newNews = new News();
+				//Spalte für Spalte
+				//newNews.setDateOfAddition(resultLending.getDate(1)); //Date of Addition
+				newNews.setNews(resultLending.getString(2)); // News
+
+				newsList.add(newNews);
+			}
+			logger.debug("Zeige alle News");
+			for (News element : newsList) {
+				logger.debug("Elemente: " + element.getNews()); //für Ausgabe auf Konsole
+			}
+			
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return newsList;
+
+	}
+	
 
 	/**
 	 * Checks whether database has expected tables. If not, such tables are
