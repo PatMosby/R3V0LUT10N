@@ -11,12 +11,10 @@
     <title>#{messages.borrowMedium}</title>
 </h:head>
 <h:body>
-<<<<<<< HEAD
      
     <h:outputStylesheet name="css/bib.css" />
     <f:view>
     <h:form id="form" >
-    <ui:include src="/mainmenu.xhtml" />
     
     <p:panel id="panel" header="#{messages.borrowMedium}">  
         <h:panelGrid columns="3" cellpadding="5">  
@@ -73,20 +71,6 @@
  
  
 </f:view>
-=======
-	<h:outputStylesheet name="css/bib.css" />
-	<f:view>
-
-		<h:form id="form">
-			<h3>Neuigkeiten</h3>
-			<p:dataList value="#{newsHandler.newsList}" var="newsList"
-				itemType="circle">  
-			    [#{newsList.stringDateOfAddition}] <p:spacer width="100" height="10" /> #{newsList.news} 
-			    <p:separator id="separator"/>  
-			</p:dataList>
-		</h:form>
-	</f:view>
->>>>>>> f315737470253d0f58be913f6cf145c2481a1c07
 </h:body>
 </html>
 

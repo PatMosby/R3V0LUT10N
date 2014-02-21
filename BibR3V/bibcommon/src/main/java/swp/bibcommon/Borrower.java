@@ -23,7 +23,7 @@ public class Borrower extends BusinessObject implements Serializable, Cloneable 
  private List<String> mediumIDs;
  public  String fines;
  public String date;
-<<<<<<< HEAD
+
  public String titleOfMedium="...";
  
  public String getTitle(){
@@ -33,10 +33,10 @@ public class Borrower extends BusinessObject implements Serializable, Cloneable 
  public void setTitle(String title){
 	 titleOfMedium = title;
  }
-=======
+
  public String vorname;
  public String nachname;
->>>>>>> f315737470253d0f58be913f6cf145c2481a1c07
+
  
  public String getFines() {
 	 
