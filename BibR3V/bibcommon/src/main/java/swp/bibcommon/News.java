@@ -14,24 +14,20 @@ import java.text.SimpleDateFormat;
 public class News extends BusinessObject implements Serializable{
 	
 	private static final long serialVersionUID = 4142218730909517278L;
+	
 	/**
 	 * The format to store dates as string.
 	 */
 	private static final String DateFormat = "d/MM/yyyy H:mm:ss";
 	
-	private static final String DateFormat2 = "ddMMHmmss";
 	/**
 	 * Used to convert strings to java.util.Date and vice versa.
 	 */
 	private static final SimpleDateFormat DateFormatter = new SimpleDateFormat(DateFormat);
 
-	private static final SimpleDateFormat DateFormatter2 = new SimpleDateFormat(DateFormat2);
+	private String dateOfAddition;
 	
-	private String dateOfAddition= "blehehehehehe";
-	
-	private String str= "schnork";
-	
-	private String news="Hier die neue Nachricht eingeben.";
+	private String news = "Hier die neue Nachricht eingeben.";
 
 	/**
 	 * Constructor required for DBUtils.
@@ -48,9 +44,8 @@ public class News extends BusinessObject implements Serializable{
 	 *            the News whose values are to be copied
 	 */
 	public News(News news){
-		this.id 		= news.id;
-		this.dateOfAddition         = news.toString(news.getDateOfAddition());
-		this.news       = copyString(news.news);
+		this.dateOfAddition     = news.toString(news.getDateOfAddition());
+		this.news       		= copyString(news.news);
 	}
 	
 	/**
@@ -84,15 +79,6 @@ public class News extends BusinessObject implements Serializable{
 		}
 	}
 	
-	public String toStringForInt(Date date) {
-		if (date == null) {
-			return null;
-		} else {
-			return DateFormatter2.format(date);
-		}
-	}
-	
-	
 	/**
 	 * Converts date string to java.util.Date.
 	 *
@@ -109,10 +95,7 @@ public class News extends BusinessObject implements Serializable{
 				return null;
 			}
 		}
-	}
-	
-	
-	
+	}	
 	
 	/* ********************
 	 * getter und setter
@@ -169,15 +152,11 @@ public class News extends BusinessObject implements Serializable{
 			this.dateOfAddition = null;
 		} else {
 			this.dateOfAddition = toString(dateOfAddition);
-			System.out.println("set date bla" + this.dateOfAddition);
-			System.out.println();
 		}
 	}
 	
 	public void setDateOfAddition_2(String date){
-		System.out.println("REACHED SET-DATE-OF-ADDITION!!!!!");
 		dateOfAddition= date.trim();
-		System.out.println(dateOfAddition);
 	}
 
 	
