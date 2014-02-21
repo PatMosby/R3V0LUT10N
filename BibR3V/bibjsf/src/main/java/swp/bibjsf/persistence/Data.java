@@ -3297,16 +3297,17 @@ public class Data implements Persistence {
 		}
 	}
 	
+	List<String> lst = new ArrayList<>();
 	@Override
 	public List<String> getMonday() throws DataSourceException {
-		List<String> lst = new ArrayList<>();
+		
 		ResultSet rs = null;
 		Connection con=null;
 		try {
 			logger.debug("getMonday in data");
 			con = dataSource.getConnection();
 
-			PreparedStatement ps = con.prepareStatement("SELECT * From TIMES WHERE " + day + "='Montag';");
+			PreparedStatement ps = con.prepareStatement("SELECT * From TIMES WHERE " + day + "='Montag'");
 			 rs = ps.executeQuery();
 
 			while (rs.next()) {
