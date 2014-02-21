@@ -295,6 +295,8 @@ public class Data implements Persistence {
 				newBorrower.setReaderID(resultLending.getString(3)); // User id
 				newBorrower.setDate(resultLending.getString(4));// date
 				newBorrower.setFines(resultLending.getString(5)); // charges
+				
+				addVornameNachname(newBorrower);
 
 				borrowerList.add(newBorrower);
 			}
@@ -324,6 +326,42 @@ public class Data implements Persistence {
 
 	}
 	
+	private void addVornameNachname(Borrower newBorrower) {
+		ResultSet resultLending = null;
+		Connection dbConnection = null;
+
+		logger.debug("Starte addVornameNachname");
+		try {
+			dbConnection = dataSource.getConnection();
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT FIRSTNAME, LASTNAME From READER WHERE ID="+Integer.valueOf(newBorrower.getReaderID()));
+			resultLending = ps.executeQuery();
+					
+			while (resultLending.next()) {
+				newBorrower.setVorname(resultLending.getString(1));
+				newBorrower.setNachname(resultLending.getString(2));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally{
+				try {
+					dbConnection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
+	}
+
 	
 	/**
 	 * Liefert eine ArrayList von News-Elementen, die aus der Datenbank gelesen wird. 

@@ -23,6 +23,8 @@ public class Borrower extends BusinessObject implements Serializable, Cloneable 
  private List<String> mediumIDs;
  public  String fines;
  public String date;
+ public String vorname;
+ public String nachname;
  
  public String getFines() {
 	 
@@ -105,5 +107,23 @@ public void setDate(String date) {
 		this.date = reportDate;
 		return reportDate;
 	}
+	public String getVorname(){
+		return vorname;
+	}
+
+	public void setVorname(String vorname) {
+		this.vorname = vorname;
+		
+	}
+	
+	public String getNachname(){
+		return nachname;
+	}
+	
+	public void setNachname(String nachname) {
+		this.nachname = nachname;
+		
+	}
+	
 
 }
