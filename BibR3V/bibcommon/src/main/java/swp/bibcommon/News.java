@@ -27,7 +27,9 @@ public class News extends BusinessObject implements Serializable{
 
 	private static final SimpleDateFormat DateFormatter2 = new SimpleDateFormat(DateFormat2);
 	
-	private String dateOfAddition;
+	private String dateOfAddition= "blehehehehehe";
+	
+	private String str= "schnork";
 	
 	private String news="Hier die neue Nachricht eingeben.";
 
@@ -156,6 +158,7 @@ public class News extends BusinessObject implements Serializable{
 			return dateOfAddition;
 		}
 	}
+	
 
 	/**
 	 * @param dateOfAddition
@@ -170,4 +173,15 @@ public class News extends BusinessObject implements Serializable{
 			System.out.println();
 		}
 	}
+	
+	public void setDateOfAddition_2(String date){
+		System.out.println("REACHED SET-DATE-OF-ADDITION!!!!!");
+		dateOfAddition= date.trim();
+		System.out.println(dateOfAddition);
+	}
+
+	
+		
+
+	
 }

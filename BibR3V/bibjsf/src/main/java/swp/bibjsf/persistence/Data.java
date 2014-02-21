@@ -323,6 +323,59 @@ public class Data implements Persistence {
 		return borrowerList;
 
 	}
+	
+	
+	/**
+	 * Liefert eine ArrayList von News-Elementen, die aus der Datenbank gelesen wird. 
+	 */
+	private List<News> newsList = new ArrayList<>();
+	
+	public List<News> getNewsList() {
+		newsList = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection=null;
+		try {
+			logger.debug("Starte getNewsList");
+		 dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT NEWSDATE, NEWS From NEWS");
+			 resultLending = ps.executeQuery();
+
+			while (resultLending.next()) {
+				News newNews = new News();
+				//Spalte für Spalte
+				newNews.setDateOfAddition_2(resultLending.getString(1)); //Date of Addition
+				newNews.setNews(resultLending.getString(2)); // News
+
+				newsList.add(newNews);
+			}
+			logger.debug("Zeige alle News");
+			for (News element : newsList) {
+				logger.debug("Elemente: " + element.getNews() + element.getStringDateOfAddition()); //für Ausgabe auf Konsole
+			}
+			
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return newsList;
+
+	}
+	
 
 	/**
 	 * Checks whether database has expected tables. If not, such tables are
@@ -371,6 +424,7 @@ public class Data implements Persistence {
 					+ "authors VARCHAR(256), " + "label VARCHAR(128), "
 					+ "media INT, " + "artistList VARCHAR(256), "
 					+ "playTime INT, " + "titleCount INT, "
+					+ "lendings INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
 					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
 					+ "charges DECIMAL(10,2), " + "title VARCHAR(256)" + ")");
@@ -3243,16 +3297,17 @@ public class Data implements Persistence {
 		}
 	}
 	
+	List<String> lst = new ArrayList<>();
 	@Override
 	public List<String> getMonday() throws DataSourceException {
-		List<String> lst = new ArrayList<>();
+		
 		ResultSet rs = null;
 		Connection con=null;
 		try {
 			logger.debug("getMonday in data");
 			con = dataSource.getConnection();
 
-			PreparedStatement ps = con.prepareStatement("SELECT * From TIMES WHERE " + day + "='Montag';");
+			PreparedStatement ps = con.prepareStatement("SELECT * From TIMES WHERE " + day + "='Montag'");
 			 rs = ps.executeQuery();
 
 			while (rs.next()) {
