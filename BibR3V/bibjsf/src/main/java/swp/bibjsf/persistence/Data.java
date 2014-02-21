@@ -376,6 +376,58 @@ public class Data implements Persistence {
 
 	}
 	
+	/**
+	 * Liefert eine ArrayList von Times-Elementen, die aus der Datenbank gelesen wird. 
+	 */
+	private List<Times> timesList = new ArrayList<>();
+	
+	public List<Times> getTimeList() {
+		timesList = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection=null;
+		try {
+			logger.debug("Starte getTimeList");
+		 dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT TAG, OFFEN, GESCHLOSSEN From TIMES");
+			 resultLending = ps.executeQuery();
+
+			while (resultLending.next()) {
+				Times newTimes = new Times();
+				//Spalte für Spalte
+				newTimes.setDay(resultLending.getString(1)); //Tag
+				newTimes.setOpen(resultLending.getString(2)); // Offen
+				newTimes.setClose(resultLending.getString(3)); // Geschlossen
+
+				timesList.add(newTimes);
+			}
+			logger.debug("Zeige alle Times");
+			for (Times element : timesList) {
+				logger.debug("Elemente: " + element.getDay() + element.getOpen() + element.getClose()); //für Ausgabe auf Konsole
+			}
+			
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return timesList;
+
+	}
+	
 
 	/**
 	 * Checks whether database has expected tables. If not, such tables are
@@ -3215,6 +3267,7 @@ public class Data implements Persistence {
 		//		lendingID);
 		logger.debug("UPDATE VERSUCH-2-.-");
 		logger.debug(borrowerList.get(0).getDate() );
+		
 	}
 
 	@Override
