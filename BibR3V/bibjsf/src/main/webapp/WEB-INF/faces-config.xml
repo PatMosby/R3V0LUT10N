@@ -3,6 +3,20 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
 	version="2.0">
 	
+    <!--  mobile pages -->
+    <navigation-rule>
+        <display-name>m_login.xhtml</display-name>
+        <from-view-id>/faces/m_login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/m_index.xhtml</to-view-id>
+            </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/faces/m_loginError.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
 	<!-- welcome page (index) -->
 	<navigation-rule>
 		<display-name>index.xhtml</display-name>
