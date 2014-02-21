@@ -23,6 +23,15 @@ public class Borrower extends BusinessObject implements Serializable, Cloneable 
  private List<String> mediumIDs;
  public  String fines;
  public String date;
+ public String titleOfMedium="...";
+ 
+ public String getTitle(){
+	 return titleOfMedium;
+ }
+ 
+ public void setTitle(String title){
+	 titleOfMedium = title;
+ }
  
  public String getFines() {
 	 

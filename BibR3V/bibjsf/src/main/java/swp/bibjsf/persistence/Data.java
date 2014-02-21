@@ -3348,5 +3348,24 @@ public class Data implements Persistence {
 		
 		return today;
     }
+	
+	protected boolean userQuery=false;
+	private List<Borrower> userBorrowerList = new ArrayList<>();
+	
+	public void getBorrowList(List<Borrower> list){
+		logger.debug("REACHED----THE----BORROWERLIST");
+		
+		userBorrowerList=list;
+		userQuery=true;
+	}
+	
+	public List<Borrower> getBorrowerFromUser(){
+		
+		return userBorrowerList;
+	}
+	
+	public boolean getUserQuery(){
+		return userQuery;
+	}
 
 }
