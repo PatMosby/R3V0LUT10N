@@ -140,6 +140,7 @@ public class Data implements Persistence {
 	private static final String BookID = "book_id";
 	private static final String DATE = "date";
 	private static final String CHARGES = "charges";
+	private static final String LastUser="lastUser";
 	private static final String NewsField = "news";
 
 	/**
@@ -517,7 +518,7 @@ public class Data implements Persistence {
 					+ "lendings INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
 					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
-					+ "charges DECIMAL(10,2), " + "title VARCHAR(256)" + ")");
+					+ "charges DECIMAL(10,2), " + "lastUser VARCHAR(128), " +  "title VARCHAR(256)");
 		}
 		if (!tableExists(tableNames, readerTableName)) {
 			logger.debug("database table " + readerTableName
