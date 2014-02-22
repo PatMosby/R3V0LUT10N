@@ -77,6 +77,12 @@
               headerText="#{messages.typ}" filterMatchMode="contains" style="width:10%">
         <h:outputText value="#{book.typ}" />  
       </p:column>
+      
+      <!-- lastUser -->
+      <p:column id="lastUserColumn" sortBy="#{book.lastUser}" filterBy="#{book.lastUser}"  
+              headerText="#{messages.lastUser}" filterMatchMode="contains" style="width:10%">
+        <h:outputText value="#{book.lastUser}" />  
+      </p:column>
   	  
       <!-- trigger for editing row -->
       <p:column id="rowEditorColumn" style="width:5%">  
@@ -375,6 +381,17 @@
 			</p:column>
 			<p:column>
 				<h:outputText id="fsk" value="#{book.fsk}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+		<!-- lastUser -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="lastUser" value="#{messages.lastUser}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="lastUser" value="#{book.lastUser}"
 					styleClass="content" />
 			</p:column>
 		</p:row>
