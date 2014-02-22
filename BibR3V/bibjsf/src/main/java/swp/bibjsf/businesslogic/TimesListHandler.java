@@ -18,7 +18,7 @@ import org.primefaces.event.CellEditEvent;
 
 import swp.bibjsf.persistence.Data;
 import swp.bibcommon.Borrower;
-import swp.bibcommon.News;
+import swp.bibcommon.Times;
 
 import javax.naming.NamingException;
 
@@ -26,23 +26,25 @@ import org.apache.log4j.Logger;
 
 import swp.bibjsf.exception.DataSourceException;
 
-@ManagedBean(name = "newslistHandler")
+@ManagedBean(name="zeit")
 @SessionScoped
-public class NewsListHandler {
+public class TimesListHandler {
 	Data data;
-	final Logger logger = Logger.getLogger(NewsListHandler.class);
+	final Logger logger = Logger.getLogger(TimesListHandler.class);
 	
-	public NewsListHandler()throws DataSourceException, NamingException{
+	public TimesListHandler()throws DataSourceException, NamingException{
 	 data = new Data();
-	  final Logger logger = Logger.getLogger(NewsListHandler.class);
+	  final Logger logger = Logger.getLogger(TimesListHandler.class);
 	}
 	
 	
-	public List<News> getNewsList(){
-		logger.debug("REACHED---GET_News");
+
+	public List<Times> getTimeList(){
+		logger.debug("REACHED---GET_Times");
 		
-		return data.getNewsList();
+		return data.getTimeList();
 	}
+	
 	
 	
 	

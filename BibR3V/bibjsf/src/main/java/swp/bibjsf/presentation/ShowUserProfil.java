@@ -32,7 +32,8 @@ public class ShowUserProfil {
 	private static final long serialVersionUID = -494454216495818388L;
 	private Reader reader;
 	final Logger logger = Logger.getLogger(ShowUserProfil.class);
-	Data data = new Data();
+	private Data data = new Data();
+	private List<Borrower> borrowerList = new ArrayList<>();
 	
 	public ShowUserProfil() throws DataSourceException, NamingException{
 		super();
@@ -64,8 +65,32 @@ public class ShowUserProfil {
 	public List<Borrower> getBorrower(){
 		logger.debug("REACHED---GET_Borrower");
 		
-		List<Borrower> borrowerList = new ArrayList<>();
 		return data.getBorrower();
 	}
+	
+	    
+	    
+    public void sendBorrower(Borrower borrower){
+	   boolean alreadyInside=false; 	
+	   logger.debug("SEND--BORROWER--REACHED!!!!!!" + borrower.getId());
+	   System.out.println("SEND----BORROWER---REACHED!!!!!");
+	   
+	   for (int i=0;i<borrowerList.size();i++){
+	    		
+	      if(borrowerList.get(i).getId()== borrower.getId()){
+	    	  alreadyInside=true;
+	      }	
+	   }
+	   if(!alreadyInside){
+		   borrowerList.add(borrower);
+	   }
+    }
+    
+    public void sendList(){
+    	logger.debug("SEND----LIST---REACHED!!!!!");
+    	System.out.println("SEND----LIST---REACHED!!!!!");
+    	
+    	data.getBorrowList(borrowerList);
+    }
 
 }

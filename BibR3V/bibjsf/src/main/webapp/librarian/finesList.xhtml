@@ -21,27 +21,16 @@
 
 <!--  http://www.primefaces.org/showcase/ui/datatableRowEditing.jsf-->
   
-			
-			
-			<p:dataTable id="lending" widgetVar="varLending"
-				value="#{handler.getBorrower()}" rowIndexVar="rowIndex" var="borrowList" editable="true"
-				editMode="cell">
+			<p:dataTable id="lending2" widgetVar="varLending"
+				value="#{handler.getBorrowerFromUser()}" rowIndexVar="rowIndex" var="borrowList" editable="true"
+				editMode="cell" rendered="#{handler.isUserQuery()}">
 				
 			
-				<p:ajax event="cellEdit" listener="#{handler.onCellEdit}"  update=":form:lending" />
-
-<f:facet name="header" >
-<u>Ausleihliste</u>
-<p>INFO: Die Spalten <em>Rückgabedatum</em> und <em>Mahngebühren</em> sind durch Klicken individuell einstellbar. Die Werte für die Mahngebühren müssen 
-zwei Nachkommastellen enthalten, sonst werden sie nicht gespeichert. </p>
-<p>Beispiel: Für <em>3 €</em> den Wert <em>3.00</em> eintragen.</p>
-</f:facet>
-
-
-
-
-				<p:column>
-					<f:facet name="header"> ID</f:facet>
+				<p:ajax event="cellEdit" listener="#{handler.onCellEdit}"  update=":form:lending2" />
+                <f:facet name="header" />
+              
+    <p:column>
+    <f:facet name="header"> ID</f:facet>
 	#{borrowList.id}
 	</p:column>
 
@@ -53,17 +42,6 @@ zwei Nachkommastellen enthalten, sonst werden sie nicht gespeichert. </p>
 					<f:facet name="header"> Leser ID</f:facet>
 	#{borrowList.readerID}
 	</p:column>
-	
-	<p:column headerText="Vorname">
-					<f:facet name="Vorname"> Vorname</f:facet>
-	#{borrowList.vorname}
-	</p:column>
-	
-	
-				<p:column headerText="Nachname">
-					<f:facet name="Nachname">Nachname</f:facet>
-	#{borrowList.nachname}
-	</p:column>
 
 				<p:column headerText="Rückgabedatum">
 
@@ -74,7 +52,7 @@ zwei Nachkommastellen enthalten, sonst werden sie nicht gespeichert. </p>
 						</f:facet>
 						<f:facet name="input">
 						
-							 <p:inputText id="date" value= "#{handler.date}"  ></p:inputText> 
+							 <p:inputText id="date2" value= "#{handler.date}"  ></p:inputText> 
 						</f:facet>						
 							
 					
@@ -92,7 +70,7 @@ zwei Nachkommastellen enthalten, sonst werden sie nicht gespeichert. </p>
 						<!-- <p:remoteCommand name="test" actionListener="#{data.tester}"/> -->
                      <!--   <p:inputText id="commentInput" value="#{data.test}" -->
                          <!--             onkeypress="if (event.keyCode == 13) { test(); return false; }"/> -->
-							 <p:inputText id="datum" value= "#{handler.fines}"  ></p:inputText> 
+							 <p:inputText id="datum2" value= "#{handler.fines}"  ></p:inputText> 
 						</f:facet>						
 							
 					
@@ -100,6 +78,10 @@ zwei Nachkommastellen enthalten, sonst werden sie nicht gespeichert. </p>
 				</p:column>
 		
 			</p:dataTable>
+			
+			
+			
+			
 </p:outputPanel>
 		</h:form>
 	</f:view>

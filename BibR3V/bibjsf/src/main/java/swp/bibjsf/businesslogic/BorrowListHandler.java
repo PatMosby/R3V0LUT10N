@@ -44,6 +44,11 @@ public class BorrowListHandler {
 		return data.getBorrower();
 	}
 	
+	public List<Borrower> getBorrowerFromUser(){
+		
+		return data.getBorrowerFromUser();
+	}
+	
 	public void onCellEdit(CellEditEvent event){
 	   logger.debug("REACHED-----ON_CELL_EDIT!!!!");
 	   logger.debug(event.getColumn().getHeaderText());
@@ -195,4 +200,9 @@ public class BorrowListHandler {
 		return false;
 	}
 	
+	public boolean isUserQuery(){
+		
+		return data.getUserQuery();
+		
+    }
 }

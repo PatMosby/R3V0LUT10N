@@ -102,6 +102,7 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
     private boolean regisseurSelected                 = false;
     private boolean producerSelected                  = false;
     private boolean typSelected                       = false;
+    private boolean lastUserSelected 					= false;
 
 
 	public boolean isTitleSelected() {
@@ -304,6 +305,15 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
 	public void setProducerSelected(boolean producerSelected) {
 		this.producerSelected = producerSelected;
 	}
+	
+	public boolean isLastUserSelected() {
+		return producerSelected;
+	}
+
+	public void setLastUserSelected(boolean lastUserSelected) {
+		this.lastUserSelected = lastUserSelected;
+	}
+	
 	
 	
 	/**
@@ -529,6 +539,10 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         }
         if (isProducerSelected()) {
             toBook.setProducer(fromBook.getProducer());
+        }
+        
+        if (isLastUserSelected()) {
+            toBook.setLastUser(fromBook.getLastUser());
         }
         
 	}
@@ -964,6 +978,13 @@ public abstract class BookForm extends BusinessObjectForm<Book>{
         element.setProducer(producer);
     }
     
+    public String getLastUser() {
+        return element.getProducer();
+    }
+
+    public void setLastUser(String lastUser) {
+        element.setLastUser(lastUser);
+    }
     
     
     

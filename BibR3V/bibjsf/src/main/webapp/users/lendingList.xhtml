@@ -2,71 +2,72 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+>
 <!-- Form for file upload -->
 <!-- http://www.primefaces.org/showcase/ui/datatableCellEditing.jsf -->
 <h:head>
-	<title>#{messages.lendinglist}</title>
+    <title>#{messages.booklisttitle}</title>
 </h:head>
 <h:body>
-	<h:outputStylesheet name="css/bib.css" />
-	<f:view>
-		<h:form id="form" onkeypress="return event.keyCode != 13">
-		<p:outputPanel id="container">
-			<ui:include src="/mainmenu.xhtml" />
-
-
-<!--  http://www.primefaces.org/showcase/ui/datatableRowEditing.jsf-->
+<h:outputStylesheet name="css/bib.css" />
+<f:view>
+    <!-- we can ignore the enter key event altogether in this form by 
+       setting the form attribute as follows: onkeypress="return event.keyCode != 13";
+       an alternative is to use p:defaultCommand -->
+    <h:form id="form" onkeypress="return event.keyCode != 13">
+    <ui:include src="/mainmenu.xhtml" />
+    
+    <!--  draggableColumns="true" does not work in Primefaces 3.5. It will hinder editing filter fields -->
+    <!--  it is claimed, this bug was fixed in 3.5.1, but that version is not available -->
+    <p:dataTable id="bookTable" 
+     value="#{showUserProfil.getBorrower()}" 
+     var="borrower"
+     lazy="true"
+     sortMode="multiple"
+     editable="#{bookTable.modifiable}"
+     filteredValue="#{bookTable.filteredElements}"
+     emptyMessage="#{messages.noBooksFound}" 
+     resizableColumns="true" liveResize="true"
+     paginator="true"
+     rows="25"
+     rowsPerPageTemplate="10,25,50,100,200,500,1000"
+     >  
   
-			<p:dataTable id="lending" widgetVar="varLending"
-				value="#{handler.getBorrower()}" rowIndexVar="rowIndex" var="borrowList" editable="true"
-				editMode="cell">
-				
-			
-				<p:ajax event="cellEdit" listener="#{handler.onCellEdit}"  update=":form:lending" />
-				<f:facet name="header">
-Ausleihliste
-</f:facet>
+      <f:facet name="header" value="#{messages.booklisttitle}" />  
+                  
+      <!-- ID -->
+      <p:column id="IDColumn" headerText="#{messages.id}" style="width:8%"
+                filterMatchMode="startsWith">  
+        <h:outputText value="#{borrower.id}" />   
+      </p:column>  
+                  
+      <!-- Title -->
+      <p:column id="titleColumn" sortBy="#{book.title}" filterBy="#{book.title}"  
+              headerText="#{messages.title}" filterMatchMode="contains" style="width:10%"> 
+        <h:outputText value="#{borrower.title}" />   
+      </p:column>  
+  
+      <!-- Categories -->
+      <p:column id="categoriesColumn" sortBy="#{book.categories}" filterBy="#{book.categories}"  
+              headerText="#{messages.categories}" filterMatchMode="contains" style="width:10%">
+        <h:outputText value="#{borrower.bookID}" />  
+      </p:column>
+ 
+  	  
+  	  <p:column id="rowEditorColumn" style="width:5%">  
+        <p:commandButton icon="ui-icon-pencil" style="width: auto; height: 20px" action="#{showUserProfil.sendBorrower(borrower)}" />
+      </p:column>
+  	  
+  	 </p:dataTable>
+  	 
+  	 <p:commandButton id="button" value="Einreichen" action="#{showUserProfil.sendList()}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
 
-
-				<p:column>
-					<f:facet name="header"> ID</f:facet>
-	#{borrowList.id}
-	</p:column>
-
-				<p:column>
-					<f:facet name="header"> Medium ID</f:facet>
-	#{borrowList.getBookID()}
-	</p:column>
-				
-	<p:column>
-	<f:facet name="header"> Leser ID</f:facet>
-	#{borrowList.date}
-	</p:column>
-	
-	<p:column>
-    <f:facet name="header"> Leser ID</f:facet>
-	#{borrowList.fines}
-	</p:column>
-	<p:column>
-	<f:facet name="input">
-	 <p:inputText id="date" value= "#{handler.date}"  ></p:inputText> 
-    </f:facet>
-    <f:facet name="input">
-	 <p:commandButton id="borrowButton" value="#{messages.borrow2}" action="#{myBean.save()}" 
-			      ajax="false" icon="ui-icon-check" validateClient="true"/> 
-	 </f:facet>
-	</p:column>
-
-				
-					
-		
-			</p:dataTable>
-</p:outputPanel>
-		</h:form>
-	</f:view>
+  	 </h:form>
+</f:view>
 </h:body>
 </html>
