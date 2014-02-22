@@ -10,7 +10,6 @@
 	<name>all</name>
 
 	<modules>
-		<module>../bibclient</module>
 		<module>../bibcommon</module>
 		<module>../bibjsf</module>
 	</modules>

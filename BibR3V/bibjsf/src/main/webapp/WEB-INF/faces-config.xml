@@ -133,6 +133,15 @@
     	    <from-outcome>index</from-outcome>
     	    <to-view-id>/index.xhtml</to-view-id>
     	</navigation-case>
+    </navigation-rule> 
+    
+   <navigation-rule>
+    	<display-name>faces/m.login.xhtml</display-name>
+    	<from-view-id>/faces/m.login.xhtml</from-view-id>
+    	<navigation-case>
+    	    <from-outcome>success</from-outcome>
+    	    <to-view-id>/m_index.xhtml</to-view-id>
+    	</navigation-case>
     </navigation-rule>  
     
     <!-- reader list form -->        

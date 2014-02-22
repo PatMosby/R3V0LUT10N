@@ -22,7 +22,7 @@
 		<p:button value="Medien" icon="ui-icon-bars" href="/book/m.list.xhtml?reverse=true" />
 
 		<p:button value="Profil" icon="ui-icon-user" href="/users/m_user.xhtml"
-			 />
+			 rendered="#{request.isUserInRole('USER')}"/>
 
 		<p:button value="Info" icon="info" href="#main?reverse=true" />
 
