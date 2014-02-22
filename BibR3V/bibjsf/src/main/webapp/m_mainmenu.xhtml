@@ -21,14 +21,7 @@
 
 		<p:button value="Medien" icon="ui-icon-bars" href="/book/m_list.xhtml?reverse=true" />
 
-
-<<<<<<< HEAD
-		<p:button value="Profil" icon="ui-icon-user" href="/users/m_user.xhtml"
-			 rendered="#{request.isUserInRole('USER')}"/>
-=======
-		<p:button value="Profil" icon="ui-icon-user" href="/users/m_user.xhtml?reverse=true" rendered="authBackingBean.isLoggedIn()"/>
-
->>>>>>> 794a9e588b1ed51cead5eb17b73976906a44419a
+		<p:button value="Profil" icon="ui-icon-user" href="/users/m_user.xhtml?reverse=true" rendered="#{request.isUserinRole('USER')}"/>
 
 		<p:button value="Info" icon="info" href="#main?reverse=true" />
 

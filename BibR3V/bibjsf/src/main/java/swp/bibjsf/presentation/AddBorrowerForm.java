@@ -18,10 +18,6 @@ import java.util.List;
 public class AddBorrowerForm extends BorrowerForm{
 
 	Borrower borrower = new Borrower();
-	
-	
-
-
 
 	@Override
 	 public String save() {
@@ -67,9 +63,7 @@ public class AddBorrowerForm extends BorrowerForm{
     	} //else {
     		//return failure(Messages.get("elementNotSet"));
     	//}
-    }
-	
-	
+    }	
 	
 	public String getReaderID() {
 		System.out.println("getreader");
