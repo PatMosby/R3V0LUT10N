@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+<<<<<<< HEAD
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -43,10 +44,54 @@
 							<p:inputText id="lastname" value="#{myBean.mediumID}"
 								required="true" requiredMessage="#{messages.mediumIDreq}" />
 							<p:message for="lastname" display="both" />
+=======
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:p="http://primefaces.org/ui">
+<!-- Addition of a reader -->
+<h:head>
+ <title>#{messages.borrowMedium}</title>
+</h:head>
+<h:body>
+ <h:outputStylesheet name="css/bib.css" />
+ <f:view>
+  <h:form id="form">
+
+
+   <p:panel id="panel" header="#{messages.borrowMedium}">
+    <h:panelGrid columns="3" cellpadding="5">
+
+     <!-- ID (read-only) -->
+     <h:outputLabel for="id" value="#{messages.id}: *"
+      style="font-weight:bold" />
+     <h:outputText id="id" value="#{borrowerForm.id}"
+      size="#{borrowerForm.textWidth}" />
+     <p:message for="id" display="both" />
+
+     <!-- buttons in footer  -->
+     <f:facet name="footer">
+      <h:panelGroup>
+
+       <!-- readerID -->
+       <h:outputLabel for="firstname" value="#{messages.cardID}: *"
+        style="font-weight:bold" />
+       <p:inputText id="firstname" value="#{myBean.readerID}"
+        required="true" requiredMessage="#{messages.readerIDreq}" />
+       <p:message for="firstname" display="both" />
+
+       <!--  mediumID -->
+       <h:outputLabel for="lastname" value="#{messages.mediumID}: *"
+        style="font-weight:bold" />
+       <p:inputText id="lastname" value="#{myBean.mediumID}"
+        required="true" requiredMessage="#{messages.mediumIDreq}" />
+       <p:message for="lastname" display="both" />
+>>>>>>> eeddd7d0a30ba206ca8f0618fc956d8cdaf9c0a5
 
 
 
 
+<<<<<<< HEAD
 							<p:commandButton id="borrowButton" value="#{messages.borrow2}"
 								action="#{myBean.save()}" ajax="false" icon="ui-icon-check"
 								validateClient="true" />
@@ -63,14 +108,40 @@
 
 
 			<p:messages showDetail="true" autoUpdate="true" />
+=======
+       <p:commandButton id="borrowButton" value="#{messages.borrow2}"
+        action="#{myBean.save()}" ajax="false" icon="ui-icon-check"
+        validateClient="true" />
+
+
+      </h:panelGroup>
+     </f:facet>
+
+     <h:outputText id="counter" />
+
+    </h:panelGrid>
+
+   </p:panel>
+
+
+   <p:messages showDetail="true" autoUpdate="true" />
+>>>>>>> eeddd7d0a30ba206ca8f0618fc956d8cdaf9c0a5
 
 
 
 
+<<<<<<< HEAD
 		</h:form>
 
 
 
 	</f:view>
+=======
+  </h:form>
+
+
+
+ </f:view>
+>>>>>>> eeddd7d0a30ba206ca8f0618fc956d8cdaf9c0a5
 </h:body>
 </html>

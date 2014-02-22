@@ -19,14 +19,18 @@
 		<p:button value="Home" icon="home" href="/m_index.xhtml"
 			styleClass="ui-btn-active" />
 
-		<p:button value="Medien" icon="ui-icon-bars" href="/book/m.list.xhtml?reverse=true" />
+		<p:button value="Medien" icon="ui-icon-bars" href="/book/m_list.xhtml?reverse=true" />
 
+<<<<<<< HEAD
 		<p:button value="Profil" icon="ui-icon-user" href="/users/m_user.xhtml"
 			 rendered="#{request.isUserInRole('USER')}"/>
+=======
+		<p:button value="Profil" icon="ui-icon-user" href="/users/m_user.xhtml?reverse=true" rendered="authBackingBean.isLoggedIn()"/>
+>>>>>>> eeddd7d0a30ba206ca8f0618fc956d8cdaf9c0a5
 
 		<p:button value="Info" icon="info" href="#main?reverse=true" />
 
-		<p:button value="Login" icon="login" href="/faces/m.login.xhtml" />
+		<p:button value="Login" icon="login" href="/faces/m_login.xhtml?reverse=true" />
 
 	</pm:navBar>
 </h:body>

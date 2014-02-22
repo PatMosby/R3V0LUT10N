@@ -36,7 +36,8 @@
      paginator="true"
      rows="25"
      rowsPerPageTemplate="10,25,50,100,200,500,1000"
-     >  
+     >
+    
   
       <f:facet name="header" value="#{messages.booklisttitle}" />  
                   
@@ -75,6 +76,12 @@
       <p:column id="typColumn" sortBy="#{book.typ}" filterBy="#{book.typ}"  
               headerText="#{messages.typ}" filterMatchMode="contains" style="width:10%">
         <h:outputText value="#{book.typ}" />  
+      </p:column>
+      
+      <!-- lastUser -->
+      <p:column id="lastUserColumn" sortBy="#{book.lastUser}" filterBy="#{book.lastUser}"  
+              headerText="#{messages.lastUser}" filterMatchMode="contains" style="width:10%">
+        <h:outputText value="#{book.lastUser}" />  
       </p:column>
   	  
       <!-- trigger for editing row -->
@@ -374,6 +381,17 @@
 			</p:column>
 			<p:column>
 				<h:outputText id="fsk" value="#{book.fsk}"
+					styleClass="content" />
+			</p:column>
+		</p:row>
+		
+		<!-- lastUser -->
+		<p:row>
+			<p:column styleClass="label">
+				<h:outputLabel for="lastUser" value="#{messages.lastUser}" />
+			</p:column>
+			<p:column>
+				<h:outputText id="lastUser" value="#{book.lastUser}"
 					styleClass="content" />
 			</p:column>
 		</p:row>

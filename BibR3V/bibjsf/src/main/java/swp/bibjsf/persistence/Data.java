@@ -140,6 +140,7 @@ public class Data implements Persistence {
 	private static final String BookID = "book_id";
 	private static final String DATE = "date";
 	private static final String CHARGES = "charges";
+	private static final String LastUser="lastUser";
 	private static final String NewsField = "news";
 
 	/**
@@ -295,6 +296,8 @@ public class Data implements Persistence {
 				newBorrower.setReaderID(resultLending.getString(3)); // User id
 				newBorrower.setDate(resultLending.getString(4));// date
 				newBorrower.setFines(resultLending.getString(5)); // charges
+				
+				addVornameNachname(newBorrower);
 
 				borrowerList.add(newBorrower);
 			}
@@ -323,6 +326,147 @@ public class Data implements Persistence {
 		return borrowerList;
 
 	}
+	
+	private void addVornameNachname(Borrower newBorrower) {
+		ResultSet resultLending = null;
+		Connection dbConnection = null;
+
+		logger.debug("Starte addVornameNachname");
+		try {
+			dbConnection = dataSource.getConnection();
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT FIRSTNAME, LASTNAME From READER WHERE ID="+Integer.valueOf(newBorrower.getReaderID()));
+			resultLending = ps.executeQuery();
+					
+			while (resultLending.next()) {
+				newBorrower.setVorname(resultLending.getString(1));
+				newBorrower.setNachname(resultLending.getString(2));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally{
+				try {
+					dbConnection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
+	}
+
+	
+	/**
+	 * Liefert eine ArrayList von News-Elementen, die aus der Datenbank gelesen wird. 
+	 */
+	private List<News> newsList = new ArrayList<>();
+	
+	public List<News> getNewsList() {
+		newsList = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection=null;
+		try {
+			logger.debug("Starte getNewsList");
+		 dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT NEWSDATE, NEWS From NEWS");
+			 resultLending = ps.executeQuery();
+
+			while (resultLending.next()) {
+				News newNews = new News();
+				//Spalte für Spalte
+				newNews.setDateOfAddition_2(resultLending.getString(1)); //Date of Addition
+				newNews.setNews(resultLending.getString(2)); // News
+
+				newsList.add(newNews);
+			}
+			logger.debug("Zeige alle News");
+			for (News element : newsList) {
+				logger.debug("Elemente: " + element.getNews() + element.getStringDateOfAddition()); //für Ausgabe auf Konsole
+			}
+			
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return newsList;
+
+	}
+	
+	/**
+	 * Liefert eine ArrayList von Times-Elementen, die aus der Datenbank gelesen wird. 
+	 */
+	private List<Times> timesList = new ArrayList<>();
+	
+	public List<Times> getTimeList() {
+		timesList = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection=null;
+		try {
+			logger.debug("Starte getTimeList");
+		 dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT TAG, OFFEN, GESCHLOSSEN From TIMES");
+			 resultLending = ps.executeQuery();
+
+			while (resultLending.next()) {
+				Times newTimes = new Times();
+				//Spalte für Spalte
+				newTimes.setDay(resultLending.getString(1)); //Tag
+				newTimes.setOpen(resultLending.getString(2)); // Offen
+				newTimes.setClose(resultLending.getString(3)); // Geschlossen
+
+				timesList.add(newTimes);
+			}
+			logger.debug("Zeige alle Times");
+			for (Times element : timesList) {
+				logger.debug("Elemente: " + element.getDay() + element.getOpen() + element.getClose()); //für Ausgabe auf Konsole
+			}
+			
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return timesList;
+
+	}
+	
 
 	/**
 	 * Checks whether database has expected tables. If not, such tables are
@@ -371,9 +515,10 @@ public class Data implements Persistence {
 					+ "authors VARCHAR(256), " + "label VARCHAR(128), "
 					+ "media INT, " + "artistList VARCHAR(256), "
 					+ "playTime INT, " + "titleCount INT, "
+					+ "lendings INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
 					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
-					+ "charges DECIMAL(10,2), " + "title VARCHAR(256)" + ")");
+					+ "charges DECIMAL(10,2), " + "lastUser VARCHAR(128), " +  "title VARCHAR(256)");
 		}
 		if (!tableExists(tableNames, readerTableName)) {
 			logger.debug("database table " + readerTableName
@@ -3161,6 +3306,7 @@ public class Data implements Persistence {
 		//		lendingID);
 		logger.debug("UPDATE VERSUCH-2-.-");
 		logger.debug(borrowerList.get(0).getDate() );
+		
 	}
 
 	@Override
@@ -3243,16 +3389,17 @@ public class Data implements Persistence {
 		}
 	}
 	
+	List<String> lst = new ArrayList<>();
 	@Override
 	public List<String> getMonday() throws DataSourceException {
-		List<String> lst = new ArrayList<>();
+		
 		ResultSet rs = null;
 		Connection con=null;
 		try {
 			logger.debug("getMonday in data");
 			con = dataSource.getConnection();
 
-			PreparedStatement ps = con.prepareStatement("SELECT * From TIMES WHERE " + day + "='Montag';");
+			PreparedStatement ps = con.prepareStatement("SELECT * From TIMES WHERE " + day + "='Montag'");
 			 rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -3294,5 +3441,24 @@ public class Data implements Persistence {
 		
 		return today;
     }
+	
+	protected boolean userQuery=false;
+	private List<Borrower> userBorrowerList = new ArrayList<>();
+	
+	public void getBorrowList(List<Borrower> list){
+		logger.debug("REACHED----THE----BORROWERLIST");
+		
+		userBorrowerList=list;
+		userQuery=true;
+	}
+	
+	public List<Borrower> getBorrowerFromUser(){
+		
+		return userBorrowerList;
+	}
+	
+	public boolean getUserQuery(){
+		return userQuery;
+	}
 
 }

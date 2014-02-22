@@ -424,6 +424,7 @@ public interface Persistence {
 	public int updateTime(Times times);
 
 	public List<Times> getTimesList() throws DataSourceException;
+	public List<Times> getTimeList() throws DataSourceException;
 
 	List<String> getMonday() throws DataSourceException;
 	

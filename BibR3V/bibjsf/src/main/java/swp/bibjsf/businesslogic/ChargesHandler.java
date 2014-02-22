@@ -1,7 +1,6 @@
 package swp.bibjsf.businesslogic;
 
 import javax.naming.NamingException;
-import javax.swing.*;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -10,15 +9,13 @@ import java.util.List;
 
 import swp.bibcommon.Charges;
 import swp.bibcommon.Reader;
-import swp.bibcommon.Medium;
-import swp.bibjsf.businesslogic.BusinessHandler.InputException;
+import swp.bibcommon.Book;
+
 import swp.bibjsf.exception.BusinessElementAlreadyExistsException;
 import swp.bibjsf.exception.DataSourceException;
-import swp.bibjsf.persistence.Data;
-import swp.bibjsf.persistence.Persistence;
-import swp.bibjsf.presentation.BusinessObjectForm;
+
 import swp.bibjsf.utils.Constraint;
-import swp.bibjsf.utils.Messages;
+
 import swp.bibjsf.utils.OrderBy;
 
 
@@ -29,8 +26,7 @@ public class ChargesHandler extends BusinessObjectHandler<Charges>{
   private static final long serialVersionUID = -5653849921779676752L;
   
   private static volatile ChargesHandler instance;
-  //private Persistence persistence;
-  
+    
   protected ChargesHandler() throws DataSourceException, NamingException {
       super();
   }
@@ -60,7 +56,7 @@ public class ChargesHandler extends BusinessObjectHandler<Charges>{
    * @param reader der Ausleihende
    * @param mediumList Liste der auszuleihenden Medien
    */
-  public void borrowMedium(Reader reader, List<Medium> mediumList){
+  public void borrowMedium(Reader reader, List<Book> mediumList){
     
   }
   
@@ -68,7 +64,7 @@ public class ChargesHandler extends BusinessObjectHandler<Charges>{
    * Markiert Medien als ausgeliehen.
    * @param mediumList die zu markierenden Medien
    */
-  public void setBorrowed(List<Medium> mediumList){
+  public void setBorrowed(List<Book> mediumList){
    
   }
   
@@ -86,7 +82,7 @@ public class ChargesHandler extends BusinessObjectHandler<Charges>{
    * @param readerId die eindeutige ID des Reader
    * @return Liste der überfälligen Medien 
    */
-  public List<Medium> overdueMediaList(int readerId){
+  public List<Book> overdueMediaList(int readerId){
     return null ;
   }
   

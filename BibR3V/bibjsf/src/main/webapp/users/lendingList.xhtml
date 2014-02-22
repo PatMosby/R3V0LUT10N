@@ -24,14 +24,13 @@
     <!--  draggableColumns="true" does not work in Primefaces 3.5. It will hinder editing filter fields -->
     <!--  it is claimed, this bug was fixed in 3.5.1, but that version is not available -->
     <p:dataTable id="bookTable" 
-     value="#{bookTable.model}" 
-     var="book"
+     value="#{showUserProfil.getBorrower()}" 
+     var="borrower"
      lazy="true"
      sortMode="multiple"
      editable="#{bookTable.modifiable}"
      filteredValue="#{bookTable.filteredElements}"
      emptyMessage="#{messages.noBooksFound}" 
-     selection="#{bookTable.selectedElements}"
      resizableColumns="true" liveResize="true"
      paginator="true"
      rows="25"
@@ -40,76 +39,35 @@
   
       <f:facet name="header" value="#{messages.booklisttitle}" />  
                   
-      <p:column selectionMode="multiple" style="width:2%" />
-
-      <p:column style="width:5%">  
-          <p:rowToggler />  
-      </p:column>  
-        
       <!-- ID -->
-      <p:column id="IDColumn" sortBy="#{book.id}" filterBy="#{book.id}"   
-                headerText="#{messages.id}" style="width:8%"
+      <p:column id="IDColumn" headerText="#{messages.id}" style="width:8%"
                 filterMatchMode="startsWith">  
-        <h:outputText value="#{book.id}" />   
+        <h:outputText value="#{borrower.id}" />   
       </p:column>  
                   
       <!-- Title -->
       <p:column id="titleColumn" sortBy="#{book.title}" filterBy="#{book.title}"  
               headerText="#{messages.title}" filterMatchMode="contains" style="width:10%"> 
-        <h:outputText value="#{book.title}" />   
+        <h:outputText value="#{borrower.title}" />   
       </p:column>  
   
       <!-- Categories -->
-      <p:column id="lendingColumn" sortBy="#{book.lendings}" filterBy="#{book.lendings}"  
-              headerText="#{messages.lending}" filterMatchMode="contains" style="width:10%">
-        <h:outputText value="#{book.lendings}" />  
+      <p:column id="categoriesColumn" sortBy="#{book.categories}" filterBy="#{book.categories}"  
+              headerText="#{messages.categories}" filterMatchMode="contains" style="width:10%">
+        <h:outputText value="#{borrower.bookID}" />  
+      </p:column>
+ 
+  	  
+  	  <p:column id="rowEditorColumn" style="width:5%">  
+        <p:commandButton icon="ui-icon-pencil" style="width: auto; height: 20px" action="#{showUserProfil.sendBorrower(borrower)}" />
       </p:column>
   	  
-  	  <!-- Typ -->
-      <p:column id="typColumn" sortBy="#{book.typ}" filterBy="#{book.typ}"  
-              headerText="#{messages.typ}" filterMatchMode="contains" style="width:10%">
-        <h:outputText value="#{book.typ}" />  
-      </p:column>
-  	  
+  	 </p:dataTable>
+  	 
+  	 <p:commandButton id="button" value="Einreichen" action="#{showUserProfil.sendList()}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
 
-      <p:rowExpansion> 
-			    
-       <p:panelGrid id="displayDetails" >
-
-		<f:facet name="header">
-			<p:row>
-				<p:column styleClass="label">
-					<p:graphicImage id="image" value="#{book.imageURL}" />
-				</p:column>
-			</p:row>
-		</f:facet>
-
-
-
-		<!--  dateOfAddition -->
-		<p:row>
-			<p:column styleClass="label">
-				<h:outputLabel for="dateOfAddition"
-					value="#{messages.dateOfAddition}" />
-			</p:column>
-			<p:column>
-				<h:outputText id="dateOfAddition" value="#{book.dateOfAddition}"
-					styleClass="content">
-					<f:convertDateTime pattern="dd.MM.yyyy" timeZone="CET" />
-				</h:outputText>
-			</p:column>
-		</p:row>
-
-		
-	  </p:panelGrid>
-    </p:rowExpansion>  
-        
-    </p:dataTable>
-        
-
-    <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-
-</h:form>
+  	 </h:form>
 </f:view>
 </h:body>
 </html>

@@ -1,40 +1,62 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
-    
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<!-- Form for file upload -->
+<!-- http://www.primefaces.org/showcase/ui/datatableCellEditing.jsf -->
 <h:head>
-    <title>#{messages.setTimes}</title>
+	<title>Öffnungszeiten</title>
 </h:head>
 <h:body>
 	<h:outputStylesheet name="css/bib.css" />
 	<f:view>
-	<h:form id="form1">
-    <ui:include src="/mainmenu.xhtml" />
-	<p:panel id="panel" header="#{messages.setTimes}" />	
-		<p:focus context="panel"/>
-        <h:panelGrid columns="4" cellpadding="5" />
+		<h:form id="form" onkeypress="return event.keyCode != 13">
+		<p:outputPanel id="container">
+			<ui:include src="/mainmenu.xhtml" />
+
+
+  
+			<p:dataTable id="timesList" widgetVar="varTimesList"
+				value="#{zeit.getTimeList()}" rowIndexVar="rowIndex" var="timesList" >
+				
+
+<f:facet name="header" >
+<u>Öffnungszeiten</u>
+</f:facet>
+
+				<p:column>
+					<f:facet name="header"> Tag</f:facet>
+	#{timesList.getDay()}
+	</p:column>
+
+				<p:column>
+					<f:facet name="header"> Öffnung</f:facet>
+	#{timesList.getOpen()}
+	</p:column>
+				<p:column>
+					<f:facet name="header"> Schließung</f:facet>
+	#{timesList.getClose()}
+	</p:column>
+
+		
+			</p:dataTable>
+</p:outputPanel>
         
-<h3>Circle</h3>  
-<p:dataList value="#{timeHandler.list}" var="times" itemType="circle">  
-    #{times}  
-</p:dataList> 
+        
+        
+        
+<!-- <p:dataList value="#{timeListHandler.getTimesList()}" var="timesList" -->
+<!-- 				itemType="circle">   -->
+<!-- 			    #{timesList.getDay()} <p:spacer width="100" height="10" /> #{timesList.getOpen()} <p:spacer width="20" height="10" />#{timesList.getClose()}  -->
+<!-- 			    <p:separator id="separator"/>   -->
+<!-- 			</p:dataList>  -->
 
-<h3>Circle</h3>  
-<p:dataList value="#{timeHandler.timesList}" var="times" itemType="circle">  
-    #{times}  
-</p:dataList>  
 
-<h3>Circle</h3>  
-<p:dataList value="#{timeHandler.getTimesList()}" var="times" itemType="circle">  
-    #{times}  
-</p:dataList>  
-	
-	<!-- Tag -->
+
 	<h:outputLabel for="days" value="#{messages.day}:" title="#{messages.day_help}"
     	style="font-weight:bold" />
     <p:inputText id="days" value="#{setTimesForm.day}" size="#{timesForm.textWidth}"/>  
@@ -50,8 +72,13 @@
     <p:inputText id="close" value="#{setTimesForm.close}" size="#{timesForm.textWidth}"/>  
     <p:message for="close" display="both"/>
     
+    
+    
     <p:commandButton id="saveButton" value="#{messages.save}" action="#{setTimesForm.save}" 
                   ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
+                  
+                  <p:commandButton id="resetButton" value="#{messages.reset}" action="#{setTimesForm.reset}" 
+                  ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.reset_help}" />
             
     
 	</h:form>

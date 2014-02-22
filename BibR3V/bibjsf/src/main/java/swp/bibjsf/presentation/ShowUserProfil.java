@@ -1,13 +1,25 @@
 package swp.bibjsf.presentation;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 
+import swp.bibcommon.Borrower;
 import swp.bibcommon.Reader;
 import swp.bibjsf.businesslogic.ReaderHandler;
 import swp.bibjsf.exception.DataSourceException;
+import swp.bibjsf.persistence.Data;
+
+import org.apache.log4j.Logger;
 
 
 @ManagedBean
@@ -19,9 +31,13 @@ public class ShowUserProfil {
 	 */
 	private static final long serialVersionUID = -494454216495818388L;
 	private Reader reader;
+	final Logger logger = Logger.getLogger(ShowUserProfil.class);
+	private Data data = new Data();
+	private List<Borrower> borrowerList = new ArrayList<>();
 	
-	public ShowUserProfil() {
+	public ShowUserProfil() throws DataSourceException, NamingException{
 		super();
+		data = new Data();
 	}
 	
 	public String getUser() {
@@ -44,5 +60,37 @@ public class ShowUserProfil {
 		return reader;
 		
 	}
+	
+	
+	public List<Borrower> getBorrower(){
+		logger.debug("REACHED---GET_Borrower");
+		
+		return data.getBorrower();
+	}
+	
+	    
+	    
+    public void sendBorrower(Borrower borrower){
+	   boolean alreadyInside=false; 	
+	   logger.debug("SEND--BORROWER--REACHED!!!!!!" + borrower.getId());
+	   System.out.println("SEND----BORROWER---REACHED!!!!!");
+	   
+	   for (int i=0;i<borrowerList.size();i++){
+	    		
+	      if(borrowerList.get(i).getId()== borrower.getId()){
+	    	  alreadyInside=true;
+	      }	
+	   }
+	   if(!alreadyInside){
+		   borrowerList.add(borrower);
+	   }
+    }
+    
+    public void sendList(){
+    	logger.debug("SEND----LIST---REACHED!!!!!");
+    	System.out.println("SEND----LIST---REACHED!!!!!");
+    	
+    	data.getBorrowList(borrowerList);
+    }
 
 }
