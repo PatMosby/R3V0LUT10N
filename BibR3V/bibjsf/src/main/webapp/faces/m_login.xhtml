@@ -14,6 +14,11 @@
 <f:view renderKitId="PRIMEFACES_MOBILE">
 <pm:page title="PAGE1">
   <h:outputStylesheet name="css/bib.css" />
+  <form>
+				<pm:header title="Bibliothek Oberschule Rockwinkel">
+					<ui:include src="/m_mainmenu.xhtml"></ui:include>
+				</pm:header>
+				</form>
  <pm:content> 
 <form method="post" action="j_security_check">
     <p>#{messages.loginInfo}</p>

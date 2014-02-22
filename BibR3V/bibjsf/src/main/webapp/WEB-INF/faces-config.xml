@@ -112,6 +112,15 @@
 	</navigation-rule>
     
    <navigation-rule>
+    	<display-name>faces/m_login.xhtml</display-name>
+    	<from-view-id>/faces/m_login.xhtml</from-view-id>
+    	<navigation-case>
+    	    <from-outcome>success_m</from-outcome>
+    	    <to-view-id>/m_index.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>  
+    
+    <navigation-rule>
         <display-name>librarian/setTimes.xhtml</display-name>
         <from-view-id>/librarian/setTimes.xhtml</from-view-id>
         <navigation-case>

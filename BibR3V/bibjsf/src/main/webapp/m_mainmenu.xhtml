@@ -19,13 +19,14 @@
 		<p:button value="Home" icon="home" href="/m_index.xhtml"
 			styleClass="ui-btn-active" />
 
-		<p:button value="Medien" icon="ui-icon-bars" href="/book/m_list.xhtml?reverse=true" />
+		<p:button value="Medien" icon="grid" href="/book/m_list.xhtml?reverse=true" />
 
-		<p:button value="Profil" icon="ui-icon-user" href="/users/m_user.xhtml?reverse=true" rendered="#{request.isUserinRole('USER')}"/>
+		<p:button value="Profil" icon="star" href="/users/m_user.xhtml"
+			 rendered="#{request.isUserInRole('USER')}"/>
 
-		<p:button value="Info" icon="info" href="#main?reverse=true" />
+		<p:button value="Info" icon="info" href="/m_info.xhtml" />
 
-		<p:button value="Login" icon="login" href="/faces/m_login.xhtml?reverse=true" />
+		<p:button value="Login" icon="check" href="/faces/m_login.xhtml?reverse=true" />
 
 	</pm:navBar>
 </h:body>
