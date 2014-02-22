@@ -141,6 +141,7 @@ public class Data implements Persistence {
 	private static final String DATE = "date";
 	private static final String CHARGES = "charges";
 	private static final String LastUser="lastUser";
+	private static final String LASTUSER="lastuser";
 	private static final String NewsField = "news";
 
 	/**
@@ -518,7 +519,7 @@ public class Data implements Persistence {
 					+ "lendings INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
 					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
-					+ "charges DECIMAL(10,2), " + "lastUser VARCHAR(128), " +  "title VARCHAR(256)");
+					+ "charges DECIMAL(10,2), " + LASTUSER + " varchar(128)) " +  "title VARCHAR(256))");
 		}
 		if (!tableExists(tableNames, readerTableName)) {
 			logger.debug("database table " + readerTableName
@@ -563,7 +564,7 @@ public class Data implements Persistence {
 					+ " <= ID AND ID < " + bookMinID + "), " + BookID
 					+ " VARCHAR(128) NOT NULL UNIQUE, " + UserID
 					+ " varchar(128), " + DATE + " varchar(128), " + CHARGES
-					+ " varchar(128))");
+					+ " varchar(128), " + LASTUSER + " varchar(128))");
 		}
 		if (!tableExists(tableNames, chargesTableName)) {
 			logger.debug("database table " + chargesTableName
@@ -2846,7 +2847,13 @@ public class Data implements Persistence {
 				+ UserID + ", " + DATE + ", " + CHARGES + ") values ("
 				+ idValue + ", '" + bookID + "', '" + readerID + "', '" + date
 				+ "', '" + charges + "')");
+		
+		insertLastUser(readerID, bookID);
+		
+	
 
+	
+		
 		return idValue;
 
 		// Borrower b = new Borrower();
@@ -2861,6 +2868,48 @@ public class Data implements Persistence {
 
 	}
 
+	/**
+	 * Fügt den letzten Ausleiher in die Booktable ein.
+	 */
+	public void insertLastUser(String readerID, String bookID){
+		ResultSet resultLending = null;
+		Connection dbConnection=null;
+		try {
+			logger.debug("Starte insertLastUser");
+		 dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT USERNAME From READER Where id="+readerID);
+			 resultLending = ps.executeQuery();
+			 logger.debug("REACHED-------INSERT---------LAST----USER"  );
+			 String i="wäwä";
+			while (resultLending.next()) {
+				
+				 i = resultLending.getString(1);
+				logger.debug("REACHED-------INSERT---------LAST----USER" + i);
+				logger.debug("REACHED-------INSERT---------LAST----USER" + bookID);
+				run.update("UPDATE " + bookTableName + " set lastuser = '" + i + "' where id = "+bookID);
+				
+			}
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+	}
+	
 	/**
 	 * Macht Einträge für mehrere Medien eines Ausleihers.
 	 * 
@@ -3285,8 +3334,10 @@ public class Data implements Persistence {
 	public void insertDate(String date, int index) throws DataSourceException, SQLException{
 		index = borrowerList.get(index).getId();
 		String s = String.valueOf(index);
+		
 		logger.debug("UPDATE VERSUCH-.-");
 		run.update("UPDATE " + borrowTableName + " set date = '" + date + "' where id = "+index);
+		
 		//run.update("UPDATE " + borrowTableName + " SET DATE ="+date+"WHERE ID = ?",
 		//		lendingID);
 	//	run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",

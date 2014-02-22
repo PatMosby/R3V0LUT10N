@@ -21,12 +21,9 @@
 
 		<p:button value="Medien" icon="ui-icon-bars" href="/book/m_list.xhtml?reverse=true" />
 
-<<<<<<< HEAD
-		<p:button value="Profil" icon="ui-icon-user" href="/users/m_user.xhtml"
-			 rendered="#{request.isUserInRole('USER')}"/>
-=======
+
 		<p:button value="Profil" icon="ui-icon-user" href="/users/m_user.xhtml?reverse=true" rendered="authBackingBean.isLoggedIn()"/>
->>>>>>> eeddd7d0a30ba206ca8f0618fc956d8cdaf9c0a5
+
 
 		<p:button value="Info" icon="info" href="#main?reverse=true" />
 
