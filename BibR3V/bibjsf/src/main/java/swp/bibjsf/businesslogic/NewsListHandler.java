@@ -26,7 +26,7 @@ import org.apache.log4j.Logger;
 
 import swp.bibjsf.exception.DataSourceException;
 
-@ManagedBean(name = "newsHandler")
+@ManagedBean(name = "newslistHandler")
 @SessionScoped
 public class NewsListHandler {
 	Data data;
@@ -38,7 +38,6 @@ public class NewsListHandler {
 	}
 	
 	
-
 	public List<News> getNewsList(){
 		logger.debug("REACHED---GET_News");
 		
