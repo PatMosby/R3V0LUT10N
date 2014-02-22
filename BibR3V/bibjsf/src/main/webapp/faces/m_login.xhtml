@@ -4,39 +4,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pm="http://primefaces.org/mobile">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </h:head>
 <h:body>
-	<f:view renderKitId="PRIMEFACES_MOBILE">
-		<h:outputStylesheet name="css/bib.css" />
-		<pm:page title="MCMS">
-			<pm:view id="main">
-				<pm:header title="Login" />
-				<pm:content>
-					<form method="post" action="j_security_check">
-						<pm:field>
-							<!-- <h:outputLabel for="j_username" value="#{messages.username}" />
-							<p:inputText type="text" id="j_username" /> -->
-							<p:inputText id="j_username" value="#{messages.username}"
-								label="Benutzername" />
-						</pm:field>
-						<pm:field>
-							<!-- <h:outputLabel for="j_password" value="#{messages.password}" />
-							<h:inputSecret type="password" id="j_password" /> -->
-							<p:inputText type="password" id="j_password" value="#{messages.password}"
-								label="Passwort" />
-						</pm:field>
-						<h:commandButton id="submitButton" onclick="index" type="submit"
-							name="submit" action="index" value="#{messages.login}" />
-						<h:button id="cancelButton" outcome="index"
-							value="#{messages.cancel}" />
-					</form>
-				</pm:content>
-			</pm:view>
-		</pm:page>
-	</f:view>
+<f:view renderKitId="PRIMEFACES_MOBILE">
+<pm:page title="PAGE1">
+  <h:outputStylesheet name="css/bib.css" />
+ <pm:content> 
+<form method="post" action="j_security_check">
+    <p>#{messages.loginInfo}</p>
+    <h:panelGrid columns="2">
+      <h:outputLabel for="j_username" value="#{messages.username}" />
+      <h:inputText type="text" id="j_username" />
+
+      <h:outputLabel for="j_password" value="#{messages.password}" />
+      <h:inputSecret type="password" id="j_password" />
+
+<!--       <h:panelGrid columns="1"> -->
+        <h:commandButton id="msubmitButton" type="submit" name="submit" outcome="success_m" value="#{messages.login}" />
+        
+        <h:button id="cancelButton" outcome="m_index" value="#{messages.cancel}" />
+<!--       </h:panelGrid> -->
+    </h:panelGrid>
+  </form>
+      </pm:content>
+  
+  </pm:page>
+  </f:view>
 </h:body>
 </html>

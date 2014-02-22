@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import swp.bibjsf.businesslogic.UAgentInfo;
 
-public class MobileFilter implements Filter{
+public class MobileFilter implements Filter {
 
    @Override
    public void destroy() {
@@ -30,19 +30,14 @@ public class MobileFilter implements Filter{
             UAgentInfo agent = new UAgentInfo(userAgent, accept);
             HttpServletResponse res = (HttpServletResponse) arg1;
             if (agent.detectMobileLong()) {
-               
                res.sendRedirect("m_index.xhtml");
                return;
             }
             else {
-               
                arg2.doFilter(arg0, arg1);
                return;
             }
-            
         }
-        
-      
    }
 
    @Override
