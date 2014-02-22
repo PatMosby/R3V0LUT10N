@@ -15,45 +15,52 @@
 <h:body>
 
 	<f:view renderKitId="PRIMEFACES_MOBILE">
-<p:panel id="panel" header="#{messages.profile}">
-		<h:panelGrid columns="2" cellpadding="5">
-			<!-- username -->
-			<h:outputLabel for="username" value="#{messages.username}" />
-            <h:outputText id="username" value="#{showUserProfil.getUser()}" />
+		<p:panel id="panel" header="#{messages.profile}">
+			<h:panelGrid columns="2" cellpadding="5">
+				<!-- username -->
+				<h:outputLabel for="username" value="#{messages.username}" />
+				<h:outputText id="username" value="#{showUserProfil.getUser()}" />
 
-            <!-- email -->
-            <h:outputLabel for="email" value="#{messages.email}" />
-            <h:outputText id="email" value="#{showUserProfil.getReaderByUsername().email}" /> 
-                        
-            <!-- street -->
-            <h:outputLabel for="street" value="#{messages.street}" />
-            <h:outputText id="street" value="#{showUserProfil.getReaderByUsername().street}" />                
-                    
-            <!-- zipcode -->
-            <h:outputLabel for="zipcode" value="#{messages.zipcode}" />
-            <h:outputText id="zipcode" value="#{showUserProfil.getReaderByUsername().zipcode}" />               
-            
-            <!-- city -->
-            <h:outputLabel for="city" value="#{messages.city}" />
-            <h:outputText id="city" value="#{showUserProfil.getReaderByUsername().city}" /> 
+				<!-- email -->
+				<h:outputLabel for="email" value="#{messages.email}" />
+				<h:outputText id="email"
+					value="#{showUserProfil.getReaderByUsername().email}" />
 
-            <!-- phone -->
-            <h:outputLabel for="phone" value="#{messages.phone}" />
-            <h:outputText id="phone" value="#{showUserProfil.getReaderByUsername().phone}" />      
-            
-            <!-- entryDate -->
-            <h:outputLabel for="entryDate" value="#{messages.entryDate}" />
-            <h:outputText id="entryDate" value="#{showUserProfil.getReaderByUsername().entryDate}" >
-               <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET"/>
-            </h:outputText> 
-                            
-            <!-- lastUse -->
-            <h:outputLabel for="lastUse" value="#{messages.lastUse}" />
-            <h:outputText id="lastUse" value="#{showUserProfil.getReaderByUsername().lastUse}"  >
-               <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET"/>
-            </h:outputText>
+				<!-- street -->
+				<h:outputLabel for="street" value="#{messages.street}" />
+				<h:outputText id="street"
+					value="#{showUserProfil.getReaderByUsername().street}" />
 
-		</h:panelGrid>
-	</p:panel>
+				<!-- zipcode -->
+				<h:outputLabel for="zipcode" value="#{messages.zipcode}" />
+				<h:outputText id="zipcode"
+					value="#{showUserProfil.getReaderByUsername().zipcode}" />
+
+				<!-- city -->
+				<h:outputLabel for="city" value="#{messages.city}" />
+				<h:outputText id="city"
+					value="#{showUserProfil.getReaderByUsername().city}" />
+
+				<!-- phone -->
+				<h:outputLabel for="phone" value="#{messages.phone}" />
+				<h:outputText id="phone"
+					value="#{showUserProfil.getReaderByUsername().phone}" />
+
+				<!-- entryDate -->
+				<h:outputLabel for="entryDate" value="#{messages.entryDate}" />
+				<h:outputText id="entryDate"
+					value="#{showUserProfil.getReaderByUsername().entryDate}">
+					<f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET" />
+				</h:outputText>
+
+				<!-- lastUse -->
+				<h:outputLabel for="lastUse" value="#{messages.lastUse}" />
+				<h:outputText id="lastUse"
+					value="#{showUserProfil.getReaderByUsername().lastUse}">
+					<f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET" />
+				</h:outputText>
+
+			</h:panelGrid>
+		</p:panel>
 	</f:view>
 </h:body>

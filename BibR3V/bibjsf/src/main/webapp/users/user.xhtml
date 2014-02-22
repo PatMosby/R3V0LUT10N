@@ -18,11 +18,6 @@
 			<ui:include src="/users/userProfile.xhtml" />
 			<p:messages id="messages" closable="true" showSummary="true"
 				showDetail="true" autoUpdate="true" />
-			<h:panelGroup>
-				<p:commandButton id="logoutButton" value="#{message.logout}"
-					action="#{authBackingBean.logout}" immediate="true"
-					title="#{messages.logout}" />
-			</h:panelGroup>
 		</h:form>
 	</h:form>
 </h:body>
