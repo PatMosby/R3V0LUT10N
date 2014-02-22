@@ -51,9 +51,9 @@
         <h:outputText value="#{borrower.title}" />   
       </p:column>  
   
-      <!-- Categories -->
-      <p:column id="categoriesColumn" sortBy="#{book.categories}" filterBy="#{book.categories}"  
-              headerText="#{messages.categories}" filterMatchMode="contains" style="width:10%">
+      <!-- bookID -->
+      <p:column id="bookIDColumn" sortBy="#{borrower.bookID}" filterBy="#{borrower.bookID}"  
+              headerText="#{messages.bookID}" filterMatchMode="contains" style="width:10%">
         <h:outputText value="#{borrower.bookID}" />  
       </p:column>
  

@@ -13,19 +13,23 @@
 </h:head>
 
 <h:body>
-
 	<f:view renderKitId="PRIMEFACES_MOBILE">
-		<pm:page title="UserProfile">
-			<pm:view id="navbar">
-				<pm:header title="Bibliothek Oberschule Rockwinkel">
-					<ui:include src="/m_mainmenu.xhtml"></ui:include>
-				</pm:header>
-				<pm:content>
-					<ui:include src="/users/userProfile.xhtml"></ui:include>
-					<ui:include src="/users/m_lendingList.xhtml"></ui:include>
-				</pm:content>
-			</pm:view>
-		</pm:page>
+		<pm:content>
+			<h:form id="form">
+				<p:panel id="panel" header="#{messages.myBooks}">
+					<h:panelGrid columns="2" cellpadding="5">
+						<p:dataList value="#{showUserProfil.getBorrower()}"
+							var="borrower" itemType="circle">
+									#{borrower.id}
+									<br></br>
+									#{borrower.title}
+									<br></br>
+									#{borrower.bookID}
+								</p:dataList>
+					</h:panelGrid>
+				</p:panel>
+			</h:form>
+		</pm:content>
 	</f:view>
 </h:body>
 

@@ -20,7 +20,8 @@
 					<ui:include src="/m_mainmenu.xhtml"></ui:include>
 				</pm:header>
 				<pm:content>
-				<h3>Adresse:</h3>
+					<h:form id="form">
+						<h3>Adresse:</h3>
 				Öffentliche Schulbibliothek Rockwinkel 
 				in der Oberschule Rockwinkel
 				Uppe Angst 31, 28355 Bremen 
@@ -28,9 +29,24 @@
 
 				<h3>Öffnungszeiten für die Stadtteilöffentlichkeit:</h3>
 				Montag und Donnerstag: 13 - 17 Uhr
-				Montag bis Freitag vormittags nach telefonischer Rücksprache
+				Montag bis Freitag vormittags nach telefonischer Rücksprache TEST
 				
-				<h3>ZEITEN NOCH AUS TABELLE HOLEN</h3>
+				
+						<p:dataList value="#{timesListHandler.timeList}" var="timeList"
+							itemType="circle">
+							<h1>Tag:</h1>
+							<i>#{timeList.day}</i>
+							<br></br>
+							<h1>Von:</h1>
+							<i>#{timeList.open} Uhr</i>
+							<br></br>
+							<h1>Bis:</h1>
+							<i>#{timeList.close} Uhr</i>
+							<br></br>
+							<br></br>
+							<p:separator id="separator" />
+						</p:dataList>
+					</h:form>
 				</pm:content>
 			</pm:view>
 		</pm:page>
