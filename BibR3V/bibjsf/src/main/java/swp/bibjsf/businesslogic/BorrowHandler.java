@@ -27,6 +27,12 @@ import swp.bibjsf.utils.Constraint;
 import swp.bibjsf.utils.Messages;
 import swp.bibjsf.utils.OrderBy;
 
+/**
+ * 
+ * @author Dellert
+ *
+ */
+
 public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 
 	private Date date;

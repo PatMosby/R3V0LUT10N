@@ -2,7 +2,11 @@ package swp.bibcommon;
 import java.io.Serializable;
 import java.util.Date;
 
-
+/**
+ * 
+ * @author Damrow
+ *
+ */
 public class Charges extends BusinessObject implements Serializable, Cloneable {
  
 	private static final long serialVersionUID = -2835684051415448375L; 

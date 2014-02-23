@@ -25,9 +25,9 @@ import swp.bibjsf.businesslogic.ChargesHandler;
 import swp.bibjsf.utils.Messages;
 
 /**
- * A form to add books.
+ * A form to add charges.
  *
- * @author koschke
+ * @author Damrow
  *
  */
 @ManagedBean

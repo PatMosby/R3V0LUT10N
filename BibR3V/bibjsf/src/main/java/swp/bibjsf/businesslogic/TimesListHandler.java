@@ -26,6 +26,12 @@ import org.apache.log4j.Logger;
 
 import swp.bibjsf.exception.DataSourceException;
 
+
+/**
+ * 
+ * @author Ellhoff
+ *
+ */
 @ManagedBean(name="zeit")
 @SessionScoped
 public class TimesListHandler {

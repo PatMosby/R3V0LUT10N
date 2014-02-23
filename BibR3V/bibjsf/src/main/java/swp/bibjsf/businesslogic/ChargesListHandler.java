@@ -27,6 +27,11 @@ import org.apache.log4j.Logger;
 
 import swp.bibjsf.exception.DataSourceException;
 
+/**
+ * 
+ * @author Ellhoff
+ *
+ */
 @ManagedBean(name="charge")
 @SessionScoped
 public class ChargesListHandler {

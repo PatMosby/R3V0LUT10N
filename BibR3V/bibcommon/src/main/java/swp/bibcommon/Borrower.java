@@ -6,6 +6,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 
+ * @author Dellert
+ *
+ */
+
 //TODO Feldvariablen wieder privaten setzen
 public class Borrower extends BusinessObject implements Serializable, Cloneable {
  

@@ -13,6 +13,12 @@ import swp.bibjsf.utils.Messages;
 import java.sql.SQLException;
 import java.util.List;
 
+
+/**
+ * 
+ * @author Dellert
+ *
+ */
 @ManagedBean(name= "myBean")
 @SessionScoped
 public class AddBorrowerForm extends BorrowerForm{
