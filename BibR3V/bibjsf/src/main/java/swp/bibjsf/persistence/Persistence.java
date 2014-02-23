@@ -426,9 +426,11 @@ public interface Persistence {
 	public List<Times> getTimesList() throws DataSourceException;
 	public List<Times> getTimeList() throws DataSourceException;
 
-	List<String> getMonday() throws DataSourceException;
-	
 	public String calculateDate(String today, String bookID);
+
+	public String getDuration(String typ) throws SQLException;
+	
+	public void setDuration(String typ, String duration) throws SQLException;
 	
 
 }

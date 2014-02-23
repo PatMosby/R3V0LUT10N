@@ -25,9 +25,9 @@ import swp.bibjsf.businesslogic.ChargesHandler;
 import swp.bibjsf.utils.Messages;
 
 /**
- * A form to add books.
+ * A form to add charges.
  *
- * @author koschke
+ * @author Damrow
  *
  */
 @ManagedBean
@@ -107,6 +107,16 @@ public class changeChargesForm extends ChargesForm {
 	@Override
 	public void setCharges(String charges) {
 		element.setCharges(charges);
+	}
+	
+	@Override
+	public String getExpireDate() {
+		return element.getExpireDate();
+	}
+
+	@Override
+	public void setExpireDate(String expireDate) {
+		element.setExpireDate(expireDate);
 	}
 
 }

@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+>
+<!-- Form for file upload -->
+<!-- http://www.primefaces.org/showcase/ui/datatableCellEditing.jsf -->
+<h:head>
+    <title>#{messages.myBooks}</title>
+</h:head>
+<h:body>
+<h:outputStylesheet name="css/bib.css" />
+<f:view>
+    <!-- we can ignore the enter key event altogether in this form by 
+       setting the form attribute as follows: onkeypress="return event.keyCode != 13";
+       an alternative is to use p:defaultCommand -->
+    <h:form id="form" onkeypress="return event.keyCode != 13">
+    <ui:include src="/mainmenu.xhtml" />
+    
+    <!--  draggableColumns="true" does not work in Primefaces 3.5. It will hinder editing filter fields -->
+    <!--  it is claimed, this bug was fixed in 3.5.1, but that version is not available -->
+    <p:dataTable id="historyListe" 
+     value="#{showUserProfil.getHistoryList()}" 
+     var="history"
+     paginator="true"
+     rows="25"
+     rowsPerPageTemplate="10,25,50,100,200,500,1000"
+     >  
+  
+      <f:facet name="header" value="Meine Ausleihen" />  
+                  
+       <p:column headerText="Buchnummer">
+     <f:facet name="Nachname">Nachname</f:facet>
+                 #{history.book}
+                 
+                 
+     </p:column>  
+  
+       <p:column headerText="Tag">
+     <f:facet name="Nachname">Nachname</f:facet>
+                 #{history.date}
+                 
+                 
+     </p:column>  
+      
+      
+      
+      
+     
+    </p:dataTable>
+    
+      
+                  <p:commandButton id="borrowButton" value="Historie speichern" action="#{showUserProfil.sending(1)}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
+			      
+			      <p:commandButton id="borrowButton2" value="Historie nicht speichern" action="#{showUserProfil.sending(2)}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
+			      
+			      <p:commandButton id="borrowButton3" value="Historie anzeigen" action="#{showUserProfil.sending(3)}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
+			      
+			      <p:commandButton id="borrowButton4" value="Historie nicht anzeigen" action="#{showUserProfil.sending(4)}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
+    
+
+    </h:form>
+</f:view>
+</h:body>
+</html>

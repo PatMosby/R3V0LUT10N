@@ -4,6 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 //import java.util.Date;
 
+/**
+ * 
+ * @author Damrow
+ *
+ */
+
 
 public class Times extends BusinessObject implements Serializable, Cloneable {
  

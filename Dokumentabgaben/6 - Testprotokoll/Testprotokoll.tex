@@ -1,0 +1,217 @@
+\documentclass[fontsize=12pt,paper=a4,twoside]{scrartcl}
+
+% Dokumentenpräambel
+% hier alle Packages die genutzt werden mittels \usepackage einbinden
+\usepackage{booktabs}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[final]{pdfpages}
+
+\usepackage[ngerman]{babel} 
+
+% für Deutschunterstützung und neue Rechtschreibung
+\usepackage[ngerman]{varioref} 
+
+% Verweise innerhalb des Dokuments schick mit " ... auf Seite ... " automatisch versehen. Dazu \vref{labelname} benutzen
+\usepackage{ngerman}
+
+% obere Seitenränder gestalten können
+\usepackage{fancyhdr}
+
+% Graphiken als jpg, png etc. einbinden können
+\usepackage{graphicx}
+
+% Unterstützung für etliche Symbole
+\usepackage{stmaryrd}
+
+% Floats Objekte mit [H] festsetzen
+\usepackage{float}
+
+% setzt URL's schön mit \url{http://bla.laber.com/~mypage}
+\usepackage{url}
+
+% Externe PDF's einbinden können
+\usepackage{pdflscape}
+
+% Bibliographie
+\usepackage{bibgerm}
+
+% Tabellen
+\usepackage{tabularx}
+
+\usepackage{supertabular}
+
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue, hyperfigures=true, pdftex=true]{hyperref}
+
+\usepackage{bookmark}
+
+%
+% hier Formatierungsbefehle einfügen
+%
+% Damit Latex nicht zu lange Zeilen produziert
+\sloppy
+
+% Uneinheitlicher unterer Seitenrand
+\raggedbottom
+
+% Pfad zu den Grafiken fürs Dokument. Ordner muss im gleichen Verzeichniss liegen
+\graphicspath{{graphics/},{graphics/ScreensWebsite/}}
+
+% Gafikendungen die genutzt werden
+\DeclareGraphicsExtensions{.png,.jpg}
+
+% Seitenränder für Korrekturen setzen
+\addtolength{\evensidemargin}{-1cm}\addtolength{\oddsidemargin}{1cm}
+
+% Kein Erstzeileneinzug beim Absatzanfang. Sieht nur gut aus, wenn man zwischen Absätzen viel Platz einbaut.
+\setlength{\parindent}{0ex} 
+
+% Abstand zwischen zwei Absätzen
+\setlength{\parskip}{1ex}
+
+% hier werden neue Befehle deklariert
+% Header für alle Seiten
+\pagestyle{fancy} \setlength{ 
+\headheight}{70.55003pt} \fancyhead{} \fancyhead[LO,RE]{Software-Projekt 2\\
+2013/14 \\Testprotokoll} \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\
+\slshape\rightmark}
+
+%
+% Ab hier beginnt das Dokument
+%
+\begin{document}
+
+% Lustige Header nur auf dieser Seite
+\thispagestyle{fancy} \fancyhead[LO,RE]{ } \fancyhead[LE,RO]{Universität Bremen\\FB 3 -- Informatik\\
+Prof. Dr. Rainer Koschke \\TutorIn: Sabrina Wilske} \fancyfoot[C]{}
+
+% Start Titelseite
+\vspace{3cm} 
+\begin{minipage}
+	[H]{ 
+	\textwidth} 
+	\begin{center}
+		\bf \Large Software-Projekt 2 2013/14\\
+		\smallskip \small VAK 03-BA-901.02\\
+		\vspace{3cm} 
+	\end{center}
+\end{minipage}
+\begin{minipage}
+	[H]{ 
+	\textwidth} 
+	\begin{center}
+		\vspace{1cm} \bf \Large Testprotokoll\\
+		\vspace{3ex} \small IT\_R3V0LUT10N\\
+		\vfill 
+	\end{center}
+\end{minipage}
+\vfill 
+\begin{minipage}
+	[H]{ 
+	\textwidth} 
+	\begin{center}
+		\sf 
+		\begin{tabular}
+			{lrr} Sebastian Bredehöft & sbrede@tzi.de & 2751589\\
+			Patrick Damrow & damsen@tzi.de & 2056170\\
+			Tobias Dellert & tode@tzi.de & 2936941\\
+			Tim Ellhoff & tellhoff@tzi.de & 2520913\\
+			Daniel Pupat & dpupat@tzi.de & 2703053\\
+		\end{tabular}
+		\\
+		~ \vspace{2cm} \\
+		\it Abgabe: 23. Februar 2014 -- Version 1.0 vom 23.02.2014 \\
+		~ 
+	\end{center}
+\end{minipage}
+
+% Ende Titelseite
+% Eine Leerseite
+\newpage
+
+\thispagestyle{fancy} \fancyhead{} \fancyhead[LO,RE]{Software-Projekt 2 \\
+2013/14 \\Testprotokoll} \fancyhead[LE,RO]{Seite \thepage\\\slshape \leftmark\\~} \fancyfoot{} 
+\renewcommand{\headrulewidth}{0.4pt} 
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Version und Änderungsgeschichte}
+
+\begin{tabular}{ccl}
+Version & Datum & Änderungen \\
+\hline
+1.0 & 23.02.2014 & Testprotokoll erstellt \\
+\end{tabular}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Einführung (Daniel)}
+
+Im Testprotokoll beschreiben wir alle Tests, die wir in Hinblick auf die Mindestanforderungen getestet haben. Dabei beziehen wir uns in erster Linie auf den Testplan, ist dieser nicht vollständig, testen wir auch noch zusätzliche Funktionen.\\
+
+
+\section{Merkmale (Daniel)}
+
+Hierbei beziehen wir uns auf Punkt 3 des Testplans, welcher alle Mindestanforderungen erfüllen muss. 
+
+1. Benutzerrechte(Tester: Tim Ellhof am 23.02.2014)\\
+\begin{itemize}
+\item[1.1]\textbf{Administrator:} Wenn ein Admin erstellt wurde kann man sich als Admin anmelden und es gibt zusätzliche Funktionen
+\item[1.2]\textbf{Bibliothekar :} Wenn ein Bibliothekar erstellt wurde kann man sich über den Benutzernamen und Password einloggen und es gibt zusätzliche Funktionen
+\item[1.3]\textbf{Leser:} Wenn ein Leser erstellt wurde kann man sich über den Benutzernamen und Password einloggen und es gibt zusätzliche Funktionen
+\item[1.4]\textbf{Gast:} Unangemeldet als Gast kann man nur die News und die Medien sehen. Meldet man sich mit falschen Passwort an, erscheint eine Fehlermeldung
+\end{itemize}
+\bigskip
+2. \textbf{Administrator}(Tester: Sebastian Bredehöft am 23.02.2014)\\
+\begin{itemize}
+\item[2.1]\textbf{Bibliothekar hinzufügen:} Unter Bibliothekare verwalten kann man Bibliothekare erstellen. Gibt man die mit Stern-markierten Felder nicht an, erscheint eine Fehlermeldung. Wenn man alles richtig eingetragen hat, wird ein Bibliothekar erstellt und erscheint auf der Liste. Mit den Nutzernamen und Password kann man sich nun einloggen.
+\item[2.2]\textbf{Bibliothekar löschen:} Markiert man nun eine Person und geht auf löschen, wird diese gelöscht und man kann sich nicht mehr mit den Daten einloggen.
+\item[2.3]\textbf{Bibliothekar ändern:} Wenn man den Button rechts in der Liste drückt, kann man den entsprechenden Bibliothekar ändern. Wenn man diesen nun speichert erscheint dieser mit den neuen Daten in der Liste.
+\item[2.4]\textbf{Backup und Restore:} Bei Backup speichert er eine csv Datei ab. Löscht man nun einen Bibliothekar und drückt Wiederherstellen, existiert der Bibliothekar wieder.
+\item[2.5]\textbf{Automatisches Backup:} Wenn man auf automatisches Backup geht, kann man diesen aktivieren und deaktivieren. Dieser macht nun täglich ein Backup. Man kann sich dann wieder als Admin einloggen und unter Deaktivieren den Vorgang beenden. Dann kann man ihn jederzeit wieder aktivieren.
+\end{itemize}
+\bigskip
+3. \textbf{Bibliothekar}(Tester: Daniel Pupat am 23.02.2014)\\
+\begin{itemize}
+\item[3.10]\textbf{Medium hinzufügen:} Unter Bibliothek-$>$Medium hinzufügen kann man Medien hinzufügen. Wenn man alles richtig eingetragen hat, wird ein Medium erstellt und erscheint auf der Liste. Unter Publikationstyp sieht man den entsprechenden Typ des Mediums. Alle geforderten Medien werden unterstützt. In den Kategorien kann man alle möglichen eintragen, welche dann später in der Liste gesucht werden können. Unter Location kann man den Standort des Buches in der Bibliothek eingeben.
+\item[3.02]\textbf{Medium löschen:} Markiert man ein Medium und geht auf löschen, wird dieses gelöscht und es erscheint nicht mehr in der Liste.
+\item[3.03]\textbf{Medium ändern:} Wenn man den Button rechts in der Liste drückt, kann man das entsprechende Medium ändern. Wenn man dieses nun speichert erscheint es mit den neuen Daten in der Liste.
+\item[3.04]\textbf{Medium ausleihen:} Unter Bibliothek-$>$ausleihe kann ein Bibliothekar mit der entsprechenden ReaderID und BookID ein Buch ausleihen, welches dann in der Tabelle der ausgeliehenen Bücher erscheint. Die Rückgabefrist wird automatisch berechnet, und berücksichtigt die Öffnungszeiten. Fällt die Rückgabe auf ein Wochenendtag, wird das Rückgabedatum auf den Montag gesetzt.
+\item[3.05]\textbf{Medium zurücknehmen:} Unter Bibliothek -$>$ Rückgabe kann man das Buch zurückgeben. Mit der entsprechenden BookID wird das Medium dann aus der Tabelle der ausgeliehenen Bücher entfernt.
+\item[3.06]\textbf{Abgabedaten und Mahngebühren ändern:} 
+\item[3.07]\textbf{Vormerkungen anzeigen:}
+\item[3.08]\textbf{Übersicht über verliehene Bücher(Versäumnisse, Mahngebühren):}
+\item[3.09]\textbf{Statistiken anzeigen:} Unter Bibliothek-$>$Statistik kann man einsehen, wie oft welches Medium ausgeliehen wurde. Nach einem Ausleihvorgang wird die Statistik entsprechend angepasst 
+\item[3.10]\textbf{Inaktive Benutzer anzeigen:} Unter Bibliothek-$>$Inaktive Leser wird eine Tabelle angezeigt, welche das letzte Datum der Benutzung aller Benutzer zeigt. Meldet sich ein Benutzer ab, wird das Datum entsprechend auf das heutige Datum gesetzt.
+\item[3.11]\textbf{Verlängerungswünsche können berücksichtgt werden:} Über Bibliothek-$>$Verlängerungsanfragen wird eine Liste aller Verlängerungsanfragen erstellt, welcher der Bibliothekar dann sehen kann. Die Rückgabezeit kann dann geändert werden.
+\item[3.12]\textbf{letzten Ausleiher sehen:} Ruft man alle Medien auf, kann man die Medien mit ihren letzten Ausleiher sehen, leiht ein anderer das Buch aus, wird dieser als letzter Ausleiher angezeigt.
+\item[3.13]\textbf{Übersicht über verliehene Bücher, Rückgabezeitraum:} Unter Bibliothek-$>$Ausleihliste wird eine Liste erstellt, welche alle verliehenen Bücher anzeigt. Wird ein Buch verliehen oder zurückgegeben, wird die Tabelle entsprechend verändert.
+\item[3.14]\textbf{Mahngebühren und Ausleihfristen festlegen(Medientyp):} Unter Bibliothek-$>$Einstellungen-$>$Mahngeb.Ausleihspanne können die Manhngebühren und die Ausleihspanne in Tagen angegeben werden. Diese werden dann gespeichert und wenn man ein Buch verleiht wird das Rückgabedatum über die Ausleihspanne berechnet und angegeben.
+\item[3.15]\textbf{Startseite bearbeiten:} Unter Bibliothek-$>$Einstellungen-$>$Startseite bearbeiten kann die Startseite bearbeitet werden. Wenn man dann einen Text eingibt erscheint dieser auf der Startseite.
+\item[3.16]\textbf{Import und Export von csv-Dateien:} Als Bibliothekar kann man unter Alle Medien Daten Exportieren und unter einer Adresse abspeichern. Diese erscheint dort dann als csv-Datei. Importieren kann man unter Datei auswählen und dann Hochladen. Dabei muss die csv-Datei alle Attribute haben wie die booktable(ID,AUTHORS,CATEGORIES,DATEOFADDITION,DATEOFPUBLICATION,DESCRIPTION,NOTE,IMAGEURL,INDUSTRIALIDENTIFIER,LANGUAGE,LOCATION,PAGECOUNT,PREVIEWLINK,PRICE,TYP,PUBLISHER,SUBTITLE,TITLE,SUBCATEGORIES,PRINTTYPE,EDITORLIST,LABEL,ARTISTLIST,PLAYTIME,TITLECOUNT,LENDINGS,REGISSEUR,FSK,PRODUCER,CHARGES,LASTUSER,MEDIA). Anschließend werden alle Medien aus der Datei unter Alle Medien in der Tabelle angezeigt.
+\end{itemize}
+\bigskip
+4.\textbf{Leser}(Tester: Patrick Damrow am 23.02.2014)\\
+\begin{itemize}
+\item[4.1]\textbf{Medium suchen:} Unter Alle Medien werden alle Medien der Bibliothek angezeigt. Man kann nun ein Text in ein Suchfeld eingeben, dann werden nur noch die Medien angezeigt, die diesem Text entsprechen.
+\item[4.2]\textbf{Medium anzeigen:} Wenn man in der Liste auf den Pfeil-Button klickt, werden Details des Mediums angezeigt.
+\item[4.3]\textbf{Medium vormerken:}
+\item[4.4]\textbf{Bücher, Rückgabedaten, Mahngebühren:} Unter Benutzerkonto-$>$Meine Entleihungen kann ein Nutzer seine geliehenen Bücher, Rückgabedaten und Mahngebühren sehen. Ändert der Bibliothekar die Daten, werden diese beim Nutzer auch geändert.
+\item[4.5]\textbf{Verlängerungswünsche einreichen:} In der Liste Meine Entleihungen kann der Nutzer einen Verlängerungswunsch abgeben, indem er auf den Button auf der rechten Seite klickt. Diese wird dann an den Bibliothekaren weitergeleitet.
+\item[4.6]\textbf{Ausleihistorie:}
+\end{itemize}
+\bigskip
+
+\section{Testabdeckung(Daniel)}
+
+Da wir nur Funktionstests verwendet haben, kann man keine Testabdeckung angeben. Wir haben alle nötigen Funktionen der Nutzer als Gast, Leser, Bibliothekar und Administrator erfolgreich getestet.
+
+
+
+
+
+
+
+\end{document}

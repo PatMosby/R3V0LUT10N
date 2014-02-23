@@ -2,14 +2,26 @@ package swp.bibcommon;
 import java.io.Serializable;
 import java.util.Date;
 
-
+/**
+ * 
+ * @author Damrow
+ *
+ */
 public class Charges extends BusinessObject implements Serializable, Cloneable {
  
 	private static final long serialVersionUID = -2835684051415448375L; 
 
 	public String typ;
 	public String charges;
+	public String expireDate;
+	public String tolerant="";
  
+	public String getExpireDate() {
+		return expireDate;
+	}
+	public void setExpireDate(String expireDate) {
+		this.expireDate = expireDate;
+	}
 	public String getTyp() {
 		return typ;
 	}
@@ -23,4 +35,11 @@ public class Charges extends BusinessObject implements Serializable, Cloneable {
 	public void setCharges(String charges) {
 		this.charges = charges;
 	}
+	public String getTolerant() {
+		return tolerant;
+	}
+	public void setTolerant(String tolerant) {
+		this.tolerant = tolerant;
+	}
+	
  }

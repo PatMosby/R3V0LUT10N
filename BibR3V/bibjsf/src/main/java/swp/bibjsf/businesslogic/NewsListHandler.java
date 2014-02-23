@@ -26,6 +26,11 @@ import org.apache.log4j.Logger;
 
 import swp.bibjsf.exception.DataSourceException;
 
+/**
+ * 
+ * @author Ellhoff
+ *
+ */
 @ManagedBean(name = "newslistHandler")
 @SessionScoped
 public class NewsListHandler {
