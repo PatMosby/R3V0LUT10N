@@ -10,7 +10,7 @@ public class Charges extends BusinessObject implements Serializable, Cloneable {
 	public String typ;
 	public String charges;
 	public String expireDate;
-	public String tolerant;
+	public String tolerant="";
  
 	public String getExpireDate() {
 		return expireDate;
