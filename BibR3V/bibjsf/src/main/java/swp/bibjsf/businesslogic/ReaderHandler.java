@@ -272,10 +272,17 @@ public class ReaderHandler extends BusinessObjectHandler<Reader> {
         return prototype;
     }
     
+    /**
+     * @author Pupat
+     * Setzt das Attribut LastUse auf das aktuelle Datum
+     * Wird bei logout (authbeakingbean) aufgerufen
+     * @param username
+     * @throws DataSourceException
+     */
     public void changeLastUse(String username) throws DataSourceException {
         logger.info("lastUse " + username);
     	Reader reader = persistence.getReaderByUsername(username);
-    	if(reader.getId() != 0){
+    	if(reader.getId() != 0){ //admin kann nicht geändert werden
     	Date date = new Date();
     	reader.setLastUse(date);
         persistence.updateReader(reader.getId(), reader);

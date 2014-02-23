@@ -89,6 +89,12 @@
         <p:commandButton icon="ui-icon-pencil" style="width: auto; height: 20px" action="#{changeBookForm.edit(book)}" 
         		rendered="#{request.isUserInRole('LIBRARIAN')}" />
       </p:column> 
+      
+       <!-- trigger for vormerken row -->
+      <p:column id="rowEditorColumn" style="width:5%">  
+        <p:commandButton icon="ui-icon-pencil" style="width: auto; height: 20px" action="#{changeBookForm.edit(book)}" 
+        		rendered="#{request.isUserInRole('USER')}" />
+      </p:column> 
         
       <f:facet name="footer">
         <p:commandButton id="newBook" value="#{messages.newBook}" icon="ui-icon-circle-plus" action="add" rendered="#{request.isUserInRole('LIBRARIAN')}"></p:commandButton>

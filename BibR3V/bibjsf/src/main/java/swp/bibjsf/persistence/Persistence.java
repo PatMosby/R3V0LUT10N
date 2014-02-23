@@ -391,6 +391,8 @@ public interface Persistence {
 	
 	public int addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException;
 
+	public int addReserve(String bookID, String readerID) throws DataSourceException, SQLException;
+	
 	public void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException;
 	
 	public void updateLending()throws DataSourceException;
