@@ -774,7 +774,8 @@ public class Data implements Persistence {
 					+ "playTime INT, " + "titleCount INT, " + "lendings INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
 					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
-					+ "charges DECIMAL(10,2), " + LASTUSER + " varchar(128)) "
+					+ "charges DECIMAL(10,2), " 
+					+ LASTUSER + " varchar(128), "
 					+ "title VARCHAR(256))");
 		}
 		if (!tableExists(tableNames, readerTableName)) {
@@ -898,43 +899,43 @@ public class Data implements Persistence {
 			run.update("CREATE TABLE " + returnTableName + " ("
 					+ "TYP varchar(20), " + "DURATION varchar(10))");
 		}
-		
-		if (!tableExists(tableNames, historyTableName)) {
-			   run.update("CREATE TABLE "
-			     + historyTableName
-			     + "( "
-			     + histID 
-			     + " INT UNIQUE, "
-			     + histBookID 
-			     + " varchar(11), "
-			     + histReaderID
-			     + " varchar(11), "
-			     + " varchar(128))");
-		}
-		
-		if (!tableExists(tableNames, historyTableName)) {
-			   run.update("CREATE TABLE "
-			     + historyTableName
-			     + "( "
-			     + histID 
-			     + " INT UNIQUE, "
-			     + histBookID 
-			     + " varchar(11), "
-			     + histReaderID
-			     + " varchar(11))");
-		}
-		
-		if (!tableExists(tableNames, showHistoryTableName)) {
-			   run.update("CREATE TABLE "
-			     + showHistoryTableName
-			     + "( "
-			     + histReaderID
-			     + " varchar(128) UNIQUE, "
-			     + saveHist
-			     + " varchar(128), "
-			     + showHist
-			     + " varchar(128))");
-		}
+//		
+//		if (!tableExists(tableNames, historyTableName)) {
+//			   run.update("CREATE TABLE "
+//			     + historyTableName
+//			     + "( "
+//			     + histID 
+//			     + " INT UNIQUE, "
+//			     + histBookID 
+//			     + " varchar(11), "
+//			     + histReaderID
+//			     + " varchar(11), "
+//			     + " varchar(128))");
+//		}
+//		
+//		if (!tableExists(tableNames, historyTableName)) {
+//			   run.update("CREATE TABLE "
+//			     + historyTableName
+//			     + "( "
+//			     + histID 
+//			     + " INT UNIQUE, "
+//			     + histBookID 
+//			     + " varchar(11), "
+//			     + histReaderID
+//			     + " varchar(11))");
+//		}
+//		
+//		if (!tableExists(tableNames, showHistoryTableName)) {
+//			   run.update("CREATE TABLE "
+//			     + showHistoryTableName
+//			     + "( "
+//			     + histReaderID
+//			     + " varchar(128) UNIQUE, "
+//			     + saveHist
+//			     + " varchar(128), "
+//			     + showHist
+//			     + " varchar(128))");
+//		}
 		
 		if (createAdmin) {
 			insertAdmin();
@@ -4054,10 +4055,17 @@ logger.debug(borrowerList.get(0).getDate());
 	
 	@Override
 	public String getDuration(String typ) throws SQLException {
-		final long time = singleResultQuery("select DURATION from "
-				+ returnTableName + " where TYP = '" + typ + "'");
-		String duration = String.valueOf(time);
-		return duration;
+		logger.debug("getDuration in data " + typ);
+		try {
+			final long time = singleResultQuery("select DURATION from "
+					+ returnTableName + " where TYP = '" + typ + "'");
+			String duration = String.valueOf(time);
+			return duration;			
+		} catch (Exception e) {
+			logger.debug("exception in getDuration data " + e);
+			return null;
+		}
+		
 	}
 
 	public void setDuration(String typ, String duration) throws SQLException {

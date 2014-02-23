@@ -172,16 +172,26 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 		return 0;
 	}
 	
+	
+	/**
+	 * @author Bredehöft
+	 * @param bookID
+	 * @return string Datum
+	 * @throws NumberFormatException
+	 * @throws DataSourceException
+	 * @throws SQLException
+	 */
 	public String calculateDate(String bookID) throws NumberFormatException, DataSourceException, SQLException{
 		
 		Book book = persistence.getBook(Integer.valueOf(bookID));
 		String typ = book.getTyp();
+		logger.debug(typ + "= DER TYP");
 		
-		//int duration = Integer.valueOf(persistence.getDuration(typ));
-		int duration =1;
-		return "wäwä";
+		int duration = Integer.valueOf(persistence.getDuration(typ));
+		logger.debug(duration + " =DIE DAUER");
+		//int duration =1;
+		//return "wäwä";
 		
-		/**
 		Calendar calendar = new GregorianCalendar();
 		Date today = new Date();
 		calendar.setTime(today);
@@ -215,8 +225,9 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 			} catch (Exception e) {
 				logger.debug(e + "catch-exception");				
 			}
+		logger.debug("return null in borrowhandler");
 		return null;
-		*/		
+				
 	}
 
 	public void returnLending(String bookID) {
