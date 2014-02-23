@@ -109,7 +109,7 @@ public void setDate(String date) {
 
 		// Create an instance of SimpleDateFormat used for formatting
 		// the string representation of date (month/day/year)
-		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		DateFormat df = new SimpleDateFormat("dd MM yyyy");
 
 		// Get the date today using Calendar object.
 		Date today = Calendar.getInstance().getTime();

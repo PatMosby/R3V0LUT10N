@@ -78,6 +78,22 @@
      </p:cellEditor>
     </p:column>
     
+    
+  <p:column headerText="Fristtoleranz">
+
+
+     <p:cellEditor>
+      <f:facet name="output">
+       <h:outputText value="#{chargesList.tolerant}" />  <!-- borrowList.date -->
+      </f:facet>
+      <f:facet name="input">
+      
+        <p:inputText id="close" value= "#{charge.tolerant}"  ></p:inputText> 
+      </f:facet>      
+       
+     
+     </p:cellEditor>
+    </p:column>
 
   
    </p:dataTable>

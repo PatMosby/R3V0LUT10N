@@ -10,6 +10,7 @@ public class Charges extends BusinessObject implements Serializable, Cloneable {
 	public String typ;
 	public String charges;
 	public String expireDate;
+	public String tolerant;
  
 	public String getExpireDate() {
 		return expireDate;
@@ -30,4 +31,11 @@ public class Charges extends BusinessObject implements Serializable, Cloneable {
 	public void setCharges(String charges) {
 		this.charges = charges;
 	}
+	public String getTolerant() {
+		return tolerant;
+	}
+	public void setTolerant(String tolerant) {
+		this.tolerant = tolerant;
+	}
+	
  }

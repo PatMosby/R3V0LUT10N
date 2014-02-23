@@ -193,14 +193,14 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 		//return "wäwä";
 		
 		Calendar calendar = new GregorianCalendar();
+
 		Date today = Calendar.getInstance().getTime();
 		logger.debug("echtes Datum " + today);
 
-		//Date today = new Date();
 		calendar.setTime(today);
 
 		int year = calendar.get(Calendar.YEAR);
-		int month = calendar.get(Calendar.MONTH) + 1; // Jan = 0, dec = 11
+		int month = calendar.get(Calendar.MONTH)+1; // Jan = 0, dec = 11
 		int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 		logger.debug("actual Date: " + dayOfMonth + " " + month + " " + year);
 
