@@ -17,11 +17,12 @@ import java.util.List;
 @SessionScoped
 public class AddBorrowerForm extends BorrowerForm{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1655968620301629426L;
+	
 	Borrower borrower = new Borrower();
-	
-	
-
-
 
 	@Override
 	 public String save() {
@@ -67,9 +68,7 @@ public class AddBorrowerForm extends BorrowerForm{
     	} //else {
     		//return failure(Messages.get("elementNotSet"));
     	//}
-    }
-	
-	
+    }	
 	
 	public String getReaderID() {
 		System.out.println("getreader");

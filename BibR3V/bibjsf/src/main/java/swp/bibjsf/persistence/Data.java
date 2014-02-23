@@ -140,7 +140,11 @@ public class Data implements Persistence {
 	private static final String BookID = "book_id";
 	private static final String DATE = "date";
 	private static final String CHARGES = "charges";
+
 	private static final String LASTUSER="lastuser";
+
+	
+
 	private static final String NewsField = "news";
 	private static final String BOOKTITLE = "title";
 
@@ -152,13 +156,15 @@ public class Data implements Persistence {
 	private final static String borrowTableName = "LENDING";
 
 	private final static String newsTableName = "NEWS";
-	
+
 	private final static String timeTableName = "TIMES";
-	
+
+	private final static String returnTableName = "RETURN";
+
 	private final static String day = "TAG";
-	
+
 	private final static String open = "OFFEN";
-	
+
 	private final static String close = "GESCHLOSSEN";
 
 	/*
@@ -273,44 +279,47 @@ public class Data implements Persistence {
 	}
 
 	/**
-	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank gelesen wird. 
+	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank
+	 * gelesen wird.
 	 */
 	private List<Borrower> borrowerList = new ArrayList<>();
-	
+
 	public List<Borrower> getBorrower() {
-	    borrowerList = new ArrayList<>();
+		borrowerList = new ArrayList<>();
 		ResultSet resultLending = null;
-		Connection dbConnection=null;
+		Connection dbConnection = null;
 		try {
 			logger.debug("Starte getBorrower");
-		 dbConnection = dataSource.getConnection();
+			dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
 					.prepareStatement("SELECT ID, BOOK_ID, USER_ID, DATE, CHARGES From LENDING");
-			 resultLending = ps.executeQuery();
+			resultLending = ps.executeQuery();
 
 			while (resultLending.next()) {
 				Borrower newBorrower = new Borrower();
-				//Spalte für Spalte
+				// Spalte für Spalte
 				newBorrower.setId(resultLending.getInt(1));
 				newBorrower.setBookID(resultLending.getString(2)); // Book id
 				newBorrower.setReaderID(resultLending.getString(3)); // User id
 				newBorrower.setDate(resultLending.getString(4));// date
 				newBorrower.setFines(resultLending.getString(5)); // charges
-				
+
 				addVornameNachname(newBorrower);
 
 				borrowerList.add(newBorrower);
 			}
 			logger.debug("Zeige alle Borrower");
 			for (Borrower element : borrowerList) {
-				logger.debug("Elemente: " + element.getBookID()); //für Ausgabe auf Konsole
+				logger.debug("Elemente: " + element.getBookID()); // für Ausgabe
+																	// auf
+																	// Konsole
 			}
 			logger.debug(borrowerList.get(0).getDate());
 
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
-		}finally{
+		} finally {
 			try {
 				resultLending.close();
 			} catch (SQLException e) {
@@ -327,6 +336,7 @@ public class Data implements Persistence {
 		return borrowerList;
 
 	}
+
 	
 	/**
 	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank gelesen wird. 
@@ -384,11 +394,7 @@ public class Data implements Persistence {
 	}
 	
 	
-	
-	
-	
-	
-	
+
 	private void addVornameNachname(Borrower newBorrower) {
 		ResultSet resultLending = null;
 		Connection dbConnection = null;
@@ -397,9 +403,10 @@ public class Data implements Persistence {
 		try {
 			dbConnection = dataSource.getConnection();
 			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT FIRSTNAME, LASTNAME From READER WHERE ID="+Integer.valueOf(newBorrower.getReaderID()));
+					.prepareStatement("SELECT FIRSTNAME, LASTNAME From READER WHERE ID="
+							+ Integer.valueOf(newBorrower.getReaderID()));
 			resultLending = ps.executeQuery();
-					
+
 			while (resultLending.next()) {
 				newBorrower.setVorname(resultLending.getString(1));
 				newBorrower.setNachname(resultLending.getString(2));
@@ -407,13 +414,13 @@ public class Data implements Persistence {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
+		} finally {
 			try {
 				resultLending.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}finally{
+			} finally {
 				try {
 					dbConnection.close();
 				} catch (SQLException e) {
@@ -425,41 +432,44 @@ public class Data implements Persistence {
 
 	}
 
-	
 	/**
-	 * Liefert eine ArrayList von News-Elementen, die aus der Datenbank gelesen wird. 
+	 * Liefert eine ArrayList von News-Elementen, die aus der Datenbank gelesen
+	 * wird.
 	 */
 	private List<News> newsList = new ArrayList<>();
-	
+
 	public List<News> getNewsList() {
 		newsList = new ArrayList<>();
 		ResultSet resultLending = null;
-		Connection dbConnection=null;
+		Connection dbConnection = null;
 		try {
 			logger.debug("Starte getNewsList");
-		 dbConnection = dataSource.getConnection();
+			dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
 					.prepareStatement("SELECT NEWSDATE, NEWS From NEWS");
-			 resultLending = ps.executeQuery();
+			resultLending = ps.executeQuery();
 
 			while (resultLending.next()) {
 				News newNews = new News();
-				//Spalte für Spalte
-				newNews.setDateOfAddition_2(resultLending.getString(1)); //Date of Addition
+				// Spalte für Spalte
+				newNews.setDateOfAddition_2(resultLending.getString(1)); // Date
+																			// of
+																			// Addition
 				newNews.setNews(resultLending.getString(2)); // News
 
 				newsList.add(newNews);
 			}
 			logger.debug("Zeige alle News");
 			for (News element : newsList) {
-				logger.debug("Elemente: " + element.getNews() + element.getStringDateOfAddition()); //für Ausgabe auf Konsole
+				logger.debug("Elemente: " + element.getNews()
+						+ element.getStringDateOfAddition()); // für Ausgabe auf
+																// Konsole
 			}
-			
 
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
-		}finally{
+		} finally {
 			try {
 				resultLending.close();
 			} catch (SQLException e) {
@@ -476,28 +486,29 @@ public class Data implements Persistence {
 		return newsList;
 
 	}
-	
+
 	/**
-	 * Liefert eine ArrayList von Times-Elementen, die aus der Datenbank gelesen wird. 
+	 * Liefert eine ArrayList von Times-Elementen, die aus der Datenbank gelesen
+	 * wird.
 	 */
 	private List<Times> timesList = new ArrayList<>();
-	
+
 	public List<Times> getTimeList() {
 		timesList = new ArrayList<>();
 		ResultSet resultLending = null;
-		Connection dbConnection=null;
+		Connection dbConnection = null;
 		try {
 			logger.debug("Starte getTimeList");
-		 dbConnection = dataSource.getConnection();
+			dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
 					.prepareStatement("SELECT TAG, OFFEN, GESCHLOSSEN From TIMES");
-			 resultLending = ps.executeQuery();
+			resultLending = ps.executeQuery();
 
 			while (resultLending.next()) {
 				Times newTimes = new Times();
-				//Spalte für Spalte
-				newTimes.setDay(resultLending.getString(1)); //Tag
+				// Spalte für Spalte
+				newTimes.setDay(resultLending.getString(1)); // Tag
 				newTimes.setOpen(resultLending.getString(2)); // Offen
 				newTimes.setClose(resultLending.getString(3)); // Geschlossen
 
@@ -505,13 +516,16 @@ public class Data implements Persistence {
 			}
 			logger.debug("Zeige alle Times");
 			for (Times element : timesList) {
-				logger.debug("Elemente: " + element.getDay() + element.getOpen() + element.getClose()); //für Ausgabe auf Konsole
+				logger.debug("Elemente: " + element.getDay()
+						+ element.getOpen() + element.getClose()); // für
+																	// Ausgabe
+																	// auf
+																	// Konsole
 			}
-			
 
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
-		}finally{
+		} finally {
 			try {
 				resultLending.close();
 			} catch (SQLException e) {
@@ -528,7 +542,6 @@ public class Data implements Persistence {
 		return timesList;
 
 	}
-	
 
 	/**
 	 * Checks whether database has expected tables. If not, such tables are
@@ -576,11 +589,11 @@ public class Data implements Persistence {
 					+ industrialIdentifier + " VARCHAR(29), "
 					+ "authors VARCHAR(256), " + "label VARCHAR(128), "
 					+ "media INT, " + "artistList VARCHAR(256), "
-					+ "playTime INT, " + "titleCount INT, "
-					+ "lendings INT, "
+					+ "playTime INT, " + "titleCount INT, " + "lendings INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
 					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
-					+ "charges DECIMAL(10,2), " + LASTUSER + " varchar(128)) " +  "title VARCHAR(256))");
+					+ "charges DECIMAL(10,2), " + LASTUSER + " varchar(128)) "
+					+ "title VARCHAR(256))");
 		}
 		if (!tableExists(tableNames, readerTableName)) {
 			logger.debug("database table " + readerTableName
@@ -640,19 +653,19 @@ public class Data implements Persistence {
 			run.update("CREATE TABLE NEWS (" + "newsDate varchar(128), "
 					+ NewsField + " varchar(7999))");
 		}
-				
+
 		if (!tableExists(tableNames, timeTableName)) {
-			run.update("CREATE TABLE "
-					+ timeTableName
-					+ "( "
-					+ day 
-					+ " varchar(11) UNIQUE, "
-					+ open 
-					+ " varchar(11), "
-					+ close
+			run.update("CREATE TABLE " + timeTableName + "( " + day
+					+ " varchar(11) UNIQUE, " + open + " varchar(11), " + close
 					+ " varchar(11))");
+			run.update("INSERT INTO " + timeTableName + "(" + day
+					+ ") VALUES ('Montag')");
 		}
-		
+
+		if (!tableExists(tableNames, returnTableName)) {
+			run.update("CREATE TABLE " + returnTableName + " ("
+					+ "TYP varchar(20), " + "DURATION varchar(10))");
+		}
 
 		if (createAdmin) {
 			insertAdmin();
@@ -2154,7 +2167,7 @@ public class Data implements Persistence {
 		logger.debug("get reader with ID=" + id);
 		return getReaderWhere("ID", id);
 	}
-	
+
 	@Override
 	public Reader getReaderUse(int lastUse) throws DataSourceException {
 		logger.debug("get reader with LastUse=" + lastUse);
@@ -2889,9 +2902,11 @@ public class Data implements Persistence {
 
 	/*
 	 * (non-Javadoc)
-	 * @see swp.bibjsf.persistence.Persistence#addLending(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+	 * 
+	 * @see swp.bibjsf.persistence.Persistence#addLending(java.lang.String,
+	 * java.lang.String, java.lang.String, java.lang.String)
 	 */
-	//Überarbeitete add Lending mit int statt void
+	// Überarbeitete add Lending mit int statt void
 	public final int addLending(String bookID, String readerID, String date,
 			String charges) throws DataSourceException, SQLException {
 		
@@ -2913,7 +2928,7 @@ public class Data implements Persistence {
 		
 		insertLastUser(readerID, bookID);
 		
-		
+
 		return idValue;
 		
 
@@ -2969,30 +2984,33 @@ public class Data implements Persistence {
 	/**
 	 * Fügt den letzten Ausleiher in die Booktable ein.
 	 */
-	public void insertLastUser(String readerID, String bookID){
+	public void insertLastUser(String readerID, String bookID) {
 		ResultSet resultLending = null;
-		Connection dbConnection=null;
+		Connection dbConnection = null;
 		try {
 			logger.debug("Starte insertLastUser");
-		 dbConnection = dataSource.getConnection();
+			dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT USERNAME From READER Where id="+readerID);
-			 resultLending = ps.executeQuery();
-			 logger.debug("REACHED-------INSERT---------LAST----USER"  );
-			 String i="wäwä";
+					.prepareStatement("SELECT USERNAME From READER Where id="
+							+ readerID);
+			resultLending = ps.executeQuery();
+			logger.debug("REACHED-------INSERT---------LAST----USER");
+			String i = "wäwä";
 			while (resultLending.next()) {
-				
-				 i = resultLending.getString(1);
+
+				i = resultLending.getString(1);
 				logger.debug("REACHED-------INSERT---------LAST----USER" + i);
-				logger.debug("REACHED-------INSERT---------LAST----USER" + bookID);
-				run.update("UPDATE " + bookTableName + " set lastuser = '" + i + "' where id = "+bookID);
-				
+				logger.debug("REACHED-------INSERT---------LAST----USER"
+						+ bookID);
+				run.update("UPDATE " + bookTableName + " set lastuser = '" + i
+						+ "' where id = " + bookID);
+
 			}
 
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
-		}finally{
+		} finally {
 			try {
 				resultLending.close();
 			} catch (SQLException e) {
@@ -3005,9 +3023,9 @@ public class Data implements Persistence {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}	
+		}
 	}
-	
+
 	/**
 	 * Macht Einträge für mehrere Medien eines Ausleihers.
 	 * 
@@ -3022,7 +3040,7 @@ public class Data implements Persistence {
 	// TODO HÄ?
 	private String testTableName = "testTable";
 
-	private String NewsDate= "NEWSDATE";
+	private String NewsDate = "NEWSDATE";
 
 	public final void addLendings(String bookIDs, int readerID, String dates)
 			throws DataSourceException, SQLException {
@@ -3128,28 +3146,23 @@ public class Data implements Persistence {
 	public void addCharges(Charges charges) throws DataSourceException,
 			SQLException {
 		logger.debug("add charges " + charges);
-		run.update("insert into " + chargesTableName + "(type, " + CHARGES
-				+ ") values ('" + charges.getTyp() + "', '"
-				+ charges.getCharges() + "')");
+		run.update("insert into CHARGES (type, charges) values ('"
+				+ charges.getTyp() + "', '" + charges.getCharges() + "')");
 	}
 
-/**
-	@Override
-	public void addNews(final News news) throws DataSourceException, SQLException {
-		logger.debug("addNews bla in data");
-		logger.debug("DATAAAAA::::::"+ news.getDateOfAddition());
-		run.update("insert into NEWS(" + NewsDate + ", " + NewsField + ") values ('" 
-				
-				+ news.getDateOfAddition() 
-				+ "', '" + news.getNews() 
-   			+ "')");
-		logger.debug("DATAA222222::::::"+ news.getDateOfAddition());
-<<<<<<< HEAD
-		//TODO: alter code ohne ID, funktionierte aber		
-=======
-		//TODO: alter code ohne ID, funktionierte aber
-		}
-*/
+	/**
+	 * @Override public void addNews(final News news) throws
+	 *           DataSourceException, SQLException {
+	 *           logger.debug("addNews bla in data");
+	 *           logger.debug("DATAAAAA::::::"+ news.getDateOfAddition());
+	 *           run.update("insert into NEWS(" + NewsDate + ", " + NewsField +
+	 *           ") values ('"
+	 * 
+	 *           + news.getDateOfAddition() + "', '" + news.getNews() + "')");
+	 *           logger.debug("DATAA222222::::::"+ news.getDateOfAddition());
+	 *           <<<<<<< HEAD //TODO: alter code ohne ID, funktionierte aber
+	 *           ======= //TODO: alter code ohne ID, funktionierte aber }
+	 */
 
 	public void addNews(final News news) throws DataSourceException,
 			SQLException {
@@ -3185,8 +3198,7 @@ public class Data implements Persistence {
 			throw new DataSourceException(e.getMessage());
 		}
 
-		}
-	
+	}
 
 	@Override
 	public List<News> getNews(List<Constraint> constraints, int from, int to,
@@ -3207,30 +3219,33 @@ public class Data implements Persistence {
 	public List<News> getAllNews() throws DataSourceException {
 		List<News> newsList = new ArrayList<>();
 		ResultSet rs = null;
-		Connection con=null;
+		Connection con = null;
 		try {
 			logger.debug("getAllNews in data");
-		 con = dataSource.getConnection();
+			con = dataSource.getConnection();
 
 			PreparedStatement ps = con.prepareStatement("SELECT * From NEWS");
-			 rs = ps.executeQuery();
+			rs = ps.executeQuery();
 
 			while (rs.next()) {
 				News news = new News();
-				//Spalte für Spalte
+				// Spalte für Spalte
 				news.setDateOfAddition(News.toDate(rs.getString(1)));
 				news.setNews(rs.getString(2)); // Book id
-				
+
 				newsList.add(news);
 			}
 			logger.debug("Zeige alle News");
 			for (News element : newsList) {
-				logger.debug("Elemente: " + element.getDateOfAddition()); //für Ausgabe auf Konsole
+				logger.debug("Elemente: " + element.getDateOfAddition()); // für
+																			// Ausgabe
+																			// auf
+																			// Konsole
 			}
 
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
-		}finally{
+		} finally {
 			try {
 				rs.close();
 			} catch (SQLException e) {
@@ -3256,12 +3271,15 @@ public class Data implements Persistence {
 
 	/**
 	 * Prüft, ob es eine eingebebene ReaderID überhaupt gibt.
-	 * @param readerID Die ID des Lesers
-	 * @return Gibt true zurück, wenn Reader ID schon vorhanden ist und false, wenn sie noch nicht existiert.
+	 * 
+	 * @param readerID
+	 *            Die ID des Lesers
+	 * @return Gibt true zurück, wenn Reader ID schon vorhanden ist und false,
+	 *         wenn sie noch nicht existiert.
 	 */
 	public static boolean checkUserId(String readerID) {
-		ResultSet resultLending=null;
-		
+		ResultSet resultLending = null;
+
 		Connection dbConnection = null;
 		try {
 			Context envCtx;
@@ -3275,25 +3293,23 @@ public class Data implements Persistence {
 
 			DataSource dataSource = (DataSource) envCtx.lookup(databasename);
 
-			
-
-
-			 dbConnection = dataSource.getConnection();
+			dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT * From Reader Where id="+readerID);
-			 resultLending = ps.executeQuery();
+					.prepareStatement("SELECT * From Reader Where id="
+							+ readerID);
+			resultLending = ps.executeQuery();
 			logger.debug("Anfrage durchgefuehrt");
-			//Leser vorhanden
-			while(resultLending.next()){
+			// Leser vorhanden
+			while (resultLending.next()) {
 				logger.debug("Nutzer  Vorhanden");
 				return true;
-				
+
 			}
-	
+
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
-		}finally{
+		} finally {
 			try {
 				resultLending.close();
 			} catch (SQLException e) {
@@ -3310,12 +3326,14 @@ public class Data implements Persistence {
 		logger.debug("Nutzer nicht Vorhanden");
 		return false;
 	}
-	
-	
+
 	/**
 	 * Prüft, ob es eine eingebebene MediumID überhaupt gibt.
-	 * @param mediumID Die ID des Mediums
-	 * @return Gibt true zurück, wenn Medium ID schon vorhanden ist und false, wenn sie noch nicht existiert.
+	 * 
+	 * @param mediumID
+	 *            Die ID des Mediums
+	 * @return Gibt true zurück, wenn Medium ID schon vorhanden ist und false,
+	 *         wenn sie noch nicht existiert.
 	 */
 	public static boolean checkMediumID(String mediumID) {
 		try {
@@ -3330,25 +3348,17 @@ public class Data implements Persistence {
 
 			DataSource dataSource = (DataSource) envCtx.lookup(databasename);
 
-			
-
-
 			Connection dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT * From Book Where id="+mediumID);
+					.prepareStatement("SELECT * From Book Where id=" + mediumID);
 			ResultSet resultLending = ps.executeQuery();
 			logger.debug("Anfrage durchgefuehrt");
-			while(resultLending.next()){
+			while (resultLending.next()) {
 				logger.debug("Medium  Vorhanden");
 				return true;
-				
-			}
-	
-			
 
-		
-		
+			}
 
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
@@ -3356,119 +3366,128 @@ public class Data implements Persistence {
 		logger.debug("Medium  nicht Vorhanden");
 		return false;
 	}
-	
+
 	/**
-	 * OnEdit Event aus der Primeface Bibliothek. Hiermit kann man eine Zelle in der Tabelle ändern und der neue Wert wird in der Datenbank geupdatet
+	 * OnEdit Event aus der Primeface Bibliothek. Hiermit kann man eine Zelle in
+	 * der Tabelle ändern und der neue Wert wird in der Datenbank geupdatet
+	 * 
 	 * @param event
 	 */
-	public void onCellEdit(CellEditEvent event){
-		
-	logger.debug("CellEDIIIIITI!!!!!!!!!!!!!!!");
-	try{
-	//deleteLending(str);
-	}catch(Exception e){
-		
-	}
-		 Object oldValue = event.getOldValue();
-		 Object newValue = event.getNewValue();
-		 
-		 logger.debug(event.getRowIndex());
-		 String newData = newValue.toString();
-		 logger.debug("NewData: "+  newData);
-		 logger.debug(str_sy);
-		 logger.debug("OldValue: "+ oldValue);
-		 
-	      if(newValue != null && !newValue.equals(oldValue)) {  
-	            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);  
-	            FacesContext.getCurrentInstance().addMessage(null, msg);  
-	        } 
-		
-		sendID(event.getRowIndex(),newData);
-	}
-	private String str_sy="";
-	private String str_fi="";
+	public void onCellEdit(CellEditEvent event) {
 
-	public String getDate(){
-		 logger.debug("got it");
+		logger.debug("CellEDIIIIITI!!!!!!!!!!!!!!!");
+		try {
+			// deleteLending(str);
+		} catch (Exception e) {
+
+		}
+		Object oldValue = event.getOldValue();
+		Object newValue = event.getNewValue();
+
+		logger.debug(event.getRowIndex());
+		String newData = newValue.toString();
+		logger.debug("NewData: " + newData);
+		logger.debug(str_sy);
+		logger.debug("OldValue: " + oldValue);
+
+		if (newValue != null && !newValue.equals(oldValue)) {
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+					"Cell Changed", "Old: " + oldValue + ", New:" + newValue);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		}
+
+		sendID(event.getRowIndex(), newData);
+	}
+
+	private String str_sy = "";
+	private String str_fi = "";
+
+	public String getDate() {
+		logger.debug("got it");
 		return str_sy;
 	}
-	
-	public void setDate(String str){
+
+	public void setDate(String str) {
 		logger.debug("TESTTESTEST !!!!!!!!!");
-	   str_sy = str;
+		str_sy = str;
 	}
-	
-	public String getFines(){
-		
+
+	public String getFines() {
+
 		return str_fi;
-		
+
 	}
-	
-	public void setFines(String fines){
+
+	public void setFines(String fines) {
 		logger.debug("SET----FINEEEEEEEESSSS" + str_fi);
-		
+
 		str_fi = fines;
 	}
-	
-	
-		
-	public void sendID(int lendingID, String date){
-		
-		logger.debug("REACHED Send-ID" + lendingID +"  ");
-		
-		///borrowerList.get(rowIndex).setDate(lendingID);
-		
+
+	public void sendID(int lendingID, String date) {
+
+		logger.debug("REACHED Send-ID" + lendingID + "  ");
+
+		// /borrowerList.get(rowIndex).setDate(lendingID);
+
 		testDate(str_sy);
-		try{
-		insertDate(date, lendingID);}
-		catch(Exception e){}
+		try {
+			insertDate(date, lendingID);
+		} catch (Exception e) {
+		}
 	}
-	
-	public void testDate( String date){
-		
-		
+
+	public void testDate(String date) {
+
 	}
-	
-	public void insertDate(String date, int index) throws DataSourceException, SQLException{
+
+	public void insertDate(String date, int index) throws DataSourceException,
+			SQLException {
 		index = borrowerList.get(index).getId();
 		String s = String.valueOf(index);
-		
+
 		logger.debug("UPDATE VERSUCH-.-");
-		run.update("UPDATE " + borrowTableName + " set date = '" + date + "' where id = "+index);
-		
-		//run.update("UPDATE " + borrowTableName + " SET DATE ="+date+"WHERE ID = ?",
-		//		lendingID);
-	//	run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
-		//		lendingID);
+		run.update("UPDATE " + borrowTableName + " set date = '" + date
+				+ "' where id = " + index);
+
+		// run.update("UPDATE " + borrowTableName +
+		// " SET DATE ="+date+"WHERE ID = ?",
+		// lendingID);
+		// run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+		// lendingID);
 		logger.debug("UPDATE VERSUCH-2-.-");
-		logger.debug(borrowerList.get(0).getDate() );
+		logger.debug(borrowerList.get(0).getDate());
 	}
-	
-	public void insertFines(String fines, int index) throws DataSourceException, SQLException{
+
+	public void insertFines(String fines, int index)
+			throws DataSourceException, SQLException {
 		index = borrowerList.get(index).getId();
 		String s = String.valueOf(index);
 		logger.debug("UPDATE VERSUCH-.-");
-		run.update("UPDATE " + borrowTableName + " set charges = '" + fines + "' where id = "+index);
-		//run.update("UPDATE " + borrowTableName + " SET DATE ="+date+"WHERE ID = ?",
-		//		lendingID);
-	//	run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
-		//		lendingID);
+		run.update("UPDATE " + borrowTableName + " set charges = '" + fines
+				+ "' where id = " + index);
+		// run.update("UPDATE " + borrowTableName +
+		// " SET DATE ="+date+"WHERE ID = ?",
+		// lendingID);
+		// run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+		// lendingID);
 		logger.debug("UPDATE VERSUCH-2-.-");
-		logger.debug(borrowerList.get(0).getDate() );
-		
+		logger.debug(borrowerList.get(0).getDate());
+
 	}
 
 	@Override
 	public List<String> getTheNews() {
 		List<String> newsList = new ArrayList<>();
 		ResultSet rs = null;
-		Connection con=null;
+		Connection con = null;
 		try {
 			logger.debug("getTheNews in data");
-		 con = dataSource.getConnection();
+			con = dataSource.getConnection();
 
-			PreparedStatement ps = con.prepareStatement("SELECT news From NEWS");
-			 rs = ps.executeQuery();
+			PreparedStatement ps = con
+					.prepareStatement("SELECT news From NEWS");
+			rs = ps.executeQuery();
 
 			while (rs.next()) {
 				String news = rs.getString(1);
@@ -3476,12 +3495,12 @@ public class Data implements Persistence {
 			}
 			logger.debug("Zeige alle News");
 			for (String element : newsList) {
-				logger.debug("Elemente: " + element); //für Ausgabe auf Konsole
+				logger.debug("Elemente: " + element); // für Ausgabe auf Konsole
 			}
 
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
-		}finally{
+		} finally {
 			try {
 				rs.close();
 			} catch (SQLException e) {
@@ -3502,20 +3521,15 @@ public class Data implements Persistence {
 	@Override
 	public int addTimes(Times times) {
 		logger.debug("addTimes in data");
-		try{
-			run.update("insert into TIMES(" + day + ", " + open + ", " + close + ") values ('" 
-				+ times.getDay()
-				+ "', '" 
-				+ times.getOpen()
-				+ "', '"
-				+ times.getClose()
-				+ "')");
+		try {
+			run.update("insert into TIMES(" + day + ", " + open + ", " + close
+					+ ") values ('" + times.getDay() + "', '" + times.getOpen()
+					+ "', '" + times.getClose() + "')");
 			return 1;
-		} catch (Exception e){
+		} catch (Exception e) {
 			return -1;
 		}
 	}
-	
 
 	@Override
 	public int updateTime(Times times) {
@@ -3537,65 +3551,67 @@ public class Data implements Persistence {
 			throw new DataSourceException(e.getLocalizedMessage());
 		}
 	}
-	
+
 	List<String> lst = new ArrayList<>();
+
+	// @Override
+	// public List<String> getMonday() throws DataSourceException {
+	//
+	// ResultSet rs = null;
+	// Connection con=null;
+	// try {
+	// logger.debug("getMonday in data");
+	// con = dataSource.getConnection();
+	//
+	// PreparedStatement ps = con.prepareStatement("SELECT * From TIMES WHERE "
+	// + day + "='Montag'");
+	// rs = ps.executeQuery();
+	//
+	// while (rs.next()) {
+	// String days = rs.getString(1);
+	// String open = rs.getString(2);
+	// String close = rs.getString(3);
+	// lst.add(days);
+	// lst.add(open);
+	// lst.add(close);
+	// }
+	// logger.debug("Zeige alle Times");
+	// for (String element : lst) {
+	// logger.debug("Elemente: " + element); //für Ausgabe auf Konsole
+	// }
+	//
+	// } catch (Exception e) {
+	// logger.debug("Catch block Prepared Statement: " + e.getMessage());
+	// }finally{
+	// try {
+	// rs.close();
+	// } catch (SQLException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+	// try {
+	// con.close();
+	// } catch (SQLException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+	// }
+	// return lst;
+	//
+	// }
+
 	@Override
-	public List<String> getMonday() throws DataSourceException {
-		
-		ResultSet rs = null;
-		Connection con=null;
-		try {
-			logger.debug("getMonday in data");
-			con = dataSource.getConnection();
+	public String calculateDate(String today, String bookID) {
 
-			PreparedStatement ps = con.prepareStatement("SELECT * From TIMES WHERE " + day + "='Montag'");
-			 rs = ps.executeQuery();
-
-			while (rs.next()) {
-				String days = rs.getString(1);
-				String open = rs.getString(2);
-				String close = rs.getString(3);
-				lst.add(days);
-				lst.add(open);
-				lst.add(close);
-			}
-			logger.debug("Zeige alle Times");
-			for (String element : lst) {
-				logger.debug("Elemente: " + element); //für Ausgabe auf Konsole
-			}
-
-		} catch (Exception e) {
-			logger.debug("Catch block Prepared Statement: " + e.getMessage());
-		}finally{
-			try {
-				rs.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			try {
-				con.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return lst;
-
-	}
-	
-	@Override
-	public String calculateDate(String today, String bookID){
-		
-		
 		return today;
-    }
-	
-	protected boolean userQuery=false;
+	}
+
+	protected boolean userQuery = false;
 	private List<Borrower> userBorrowerList = new ArrayList<>();
-	
-	public void getBorrowList(List<Borrower> list){
+
+	public void getBorrowList(List<Borrower> list) {
 		logger.debug("REACHED----THE----BORROWERLIST");
+
 		
 		for(int i=0;i<list.size();i++){
 			
@@ -3612,15 +3628,31 @@ public class Data implements Persistence {
 	/*
 	 * 
 	 */
-	public List<Borrower> getBorrowerFromUser(){
-		
+	
+	
+
+
+	public List<Borrower> getBorrowerFromUser() {
+
 		return userBorrowerList;
 	}
+
 	
-	
-	
-	public boolean getUserQuery(){
-		return userQuery;
+	@Override
+	public String getDuration(String typ) throws SQLException {
+		final long time = singleResultQuery("select DURATION from "
+				+ returnTableName + " where TYP = '" + typ + "'");
+		String duration = String.valueOf(time);
+		return duration;
 	}
 
+	public void setDuration(String typ, String duration) throws SQLException {
+			logger.debug("add borrowTime for type: " + typ);
+			run.update("insert into " 
+					+ returnTableName 
+					+ "(typ, duration) values ('" 
+					+ typ + "', '"
+					+ duration 
+					+ "')");
+		}
 }

@@ -6,10 +6,11 @@ import javax.swing.*;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Calendar;
+import java.sql.SQLException;
 import java.text.DateFormat;
-
 import java.lang.Object;
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -30,6 +31,8 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 
 	private Date date;
 	private static final long serialVersionUID = -5653849921779676752L;
+	SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy");
+	
 
 	private static volatile BorrowHandler instance;
 
@@ -166,11 +169,47 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 		return 0;
 	}
 	
-	public String calculateDate(String bookID){
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-		Date today = Calendar.getInstance().getTime();		
-		String todayString = formatter.format(today);
-		return persistence.calculateDate(todayString, bookID);		
+	public String calculateDate(String bookID) throws NumberFormatException, DataSourceException, SQLException{
+		
+		Book book = persistence.getBook(Integer.valueOf(bookID));
+		String typ = book.getTyp();
+		
+		int duration = Integer.valueOf(persistence.getDuration(typ));
+		
+		Calendar calendar = new GregorianCalendar();
+		Date today = new Date();
+		calendar.setTime(today);
+
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH); // Jan = 0, dec = 11
+		int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+		logger.debug("actual Date: " + dayOfMonth + " " + month + " " + year);
+
+		if (date != null)
+			try {
+				calendar.add(Calendar.DAY_OF_MONTH, duration);
+				logger.debug("calendar.add(dayofmonth) " + Calendar.DAY_OF_MONTH);
+				
+				if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+					calendar.add(Calendar.DAY_OF_MONTH, 1);
+					String s = sdf.format(calendar.getTime());
+					logger.debug(s + "if(SUNDAY)");
+					return s;
+				} else if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
+					calendar.add(Calendar.DAY_OF_MONTH, 2);
+					String s = sdf.format(calendar.getTime());
+					logger.debug(s + "if(saturday)");
+					return s;
+				} else {
+					String s = sdf.format(calendar.getTime());
+					logger.debug(s + " else " + calendar.getTime());
+					return s;
+				}
+
+			} catch (Exception e) {
+				logger.debug(e + "catch-exception");				
+			}
+		return null;		
 	}
 
 	public void returnLending(String bookID) {
