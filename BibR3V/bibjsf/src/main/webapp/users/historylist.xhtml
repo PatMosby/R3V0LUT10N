@@ -53,25 +53,18 @@
      
     </p:dataTable>
     
-    <p:column id="rowEditorColumn" style="width:5%">  
-        <p:commandButton  headerText="Historie speichern" style="width: auto; height: 20px" 
-        action="#{showUserProfil.saving(1)}" />
-      </p:column>
       
-      <p:column id="rowEditorColumn" style="width:5%">  
-        <p:commandButton  headerText="Historie nicht speichern" style="width: auto; height: 20px" 
-        action="#{showUserProfil.saving(2)}"  />
-      </p:column> 
-      
-      <p:column id="rowEditorColumn" style="width:5%">  
-        <p:commandButton  headerText="Historie speichern" style="width: auto; height: 20px" 
-        action="#{showUserProfil.saving(3)}" />
-      </p:column>
-      
-      <p:column id="rowEditorColumn" style="width:5%">  
-        <p:commandButton  headerText="Historie nicht speichern" style="width: auto; height: 20px" 
-        action="#{showUserProfil.saving(4)}" />
-      </p:column> 
+                  <p:commandButton id="borrowButton" value="Historie speichern" action="#{showUserProfil.sending(1)}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
+			      
+			      <p:commandButton id="borrowButton2" value="Historie nicht speichern" action="#{showUserProfil.sending(2)}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
+			      
+			      <p:commandButton id="borrowButton3" value="Historie anzeigen" action="#{showUserProfil.sending(3)}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
+			      
+			      <p:commandButton id="borrowButton4" value="Historie nicht anzeigen" action="#{showUserProfil.sending(4)}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
     
 
     </h:form>

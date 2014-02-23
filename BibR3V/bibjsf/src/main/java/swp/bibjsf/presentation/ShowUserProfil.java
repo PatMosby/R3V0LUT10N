@@ -110,9 +110,22 @@ public class ShowUserProfil {
      data.getBorrowList(borrower);
     }
     
-    public void saving(int i){
+    public void sending(int i){
     	
+    	logger.debug("SAAAAAAAVVVVVVVVINNNNNNNNNNN---------"+ i);
     	
+    	switch(i){
+    	
+    	case 1: data.notSaveHistory();
+    		break;
+    	case 2:
+    		break;
+    	case 3:
+    		break;
+    	case 4:
+    		break;
+        default :
+    	}
     }
     
       public void notSaving(){
