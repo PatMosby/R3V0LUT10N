@@ -143,11 +143,9 @@ public class Data implements Persistence {
 	private static final String DATE = "date";
 	private static final String CHARGES = "charges";
 
-	private static final String LASTUSER="lastuser";
-	private static final String EXTEND="extend";
-	private static final String EXPIREDATE="expiredate";
-
-	
+	private static final String LASTUSER = "lastuser";
+	private static final String EXTEND = "extend";
+	private static final String EXPIREDATE = "expiredate";
 
 	private static final String NewsField = "news";
 	private static final String BOOKTITLE = "title";
@@ -162,22 +160,22 @@ public class Data implements Persistence {
 	private final static String newsTableName = "NEWS";
 
 	private final static String timeTableName = "TIMES";
-	
+
 	private final static String historyTableName = "HISTORY";
-	
+
 	private final static String hReaderID = "READERID";
-	
+
 	private final static String hBookID = "BOOKID";
-	
+
 	private final static String hID = "ID";
-	
+
 	private final static String hDate = "DATE";
-	
+
 	private final static String showHistoryTableName = "SHOWHISTORY";
-	
+
 	private final static String showHist = "SHOWHIST";
-	
-	private final static String saveHist= "SAVEHIST";
+
+	private final static String saveHist = "SAVEHIST";
 
 	private final static String day = "TAG";
 
@@ -329,10 +327,10 @@ public class Data implements Persistence {
 			}
 			logger.debug("Zeige alle Borrower");
 			int ink = 0;
-			for (Borrower element : borrowerList) {				
+			for (Borrower element : borrowerList) {
 				logger.debug("Elemente: " + element.getBookID());
 				int ov = Integer.valueOf(calculateOverdue(element.getDate()));
-				if(ov > 0){
+				if (ov > 0) {
 					int id = Integer.valueOf(element.getBookID());
 					Book b = getBook(id);
 					String typ = b.getTyp();
@@ -341,17 +339,17 @@ public class Data implements Persistence {
 					String charges = String.valueOf(charge);
 					final long tol = singleResultQuery("select TOLERATE from "
 							+ chargesTableName + " where TYPE = '" + typ + "'");
-					String tolerate = String.valueOf(tol);		
-					
-					String das = calculateCharges(charges, element.getDate(), tolerate);
+					String tolerate = String.valueOf(tol);
+
+					String das = calculateCharges(charges, element.getDate(),
+							tolerate);
 					borrowerList.get(ink).setFines(das);
-					run.update("UPDATE " + borrowTableName + " set charges = '" + das
-							  + "' where id = " + element.getId());
+					run.update("UPDATE " + borrowTableName + " set charges = '"
+							+ das + "' where id = " + element.getId());
 					ink++;
-					
-					
+
 				}
-																	
+
 			}
 			logger.debug(borrowerList.get(0).getDate());
 
@@ -374,13 +372,13 @@ public class Data implements Persistence {
 		return borrowerList;
 
 	}
-	
-	
+
 	/**
 	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank
 	 * gelesen wird.
 	 */
 	private List<Borrower> borrowerListExtend = new ArrayList<>();
+
 	public List<Borrower> getBorrowerExtend() {
 		borrowerListExtend = new ArrayList<>();
 		ResultSet resultLending = null;
@@ -390,7 +388,8 @@ public class Data implements Persistence {
 			dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT ID, BOOK_ID, USER_ID, DATE, CHARGES From LENDING where EXTEND= '" + true +"'");
+					.prepareStatement("SELECT ID, BOOK_ID, USER_ID, DATE, CHARGES From LENDING where EXTEND= '"
+							+ true + "'");
 			resultLending = ps.executeQuery();
 			logger.debug("BLUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUEHHHH");
 			while (resultLending.next()) {
@@ -433,163 +432,48 @@ public class Data implements Persistence {
 		return borrowerListExtend;
 
 	}
-	
+
 	/**
-	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank gelesen wird. 
+	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank
+	 * gelesen wird.
 	 */
 	private List<Borrower> borrowerForUserList = new ArrayList<>();
-	
+
 	public List<Borrower> getBorrowerForUser(String readerID) {
 		borrowerForUserList = new ArrayList<>();
 		ResultSet resultLending = null;
-		Connection dbConnection=null;
+		Connection dbConnection = null;
 		try {
 			logger.debug("Starte getBorrowerForUser");
-		 dbConnection = dataSource.getConnection();
+			dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT ID, BOOK_ID, DATE, CHARGES, TITLE From LENDING where USER_ID= '" + readerID+"'");
+					.prepareStatement("SELECT ID, BOOK_ID, DATE, CHARGES, TITLE From LENDING where USER_ID= '"
+							+ readerID + "'");
 			logger.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-			 resultLending = ps.executeQuery();
+			resultLending = ps.executeQuery();
 
 			while (resultLending.next()) {
 				Borrower newBorrower = new Borrower();
-				//Spalte für Spalte
+				// Spalte für Spalte
 				newBorrower.setId(resultLending.getInt(1));
 				newBorrower.setBookID(resultLending.getString(2)); // Book id
 				newBorrower.setDate(resultLending.getString(3));// date
 				newBorrower.setFines(resultLending.getString(4)); // charges
-				newBorrower.setTitle(resultLending.getString(5)); //Title
+				newBorrower.setTitle(resultLending.getString(5)); // Title
 
 				borrowerForUserList.add(newBorrower);
 			}
 			logger.debug("FOR EACH REACHED");
 			for (Borrower element : borrowerForUserList) {
-				logger.debug("Elemente: " + element.getBookID()); //für Ausgabe auf Konsole
+				logger.debug("Elemente: " + element.getBookID()); // für Ausgabe
+																	// auf
+																	// Konsole
 			}
-			
 
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
-		}finally{
-			try {
-				resultLending.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			try {
-				dbConnection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return borrowerForUserList;
-
-	}  
-	
-	/**
-	 * Übergibt eine Liste mit Element History
-	 * zum anzeigen in der Ausleihhistorie
-	 * @param readerID
-	 * @return historyForUserList
-	 */
-	public List<History> getHistoryForUser(String readerID) {
-		  List<History>historyForUserList = new ArrayList<>();
-		  ResultSet resultLending = null;
-		  Connection dbConnection=null;
-		  try {
-		   logger.debug("Starte getHistoryForUser");
-		   dbConnection = dataSource.getConnection();
-
-		   PreparedStatement ps = dbConnection
-		     .prepareStatement("SELECT BOOKID, DATE From HISTORY where READERID= '" + readerID+"'");
-		   logger.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  History");
-		    resultLending = ps.executeQuery();
-
-		   while (resultLending.next()) {
-		    History newHistory = new History();
-		    //Spalte für Spalte
-		    newHistory.setBook(resultLending.getString(1)); // Book id
-		    newHistory.setDate(resultLending.getString(2));// date
-		    
-		    historyForUserList.add(newHistory);
-		   }
-		   logger.debug("FOR EACH REACHED");
-		   for (History element : historyForUserList) {
-		    logger.debug("Elemente: " + element.getBook()); //für Ausgabe auf Konsole
-		   }
-		   
-
-		  } catch (Exception e) {
-		   logger.debug("Catch block Prepared Statement: " + e.getMessage());
-		  }finally{
-		   try {
-		    resultLending.close();
-		   } catch (SQLException e) {
-		    // TODO Auto-generated catch block
-		    e.printStackTrace();
-		   }
-		   try {
-		    dbConnection.close();
-		   } catch (SQLException e) {
-		    // TODO Auto-generated catch block
-		    e.printStackTrace();
-		   }
-		  }
-		  return historyForUserList;
-
-		 }
-	     		 
-		 public void setSaveHistory(boolean saving, String reader){  
-		 }
-		 
-		 public boolean getSaveHistory(){
-		  return false;
-		 }
-		 
-		 public void setShowHistory(boolean showing){		  
-		 }
-		 
-		 public boolean getShowHistory(){      //für ausleihhistorie
-			 //isShowing;
-		  return false;
-		 }
-	
-	public List<Borrower> getForUser(String readerID) {
-		borrowerForUserList = new ArrayList<>();
-		ResultSet resultLending = null;
-		Connection dbConnection=null;
-		try {
-			logger.debug("Starte getBorrowerForUser");
-		 dbConnection = dataSource.getConnection();
-
-			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT ID, BOOK_ID, DATE, CHARGES, TITLE From LENDING where USER_ID= '" + readerID+"'");
-			logger.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-			 resultLending = ps.executeQuery();
-
-			while (resultLending.next()) {
-				Borrower newBorrower = new Borrower();
-				//Spalte für Spalte
-				newBorrower.setId(resultLending.getInt(1));
-				newBorrower.setBookID(resultLending.getString(2)); // Book id
-				newBorrower.setDate(resultLending.getString(3));// date
-				newBorrower.setFines(resultLending.getString(4)); // charges
-				newBorrower.setTitle(resultLending.getString(5)); //Title
-
-				borrowerForUserList.add(newBorrower);
-			}
-			logger.debug("FOR EACH REACHED");
-			for (Borrower element : borrowerForUserList) {
-				logger.debug("Elemente: " + element.getBookID()); //für Ausgabe auf Konsole
-			}
-			
-
-		} catch (Exception e) {
-			logger.debug("Catch block Prepared Statement: " + e.getMessage());
-		}finally{
+		} finally {
 			try {
 				resultLending.close();
 			} catch (SQLException e) {
@@ -606,7 +490,129 @@ public class Data implements Persistence {
 		return borrowerForUserList;
 
 	}
-	
+
+	/**
+	 * Übergibt eine Liste mit Element History zum anzeigen in der
+	 * Ausleihhistorie
+	 * 
+	 * @param readerID
+	 * @return historyForUserList
+	 */
+	public List<History> getHistoryForUser(String readerID) {
+		List<History> historyForUserList = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection = null;
+		try {
+			logger.debug("Starte getHistoryForUser");
+			dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT BOOKID, DATE From HISTORY where READERID= '"
+							+ readerID + "'");
+			logger.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  History");
+			resultLending = ps.executeQuery();
+
+			while (resultLending.next()) {
+				History newHistory = new History();
+				// Spalte für Spalte
+				newHistory.setBook(resultLending.getString(1)); // Book id
+				newHistory.setDate(resultLending.getString(2));// date
+
+				historyForUserList.add(newHistory);
+			}
+			logger.debug("FOR EACH REACHED");
+			for (History element : historyForUserList) {
+				logger.debug("Elemente: " + element.getBook()); // für Ausgabe
+																// auf Konsole
+			}
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		} finally {
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return historyForUserList;
+
+	}
+
+	public void setSaveHistory(boolean saving, String reader) {
+	}
+
+	public boolean getSaveHistory() {
+		return false;
+	}
+
+	public void setShowHistory(boolean showing) {
+	}
+
+	public boolean getShowHistory() { // für ausleihhistorie
+		// isShowing;
+		return false;
+	}
+
+	public List<Borrower> getForUser(String readerID) {
+		borrowerForUserList = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection = null;
+		try {
+			logger.debug("Starte getBorrowerForUser");
+			dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT ID, BOOK_ID, DATE, CHARGES, TITLE From LENDING where USER_ID= '"
+							+ readerID + "'");
+			logger.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+			resultLending = ps.executeQuery();
+
+			while (resultLending.next()) {
+				Borrower newBorrower = new Borrower();
+				// Spalte für Spalte
+				newBorrower.setId(resultLending.getInt(1));
+				newBorrower.setBookID(resultLending.getString(2)); // Book id
+				newBorrower.setDate(resultLending.getString(3));// date
+				newBorrower.setFines(resultLending.getString(4)); // charges
+				newBorrower.setTitle(resultLending.getString(5)); // Title
+
+				borrowerForUserList.add(newBorrower);
+			}
+			logger.debug("FOR EACH REACHED");
+			for (Borrower element : borrowerForUserList) {
+				logger.debug("Elemente: " + element.getBookID()); // für Ausgabe
+																	// auf
+																	// Konsole
+			}
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		} finally {
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return borrowerForUserList;
+
+	}
+
 	private void addVornameNachname(Borrower newBorrower) {
 		ResultSet resultLending = null;
 		Connection dbConnection = null;
@@ -647,6 +653,7 @@ public class Data implements Persistence {
 	/**
 	 * Liefert eine ArrayList von News-Elementen, die aus der Datenbank gelesen
 	 * wird.
+	 * 
 	 * @author Bredehöft
 	 */
 	private List<News> newsList = new ArrayList<>();
@@ -703,6 +710,7 @@ public class Data implements Persistence {
 	/**
 	 * Liefert eine ArrayList von Times-Elementen, die aus der Datenbank gelesen
 	 * wird.
+	 * 
 	 * @author Bredehöft
 	 */
 	private List<Times> timesList = new ArrayList<>();
@@ -756,7 +764,7 @@ public class Data implements Persistence {
 		return timesList;
 
 	}
-	
+
 	private List<Charges> chargeList = new ArrayList<>();
 
 	public List<Charges> getChargeList() {
@@ -784,10 +792,11 @@ public class Data implements Persistence {
 			logger.debug("Zeige alle Charges");
 			for (Charges element : chargeList) {
 				logger.debug("Elemente: " + element.getTyp()
-						+ element.getCharges() + element.getExpireDate() + element.getTolerant()); // für
-																	// Ausgabe
-																	// auf
-																	// Konsole
+						+ element.getCharges() + element.getExpireDate()
+						+ element.getTolerant()); // für
+				// Ausgabe
+				// auf
+				// Konsole
 			}
 
 		} catch (Exception e) {
@@ -845,26 +854,22 @@ public class Data implements Persistence {
 			// The table of all books in the library.
 			run.update("CREATE TABLE " + bookTableName
 					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
-					+ "authors VARCHAR(256), " + "categories VARCHAR(128), " 
-					+ "dateOfAddition DATE, "
-					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
-					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
-					+ industrialIdentifier + " VARCHAR(29), "
-					+ "language VARCHAR(2), " + "location VARCHAR(128), "
-					+ "pageCount INT, " + "previewLink VARCHAR(128), "
-					+ "price DECIMAL(10,2), " + "typ VARCHAR(128), "
-					+ "publisher VARCHAR(64), " + "subtitle VARCHAR(128), "
-					+ "title VARCHAR(256), "
-					+ "subcategories VARCHAR(128), " + "printType VARCHAR(64), "
-					+ "editorList VARCHAR(256), "
-				    + "label VARCHAR(128), "
-					+ "artistList VARCHAR(256), "
+					+ "authors VARCHAR(256), " + "categories VARCHAR(128), "
+					+ "dateOfAddition DATE, " + "dateOfPublication DATE, "
+					+ "description LONG VARCHAR, " + "note LONG VARCHAR, "
+					+ "imageURL VARCHAR(128), " + industrialIdentifier
+					+ " VARCHAR(29), " + "language VARCHAR(2), "
+					+ "location VARCHAR(128), " + "pageCount INT, "
+					+ "previewLink VARCHAR(128), " + "price DECIMAL(10,2), "
+					+ "typ VARCHAR(128), " + "publisher VARCHAR(64), "
+					+ "subtitle VARCHAR(128), " + "title VARCHAR(256), "
+					+ "subcategories VARCHAR(128), "
+					+ "printType VARCHAR(64), " + "editorList VARCHAR(256), "
+					+ "label VARCHAR(128), " + "artistList VARCHAR(256), "
 					+ "playTime INT, " + "titleCount INT, " + "lendings INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
-					+ "producer VARCHAR(128), "
-					+ "charges DECIMAL(10,2), " 
-					+ LASTUSER + " varchar(128), "
-					+ "media INT)");  		
+					+ "producer VARCHAR(128), " + "charges DECIMAL(10,2), "
+					+ LASTUSER + " varchar(128), " + "media INT)");
 		}
 		if (!tableExists(tableNames, readerTableName)) {
 			logger.debug("database table " + readerTableName
@@ -881,7 +886,9 @@ public class Data implements Persistence {
 					+ "street VARCHAR(128), " + "zipcode VARCHAR(12), "
 					+ "city VARCHAR(50), " + "phone VARCHAR(30), "
 					+ "email VARCHAR(128), " + "entrydate DATE, "
-					+ "lastuse DATE, " + "note LONG VARCHAR, " + "savehistory varchar(128), " + "showhistory varchar(128))");
+					+ "lastuse DATE, " + "note LONG VARCHAR, "
+					+ "savehistory varchar(128), "
+					+ "showhistory varchar(128))");
 		}
 
 		if (!tableExists(tableNames, groupTableName)) {
@@ -909,31 +916,32 @@ public class Data implements Persistence {
 					+ " <= ID AND ID < " + bookMinID + "), " + BookID
 					+ " VARCHAR(128) NOT NULL UNIQUE, " + UserID
 					+ " varchar(128), " + DATE + " varchar(128), " + CHARGES
-					+ " varchar(128), " + LASTUSER + " varchar(128), " + BOOKTITLE + " varchar(128), "+ EXTEND + " varchar(128))");
+					+ " varchar(128), " + LASTUSER + " varchar(128), "
+					+ BOOKTITLE + " varchar(128), " + EXTEND + " varchar(128))");
 		}
 		if (!tableExists(tableNames, chargesTableName)) {
 			logger.debug("database table " + chargesTableName
 					+ " does not exist, creating new one");
 			// The table of all types and their charges.
-			
-			
+
 			run.update("CREATE TABLE " + chargesTableName
-					+ " (type varchar(128) NOT NULL UNIQUE, " 
-					+ CHARGES + " varchar(128), " 
-					+ EXPIREDATE + " varchar(128), "
+					+ " (type varchar(128) NOT NULL UNIQUE, " + CHARGES
+					+ " varchar(128), " + EXPIREDATE + " varchar(128), "
 					+ "TOLERATE varchar(10))");
-			
-			 String theTyp="wäwä";
-			    for(int i=0;i<9;i++){
-			    
-			   theTyp = getTyp(i);
-			   
-			   logger.debug("CHARGE-----TABLE " + i);
-			   run.update("insert into " + chargesTableName + "(type) values ('"+ theTyp + "')");
-			   //run.update("insert into " + timeTableName + "(tag) values ('true')");
-			   logger.debug("CHARGES-----TABLE 2 " +i);
-			    
-			    }
+
+			String theTyp = "wäwä";
+			for (int i = 0; i < 9; i++) {
+
+				theTyp = getTyp(i);
+
+				logger.debug("CHARGE-----TABLE " + i);
+				run.update("insert into " + chargesTableName
+						+ "(type) values ('" + theTyp + "')");
+				// run.update("insert into " + timeTableName +
+				// "(tag) values ('true')");
+				logger.debug("CHARGES-----TABLE 2 " + i);
+
+			}
 		}
 
 		if (!tableExists(tableNames, "NEWS")) {
@@ -942,68 +950,54 @@ public class Data implements Persistence {
 		}
 
 		if (!tableExists(tableNames, timeTableName)) {
-			   run.update("CREATE TABLE "
-			     + timeTableName
-			     + "( "
-			     + day 
-			     + " varchar(11) UNIQUE, "
-			     + open 
-			     + " varchar(11), "
-			     + close
-			     + " varchar(11))");
-			   
-			   String theDay="";
-			    for(int i=0;i<5;i++){
-			    
-			   switch(i) {
-			   
-			   case 0: theDay="Montag";
-			       break;
-			   case 1: theDay="Dienstag";
-			    break;
-			   case 2: theDay="Mittwoch";
-			    break;
-			   case 3:   theDay="Donnerstag";
-			    break;
-			   case 4:    theDay="Freitag";
-			    break;
-			   
-			   }
-			   
-			   logger.debug("TIME-----TABLE " + i);
-			   run.update("insert into " + timeTableName + "(tag) values ('"+ theDay + "')");
-			   logger.debug("TIME-----TABLE 2 " +i);
-			    
-			    }
-			    
-			  }
-	
+			run.update("CREATE TABLE " + timeTableName + "( " + day
+					+ " varchar(11) UNIQUE, " + open + " varchar(11), " + close
+					+ " varchar(11))");
+
+			String theDay = "";
+			for (int i = 0; i < 5; i++) {
+
+				switch (i) {
+
+				case 0:
+					theDay = "Montag";
+					break;
+				case 1:
+					theDay = "Dienstag";
+					break;
+				case 2:
+					theDay = "Mittwoch";
+					break;
+				case 3:
+					theDay = "Donnerstag";
+					break;
+				case 4:
+					theDay = "Freitag";
+					break;
+
+				}
+
+				logger.debug("TIME-----TABLE " + i);
+				run.update("insert into " + timeTableName + "(tag) values ('"
+						+ theDay + "')");
+				logger.debug("TIME-----TABLE 2 " + i);
+
+			}
+
+		}
+
 		if (!tableExists(tableNames, historyTableName)) {
-			   run.update("CREATE TABLE "
-			     + historyTableName
-			     + "( "
-			     + hID 
-			     + " INT UNIQUE, "
-			     + hBookID 
-			     + " varchar(128), "
-			     + hReaderID
-			     + " varchar(128), "
-		         + hDate
-			     + " varchar(128))");
+			run.update("CREATE TABLE " + historyTableName + "( " + hID
+					+ " INT UNIQUE, " + hBookID + " varchar(128), " + hReaderID
+					+ " varchar(128), " + hDate + " varchar(128))");
 		}
-		
+
 		if (!tableExists(tableNames, showHistoryTableName)) {
-			   run.update("CREATE TABLE "
-			     + showHistoryTableName
-			     + "( "
-			     + hReaderID
-			     + " varchar(128) UNIQUE, "
-			     + saveHist
-			     + " varchar(128), "
-			     + showHist
-		     + " varchar(128))");
+			run.update("CREATE TABLE " + showHistoryTableName + "( "
+					+ hReaderID + " varchar(128) UNIQUE, " + saveHist
+					+ " varchar(128), " + showHist + " varchar(128))");
 		}
-		
+
 		if (createAdmin) {
 			insertAdmin();
 		}
@@ -1737,13 +1731,12 @@ public class Data implements Persistence {
 	}
 
 	public String failure() {
-		logger.debug("Daaaattaaaa: " + "element" + ": ");		
+		logger.debug("Daaaattaaaa: " + "element" + ": ");
 		return "error";
 	}
 
-	
 	public void idTester(String mediumID) throws SQLException {
-				FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 				Messages.get("savefailed") + " ", Messages.get("id") + " = 13");
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 
@@ -2895,13 +2888,13 @@ public class Data implements Persistence {
 	 * Filename for backup of book table.
 	 */
 	private static final String BOOK_BACKUP = "bookBackup.csv";
-	
+
 	private static final String CHARGES_BACKUP = "chargesBackup.csv";
-	
+
 	private static final String LENDING_BACKUP = "lendingBackup.csv";
-	
+
 	private static final String NEWS_BACKUP = "newsBackup.csv";
-	
+
 	private static final String TIMES_BACKUP = "timesBackup.csv";
 
 	/*
@@ -3043,7 +3036,7 @@ public class Data implements Persistence {
 		write(groupTableName, GROUP_BACKUP);
 		logger.debug("backup for " + READER_BACKUP);
 		write(readerTableName, READER_BACKUP);
-		
+
 		logger.debug("backup for " + CHARGES_BACKUP);
 		write(chargesTableName, CHARGES_BACKUP);
 		logger.debug("backup for " + LENDING_BACKUP);
@@ -3075,7 +3068,7 @@ public class Data implements Persistence {
 			read(readerTableName, READER_BACKUP);
 			logger.debug("restoring from " + GROUP_BACKUP);
 			read(groupTableName, GROUP_BACKUP);
-			
+
 			logger.debug("restoring from " + CHARGES_BACKUP);
 			read(chargesTableName, CHARGES_BACKUP);
 			logger.debug("restoring from " + TIMES_BACKUP);
@@ -3127,7 +3120,7 @@ public class Data implements Persistence {
 	// Überarbeitete add Lending mit int statt void
 	public final int addLending(String bookID, String readerID, String date,
 			String charges) throws DataSourceException, SQLException {
-		
+
 		String title = insertTitleLending(bookID);
 		double doublecharges = Integer.valueOf(charges);
 		logger.debug("inserting user to LENDING..." + bookID + "   " + readerID
@@ -3141,45 +3134,44 @@ public class Data implements Persistence {
 				+ readerID + "', '" + date + "', '" + charges + "')");
 
 		run.update("insert into " + borrowTableName + "(id, " + BookID + ", "
-				+ UserID + ", " + DATE + ", " + CHARGES + ", " + BOOKTITLE + ") values ("
-				+ idValue + ", '" + bookID + "', '" + readerID + "', '" + date
-				+ "', '" + doublecharges + "', '" + title + "')");
-		
+				+ UserID + ", " + DATE + ", " + CHARGES + ", " + BOOKTITLE
+				+ ") values (" + idValue + ", '" + bookID + "', '" + readerID
+				+ "', '" + date + "', '" + doublecharges + "', '" + title
+				+ "')");
+
 		insertLastUser(readerID, bookID);
-		
 
 		return idValue;
-		
 
 	}
-	
-	
-	
-	public String insertTitleLending(String bookID){
-		
+
+	public String insertTitleLending(String bookID) {
+
 		ResultSet resultLending = null;
-		Connection dbConnection=null;
+		Connection dbConnection = null;
 		try {
 			logger.debug("Starte getBorrower");
-		 dbConnection = dataSource.getConnection();
+			dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT TITLE From BOOK where id= " + bookID);
-			 resultLending = ps.executeQuery();
-			 String title = "bla";
+					.prepareStatement("SELECT TITLE From BOOK where id= "
+							+ bookID);
+			resultLending = ps.executeQuery();
+			String title = "bla";
 			while (resultLending.next()) {
 				Borrower newBorrower = new Borrower();
-				//Spalte für Spalte
+				// Spalte für Spalte
 				title = resultLending.getString(1); // Book title
-				logger.debug("GOT TITLE-----------------------e5xcrcrvzv---------------->" + title);
-		
+				logger.debug("GOT TITLE-----------------------e5xcrcrvzv---------------->"
+						+ title);
+
 			}
-						
+
 			logger.debug("UPDATE TITLE----------------------------------------->333333333333333333");
 			return title;
 		} catch (Exception e) {
 			logger.debug("Catch block Prepared Statement: " + e.getMessage());
-		}finally{
+		} finally {
 			try {
 				resultLending.close();
 			} catch (SQLException e) {
@@ -3194,10 +3186,8 @@ public class Data implements Persistence {
 			}
 		}
 		return "bla";
-		
-	
+
 	}
-	
 
 	/**
 	 * Fügt den letzten Ausleiher in die Booktable ein.
@@ -3255,7 +3245,7 @@ public class Data implements Persistence {
 	 *            die individuellen Rückgabedaten der Medien
 	 * @throws DataSourceException
 	 */
-	
+
 	private String NewsDate = "NEWSDATE";
 
 	/**
@@ -3284,7 +3274,8 @@ public class Data implements Persistence {
 			SQLException {
 		logger.debug("add charges " + charges);
 		run.update("insert into CHARGES (type, charges, expiredate) values ('"
-				+ charges.getTyp() + "', '" + charges.getCharges() + "', '" + charges.getExpireDate()+ "')");
+				+ charges.getTyp() + "', '" + charges.getCharges() + "', '"
+				+ charges.getExpireDate() + "')");
 	}
 
 	/**
@@ -3564,11 +3555,10 @@ public class Data implements Persistence {
 		}
 	}
 
-	
 	public void insertDate(String date, int index) throws DataSourceException,
 			SQLException {
 		index = borrowerList.get(index).getId();
-		
+
 		logger.debug("UPDATE VERSUCH-.-");
 		run.update("UPDATE " + borrowTableName + " set date = '" + date
 				+ "' where id = " + index);
@@ -3576,153 +3566,175 @@ public class Data implements Persistence {
 		logger.debug("UPDATE VERSUCH-2-.-");
 		logger.debug(borrowerList.get(0).getDate());
 	}
-	
-	public void insertDateExtend(String date, int index) throws DataSourceException,
-	SQLException {
-index = borrowerListExtend.get(index).getId();
 
-logger.debug("UPDATE VERSUCH-.-");
-run.update("UPDATE " + borrowTableName + " set date = '" + date
-		+ "' where id = " + index);
+	public void insertDateExtend(String date, int index)
+			throws DataSourceException, SQLException {
+		index = borrowerListExtend.get(index).getId();
 
-logger.debug("UPDATE VERSUCH-2-.-");
-logger.debug(borrowerList.get(0).getDate());
-}
+		logger.debug("UPDATE VERSUCH-.-");
+		run.update("UPDATE " + borrowTableName + " set date = '" + date
+				+ "' where id = " + index);
+
+		logger.debug("UPDATE VERSUCH-2-.-");
+		logger.debug(borrowerList.get(0).getDate());
+	}
 
 	public void insertFines(String fines, int index)
 			throws DataSourceException, SQLException {
 		index = borrowerList.get(index).getId();
-		
+
 		logger.debug("UPDATE VERSUCH-.-");
 		run.update("UPDATE " + borrowTableName + " set charges = '" + fines
 				+ "' where id = " + index);
-		
+
 		logger.debug("UPDATE VERSUCH-2-.-");
 		logger.debug(borrowerList.get(0).getDate());
 
 	}
-	
+
 	public void insertFinesExtend(String fines, int index)
 			throws DataSourceException, SQLException {
 		index = borrowerListExtend.get(index).getId();
-		
+
 		logger.debug("UPDATE VERSUCH-.-");
 		run.update("UPDATE " + borrowTableName + " set charges = '" + fines
 				+ "' where id = " + index);
-		
+
 		logger.debug("UPDATE VERSUCH-2-.-");
 		logger.debug(borrowerList.get(0).getDate());
 
 	}
-	
-	public void insertOpenTime(String open, int index) throws DataSourceException, SQLException{
-		  String day = getDay(index);
-		  logger.debug("UPDATE VERSUCH   -----OPEN -.-");
-		  run.update("UPDATE TIMES set offen = '" + open + "' where tag = '" + day +"'");
-		  logger.debug("UPDATE VERSUCH-2    -----OPEN-.-");
-		  logger.debug(borrowerList.get(0).getDate() );
-		  
-		 }
-		 
-		 public void insertCloseTime(String close, int index) throws DataSourceException, SQLException{
-		  String day = getDay(index);
-		  logger.debug("UPDATE VERSUCH   -----OPEN -.-");
-		  run.update("UPDATE TIMES set geschlossen = '" + close + "' where tag = '" + day +"'");
-		  //run.update("UPDATE " + borrowTableName + " SET DATE ="+date+"WHERE ID = ?",
-		  //  lendingID);
-		 // run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
-		  //  lendingID);
-		  logger.debug("UPDATE VERSUCH-2     ----CLOSE-.-");
-		  logger.debug(borrowerList.get(0).getDate() );
-		  
-		 }
-		 
-		 public String getDay(int index){
-		  
-		  String day=".";
-		  switch(index){
-		  
-		  case 0: day = "Montag";
-		   break;
-		  case 1: day = "Dienstag";
-		   break;
-		  case 2: day = "Mittwoch";
-		   break;
-		  case 3: day = "Donnerstag";
-		   break;
-		  case 4: day = "Freitag";
-		   break;
-		  default: day = "fail";
-		   
-		  
-		  }
-		  return day;
-		 }
-		 
-		 public void insertCharges(String charge, int index) throws DataSourceException, SQLException{
-			  String typ = getTyp(index);
-			  logger.debug("UPDATE VERSUCH   -----Charges -.-" + charge+" " +typ);
-			  run.update("UPDATE CHARGES set charges = '" + charge + "' where type = '" + typ +"'");
-			  logger.debug("UPDATE VERSUCH-2     ----Charges-.-");
-			  
-			  
-			 }
-		 
-		 public void insertExpireDate(String expireDate, int index) throws DataSourceException, SQLException{
-			  String typ = getTyp(index);
-			  logger.debug("UPDATE VERSUCH   -----expireDate -.-" + expireDate+" "+typ);
-			  run.update("UPDATE " +chargesTableName+ " set expiredate = '" + expireDate + "' where type = '" + typ +"'");
-			 
-			  logger.debug("UPDATE VERSUCH-2     ----expireDate-.-");
-			  
-			  
-			 }
-		 
-		 public void insertTolerant(String tolerant, int index) throws DataSourceException, SQLException{
-			  String typ = getTyp(index);
-			  logger.debug("UPDATE VERSUCH   -----tolerant -.-" + tolerant+" "+typ);
-			  run.update("UPDATE " +chargesTableName+ " set tolerant = '" + tolerant + "' where type = '" + typ +"'");
-			 
-			  logger.debug("UPDATE VERSUCH-2     ----tolerant-.-");
-			  
-			  
-			 }
-		 
-		 public String getTyp(int index){
-			  
-			  String typ=".";
-			  switch(index){
-			  
-			  case 0: typ = "Buch";
-			   break;
-			  case 1: typ = "Zeitschrift";
-			   break;
-			  case 2: typ = "Software";
-			   break;
-			  case 3: typ = "Hörbuch";
-			   break;
-			  case 4: typ = "Musik";
-			   break;
-			  case 5: typ = "Film";
-			   break;
-			  case 6: typ = "Kassette";
-			   break;
-			  case 7: typ = "DVD";
-			   break;
-			  case 8: typ = "Sonstiges";
-			   break;
-			  default: typ = "fail";
-			   
-			  
-			  }
-			  return typ;
-			 }
-		 
-		 
-	
-		 /**
-			 * @author Bredehöft
-			 */
+
+	public void insertOpenTime(String open, int index)
+			throws DataSourceException, SQLException {
+		String day = getDay(index);
+		logger.debug("UPDATE VERSUCH   -----OPEN -.-");
+		run.update("UPDATE TIMES set offen = '" + open + "' where tag = '"
+				+ day + "'");
+		logger.debug("UPDATE VERSUCH-2    -----OPEN-.-");
+		logger.debug(borrowerList.get(0).getDate());
+
+	}
+
+	public void insertCloseTime(String close, int index)
+			throws DataSourceException, SQLException {
+		String day = getDay(index);
+		logger.debug("UPDATE VERSUCH   -----OPEN -.-");
+		run.update("UPDATE TIMES set geschlossen = '" + close
+				+ "' where tag = '" + day + "'");
+		// run.update("UPDATE " + borrowTableName +
+		// " SET DATE ="+date+"WHERE ID = ?",
+		// lendingID);
+		// run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+		// lendingID);
+		logger.debug("UPDATE VERSUCH-2     ----CLOSE-.-");
+		logger.debug(borrowerList.get(0).getDate());
+
+	}
+
+	public String getDay(int index) {
+
+		String day = ".";
+		switch (index) {
+
+		case 0:
+			day = "Montag";
+			break;
+		case 1:
+			day = "Dienstag";
+			break;
+		case 2:
+			day = "Mittwoch";
+			break;
+		case 3:
+			day = "Donnerstag";
+			break;
+		case 4:
+			day = "Freitag";
+			break;
+		default:
+			day = "fail";
+
+		}
+		return day;
+	}
+
+	public void insertCharges(String charge, int index)
+			throws DataSourceException, SQLException {
+		String typ = getTyp(index);
+		logger.debug("UPDATE VERSUCH   -----Charges -.-" + charge + " " + typ);
+		run.update("UPDATE CHARGES set charges = '" + charge
+				+ "' where type = '" + typ + "'");
+		logger.debug("UPDATE VERSUCH-2     ----Charges-.-");
+
+	}
+
+	public void insertExpireDate(String expireDate, int index)
+			throws DataSourceException, SQLException {
+		String typ = getTyp(index);
+		logger.debug("UPDATE VERSUCH   -----expireDate -.-" + expireDate + " "
+				+ typ);
+		run.update("UPDATE " + chargesTableName + " set expiredate = '"
+				+ expireDate + "' where type = '" + typ + "'");
+
+		logger.debug("UPDATE VERSUCH-2     ----expireDate-.-");
+
+	}
+
+	public void insertTolerant(String tolerant, int index)
+			throws DataSourceException, SQLException {
+		String typ = getTyp(index);
+		logger.debug("UPDATE VERSUCH   -----tolerant -.-" + tolerant + " "
+				+ typ);
+		run.update("UPDATE " + chargesTableName + " set tolerant = '"
+				+ tolerant + "' where type = '" + typ + "'");
+
+		logger.debug("UPDATE VERSUCH-2     ----tolerant-.-");
+
+	}
+
+	public String getTyp(int index) {
+
+		String typ = ".";
+		switch (index) {
+
+		case 0:
+			typ = "Buch";
+			break;
+		case 1:
+			typ = "Zeitschrift";
+			break;
+		case 2:
+			typ = "Software";
+			break;
+		case 3:
+			typ = "Hörbuch";
+			break;
+		case 4:
+			typ = "Musik";
+			break;
+		case 5:
+			typ = "Film";
+			break;
+		case 6:
+			typ = "Kassette";
+			break;
+		case 7:
+			typ = "DVD";
+			break;
+		case 8:
+			typ = "Sonstiges";
+			break;
+		default:
+			typ = "fail";
+
+		}
+		return typ;
+	}
+
+	/**
+	 * @author Bredehöft
+	 */
 	@Override
 	public List<String> getTheNews() {
 		List<String> newsList = new ArrayList<>();
@@ -3813,15 +3825,15 @@ logger.debug(borrowerList.get(0).getDate());
 	private List<Borrower> userBorrowerList = new ArrayList<>();
 
 	public void getBorrowList(Borrower borrower) throws DataSourceException,
-	SQLException {
+			SQLException {
 		logger.debug("BLÄÄÄÄÄÄÄÄÄÄÄÄHHHHHHHHHHHHH");
-		int index=borrower.getId();
+		int index = borrower.getId();
 		String date = "true";
 		run.update("UPDATE " + borrowTableName + " set extend = '" + date
 				+ "' where id = " + index);
 		logger.debug("BLÄÄÄÄÄÄÄÄÄÄÄÄHHHHHHHHHHHHH22222222222222222222222222222222222222");
 	}
-	
+
 	public List<Borrower> getBorrowerFromUser() {
 
 		return userBorrowerList;
@@ -3837,58 +3849,61 @@ logger.debug(borrowerList.get(0).getDate());
 			final long time = singleResultQuery("select EXPIREDATE from "
 					+ chargesTableName + " where TYPE = '" + typ + "'");
 			String duration = String.valueOf(time);
-			return duration;			
+			return duration;
 		} catch (Exception e) {
 			logger.debug("exception in getDuration data " + e);
 			return null;
 		}
-		
+
 	}
 
 	/**
 	 * @author Bredehöft
 	 */
 	public void setDuration(String typ, String duration) throws SQLException {
-			logger.debug("add borrowTime for type: " + typ);
-			run.update("insert into " 
-					+ chargesTableName 
-					+ "(type, charges, expiredate, tolerate) values ('" 
-					+ typ + "', '"
-					+ duration 
-					+ "')");
-		}
+		logger.debug("add borrowTime for type: " + typ);
+		run.update("insert into " + chargesTableName
+				+ "(type, charges, expiredate, tolerate) values ('" + typ
+				+ "', '" + duration + "')");
+	}
+
 	/**
 	 * @author Bredehöft
 	 */
-	public String calculateCharges(String charges, String days, String tolerance) throws NumberFormatException, ParseException{
+	public String calculateCharges(String charges, String days, String tolerance)
+			throws NumberFormatException, ParseException {
 		double cha = Integer.valueOf(charges);
 		int day = Integer.valueOf(calculateOverdue(days));
 		int tol = Integer.valueOf(tolerance);
-		
-		double daytol = day-tol;
-		double result = cha*daytol;
+
+		double daytol = day - tol;
+		double result = cha * daytol;
 		String res = String.valueOf(result);
-		return res;		
+		return res;
 	}
+
 	/**
 	 * @author Bredehöft
 	 */
-	public String calculateOverdue(String date) throws ParseException{
+	public String calculateOverdue(String date) throws ParseException {
 		Calendar calendar1 = new GregorianCalendar();
 		Calendar calendar2 = new GregorianCalendar();
-		
+
 		Date today = Calendar.getInstance().getTime();
-				
+
 		DateFormat df = new SimpleDateFormat("dd MM yyyy");
 		Date lend = df.parse(date);
-		
+
 		calendar1.setTime(today);
 		calendar2.setTime(lend);
-		
-		long time = calendar1.getTime().getTime() - calendar2.getTime().getTime();  // Differenz in ms
-		long days = Math.round( (double)time / (24. * 60.*60.*1000.) );     // Differenz in Tagen
+
+		long time = calendar1.getTime().getTime()
+				- calendar2.getTime().getTime(); // Differenz in ms
+		long days = Math.round((double) time / (24. * 60. * 60. * 1000.)); // Differenz
+																			// in
+																			// Tagen
 		return String.valueOf(days);
-		
+
 	}
 
 	@Override
@@ -3901,13 +3916,13 @@ logger.debug(borrowerList.get(0).getDate());
 	public void addLendings(String bookIDs, int readerID, String dates)
 			throws DataSourceException, SQLException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updateLending() throws DataSourceException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -3928,5 +3943,4 @@ logger.debug(borrowerList.get(0).getDate());
 		return null;
 	}
 
-		
 }
