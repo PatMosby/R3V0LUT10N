@@ -7,27 +7,27 @@ public class History  {
  
 	
 
-	public String histDate;
-	public String histReaderID;
-	public String histBookID;
+	public String Date;
+	public String ReaderID;
+	public String BookID;
  
 	public String getDate() {
-		return histDate;
+		return Date;
 	}
 	public void setDate(String expireDate) {
-		histDate = expireDate;
+		Date = expireDate;
 	}
-	public String getBookID() {
-		return histBookID;
+	public String getBook() {
+		return BookID;
 	}
-	public void setBookID(String typ) {
-		histBookID = typ;
+	public void setBook(String typ) {
+	  BookID = typ;
 	}
 	
-	public String getReaderID(){
-		return histReaderID;
+	public String getReader(){
+		return ReaderID;
 	}
-	public void setReaderID(String charges) {
-		histReaderID = charges;
+	public void setReader(String charges) {
+		ReaderID = charges;
 	}
  }

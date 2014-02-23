@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import swp.bibcommon.Borrower;
 import swp.bibcommon.History;
+//import swp.bibcommon.History;
 import swp.bibcommon.Reader;
 import swp.bibjsf.businesslogic.ReaderHandler;
 import swp.bibjsf.exception.DataSourceException;
@@ -83,6 +84,7 @@ public class ShowUserProfil {
   return data.getBorrowerForUser(readerID);
   //return data.getBorrower();
  }
+ 
  
  public List<History> getHistoryList(){
   Reader r_1= getReaderByUsername();
