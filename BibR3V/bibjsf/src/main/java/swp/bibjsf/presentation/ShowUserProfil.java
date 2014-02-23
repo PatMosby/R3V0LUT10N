@@ -101,29 +101,39 @@ public class ShowUserProfil {
  
      
      
-    public void sendBorrower(Borrower borrower)throws DataSourceException,
- SQLException{
-//    boolean alreadyInside=false;  
-//    logger.debug("SEND--BORROWER--REACHED!!!!!!" + borrower.getId());
-//    System.out.println("SEND----BORROWER---REACHED!!!!!");
-//    
-//    for (int i=0;i<borrowerList.size();i++){
-//       
-//       if(borrowerList.get(i).getId()== borrower.getId()){
-//        alreadyInside=true;
-//       } 
-//    }
-//    if(!alreadyInside){
-//     borrowerList.add(borrower);
-//    }
-//    
-//    for(Borrower bookid : borrowerList){
-//     
-//     logger.debug(bookid.getBookID() );
-//     }
+    public void send(Borrower borrower)throws DataSourceException,
+     SQLException{
+    	
+    	
+
      
      data.getBorrowList(borrower);
     }
+    
+    public void saving(int i){
+    	
+    	
+    }
+    
+      public void notSaving(){
+    	
+    	
+      }
+
+     public void showing(){
+	
+	
+      }
+
+      public void notShowing(){
+	
+	
+      }
+
+
+
+    
+    
     
 //    public void sendList(){
 //     logger.debug("SEND----LIST---REACHED!!!!!");

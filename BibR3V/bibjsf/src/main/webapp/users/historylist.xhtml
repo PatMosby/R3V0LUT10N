@@ -47,17 +47,31 @@
                  
      </p:column>  
       
-   <!--  <p:column id="rowEditorColumn" style="width:5%">  
+      
+      
+      
+     
+    </p:dataTable>
+    
+    <p:column id="rowEditorColumn" style="width:5%">  
         <p:commandButton  headerText="Historie speichern" style="width: auto; height: 20px" 
-        action="#{showUserProfil.sendBorrower(borrower)}" rendered="#{!showUserProfil.isSaving()}"/>
+        action="#{showUserProfil.saving(1)}" />
       </p:column>
       
       <p:column id="rowEditorColumn" style="width:5%">  
         <p:commandButton  headerText="Historie nicht speichern" style="width: auto; height: 20px" 
-        action="#{showUserProfil.sendBorrower(borrower)}" rendered="#{showUserProfil.isSaving()}" />
-      </p:column> -->
-     
-    </p:dataTable>
+        action="#{showUserProfil.saving(2)}"  />
+      </p:column> 
+      
+      <p:column id="rowEditorColumn" style="width:5%">  
+        <p:commandButton  headerText="Historie speichern" style="width: auto; height: 20px" 
+        action="#{showUserProfil.saving(3)}" />
+      </p:column>
+      
+      <p:column id="rowEditorColumn" style="width:5%">  
+        <p:commandButton  headerText="Historie nicht speichern" style="width: auto; height: 20px" 
+        action="#{showUserProfil.saving(4)}" />
+      </p:column> 
     
 
     </h:form>
