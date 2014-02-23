@@ -81,7 +81,7 @@ public class ChargesListHandler {
           if (event.getColumn().getHeaderText().equals("Fristtoleranz")) {
               
               try{
-               data.insertTolerant(str_tolerant.trim(),event.getRowIndex());
+             //  data.insertTolerant(str_tolerant.trim(),event.getRowIndex());
               }catch(Exception e){}
           }
        }
