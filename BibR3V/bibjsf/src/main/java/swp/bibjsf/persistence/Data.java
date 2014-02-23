@@ -368,7 +368,7 @@ public class Data implements Persistence {
 			dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT ID, BOOK_ID, USER_ID, DATE, CHARGES From LENDING where extend= true");
+					.prepareStatement("SELECT ID, BOOK_ID, USER_ID, DATE, CHARGES From LENDING where EXTEND= '" + true +"'");
 			resultLending = ps.executeQuery();
 			logger.debug("BLUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUEHHHH");
 			while (resultLending.next()) {
@@ -4057,8 +4057,8 @@ logger.debug(borrowerList.get(0).getDate());
 	public String getDuration(String typ) throws SQLException {
 		logger.debug("getDuration in data " + typ);
 		try {
-			final long time = singleResultQuery("select DURATION from "
-					+ returnTableName + " where TYP = '" + typ + "'");
+			final long time = singleResultQuery("select EXPIREDATE from "
+					+ chargesTableName + " where TYPE = '" + typ + "'");
 			String duration = String.valueOf(time);
 			return duration;			
 		} catch (Exception e) {
