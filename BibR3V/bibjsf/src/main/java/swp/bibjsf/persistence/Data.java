@@ -160,6 +160,20 @@ public class Data implements Persistence {
 	private final static String newsTableName = "NEWS";
 
 	private final static String timeTableName = "TIMES";
+	
+	private final static String historyTableName = "HISTORY";
+	
+	private final static String histReaderID = "READERID";
+	
+	private final static String histBookID = "BOOKID";
+	
+	private final static String histID = "ID";
+	
+	private final static String showHistoryTableName = "SHOWHISTORY";
+	
+	private final static String showHist = "SHOWHIST";
+	
+	private final static String saveHist= "SAVEHIST";
 
 	private final static String returnTableName = "RETURN";
 
@@ -409,6 +423,56 @@ public class Data implements Persistence {
 	private List<Borrower> borrowerForUserList = new ArrayList<>();
 	
 	public List<Borrower> getBorrowerForUser(String readerID) {
+		borrowerForUserList = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection=null;
+		try {
+			logger.debug("Starte getBorrowerForUser");
+		 dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT ID, BOOK_ID, DATE, CHARGES, TITLE From LENDING where USER_ID= '" + readerID+"'");
+			logger.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+			 resultLending = ps.executeQuery();
+
+			while (resultLending.next()) {
+				Borrower newBorrower = new Borrower();
+				//Spalte für Spalte
+				newBorrower.setId(resultLending.getInt(1));
+				newBorrower.setBookID(resultLending.getString(2)); // Book id
+				newBorrower.setDate(resultLending.getString(3));// date
+				newBorrower.setFines(resultLending.getString(4)); // charges
+				newBorrower.setTitle(resultLending.getString(5)); //Title
+
+				borrowerForUserList.add(newBorrower);
+			}
+			logger.debug("FOR EACH REACHED");
+			for (Borrower element : borrowerForUserList) {
+				logger.debug("Elemente: " + element.getBookID()); //für Ausgabe auf Konsole
+			}
+			
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return borrowerForUserList;
+
+	}
+	
+	public List<Borrower> getForUser(String readerID) {
 		borrowerForUserList = new ArrayList<>();
 		ResultSet resultLending = null;
 		Connection dbConnection=null;
@@ -728,7 +792,7 @@ public class Data implements Persistence {
 					+ "street VARCHAR(128), " + "zipcode VARCHAR(12), "
 					+ "city VARCHAR(50), " + "phone VARCHAR(30), "
 					+ "email VARCHAR(128), " + "entrydate DATE, "
-					+ "lastuse DATE, " + "note LONG VARCHAR)");
+					+ "lastuse DATE, " + "note LONG VARCHAR, " + "savehistory varchar(128), " + "showhistory varchar(128))");
 		}
 
 		if (!tableExists(tableNames, groupTableName)) {
@@ -834,7 +898,44 @@ public class Data implements Persistence {
 			run.update("CREATE TABLE " + returnTableName + " ("
 					+ "TYP varchar(20), " + "DURATION varchar(10))");
 		}
-
+		
+		if (!tableExists(tableNames, historyTableName)) {
+			   run.update("CREATE TABLE "
+			     + historyTableName
+			     + "( "
+			     + histID 
+			     + " INT UNIQUE, "
+			     + histBookID 
+			     + " varchar(11), "
+			     + histReaderID
+			     + " varchar(11), "
+			     + " varchar(128))");
+		}
+		
+		if (!tableExists(tableNames, historyTableName)) {
+			   run.update("CREATE TABLE "
+			     + historyTableName
+			     + "( "
+			     + histID 
+			     + " INT UNIQUE, "
+			     + histBookID 
+			     + " varchar(11), "
+			     + histReaderID
+			     + " varchar(11))");
+		}
+		
+		if (!tableExists(tableNames, showHistoryTableName)) {
+			   run.update("CREATE TABLE "
+			     + showHistoryTableName
+			     + "( "
+			     + histReaderID
+			     + " varchar(128) UNIQUE, "
+			     + saveHist
+			     + " varchar(128), "
+			     + showHist
+			     + " varchar(128))");
+		}
+		
 		if (createAdmin) {
 			insertAdmin();
 		}
