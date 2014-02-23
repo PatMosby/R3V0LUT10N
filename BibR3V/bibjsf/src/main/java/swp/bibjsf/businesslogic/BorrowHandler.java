@@ -193,10 +193,10 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 		//return "wäwä";
 		
 		Calendar calendar = new GregorianCalendar();
-		//DateFormat df = new SimpleDateFormat("dd MM yyyy");
+
 		Date today = Calendar.getInstance().getTime();
-		//String reportDate = df.format(today);
-		//Date today = new Date();
+		logger.debug("echtes Datum " + today);
+
 		calendar.setTime(today);
 
 		int year = calendar.get(Calendar.YEAR);

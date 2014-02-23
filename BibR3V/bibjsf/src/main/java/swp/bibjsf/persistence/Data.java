@@ -368,7 +368,7 @@ public class Data implements Persistence {
 			dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT ID, BOOK_ID, USER_ID, DATE, CHARGES From LENDING where extend= true");
+					.prepareStatement("SELECT ID, BOOK_ID, USER_ID, DATE, CHARGES From LENDING where EXTEND= '" + true +"'");
 			resultLending = ps.executeQuery();
 			logger.debug("BLUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUEHHHH");
 			while (resultLending.next()) {

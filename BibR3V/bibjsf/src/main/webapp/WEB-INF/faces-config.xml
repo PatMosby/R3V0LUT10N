@@ -110,7 +110,7 @@
 			<to-view-id>/reader/add.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-    
+
    <navigation-rule>
     	<display-name>faces/m_login.xhtml</display-name>
     	<from-view-id>/faces/m_login.xhtml</from-view-id>
