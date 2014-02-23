@@ -143,6 +143,7 @@ public class Data implements Persistence {
 
 	private static final String LASTUSER="lastuser";
 	private static final String EXTEND="extend";
+	private static final String EXPIREDATE="expiredate";
 
 	
 
@@ -710,7 +711,7 @@ public class Data implements Persistence {
 			// The table of all types and their charges.
 			run.update("CREATE TABLE " + chargesTableName
 					+ " (type varchar(128) NOT NULL UNIQUE, " + CHARGES
-					+ " varchar(128))");
+					+ " varchar(128), " + EXPIREDATE + " varchar(128))");
 		}
 
 		if (!tableExists(tableNames, "NEWS")) {
@@ -719,12 +720,48 @@ public class Data implements Persistence {
 		}
 
 		if (!tableExists(tableNames, timeTableName)) {
-			run.update("CREATE TABLE " + timeTableName + "( " + day
-					+ " varchar(11) UNIQUE, " + open + " varchar(11), " + close
-					+ " varchar(11))");
-			run.update("INSERT INTO " + timeTableName + "(" + day
-					+ ") VALUES ('Montag')");
-		}
+			   run.update("CREATE TABLE "
+			     + timeTableName
+			     + "( "
+			     + day 
+			     + " varchar(11) UNIQUE, "
+			     + open 
+			     + " varchar(11), "
+			     + close
+			     + " varchar(11))");
+			   
+			   logger.debug("WHOOOOOOOOOOOAAAAAAAAAAA");
+			   
+			   //run.update("insert into " + timeTableName + "(tag) values ('Montag')");
+			   
+			   String theDay="wäwä";
+			    for(int i=0;i<5;i++){
+			    
+			   switch(i) {
+			   
+			   case 0: theDay="Montag";
+			       break;
+			   case 1: theDay="Dienstag";
+			    break;
+			   case 2: theDay="Mittwoch";
+			    break;
+			   case 3:   theDay="Donnerstag";
+			    break;
+			   case 4:    theDay="Freitag";
+			    break;
+			   
+			   }
+			   
+			   logger.debug("TIME-----TABLE " + i);
+			   run.update("insert into " + timeTableName + "(tag) values ('"+ theDay + "')");
+			   //run.update("insert into " + timeTableName + "(tag) values ('true')");
+			   logger.debug("TIME-----TABLE 2 " +i);
+			    
+			    }
+			    
+			  }
+		
+		
 
 		if (!tableExists(tableNames, returnTableName)) {
 			run.update("CREATE TABLE " + returnTableName + " ("
@@ -3211,8 +3248,8 @@ public class Data implements Persistence {
 	public void addCharges(Charges charges) throws DataSourceException,
 			SQLException {
 		logger.debug("add charges " + charges);
-		run.update("insert into CHARGES (type, charges) values ('"
-				+ charges.getTyp() + "', '" + charges.getCharges() + "')");
+		run.update("insert into CHARGES (type, charges, expiredate) values ('"
+				+ charges.getTyp() + "', '" + charges.getCharges() + "', '" + charges.getExpireDate()+ "')");
 	}
 
 	/**
@@ -3575,6 +3612,51 @@ logger.debug(borrowerList.get(0).getDate());
 		logger.debug(borrowerList.get(0).getDate());
 
 	}
+	
+	public void insertOpenTime(String open, int index) throws DataSourceException, SQLException{
+		  String day = getDay(index);
+		  logger.debug("UPDATE VERSUCH   -----OPEN -.-");
+		  run.update("UPDATE TIMES set offen = '" + open + "' where tag = '" + day +"'");
+		  logger.debug("UPDATE VERSUCH-2    -----OPEN-.-");
+		  logger.debug(borrowerList.get(0).getDate() );
+		  
+		 }
+		 
+		 public void insertCloseTime(String close, int index) throws DataSourceException, SQLException{
+		  String day = getDay(index);
+		  logger.debug("UPDATE VERSUCH   -----OPEN -.-");
+		  run.update("UPDATE TIMES set geschlossen = '" + close + "' where tag = '" + day +"'");
+		  //run.update("UPDATE " + borrowTableName + " SET DATE ="+date+"WHERE ID = ?",
+		  //  lendingID);
+		 // run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+		  //  lendingID);
+		  logger.debug("UPDATE VERSUCH-2     ----CLOSE-.-");
+		  logger.debug(borrowerList.get(0).getDate() );
+		  
+		 }
+		 
+		 public String getDay(int index){
+		  
+		  String day=".";
+		  switch(index){
+		  
+		  case 0: day = "Montag";
+		   break;
+		  case 1: day = "Dienstag";
+		   break;
+		  case 2: day = "Mittwoch";
+		   break;
+		  case 3: day = "Donnerstag";
+		   break;
+		  case 4: day = "Freitag";
+		   break;
+		  default: day = "fail";
+		   
+		  
+		  }
+		  return day;
+		 }
+	
 
 	@Override
 	public List<String> getTheNews() {

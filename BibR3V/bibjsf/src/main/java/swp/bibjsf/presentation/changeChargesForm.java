@@ -108,5 +108,15 @@ public class changeChargesForm extends ChargesForm {
 	public void setCharges(String charges) {
 		element.setCharges(charges);
 	}
+	
+	@Override
+	public String getExpireDate() {
+		return element.getExpireDate();
+	}
+
+	@Override
+	public void setExpireDate(String expireDate) {
+		element.setExpireDate(expireDate);
+	}
 
 }
