@@ -684,7 +684,7 @@ public class Data implements Persistence {
 			dbConnection = dataSource.getConnection();
 
 			PreparedStatement ps = dbConnection
-					.prepareStatement("SELECT TYPE, CHARGES, EXPIREDATE From CHARGES");
+					.prepareStatement("SELECT TYPE, CHARGES, EXPIREDATE, TOLERATE From CHARGES");
 			resultLending = ps.executeQuery();
 			logger.debug("Data->GET-CHARGE-LIST");
 			while (resultLending.next()) {
@@ -693,13 +693,14 @@ public class Data implements Persistence {
 				newCharge.setTyp(resultLending.getString(1)); // Typ
 				newCharge.setCharges(resultLending.getString(2)); // Charges
 				newCharge.setExpireDate(resultLending.getString(3)); // ExpireDate
+				newCharge.setTolerant(resultLending.getString(4)); // tolerant
 
 				chargeList.add(newCharge);
 			}
 			logger.debug("Zeige alle Charges");
 			for (Charges element : chargeList) {
 				logger.debug("Elemente: " + element.getTyp()
-						+ element.getCharges() + element.getExpireDate()); // für
+						+ element.getCharges() + element.getExpireDate() + element.getTolerant()); // für
 																	// Ausgabe
 																	// auf
 																	// Konsole
@@ -830,8 +831,10 @@ public class Data implements Persistence {
 			
 			
 			run.update("CREATE TABLE " + chargesTableName
-					+ " (type varchar(128) NOT NULL UNIQUE, " + CHARGES
-					+ " varchar(128), " + EXPIREDATE + " varchar(128))");
+					+ " (type varchar(128) NOT NULL UNIQUE, " 
+					+ CHARGES + " varchar(128), " 
+					+ EXPIREDATE + " varchar(128), "
+					+ "TOLERATE varchar(10))");
 			
 			 String theTyp="wäwä";
 			    for(int i=0;i<9;i++){
@@ -3853,6 +3856,20 @@ logger.debug(borrowerList.get(0).getDate());
 			  
 			 }
 		 
+		 public void insertTolerant(String tolerant, int index) throws DataSourceException, SQLException{
+			  String typ = getTyp(index);
+			  logger.debug("UPDATE VERSUCH   -----tolerant -.-" + tolerant+" "+typ);
+			  run.update("UPDATE " +chargesTableName+ " set tolerant = '" + tolerant + "' where type = '" + typ +"'");
+			 
+			  //run.update("UPDATE " + borrowTableName + " SET DATE ="+date+"WHERE ID = ?",
+			  //  lendingID);
+			 // run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+			  //  lendingID);
+			  logger.debug("UPDATE VERSUCH-2     ----tolerant-.-");
+			  
+			  
+			 }
+		 
 		 public String getTyp(int index){
 			  
 			  String typ=".";
@@ -4057,8 +4074,8 @@ logger.debug(borrowerList.get(0).getDate());
 	public String getDuration(String typ) throws SQLException {
 		logger.debug("getDuration in data " + typ);
 		try {
-			final long time = singleResultQuery("select DURATION from "
-					+ returnTableName + " where TYP = '" + typ + "'");
+			final long time = singleResultQuery("select EXPIREDATE from "
+					+ chargesTableName + " where TYPE = '" + typ + "'");
 			String duration = String.valueOf(time);
 			return duration;			
 		} catch (Exception e) {
@@ -4077,4 +4094,11 @@ logger.debug(borrowerList.get(0).getDate());
 					+ duration 
 					+ "')");
 		}
+	
+	public String calculateCharges(String charges, String days){
+		
+		
+		return null;		
+	}
+	
 }

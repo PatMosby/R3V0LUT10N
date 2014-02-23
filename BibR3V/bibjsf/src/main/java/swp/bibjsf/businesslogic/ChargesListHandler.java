@@ -77,9 +77,14 @@ public class ChargesListHandler {
        data.insertExpireDate(str_expireDate.trim(),event.getRowIndex());
       }catch(Exception e){}
         
+       }else{
+          if (event.getColumn().getHeaderText().equals("Fristtoleranz")) {
+              
+              try{
+               data.insertTolerant(str_tolerant.trim(),event.getRowIndex());
+              }catch(Exception e){}
+          }
        }
-       
-       
       }
       
      
@@ -89,6 +94,7 @@ public class ChargesListHandler {
   private String str_typ="";
   private String str_charge="";
   private String str_expireDate="";
+  private String str_tolerant="";
 
   public String getTyp(){
    logger.debug("REACHED-----GET_Typ!!!!");
@@ -120,6 +126,17 @@ public class ChargesListHandler {
    
    str_expireDate = expireDate;
   }
+  
+  public String getTolerant(){
+	   logger.debug("REACHED-----GET_tolerant!!!!");
+	   return str_tolerant;
+	   
+	  }
+	  
+	  public void setTolerant(String tolerant){
+	   
+	   str_tolerant = tolerant;
+	  }
   
  
  
