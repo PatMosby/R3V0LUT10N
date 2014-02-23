@@ -22,7 +22,7 @@
 <!--  http://www.primefaces.org/showcase/ui/datatableRowEditing.jsf-->
   
 			<p:dataTable id="lending2" widgetVar="varLending"
-				value="#{handler.getBorrowerFromUser()}" rowIndexVar="rowIndex" var="borrowList" editable="true"
+				value="#{handler.getBorrowerFromUser}" rowIndexVar="rowIndex" var="borrowList" editable="true"
 				editMode="cell" rendered="#{handler.isUserQuery()}">
 				
 			

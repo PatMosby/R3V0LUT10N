@@ -140,9 +140,9 @@ public class Data implements Persistence {
 	private static final String BookID = "book_id";
 	private static final String DATE = "date";
 	private static final String CHARGES = "charges";
-	private static final String LastUser="lastUser";
 	private static final String LASTUSER="lastuser";
 	private static final String NewsField = "news";
+	private static final String BOOKTITLE = "title";
 
 	/**
 	 * The name of the tables in the database where the mediums are stored.
@@ -327,6 +327,67 @@ public class Data implements Persistence {
 		return borrowerList;
 
 	}
+	
+	/**
+	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank gelesen wird. 
+	 */
+	private List<Borrower> borrowerForUserList = new ArrayList<>();
+	
+	public List<Borrower> getBorrowerForUser(String readerID) {
+		borrowerForUserList = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection=null;
+		try {
+			logger.debug("Starte getBorrowerForUser");
+		 dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT ID, BOOK_ID, DATE, CHARGES, TITLE From LENDING where USER_ID= '" + readerID+"'");
+			logger.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+			 resultLending = ps.executeQuery();
+
+			while (resultLending.next()) {
+				Borrower newBorrower = new Borrower();
+				//Spalte für Spalte
+				newBorrower.setId(resultLending.getInt(1));
+				newBorrower.setBookID(resultLending.getString(2)); // Book id
+				newBorrower.setDate(resultLending.getString(3));// date
+				newBorrower.setFines(resultLending.getString(4)); // charges
+				newBorrower.setTitle(resultLending.getString(5)); //Title
+
+				borrowerForUserList.add(newBorrower);
+			}
+			logger.debug("FOR EACH REACHED");
+			for (Borrower element : borrowerForUserList) {
+				logger.debug("Elemente: " + element.getBookID()); //für Ausgabe auf Konsole
+			}
+			
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return borrowerForUserList;
+
+	}
+	
+	
+	
+	
+	
+	
 	
 	private void addVornameNachname(Borrower newBorrower) {
 		ResultSet resultLending = null;
@@ -564,7 +625,7 @@ public class Data implements Persistence {
 					+ " <= ID AND ID < " + bookMinID + "), " + BookID
 					+ " VARCHAR(128) NOT NULL UNIQUE, " + UserID
 					+ " varchar(128), " + DATE + " varchar(128), " + CHARGES
-					+ " varchar(128), " + LASTUSER + " varchar(128))");
+					+ " varchar(128), " + LASTUSER + " varchar(128), " + BOOKTITLE + " varchar(128))");
 		}
 		if (!tableExists(tableNames, chargesTableName)) {
 			logger.debug("database table " + chargesTableName
@@ -2833,6 +2894,8 @@ public class Data implements Persistence {
 	//Überarbeitete add Lending mit int statt void
 	public final int addLending(String bookID, String readerID, String date,
 			String charges) throws DataSourceException, SQLException {
+		
+		String title = insertTitleLending(bookID);
 		logger.debug("inserting user to LENDING..." + bookID + "   " + readerID
 				+ "");
 		int idValue = getNewId(borrowTableName, 1);
@@ -2844,29 +2907,64 @@ public class Data implements Persistence {
 				+ readerID + "', '" + date + "', '" + charges + "')");
 
 		run.update("insert into " + borrowTableName + "(id, " + BookID + ", "
-				+ UserID + ", " + DATE + ", " + CHARGES + ") values ("
+				+ UserID + ", " + DATE + ", " + CHARGES + ", " + BOOKTITLE + ") values ("
 				+ idValue + ", '" + bookID + "', '" + readerID + "', '" + date
-				+ "', '" + charges + "')");
+				+ "', '" + charges + "', '" + title + "')");
 		
 		insertLastUser(readerID, bookID);
 		
-	
-
-	
 		
 		return idValue;
-
-		// Borrower b = new Borrower();
-		// b.setBookID(bookID);
-		// b.setReaderID(readerID);
-		//
-		// Set<String> toIgnore = new HashSet<String>();
-		// HashMap<String, Object> replace = new HashMap<String, Object>();
-		//
-		// int result = insertByID(b, borrowTableName, 0 , toIgnore, replace);
-		// return result;
+		
 
 	}
+	
+	
+	
+	public String insertTitleLending(String bookID){
+		
+		ResultSet resultLending = null;
+		Connection dbConnection=null;
+		try {
+			logger.debug("Starte getBorrower");
+		 dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT TITLE From BOOK where id= " + bookID);
+			 resultLending = ps.executeQuery();
+			 String title = "bla";
+			while (resultLending.next()) {
+				Borrower newBorrower = new Borrower();
+				//Spalte für Spalte
+				title = resultLending.getString(1); // Book title
+				logger.debug("GOT TITLE-----------------------e5xcrcrvzv---------------->" + title);
+		
+			}
+			//run.update("UPDATE LENDING set title = '"+title+"' where id = "+bookID );
+			
+			logger.debug("UPDATE TITLE----------------------------------------->333333333333333333");
+			return title;
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		}finally{
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return "bla";
+		
+	
+	}
+	
 
 	/**
 	 * Fügt den letzten Ausleiher in die Booktable ein.
@@ -3499,14 +3597,27 @@ public class Data implements Persistence {
 	public void getBorrowList(List<Borrower> list){
 		logger.debug("REACHED----THE----BORROWERLIST");
 		
-		userBorrowerList=list;
-		userQuery=true;
+		for(int i=0;i<list.size();i++){
+			
+		  userBorrowerList.add(list.get(i));
+		}
+		
+		for(Borrower bookid : userBorrowerList){
+			   
+			   logger.debug("DATAAAAAAAAAA"+bookid.getBookID() );
+			   }
+		//userQuery=true;
 	}
 	
+	/*
+	 * 
+	 */
 	public List<Borrower> getBorrowerFromUser(){
 		
 		return userBorrowerList;
 	}
+	
+	
 	
 	public boolean getUserQuery(){
 		return userQuery;

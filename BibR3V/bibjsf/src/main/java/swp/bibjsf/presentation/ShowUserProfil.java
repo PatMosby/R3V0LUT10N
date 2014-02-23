@@ -62,10 +62,17 @@ public class ShowUserProfil {
 	}
 	
 	
-	public List<Borrower> getBorrower(){
+	public List<Borrower> getBorrowerForUser(){
+		Reader r_1= getReaderByUsername();
 		logger.debug("REACHED---GET_Borrower");
+		int z= r_1.getId();
 		
-		return data.getBorrower();
+		logger.debug("bORROWERforuser--REACHED!!!!!!" + z);
+		String readerID = "3";
+		readerID = String.valueOf(z);
+		logger.debug("bORROWERforuser--REACHED!!!!!!" + readerID);
+		return data.getBorrowerForUser(readerID);
+		//return data.getBorrower();
 	}
 	
 	    
@@ -84,13 +91,21 @@ public class ShowUserProfil {
 	   if(!alreadyInside){
 		   borrowerList.add(borrower);
 	   }
+	   
+	   for(Borrower bookid : borrowerList){
+		   
+		   logger.debug(bookid.getBookID() );
+		   }
     }
     
     public void sendList(){
     	logger.debug("SEND----LIST---REACHED!!!!!");
     	System.out.println("SEND----LIST---REACHED!!!!!");
     	
+    	if(borrowerList!= null)
     	data.getBorrowList(borrowerList);
+    	
+    	
     }
 
 }
