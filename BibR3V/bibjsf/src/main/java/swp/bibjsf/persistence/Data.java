@@ -142,6 +142,7 @@ public class Data implements Persistence {
 	private static final String CHARGES = "charges";
 
 	private static final String LASTUSER="lastuser";
+	private static final String EXTEND="extend";
 
 	
 
@@ -336,6 +337,69 @@ public class Data implements Persistence {
 		return borrowerList;
 
 	}
+	
+	
+	/**
+	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank
+	 * gelesen wird.
+	 */
+	private List<Borrower> borrowerListExtend = new ArrayList<>();
+	public List<Borrower> getBorrowerExtend() {
+		borrowerListExtend = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection = null;
+		try {
+			logger.debug("Starte getBorrowerExtend");
+			dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT ID, BOOK_ID, USER_ID, DATE, CHARGES From LENDING where extend= true");
+			resultLending = ps.executeQuery();
+			logger.debug("BLUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUEHHHH");
+			while (resultLending.next()) {
+				Borrower newBorrower = new Borrower();
+				// Spalte für Spalte
+				newBorrower.setId(resultLending.getInt(1));
+				newBorrower.setBookID(resultLending.getString(2)); // Book id
+				newBorrower.setReaderID(resultLending.getString(3)); // User id
+				newBorrower.setDate(resultLending.getString(4));// date
+				newBorrower.setFines(resultLending.getString(5)); // charges
+
+				addVornameNachname(newBorrower);
+
+				borrowerListExtend.add(newBorrower);
+			}
+			logger.debug("Zeige alle BorrowerExtend");
+			for (Borrower element : borrowerListExtend) {
+				logger.debug("Elemente: " + element.getBookID()); // für Ausgabe
+																	// auf
+																	// Konsole
+			}
+			logger.debug(borrowerListExtend.get(0).getDate());
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		} finally {
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return borrowerListExtend;
+
+	}
+	
+	
+	
+	
 
 	
 	/**
@@ -638,7 +702,7 @@ public class Data implements Persistence {
 					+ " <= ID AND ID < " + bookMinID + "), " + BookID
 					+ " VARCHAR(128) NOT NULL UNIQUE, " + UserID
 					+ " varchar(128), " + DATE + " varchar(128), " + CHARGES
-					+ " varchar(128), " + LASTUSER + " varchar(128), " + BOOKTITLE + " varchar(128))");
+					+ " varchar(128), " + LASTUSER + " varchar(128), " + BOOKTITLE + " varchar(128), "+ EXTEND + " varchar(128))");
 		}
 		if (!tableExists(tableNames, chargesTableName)) {
 			logger.debug("database table " + chargesTableName
@@ -1345,6 +1409,7 @@ public class Data implements Persistence {
 				return books.get(0);
 			}
 		} catch (SQLException e) {
+			logger.debug("GWET-----BOOOOKKKK--------CATCH");
 			throw new DataSourceException(e.getMessage());
 		}
 	}
@@ -3458,10 +3523,45 @@ public class Data implements Persistence {
 		logger.debug("UPDATE VERSUCH-2-.-");
 		logger.debug(borrowerList.get(0).getDate());
 	}
+	
+	public void insertDateExtend(String date, int index) throws DataSourceException,
+	SQLException {
+index = borrowerListExtend.get(index).getId();
+String s = String.valueOf(index);
+
+logger.debug("UPDATE VERSUCH-.-");
+run.update("UPDATE " + borrowTableName + " set date = '" + date
+		+ "' where id = " + index);
+
+// run.update("UPDATE " + borrowTableName +
+// " SET DATE ="+date+"WHERE ID = ?",
+// lendingID);
+// run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+// lendingID);
+logger.debug("UPDATE VERSUCH-2-.-");
+logger.debug(borrowerList.get(0).getDate());
+}
 
 	public void insertFines(String fines, int index)
 			throws DataSourceException, SQLException {
 		index = borrowerList.get(index).getId();
+		String s = String.valueOf(index);
+		logger.debug("UPDATE VERSUCH-.-");
+		run.update("UPDATE " + borrowTableName + " set charges = '" + fines
+				+ "' where id = " + index);
+		// run.update("UPDATE " + borrowTableName +
+		// " SET DATE ="+date+"WHERE ID = ?",
+		// lendingID);
+		// run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+		// lendingID);
+		logger.debug("UPDATE VERSUCH-2-.-");
+		logger.debug(borrowerList.get(0).getDate());
+
+	}
+	
+	public void insertFinesExtend(String fines, int index)
+			throws DataSourceException, SQLException {
+		index = borrowerListExtend.get(index).getId();
 		String s = String.valueOf(index);
 		logger.debug("UPDATE VERSUCH-.-");
 		run.update("UPDATE " + borrowTableName + " set charges = '" + fines
@@ -3609,25 +3709,30 @@ public class Data implements Persistence {
 	protected boolean userQuery = false;
 	private List<Borrower> userBorrowerList = new ArrayList<>();
 
-	public void getBorrowList(List<Borrower> list) {
-		logger.debug("REACHED----THE----BORROWERLIST");
-
-		
-		for(int i=0;i<list.size();i++){
-			
-		  userBorrowerList.add(list.get(i));
-		}
-		
-		for(Borrower bookid : userBorrowerList){
-			   
-			   logger.debug("DATAAAAAAAAAA"+bookid.getBookID() );
-			   }
+	public void getBorrowList(Borrower borrower) throws DataSourceException,
+	SQLException {
+//		logger.debug("REACHED----THE----BORROWERLIST");
+//
+//		
+//		for(int i=0;i<list.size();i++){
+//			
+//		  userBorrowerList.add(list.get(i));
+//		}
+//		
+//		for(Borrower bookid : userBorrowerList){
+//			   
+//			   logger.debug("DATAAAAAAAAAA"+bookid.getBookID() );
+//			   }
 		//userQuery=true;
+		logger.debug("BLÄÄÄÄÄÄÄÄÄÄÄÄHHHHHHHHHHHHH");
+		int index=borrower.getId();
+		String date = "true";
+		run.update("UPDATE " + borrowTableName + " set extend = '" + date
+				+ "' where id = " + index);
+		logger.debug("BLÄÄÄÄÄÄÄÄÄÄÄÄHHHHHHHHHHHHH22222222222222222222222222222222222222");
 	}
 	
-	/*
-	 * 
-	 */
+	
 	
 	
 

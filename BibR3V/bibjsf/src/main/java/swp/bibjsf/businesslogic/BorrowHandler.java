@@ -157,8 +157,11 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 			logger.debug("BorrowHandler reached_2");
 			// int result = persistence.addLending(borrower.getBookID(),
 			// borrower.getReaderID(), calculateDate(), calculateFines());
+			logger.debug("calculateDate" + borrower.calculateDate());
+			String date = calculateDate(borrower.getBookID());
+			String fines =borrower.calculateFines();
 			return persistence.addLending(borrower.getBookID(),
-					borrower.getReaderID(),calculateDate(borrower.getBookID()), borrower.calculateFines());
+					borrower.getReaderID(),date, fines);
 
 		} catch (Exception e) {
 
@@ -174,8 +177,11 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 		Book book = persistence.getBook(Integer.valueOf(bookID));
 		String typ = book.getTyp();
 		
-		int duration = Integer.valueOf(persistence.getDuration(typ));
+		//int duration = Integer.valueOf(persistence.getDuration(typ));
+		int duration =1;
+		return "wäwä";
 		
+		/**
 		Calendar calendar = new GregorianCalendar();
 		Date today = new Date();
 		calendar.setTime(today);
@@ -209,7 +215,8 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 			} catch (Exception e) {
 				logger.debug(e + "catch-exception");				
 			}
-		return null;		
+		return null;
+		*/		
 	}
 
 	public void returnLending(String bookID) {

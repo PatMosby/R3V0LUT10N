@@ -77,35 +77,38 @@ public class ShowUserProfil {
 	
 	    
 	    
-    public void sendBorrower(Borrower borrower){
-	   boolean alreadyInside=false; 	
-	   logger.debug("SEND--BORROWER--REACHED!!!!!!" + borrower.getId());
-	   System.out.println("SEND----BORROWER---REACHED!!!!!");
-	   
-	   for (int i=0;i<borrowerList.size();i++){
-	    		
-	      if(borrowerList.get(i).getId()== borrower.getId()){
-	    	  alreadyInside=true;
-	      }	
-	   }
-	   if(!alreadyInside){
-		   borrowerList.add(borrower);
-	   }
-	   
-	   for(Borrower bookid : borrowerList){
-		   
-		   logger.debug(bookid.getBookID() );
-		   }
+    public void sendBorrower(Borrower borrower)throws DataSourceException,
+	SQLException{
+//	   boolean alreadyInside=false; 	
+//	   logger.debug("SEND--BORROWER--REACHED!!!!!!" + borrower.getId());
+//	   System.out.println("SEND----BORROWER---REACHED!!!!!");
+//	   
+//	   for (int i=0;i<borrowerList.size();i++){
+//	    		
+//	      if(borrowerList.get(i).getId()== borrower.getId()){
+//	    	  alreadyInside=true;
+//	      }	
+//	   }
+//	   if(!alreadyInside){
+//		   borrowerList.add(borrower);
+//	   }
+//	   
+//	   for(Borrower bookid : borrowerList){
+//		   
+//		   logger.debug(bookid.getBookID() );
+//		   }
+    	
+    	data.getBorrowList(borrower);
     }
     
-    public void sendList(){
-    	logger.debug("SEND----LIST---REACHED!!!!!");
-    	System.out.println("SEND----LIST---REACHED!!!!!");
-    	
-    	if(borrowerList!= null)
-    	data.getBorrowList(borrowerList);
-    	
-    	
-    }
+//    public void sendList(){
+//    	logger.debug("SEND----LIST---REACHED!!!!!");
+//    	System.out.println("SEND----LIST---REACHED!!!!!");
+//    	
+//    	if(borrowerList!= null)
+//    	data.getBorrowList();
+//    	
+//    	
+//    }
 
 }
