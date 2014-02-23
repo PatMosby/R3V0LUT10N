@@ -65,7 +65,6 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.log4j.Logger;
 import org.primefaces.event.CellEditEvent;
 
-import android.util.Log;
 import swp.bibcommon.Book;
 import swp.bibcommon.BusinessObject;
 import swp.bibcommon.Charges;
@@ -3928,5 +3927,6 @@ logger.debug(borrowerList.get(0).getDate());
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+		
 }
