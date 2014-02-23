@@ -297,6 +297,7 @@ public class Data implements Persistence {
 	/**
 	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank
 	 * gelesen wird.
+	 * @author Ellhoff
 	 */
 	private List<Borrower> borrowerList = new ArrayList<>();
 
@@ -376,6 +377,7 @@ public class Data implements Persistence {
 	/**
 	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank
 	 * gelesen wird.
+	 * @author Dellert
 	 */
 	private List<Borrower> borrowerListExtend = new ArrayList<>();
 
@@ -436,6 +438,7 @@ public class Data implements Persistence {
 	/**
 	 * Liefert eine ArrayList von Borrower-Elementen, die aus der Datenbank
 	 * gelesen wird.
+	 * @author Ellhoff
 	 */
 	private List<Borrower> borrowerForUserList = new ArrayList<>();
 
@@ -494,7 +497,7 @@ public class Data implements Persistence {
 	/**
 	 * Übergibt eine Liste mit Element History zum anzeigen in der
 	 * Ausleihhistorie
-	 * 
+	 * @author Dellert
 	 * @param readerID
 	 * @return historyForUserList
 	 */
@@ -545,38 +548,54 @@ public class Data implements Persistence {
 
 		 }
 
-	     
+		/**
+		 * @author Dellert
+		 */
 		 public void notSaveHistory(){  
 			 logger.debug("REACHED(((((((((((notSAVE");
 			 
 		 }
-		 
+		 /**
+			 * @author Dellert
+			 */
 		 public void saveHistory(){
 			 logger.debug("REACHED(((((((((((SAAAAAAVEEE");
 		   
 		
 		 }
-		 
+		 /**
+			 * @author Dellert
+			 */
 		 public void showHistory(){
 			 logger.debug("REACHED(((((((((((SSHOOOOOOOWOWWWWWWW");}
 
-	     		 
+		 /**
+			 * @author Dellert
+			 */		 
 		 public void setSaveHistory(boolean saving, String reader){  
 		 }
-		 
+		 /**
+			 * @author Dellert
+			 */
 		 public boolean getSaveHistory(){
 		  return false;
 		 }
-		 
+		 /**
+			 * @author Dellert
+			 */
 		 public void setShowHistory(boolean showing){		  
 
 		 }
-		 
+		 /**
+			 * @author Dellert
+			 */
 		 public void notShowHistory(){      //für ausleihhistorie
 			 logger.debug("REACHED(((((((((((notSHHHHOOOOWOOOOWOW");
 		 
 		 }
-	
+		 /**
+			 * @author Ellhoff
+			 */
 	public List<Borrower> getForUser(String readerID) {
 		borrowerForUserList = new ArrayList<>();
 		ResultSet resultLending = null;
@@ -629,6 +648,9 @@ public class Data implements Persistence {
 
 	}
 
+	/**
+	 * @author Ellhoff
+	 */
 	private void addVornameNachname(Borrower newBorrower) {
 		ResultSet resultLending = null;
 		Connection dbConnection = null;
@@ -783,6 +805,9 @@ public class Data implements Persistence {
 
 	private List<Charges> chargeList = new ArrayList<>();
 
+	/**
+	 * @author Damrow
+	 */
 	public List<Charges> getChargeList() {
 		chargeList = new ArrayList<>();
 		ResultSet resultLending = null;
@@ -1058,7 +1083,7 @@ public class Data implements Persistence {
 	/**
 	 * Fügt einen Leser mit Benutzerrolle eines Lesers in die
 	 * Benutzerrollentabelle ein.
-	 * 
+	 * @author Bredehöft
 	 * @param username
 	 * @throws DataSourceException
 	 * @throws SQLException
@@ -1073,7 +1098,7 @@ public class Data implements Persistence {
 	/**
 	 * Fügt einen Bibliothekar mit Benutzerrolle eines Bibliothekaren in die
 	 * Benutzerollentabelle ein.
-	 * 
+	 * @author Bredehöft
 	 * @param username
 	 * @throws DataSourceException
 	 * @throws SQLException
@@ -1751,6 +1776,11 @@ public class Data implements Persistence {
 		return "error";
 	}
 
+	/**
+	 * @author Dellert
+	 * @param mediumID
+	 * @throws SQLException
+	 */
 	public void idTester(String mediumID) throws SQLException {
 		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 				Messages.get("savefailed") + " ", Messages.get("id") + " = 13");
@@ -1917,6 +1947,9 @@ public class Data implements Persistence {
 	 * 
 	 * @see
 	 * swp.bibjsf.persistence.Persistence#addLibrarian(swp.bibcommon.Reader)
+	 */
+	/**
+	 * @author Damrow
 	 */
 	@Override
 	public int addLibrarian(Reader reader) throws DataSourceException,
@@ -2345,6 +2378,9 @@ public class Data implements Persistence {
 	}
 
 	@Override
+	/**
+	 * @author Pupat
+	 */
 	public Reader getReaderUse(int lastUse) throws DataSourceException {
 		logger.debug("get reader with LastUse=" + lastUse);
 		return getReaderWhere("LastUse", lastUse);
@@ -3134,6 +3170,9 @@ public class Data implements Persistence {
 	 * java.lang.String, java.lang.String, java.lang.String)
 	 */
 	// Überarbeitete add Lending mit int statt void
+	/**
+	 * @author Dellert, Ellhoff
+	 */
 	public final int addLending(String bookID, String readerID, String date,
 			String charges) throws DataSourceException, SQLException {
 
@@ -3162,8 +3201,8 @@ public class Data implements Persistence {
 
 	}
 
+	
 	public String insertTitleLending(String bookID) {
-
 		ResultSet resultLending = null;
 		Connection dbConnection = null;
 		try {
@@ -3207,6 +3246,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Fügt den letzten Ausleiher in die Booktable ein.
+	 * @author Pupat
 	 */
 	public void insertLastUser(String readerID, String bookID) {
 		ResultSet resultLending = null;
@@ -3266,7 +3306,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Löscht Eintrag in LENDING.
-	 * 
+	 * @author Dellert
 	 * @param bookID
 	 *            die ID des zu löschenden Mediums
 	 * @throws DataSourceException
@@ -3411,6 +3451,7 @@ public class Data implements Persistence {
 	/**
 	 * Prüft, ob es eine eingebebene ReaderID überhaupt gibt.
 	 * 
+	 * @author Ellhoff
 	 * @param readerID
 	 *            Die ID des Lesers
 	 * @return Gibt true zurück, wenn Reader ID schon vorhanden ist und false,
@@ -3468,7 +3509,7 @@ public class Data implements Persistence {
 
 	/**
 	 * Prüft, ob es eine eingebebene MediumID überhaupt gibt.
-	 * 
+	 * @author Ellhoff
 	 * @param mediumID
 	 *            Die ID des Mediums
 	 * @return Gibt true zurück, wenn Medium ID schon vorhanden ist und false,
@@ -3571,6 +3612,13 @@ public class Data implements Persistence {
 		}
 	}
 
+	/**
+	 * @author Damrow
+	 * @param date
+	 * @param index
+	 * @throws DataSourceException
+	 * @throws SQLException
+	 */
 	public void insertDate(String date, int index) throws DataSourceException,
 			SQLException {
 		index = borrowerList.get(index).getId();
