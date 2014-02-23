@@ -107,7 +107,7 @@ public class Administration  implements Serializable {
     }
     
     /**
-     * author: Pupat
+     * @author: Pupat
      * startet das autobackup
      */
     public void autoBackUp(){
@@ -119,7 +119,7 @@ public class Administration  implements Serializable {
     }
     
     /**
-     * author: Pupat
+     * @author: Pupat
      * beendet das autobackup und die instance
      */
     public void autoBackUpEnd(){
