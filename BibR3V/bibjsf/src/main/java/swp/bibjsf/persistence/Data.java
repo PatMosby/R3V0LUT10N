@@ -1016,14 +1016,7 @@ public class Data implements Persistence {
 			    }
 			    
 			  }
-		
-		
-
-		if (!tableExists(tableNames, returnTableName)) {
-			run.update("CREATE TABLE " + returnTableName + " ("
-					+ "TYP varchar(20), " + "DURATION varchar(10))");
-		}
-		
+	
 		if (!tableExists(tableNames, historyTableName)) {
 			   run.update("CREATE TABLE "
 			     + historyTableName
@@ -3112,6 +3105,14 @@ public class Data implements Persistence {
 	 * Filename for backup of book table.
 	 */
 	private static final String BOOK_BACKUP = "bookBackup.csv";
+	
+	private static final String CHARGES_BACKUP = "chargesBackup.csv";
+	
+	private static final String LENDING_BACKUP = "lendingBackup.csv";
+	
+	private static final String NEWS_BACKUP = "newsBackup.csv";
+	
+	private static final String TIMES_BACKUP = "timesBackup.csv";
 
 	/*
 	 * (non-Javadoc)
@@ -3145,6 +3146,30 @@ public class Data implements Persistence {
 		}
 		try {
 			run.update("DROP TABLE " + readerTableName);
+		} catch (SQLException e) {
+			throw new DataSourceException("reset failed with: "
+					+ e.getLocalizedMessage());
+		}
+		try {
+			run.update("DROP TABLE " + chargesTableName);
+		} catch (SQLException e) {
+			throw new DataSourceException("reset failed with: "
+					+ e.getLocalizedMessage());
+		}
+		try {
+			run.update("DROP TABLE " + borrowTableName);
+		} catch (SQLException e) {
+			throw new DataSourceException("reset failed with: "
+					+ e.getLocalizedMessage());
+		}
+		try {
+			run.update("DROP TABLE " + newsTableName);
+		} catch (SQLException e) {
+			throw new DataSourceException("reset failed with: "
+					+ e.getLocalizedMessage());
+		}
+		try {
+			run.update("DROP TABLE " + timeTableName);
 		} catch (SQLException e) {
 			throw new DataSourceException("reset failed with: "
 					+ e.getLocalizedMessage());
@@ -3228,6 +3253,15 @@ public class Data implements Persistence {
 		write(groupTableName, GROUP_BACKUP);
 		logger.debug("backup for " + READER_BACKUP);
 		write(readerTableName, READER_BACKUP);
+		
+		logger.debug("backup for " + CHARGES_BACKUP);
+		write(chargesTableName, CHARGES_BACKUP);
+		logger.debug("backup for " + LENDING_BACKUP);
+		write(borrowTableName, LENDING_BACKUP);
+		logger.debug("backup for " + NEWS_BACKUP);
+		write(newsTableName, NEWS_BACKUP);
+		logger.debug("backup for " + TIMES_BACKUP);
+		write(timeTableName, TIMES_BACKUP);
 	}
 
 	/*
@@ -3238,7 +3272,9 @@ public class Data implements Persistence {
 	@Override
 	public void restore() throws DataSourceException {
 		if (fileExists(BOOK_BACKUP) && fileExists(GROUP_BACKUP)
-				&& fileExists(READER_BACKUP)) {
+				&& fileExists(READER_BACKUP) && fileExists(NEWS_BACKUP)
+				&& fileExists(TIMES_BACKUP) && fileExists(LENDING_BACKUP)
+				&& fileExists(CHARGES_BACKUP)) {
 			reset(false); // do not create admin because he/she is contained in
 							// the backup files
 			logger.debug("restoring from " + BOOK_BACKUP);
@@ -3249,6 +3285,15 @@ public class Data implements Persistence {
 			read(readerTableName, READER_BACKUP);
 			logger.debug("restoring from " + GROUP_BACKUP);
 			read(groupTableName, GROUP_BACKUP);
+			
+			logger.debug("restoring from " + CHARGES_BACKUP);
+			read(chargesTableName, CHARGES_BACKUP);
+			logger.debug("restoring from " + TIMES_BACKUP);
+			read(timeTableName, TIMES_BACKUP);
+			logger.debug("restoring from " + NEWS_BACKUP);
+			read(newsTableName, NEWS_BACKUP);
+			logger.debug("restoring from " + LENDING_BACKUP);
+			read(borrowTableName, LENDING_BACKUP);
 		} else {
 			throw new DataSourceException(Messages.get("noPreviousBackup"));
 		}
