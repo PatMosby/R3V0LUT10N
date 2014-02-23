@@ -545,9 +545,7 @@ public class Data implements Persistence {
 
 		 }
 
-	     private String isSaving="false";
-	     private String isShowing= "false";
-		 
+	     
 		 public void notSaveHistory(){  
 			 logger.debug("REACHED(((((((((((notSAVE");
 			 
@@ -3178,7 +3176,6 @@ public class Data implements Persistence {
 			resultLending = ps.executeQuery();
 			String title = "bla";
 			while (resultLending.next()) {
-				Borrower newBorrower = new Borrower();
 				// Spalte für Spalte
 				title = resultLending.getString(1); // Book title
 				logger.debug("GOT TITLE-----------------------e5xcrcrvzv---------------->"
