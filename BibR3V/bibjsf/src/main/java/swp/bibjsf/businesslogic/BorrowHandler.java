@@ -6,11 +6,10 @@ import javax.swing.*;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Calendar;
-import java.sql.SQLException;
 import java.text.DateFormat;
+
 import java.lang.Object;
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -27,18 +26,10 @@ import swp.bibjsf.utils.Constraint;
 import swp.bibjsf.utils.Messages;
 import swp.bibjsf.utils.OrderBy;
 
-/**
- * 
- * @author Dellert
- *
- */
-
 public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 
 	private Date date;
 	private static final long serialVersionUID = -5653849921779676752L;
-	SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy");
-	
 
 	private static volatile BorrowHandler instance;
 
@@ -163,11 +154,8 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 			logger.debug("BorrowHandler reached_2");
 			// int result = persistence.addLending(borrower.getBookID(),
 			// borrower.getReaderID(), calculateDate(), calculateFines());
-			logger.debug("calculateDate" + borrower.calculateDate());
-			String date = calculateDate(borrower.getBookID());
-			String fines = getCharges(borrower.getBookID());
 			return persistence.addLending(borrower.getBookID(),
-					borrower.getReaderID(),date, fines);
+					borrower.getReaderID(),calculateDate(borrower.getBookID()), borrower.calculateFines());
 
 		} catch (Exception e) {
 
@@ -178,72 +166,11 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 		return 0;
 	}
 	
-	public String getCharges(String id) throws NumberFormatException, DataSourceException, SQLException{
-		Book book = persistence.getBook(Integer.valueOf(id));
-		String typ = book.getTyp();
-		String res = persistence.getDuration(typ);		
-		return res;
-	}
-	
-	
-	/**
-	 * @author Bredehöft
-	 * @param bookID
-	 * @return string Datum
-	 * @throws NumberFormatException
-	 * @throws DataSourceException
-	 * @throws SQLException
-	 */
-	public String calculateDate(String bookID) throws NumberFormatException, DataSourceException, SQLException{
-		
-		Book book = persistence.getBook(Integer.valueOf(bookID));
-		String typ = book.getTyp();
-		logger.debug(typ + "= DER TYP");
-		
-		int duration = Integer.valueOf(persistence.getDuration(typ));
-		logger.debug(duration + " =DIE DAUER");
-		//int duration =1;
-		//return "wäwä";
-		
-		Calendar calendar = new GregorianCalendar();
-
-		Date today = Calendar.getInstance().getTime();
-		logger.debug("echtes Datum " + today);
-
-		calendar.setTime(today);
-
-		int year = calendar.get(Calendar.YEAR);
-		int month = calendar.get(Calendar.MONTH)+1; // Jan = 0, dec = 11
-		int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-		logger.debug("actual Date: " + dayOfMonth + " " + month + " " + year);
-
-		if (today != null)
-			try {
-				calendar.add(Calendar.DAY_OF_MONTH, duration);
-				logger.debug("calendar.add(dayofmonth) " + Calendar.DAY_OF_MONTH);
-				
-				if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-					calendar.add(Calendar.DAY_OF_MONTH, 1);
-					String s = sdf.format(calendar.getTime());
-					logger.debug(s + "if(SUNDAY)");
-					return s;
-				} else if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
-					calendar.add(Calendar.DAY_OF_MONTH, 2);
-					String s = sdf.format(calendar.getTime());
-					logger.debug(s + "if(saturday)");
-					return s;
-				} else {
-					String s = sdf.format(calendar.getTime());
-					logger.debug(s + " else " + calendar.getTime());
-					return s;
-				}
-
-			} catch (Exception e) {
-				logger.debug(e + "catch-exception");				
-			}
-		logger.debug("return null in borrowhandler");
-		return null;
-				
+	public String calculateDate(String bookID){
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		Date today = Calendar.getInstance().getTime();		
+		String todayString = formatter.format(today);
+		return persistence.calculateDate(todayString, bookID);		
 	}
 
 	public void returnLending(String bookID) {

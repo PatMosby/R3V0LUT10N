@@ -8,7 +8,6 @@
     <!-- This facelet is the one opened if no more specific URL is used --> 
     <welcome-file-list>
         <welcome-file>/index.xhtml</welcome-file>
-        <welcome-file>/m_index.xhtml</welcome-file>
     </welcome-file-list>
 
 	<servlet>
@@ -55,7 +54,7 @@
  </filter>
  <filter-mapping>
   <filter-name>MobileFilter</filter-name>
-  <url-pattern>/m_index.xhtml</url-pattern>
+  <url-pattern>/index.xhtml</url-pattern>
  </filter-mapping>
 	
 	<!-- <filter>

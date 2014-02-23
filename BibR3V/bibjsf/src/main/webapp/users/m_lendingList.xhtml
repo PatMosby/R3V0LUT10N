@@ -14,17 +14,22 @@
 
 <h:body>
 	<f:view renderKitId="PRIMEFACES_MOBILE">
+		<pm:content>
 			<h:form id="form">
 				<p:panel id="panel" header="#{messages.myBooks}">
 					<h:panelGrid columns="2" cellpadding="5">
-						<p:dataList >
-									<h:outputText value="#{borrower.id}"/>
-									<h:outputText value="#{borrower.title}"/>
-									<h:outputText value="#{borrower.bookID}"/>
+						<p:dataList value="#{showUserProfil.getBorrower()}"
+							var="borrower" itemType="circle">
+									#{borrower.id}
+									<br></br>
+									#{borrower.title}
+									<br></br>
+									#{borrower.bookID}
 								</p:dataList>
 					</h:panelGrid>
 				</p:panel>
 			</h:form>
+		</pm:content>
 	</f:view>
 </h:body>
 

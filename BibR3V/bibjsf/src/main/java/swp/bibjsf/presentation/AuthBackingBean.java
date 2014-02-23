@@ -70,7 +70,6 @@ public class AuthBackingBean {
   
   /**
    * Überprüft ob ein Client eingeloggt ist.
-   * @author Bredehöft
    * @return true wenn Client eingeloggt ist
    */
   public boolean isLoggedIn(){

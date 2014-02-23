@@ -10,7 +10,7 @@
 <!-- Form for file upload -->
 <!-- http://www.primefaces.org/showcase/ui/datatableCellEditing.jsf -->
 <h:head>
-    <title>#{messages.myBooks}</title>
+    <title>#{messages.booklisttitle}</title>
 </h:head>
 <h:body>
 <h:outputStylesheet name="css/bib.css" />
@@ -24,7 +24,7 @@
     <!--  draggableColumns="true" does not work in Primefaces 3.5. It will hinder editing filter fields -->
     <!--  it is claimed, this bug was fixed in 3.5.1, but that version is not available -->
     <p:dataTable id="bookTable" 
-     value="#{showUserProfil.getBorrowerForUser()}" 
+     value="#{showUserProfil.getBorrower()}" 
      var="borrower"
      lazy="true"
      sortMode="multiple"
@@ -37,7 +37,7 @@
      rowsPerPageTemplate="10,25,50,100,200,500,1000"
      >  
   
-      <f:facet name="header" value="#{messages.myBooks}" />  
+      <f:facet name="header" value="#{messages.booklisttitle}" />  
                   
       <!-- ID -->
       <p:column id="IDColumn" headerText="#{messages.id}" style="width:8%"
@@ -46,36 +46,26 @@
       </p:column>  
                   
       <!-- Title -->
-      <p:column id="titleColumn" sortBy="#{book.title}" filterBy="#{borrower.title}"  
+      <p:column id="titleColumn" sortBy="#{book.title}" filterBy="#{book.title}"  
               headerText="#{messages.title}" filterMatchMode="contains" style="width:10%"> 
         <h:outputText value="#{borrower.title}" />   
       </p:column>  
   
-      <!-- MediumID -->
+      <!-- bookID -->
       <p:column id="bookIDColumn" sortBy="#{borrower.bookID}" filterBy="#{borrower.bookID}"  
-              headerText="#{messages.mediumID}" filterMatchMode="contains" style="width:10%">
+              headerText="#{messages.bookID}" filterMatchMode="contains" style="width:10%">
         <h:outputText value="#{borrower.bookID}" />  
-      </p:column>
-      
-      <!-- Rückgabedatum -->
-      <p:column id="dateColumn" sortBy="#{borrower.bookID}" filterBy="#{borrower.date}"  
-              headerText="#{messages.expireDate}" filterMatchMode="contains" style="width:10%">
-        <h:outputText value="#{borrower.date}" />  
-      </p:column>
-      
-      <!-- Mahngebühren -->
-      <p:column id="chargesColumn" sortBy="#{borrower.bookID}" filterBy="#{borrower.fines}"  
-              headerText="#{messages.fines}" filterMatchMode="contains" style="width:10%">
-        <h:outputText value="#{borrower.fines}" />  
       </p:column>
  
   	  
   	  <p:column id="rowEditorColumn" style="width:5%">  
-        <p:commandButton icon="ui-icon-pencil" headerText="Verlängern" style="width: auto; height: 20px" action="#{showUserProfil.sendBorrower(borrower)}" />
+        <p:commandButton icon="ui-icon-pencil" style="width: auto; height: 20px" action="#{showUserProfil.sendBorrower(borrower)}" />
       </p:column>
   	  
   	 </p:dataTable>
   	 
+  	 <p:commandButton id="button" value="Einreichen" action="#{showUserProfil.sendList()}" 
+			      ajax="false" icon="ui-icon-check" validateClient="true"/>
 
   	 </h:form>
 </f:view>

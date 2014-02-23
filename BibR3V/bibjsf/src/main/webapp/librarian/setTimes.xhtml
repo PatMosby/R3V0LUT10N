@@ -2,97 +2,86 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
- xmlns:f="http://java.sun.com/jsf/core"
- xmlns:h="http://java.sun.com/jsf/html"
- xmlns:ui="http://java.sun.com/jsf/facelets"
- xmlns:p="http://primefaces.org/ui">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <!-- Form for file upload -->
 <!-- http://www.primefaces.org/showcase/ui/datatableCellEditing.jsf -->
 <h:head>
- <title>Öffnungszeiten</title>
+	<title>Öffnungszeiten</title>
 </h:head>
 <h:body>
- <h:outputStylesheet name="css/bib.css" />
- <f:view>
-  <h:form id="form" onkeypress="return event.keyCode != 13">
-  <p:outputPanel id="container">
-   <ui:include src="/mainmenu.xhtml" />
+	<h:outputStylesheet name="css/bib.css" />
+	<f:view>
+		<h:form id="form" onkeypress="return event.keyCode != 13">
+		<p:outputPanel id="container">
+			<ui:include src="/mainmenu.xhtml" />
 
 
   
-   <p:dataTable id="timeList" widgetVar="varTimesList"
-    value="#{zeit.getTimeList()}" rowIndexVar="rowIndex" var="timesList" editable="true"
-    editMode="cell" >
-    
-    
-    
-   
-    <p:ajax event="cellEdit" listener="#{zeit.onCellEdit}"  update=":form:timeList" />
-    
+			<p:dataTable id="timesList" widgetVar="varTimesList"
+				value="#{zeit.getTimeList()}" rowIndexVar="rowIndex" var="timesList" >
+				
 
 <f:facet name="header" >
 <u>Öffnungszeiten</u>
-<p>INFO: Die Spalten <em>Öffnung</em> und <em>Schließung</em> sind durch Klicken individuell einstellbar. So kann man Öffnungs- und Schließzeiten festlegen.</p>
 </f:facet>
 
-     
-     
- <p:column headerText="Tag">
-     <f:facet name="Nachname">Nachname</f:facet>
-                 #{timesList.day}
-                 
-                 
-     </p:column>  
-     
-    
-      <p:column headerText="Öffnung">
+				<p:column>
+					<f:facet name="header"> Tag</f:facet>
+	#{timesList.getDay()}
+	</p:column>
 
+				<p:column>
+					<f:facet name="header"> Öffnung</f:facet>
+	#{timesList.getOpen()}
+	</p:column>
+				<p:column>
+					<f:facet name="header"> Schließung</f:facet>
+	#{timesList.getClose()}
+	</p:column>
 
-     <p:cellEditor>
-      <f:facet name="output">
-       <h:outputText value="#{timesList.open}" />  <!-- borrowList.date -->
-      </f:facet>
-      <f:facet name="input">
-      
-        <p:inputText id="open" value= "#{zeit.open}"  ></p:inputText> 
-      </f:facet>      
-       
-     
-     </p:cellEditor>
-    </p:column>
-    
- 
- <p:column headerText="Schließung">
-
-
-     <p:cellEditor>
-      <f:facet name="output">
-       <h:outputText value="#{timesList.close}" />  <!-- borrowList.date -->
-      </f:facet>
-      <f:facet name="input">
-      
-        <p:inputText id="close" value= "#{zeit.close}"  ></p:inputText> 
-      </f:facet>      
-       
-     
-     </p:cellEditor>
-    </p:column>
-    
-
-  
-   </p:dataTable>
+		
+			</p:dataTable>
 </p:outputPanel>
         
         
         
         
 <!-- <p:dataList value="#{timeListHandler.getTimesList()}" var="timesList" -->
-<!--     itemType="circle">   -->
-<!--        #{timesList.getDay()} <p:spacer width="100" height="10" /> #{timesList.getOpen()} <p:spacer width="20" height="10" />#{timesList.getClose()}  -->
-<!--        <p:separator id="separator"/>   -->
-<!--    </p:dataList>  -->
+<!-- 				itemType="circle">   -->
+<!-- 			    #{timesList.getDay()} <p:spacer width="100" height="10" /> #{timesList.getOpen()} <p:spacer width="20" height="10" />#{timesList.getClose()}  -->
+<!-- 			    <p:separator id="separator"/>   -->
+<!-- 			</p:dataList>  -->
 
- </h:form>
- </f:view>
+
+
+	<h:outputLabel for="days" value="#{messages.day}:" title="#{messages.day_help}"
+    	style="font-weight:bold" />
+    <p:inputText id="days" value="#{setTimesForm.day}" size="#{timesForm.textWidth}"/>  
+    <p:message for="days" display="both"/>
+    
+    <h:outputLabel for="open" value="#{messages.open}:" title="#{messages.open_help}"
+    	style="font-weight:bold" />
+    <p:inputText id="open" value="#{setTimesForm.open}" size="#{timesForm.textWidth}"/>  
+    <p:message for="open" display="both"/>
+    
+    <h:outputLabel for="close" value="#{messages.close}:" title="#{messages.close_help}"
+    	style="font-weight:bold" />
+    <p:inputText id="close" value="#{setTimesForm.close}" size="#{timesForm.textWidth}"/>  
+    <p:message for="close" display="both"/>
+    
+    
+    
+    <p:commandButton id="saveButton" value="#{messages.save}" action="#{setTimesForm.save}" 
+                  ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.save_help}" />
+                  
+                  <p:commandButton id="resetButton" value="#{messages.reset}" action="#{setTimesForm.reset}" 
+                  ajax="false" icon="ui-icon-check" validateClient="true" title="#{messages.reset_help}" />
+            
+    
+	</h:form>
+	</f:view>
 </h:body>
 </html>

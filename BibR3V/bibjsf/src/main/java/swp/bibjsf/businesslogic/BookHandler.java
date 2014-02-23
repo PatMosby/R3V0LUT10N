@@ -254,14 +254,6 @@ public class BookHandler extends BusinessObjectHandler<Book> {
 		return persistence.getBookByIndustrialIdentifier(identifier);
 	}
 
-	
-	/**
-	 * @author Pupat
-	 * updatet die Statistik, indem sie das Attribut Lendings um 1 erhöht. 
-	 * Die Methode wird aufgerufen, wenn die ein Buch ausgeliehen wird
-	 * @param bookID
-	 * @throws DataSourceException
-	 */
 	public void updateStatistik(String bookID) throws DataSourceException{
 		int id = Integer.parseInt(bookID);
 		Book book = get(id);

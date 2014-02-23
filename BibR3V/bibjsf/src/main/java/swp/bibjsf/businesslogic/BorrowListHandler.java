@@ -25,18 +25,11 @@ import org.apache.log4j.Logger;
 
 import swp.bibjsf.exception.DataSourceException;
 
-/**
- * 
- * @author Dellert
- *
- */
-
 @ManagedBean(name = "handler")
 @SessionScoped
 public class BorrowListHandler {
 	Data data;
 	final Logger logger = Logger.getLogger(BorrowListHandler.class);
-	private boolean isextend=false;
 	
 	public BorrowListHandler()throws DataSourceException, NamingException{
 	 data = new Data();
@@ -47,16 +40,8 @@ public class BorrowListHandler {
 
 	public List<Borrower> getBorrower(){
 		logger.debug("REACHED---GET_Borrower");
-		isextend = false;
+		
 		return data.getBorrower();
-		
-	}
-	
-	public List<Borrower> getBorrowerExtend(){
-		logger.debug("REACHED---GET_BorrowerExtend");
-		isextend = true;
-		return data.getBorrowerExtend();
-		
 	}
 	
 	public List<Borrower> getBorrowerFromUser(){
@@ -74,7 +59,7 @@ public class BorrowListHandler {
 	   newData = newData.substring(0, newData.length()-1);
 	   logger.debug("OUT-PUT:::: "+ newData);
 	   
-    if(!isextend){
+	   
 	   if (event.getColumn().getHeaderText().equals("Rückgabedatum")) {
 		   if(testInput(true, str_sy.trim())){
 			try{
@@ -93,29 +78,6 @@ public class BorrowListHandler {
 	    }
 	    
 	   }
-    } 
- else{
-    	if (event.getColumn().getHeaderText().equals("Rückgabedatum")) {
- 		   if(testInput(true, str_sy.trim())){
- 			try{
- 			 data.insertDateExtend(str_sy.trim(),event.getRowIndex());
- 			}catch(Exception e){}
- 		   }
- 	   }else
- 	   {
-
- 	    if (event.getColumn().getHeaderText().equals("Mahngebühren")) {
- 		   if(testInput(false, str_fi.trim())){
- 			 try{
-              data.insertFinesExtend(str_fi.trim(), event.getRowIndex());
- 			}catch(Exception e){}
- 		   }
- 	    }
- 	    
- 	   }
-    }
-	
-    
 		
 	}
 	
@@ -238,5 +200,9 @@ public class BorrowListHandler {
 		return false;
 	}
 	
-	
+	public boolean isUserQuery(){
+		
+		return data.getUserQuery();
+		
+    }
 }

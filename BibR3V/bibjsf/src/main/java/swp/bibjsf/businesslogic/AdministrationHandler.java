@@ -77,6 +77,7 @@ public class AdministrationHandler extends BusinessHandler {
      * @throws DataSourceException
      */
     public void backupDB() throws DataSourceException {
+    	System.out.println("adminhandler");
         persistence.backup();
     }
 

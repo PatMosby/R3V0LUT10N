@@ -13,22 +13,15 @@ import swp.bibjsf.utils.Messages;
 import java.sql.SQLException;
 import java.util.List;
 
-
-/**
- * 
- * @author Dellert
- *
- */
 @ManagedBean(name= "myBean")
 @SessionScoped
 public class AddBorrowerForm extends BorrowerForm{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1655968620301629426L;
-	
 	Borrower borrower = new Borrower();
+	
+	
+
+
 
 	@Override
 	 public String save() {
@@ -47,8 +40,8 @@ public class AddBorrowerForm extends BorrowerForm{
 						logger.debug("Anomalie MediumID: "+borrower.getBookID() );
 					}
 	    			    	
-	    	          BookHandler boh = BookHandler.getInstance();
-	    			  boh.updateStatistik(borrower.getBookID());
+//	    	          BookHandler boh = BookHandler.getInstance();
+//	    			  boh.updateStatistik(borrower.getBookID());
 	    			  
 	    			  return success(bh.add(borrower));
 	    			
@@ -74,7 +67,9 @@ public class AddBorrowerForm extends BorrowerForm{
     	} //else {
     		//return failure(Messages.get("elementNotSet"));
     	//}
-    }	
+    }
+	
+	
 	
 	public String getReaderID() {
 		System.out.println("getreader");

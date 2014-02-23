@@ -74,7 +74,7 @@ public class BookTable extends TableForm<Book> {
      * @see swp.bibjsf.presentation.TableForm#getContent()
      */
     @Override
-	public List<Content> getContent() {
+	protected List<Content> getContent() {
 		List<Content> idcontent = new ArrayList<Content>();
         for(Book b : selectedElements) {
             idcontent.add(new BookTagContent(b.getId(), b.getTitle(),"1" ));

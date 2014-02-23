@@ -42,7 +42,10 @@ public class AutoAdministration extends Thread implements Serializable {
     /**
      * Unique ID for serialization.
      */
-    private static final long serialVersionUID = -649625566653922056L;    
+    private static final long serialVersionUID = -649625566653922056L;
+
+    private boolean auto=true;
+    
     
 	protected AutoAdministration() throws DataSourceException,
     NamingException { }
@@ -85,21 +88,22 @@ public class AutoAdministration extends Thread implements Serializable {
      }      
     
     /**
-     * Startet den Thread, läuft solange bis er ein interrupt bekommt
-     * Ruft täglich backup() auf
+     * startet den thread, läuft solange bis er ein interupt bekommt
      */
 
     public void run() {
-    	while(true){
+    	while(auto){
           try {
             sleep(86400000); //Ein Tag
             AdministrationHandler.getInstance().backupDB();
-          } catch(InterruptedException ie) {
-            Thread.currentThread().interrupt();
-            if(Thread.currentThread().isInterrupted())
-            {
-                break;
-            }
+          }
+          catch(InterruptedException e) {
+              Thread.currentThread().interrupt();
+              if(Thread.currentThread().isInterrupted())
+              {
+                 System.out.println("interupt");
+                 break;
+              }
           }
           catch(DataSourceException e) {
           }
