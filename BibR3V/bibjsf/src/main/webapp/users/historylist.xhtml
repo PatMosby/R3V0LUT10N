@@ -23,7 +23,7 @@
     
     <!--  draggableColumns="true" does not work in Primefaces 3.5. It will hinder editing filter fields -->
     <!--  it is claimed, this bug was fixed in 3.5.1, but that version is not available -->
-    <p:dataTable id="" 
+    <p:dataTable id="historyListe" 
      value="#{showUserProfil.getHistoryList()}" 
      var="history"
      paginator="true"
@@ -35,7 +35,7 @@
                   
        <p:column headerText="Buchnummer">
      <f:facet name="Nachname">Nachname</f:facet>
-                 #{history.bookID}
+                 #{history.book}
                  
                  
      </p:column>  
@@ -47,7 +47,7 @@
                  
      </p:column>  
       
-     <p:column id="rowEditorColumn" style="width:5%">  
+   <!--  <p:column id="rowEditorColumn" style="width:5%">  
         <p:commandButton  headerText="Historie speichern" style="width: auto; height: 20px" 
         action="#{showUserProfil.sendBorrower(borrower)}" rendered="#{!showUserProfil.isSaving()}"/>
       </p:column>
@@ -55,7 +55,7 @@
       <p:column id="rowEditorColumn" style="width:5%">  
         <p:commandButton  headerText="Historie nicht speichern" style="width: auto; height: 20px" 
         action="#{showUserProfil.sendBorrower(borrower)}" rendered="#{showUserProfil.isSaving()}" />
-      </p:column>
+      </p:column> -->
      
     </p:dataTable>
     

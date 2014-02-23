@@ -67,6 +67,7 @@ import android.util.Log;
 import swp.bibcommon.Book;
 import swp.bibcommon.BusinessObject;
 import swp.bibcommon.Charges;
+import swp.bibcommon.History;
 import swp.bibcommon.News;
 import swp.bibcommon.Reader;
 import swp.bibcommon.Borrower;
@@ -163,11 +164,13 @@ public class Data implements Persistence {
 	
 	private final static String historyTableName = "HISTORY";
 	
-	private final static String histReaderID = "READERID";
+	private final static String hReaderID = "READERID";
 	
-	private final static String histBookID = "BOOKID";
+	private final static String hBookID = "BOOKID";
 	
-	private final static String histID = "ID";
+	private final static String hID = "ID";
+	
+	private final static String hDate = "DATE";
 	
 	private final static String showHistoryTableName = "SHOWHISTORY";
 	
@@ -470,7 +473,100 @@ public class Data implements Persistence {
 		}
 		return borrowerForUserList;
 
-	}
+	}                    
+	/**
+	 * Übergibt eine Liste mit Element History
+	 * zum anzeigen in der Ausleihhistorie
+	 * @param readerID
+	 * @return historyForUserList
+	 */
+	public List<History> getHistoryForUser(String readerID) {
+		  List<History>historyForUserList = new ArrayList<>();
+		  ResultSet resultLending = null;
+		  Connection dbConnection=null;
+		  try {
+		   logger.debug("Starte getHistoryForUser");
+		   dbConnection = dataSource.getConnection();
+
+		   PreparedStatement ps = dbConnection
+		     .prepareStatement("SELECT BOOKID, DATE From HISTORY where READERID= '" + readerID+"'");
+		   logger.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  History");
+		    resultLending = ps.executeQuery();
+
+		   while (resultLending.next()) {
+		    History newHistory = new History();
+		    //Spalte für Spalte
+		    newHistory.setBook(resultLending.getString(1)); // Book id
+		    newHistory.setDate(resultLending.getString(2));// date
+		    
+		    historyForUserList.add(newHistory);
+		   }
+		   logger.debug("FOR EACH REACHED");
+		   for (History element : historyForUserList) {
+		    logger.debug("Elemente: " + element.getBook()); //für Ausgabe auf Konsole
+		   }
+		   
+
+		  } catch (Exception e) {
+		   logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		  }finally{
+		   try {
+		    resultLending.close();
+		   } catch (SQLException e) {
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
+		   }
+		   try {
+		    dbConnection.close();
+		   } catch (SQLException e) {
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
+		   }
+		  }
+		  return historyForUserList;
+
+		 }
+	     private String isSaving="false";
+	     private String isShowing= "false";
+		 
+		 public void setSaveHistory(boolean saving, String reader){  
+			 //für ausleihhistorie
+//			 
+//			 run.update("UPDATE " + showHistoryTableName + " set savehist = '" + date
+//						+ "' where id = " + index);
+//			 String insert= 
+//			 
+//			 run.update("UPDATE " + borrowTableName + " set savehist = '" +
+//						+ "' where " +histReaderID+" = '" + reader +"'");
+//			 
+			 
+//			 if (!tableExists(tableNames, showHistoryTableName)) {
+//				   run.update("CREATE TABLE "
+//				     + showHistoryTableName
+//				     + "( "
+//				     + histReaderID
+//				     + " varchar(128) UNIQUE, "
+//				     + saveHist
+//				     + " varchar(128), "
+//				     + showHist
+//				     + " varchar(128))");
+//			}
+			 
+		 }
+		 
+		 public boolean getSaveHistory(){
+		  //isSaving;
+		  return false;
+		 }
+		 
+		 public void setShowHistory(boolean showing){
+		  
+		 }
+		 
+		 public boolean getShowHistory(){      //für ausleihhistorie
+			 //isShowing;
+		  return false;
+		 }
 	
 	public List<Borrower> getForUser(String readerID) {
 		borrowerForUserList = new ArrayList<>();
@@ -899,43 +995,32 @@ public class Data implements Persistence {
 			run.update("CREATE TABLE " + returnTableName + " ("
 					+ "TYP varchar(20), " + "DURATION varchar(10))");
 		}
-//		
-//		if (!tableExists(tableNames, historyTableName)) {
-//			   run.update("CREATE TABLE "
-//			     + historyTableName
-//			     + "( "
-//			     + histID 
-//			     + " INT UNIQUE, "
-//			     + histBookID 
-//			     + " varchar(11), "
-//			     + histReaderID
-//			     + " varchar(11), "
-//			     + " varchar(128))");
-//		}
-//		
-//		if (!tableExists(tableNames, historyTableName)) {
-//			   run.update("CREATE TABLE "
-//			     + historyTableName
-//			     + "( "
-//			     + histID 
-//			     + " INT UNIQUE, "
-//			     + histBookID 
-//			     + " varchar(11), "
-//			     + histReaderID
-//			     + " varchar(11))");
-//		}
-//		
-//		if (!tableExists(tableNames, showHistoryTableName)) {
-//			   run.update("CREATE TABLE "
-//			     + showHistoryTableName
-//			     + "( "
-//			     + histReaderID
-//			     + " varchar(128) UNIQUE, "
-//			     + saveHist
-//			     + " varchar(128), "
-//			     + showHist
-//			     + " varchar(128))");
-//		}
+		
+		if (!tableExists(tableNames, historyTableName)) {
+			   run.update("CREATE TABLE "
+			     + historyTableName
+			     + "( "
+			     + hID 
+			     + " INT UNIQUE, "
+			     + hBookID 
+			     + " varchar(128), "
+			     + hReaderID
+			     + " varchar(128), "
+		         + hDate
+			     + " varchar(128))");
+		}
+		
+		if (!tableExists(tableNames, showHistoryTableName)) {
+			   run.update("CREATE TABLE "
+			     + showHistoryTableName
+			     + "( "
+			     + hReaderID
+			     + " varchar(128) UNIQUE, "
+			     + saveHist
+			     + " varchar(128), "
+			     + showHist
+		     + " varchar(128))");
+		}
 		
 		if (createAdmin) {
 			insertAdmin();
