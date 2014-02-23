@@ -391,8 +391,6 @@ public interface Persistence {
 	
 	public int addLending(String bookID, String readerID, String date, String charges) throws DataSourceException, SQLException;
 
-	public int addReserve(String bookID, String readerID) throws DataSourceException, SQLException;
-	
 	public void addLendings(String bookIDs, int readerID, String dates) throws DataSourceException, SQLException;
 	
 	public void updateLending()throws DataSourceException;
@@ -428,8 +426,6 @@ public interface Persistence {
 	public List<Times> getTimesList() throws DataSourceException;
 	public List<Times> getTimeList() throws DataSourceException;
 
-	//List<String> getMonday() throws DataSourceException;
-	
 	public String calculateDate(String today, String bookID);
 
 	public String getDuration(String typ) throws SQLException;
