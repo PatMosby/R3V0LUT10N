@@ -77,12 +77,12 @@ public class ChargesListHandler {
        data.insertExpireDate(str_expireDate.trim(),event.getRowIndex());
       }catch(Exception e){}
     }
-        
+        logger.debug("FRIST-----TOLERANZ-------");
     if (event.getColumn().getHeaderText().equals("Fristtoleranz")) {
-              
+    	logger.debug("FRIST-----TOLERANZ------IFFFFF-------");
               try{
-             //  data.insertTolerant(str_tolerant.trim(),event.getRowIndex());
-              }catch(Exception e){}
+              data.insertTolerant(str_tolerant.trim(),event.getRowIndex());
+              }catch(Exception e){logger.debug("FRIST-----TOLERANZ-------CATCHHCHHHHH");}
           }
        }
   
