@@ -607,6 +607,59 @@ public class Data implements Persistence {
 		return timesList;
 
 	}
+	
+	
+	private List<Charges> chargeList = new ArrayList<>();
+
+	public List<Charges> getChargeList() {
+		chargeList = new ArrayList<>();
+		ResultSet resultLending = null;
+		Connection dbConnection = null;
+		try {
+			logger.debug("Starte getchargeList");
+			dbConnection = dataSource.getConnection();
+
+			PreparedStatement ps = dbConnection
+					.prepareStatement("SELECT TYPE, CHARGES, EXPIREDATE From CHARGES");
+			resultLending = ps.executeQuery();
+			logger.debug("Data->GET-CHARGE-LIST");
+			while (resultLending.next()) {
+				Charges newCharge = new Charges();
+				// Spalte für Spalte
+				newCharge.setTyp(resultLending.getString(1)); // Typ
+				newCharge.setCharges(resultLending.getString(2)); // Charges
+				newCharge.setExpireDate(resultLending.getString(3)); // ExpireDate
+
+				chargeList.add(newCharge);
+			}
+			logger.debug("Zeige alle Charges");
+			for (Charges element : chargeList) {
+				logger.debug("Elemente: " + element.getTyp()
+						+ element.getCharges() + element.getExpireDate()); // für
+																	// Ausgabe
+																	// auf
+																	// Konsole
+			}
+
+		} catch (Exception e) {
+			logger.debug("Catch block Prepared Statement: " + e.getMessage());
+		} finally {
+			try {
+				resultLending.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return chargeList;
+
+	}
 
 	/**
 	 * Checks whether database has expected tables. If not, such tables are
@@ -709,9 +762,23 @@ public class Data implements Persistence {
 			logger.debug("database table " + chargesTableName
 					+ " does not exist, creating new one");
 			// The table of all types and their charges.
+			
+			
 			run.update("CREATE TABLE " + chargesTableName
 					+ " (type varchar(128) NOT NULL UNIQUE, " + CHARGES
 					+ " varchar(128), " + EXPIREDATE + " varchar(128))");
+			
+			 String theTyp="wäwä";
+			    for(int i=0;i<9;i++){
+			    
+			   theTyp = getTyp(i);
+			   
+			   logger.debug("CHARGE-----TABLE " + i);
+			   run.update("insert into " + chargesTableName + "(type) values ('"+ theTyp + "')");
+			   //run.update("insert into " + timeTableName + "(tag) values ('true')");
+			   logger.debug("CHARGES-----TABLE 2 " +i);
+			    
+			    }
 		}
 
 		if (!tableExists(tableNames, "NEWS")) {
@@ -3656,6 +3723,65 @@ logger.debug(borrowerList.get(0).getDate());
 		  }
 		  return day;
 		 }
+		 
+		 public void insertCharges(String charge, int index) throws DataSourceException, SQLException{
+			  String typ = getTyp(index);
+			  logger.debug("UPDATE VERSUCH   -----Charges -.-" + charge+" " +typ);
+			  run.update("UPDATE CHARGES set charges = '" + charge + "' where type = '" + typ +"'");
+			  //run.update("UPDATE " + borrowTableName + " SET DATE ="+date+"WHERE ID = ?",
+			  //  lendingID);
+			 // run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+			  //  lendingID);
+			  logger.debug("UPDATE VERSUCH-2     ----Charges-.-");
+			  
+			  
+			 }
+		 
+		 public void insertExpireDate(String expireDate, int index) throws DataSourceException, SQLException{
+			  String typ = getTyp(index);
+			  logger.debug("UPDATE VERSUCH   -----expireDate -.-" + expireDate+" "+typ);
+			  run.update("UPDATE " +chargesTableName+ " set expiredate = '" + expireDate + "' where type = '" + typ +"'");
+			 
+			  //run.update("UPDATE " + borrowTableName + " SET DATE ="+date+"WHERE ID = ?",
+			  //  lendingID);
+			 // run.update("DELETE FROM " + borrowTableName + " WHERE ID = ?",
+			  //  lendingID);
+			  logger.debug("UPDATE VERSUCH-2     ----expireDate-.-");
+			  
+			  
+			 }
+		 
+		 public String getTyp(int index){
+			  
+			  String typ=".";
+			  switch(index){
+			  
+			  case 0: typ = "Buch";
+			   break;
+			  case 1: typ = "Zeitschrift";
+			   break;
+			  case 2: typ = "Software";
+			   break;
+			  case 3: typ = "Hörbuch";
+			   break;
+			  case 4: typ = "Musik";
+			   break;
+			  case 5: typ = "Film";
+			   break;
+			  case 6: typ = "Kassette";
+			   break;
+			  case 7: typ = "DVD";
+			   break;
+			  case 8: typ = "Sonstiges";
+			   break;
+			  default: typ = "fail";
+			   
+			  
+			  }
+			  return typ;
+			 }
+		 
+		 
 	
 
 	@Override
