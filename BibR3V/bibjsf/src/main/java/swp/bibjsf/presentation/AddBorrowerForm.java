@@ -17,6 +17,11 @@ import java.util.List;
 @SessionScoped
 public class AddBorrowerForm extends BorrowerForm{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1655968620301629426L;
+	
 	Borrower borrower = new Borrower();
 
 	@Override

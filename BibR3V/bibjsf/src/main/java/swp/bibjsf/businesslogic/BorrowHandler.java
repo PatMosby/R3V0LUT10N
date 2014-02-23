@@ -188,25 +188,27 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 		if (date != null)
 			try {
 				calendar.add(Calendar.DAY_OF_MONTH, duration);
-				// String str = sdf.format(calendar.getTime());
-				// Date backdate = sdf.parse(str);
+				logger.debug("calendar.add(dayofmonth) " + Calendar.DAY_OF_MONTH);
+				
 				if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
 					calendar.add(Calendar.DAY_OF_MONTH, 1);
 					String s = sdf.format(calendar.getTime());
+					logger.debug(s + "if(SUNDAY)");
 					return s;
 				} else if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
 					calendar.add(Calendar.DAY_OF_MONTH, 2);
 					String s = sdf.format(calendar.getTime());
+					logger.debug(s + "if(saturday)");
 					return s;
 				} else {
 					String s = sdf.format(calendar.getTime());
+					logger.debug(s + " else " + calendar.getTime());
 					return s;
 				}
 
 			} catch (Exception e) {
-				// TODO: handle exception
+				logger.debug(e + "catch-exception");				
 			}
-
 		return null;		
 	}
 
