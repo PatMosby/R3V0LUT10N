@@ -41,7 +41,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -329,10 +331,30 @@ public class Data implements Persistence {
 				borrowerList.add(newBorrower);
 			}
 			logger.debug("Zeige alle Borrower");
-			for (Borrower element : borrowerList) {
-				logger.debug("Elemente: " + element.getBookID()); // für Ausgabe
-																	// auf
-																	// Konsole
+			int ink = 0;
+			for (Borrower element : borrowerList) {				
+				logger.debug("Elemente: " + element.getBookID());
+				int ov = Integer.valueOf(calculateOverdue(element.getDate()));
+				if(ov > 0){
+					int id = Integer.valueOf(element.getBookID());
+					Book b = getBook(id);
+					String typ = b.getTyp();
+					final long charge = singleResultQuery("select CHARGES from "
+							+ chargesTableName + " where TYPE = '" + typ + "'");
+					String charges = String.valueOf(charge);
+					final long tol = singleResultQuery("select TOLERATE from "
+							+ chargesTableName + " where TYPE = '" + typ + "'");
+					String tolerate = String.valueOf(tol);		
+					
+					String das = calculateCharges(charges, element.getDate(), tolerate);
+					borrowerList.get(ink).setFines(das);
+					run.update("UPDATE " + borrowTableName + " set charges = '" + das
+							  + "' where id = " + element.getId());
+					ink++;
+					
+					
+				}
+																	
 			}
 			logger.debug(borrowerList.get(0).getDate());
 
@@ -837,23 +859,26 @@ public class Data implements Persistence {
 			// The table of all books in the library.
 			run.update("CREATE TABLE " + bookTableName
 					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
-					+ "categories VARCHAR(128), " + "dateOfAddition DATE, "
+					+ "authors VARCHAR(256), " + "categories VARCHAR(128), " 
+					+ "dateOfAddition DATE, "
 					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
 					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
-					+ "language VARCHAR(2), " + "subcategories VARCHAR(128), "
-					+ "price DECIMAL(10,2), " + "subtitle VARCHAR(128), "
-					+ "location VARCHAR(128), " + "pageCount INT, "
-					+ "previewLink VARCHAR(128), " + "printType VARCHAR(64), "
-					+ "publisher VARCHAR(64), " + "editorList VARCHAR(256), "
 					+ industrialIdentifier + " VARCHAR(29), "
-					+ "authors VARCHAR(256), " + "label VARCHAR(128), "
-					+ "media INT, " + "artistList VARCHAR(256), "
+					+ "language VARCHAR(2), " + "location VARCHAR(128), "
+					+ "pageCount INT, " + "previewLink VARCHAR(128), "
+					+ "price DECIMAL(10,2), " + "typ VARCHAR(128), "
+					+ "publisher VARCHAR(64), " + "subtitle VARCHAR(128), "
+					+ "title VARCHAR(256), "
+					+ "subcategories VARCHAR(128), " + "printType VARCHAR(64), "
+					+ "editorList VARCHAR(256), "
+				    + "label VARCHAR(128), "
+					+ "artistList VARCHAR(256), "
 					+ "playTime INT, " + "titleCount INT, " + "lendings INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
-					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
+					+ "producer VARCHAR(128), "
 					+ "charges DECIMAL(10,2), " 
 					+ LASTUSER + " varchar(128), "
-					+ "title VARCHAR(256))");
+					+ "media INT)");  		
 		}
 		if (!tableExists(tableNames, readerTableName)) {
 			logger.debug("database table " + readerTableName
@@ -3248,6 +3273,7 @@ public class Data implements Persistence {
 			String charges) throws DataSourceException, SQLException {
 		
 		String title = insertTitleLending(bookID);
+		double doublecharges = Integer.valueOf(charges);
 		logger.debug("inserting user to LENDING..." + bookID + "   " + readerID
 				+ "");
 		int idValue = getNewId(borrowTableName, 1);
@@ -3261,7 +3287,7 @@ public class Data implements Persistence {
 		run.update("insert into " + borrowTableName + "(id, " + BookID + ", "
 				+ UserID + ", " + DATE + ", " + CHARGES + ", " + BOOKTITLE + ") values ("
 				+ idValue + ", '" + bookID + "', '" + readerID + "', '" + date
-				+ "', '" + charges + "', '" + title + "')");
+				+ "', '" + doublecharges + "', '" + title + "')");
 		
 		
 		
@@ -4080,7 +4106,6 @@ logger.debug(borrowerList.get(0).getDate());
 
 	@Override
 	public String calculateDate(String today, String bookID) {
-
 		return today;
 	}
 
@@ -4120,7 +4145,9 @@ logger.debug(borrowerList.get(0).getDate());
 		return userBorrowerList;
 	}
 
-	
+	/**
+	 * @author Bredehöft
+	 */
 	@Override
 	public String getDuration(String typ) throws SQLException {
 		logger.debug("getDuration in data " + typ);
@@ -4136,13 +4163,56 @@ logger.debug(borrowerList.get(0).getDate());
 		
 	}
 
+	/**
+	 * @author Bredehöft
+	 */
 	public void setDuration(String typ, String duration) throws SQLException {
 			logger.debug("add borrowTime for type: " + typ);
 			run.update("insert into " 
-					+ returnTableName 
-					+ "(typ, duration) values ('" 
+					+ chargesTableName 
+					+ "(type, charges, expiredate, tolerate) values ('" 
 					+ typ + "', '"
 					+ duration 
 					+ "')");
 		}
+<<<<<<< HEAD
+=======
+	/**
+	 * @author Bredehöft
+	 */
+	public String calculateCharges(String charges, String days, String tolerance) throws NumberFormatException, ParseException{
+		double cha = Integer.valueOf(charges);
+		int day = Integer.valueOf(calculateOverdue(days));
+		int tol = Integer.valueOf(tolerance);
+		
+		double daytol = day-tol;
+		double result = cha*daytol;
+		String res = String.valueOf(result);
+		return res;		
+	}
+	/**
+	 * @author Bredehöft
+	 */
+	public String calculateOverdue(String date) throws ParseException{
+		Calendar calendar1 = new GregorianCalendar();
+		Calendar calendar2 = new GregorianCalendar();
+		
+		Date today = Calendar.getInstance().getTime();
+				
+		DateFormat df = new SimpleDateFormat("dd MM yyyy");
+		Date lend = df.parse(date);
+		
+		calendar1.setTime(today);
+		calendar2.setTime(lend);
+		
+		//cal_1.set( 1997, Calendar.MARCH, 1, 0, 0, 0 );                      // erster Zeitpunkt
+		//cal_2.set( 1998, Calendar.APRIL, 2, 0, 0, 0 );                      // zweiter Zeitpunkt
+		long time = calendar1.getTime().getTime() - calendar2.getTime().getTime();  // Differenz in ms
+		long days = Math.round( (double)time / (24. * 60.*60.*1000.) );     // Differenz in Tagen
+		//System.out.println( "Zeit-Differenz in Tagen: " + days );
+		return String.valueOf(days);
+		
+	}
+	
+>>>>>>> fdf0974dbdecace3e9f733b4d4627d7ea8e26223
 }
