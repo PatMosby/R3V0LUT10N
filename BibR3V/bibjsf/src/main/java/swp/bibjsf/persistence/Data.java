@@ -857,23 +857,26 @@ public class Data implements Persistence {
 			// The table of all books in the library.
 			run.update("CREATE TABLE " + bookTableName
 					+ "	(ID INT PRIMARY KEY CHECK (ID >= " + bookMinID + " ), "
-					+ "categories VARCHAR(128), " + "dateOfAddition DATE, "
+					+ "authors VARCHAR(256), " + "categories VARCHAR(128), " 
+					+ "dateOfAddition DATE, "
 					+ "dateOfPublication DATE, " + "description LONG VARCHAR, "
 					+ "note LONG VARCHAR, " + "imageURL VARCHAR(128), "
-					+ "language VARCHAR(2), " + "subcategories VARCHAR(128), "
-					+ "price DECIMAL(10,2), " + "subtitle VARCHAR(128), "
-					+ "location VARCHAR(128), " + "pageCount INT, "
-					+ "previewLink VARCHAR(128), " + "printType VARCHAR(64), "
-					+ "publisher VARCHAR(64), " + "editorList VARCHAR(256), "
 					+ industrialIdentifier + " VARCHAR(29), "
-					+ "authors VARCHAR(256), " + "label VARCHAR(128), "
-					+ "media INT, " + "artistList VARCHAR(256), "
+					+ "language VARCHAR(2), " + "location VARCHAR(128), "
+					+ "pageCount INT, " + "previewLink VARCHAR(128), "
+					+ "price DECIMAL(10,2), " + "typ VARCHAR(128), "
+					+ "publisher VARCHAR(64), " + "subtitle VARCHAR(128), "
+					+ "title VARCHAR(256), "
+					+ "subcategories VARCHAR(128), " + "printType VARCHAR(64), "
+					+ "editorList VARCHAR(256), "
+				    + "label VARCHAR(128), "
+					+ "artistList VARCHAR(256), "
 					+ "playTime INT, " + "titleCount INT, " + "lendings INT, "
 					+ "regisseur VARCHAR(128), " + "fsk INT, "
-					+ "producer VARCHAR(128), " + "typ VARCHAR(128), "
+					+ "producer VARCHAR(128), "
 					+ "charges DECIMAL(10,2), " 
 					+ LASTUSER + " varchar(128), "
-					+ "title VARCHAR(256))");
+					+ "media INT)");  		
 		}
 		if (!tableExists(tableNames, readerTableName)) {
 			logger.debug("database table " + readerTableName
