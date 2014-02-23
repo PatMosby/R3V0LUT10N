@@ -21,26 +21,48 @@
 
 <!--  http://www.primefaces.org/showcase/ui/datatableRowEditing.jsf-->
   
-			<p:dataTable id="lending2" widgetVar="varLending"
-				value="#{handler.getBorrowerFromUser()}" rowIndexVar="rowIndex" var="borrowList" editable="true"
-				editMode="cell" rendered="#{handler.isUserQuery()}">
+			
+			
+			<p:dataTable id="lending" widgetVar="varLending"
+				value="#{handler.getBorrowerExtend()}" rowIndexVar="rowIndex" var="borrowListExtend" editable="true"
+				editMode="cell">
 				
 			
-				<p:ajax event="cellEdit" listener="#{handler.onCellEdit}"  update=":form:lending2" />
-                <f:facet name="header" />
-              
-    <p:column>
-    <f:facet name="header"> ID</f:facet>
-	#{borrowList.id}
+				<p:ajax event="cellEdit" listener="#{handler.onCellEdit}"  update=":form:lending" />
+
+<f:facet name="header" >
+<u>Verlängerungsanfragen</u>
+<p>INFO: Die Spalten <em>Rückgabedatum</em> und <em>Mahngebühren</em> sind durch Klicken individuell einstellbar. Die Werte für die Mahngebühren müssen 
+zwei Nachkommastellen enthalten, sonst werden sie nicht gespeichert. </p>
+<p>Beispiel: Für <em>3 €</em> den Wert <em>3.00</em> eintragen.</p>
+</f:facet>
+
+
+
+
+				<p:column>
+					<f:facet name="header"> ID</f:facet>
+	#{borrowListExtend.id}
 	</p:column>
 
 				<p:column>
 					<f:facet name="header"> Medium ID</f:facet>
-	#{borrowList.getBookID()}
+	#{borrowListExtend.getBookID()}
 	</p:column>
 				<p:column>
 					<f:facet name="header"> Leser ID</f:facet>
-	#{borrowList.readerID}
+	#{borrowListExtend.readerID}
+	</p:column>
+	
+	<p:column headerText="Vorname">
+					<f:facet name="Vorname"> Vorname</f:facet>
+	#{borrowListExtend.vorname}
+	</p:column>
+	
+	
+				<p:column headerText="Nachname">
+					<f:facet name="Nachname">Nachname</f:facet>
+	#{borrowListExtend.nachname}
 	</p:column>
 
 				<p:column headerText="Rückgabedatum">
@@ -48,11 +70,11 @@
 
 					<p:cellEditor>
 						<f:facet name="output">
-							<h:outputText value="#{borrowList.date}" />  <!-- borrowList.date -->
+							<h:outputText value="#{borrowListExtend.date}" />  <!-- borrowList.date -->
 						</f:facet>
 						<f:facet name="input">
 						
-							 <p:inputText id="date2" value= "#{handler.date}"  ></p:inputText> 
+							 <p:inputText id="date" value= "#{handler.date}"  ></p:inputText> 
 						</f:facet>						
 							
 					
@@ -64,13 +86,13 @@
 
 					<p:cellEditor>
 						<f:facet name="output">
-							<h:outputText value="#{borrowList.fines}" />  <!-- borrowList.date -->
+							<h:outputText value="#{borrowListExtend.fines}" />  <!-- borrowList.date -->
 						</f:facet>
 						<f:facet name="input">
 						<!-- <p:remoteCommand name="test" actionListener="#{data.tester}"/> -->
                      <!--   <p:inputText id="commentInput" value="#{data.test}" -->
                          <!--             onkeypress="if (event.keyCode == 13) { test(); return false; }"/> -->
-							 <p:inputText id="datum2" value= "#{handler.fines}"  ></p:inputText> 
+							 <p:inputText id="datum" value= "#{handler.fines}"  ></p:inputText> 
 						</f:facet>						
 							
 					
@@ -78,10 +100,6 @@
 				</p:column>
 		
 			</p:dataTable>
-			
-			
-			
-			
 </p:outputPanel>
 		</h:form>
 	</f:view>

@@ -62,35 +62,53 @@ public class ShowUserProfil {
 	}
 	
 	
-	public List<Borrower> getBorrower(){
+	public List<Borrower> getBorrowerForUser(){
+		Reader r_1= getReaderByUsername();
 		logger.debug("REACHED---GET_Borrower");
+		int z= r_1.getId();
 		
-		return data.getBorrower();
+		logger.debug("bORROWERforuser--REACHED!!!!!!" + z);
+		String readerID = "3";
+		readerID = String.valueOf(z);
+		logger.debug("bORROWERforuser--REACHED!!!!!!" + readerID);
+		return data.getBorrowerForUser(readerID);
+		//return data.getBorrower();
 	}
 	
 	    
 	    
-    public void sendBorrower(Borrower borrower){
-	   boolean alreadyInside=false; 	
-	   logger.debug("SEND--BORROWER--REACHED!!!!!!" + borrower.getId());
-	   System.out.println("SEND----BORROWER---REACHED!!!!!");
-	   
-	   for (int i=0;i<borrowerList.size();i++){
-	    		
-	      if(borrowerList.get(i).getId()== borrower.getId()){
-	    	  alreadyInside=true;
-	      }	
-	   }
-	   if(!alreadyInside){
-		   borrowerList.add(borrower);
-	   }
+    public void sendBorrower(Borrower borrower)throws DataSourceException,
+	SQLException{
+//	   boolean alreadyInside=false; 	
+//	   logger.debug("SEND--BORROWER--REACHED!!!!!!" + borrower.getId());
+//	   System.out.println("SEND----BORROWER---REACHED!!!!!");
+//	   
+//	   for (int i=0;i<borrowerList.size();i++){
+//	    		
+//	      if(borrowerList.get(i).getId()== borrower.getId()){
+//	    	  alreadyInside=true;
+//	      }	
+//	   }
+//	   if(!alreadyInside){
+//		   borrowerList.add(borrower);
+//	   }
+//	   
+//	   for(Borrower bookid : borrowerList){
+//		   
+//		   logger.debug(bookid.getBookID() );
+//		   }
+    	
+    	data.getBorrowList(borrower);
     }
     
-    public void sendList(){
-    	logger.debug("SEND----LIST---REACHED!!!!!");
-    	System.out.println("SEND----LIST---REACHED!!!!!");
-    	
-    	data.getBorrowList(borrowerList);
-    }
+//    public void sendList(){
+//    	logger.debug("SEND----LIST---REACHED!!!!!");
+//    	System.out.println("SEND----LIST---REACHED!!!!!");
+//    	
+//    	if(borrowerList!= null)
+//    	data.getBorrowList();
+//    	
+//    	
+//    }
 
 }

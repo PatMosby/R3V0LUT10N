@@ -54,12 +54,12 @@ public class TimeHandler extends BusinessObjectHandler<Times> {
 
     protected TimeHandler() throws DataSourceException, NamingException {
         super();
-        this.timesList = getMonday();
+//        this.timesList = getMonday();
     }
     
-    private List<String> getMonday() throws DataSourceException {
-		return persistence.getMonday();
-	}
+//    private List<String> getMonday() throws DataSourceException {
+//		return persistence.getMonday();
+//	}
 
 	public List<String> timesList;
 

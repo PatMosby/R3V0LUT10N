@@ -25,6 +25,10 @@ public abstract class ChargesForm extends BusinessObjectForm<Charges>{
         
     public abstract String getCharges();
           
-    public abstract void setCharges(final String charges);   	
+    public abstract void setCharges(final String charges);  
+    
+    public abstract String getExpireDate();
+
+    public abstract void  setExpireDate(final String expireDate);
 
 }

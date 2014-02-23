@@ -25,15 +25,11 @@
 
 					<p:dataList value="#{bookTable.model}" var="book">
 
-						<!-- <p:graphicImage value="/images/barca/#{player.photo}" /> -->
+						#{book.id}
+						
+						<p>#{book.id}</p>
 
-						<h3>
-							<h:outputLink value="#main">#{book.title}</h:outputLink>
-						</h3>
-
-						<!-- <p>#{book.author}</p> -->
-
-						<!-- <h:outputText styleClass="ui-li-count" value="#{book.prize}" /> -->
+						<h:outputText value="#{book.id}" />
 					</p:dataList>
 				</pm:content>
 			</pm:view>

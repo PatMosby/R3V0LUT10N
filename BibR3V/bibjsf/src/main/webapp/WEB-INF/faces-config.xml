@@ -121,7 +121,10 @@
     </navigation-rule>  
     
     <navigation-rule>
+<<<<<<< HEAD
 
+=======
+>>>>>>> eb0c350308f1cb77f6047bcf4c56c721c6650ad8
         <display-name>librarian/setTimes.xhtml</display-name>
         <from-view-id>/librarian/setTimes.xhtml</from-view-id>
         <navigation-case>
