@@ -111,14 +111,6 @@
 		</navigation-case>
 	</navigation-rule>
     
-   <navigation-rule>
-    	<display-name>faces/m_login.xhtml</display-name>
-    	<from-view-id>/faces/m_login.xhtml</from-view-id>
-    	<navigation-case>
-    	    <from-outcome>success_m</from-outcome>
-    	    <to-view-id>/m_index.xhtml</to-view-id>
-    	</navigation-case>
-    </navigation-rule>  
     
     <navigation-rule>
         <display-name>librarian/setTimes.xhtml</display-name>
@@ -375,6 +367,16 @@
 	 <display-name>users/lendingList.xhtml</display-name> 
 	 <from-view-id>/users/lendingList.xhtml</from-view-id>
 	 </navigation-rule>
+	 
+	    <navigation-rule>
+    	<display-name>faces/m_login.xhtml</display-name>
+    	<from-view-id>/faces/m_login.xhtml</from-view-id>
+    	<navigation-case>
+    	    <from-outcome>m_index</from-outcome>
+    	    <to-view-id>/m_index.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>  
+	 
 
 	<!-- localization -->
 	<application>

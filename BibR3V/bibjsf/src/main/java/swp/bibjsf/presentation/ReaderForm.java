@@ -201,4 +201,5 @@ public abstract class ReaderForm extends BusinessObjectForm<Reader> {
     public void setLastUse(Date lastUse) {
         element.setLastUse(lastUse);
     }
+    
 }

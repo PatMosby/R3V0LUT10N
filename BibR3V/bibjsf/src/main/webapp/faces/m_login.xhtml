@@ -2,12 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pm="http://primefaces.org/mobile">
-<h:head>
+	 xmlns:f="http://java.sun.com/jsf/core"
+	 xmlns:p="http://primefaces.org/ui"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:pm="http://primefaces.org/mobile"
+	 	xmlns:h="http://java.sun.com/jsf/html">
+	 	<h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </h:head>
 <h:body>
@@ -30,9 +30,9 @@
       <h:inputSecret type="password" id="j_password" />
 
 <!--       <h:panelGrid columns="1"> -->
-        <h:commandButton id="msubmitButton" type="submit" name="submit" outcome="success_m" value="#{messages.login}" />
+        <h:commandButton id="msubmitButton" outcome="m_index" value="#{messages.login}" />
         
-        <h:button id="cancelButton" outcome="m_index" value="#{messages.cancel}" />
+        <h:button id="mcancelButton" outcome="m_index" value="#{messages.cancel}" />
 <!--       </h:panelGrid> -->
     </h:panelGrid>
   </form>

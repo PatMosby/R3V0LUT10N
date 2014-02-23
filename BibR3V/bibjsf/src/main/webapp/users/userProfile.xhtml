@@ -44,6 +44,8 @@
             <h:outputText id="lastUse" value="#{showUserProfil.getReaderByUsername().lastUse}"  >
                <f:convertDateTime type="date" pattern="dd.MM.yyyy" timeZone="CET"/>
             </h:outputText>
+            
+           <p:commandButton id="changePassButton" value="Passwort ändern" action="/users/changePassword.xhtml"/> 
 
 		</h:panelGrid>
 	</p:panel>

@@ -16,24 +16,27 @@
 <h:body>
 	<h:outputStylesheet name="css/bib.css" />
 	<f:view renderKitId="PRIMEFACES_MOBILE">
-		<pm:page title="PAGE1">
+		<pm:page title="Medienliste">
 			<pm:view id="navbar">
 				<pm:header title="Bibliothek Oberschule Rockwinkel">
 					<ui:include src="/m_mainmenu.xhtml"></ui:include>
 				</pm:header>
 				<pm:content>
 
-					<p:dataList value="#{bookTable.model}" var="book">
+					<p:dataList value="#{bookTable.idcontent" var="book">
 
-						<!-- <p:graphicImage value="/images/barca/#{player.photo}" /> -->
+
+
+
+						<!-- 						<p:graphicImage value="/images/barca/#{player.photo}" /> -->
 
 						<h3>
 							<h:outputLink value="#main">#{book.title}</h:outputLink>
 						</h3>
 
-						<!-- <p>#{book.author}</p> -->
+						<!-- 						<p>#{book.author}</p> -->
 
-						<!-- <h:outputText styleClass="ui-li-count" value="#{book.prize}" /> -->
+						<!-- 						<h:outputText styleClass="ui-li-count" value="#{book.prize}" /> -->
 					</p:dataList>
 				</pm:content>
 			</pm:view>

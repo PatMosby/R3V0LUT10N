@@ -19,6 +19,7 @@ package swp.bibjsf.presentation;
 
 import java.util.Date;
 
+import javax.annotation.security.DeclareRoles;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -37,6 +38,7 @@ import swp.bibjsf.utils.Messages;
  */
 @ManagedBean
 @SessionScoped
+@DeclareRoles({"USER", "LIBRARIAN"})
 public class AddReaderForm extends ReaderForm {
 
     /**
