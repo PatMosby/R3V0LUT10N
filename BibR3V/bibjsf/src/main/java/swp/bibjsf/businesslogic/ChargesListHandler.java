@@ -69,27 +69,22 @@ public class ChargesListHandler {
     }catch(Exception e){
      logger.debug("REACHED-------Mahngebühren---------CATCH");
     }
+      }
       
-      }else{
-       if (event.getColumn().getHeaderText().equals("Ausleihspanne")) {
+    if (event.getColumn().getHeaderText().equals("Ausleihspanne")) {
         
       try{
        data.insertExpireDate(str_expireDate.trim(),event.getRowIndex());
       }catch(Exception e){}
+    }
         
-       }else{
-          if (event.getColumn().getHeaderText().equals("Fristtoleranz")) {
+    if (event.getColumn().getHeaderText().equals("Fristtoleranz")) {
               
               try{
                data.insertTolerant(str_tolerant.trim(),event.getRowIndex());
               }catch(Exception e){}
           }
        }
-      }
-      
-     
-   
-  }
   
   private String str_typ="";
   private String str_charge="";

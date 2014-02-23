@@ -159,7 +159,7 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 			// borrower.getReaderID(), calculateDate(), calculateFines());
 			logger.debug("calculateDate" + borrower.calculateDate());
 			String date = calculateDate(borrower.getBookID());
-			String fines =borrower.calculateFines();
+			String fines = getCharges(borrower.getBookID());
 			return persistence.addLending(borrower.getBookID(),
 					borrower.getReaderID(),date, fines);
 
@@ -170,6 +170,13 @@ public class BorrowHandler extends BusinessObjectHandler<Borrower> {
 		}
 		logger.debug("Fehler: Keine Doppelte Ausleihe möglich! Medium ist bereits verliehen.");
 		return 0;
+	}
+	
+	public String getCharges(String id) throws NumberFormatException, DataSourceException, SQLException{
+		Book book = persistence.getBook(Integer.valueOf(id));
+		String typ = book.getTyp();
+		String res = persistence.getDuration(typ);		
+		return res;
 	}
 	
 	
